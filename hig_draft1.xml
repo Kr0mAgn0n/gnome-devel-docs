@@ -107,7 +107,7 @@
     <sect2>
       <title>Don't Limit Your User Base</title>
 
-      <para>If you are designing an application for use by engineers, or by children, or by system administrators, you should make sure to create an application which can be used by <emphasis>all</emphasis> engineers, children, or system administrators, including those with disabilities or those who are native speakers of a language different from yours.  This means keeping in mind issues of accessibility, and issues of internationalization/localization.</para>
+      <para>If you are designing an application for use by engineers, or by children, or by system administrators, you should make sure to create an application which can be used by <emphasis>all</emphasis> engineers, children, or system administrators, including those with disabilities or those who are native speakers of a language different from yours.  This means keeping in mind issues of accessibility, and issues of internationalization and localization.</para>
 
       <sect3>
 	<title>Accessibility</title>
@@ -276,9 +276,20 @@ Where a command requires further input from the user before it can be performed,
 </sect3>
 
 <sect3 id="menu-principles-unavailable">
+<<<<<<< variant A
+<title>Unavailable Commands</title>
+<para>A menu item should be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
+<para>Do not remove an item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see
+commands which might be available at other times and keeps the item in a memorable place.</para>
+<!--
+>>>>>>> variant B
 
+======= end
 <title>Unavailable Items</title>
 
+<<<<<<< variant A
+<para>Menu items should be made unavailable at any time at which they cannot be used. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> command, which relies on there being some data selected in the application, should be unavailable at any point at which no data is selected.</para>
+>>>>>>> variant B
 <para>
 Menu items should be made unavailable at any time at which they cannot be used. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> command, which relies on there being some data selected in the application, should be unavailable at any point at which no data is selected.
 </para>
@@ -286,31 +297,58 @@ Menu items should be made unavailable at any time at which they cannot be used. 
 <para>
 Items should not be removed from the menu when they are unavailable. Instead, they are presented in dimmed lettering. This allows the user to see what commands might be available at other times and prevents menu items from shifting positions.
 </para>
+======= end
 
+<<<<<<< variant A
+<para>Items should not be removed from the menu when they are unavailable. Instead, they are presented in dimmed lettering. This allows the user to see what commands might be available at other times and prevents menu items from shifting positions.</para>
+-->
+>>>>>>> variant B
+======= end
 </sect3>
 
 <sect3 id="menu-principles-toggled">
 
 <title>Toggled menu items</title>
 
+<<<<<<< variant A
+<para>Menu items may be toggled between two states. This may be done either independently in the same way as check boxes or as part of a group as with radio buttons.</para>
+>>>>>>> variant B
 <para>
 Menu items may be toggled between two states. This may be done either independently in the same way as check boxes or as part of a group as with radio buttons.
 </para>
+======= end
 
+<<<<<<< variant A
+<para>Any group of items operating in the same manner as a group of radio buttons should appear on their own in a menu or submenu or be separated from other items in the menu by using separators.</para>
+>>>>>>> variant B
 <para>
 Any group of items operating in the same manner as a group of radio buttons should appear on their own in a menu or submenu or be separated from other items in the menu by using separators.
 </para>
+======= end
 
 </sect3>
 
 <sect3 id="menu-principles-shortcuts-accelerators">
 
+<<<<<<< variant A
+<title>Shortcuts and Access Keys</title>
+<!-- Eeek! Names! Names! The previous version contradicted the API. We still need a conclusion. -->
+<para>As with other controls, all menu items should have an access key associated with them. Unlike other controls, once a menu is visible, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
+>>>>>>> variant B
 <title>Shortcuts and accelerators</title>
+======= end
 
+<<<<<<< variant A
+<para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
+>>>>>>> variant B
 <para>
 As with other controls, all menu items should have an accelerator key associated with them. Unlike other controls, once a menu is visible, its accelerators are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.
 </para>
+======= end
 
+<<<<<<< variant A
+<para>Shortcuts consist of the Ctrl key and an alphanumeric key, or of one of the keys F1-F12, Insert, Delete, Home, End, Page Up or Page Down. The Shift key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the Shift key.</para>
+>>>>>>> variant B
 <para>
 Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.
 </para>
@@ -318,6 +356,7 @@ Developers may assign keyboard shortcuts to menu items. It is not necessary to a
 <para>
 Shortcuts should consist of the Ctrl key and an alphanumeric key, or of one of the keys F1-F12, Insert, Delete, Home, End, Page Up or Page Down. The Shift key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the Shift key.
 </para>
+======= end
 
 </sect3>
 
@@ -328,7 +367,11 @@ Shortcuts should consist of the Ctrl key and an alphanumeric key, or of one of t
 <title>Standard Menus</title>
 
 <para>
+<<<<<<< variant A
+There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order: File, Edit, View, Format, Tools, <replaceable>application-specific menus</replaceable>, Help. (Help should be the rightmost menu, but it should not be flush-right.)
+>>>>>>> variant B
 There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order: File, Edit, <replaceable>application-specific menus</replaceable>, Options, Help. (Help should be the rightmost menu, but it should not be flush-right.)
+======= end
 </para>
 
 <sect3 id="menu-standard-file">
@@ -344,20 +387,28 @@ There are a number of standard drop-down menus for common operations. The menus 
     _Save               Ctrl-S
     Save _As...
     Re_vert to Saved
-    _Close <replaceable>docname</replaceable>      Ctrl-W
+    _Close              Ctrl-W
     ---
     _Print              Ctrl-P
     Print Preview...
-    Print Setup...
+    Page Setup...
     ---
     Close All
-    _Quit <replaceable>appname</replaceable>       Ctrl-Q</literallayout>
+    _Quit               Ctrl-Q</literallayout>
 </para>
 
 <para>
 All applications should have a <guimenu>File</guimenu> menu which should contain items relating to creating, opening, saving, closing and printing documents and for exiting the application.
 </para>
 
+<!-- Note from GJM:  I'm uncomfortable with this. I see two ways to go:
+	1) "File" is a verb and all the translations been wrong for years. If this is so, then the item should always be File because the operations are
+	   always filing operations.
+	2) "File" is a noun. If this is so, then the item should be descriptive of the data manipulated by the application. Being descriptice makes more
+	   sense to me than arguments for keeping the item the same to preserve muscle memory or recognition. With a compund document, File as a noun
+	   doesn't make sense - there is more than one file. Presumably it would be appropriate still for applications that do not operate on data of
+	   reasonable distinguishable types.
+  -->
 <para>
 Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <quote>Game</quote> menu instead of a <quote>File</quote> menu.
 </para>
@@ -376,8 +427,9 @@ On document-editing applications, the items <guimenuitem>New</guimenuitem>, <gui
 <term>New</term>
 <listitem>
 <para>
-Creates a new document. The <guimenuitem>New</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <!-- FIXME: titling, -->
+Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <!-- FIXME: titling, -->
 </para>
+
 <para>
 Where the application may create a number of different types of document, the <guimenuitem>New</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <quote>New <replaceable>document type</replaceable></quote> and the most commonly used item should be the first entry in the submenu and should be given the Ctrl-N shortcut.
 </para>
@@ -418,7 +470,7 @@ Saves the document to its current filename. If the document has a filename assoc
 <term>Save As</term>
 <listitem>
 <para>
-Saves the document to a new filename. The <guimenuitem>Save As</guimenuitem> command should present the user with a standard file save as dialog and save the file with the chosen file name. <!-- FIXME: errors, additional information-->
+Saves the document to a new filename. The <guimenuitem>Save <accel>A</accel>s</guimenuitem> command should present the user with a standard file save as dialog and save the file with the chosen file name. <!-- FIXME: errors, additional information-->
 </para>
 </listitem>
 </varlistentry>
@@ -433,10 +485,10 @@ Reverts the document to the last saved state. The user should be presented with 
 </varlistentry>
 
 <varlistentry>
-<term>Close <replaceable>docname</replaceable></term>
+<term>Close</term>
 <listitem>
 <para>
-Close the current document. If the document in the current window has unsaved changes then the user should be presented with a dialog giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open. The label of the <guimenuitem>Close</guimenuitem> item should include the name of the current document.
+Close the current document. If the document in the current window has unsaved changes then the user should be presented with a dialog giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open.
 </para>
 </listitem>
 </varlistentry>
@@ -470,7 +522,7 @@ Shows the user what the printed document will look like. The <guimenuitem>Print 
 </varlistentry>
 
 <varlistentry>
-<term>Print Setup</term>
+<term>Page Setup</term>
 <listitem>
 <para>
 Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.
@@ -493,10 +545,10 @@ All Applications must have a <guimenuitem>Quit</guimenuitem> item. Applications 
 <variablelist>
 
 <varlistentry>
-<term>Quit <replaceable>appname</replaceable></term>
+<term>Quit</term>
 <listitem>
 <para>
-Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the File|Save command applied to every unsaved document. If there are no unsaved changes then the application should quit with no further interaction with the user. The label of the Quit menu item should include the name of the application.
+Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the File|Save command applied to every unsaved document. If there are no unsaved changes then the application should quit with no further interaction with the user.
 </para>
 </listitem>
 </varlistentry>
@@ -531,10 +583,11 @@ Close all open documents. If there are unsaved changes in any of the currently o
     _Delete             Del
     ---
     Select _All         Ctrl-A
-    Select _None        Ctrl-Shift-A
     ---
     Find                Ctrl-F
-    Replace             Ctrl-R</literallayout>
+    Replace             Ctrl-R
+    ---
+    Preferences...</literallayout>
 </para>
 
 <para>
@@ -634,15 +687,14 @@ Selects all parts of the document.
 </listitem>
 </varlistentry>
 
+<!--
 <varlistentry>
 <term>Deselect All</term>
 <listitem>
-<para>
-Deselects all parts of the document. 
-</para>
+<para>Deselects all parts of the document.</para>
 </listitem>
 </varlistentry>
-
+-->
 </variablelist>
 
 </sect4>
@@ -682,30 +734,65 @@ Brings up a Replace dialog.
 	  
 </sect4>
 
+<sect4>
+<title>User Preferences</title>
+<para>
+User preferences pertaining to the entire application (in all its instances) should be editable from a preferences dialog. <!-- or utility window? -->
+</para>
+</sect4>
 </sect3>
+      <sect3 id="menu-standard-view">
+	<title>View</title>
+	<para>FIXME</para>
 
-<sect3 id="menu-standard-options">
+	<para>
+	  <literallayout class="monospaced"><guimenu><accel>V</accel>iew</guimenu>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+	
+      </sect3>
+      
+      <sect3 id="menu-standard-format">
+	<title>Format</title>
+	<para>FIXME</para>
+	
+	<para>
+	  <literallayout class="monospaced"><guimenu><accel>F</accel>ormat</guimenu>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+	
+      </sect3>
+      
+      <sect3 id="menu-standard-tools">
+	<title>Tools</title>
+	<para>FIXME</para>
+	<para>
+	  <literallayout class="monospaced"><guimenu><accel>T</accel>ools</guimenu>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+      </sect3>
+      <!--
+      <sect3 id="menu-standard-options">
 
-<title>Options</title>
-
+      <title>Options</title>
 <para>
-<literallayout class="monospaced">_Options
-    <replaceable>appname</replaceable> _Options...
-    <replaceable>specific options...</replaceable>
-    ---
-    <replaceable>checkbox and radiobutton options</replaceable></literallayout>
+<literallayout class="monospaced">
+_Options
+<replaceable>appname</replaceable> _Options...
+<replaceable>specific options...</replaceable>
+ - - -
+<replaceable>checkbox and radiobutton options</replaceable></literallayout>
 </para>
 
-<para>
-In reality, there needs to be a proper analysis of application configuration mechanisms. There are a number of different models, with no obvious consensus. Consideration needs to be given to, among other things, the distinctions between application, window and document settings, how multiple running instances of the same application interact, etc.
-</para>
-
-<para>
-Developers are encouraged to put settings that are likely to be changed frequently in the menu as checkboxes or radiobutton groups.
-</para>
-
-</sect3>
-
+      <para>In reality, there needs to be a proper analysis of application configuration mechanisms. There are a number of different models, with no obvious consensus. Consideration needs to be given to, among other things, the distinctions between application, window and document settings, how multiple running instances of the same application interact, etc.</para>
+      
+      <para>Developers are encouraged to put settings that are likely to be changed frequently in the menu as checkboxes or radiobutton groups.</para>
+      
+    </sect3>
+      -->
 <sect3 id="menu-standard-help">
 
 <title>Help</title>
