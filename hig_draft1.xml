@@ -821,7 +821,7 @@ Selects all parts of the document.
 </varlistentry>
 
 <varlistentry>
-<term>Select None</term>
+<term>Deselect All</term>
 <listitem>
 <para>
 Deselects all parts of the document. 
@@ -2327,7 +2327,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	      </row>
 	      <row>
 		<entry>Deselect All</entry>
-		<entry>N/A (or perhaps click on window background, and perhaps only if >1 object is selected?)</entry>
+		<entry>Click on container background</entry>
 		<entry>Shift+Ctrl+A</entry>
 	      </row>
 	      <row>
@@ -2485,7 +2485,10 @@ fine motor control skills required.</para>
 
 	<listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
 
-	<listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  See <link linkend="hig-keynav-examples">Keyboard Navigation Examples</link>.</para></listitem>
+	<listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
+
+<!-- See <link linkend="hig-keynav-examples">Keyboard Navigation Examples</link>.</para>--></listitem>
+
 
 	<listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
 
@@ -2503,8 +2506,16 @@ fine motor control skills required.</para>
 	<listitem><para>Don't require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
       </itemizedlist>
       
+      <note>
+	<title>For Discussion</title>
+	<para>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</para>
+      </note>
 
-      <sect3 id="hig-keynav-examples">
+
+
+<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
+    
+  <sect3 id="hig-keynav-examples">
 	<title>Keyboard Navigation Examples</title>
 
 	<para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
@@ -2637,15 +2648,22 @@ fine motor control skills required.</para>
 	</example>
       </sect3>
 
+-->
+
       <sect3>
 	<title>Mnemnonics</title>
 
 	<para>All labelled components should have a mnemonic (underlined letter), except toolbar controls, and the OK/Cancel buttons in dialogs.</para>
 
+
+
+<!-- Consensus was against giving OK and Cancel additional mnemonics
+
 	<note>
 	  <title>For discussion</title>
 	  <para>It's been suggested that even OK and Cancel should have mnemonics, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you don't always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C mnemonics, which could be awkward in larger/tabbed dialogs.</para>
 	</note>
+-->
 
 	<para>Where possible, mnemonics should be chosen to be as easy to remember as possible&mdash; normally the first letter of the label should be used.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
 
@@ -2704,11 +2722,14 @@ fine motor control skills required.</para>
 		<entry>Ctrl+W</entry>
 		<entry>Close the current document</entry>
 	      </row>
+
+<!-- Consensus was to not have a shortcut for Quit
 	      <row>
 		<entry>_Quit</entry>
 		<entry>Ctrl+Q</entry>
 		<entry>Quit the application</entry>
 	      </row>
+-->
 	    </tbody>
 	  </tgroup>
 	</table>
@@ -2784,12 +2805,18 @@ fine motor control skills required.</para>
 	  </tgroup>
 	</table>
 
-	<note><title>For discussion</title>
-	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
 
+	<note><title>For discussion</title>
+
+<!-- Consensus was for "Deselect All"
+	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
+-->
 	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser apps&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
 
+<!-- Consensus is to keep Letter-based accelerators
 	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
+-->
+
 	</note>
 
 	<note><title>Search and Find</title>
