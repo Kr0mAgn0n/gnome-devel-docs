@@ -12,7 +12,7 @@
       <para>Remember that the purpose of any software application is to enable some group of people to accomplish a specific set of tasks.  So, the first things to establish when designing your application are:</para>
 
 	<itemizedlist>
-		<listitem><para>who your users are, and</para></listitem>
+		<listitem><para>who your users are</para></listitem>
 		<listitem><para>what you want to enable them to do</para></listitem>
 	</itemizedlist>
 
@@ -85,8 +85,8 @@
 
       <para>Always keep the user informed of what's going on in your application by using appropriate feedback at an appropriate time.  The user should never have to guess about the status of the system or of your application.  When the user performs an action, provide feedback to indicate that the system has received the input and is operating on it. Feedback can be visual, audio, or both. If the system will take a long time to process the request, provide as much feedback as possible about how lengthy the operation will be. Types of helpful feedback include but are not limited to: cursor changes, animated &quot;throbbers&quot;, progress indicators, audio feedback such as a beep, and error messages. Error messages should use simple language, clearly state the problem, and provide solutions or tell the user how to get out of the current situation if possible.</para>
 
-      <para>It is critically important that feedback be <emphasis>accurate</emphasis> and <emphasis>precise</emphasis>.  If you display a determinate progress indicator to display the state of completion of a task and it is inaccurate, the user will lose faith in progress indicators, and they will find the environment less usable.  If you display a generic error message that indicates that there is a problem but fails to provide enough information to diagnose or solve the problem, the user will be unable to continue his or her task.</para>
-      <para>See <xref linkend="feedback"/> for more information on feedback.</para>
+      <para>It is critical that feedback be <emphasis>accurate</emphasis> and <emphasis>precise</emphasis>.  If you display a determinate progress indicator to display the state of completion of a task and it is inaccurate, the user will lose faith in progress indicators, and they will find the environment less usable.  If you display a generic error message that indicates that there is a problem but fails to provide enough information to diagnose or solve the problem, your users will be unable to continue with their task.</para>
+      <para>See <xref linkend="feedback"/>  and <xref linkend="alert-windows"/> for more information on feedback.</para>
     </sect1>
 
     <sect1 id="keep-it-simple">
@@ -94,7 +94,10 @@
 
       <para>Your application should enable the user to concentrate on the task at hand.  So, design your application to show only useful and relevant information and interface elements.  Every extra piece of information or interface control competes with the truly relevant bits of information and distracts the user from important information.  Hence, don't clutter your interface, and don't overload the user with buttons, menu options, icons, or irrelevant information.  Instead, use progressive disclosure and other techniques to limit what the user sees at any given moment.</para>
 
-      <para>Finally, it is also important to present your information and interface elements in an aesthetically pleasing manner.  A disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly-aligned, and do not overuse or misuse color or graphics.</para>
+      <para>Finally, present your information and interface elements in an aesthetically pleasing manner.  A disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly-aligned, and do not overuse or misuse color or graphics.</para>
+
+	<para>See <xref linkend="layout"/> and <xref linkend="icons"/> for more information on designing the visual appearance of your application.</para>
+
     </sect1>
 
     <sect1 id="user-control">
@@ -119,7 +122,9 @@
     <sect1 id="enable-direct-manipulation">
       <title>Enable Direct Manipulation</title>
 
-      <para>Wherever possible, you should allow users to act on objects and data directly, rather than through dialog boxes or explicit commands.  For example, it is much more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.</para>
+      <para>Wherever possible, allow users to act on objects and data directly, rather than through dialog boxes or explicit commands.  For example, it is more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.</para>
+
+	<para>See <xref linkend="userinput"/> for more information on direct manipulation.</para>
 
     </sect1>
 

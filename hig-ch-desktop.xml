@@ -5,8 +5,8 @@
   
   <para>There are two elements to basic integration with the user environment of the GNOME Desktop.
     <orderedlist>
-      <listitem><para>Place an entry for your application in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users discover and run applications</para></listitem>
-      <listitem><para>If your application can open and save files, place entries for those file types in the application database and the document type (MIME) database. This allows the file manager and other applications to automatically launch your application when they encounter a file it can handle.</para></listitem>
+      <listitem><para>Place an entry for your application in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users discover and run applications.</para></listitem>
+      <listitem><para>If your application can open and save files, place entries for those file types in the application database and the document type (MIME) database. This allows the file manager and other applications to automatically launch your application when they encounter files your application can handle.</para></listitem>
     </orderedlist>
 
   </para>
@@ -27,7 +27,7 @@
 
     <para>The menu is arranged into a set of categories, such as Accessories and Games. Applications are placed in particular categories by the set of keywords they include in their <filename>.desktop</filename> file. </para>
 
-	<itemizedlist>
+	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Assign your application to only one category on the <guimenu>Applications</guimenu> menu</para></listitem>
 
 		<listitem><para>For application suites that wrap a number of smaller sub-applications into a single window, such as Evolution or OpenOffice.org, add a menu item for each sub-application. For example, the mail, calendar, and tasklist in Evolution should each have their own menu item.</para></listitem>
@@ -43,8 +43,9 @@
 
       <sect3 id="menu-item-functional-description">
 	<title>Include a functional description in the menu name</title>
-	<para>User testing of MIT's Athena system revealed that users had difficulty finding the file manager because they were unfamiliar with the name 'Nautilus'. Because users did not associate the word 'Nautilus' with the concept "file manager" the menu item did not help them. Using only the word 'Nautilus' in the menus was a failure to use the user's language. See <xref linkend="application-world-match"/> for more on speaking the user's language.</para>
-	<para>In the menu item name, include a descriptor of functionality in addition to the proper name of the application. This is especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
+	<para><ulink url="http://web.mit.edu/is/usability/aui/">User testing of MIT's Athena system</ulink> revealed that users had difficulty finding the file manager because they were unfamiliar with the name &quot;Nautilus&quot;. Because users did not associate the word &quot;Nautilus&quot; with the concept &quot;file manager&quot; the menu item did not help them. This is an example of not using the user's language. See <xref linkend="application-world-match"/> for more on this topic.</para>
+
+	<para>In the menu item name, include a description of functionality in addition to the proper name of the application. This is especially useful novice users, and to users of systems where numerous applications are installed by default. Users are more likely to find your application if the name that appears in the menu includes a description of its functionality.</para>
 
 	    <example>
 		<title>Including functional description in menu names</title>
@@ -71,7 +72,7 @@
 
       <sect3>
 	<title>Only put useful information in the menu name</title>
-	<para>Don't include words like &quot;GNOME&quot;, &quot;X-Windows&quot; or other platform details in <guimenu>Application</guimenu> menu names. The user probably already knows what platform they are using, but if they don't know, application names are not the right place to inform them.</para>
+	<para>Do not include words like &quot;GNOME&quot;, &quot;X WIndow System&quot; or other platform details in <guimenu>Application</guimenu> menu names. The user probably already knows what platform they are using, and if they don't, then application names are not the right place to inform them.</para>
 	<example>
 		<title>Removing non-essential information from menu names</title>
 		<informaltable frame='all'>
@@ -85,8 +86,8 @@
 			  </thead>
 			<tbody>
 	     			<row>
-					<entry>Same</entry>
-					<entry>Same GNOME</entry>
+					<entry>Help System</entry>
+					<entry>Help</entry>
 				</row>
 				<row>
 					<entry>GNOME Search Tool</entry>
@@ -97,7 +98,7 @@
 		</informaltable>
 	</example>
 
-	<para>Avoid technical details when the user does not need to know them, or can infer them from context.  Avoid technical jargon unless the application is to be used only by a technical audience.</para>
+	<para>Do not include technical details when the user does not need to know them, or can infer them from context.  Avoid technical jargon unless the application is to be used only by a technical audience.</para>
 	<para>For example, when both a client and a server for something are listed in the menus, remove the word &quot;Client&quot; from the menu name for the client.</para>
 	
 	<example>
@@ -130,7 +131,7 @@
 	</example>
 
 	<tip><title>Providing the right information</title>
-        <para>Try to imagine what words users will be looking for when they select your application from the <guimenu>Applications</guimenu> menu. That's the information that should be in the menu name. For example, a user wanting to play a movie will probably not be looking for the word &quot;Client&quot;. On the other hand, a user wanting to transmit movies from their computer may well look for the word &quot;Server&quot;.</para></tip>
+        <para>Try to imagine what words users will be looking for when they select your application from the <guimenu>Applications</guimenu> menu. That is the information that should be in the menu name. For example, a user wanting to play a movie will probably not be looking for the word &quot;Client&quot;. On the other hand, a user wanting to transmit movies from their computer may well look for the word &quot;Server&quot;.</para></tip>
       </sect3>
 
       <sect3>
@@ -138,7 +139,7 @@
 	<orderedlist>
 	  
          <listitem>
-	    <para>If your application's proper name is already descriptive (and not just suggestive) of its functionality, use the format: <replaceable>Application Name</replaceable></para>
+	    <para>If your application's proper name is already descriptive of its functionality, and not just suggestive, use the format: <replaceable>Application Name</replaceable></para>
 	<example>
 		<title>Using application's name as menu name</title>
 		<informaltable frame='all'>
@@ -214,7 +215,7 @@
 	  </listitem>
 
 	  <listitem>
-	    <para>A few applications, particularly games, do not have appropriate functional descriptions (but note that many games <emphasis>will</emphasis> have appropriate functional descriptions). In this case, use <replaceable>Application Name</replaceable> as the menu name.</para>
+	    <para>A few applications, particularly games, do not have appropriate functional descriptions (but note that many games do). In this case, use <replaceable>Application Name</replaceable> as the menu name.</para>
 
 	<example>
 		<title>Using applicaton's name as menu name where no functional description exists</title>
@@ -246,8 +247,14 @@
 
       <title>Menu Item Tooltips</title>
 
-      <para>Tooltips are important for providing users with enough information to make the correct decision. Many users use tooltips to explore a new environment.</para>
-	<para>Provide a tooltip for each <guimenu>Application</guimenu> menu item you add. Phrase the tooltip in verb form, and describe the most important tasks users can accomplish with your application. While tooltips should not be verbose, they should be longer and more descriptive than the item's name.</para>
+      <para>Tooltips help provide users with enough information to run the right application. Many users use tooltips to explore a new environment.</para>
+	<para>Provide a tooltip for each <guimenu>Application</guimenu> menu item you add, following these guidelines:</para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Phrase the tooltip as an imperative verb, for example &quot;design&quot;, &quot;write&quot; or &quot;check&quot;.</para></listitem>
+		<listitem><para>Describe the most important tasks users can accomplish with your application.</para></listitem>
+		<listitem><para>While tooltips should not be verbose, they should be longer and more descriptive than the item's name.</para></listitem>
+	</itemizedlist>
 
 	<example>
 		<title>Example tooltips for GNOME applications</title>
@@ -289,11 +296,12 @@
   <sect1 id="mimedatabase">
     <title>Mapping Document Types to Applications</title>
     
-    <para>The document type (MIME) database allows users to specify their preferred applications for opening different types of document. This is the mechanism by which Nautilus, Evolution and other applications decide which application to run when they encounter a document they cannot open natively.</para>
+    <para>The document type (MIME) database allows users to specify their preferred applications for opening different types of document. This is the mechanism by which Nautilus, Evolution and other applications decide which application to run when they encounter a document they cannot open themselves.</para>
 
-    <para>It is important for users to be able to double-click on documents they see on the desktop, such as files and email messages, and have them launch in their favorite application.  Therefore, all GNOME applications should associate themselves at install-time with all the document types they can handle. Technical details on doing this can be found in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+    <para>It is important for users to be able to double-click on documents they see on the desktop, such as files and email messages, and have them launch in their favorite application.  Therefore, your GNOME application should associate itself at install-time with all the document types it can handle. Technical details on doing this can be found in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
 
     <!-- FIXME: need to cover things like the preferred list and when an application should add itself to the preferred list -->
+
   </sect1>
 </chapter>
 
