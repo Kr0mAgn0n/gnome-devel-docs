@@ -691,6 +691,12 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<entry>Inserts the contents of the clipboard into the document.  If there is no current selection, use the caret as the insertion point.  If there is a current selection, replace it with the clipboard contents.</entry>
 	    </row>
 	    
+
+	    <row>
+		<entry>Paste <accel>S</accel>pecial...</entry>
+	      <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
+		<entry>Inserts a non-default representation of the clipboard contents into the document.  Open a dialog presenting a list of the available formats from which the user can select.  For example, if the clipboard contains a PNG file copied from a file manager, the image may be embedded in the document, or a link to the file inserted so that changes to the image on disk are always reflected in the document.</entry>
+	    </row>
 		<row>
 			<entry><accel>D</accel>elete</entry>
 		      <entry><keycap>Delete</keycap></entry>
@@ -719,7 +725,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	  <title>Searching and Replacing</title>
 
 	<table frame="all"> 
-	  <title>Searching and Replacing menu items </title> 
+	  <title>Search and Replace menu items </title> 
 
 	  <tgroup cols="3" align="left">
 	    <thead> 
@@ -760,6 +766,16 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</tgroup>
 	</table>
 	</sect3>
+
+
+	<sect3>
+	  <title>Inserting Special Objects</title>
+	  <para>Where applicable, allow the insertion of pre-formatted or programmatic objects such as images, links, GUI controls or the current date and time on the <guimenu>Edit</guimenu> menu. </para>
+
+	<para>If you have up to three types of object that can be inserted, add them as individual items to this menu, for example <guimenuitem>Insert Image</guimenuitem>, <guimenuitem>Insert Date and Time</guimenuitem>.  If you have between three and six types, place them on an <menuchoice><guimenu>Edit</guimenu><guimenuitem>Insert</guimenuitem></menuchoice> submenu.  If you have more than six, add a separate <link linkend="menu-standard-insert"><guimenu>Insert</guimenu> menu</link> to the menubar.</para>
+
+	</sect3>
+
 
 	<sect3>
 	  <title>User Preferences</title>
@@ -925,7 +941,88 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>Provide an <guimenu>Insert</guimenu> menu instead of <menuchoice><guimenu>Edit</guimenu><guisubmenu>Insert</guisubmenu></menuchoice> when more than 6 items would be present or when insertion commands would be frequently used.</para>
+	
+	<para>The <guimenuitem>Insert</guimenuitem> menu lists the type of special objects that can be inserted into the document at the current caret position, for example images, links, page breaks or GUI objects.  Only provide this menu if you have more than about six types of object that can be inserted, otherwise place individual items for each type on the <link linkend="menu-standard-edit"><guimenu>Edit</guimenu> menu</link>.</para>
+
+	<para>The types of object will vary between applications, but the table below shows some common types that may be applicable.</para>
+
+	<table>
+	<title>Insert menu items</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>P</accel>age Break</entry>
+			<entry>None</entry>
+			<entry>Inserts a page break at the caret position.  Show the page break visually, for example as a dotted line across the page, unless the user has specifically requested not to see them.</entry>
+		</row>
+
+		<row>
+			<entry><accel>D</accel>ate and Time...</entry>
+			<entry>None</entry>
+			<entry>Inserts the current date and/or time at the caret position.  Open a dialog giving a choice of date and time formats.  If applicable, also offer the choice to insert either as plain text, so the specified date and time will always appear in the document, or as a field that will show an updated date and time every time the document is opened or printed.</entry>
+			</row>
+
+		<row>
+			<entry>Sy<accel>m</accel>bol...</entry>
+			<entry>None</entry>
+			<entry>Insert a special symbol at the caret position.  Open a dialog showing all the available symbols as a table, from which the user can choose.  The user must be able to add multiple symbols to (possibly different parts of) the document at one time without having to close and re-open the dialog.</entry>
+			</row>
+
+		<row>
+			<entry><accel>S</accel>heet...</entry>
+			<entry>None</entry>
+			<entry>Adds a new sheet to the current workbook.  Do not prompt for a name, but choose a sensible default (such as <guilabel>Sheet-2</guilabel>) and allow the user to change it later.</entry>
+			</row>
+
+		<row>
+			<entry><accel>R</accel>ows...</entry>
+			<entry>None</entry>
+			<entry>Adds new rows to a table in which one or more rows or cells are currently selected.  Open a dialog asking whether to insert rows above or below the current selection, and for any other required information.  Copy the row format from the last or first row of the current selection respectively, unless the user specifies otherwise.</entry>
+			</row>
+
+		<row>
+			<entry><accel>C</accel>olumns...</entry>
+			<entry>None</entry>
+			<entry>Adds new columns to a table in which one or more columns or cells are currently selected.  Open a dialog asking whether to insert columns to the left or right of the current selection, and for any other required information.  Copy the column format from the right- or left-most column of the current selection respectively, unless the user specifies otherwise.</entry>
+			</row>
+
+		<row>
+			<entry><accel>I</accel>mage...</entry>
+			<entry>None</entry>
+			<entry>Inserts an image into the document from a file.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose an image file to insert.</entry>
+			</row>
+
+		<row>
+			<entry><accel>G</accel>raph...</entry>
+			<entry>None</entry>
+			<entry>Inserts a graph into the document.  Open a dialog or assistant that allows the user to build (or open from a file) a graph of their choice, using the current selection as an indication of which axis labels etc. to use.</entry>
+			</row>
+
+		<row>
+			<entry><accel>F</accel>rom FIle...</entry>
+			<entry>None</entry>
+			<entry>Inserts an object from any acceptable file type, for example plain text, formatted text, or an image.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose a file to insert.</entry>
+			</row>
+
+		<row>
+			<entry>E<accel>x</accel>ternal Link...</entry>
+			<entry>None</entry>
+			<entry>Inserts a link to an object stored in a different file, or on a remote system.  The object is not embedded in or saved with the document, only a link to it.  Open a dialog in which the user can type or choose the name of the object, for example a filename or a webpage URL.  Show the link in the document in as informative way as possible.  For example, represent a link to an image as a thumbnail of that image, unless the user specifies otherwise.</entry>
+			</row>
+
+		</tbody>
+		</tgroup>
+	</table>
+
+
       </sect2>
 
 <!-- CFB I think the format menu is *too* generic to be of much use here...
@@ -1178,9 +1275,52 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>Avoid presenting a multiple document interface (MDI).</para>
-	<para>If the application presents an MDI, provide a Windows menu for commands which apply to all of the application's windows. Provide a list of the application's primary windows to allow them to be raised.</para>
-	<para>The Windows menu may also be labelled <guimenu><accel>D</accel>ocuments</guimenu>, <guimenu><accel>B</accel>uffers</guimenu>, or similarly according to the application context.</para>
+	
+		<para>The Windows menu contains commands that apply to all of the application's open windows.  Only use a Windows menu in <link linkend="mdi">multiple document interface</link> (MDI) applications.</para>
+
+		<note><title>MDI Applications</title><para>The use of MDI applications is not encouraged in GNOME, as they have a number of inherent usability problems.</para></note>
+	
+		<para>You may also label this menu <guimenu><accel>D</accel>ocuments</guimenu>, <guimenu><accel>B</accel>uffers</guimenu>, or similar according to the type of document handled by your application.</para>
+	
+	<para>The first items on this menu are a numbered list of the application's primary windows, for example <guimenuitem><accel>1</accel>shoppinglist.abw</guimenuitem>.  Selecting one of these items raises the corresponding window.</para>
+
+<table>
+	<title>Windows menu items</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>1</accel>. <replaceable>first open window title</replaceable>
+			<para><accel>2</accel>. <replaceable>second open window title</replaceable></para>
+			<para>etc.</para></entry>
+			<entry>None</entry>
+			<entry>Raises the corresponding window to the top of the window stack.</entry>
+		</row>
+
+		<row>
+			<entry><accel>S</accel>ave All</entry>
+			<entry>None</entry>
+			<entry>Saves all open documents.  If any documents have no current filename, prompt for a filename for each one in turn using the standard Save dialog.</entry>		
+		</row>
+
+		<row>
+			<entry><accel>C</accel>lose All</entry>
+			<entry>None</entry>
+			<entry>Closes all open documents.  If there are any unsaved changes in any documents, post a <link linkend="alerts-confirmation">confirmation alert</link> for each one in turn.</entry>
+		</row>
+
+			</tbody>
+		</tgroup>
+	</table>
+
+	
       </sect2>
       <sect2 id="menu-standard-help">
 	<title>Help</title>
