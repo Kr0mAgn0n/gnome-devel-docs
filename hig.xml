@@ -1,12 +1,7 @@
 <?xml version='1.0' standalone='no'?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "docbook/dtd/xml/4.1.2/docbookx.dtd">
-<article id="index" status="draft">
-<!-- Note from GJM: I'd like to start cutting out the sections that presently are in comments.
-  If I don't see any negative feedback on this after the next person's changelog entry I'll go ahead and do it.
-  We can always revert in CVS.
-  Later Note: I really meant just the crufty (non-content) stuff. I've already removed some of it.
--->
-<articleinfo>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<book id="index" status="draft">
+<bookinfo>
     <author><firstname>The GNOME Usability Project</firstname></author>
 <copyright>
 <year>2001</year>
@@ -37,9 +32,9 @@
 
 <title>GNOME 2.0 Human Interface Guidelines (CVS draft)</title>
 
-</articleinfo>
+</bookinfo>
 
-  <sect1 id="intro">
+  <chapter id="intro">
     <title>Introduction</title>
     <para>
       This document tells you how to create applications that look right,
@@ -83,15 +78,15 @@
       and KDE. At the same time they retain a uniquely GNOME flavor.
     </para>
 
-  </sect1>
+  </chapter>
 
-  <sect1 id="usabilityprinciples">
+  <chapter id="usabilityprinciples">
     
     <title>Usability Principles</title>
 
     <para>This section seeks to explain some of the basic principles which underlie the more specific technical guidelines recommended in this document.  We believe that these principles are important for all application development.</para>
 
-    <sect2>
+    <sect1>
       <title>Design for People</title>
 
       <para>Remember that the purpose of any software application is to enable some group of people to accomplish a specific set of tasks.  The first thing you should do when designing your application is to establish who your users are, and what you want to enable them to do.</para>
@@ -100,31 +95,31 @@
 
       <para>The important thing is that you know your audience, and you understand their tasks.  There are a large number of professional interaction designers who write books and teach courses on design methods which can help with this process (many of which are extremely useful).  Most of these methods, however, boil down to specific ways of understanding your users, understanding the tasks you want to help them accomplish, and finding ways to support those tasks in your application.</para>
 
-    </sect2>
-    <sect2>
+    </sect1>
+    <sect1>
       <title>Don't Limit Your User Base</title>
 
       <para>If you are designing an application for use by engineers, or by children, or by system administrators, you should make sure to create an application which can be used by <emphasis>all</emphasis> engineers, children, or system administrators, including those with disabilities or those who are native speakers of a language different from yours.  You should be aware of issues of accessibility and issues of internationalization and localization.</para>
 
-      <sect3>
+      <sect2>
 	<title>Accessibility</title>
 
 	<para>Accessibility means enabling people with disabilities of some kind to participate in life's activities: in this case, specifically to use your software.  Your software should be usable with voice interfaces, screen readers, alternate input devices, and other assistive technologies.  Your software should also be usable by color-blind users (by not using color only to display critical information), by deaf users (by not using sound only to indicate critical information), and by users with limited movement (by enabling keyboard equivalents for commands).</para>
 
 	<para>More information on accessibility in GNOME 2.0 can be found at the <ulink url="http://developer.gnome.org/projects/gap/">GNOME Accessibility Project</ulink>.</para>
 
-      </sect3>
-      <sect3>
+      </sect2>
+      <sect2>
 	<title>Internationalization and Localization</title>
 
 	<para>Internationalization is designing software so that it can function in different language environments.  Localization is the process of actually translating the messages, labels, and other interface elements of an application into another language.</para>
 
 	<para>GNOME has excellent support for both internationalization (also referred to as i18n) and localization (also referred to as L10n).  In most cases, simply using standard GNOME APIs for displaying text and messages will allow you or others to localize your application for other locales.  For more information on how to make your application localizable, see the <ulink url="http://www.pango.org">Pango project home page</ulink> (Pango is the GNOME 2.0 API for rendering internationalized text), the <ulink url="http://www.gnome.org/i18n/">GNOME Translations page</ulink>, and the <ulink url="http://developer.gnome.org/projects/gtp/">GNOME Translation Project page</ulink>.</para>
-      </sect3>
+      </sect2>
     
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Create a Match Between Your Application and the Real World</title>
 
       <para>Your application should always use the user's language, using words, phrases, and concepts which are familiar to the user rather than terms from the underlying system.  The terms you use should be related to the user's conception of the tasks your application supports: for instance, in medicine, the paper folder which contains all information about a specific patient is called a "chart."  Hence, a medical application might refer to a patient record which contains the same information as a paper chart as a "patient chart" rather than as a "patient database record."</para>
@@ -132,9 +127,9 @@
       <para>You can frequently take advantage of your users' knowledge of the real world by using metaphor: that is, using a familiar concept from the outside world to represent elements within your application.  For example, an image of a file folder suggests a container into which documents can be placed; a recycling bin suggests a container into which items can be placed when they are no longer needed.</para>
 
       <para>When using metaphors, however, it is important to neither take the metaphor too literally, nor to extend the metaphor beyond its reasonable use.  For example, the capacity of a file folder should not be limited to the capacity of a physical file folder (which presumably could contain only a few documents before becoming unwieldy).  On the other hand, a trash can should not be used for anything other than holding discarded files; it should not be used, for example, to eject a removable disk such as a floppy or CD.</para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Make Your Application Consistent</title>
 
       <para>Your application should be consistent with itself and with other applications in both its appearance and its behavior. This is one of the most important design principles, and probably the most famous, but is also one of the most commonly abused.</para>
@@ -142,33 +137,33 @@
       <para>The purpose of consistency is to enable users to apply their existing knowledge of their computing environment and other applications to understanding a new application.  Consistency not only enables users to become familiar with new applications more quickly, but also helps create a sense of comfort and trust in the overall environment.  Most of the recommendations in the GNOME HI Guidelines are designed to help you create applications which are consistent with the GNOME environment and other GNOME applications.</para>
 
       <para>However, a misapplied, or incomplete, consistency is actually worse than inconsistency.  If your application includes an "Undo" menu item for consistency, but it is always disabled because your application does not actually support Undo, this will serve to reduce users' trust in the availability of Undo in other applications in the environment.  In this case, your application should either support Undo, or you should eliminate the Undo menu item.</para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Let Users Know What's Going On</title>
 
       <para>Your application should always keep the user informed of what's actually going on through appropriate feedback presented at an appropriate time.  The user should never have to guess about the status of the system or of your application.  When the user performs an action, provide feedback to indicate that the system has received the input and is operating on it. Feedback can be visual, audio, or both. If the system will take a long time to process the request, provide as much feedback as possible about how lengthy the operation will be. Types of helpful feedback include but are not limited to: cursor changes, animated throbbers, progress indicators, audio feedback such as a beep, and error messages. Error messages should use simple language, clearly state the problem, and provide solutions or tell the user how to get out of the current situation if possible.</para>
 
       <para>It is critically important that feedback be <emphasis>accurate</emphasis> and <emphasis>precise</emphasis>.  If you display a determinate progress indicator to display the state of completion of a task and it is inaccurate, the user will lose faith in progress indicators, and they will find the environment less usable.  If you display a generic error message which indicates that there is a problem but fails to provide enough information to diagnose or solve the problem, the user will be unable to continue his or her task.</para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Keep It Simple and Pretty</title>
 
       <para>Your application should enable the user to concentrate on the task at hand.  In this vein, you should design your application to show only useful and relevant information and interface elements.  Every extra piece of information or extra interface element competes with the truly relevant bits of information and distracts the user from important information.  Hence, don't clutter your interface, and don't overload the user with buttons, menu options, icons, or irrelevant information.  Instead, use progressive disclosure and other techniques to limit what the user sees at any given moment.</para>
 
       <para>Finally, it is also important to present your information and interface elements in an aesthetically pleasing manner; a disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly aligned, and do not overuse or misuse color or graphics.</para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Let the User Be in Control</title>
 
       <para>Remember that computers exist to serve humans.  A user should always feel in control, able to do what they want when they want.  This means that modes should generally be avoided; users should be able to switch between different tasks (and specifically, different windows) at any time.</para>
 
       <para>The user should also be able to set aspects of their environment to fit personal preferences.  It is very important, however, to avoid the trap of allowing too much configuration, or allowing the configuration of parameters which most users will not understand or find useful to modify.  Wherever possible, visual and behavioral parameters should be inherited from global preferences and settings such as the current GTK+ theme.</para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Forgive the User</title>
 
       <para>We all make mistakes.  Whether we're exploring and learning how to use the system, or we're experts who just hit the wrong key, we are only human.  Whenever possible, the user should be able to quickly undo the results of his or her actions.</para>
@@ -177,22 +172,22 @@
 
       <para>In all cases, the user's work should be sacrosanct; nothing your application does should lose or destroy user's work without explicit user action.  Among other techniques, this can be achieved by auto-saving backups of documents, and allowing multiple levels of undo.</para>
 
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Enable Direct Manipulation</title>
 
       <para>Wherever possible, you should allow users to act on objects and data directly, rather than through dialog boxes or explicit commands.  For example, it is much more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.</para>
 
-    </sect2>
+    </sect1>
 
-  </sect1>
+  </chapter>
 
-<sect1 id="desktop-integration">
+<chapter id="desktop-integration">
     <title>Desktop Integration</title>
     
     <para>There are two elements to basic integration with the user environment of the GNOME Desktop. First, applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it. Secondly, your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit. This is an important first step in evolving a document centered interface.</para>
-    <sect2 id="menuentries">
+    <sect1 id="menuentries">
       <title>Placing Entries in the Panel Menu</title>
       
       <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
@@ -210,7 +205,7 @@
 	</itemizedlist>
         <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
       </para>
-      <sect3 id="menu-entry-captions">
+      <sect2 id="menu-entry-captions">
         <title>Menu Entry Captions</title>
 	<para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION TYPE (APPLICATION NAME)</emphasis>. Rather than focusing on branding the menu system tries to encourage listing based on functionality. Users are more likely to be able to discover your application when they need it if it is listed by functionality rather than by name. This is particularly important on systems where numerous applications are installed by default, so the user is less aware of the mapping between names and functionality. Try to think of what information users will have when they look for your application when choosing a general class, and try to copy similar applications if they have already chosen a general class.</para>
 	<para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
@@ -282,8 +277,8 @@
 	    </example>
 	  </listitem>
 	</itemizedlist>
-      </sect3>
-      <sect3 id="menu-entry-tooltips">
+      </sect2>
+      <sect2 id="menu-entry-tooltips">
 	<title>Menu Entry Tooltips</title>
 	<para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
 	<itemizedlist>
@@ -312,76 +307,76 @@
 	    </example>
 	  </listitem>
 	</itemizedlist>
-      </sect3>
-    </sect2>
+      </sect2>
+    </sect1>
     
-    <sect2 id="mimedatabase">
+    <sect1 id="mimedatabase">
       <title>Providing a Connection between Documents &amp; Applications</title>
       
       <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
       <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
 <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
-  </sect2>
-</sect1>
+  </sect1>
+</chapter>
 
-<sect1 id="windows">
+<chapter id="windows">
     <title>Windows</title>
     <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
 
-    <sect2 id="window-names">
+    <sect1 id="window-names">
       <title>Names</title>
       <para>All top-level windows must have names. The name must have the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have names when they do stand alone.</para>
-    </sect2>
+    </sect1>
 
-    <sect2 id="window-frames">
+    <sect1 id="window-frames">
       <title>Frames</title>
       <para>Most top-level windows will have frames; exception may include shaped windows and torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
-    </sect2>
+    </sect1>
 
-    <sect2 id="window-modality">
+    <sect1 id="window-modality">
       <title>Modality</title>
       <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs. Modality has two degrees: local and global.</para>
       <para>A local mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
       <para>A global mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
-    </sect2>
+    </sect1>
 
-    <sect2 id="window-focus">
+    <sect1 id="window-focus">
       <title>Focus</title>
       <para>There are the focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
-    </sect2>
+    </sect1>
 
-    <sect2 id="window-other">
+    <sect1 id="window-other">
       <title>General Communication with the Window Manager</title>
       <para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
       <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
-    </sect2>
+    </sect1>
     
-    <sect2 id="primary-windows">
+    <sect1 id="primary-windows">
       <title>Primary Windows</title>
       <para>FIXME - normal frames; may have menu bar, tool bar, and status bar.</para>
-    </sect2>
+    </sect1>
       
-    <sect2 id="utility-windows">
+    <sect1 id="utility-windows">
       <title>Utility Windows</title>
       <para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
-    </sect2>
+    </sect1>
 
 
-    <sect2 id="alert-windows">
+    <sect1 id="alert-windows">
       <title>Alerts</title>
       <para>An alert is a modal secondary window for . . .</para>
       <para>FIXME - reduced or no frame (?); one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
-      <sect3 id="informational-alert">
+      <sect2 id="informational-alert">
 	<title>Informational Alerts</title>
 	<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
 	<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
-      </sect3>
-      <sect3 id="confirmational-alert">
+      </sect2>
+      <sect2 id="confirmational-alert">
 	<title>Confirmational Alert</title>
 	<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
 	<para>The confirmational alert will present . . . </para>
-      </sect3>
-      <sect3 id="button-order">
+      </sect2>
+      <sect2 id="button-order">
 	<title>Alert Buttons</title>
 	
 	<para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
@@ -404,27 +399,27 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
-      </sect3>
+      </sect2>
 
-    </sect2>
+    </sect1>
       
-    <sect2 id="dialog-windows">
+    <sect1 id="dialog-windows">
       <title>Dialogs</title>
       <para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
-    </sect2>
+    </sect1>
     
-    <sect2 id="assistant-windows">
+    <sect1 id="assistant-windows">
       <title>Assistants</title>
       <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
       <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
-    </sect2>
+    </sect1>
     
-</sect1>
+</chapter>
 
-<sect1 id="menus">
+<chapter id="menus">
     <title>Menus</title>
 
-<!-- <sect2 id="menu-principles"> -->
+<!-- <sect1 id="menu-principles"> -->
 
 <!-- TODO:
 - Tear-off menus?
@@ -437,74 +432,74 @@
 
 <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
 
-<sect2 id="menu-types">
+<sect1 id="menu-types">
 <title>Types of Menus</title>
 
-<sect3 id="menu-types-drop-down">
+<sect2 id="menu-types-drop-down">
 <title>Drop-Down Menus</title> <!-- "Pull-down" menus? -->
 <para>The primary application window should possess a menubar providing a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
-</sect3>
+</sect2>
 
-<sect3 id="menu-principles-context">
+<sect2 id="menu-principles-context">
 <title>Popup menus</title>
 <para>Clicking on an object with the right mouse button may display a popup menu which should contain commands which can be applied to the selected object. (The act of clicking may change the selection.) Popup menus are accessible via the keyboard shortcut <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.
 <!-- Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar. -->
 <!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
 </para>
-</sect3>
-
 </sect2>
 
-<sect2 id="menu-organisation">
+</sect1>
+
+<sect1 id="menu-organisation">
 <title>Menu Organisation</title>
 <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menus and menu items should not appear or disappear while the application is running.</para>
 
-<sect3 id="menu-organisation-submenus">
+<sect2 id="menu-organisation-submenus">
 <title>Submenus</title>
 <para>Submenus may be used to add a further level of hierarchy to a menu and to save space in an interface. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to find the items they contain.</para>
-</sect3>
-
-<sect3 id="menu-organisation-separators">
-<title>Separators</title>
-<para>Related items should be grouped together on a menu and should be separated from other groups using separators. This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.</para>
-</sect3>
-
 </sect2>
 
-<sect2 id="menu-names">
+<sect2 id="menu-organisation-separators">
+<title>Separators</title>
+<para>Related items should be grouped together on a menu and should be separated from other groups using separators. This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.</para>
+</sect2>
+
+</sect1>
+
+<sect1 id="menu-names">
 <title>Naming Conventions</title>
 <para>Most menu items will be labelled with verbs or adjectives, which describe commands or properties respectively. Menu items should have the first letter of the first word and of any significant words capitalized. See <link linkend="layout-capitalization">Capitalization</link> for more information.</para>
 <para>Where a command requires further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
-</sect2>
+</sect1>
 
-<sect2 id="menu-unavailable">
+<sect1 id="menu-unavailable">
 <title>Unavailable Commands</title>
 <para>A menu item should be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
 <para>Do not remove an item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see
 commands which might be available at other times and keeps the item in a memorable place.</para>
-</sect2>
+</sect1>
 
-<sect2 id="menu-toggled">
+<sect1 id="menu-toggled">
 <title>Toggled Menu Items</title>
 <para>Menu items may be toggled between two states. This may be done either independently in the same way as check boxes or as part of a group as with radio buttons.</para>
 <para>Any group of items operating in the same manner as a group of radio buttons should appear on their own in a menu or submenu or be separated from other items in the menu by using separators.</para>
-</sect2>
+</sect1>
 
-<sect2 id="menu-shortcuts-accesskeys">
+<sect1 id="menu-shortcuts-accesskeys">
 <title>Shortcuts and Access Keys</title>
 <!-- Eeek! Names! Names! The previous version contradicted the API. We still need a conclusion. -->
 <para>As with other controls, all menu items should have an access key associated with them. Unlike other controls, once a menu is visible, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
 <para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
 <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
-</sect2>
+</sect1>
 
-<sect2 id="standard-menus">
+<sect1 id="standard-menus">
 	
 <title>Standard Menus</title>
 
 <para>There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order: <guimenu>File</guimenu>, <guimenu>Edit</guimenu>, <guimenu>View</guimenu>, <guimenu>Format</guimenu>, <replaceable>application-specific menus</replaceable>, <guimenu>Bookmarks</guimenu>, <guimenu>Go</guimenu>,<guimenu>Tools</guimenu>, <guimenu>Help</guimenu>. (Help should be the rightmost menu, but it should not be flush-right.)</para>
 
-<sect3 id="menu-standard-file">
+<sect2 id="menu-standard-file">
 
 <title>File</title>
 
@@ -543,7 +538,7 @@ All applications should have a <guimenu>File</guimenu> menu which should contain
 Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guimenu>File</guimenu> menu.
 </para>
 
-<sect4>
+<sect3>
 
 <title>File Access</title>
 
@@ -625,9 +620,9 @@ Close the current document. If the document in the current window has unsaved ch
 
 </variablelist>
 
-</sect4>
+</sect3>
 
-<sect4>
+<sect3>
 
 <title>Printing</title>
 
@@ -662,9 +657,9 @@ Allows the user to control print-related settings. The user should be presented 
 
 </variablelist>
 
-</sect4>
+</sect3>
 
-<sect4>
+<sect3>
 
 <title>Quitting</title>
 
@@ -694,11 +689,11 @@ Close all open documents. If there are unsaved changes in any of the currently o
 
 </variablelist>
 
-</sect4>
-
 </sect3>
 
-<sect3 id="menu-standard-edit">
+</sect2>
+
+<sect2 id="menu-standard-edit">
 
 <title>Edit</title>
 
@@ -723,7 +718,7 @@ Close all open documents. If there are unsaved changes in any of the currently o
 The <guimenu>Edit</guimenu> menu should contain items relating to editing the document, clipboard handling, selection and searching and replacing.
 </para>
 
-<sect4>
+<sect3>
 
 <title>Modification History</title>
 
@@ -753,9 +748,9 @@ Redoes the following action in the history. After the user has travelled back th
 
 </variablelist>
 
-</sect4>
+</sect3>
 
-<sect4>
+<sect3>
 <title>Manipulating Selected Data</title>
 
 <variablelist>
@@ -781,9 +776,9 @@ Redoes the following action in the history. After the user has travelled back th
 
 </variablelist>
 
-</sect4>
+</sect3>
 
-<sect4>
+<sect3>
 
 <title>Searching and Replacing</title>
 
@@ -806,14 +801,14 @@ Redoes the following action in the history. After the user has travelled back th
 <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para> 
 </note>
 
-</sect4>
+</sect3>
 
-<sect4>
+<sect3>
 <title>User Preferences</title>
 <para>User preferences pertaining to the entire application (in all its instances) should be editable from a preferences dialog. <!-- or utility window? --></para>
-</sect4>
 </sect3>
-      <sect3 id="menu-standard-view">
+</sect2>
+      <sect2 id="menu-standard-view">
 	<title>View</title>
 	<para>FIXME</para>
 
@@ -823,9 +818,9 @@ Redoes the following action in the history. After the user has travelled back th
 	  </literallayout>
 	</para>
 	
-      </sect3>
+      </sect2>
       
-      <sect3 id="menu-standard-format">
+      <sect2 id="menu-standard-format">
 	<title>Format</title>
 	<para>FIXME</para>
 	
@@ -835,9 +830,9 @@ Redoes the following action in the history. After the user has travelled back th
 	  </literallayout>
 	</para>
 	
-      </sect3>
+      </sect2>
       
-      <sect3 id="menu-standard-tools">
+      <sect2 id="menu-standard-tools">
 	<title>Tools</title>
 	<para>FIXME</para>
 	<para>
@@ -845,9 +840,9 @@ Redoes the following action in the history. After the user has travelled back th
 	    <!-- FIXME -->
 	  </literallayout>
 	</para>
-      </sect3>
+      </sect2>
 
-<sect3 id="menu-standard-help">
+<sect2 id="menu-standard-help">
 
 <title>Help</title>
 
@@ -891,21 +886,21 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 </variablelist>
 
-</sect3>
-
 </sect2>
 
 </sect1>
+
+</chapter>
  
     <!-- Toolbars (subsection of menus+toolbars) -->
 <!-- Realigning this section. Toolbars are top-level and Palettes (a.k.a. Toolboxes or Utility Windows) fall below. -->
 <!--
-<sect1 id ="toolbars-palettes">
+<chapter id ="toolbars-palettes">
     <title>Toolbars and Palettes</title>
     
-    <sect2 id="toolbars">
+    <sect1 id="toolbars">
 -->
-<sect1 id="toolbars">
+<chapter id="toolbars">
       <title>Toolbars</title>
       
       <para>A toolbar is a strip of controls that allows convenient access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
@@ -971,7 +966,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       
       <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however.  Having too many toolbar controls reduces their efficiency by making them harder to find, and too many rows of toolbars reduces the amount of screen space available to the rest of the application.</para>
 
-    <sect2>
+    <sect1>
 	<title>Appearance and Content</title>
 
 	<para>The effectiveness of toolbars is increased by maintaining a level of consistency between different applications.  The toolbar is one of the first parts of your application that a user will see the first time they run it, so by providing a toolbar that looks familiar to them, you can immediately make them feel comfortable about using your application.</para>
@@ -1009,9 +1004,9 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 	</itemizedlist>
 
-</sect2>
+</sect1>
 
-<sect2>
+<sect1>
 	<title>Controlling Display and Appearance</title>
 
 	<para>For each toolbar in your application, the user should be able to choose whether or not to show that toolbar, and whether to show its contents as icons only, text only or both.  (Ideally, default settings for icons/text/both should be set in the control center, but over-rideable in each individual application&mdash; is this the current plan for 2.0?  If not, default for each application should probably be Icons Only).</para>
@@ -1060,8 +1055,8 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  <para>How should MDI and toolbars be handled?</para>
 	</note>
 
-</sect2>
-<sect2>
+</sect1>
+<sect1>
 	<title>Labels and Tooltips</title>
 	
 	<para>Many controls that appear on your toolbar will require a text label that appears below or beside it.  This should normally be a single word description of that control's function.</para>
@@ -1110,7 +1105,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 	
 	</itemizedlist>
 
-      </sect2>
+      </sect1>
 
  
       
@@ -1118,7 +1113,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       
 <!-- Removed for now until I decide how much/little specific guidance to give for application types
 
-      <sect3>
+      <sect2>
 	<title>Default Toolbar Layout&mdash; Office Application</title>
 
 	<para>However many toolbars or palette windows your application provides, by default there should be one main toolbar that provides a subset of the application's overall functionality.  Many of the buttons on this toolbar will be the same regardless of the type of application.</para>
@@ -1142,9 +1137,9 @@ Brings up the About dialog for the application. The dialog should contain the na
 	
 
 
-      </sect3>
+      </sect2>
       
-      <sect3>
+      <sect2>
 	<title>Default Toolbar Layout&mdash; Browser Applications</title>
 
 	<para>Applications for browsing documents or other objects, such as web, file, help or documentation browsers, should use the following layout for their main toolbar:</para>
@@ -1221,23 +1216,23 @@ Brings up the About dialog for the application. The dialog should contain the na
 	<para>Note: In browser applications, use <guilabel>Reload</guilabel> rather than <guilabel>Refresh</guilabel> when the data will be actually re-read from its original source, rather than just re-painted on the screen.</para>
 
 
-      </sect3>
+      </sect2>
 -->
 
-</sect1>
+</chapter>
 <!-- Note from GJM: I think palettes should go with toolboxes/utility windows. -->
 <!--
-    <sect2>
+    <sect1>
       <title>TODO : Palettes</title>
       
       <para>A palette is much like a floating toolbar.  However, its size and shape is usually more customizable, and it typically has a titlebar of its own and appears in the GNOME task list.</para>
       
-    </sect2>
-  </sect1>
+    </sect1>
+  </chapter>
 -->
 
 <!--
-<sect1 id="dialogs">
+<chapter id="dialogs">
 
 <title>Dialogs</title>
 
@@ -1245,7 +1240,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 - Double-clicking to close a dialog
 - - >
 	
-<sect2 id="dialog-principles">
+<sect1 id="dialog-principles">
 	
 <title>General Principles</title>
 
@@ -1257,11 +1252,11 @@ Dialog boxes are windows allowing the user to interact with an application in wa
 Dialog boxes come in a number of different forms, suitable for different situations, and each with their own UI implications.
 </para>
 
-<sect3 id="dialogs-types">
+<sect2 id="dialogs-types">
 
 <title>Types of dialog boxes</title>
 
-<sect4 id="dialogs-modal-and-modeless">
+<sect3 id="dialogs-modal-and-modeless">
 
 <title>Modal and modeless dialog boxes</title>
 
@@ -1277,9 +1272,9 @@ Modeless dialog boxes allow the user to continue to interact with the rest of th
 In general, modeless dialogs are preferable to modal dialogs since they are less intrusive. Dialogs should only be made modal if there is a compelling reason to do so.
 </para>
 
-</sect4>
+</sect3>
 
-<sect4 id="dialogs-informational">
+<sect3 id="dialogs-informational">
 
 <title>Informational dialog boxes</title>
 
@@ -1287,9 +1282,9 @@ In general, modeless dialogs are preferable to modal dialogs since they are less
 Informational dialog boxes are those which do not require the user to enter any data or make choices; they are merely for notification purposes.  These dialogs typically only need a label for the user to read and a button to close the dialog. They can be modal or modeless as appropriate.
 </para>
 
-</sect4>
+</sect3>
 
-<sect4 id="dialogs-druids">
+<sect3 id="dialogs-druids">
 
 <title>Druids</title>
 
@@ -1305,11 +1300,11 @@ Druids are best suited to situations in which the user requires some sort of han
 GNOME's druids are roughly equivalent to the <quote>Wizards</quote> frequently found in Microsoft Windows.
 </para>
 
-</sect4>
-
 </sect3>
 
-<sect3 id="dialogs-layout">
+</sect2>
+
+<sect2 id="dialogs-layout">
 
 <title>Dialog box layout</title>
 
@@ -1329,9 +1324,9 @@ At the bottom of the dialog window should be a single row of buttons which perta
 These buttons should be laid out as follows: Action or navigation buttons should be on the extreme right. Closing buttons should be to the left of any action or navigation buttons. A help button should be on the extreme left.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id="dialogs-behaviour">
+<sect2 id="dialogs-behaviour">
 
 <title>Dialog box behaviour</title>
 
@@ -1347,9 +1342,9 @@ Care should be taken to ensure that it is obvious to the user whether changes ma
 Nothing in the main area of the dialog should dismiss the dialog. Any actions which will dismiss the dialog should be confined to the bottom row of buttons.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id="dialogs-buttons">
+<sect2 id="dialogs-buttons">
 
 <title>Dialog box buttons</title>
 
@@ -1357,7 +1352,7 @@ Nothing in the main area of the dialog should dismiss the dialog. Any actions wh
 These dialogs should be positioned on the bottom row of the dialog according to the rules specified above. Action and navigation buttons should only be enabled while it makes sense for the user to press them. Closing buttons should always be enabled; it should always make sense for the user to press them.
 </para>
 
-<sect4 id="dialogs-buttons-action">
+<sect3 id="dialogs-buttons-action">
 
 <title>Action buttons</title>
 
@@ -1369,9 +1364,9 @@ Most dialogs will have buttons to perform some kind of action. These should be l
 On modal dialogs the action button should also close the dialog. On modeless dialogs either all action buttons should close the dialog or none should.
 </para>
 
-</sect4>
+</sect3>
 
-<sect4 id="dialogs-buttons-closing">
+<sect3 id="dialogs-buttons-closing">
 
 <title>Closing buttons</title>
 
@@ -1391,9 +1386,9 @@ The situation is slightly different again for informational dialogs. As always, 
 In all of these cases the closing button should be activated by the escape key. On purely informational dialogs where the dismiss button is the only button in the bottom row of the dialog, it should also be the default button and so be activated by the Enter key.
 </para>
 
-</sect4>
+</sect3>
 
-<sect4 id="dialogs-buttons-navigation">
+<sect3 id="dialogs-buttons-navigation">
 
 <title>Navigation buttons</title>
 
@@ -1401,9 +1396,9 @@ In all of these cases the closing button should be activated by the escape key. 
 If the dialog contains a sequence of steps (as in a druid, for example), they should be navigable with <guibutton>Next</guibutton> and <guibutton>Previous</guibutton> buttons.
 </para>
 
-</sect4>
+</sect3>
 
-<sect4 id="dialogs-buttons-help">
+<sect3 id="dialogs-buttons-help">
 
 <title>Help buttons</title>
 
@@ -1411,22 +1406,22 @@ If the dialog contains a sequence of steps (as in a druid, for example), they sh
 Developers are encouraged to give their dialogs a <guibutton>Help</guibutton> button. This should launch the default help browser with the section of the application's help document relevant to the current dialog.
 </para>
 
-</sect4>
-
 </sect3>
 
-<sect3 id="dialogs-window-titles">
+</sect2>
+
+<sect2 id="dialogs-window-titles">
 <title>Dialog Window Titles</title>
 
 <para>
 Dialog windows should be given titles that enable the user to determine from the title alone both the task that the dialog is intended to carry out and the parent window (if any) that the task applies to. So, for example, the title for a search and replace dialog in a text editor should look something like: <guilabel>Replace in document.txt</guilabel>.
 </para>
 
-</sect3>
-
 </sect2>
 
-<sect2 id="standard-dialogs">
+</sect1>
+
+<sect1 id="standard-dialogs">
 	
 <title>Standard Dialogs</title>
 
@@ -1434,7 +1429,7 @@ Dialog windows should be given titles that enable the user to determine from the
 GNOME provides a number of standard dialogs which should be used wherever appropriate.
 </para>
 
-<sect3>
+<sect2>
 
 <title>File Selector</title>
 
@@ -1450,9 +1445,9 @@ If the file selector is being used to select a file that is to be opened in the 
 Sometimes it may be appriate to extend the file selector to include new features. For example, if an application is capable of saving a document in multiple different file formats then the file selector should include a mechanism for selecting the desired file type.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3>
+<sect2>
 
 <title>Font Selector</title>
 
@@ -1460,9 +1455,9 @@ Sometimes it may be appriate to extend the file selector to include new features
 The font selector should be used wherever the user has to select a font. If the font is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Font</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Font</guilabel>.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3>
+<sect2>
 
 <title>Color Selector</title>
 
@@ -1470,20 +1465,20 @@ The font selector should be used wherever the user has to select a font. If the 
 The color selector should be used wherever the user has to select a color. If the color is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Color</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Color</guilabel>.
 </para>
 
-</sect3>
-
 </sect2>
 
 </sect1>
+
+</chapter>
 -->
 
 <!-- commented out for Nov 23 draft, we can re-enable when there's something there - seth
-<sect1 id="feedback">
+<chapter id="feedback">
     <title>Feedback</title>
     <para>FIXME</para>
-</sect1>
+</chapter>
 -->
-<sect1 id="controls">
+<chapter id="controls">
 
 <title>Controls</title>
 
@@ -1495,7 +1490,7 @@ The GNOME environment provides a set of controls (also known as widgets<!-- FIXM
 Under some circumstances the value that a control manipulates may not have an effect, or the action that a control activates may not be able to run. At these times the control should be made unavailable. While a control is unavailable it will appear dimmed and will not be able to receive the focus.
 </para>
 
-<sect2 id="controls-buttons">
+<sect1 id="controls-buttons">
 
 <title>Buttons</title>
 
@@ -1511,9 +1506,9 @@ Buttons should generally be labeled with verbs. Button labels should have the fi
 In a dialog, one button may be made the default button. The guidelines for doing this are in the section on dialogs.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-toggle-buttons">
+<sect1 id="controls-toggle-buttons">
 
 <title>Toggle Buttons</title>
 
@@ -1525,9 +1520,9 @@ Toggle buttons are buttons which remain depressed after they have been clicked o
 Toggle buttons should generally only be used where there is little available space, such as on toolbars or palettes. Otherwise check boxes or radio buttons will be more appropriate.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-check-boxes">
+<sect1 id="controls-check-boxes">
 
 <title>Check Boxes</title>
 
@@ -1547,9 +1542,9 @@ While a check box option may be applied instantaneously, changing it should not 
 Check boxes should be labeled in a way that unambiguously indicates what the effects of both their checked and unchecked states will be. Where this cannot be done, it may be better to use two radio buttons so that both states can be given labels.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-radio-buttons">
+<sect1 id="controls-radio-buttons">
 
 <title>Radio Buttons</title>
 
@@ -1557,9 +1552,9 @@ Check boxes should be labeled in a way that unambiguously indicates what the eff
 Radio buttons are used in groups to select from a mutually exclusive set of options. Only one radio button within a group may be checked at any one time. As with check boxes, radio buttons should not be used to initiate actions.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-option-menus">
+<sect1 id="controls-option-menus">
 
 <title>Option Menus</title>
 
@@ -1571,9 +1566,9 @@ Option menus are used to select from a mutually exclusive set of options. They s
 In general, radio buttons are preferable to option menus, since options menus only display the currently selected item. However, their use may be appropriate when there is little available space or where the list of options may change.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-combo-boxes">
+<sect1 id="controls-combo-boxes">
 
 <title>Combo Boxes</title>
 
@@ -1581,9 +1576,9 @@ In general, radio buttons are preferable to option menus, since options menus on
 Combo boxes combine a text entry field and a menu of predefined values. Selecting one of the pre-defined values from the menu should update the contents of the text field to that value and may also perform the action that would be performed if the user pressed the Return key in that text field.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-progress-bars">
+<sect1 id="controls-progress-bars">
 
 <title>Progress Bars</title>
 
@@ -1595,9 +1590,9 @@ Progress bars are visual indicators of the progress of a task being carried out 
 There are two types of progress bar: Determinate progress bars, which indicate what proportion of the task has been completed, and indeterminate progress bars, which indicate only that the application is working on a task. Where the length of a task is known, a determinate progress bar should be used. Otherwise, an indeterminate progress bar should be used.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="controls-status-bars">
+<sect1 id="controls-status-bars">
 
 <title>Status Bars</title>
 
@@ -1609,11 +1604,11 @@ Status bars provide a small area which can be used to display one line of text d
 Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.
 </para>
 
-</sect2>
-
 </sect1>
 
-<sect1 id="layout">
+</chapter>
+
+<chapter id="layout">
 
 <title>Layout and Appearance</title>
 
@@ -1625,7 +1620,7 @@ Status bars should only contain information which it is not critical that the us
 The layout of a GUI is important both because it communicates the relationships between elements, and because an aesthetically-pleasing interface is more pleasant to use.
 </para>
 
-<sect2 id="layout-order-relationships">
+<sect1 id="layout-order-relationships">
 
 <title>Order and Relationships</title>
 
@@ -1702,9 +1697,9 @@ Relationships between elements are usually indicated by their positions. Labels 
 	</informaltable>
       </figure>
       
-    </sect2>
+    </sect1>
 
-<sect2 id="layout-aesthetics">
+<sect1 id="layout-aesthetics">
 
 <title>Aesthetics</title>
 
@@ -1716,9 +1711,9 @@ Simply making a GUI look tidier can make it seem less intimidating. This can be 
 GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <wordasword>white space</wordasword>.
 </para>
 
-</sect2>
+</sect1>
 
-<sect2 id="layout-grouping-separators">
+<sect1 id="layout-grouping-separators">
 
 <title>Grouping and Separators</title>
 
@@ -1734,11 +1729,11 @@ There are a number of ways of visually dividing controls into groups. One method
 It is essential that the extent of option groups such as radio buttons be made clear, using these methods as appropriate.
 </para>
 
-</sect2>
+</sect1>
 
 
     <!-- Colors, Fonts and Accessibility -->
-    <sect2 id="colors-fonts">
+    <sect1 id="colors-fonts">
       <title>Fonts and Text</title>
       
       <para>To a user with normal vision, textual output provides the majority of the information and feedback in most applications.  To a visually-impaired user who may not be able to see or understand any additional graphical output, clear textual output is critical.  It is therefore essential that you choose and position text carefully on the screen, and leave the choice of fonts and sizes to the user, to ensure that all users are able to use your application effectively.</para>
@@ -1769,7 +1764,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<listitem><para>Provide alternatives to WYSIWYG. Some users may need to print text in a small font but edit in a larger screen font, for example. Possible alternatives include displaying all text in the same font and size (both of which are chosen by the user); a &quot;wrap-to-window&quot; option that allows you to read all the text in a window without scrolling horizontally; a single column view that shows the window's contents in a single column even if they will be printed in multiple columns; and a text-only view, where graphics are shown as placeholders or text descriptions.</para></listitem>
       </itemizedlist>
 
-      <sect3 id="layout-capitalization">
+      <sect2 id="layout-capitalization">
 	
 	<title>Capitalization</title>
 
@@ -1910,12 +1905,12 @@ right of small icons, and immediately above or to the left of other controls. Se
 	</table>
 
 
-      </sect3>
+      </sect2>
 
 
-    </sect2>
+    </sect1>
     
-    <sect2>
+    <sect1>
       <title>Color and Contrast</title>
 
       <para>Poor choice of colors on the screen can cause problems for users with color blindness (for whom hue is important) or low-vision (for whom brightness/contrast is important). For example, some users require a high level of contrast between the background and text colors&mdash; black on white, white on black, or some other high-contrast combination. Others can experience discomfort unless they use low contrast settings, such as gray text on a lighter gray background.</para>
@@ -1976,18 +1971,18 @@ right of small icons, and immediately above or to the left of other controls. Se
       
       </itemizedlist>
 
-    </sect2>
+    </sect1>
     
-  </sect1>
-  <sect1 id="icons">
+  </chapter>
+  <chapter id="icons">
     <title>Icons</title>
     <para> </para>
     <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. Good icons suggest to the user the sort of conceptual item they are associated with, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
     
-    <sect2 id="specifications">
+    <sect1 id="specifications">
       <title>Specifications for GNOME icons</title>
       
-      <sect3 id="toolbar_icons">
+      <sect2 id="toolbar_icons">
 	<title>Toolbar and Menu Icons</title>
 	
 	<formalpara><title>Perspective and Lighting</title><para>Toolbar and menu icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down.</para></formalpara>
@@ -2025,14 +2020,14 @@ right of small icons, and immediately above or to the left of other controls. Se
 	  </mediaobject>
 	</figure>
 	
-	<sect4 id="stock_toolbar_icons">
+	<sect3 id="stock_toolbar_icons">
 	  <title>Stock Icons</title>
 	  <para>Often, you will not have to design any toolbar icons yourself. Gtk provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
 	  <para>To browse the available stock icons, install the development packages for GTK version 1.3 or 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
-	</sect4>
-      </sect3>
+	</sect3>
+      </sect2>
 
-      <sect3 id="application_icons">
+      <sect2 id="application_icons">
 	<title>Application Icons</title>
 	<formalpara><title>Perspective and Lighting</title><para>Application icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
 	<formalpara><title>Shape</title><para>Application icons should be shaped (rather than being square or a rectangle) in order to be visually appealing, but need not adhere to particular shape specifications.</para></formalpara>
@@ -2057,16 +2052,16 @@ right of small icons, and immediately above or to the left of other controls. Se
 	    </textobject>
 	  </mediaobject>
 	</figure>
-      </sect3>
-      <sect3 id="document_icons"><title>Document Icons</title>
+      </sect2>
+      <sect2 id="document_icons"><title>Document Icons</title>
 	<formalpara><title>Perspective and Lighting</title><para>Document icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
 	<formalpara><title>Shape</title><para>Document icons have no specific shape requirements. When a document type corresponds to a specific application, one option is to use a piece of paper with the application icon on it as the document icon. A better option is to portray the type of the file directly, for example a good icon for MPEG video would be a movie reel. Also remember that document icons are likely to be used in conjunction with a variety of different themes and should not be customized to one particular theme or another.</para></formalpara>
 	<formalpara><title>Size</title><para>Document icons should preferably be made in at least three sizes 24x24, 48x48 and 96x96 pixels. 48x48 is the most commonly used in the file manager, however the other two are important in various contexts. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para></formalpara>
-      </sect3>
-    </sect2>
+      </sect2>
+    </sect1>
 
 
-    <sect2 id="design">
+    <sect1 id="design">
       <title>Designing Effective Icons</title>
       <para>
 	Icons have many uses. Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label. Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words. Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.
@@ -2075,7 +2070,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
       </para>
 
-      <sect3 id="graphic_design">
+      <sect2 id="graphic_design">
 	<title>Graphic Design</title>
 
 	<para>Blah blah, notes on graphic design of icons, blah blah, icons should be high contrast, distinct, etc etc</para>
@@ -2085,9 +2080,9 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<!-- CFB note to seth: Actually this isn't so much an accessibility note as a general "good visual design note".  In general, I'd also rather not call out 'accessibility issues' separately, as it might tempt people just to ignore them because "it doesn't affect me"... a good UI design will be inherently accessible anyway -->
 
 
-      </sect3>
+      </sect2>
 
-      <sect3 id="right_kind">
+      <sect2 id="right_kind">
 	<title>Kinds of Icons</title>
 	<para>If at all possible, a <link linkend="functionally_suggestive">functionally suggestive</link> icon should be used. Failing that a <link linkend="name_suggestive">name suggestive</link> icon can be an appropriate choice. <emphasis><link linkend="text_icons">Text icons</link> and other desperate substitutes should not be used</emphasis>.</para>
 	
@@ -2155,14 +2150,14 @@ right of small icons, and immediately above or to the left of other controls. Se
 	    </figure>
 	  </listitem>
 	</itemizedlist>
-      </sect3>
-      <sect3>
+      </sect2>
+      <sect2>
 	<title>Communicating concept with effective visual language</title>
 	<para>...</para>
-      </sect3>
+      </sect2>
       
       
-      <sect3>
+      <sect2>
 	<title>Icon Problems to Avoid</title>
 	<formalpara><title>Extraneous information</title>
 	  <para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were thrown off by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual element(s) necessary to express the purpose of the program.
@@ -2244,16 +2239,16 @@ right of small icons, and immediately above or to the left of other controls. Se
 	    </figure>
 	  </para>
 	</formalpara>
-      </sect3>
-    </sect2>
-  </sect1>
+      </sect2>
+    </sect1>
+  </chapter>
 
-<sect1 id="userinput">
+<chapter id="userinput">
 <title>User Input</title>
-  <sect2 id="mouse">
+  <sect1 id="mouse">
     <title>Mouse Interaction</title>
     
-    <sect3 id="mouse-buttons">
+    <sect2 id="mouse-buttons">
       <title>Buttons</title>
 
 	<figure> <title>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</title>
@@ -2340,11 +2335,11 @@ right of small icons, and immediately above or to the left of other controls. Se
 
       </itemizedlist>
       
-    </sect3>
+    </sect2>
 
-    <sect3 id="selection">
+    <sect2 id="selection">
       <title>Selecting Objects</title>
-      <sect4>
+      <sect3>
 	<title>Mouse and keyboard equivalents</title>
 
 	<para>For controls or windows that contain a number of objects that the
@@ -2404,9 +2399,9 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	    </tbody>
 	  </tgroup>
 	</table>
-      </sect4>
+      </sect3>
 
-      <sect4>
+      <sect3>
 	<title>Bounding Box Selection</title>
 
 	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
@@ -2447,10 +2442,10 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	  
 	</figure>
 
-      </sect4>
-    </sect3>
+      </sect3>
+    </sect2>
 
-    <sect3 id="drag-drop">
+    <sect2 id="drag-drop">
       <title>Drag and Drop</title>
 
       <para>Drag and drop is a direct manipulation technique. It allows you to perform actions on selected objects by moving them around the screen with the mouse.</para>
@@ -2540,7 +2535,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
       <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
-	<sect4>
+	<sect3>
 	  <title>Mouse Pointers to Use for Drag and Drop</title>
 	  
 	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you do have to design a new pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
@@ -2652,9 +2647,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <para>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</para>
 	  </note>
 
-	</sect4>
+	</sect3>
 	
-	<sect4>
+	<sect3>
 	  <title>Mouse Interaction with Applets</title>
 	  <para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
 	  <itemizedlist>
@@ -2665,15 +2660,15 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
 	  </itemizedlist>
 	  
-	</sect4>
+	</sect3>
 	
-      </sect3>
-    </sect2>
+      </sect2>
+    </sect1>
     
     
-    <sect2 id="keyboard">
+    <sect1 id="keyboard">
       <title>Keyboard Interaction</title>
-      <sect3 id="keyboard-navigation">
+      <sect2 id="keyboard-navigation">
 	<title>Keyboard Navigation</title>
 	
 	<para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power-users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
@@ -2732,7 +2727,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	
 	<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
 	
-      <sect3 id="keynav-examples">
+      <sect2 id="keynav-examples">
       <title>Keyboard Navigation Examples</title>
 	
       <para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
@@ -2863,11 +2858,11 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</tgroup>
 	</informaltable>
 	</example>
-      </sect3>
+      </sect2>
 
 -->
 
-      <sect4>
+      <sect3>
 	<title>Choosing Access Keys</title>
 
 	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
@@ -2898,9 +2893,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
 	
-      </sect4>
+      </sect3>
       
-      <sect4 id="shortcuts">
+      <sect3 id="shortcuts">
 	<title>Choosing Shortcut Keys</title>
 
 	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
@@ -3203,9 +3198,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <para>Greg suggested Ctrl+H for Search Help... this doesn't seem to me to be an important enough function to tie up Ctrl+H with, though, anyone got any other views/alternative suggestions?</para>
 	</note>
 	  
-      </sect4>
+      </sect3>
 
-      <sect4>
+      <sect3>
 	<title>Standard Widget Navigation Shortcut Keys</title>
 	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
 
@@ -3267,9 +3262,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 	     
-      </sect4>
+      </sect3>
       
-      <sect4>
+      <sect3>
 	<title>Additional Widget Navigation Shortcut Keys</title>
 
 	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
@@ -3336,32 +3331,32 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 	
-      </sect4>
+      </sect3>
 
-    </sect3>
+    </sect2>
 
 
-  </sect2>
   </sect1>
+  </chapter>
 <!-- disabled for the draft, we can re-enable when content gets written -seth
-  <sect1 id="language">
+  <chapter id="language">
     <title>Language</title>
     <para>FIXME</para>
-  </sect1>
+  </chapter>
 -->
 <!-- we can change the title as soon as the content is written
      I want the document to be as usable and correct as possible
      this week -seth
 
-  <sect1 id="checklists">
+  <chapter id="checklists">
     <title>Checklists</title>
 -->
 
-  <sect1 id="reality-checks">
+  <chapter id="reality-checks">
     <title>Checklists</title>
-    <sect2>
+    <sect1>
       <title>Things You Can Do Yourself</title>
-      <sect3>
+      <sect2>
 	<title>Before You Start</title>
 
 	<para>Write down the type of people you expect to use your application.  Then write some &quot;scenarios&quot; for each type of user&mdash; a little story that describes the typical tasks those users will use your application for.  These tasks should be along the lines of:</para>
@@ -3375,9 +3370,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<para>This way, you can use the same scenarios to test and compare different GUI designs, and to spot any missing functionality.</para>
 
 	<para>Include these user descriptions and scenarios with the documentation you commit to CVS.  This way, other contributors will get to understand your users too, can help to develop the application with that knowledge, and can provide more scenarios of their own.</para>
-      </sect3>
+      </sect2>
       
-      <sect3>
+      <sect2>
 	<title> Keyboard Access and Focus</title>
 
 	<para>When you have started implementing your GUI, hide your mouse, and make sure you can still use it to do everything using only the keyboard. Implement keyboard functionality at the same time as mouse functionality&mdash; don't leave it until the end.</para>
@@ -3399,26 +3394,26 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>Verify that when moving among objects, the visual focus indicator is easy to identify at all times.</para></listitem>
 	</itemizedlist>
 	
-      </sect3>
+      </sect2>
       
-      <sect3>
+      <sect2>
 	<title>Theming, Colors and Contrast</title>
 
 	<para>Test various GNOME themes to ensure that your application respects all the available settings.</para>
 
 	<para>Test your application with black and white, high contrast themes and confirm that all information is still conveyed correctly.  If you don't have a suitable high contrast GNOME theme available to test, print off some screenshots in black and white (not greyscale) and make sure all the important information is still visible&mdash; this will approximate what a high contrast theme user will see.</para>
-      </sect3>
+      </sect2>
 
-      <sect3>
+      <sect2>
 	<title>Animation</title>
 
 	<para>Ensure you have implemented an option to turn off any animation in your application (for accessibility reasons), and that it is working as designed.  Turn the animation off. Confirm that all information is still conveyed correctly.</para>
-      </sect3>
-    </sect2>
+      </sect2>
+    </sect1>
     
-    <sect2>
+    <sect1>
       <title>Things You Can Do With Other People</title>
-      <sect3>
+      <sect2>
 	<title>Get Early Feedback</title>
 	
 	<para>It's always tempting, but don't start coding your GUI straight away.  Sketch out some ideas on paper first, or in Glade or HTML if you prefer.  (But don't be tempted add any functionality at this point if you do it this way!)</para>
@@ -3428,24 +3423,24 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<para>You should also consider seeking opinions from the <ulink url="http://developer.gnome.org/projects/gup/">GNOME Usability team</ulink>.  They have designed many user interfaces before and may be able to spot potential problems at this early stage, before you take your design too far to change easily.</para>
 
 	<para>Once you've decided on the basic GUI design and have started coding parts of it, find somebody to try it out again&mdash; it doesn't have to be the same person.  You'll probably find some more problems that were hard to see on your static paper prototype.  By finding these now, it's usually not too late to fix them without too much trouble.</para>
-      </sect3>
+      </sect2>
       
       
-      <sect3>
+      <sect2>
 	<title>Internationalization and Localization</title>
 
 	<para>If you intend your application to be translated into different languages, show draft designs of your application to the <ulink url="http://developer.gnome.org/projects/gtp/contact.html">GNOME Translation Team</ulink>.  They'll help you find potential translation problems, such as not leaving enough space for translated labels, shortcut keys that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
 
 	<para>If possible, try out your application with users from the locales you are targeting.  This will help you determine whether users understand how to use the application, if they perceive the graphics and colors the way you intended, and if there are words or images in the application that may cause offence to users of that locale. </para>
-      </sect3>
+      </sect2>
 
-    </sect2>
-  </sect1>
+    </sect1>
+  </chapter>
 
-  <sect1 id="credit">
+  <chapter id="credit">
     <title>Credit</title>
 
-    <sect2 id="authors">
+    <sect1 id="authors">
       <title>Authors</title>
       <!-- FIXME: need e-mail addresses -->
       <para>
@@ -3458,9 +3453,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>Maciej Stachowiak</para></listitem>
 	</itemizedlist>
       </para>
-    </sect2>
+    </sect1>
 
-    <sect2>
+    <sect1>
       <title>Reviewers & Contributors</title>
 
       <para>
@@ -3484,6 +3479,6 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <author><firstname>colin</firstname><othername role="mi">z</othername><surname>robertson</surname><affiliation><address><email>czr@rtnl.org.uk</email></address></affiliation></author>
 </authorgroup>
 -->
-</sect2>
 </sect1>
-</article>
+</chapter>
+</book>
