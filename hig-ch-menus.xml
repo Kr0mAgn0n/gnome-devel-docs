@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
   <chapter id="menus">
     <title>Menus</title>
 
-<!-- TODO:
-- Tear-off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)
-- Menu bar position
-- Menu bar hiding
--->
-    <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, placing common menu items in the same menus as they appear in other applications makes it much easier for the user to learn.</para>
-  
-    <para>In most applications, only primary windows should have a menu bar.  Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
+<remark> Tear-off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)</remark>
+<remark> Menu bar position </remark>
+<remark> Menu bar hiding </remark>
 
-    <para>Occasionally, however, a secondary window is so complex that there would be too many controls.  In these cases you may use a menubar provided that:</para>
+    <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, placing common menu items in the same locations as they appear in other applications makes it much easier for the user to learn.</para>
+  
+    <para>In most applications, only primary windows should have a menu bar. Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
+
+    <para>Occasionally, however, a secondary window is so complex that there would be too many controls. In these cases you may use a menubar provided that:</para>
 
     <itemizedlist>
       <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
@@ -29,11 +28,11 @@
       <listitem><para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para></listitem>
 
 
-    <listitem><para>Provide an access key for each menu item. Note that unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
+    <listitem><para>Provide an access key for each menu item. Note that unlike other controls, once a menu is displayed, its access keys may be used by just typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
 
       <listitem><para>Design your menu structure to avoid more than one level of submenus.  Deep menu hierarchies are physically difficult to navigate, which has accessibility implications.  They are also harder to memorize.</para></listitem>
 
-      <listitem><para>Limit top level menus to a maximum of about 20 items.  If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
+      <listitem><para>Limit top level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
       <listitem><para>Do not add or remove menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menu bar at runtime, however, for example in component-based applications.</para></listitem>
 
@@ -45,18 +44,14 @@
     </itemizedlist>
 
     <sect1 id="menu-controlsparts">
-      <title>Menu Controls</title>
-      <remark>FIXME</remark>
+      <title>Controls Related to Menus</title>
       <sect2 id="menu-types">
-	<title>Menu Types</title>
+	<title>Types of Menu</title>
 	<sect3 id="menu-type-menubar">
 	  <title>The Menu Bar</title>
-	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
+	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application. Applications should not provide a mechanism for hiding the menubar, as this could be activated accidentally and would result in the application being "broken" for some users.</para>
 	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu in a menubar.</para>
 
-	  <remark>
-	    We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink>
-	  </remark>
 	</sect3>
 	<sect3 id="menu-type-drop-down">
 	  <title>Drop-down Menus</title>
@@ -140,7 +135,7 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 
 	<sect3 id="menu-item-type-command">
 	  <title>Command Items</title>
-	  <para>Command items . . .</para>
+	  <para>Command items are menu items that initiate a command or perform an action. They can act on the currently active document in a document based application, or on the application itself.</para>
 	  <para>Provide a keyboard shortcut for standard or frequently used command items.</para>
 	  <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
 	  <para>See <xref linkend="shortcuts"/> for more information.</para>
@@ -163,27 +158,22 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 	  <para>A mutable command item changes its label when selected.  For example, <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> in a browser may change to <guimenuitem>Stop</guimenuitem> to allow the user to interrupt the operation if it is taking a long time.</para>
 
 	  <para>Mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a new or different function has become available.  It is therefore often better to provide separate menu items for the available functions and make them available or unavailable as the situation demands.</para>
-
-	  <note><title>Mutable items for settings</title>
-	    <para>What's our position on mutable items for settings, e.g. Show Toolbar/Hide Toolbar in Nautilus?</para>
-	  </note>
-
+	<para>Where mutable menu items affect a two-state setting they should be presented as a checkbox item instead. For example, items such as <guimenuitem>Show Toolbar</guimenuitem> (which changes to <guimenuitem>Hide Toolbar</guimenuitem> when the Toolbar is visible) should instead be presented as a checkbox menu item titled <guimenuitem>Toolbar</guimenuitem>.</para>
 	</sect3>
 	<sect3 id="menu-item-type-check">
 	  <title>Checkbox Items</title>
 
 	  <para>A checkbox menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
 	  
-	  <para>Use a checkbox menu item only when it is obvious from the label what the two states are.  For example, it is reasonably obvious that <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> checkbox menu item will toggle the visibility of the application's toolbar on or off.  However, <menuchoice><guimenu>View</guimenu><guimenuitem>View as Icons</guimenuitem></menuchoice> would be a bad setting to control with a checkbox menu item, since it is not clear what type of view would be used if you unchecked the menu item.  Using two radio button menu items would be more appropriate in this case, to make the two choices explicit.</para>
+	  <para>Use a checkbox menu item only when it is obvious from the label what the two states are, for example if the two states are not natural opposites.  For example, it is reasonably obvious that <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> checkbox menu item will toggle the visibility of the application's toolbar on or off.  However, <menuchoice><guimenu>View</guimenu><guimenuitem>View as Icons</guimenuitem></menuchoice> would be a bad setting to control with a checkbox menu item, since it is not clear what type of view would be used if you unchecked the menu item.  Using two radio button menu items would be more appropriate in this case, to make the two choices explicit.</para>
 
 	  <para>Never change the label of a checkbox menu item in response to the user checking or unchecking the item.</para>
-
 	</sect3>
 	<sect3 id="menu-item-type-radio">
 	  <title>Radio Button Items</title>
 
 
-	<!--
+	<remark>
 	Adam notes that this whole section can be a significant source of
 	nastiness in a UI. We need explicit recommendations here on how to
 	represent different states of a toggled menu item via icons in the UI.
@@ -195,12 +185,7 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 	* Ambiguous names for checkbox/toggle menu items which make it
 	  difficult to establish the current system state by looking at
 	  the menu.
-
-	Calum notes further that we should give recommendations on when to use 
-	two separate mutually-exclusive items rather than one with a checkbox 
-	(or a dynamic menu name). This is generally important when the two 
-	states are not naturally opposites.
-	-->
+	</remark>
 
 	  <para>Radio button menu items show which of two or more mutually-exclusive settings are currently selected, and allows the user to choose a different setting by selecting its menu item.</para>
 
@@ -245,7 +230,9 @@ CFB: Making this note a comment... actually all I really suggested was that the 
       </figure>
       <sect2 id="the-file-menu">
 	<title>File</title>
-        <remark>FIXME</remark>
+        <remark>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</remark>
+        <para>The File menu was originally conceived of as the location for commands that operate on the current document. It is the left most item in the menu bar in recognition of its importance and frequency of use (particularly for opening and saving), and because it is a relevant menu in a great number of applications (essentially all those that operate upon documents). Because most applications already had this menu, and because the distinction between closing documents and closing windows became blurred, the File menu also became the defacto location for <guimenuitem>Quit</guimenuitem>.</para>
+        <para>If an application does not operate upon documents it may choose to locate the <guimenuitem>Quit</guimenuitem> menu item in a substitute menu with a more appropriate name (for example, many games should use <guimenu>Game</guimenu> instead of <guimenu>File</guimenu>). However, this menu shold also be left-most in the menubar. The <guimenuitem>Quit</guimenuitem> menu item should always be located at the bottom of the left most menu.</para>
 	<figure id="generic-file-menu"><title>A generic File menu</title>
 	  <mediaobject>
 	    <imageobject>
@@ -278,13 +265,13 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 	</figure>
 	<sect3>
 	  <title>Creation and Opening Operations</title>
-<note><para>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
-menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</para><para>For non-game UI there would be at the very least, Open as ... and Open Settings.</para></note>
+<remark><para>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
+menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</para><para>For non-game UI there would be at the very least, Open as ... and Open Settings.</para></remark>
 	  <variablelist>
 	    <varlistentry>
 	      <term>New</term>
 	      <listitem>
-		<para>Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <!-- FIXME: titling of new documents --></para>
+		<para>Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <remark>FIXME: titling of new documents</remark>></para>
 
 		<para>Where the application may create a number of different types of document, the <guimenuitem><accel>N</accel>ew</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <guimenuitem>New <replaceable>document type</replaceable></guimenuitem> and the most commonly used item should be the first entry in the submenu and should be given the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.</para>
 		<para>A blank document will not necessarily be truly blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates --></para>
@@ -294,20 +281,22 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      <term>Open</term>
 	      <listitem>
 		<para>Opens an existing document in a new window. The user should be presented with a standard file open dialog <!-- Ref this elsewhere --> from which they may choose an existing file. If the user's choice is already open in the application then it should request that the window containing that file be raised. <!-- If the current window contains a blank untitled document then it should be replaced with the selected file. Otherwise the file should be opened in a new window. --></para>
-		<note>
+		<remark>>
 		  <para>If the application would provide more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</para>
 		  <para>Problem to be solved. It may be desireable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</para>
 		  <para>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</para>
-		</note>
+		</remark>
 	      </listitem>
 	    </varlistentry>
-	    <varlistentry>
-	      <term>Recent Files</term>
-	      <listitem>
-		<para>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.</para>
-		<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
-	      </listitem>
-	    </varlistentry>
+	  <!-- I think this is totally broken, I'm moving back to having recent files on the main menu itself. -Seth
+	<varlistentry>
+	<term>Recent Files</term>
+	<listitem>
+	<para>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.</para>
+	<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
+	</listitem>
+	</varlistentry>
+	  -->
 	  </variablelist>
 	</sect3>
 	<sect3>
@@ -331,12 +320,11 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term>Save Copy</term>
+	      <term>Save A Copy</term>
 	      <listitem>
-		<para>The <guimenuitem>Save Copy</guimenuitem> command prompts the user to enter a filename, with which a copy of the document is then saved.  Neither the view nor the filename of the original document is altered.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command).</para>
+		<para>The <guimenuitem>Save A Copy</guimenuitem> command prompts the user to enter a filename, with which a copy of the document is then saved.  Neither the view nor the filename of the original document is altered.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command).</para>
 
 		<para> Like the <guimenuitem>Save As</guimenuitem> dialog, the <guimenuitem>Save Copy</guimenuitem> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</para>
-		  <remark>Should this be "Save Copy As..."?</remark>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
