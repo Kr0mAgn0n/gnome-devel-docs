@@ -1672,8 +1672,8 @@ Relationships between elements are usually indicated by their positions. Labels 
       
 <!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
 
-      <figure>
-	<title>Correct placement of labels for various GUI elements</title>
+      <figure id="label-placement-example">
+	<title>Correct label placement for various GUI elements</title>
 	<informaltable frame="all">
 	  <tgroup cols="3" align="center">
 	    <tbody>
@@ -1784,7 +1784,7 @@ It is essential that the extent of option groups such as radio buttons be made c
 	<listitem><para>Don't use graphical backdrops or &quot;watermarks&quot; behind text, other than those specified by the user's chosen theme. Such images interfere with the contrast between the text and its background.  This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain backdrops.</para></listitem>
 	
 	<listitem><para>Position labels consistently throughout your application. This normally means immediately below large icons, immediately to the
-right of small icons, and immediately above or to the left of other controls. See Fonts and Text Examples.</para></listitem>
+right of small icons, and immediately above or to the left of other controls. See <link linkend="label-placement-example">label positioning example</link>.</para></listitem>
 
 	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the access key (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
 	
@@ -1951,7 +1951,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 
       <para>It is therefore vital that you allow the user to customize the colors in any part of your application that conveys important information.  Normally, this means you should only use colors that are part of the user's chosen theme.  If you have to use any extra colors, they must be customizable in your application's <guilabel>Preferences</guilabel> dialog.</para>
       
-      <figure> <title>Example illustrating redundant use of color</title>
+      <figure id="redundant-color-example"> <title>Example illustrating redundant use of color</title>
 	<informaltable frame='all'>
 	  <tgroup cols='2'>
 	    <tbody>
@@ -1967,7 +1967,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 		</mediaobject>
 		</entry>
 		
-		<entry>This display could cause problems for a red-green colorblind user (which affects as many as 1 in 10 males in some parts of the world).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
+		<entry>This display could cause problems for a red-green colorblind user (colorblindness affects as many as 1 in 7 males in some parts of the world).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
 	      </row>
 	      
 	      <row>
@@ -1998,9 +1998,9 @@ right of small icons, and immediately above or to the left of other controls. Se
 
 	<listitem><para>Ensure your application is not dependent on a particular theme. Test it with different themes (including high contrast accessibility themes, which use fewer colors) to ensure your application respects the settings.</para></listitem>
 
-	<listitem><para>Don't use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See Color and Contrast Examples.</para></listitem>
+	<listitem><para>Don't use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See <link linkend="redundant-color-example">color and contrast example</link> above.</para></listitem>
 
-      <listitem><para>Support all the high contrast GNOME themes (when we have some!). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colors specified by the theme.</para></listitem>
+      <listitem><para>Support high contrast GNOME themes (when these become available). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colors specified by the theme.</para></listitem>
 
       
       </itemizedlist>
@@ -2305,20 +2305,49 @@ right of small icons, and immediately above or to the left of other controls. Se
 
       <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <mousebutton>middle button</mousebutton>, but you may sometimes see this referred to in code or documentation as &quot;Button 2&quot; or the &quot;Transfer Button&quot;.</para>
 
-      <para>Recommendations:</para>
-      <itemizedlist>
-	 
-	<listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
+	<para>Recommendations:</para>
+	<itemizedlist>
+	  
+	  <listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
+	  
+	  <listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
+	  
+	  <listitem><para>The middle mouse button should be used to paste the PRIMARY (i.e. highlighted) selection at the pointer position, as follows:</para>
+	    
+	    <table frame='all'>
+	      <title>Effect of modifier keys on a <mousebutton>middle button</mousebutton> transfer operation</title>
+	      <tgroup cols='2' align='left'>
+		<thead>
+		  <row>
+		    <entry>Modifier</entry>
+		    <entry>Function</entry>
+		  </row>
+		</thead>
+		<tbody>
+		  <row>
+		    <entry>Unmodified</entry>
+		    <entry>Copy selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycap>Ctrl</keycap></entry>
+		    <entry>Copy selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycap>Shift</keycap></entry>
+		    <entry>Move selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo></entry>
+		    <entry>Create link, shortcut or alias to selection</entry>
+		</row>
 
-	<listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
-<!-- Note from GJM: Calum, I'm not sure what you mean here and don't forget to close your tags. I think this needs to be done as:
-	<keycombo action="click"><keycap>Shift</keycap><mousebutton>middle</mousebutton></keycombo>
-     rather than marking as <keycap>click</keycap>, which is misuse of the tags.
-     (When you close your tags, I don't see errors and so don't take the opportunity to be pedantic. ;-)
- -->
-	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  <keycombo><keycap>Ctrl</keycap><keycap>click</keycap></keycombo> (or unmodified click) should perform a copy, <keycombo><keycap>Shift</keycap><keycap>click</keycap></keycombo> should perform a move, and <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>click</keycap></keycombo> should insert a link to the primary selection, where supported.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
+		</tbody>
+	      </tgroup>
+	    </table>
 
-	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><keycap>scrollwheel</keycap></keycombo> <emphasis>(or <keycombo><keycap>Ctrl</keycap><keycap>scrollwheel</keycap></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
+	<para>Don't over-ride this functionality in any part of your user interface where the transfer action is likely to be useful.  If you do intend to use the middle button for a different purpose somewhere, only do so as a shortcut for experienced users, and only for operations that can also be performed without using the <mousebutton>right button</mousebutton> or <mousebutton>middle button</mousebutton>.</para></listitem>
+
+	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><mousebutton>scrollwheel</mousebutton></keycombo> <emphasis>(or perhaps <keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel</mousebutton></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
 
 	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
@@ -2519,15 +2548,15 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </thead>
 	    <tbody>
 	    <row>
-	      <entry>Ctrl</entry>
+	      <entry><keycap>Ctrl</keycap></entry>
 	      <entry>Copy</entry>
 	    </row>
 	    <row>
-	      <entry>Shift</entry>
+	      <entry><keycap>Shift</keycap></entry>
 	      <entry>Move</entry>
 	    </row>
 	    <row>
-	      <entry>Shift+Ctrl</entry>
+	      <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo></entry>
 	      <entry>Create link, shortcut or alias</entry>
 	    </row>
 	  </tbody>
@@ -3425,9 +3454,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	<para>Show these prototypes to other people&mdash; the GNOME mailing lists and IRC are ideal for finding likely candidates.  Ask them to use these prototype GUIs to run through some of the scenarios you came up with earlier.  You'll probably get questions like "how would I do X", "which menu is Y on"... these questions will help you think about the GUI from the user's viewpoint.  You'll probably also get a few suggestions about how to do things differently&mdash; these ideas may or may not turn out to better than yours, but any idea from a potential user is worth considering!</para>
 
-	<para>You should also consider seeking opinions from the <ulink url="http://developer.gnome.org/projects/gup/">GNOME Usability team</ulink>.  They have designed many user interfaces before and may be able to spot potential problems at this early stage, before you take your design too far to change things easily.</para>
+	<para>You should also consider seeking opinions from the <ulink url="http://developer.gnome.org/projects/gup/">GNOME Usability team</ulink>.  They have designed many user interfaces before and may be able to spot potential problems at this early stage, before you take your design too far to change easily.</para>
 
-	<para>Once you've decided on the basic GUI design and have started coding parts of it, find somebody to try it out again&mdash; it doesn't have to be the same person.  You'll probably find some usability problems that were hard to spot on your paper prototype.  By finding them now, it's usually not too late to fix them quite easily.</para>
+	<para>Once you've decided on the basic GUI design and have started coding parts of it, find somebody to try it out again&mdash; it doesn't have to be the same person.  You'll probably find some more problems that were hard to see on your static paper prototype.  By finding these now, it's usually not too late to fix them without too much trouble.</para>
       </sect3>
       
       
