@@ -166,20 +166,14 @@
     </table>
     <para>(* denotes the primary size for this kind of icon)</para>
 
-    <sect2 id="object_icons">
-      <title>Object Icons</title>
-      <formalpara><title>Perspective and Lighting</title><para>Document icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
-      <formalpara><title>Shape</title><para>Document icons have no specific shape requirements. </para></formalpara>
-      <formalpara><title>Size</title><para>Document icons should preferably be made in at least three sizes 24x24, 48x48 and 96x96 pixels. 48x48 is the most commonly used in the file manager, however the other two are important in various contexts. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para></formalpara>
-      <sect3 id="document_icons">
-	<title>Document Icons</title>
-	<para>If possible, document icons should convey the type of the file using a physical object. For example a good icon for MPEG video would be a movie reel. Failing the existence of an appropriate object, when a document type corresponds to a specific application, another option is to use a piece of paper with the corresponding application's icon overlayed it as the document icon. This may be appropriate for a document type such as an application's settings files.</para>
-	<itemizedlist>
-	  <listitem><para>Do <emphasis>not</emphasis> display a piece of paper behind a document icon unless the document type has a use correspondence with physical paper (or a suitable object was not found and you are using the application icon). For example, the final state of most word processing documents is a piece of paper, so it is appropriate to use a piece of paper in the icon. On the other hand, a movie on the computer has little association with a piece of paper, so a piece of paper behind the movie reel primarily introduces <link linkend="icon_problems_extraneous_information">visual noise</link>. The use of a piece of paper in most or all document types creates an additional problem: it is harder to scan large numbers of icons because they do not possess distinct outlines. A useful technique for creating a subtle difference between document types with similar roles (for example, between image types or movie types) is to use different colours. Expert users who need to make this distinction frequently will become accustomed to these differences.</para></listitem>
-	  <listitem><para>Do <emphasis>not</emphasis> include a file extension corresponding to the document type in the icon. The document icon's job is not to convey such precise information but to allow for rapid visual distinction between documents. Additionally, this text will not be displayed in the user's preferred font and size. Because many document types are associated with multiple file extensions, a file extension embedded in the icon will also frequently be wrong. In a context where such information as the file extension is actually useful, the application should composite the information onto the icon at runtime (thereby using the correct font and size, as well as getting the extension right).</para></listitem>
-	  <listitem><para>Do <emphasis>not</emphasis> customize document icons to a particular Nautilus theme. Document icons are likely to be used in conjunction with a variety of different icon themes, and should work well with all of them.</para></listitem>
-	</itemizedlist>
-      </sect3>
+    <sect2 id="document_icons">
+      <title>Document Icons</title>
+      <para>If possible, document icons should convey the type of the file using a physical object. For example a good icon for MPEG video would be a movie reel. Failing the existence of an appropriate object, when a document type corresponds to a specific application, another option is to use a piece of paper with the corresponding application's icon overlayed it as the document icon. This may be appropriate for a document type such as an application's settings files.</para>
+      <itemizedlist>
+	<listitem><para>Do <emphasis>not</emphasis> display a piece of paper behind a document icon unless the document type has a use correspondence with physical paper (or a suitable object was not found and you are using the application icon). For example, the final state of most word processing documents is a piece of paper, so it is appropriate to use a piece of paper in the icon. On the other hand, a movie on the computer has little association with a piece of paper, so a piece of paper behind the movie reel primarily introduces <link linkend="icon_problems_extraneous_information">visual noise</link>. The use of a piece of paper in most or all document types creates an additional problem: it is harder to scan large numbers of icons because they do not possess distinct outlines. A useful technique for creating a subtle difference between document types with similar roles (for example, between image types or movie types) is to use different colours. Expert users who need to make this distinction frequently will become accustomed to these differences.</para></listitem>
+	<listitem><para>Do <emphasis>not</emphasis> include a file extension corresponding to the document type in the icon. The document icon's job is not to convey such precise information but to allow for rapid visual distinction between documents. Additionally, this text will not be displayed in the user's preferred font and size. Because many document types are associated with multiple file extensions, a file extension embedded in the icon will also frequently be wrong. In a context where such information as the file extension is actually useful, the application should composite the information onto the icon at runtime (thereby using the correct font and size, as well as getting the extension right).</para></listitem>
+	<listitem><para>Do <emphasis>not</emphasis> customize document icons to a particular Nautilus theme. Document icons are likely to be used in conjunction with a variety of different icon themes, and should work well with all of them.</para></listitem>
+      </itemizedlist>
     </sect2>
 
     <sect2 id="application_icons">
@@ -202,7 +196,6 @@
       </sect3>
     </sect2>
   </sect1>
-
 
   <sect1 id="icon_design">
     <title>Designing Effective Icons</title>
