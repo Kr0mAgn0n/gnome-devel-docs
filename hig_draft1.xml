@@ -1,7 +1,10 @@
 <?xml version='1.0' standalone='no'?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "docbook/dtd/xml/4.1.2/docbookx.dtd">
 <article id="index" status="draft">
-  
+<!-- Note from GJM: I'd like to start cutting out the sections that presently are in comments.
+  If I don't see any negative feedback on this after the next person's changelog entry I'll go ahead and do it.
+  We can always revert in CVS.
+-->
 <articleinfo>
 
     <authorgroup>
@@ -40,6 +43,7 @@
 </legalnotice>
 
 <!-- FIXME: Someone think of a better title. HI Handbook, perhaps? -->
+<!-- seems done -->
 <title>GNOME 2.0 Human Interface Guidelines (draft)</title>
 
 </articleinfo>
@@ -191,6 +195,198 @@
 
   </sect1>
 
+<sect1 id="desktop">
+<title>Desktop</title>
+<para>FIXME</para>
+  <sect2 id="desktop-integration">
+    
+    <title>Integrating Applications with the Desktop</title>
+    <para>There are two elements to basic integration with the user environment of the GNOME Desktop. First, applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it. Secondly, your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit. This is an important first step in evolving a document centered interface.</para>
+    <sect3 id="menuentries">
+      <title>Placing Entries in the Panel Menu</title>
+
+      <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
+      <para>The panel menu is arranged into a set of broad categories. An application should place an entry in just one of these categories, unless it is a an application-suite such as Evolution or OpenOffice, in which case it should place an entry for each sub-application in the appropriate category(s). Creation of new categories should be done cautiously to avoid a potentially overwhelming proliferation of menu items, and should be discussed with the community first. Just remember that users would probably rather have a simple menu system than to have your one application in a precisely defined category. The temptation to over-estimate the importance of your application to users can easily lead to the justification of a new category, so be careful to prioritize user preferences over productisation.</para>
+      <para>Menu categories are:
+	<itemizedlist>
+	  <listitem><para>Internet</para></listitem>
+	  <listitem><para>Multimedia</para></listitem>
+	  <listitem><para>Office</para></listitem>
+	  <listitem><para>Graphics</para></listitem>
+	  <listitem><para>Utilities</para></listitem>
+	  <listitem><para>Development Tools</para></listitem>
+	  <listitem><para>Games</para></listitem>
+	  <listitem><para>System</para></listitem>
+	</itemizedlist>
+        <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
+      </para>
+      <sect4 id="menu-entry-captions">
+        <title>Menu Entry Captions</title>
+	<para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION TYPE (APPLICATION NAME)</emphasis>. Rather than focusing on branding the menu system tries to encourage listing based on functionality. Users are more likely to be able to discover your application when they need it if it is listed by functionality rather than by name. This is particularly important on systems where numerous applications are installed by default, so the user is less aware of the mapping between names and functionality. Try to think of what information users will have when they look for your application when choosing a general class, and try to copy similar applications if they have already chosen a general class.</para>
+	<para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
+<note><para><emphasis>WE SHOULD PROBABLY INCLUDE AN APPENDIX (OR AT LEAST A LONG INLINE LIST) OF A BUNCH OF GENERAL CLASSES. EVERY GOOD NAME FOR A GENERAL CLASS WE THINK OF NOW IS A BAD NAME AVOIDED IN THE FUTURE</emphasis></para></note>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>A caption for Nautilus</title>
+	      <para>File Manager (Nautilus)</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for the GIMP</title>
+	      <para>Image Editor (GIMP)</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for GnomeMines</title>
+	      <para>Minesweeper (GnomeMines)</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for Evolution's mail component</title>
+	      <para>Email (Evolution)</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for Evolution's calendar component</title>
+	      <para>Calendar (Evolution)</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+	
+	<para>If no appropriate general class exists, applications may reasonably follow the format <emphasis>APPLICATION NAME</emphasis>. It is important to apply common sense in choosing which format to use. While it is generally preferable to list a general class, do not try to force a class where the information is not useful to the user. For example, listing all the entries in the Games section as <emphasis>Game (GAME NAME)</emphasis> would be awkward and redundant since the category they are contained in is already labled Games.</para>
+	<tip>
+	  <para>If you can think of another application that could be viewed as a competitor to your application (if not in number of features or quality at least in general area of use), your application probably belongs to some general class and should use the first format.</para>
+	</tip>
+	
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>A caption for AisleRiot</title>
+	      <para>Aisle Riot</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for Time Tracking Tool</title>
+	      <para>Time Tracking Tool</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+	<para>If possible, it is better to remove explicit mention of GNOME or X-Windows or other platform details from menu entry captions. The user probably already knows what platform they are using, and if they don't, application names aren't the right place to inform them. Menu captions exist to assist users in finding the correct application to accomplish their tasks and should not burden them with technical details. Other technical details should also be avoided when the user does not need to know them or can infer them from context. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the caption for the client. Try not to clutter titles with unnecessary information, but be sure to retain enough information that similar applications are distinct from eachother.</para>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>A caption for Same Gnome</title>
+	      <para>Same Game</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for GNOME VideoLAN Client</title>
+	      <para>Movie Player (VideoLAN)</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+      </sect4>
+      <sect4 id="menu-entry-tooltips">
+	<title>Menu Entry Tooltips</title>
+	<para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>A tooltip for Character Map</title>
+	      <para>Insert special characters into documents</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A tooltip for Memprof</title>
+	      <para>Check your application for memory leaks</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A tooltip for Same Gnome</title>
+	      <para>Arrange long chains of similarly colored balls and eliminate them</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A tooltip for Gnome Batalla Naval Client</title>
+	      <para>Find and sink enemy ships in this networked rendition of Battleship</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+      </sect4>
+    </sect3>
+
+    <sect3 id="mimedatabase">
+      <title>Providing a Connection between Documents &amp; Applications</title>
+
+      <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+      <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
+      <para>To provide a connection to document types an application should:
+	<itemizedlist>
+	  <listitem><para>Install a <filename>.applications</filename> file in <filename>$PREFIX/share/application-registry</filename> describing the abilities of your application.</para>
+	    <example>
+	      <title>A mozilla.applications file for Mozilla</title>
+	      <programlisting>
+mozilla
+        command=mozilla
+        name=Mozilla
+        can_open_multiple_files=true
+        expects_uris=true
+        requires_terminal=false
+        supported_uri_schemes=file,http,ftp,telnet,gopher
+        mime_types=text/html,text/mathml,x-directory/webdav,x-directory/webdav-prefer-directory,image/gif,image/jpeg,text/xml,text/*
+	      </programlisting>
+	    </example>
+	  </listitem>
+	  <listitem><para>Install a <filename>.mime</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you can handle.</para>
+	    <example>
+	      <title>Part of a mozilla.mime file for Mozilla</title>
+	      <programlisting>
+text/html
+        ext: html htm HTML
+text/xml
+        ext: xml
+image/jpeg
+        ext: jpe jpeg jpg
+	      </programlisting>
+	      </example>
+	  </listitem>
+	  <listitem><para>Install a <filename>.keys</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you handle in greater detail (optional). Also install a default icon for any new filetypes you add.</para>
+	    <example>
+	      <title>One entry in a mozilla.keys file for Mozilla</title>
+	      <programlisting>
+text/mathml
+        description=MathML document
+           ...
+        [es]description=documento de MathML
+	   ...
+	icon_filename=mathml.png
+	default_action_type=application
+	short_list_application_ids_for_novice_user_level=mozilla
+	short_list_application_ids_for_intermediate_user_level=mozilla
+	short_list_application_ids_for_advanced_user_level=mozilla
+	      </programlisting>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+      </para>
+    </sect3>
+  </sect2>
+</sect1>
+
+<sect1 id="windows">
+<title>Windows</title>
+<para>FIXME</para>
+</sect1>
 
 <sect1 id="menus">
     <title>Menus</title>
@@ -699,7 +895,7 @@ Brings up a Replace dialog.
 <para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
 <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para> 
 </note>
-	  
+
 </sect4>
 
 <sect4>
@@ -812,10 +1008,14 @@ Brings up the About dialog for the application. The dialog should contain the na
 </sect1>
  
     <!-- Toolbars (subsection of menus+toolbars) -->
+<!-- Realigning this section. Toolbars are top-level and Palettes (a.k.a. Toolboxes or Utility Windows) fall below. -->
+<!--
 <sect1 id ="toolbars-palettes">
     <title>Toolbars and Palettes</title>
     
     <sect2 id="toolbars">
+-->
+<sect1 id="toolbars">
       <title>Toolbars</title>
       
       <para>A toolbar is a strip of controls that allows convenient access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
@@ -870,15 +1070,19 @@ Brings up the About dialog for the application. The dialog should contain the na
 	</mediaobject>
 
       </figure>
-
+<!-- Notes from GJM:
+      Text-on-the-side toolbars are now part of Gtk+.
+      Stock items have mnemonics/access keys. I don't think they should.
+  -->
       <note>
 	<title>For discussion</title>
 	<para>A few people only want to recommend one type of toolbar.  Which should it be?  We can't really recommend the GAL one because it's not part of core GNOME.  On the other hand, the Gtk one is somewhat clunky, and projects like Evo, AbiWord etc. are unlikely to switch to it anyime soon.</para>
       </note>
       
       <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however.  Having too many toolbar controls reduces their efficiency by making them harder to find, and too many rows of toolbars reduces the amount of screen space available to the rest of the application.</para>
-
-      <sect3>
+<!-- per the realignment -->
+<!--      <sect3> -->
+    <sect2>
 	<title>Appearance and Content</title>
 
 	<para>The effectiveness of toolbars is increased by maintaining a level of consistency between different applications.  The toolbar is one of the first parts of your application that a user will see the first time they run it, so by providing a toolbar that looks familiar to them, you can immediately make them feel comfortable about using your application.</para>
@@ -915,9 +1119,12 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  <listitem><para>Save your application's toolbar position and contents in the application configuration file &lt;give GConf key?&gt;, and restore them when the application is restarted.</para></listitem>
 
 	</itemizedlist>
-      </sect3>
+<!-- idem ;-) -->
+<!--      </sect3> -->
+</sect2>
 
- <sect3>
+<!-- <sect3> -->
+<sect2>
 	<title>Controlling Display and Appearance</title>
 
 	<para>For each toolbar in your application, the user should be able to choose whether or not to show that toolbar, and whether to show its contents as icons only, text only or both.  (Ideally, default settings for icons/text/both should be set in the control center, but over-rideable in each individual application&mdash; is this the current plan for 2.0?  If not, default for each application should probably be Icons Only).</para>
@@ -965,10 +1172,14 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  <title>For Discussion</title>
 	  <para>How should MDI and toolbars be handled?</para>
 	</note>
-
+<!-- idem -->
+<!--
       </sect3>
       
       <sect3>
+-->
+</sect2>
+<sect2>
 	<title>Labels and Tooltips</title>
 	
 	<para>Many controls that appear on your toolbar will require a text label that appears below or beside it.  This should normally be a single word description of that control's function.</para>
@@ -1017,9 +1228,9 @@ Brings up the About dialog for the application. The dialog should contain the na
 	
 	</itemizedlist>
 
-	
-      </sect3>
-      
+<!-- idem -->	
+<!--      </sect3> -->
+      </sect2>
 
  
       
@@ -1132,9 +1343,12 @@ Brings up the About dialog for the application. The dialog should contain the na
 
       </sect3>
 -->
+<!-- idem 
     </sect2>
-
-
+-->
+</sect1>
+<!-- Note from GJM: I think palettes should go with toolboxes/utility windows. -->
+<!--
     <sect2>
       <title>TODO : Palettes</title>
       
@@ -1142,7 +1356,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       
     </sect2>
   </sect1>
-
+-->
 <sect1 id="alerts">
 <title>Alerts</title>
 <para>An alert is a modal secondary window for . . .</para>
@@ -1413,7 +1627,10 @@ The color selector should be used wherever the user has to select a color. If th
 
 </sect1>
 -->
-
+<sect1 id="feedback">
+<title>Feedback</title>
+<para>FIXME</para>
+</sect1>
 <sect1 id="controls">
 
 <title>Controls</title>
@@ -1879,7 +2096,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	</informaltable>
       </figure>
       
-      <para>Always design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <link linkend="icons">Designing Effective Icons</link> for more information.</para>
+      <para>Always design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <link linkend="icons">Icons</link> for more information.</para>
       
       <para>Recommendations:</para>
       <itemizedlist>
@@ -1899,7 +2116,7 @@ right of small icons, and immediately above or to the left of other controls. Se
     
   </sect1>
   <sect1 id="icons">
-    <title>Designing Effective Icons</title>
+    <title>Icons</title>
     <para> </para>
     <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. Good icons suggest to the user the sort of conceptual item they are associated with, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
     <para>
@@ -2153,194 +2370,13 @@ right of small icons, and immediately above or to the left of other controls. Se
       </formalpara>
     </sect2>
   </sect1>
-  <sect1 id="desktop-integration">
-    
-    <title>Integrating Applications with the Desktop</title>
-    <para>There are two elements to basic integration with the user environment of the GNOME Desktop. First, applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it. Secondly, your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit. This is an important first step in evolving a document centered interface.</para>
-    <sect2 id="menuentries">
-      <title>Placing Entries in the Panel Menu</title>
 
-      <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
-      <para>The panel menu is arranged into a set of broad categories. An application should place an entry in just one of these categories, unless it is a an application-suite such as Evolution or OpenOffice, in which case it should place an entry for each sub-application in the appropriate category(s). Creation of new categories should be done cautiously to avoid a potentially overwhelming proliferation of menu items, and should be discussed with the community first. Just remember that users would probably rather have a simple menu system than to have your one application in a precisely defined category. The temptation to over-estimate the importance of your application to users can easily lead to the justification of a new category, so be careful to prioritize user preferences over productisation.</para>
-      <para>Menu categories are:
-	<itemizedlist>
-	  <listitem><para>Internet</para></listitem>
-	  <listitem><para>Multimedia</para></listitem>
-	  <listitem><para>Office</para></listitem>
-	  <listitem><para>Graphics</para></listitem>
-	  <listitem><para>Utilities</para></listitem>
-	  <listitem><para>Development Tools</para></listitem>
-	  <listitem><para>Games</para></listitem>
-	  <listitem><para>System</para></listitem>
-	</itemizedlist>
-        <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
-      </para>
-      <sect3 id="menu-entry-captions">
-        <title>Menu Entry Captions</title>
-	<para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION TYPE (APPLICATION NAME)</emphasis>. Rather than focusing on branding the menu system tries to encourage listing based on functionality. Users are more likely to be able to discover your application when they need it if it is listed by functionality rather than by name. This is particularly important on systems where numerous applications are installed by default, so the user is less aware of the mapping between names and functionality. Try to think of what information users will have when they look for your application when choosing a general class, and try to copy similar applications if they have already chosen a general class.</para>
-	<para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
-<note><para><emphasis>WE SHOULD PROBABLY INCLUDE AN APPENDIX (OR AT LEAST A LONG INLINE LIST) OF A BUNCH OF GENERAL CLASSES. EVERY GOOD NAME FOR A GENERAL CLASS WE THINK OF NOW IS A BAD NAME AVOIDED IN THE FUTURE</emphasis></para></note>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for Nautilus</title>
-	      <para>File Manager (Nautilus)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for the GIMP</title>
-	      <para>Image Editor (GIMP)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for GnomeMines</title>
-	      <para>Minesweeper (GnomeMines)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Evolution's mail component</title>
-	      <para>Email (Evolution)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Evolution's calendar component</title>
-	      <para>Calendar (Evolution)</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	
-	<para>If no appropriate general class exists, applications may reasonably follow the format <emphasis>APPLICATION NAME</emphasis>. It is important to apply common sense in choosing which format to use. While it is generally preferable to list a general class, do not try to force a class where the information is not useful to the user. For example, listing all the entries in the Games section as <emphasis>Game (GAME NAME)</emphasis> would be awkward and redundant since the category they are contained in is already labled Games.</para>
-	<tip>
-	  <para>If you can think of another application that could be viewed as a competitor to your application (if not in number of features or quality at least in general area of use), your application probably belongs to some general class and should use the first format.</para>
-	</tip>
-	
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for AisleRiot</title>
-	      <para>Aisle Riot</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Time Tracking Tool</title>
-	      <para>Time Tracking Tool</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	<para>If possible, it is better to remove explicit mention of GNOME or X-Windows or other platform details from menu entry captions. The user probably already knows what platform they are using, and if they don't, application names aren't the right place to inform them. Menu captions exist to assist users in finding the correct application to accomplish their tasks and should not burden them with technical details. Other technical details should also be avoided when the user does not need to know them or can infer them from context. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the caption for the client. Try not to clutter titles with unnecessary information, but be sure to retain enough information that similar applications are distinct from eachother.</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for Same Gnome</title>
-	      <para>Same Game</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for GNOME VideoLAN Client</title>
-	      <para>Movie Player (VideoLAN)</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </sect3>
-      <sect3 id="menu-entry-tooltips">
-	<title>Menu Entry Tooltips</title>
-	<para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Character Map</title>
-	      <para>Insert special characters into documents</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Memprof</title>
-	      <para>Check your application for memory leaks</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Same Gnome</title>
-	      <para>Arrange long chains of similarly colored balls and eliminate them</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Gnome Batalla Naval Client</title>
-	      <para>Find and sink enemy ships in this networked rendition of Battleship</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </sect3>
-    </sect2>
-
-    <sect2 id="mimedatabase">
-      <title>Providing a Connection between Documents &amp; Applications</title>
-
-      <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
-      <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
-      <para>To provide a connection to document types an application should:
-	<itemizedlist>
-	  <listitem><para>Install a <filename>.applications</filename> file in <filename>$PREFIX/share/application-registry</filename> describing the abilities of your application.</para>
-	    <example>
-	      <title>A mozilla.applications file for Mozilla</title>
-	      <programlisting>
-mozilla
-        command=mozilla
-        name=Mozilla
-        can_open_multiple_files=true
-        expects_uris=true
-        requires_terminal=false
-        supported_uri_schemes=file,http,ftp,telnet,gopher
-        mime_types=text/html,text/mathml,x-directory/webdav,x-directory/webdav-prefer-directory,image/gif,image/jpeg,text/xml,text/*
-	      </programlisting>
-	    </example>
-	  </listitem>
-	  <listitem><para>Install a <filename>.mime</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you can handle.</para>
-	    <example>
-	      <title>Part of a mozilla.mime file for Mozilla</title>
-	      <programlisting>
-text/html
-        ext: html htm HTML
-text/xml
-        ext: xml
-image/jpeg
-        ext: jpe jpeg jpg
-	      </programlisting>
-	      </example>
-	  </listitem>
-	  <listitem><para>Install a <filename>.keys</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you handle in greater detail (optional). Also install a default icon for any new filetypes you add.</para>
-	    <example>
-	      <title>One entry in a mozilla.keys file for Mozilla</title>
-	      <programlisting>
-text/mathml
-        description=MathML document
-           ...
-        [es]description=documento de MathML
-	   ...
-	icon_filename=mathml.png
-	default_action_type=application
-	short_list_application_ids_for_novice_user_level=mozilla
-	short_list_application_ids_for_intermediate_user_level=mozilla
-	short_list_application_ids_for_advanced_user_level=mozilla
-	      </programlisting>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="mouse">
+<sect1 id="userinput">
+<title>User Input</title>
+  <sect2 id="mouse">
     <title>Mouse Interaction</title>
     
-    <sect2 id="mouse-buttons">
+    <sect3 id="mouse-buttons">
       <title>Buttons</title>
       
       <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
@@ -2399,11 +2435,11 @@ text/mathml
 
       </itemizedlist>
       
-    </sect2>
+    </sect3>
 
-    <sect2 id="selection">
+    <sect3 id="selection">
       <title>Selection</title>
-      <sect3>
+      <sect4>
 	<title>Mouse and keyboard equivalents</title>
 
 	<para>For controls or windows that contain a number of objects that the
@@ -2463,9 +2499,9 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	    </tbody>
 	  </tgroup>
 	</table>
-      </sect3>
+      </sect4>
 
-      <sect3>
+      <sect4>
 	<title>Bounding Box Selection</title>
 
 	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo> should add all the objects within the bounding box to the existing selection.  <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> should toggle the selected state of all the objects within the bounding box.</para>
@@ -2506,10 +2542,10 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	  
 	</figure>
 
-      </sect3>
-    </sect2>
+      </sect4>
+    </sect3>
 
-    <sect2 id="drag-drop">
+    <sect3 id="drag-drop">
       <title>Drag and Drop</title>
 
       <para>Drag and drop is a direct manipulation technique. It allows you to perform actions on selected objects by moving them around the screen with the mouse.</para>
@@ -2599,7 +2635,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
       <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
-      <sect3>
+      <sect4>
 	<title>Mouse Interaction with Applets</title>
 	<para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
 	<itemizedlist>
@@ -2610,15 +2646,15 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> = copy, if moving to another panel; unmodified drag or <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
 	</itemizedlist>
 
-      </sect3>
+      </sect4>
 
-    </sect2>
-  </sect1>
+    </sect3>
+  </sect2>
 
 
-  <sect1 id="keyboard">
+  <sect2 id="keyboard">
     <title>Keyboard Interaction</title>
-    <sect2 id="keyboard-navigation">
+    <sect3 id="keyboard-navigation">
       <title>Keyboard Navigation</title>
       
       <para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
@@ -2812,7 +2848,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 -->
 
-      <sect3>
+      <sect4>
 	<title>Access Keys</title>
 
 	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
@@ -2843,9 +2879,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
 	
-      </sect3>
+      </sect4>
       
-      <sect3 id="shortcuts">
+      <sect4 id="shortcuts">
 	<title>Shortcut Keys</title>
 
 	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
@@ -3147,9 +3183,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <para>Greg suggested Ctrl+H for Search Help... this doesn't seem to me to be an important enough function to tie up Ctrl+H with, though, anyone got any other views/alternative suggestions?</para>
 	</note>
 	  
-      </sect3>
+      </sect4>
 
-      <sect3>
+      <sect4>
 	<title>Standard Widget Navigation Shortcut Keys</title>
 	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
 
@@ -3211,9 +3247,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 	     
-      </sect3>
+      </sect4>
       
-      <sect3>
+      <sect4>
 	<title>Additional Widget Navigation Shortcut Keys</title>
 
 	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
@@ -3280,16 +3316,23 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 	
-      </sect3>
+      </sect4>
 
-    </sect2>
+    </sect3>
 
 
+  </sect2>
   </sect1>
-
+  <sect1 id="language">
+    <title>Language</title>
+    <para>FIXME</para>
+  </sect1>
+<!-- Just to encourage the change . . .  ;-)
   <sect1 id="reality-checks">
     <title>Simple Reality Checks</title>
-
+-->
+  <sect1 id="checklists">
+    <title>Checklists</title>
     <sect2>
       <title>Things You Can Do Yourself</title>
       <sect3>
@@ -3363,11 +3406,4 @@ or by dropping the object on an invalid drop target.</para></listitem>
     </sect2>
   </sect1>
 
-  <sect1 id="terminology">
-    
-    <title>Terminology</title>
-    
-    <para>Yet another paragraph left empty.</para>
-    
-  </sect1>
 </article>
