@@ -351,6 +351,7 @@
 	<title>Title Format:</title>
 	<para>Toolboxes have no title</para>
 	<remark><para>How then does a screenreader user differentiate between toolboxes? --Calum.</para></remark>
+	<remark><para>ATK hints? How does Windows do this (or does it) ? There's not room for a title bar. Maybe we can have apps set the title bar but teach the WM to not draw it or something. In any case, for sighted users there's not even *room* for a titlebar in a toolbox. -Seth</para></remark>
       </formalpara>
       <formalpara>
 	<title>Window Commands:</title>
@@ -426,8 +427,10 @@
 
     <para>An alert has a border similar to that of a dialog, and is object modal. </para>
     <formalpara><title>Title Format</title>
-	<para>Alert windows have no titles, as the title would usually unnecessarily duplicate the alert's primary text anyway. Users can read and respond to title-less alerts more quickly because there is less visual noise and confounding text.</para></formalpara>
-	<remark><para>Without a title, how does a screenreader user identify an alert window? -Calum</para></remark>
+	<para>Alert windows have no titles, as the title would usually unnecessarily duplicate the alert's primary text anyway. Users can read and respond to title-less alerts more quickly because there is less visual noise and confounding text.</para>
+    </formalpara>
+    <remark><para>Without a title, how does a screenreader user identify an alert window? -Calum</para></remark>
+    <remark><para>The screen-reader finds out its an alert (do we need a WM mechanism for this?) and reads the primary text to identify the alert. The whole point for removing the title is that its redundant with the primary text, and puts more crap on the screen to be read. This problem applies double to users with screenreaders (i.e. reducing extra crap helps them even more). -Seth</para></remark>
 
 
     <formalpara><title>Resizing</title><para>Alert windows are not resizable. If you feel the user may need to resize your alert, your alert text is probably not concise enough.</para></formalpara>
