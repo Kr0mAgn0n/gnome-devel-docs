@@ -1346,6 +1346,62 @@
     </itemizedlist>
   </sect1>
 
+  <sect1 id="controls-scrollbars">
+    <title>Scrollbars</title>
+
+    <para>Often an object (such as a document or a list) will not be fit within
+    the confines of its viewer control. In these cases a scrollbar can be affixed
+    to the viewer control. The scrollbar alters which part of the object is
+    currently visible inside the viewer control: it slides the view across the object
+    in one axis (horizontal or vertical).</para>
+
+    <itemizedlist>
+      <title>Guidelines</title>
+
+      <listitem>
+        <para>Only display scrollbars when they are required for sliding the view. If
+        an object fits inside the viewer control, don't draw scrollbars. If you are
+        using a GtkScrolledWindow, call <function>gtk_scrolled_window_set_policy</function>
+        setting the appropriate axis (or axes) to GTK_POLICY_AUTOMATIC.</para>
+      </listitem>
+
+      <listitem>
+        <para>Do <emphasis>not</emphasis> use scrollbars as a replacement for a 
+        <link linkend="controls-sliders">slider</link>. Scrollbars should only be
+        used affixed to a view that they actively alter, not used as a generic
+        continuous input control.</para>
+      </listitem>
+
+      <listitem>
+        <para>Affix scrollbars to the right side of a viewer control (to slide the view
+        vertically), or to the bottom side (to slide the view horizontally). Do <emphasis>not</emphasis>
+        affix scrollbars on the top or left sides of a viewer control.</para>
+      </listitem>
+
+      <listitem>
+        <para>Scrollbars should be aligned in both directions with the view they are
+        affixed to on the axis they control. In other words, horizontal scrollbars
+        should span the full length of the viewer control, and vertical scrollbars
+        should span the full height of the viewer control.</para>
+      </listitem>
+
+      <listitem>
+        <para>If both horizontal and vertical scrollbars are acting upon a view,
+        alignment will require that small rectangle in the lower right corner where
+        the horizontal and vertical scrollbars meet will be blank. This is OK.</para>
+      </listitem>
+       
+      <listitem>
+        <para>Scrollbars should affect the view to which they are affixed in realtime:
+        as the user drags or clicks the view should change. Time lag will be
+        disconcerting and negatively impact a users ability to navigate content inside
+        the view.</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+
+
   <sect1 id="controls-lists">
     <title>Lists</title>
 
