@@ -5,73 +5,13 @@
 <articleinfo>
 
 <authorgroup>
-
-<author>
-  <firstname>Calum</firstname>
-  <surname>Benson</surname>
-  <affiliation>
-    <address>
-      <email>calum.benson@sun.com</email>
-    </address>
-  </affiliation>
-</author>
-
-<author>
-  <firstname>Adam</firstname>
-  <surname>Elman</surname>
-  <affiliation>
-    <address>
-      <email>aelman@users.sourceforge.net</email>
-    </address>
-  </affiliation>
-</author>
-
-<author>
-  <firstname>Gregory</firstname>
-  <surname>Merchan</surname>
-  <affiliation>
-    <address>
-      <email>merchan@phys.lsu.edu</email>
-    </address>
-  </affiliation>
-</author>
-
-<author>
-   <firstname>Seth</firstname>
-   <surname>Nickell</surname>
-   <affiliation>
-     <address>
-       <email>snickell@stanford.edu</email>
-     </address>
-   </affiliation>
-</author>
-
-<author>
-  <firstname>colin</firstname>
-  <othername role="mi">z</othername>
-  <surname>robertson</surname>
-  <affiliation>
-    <address>
-      <email>czr@rtnl.org.uk</email>
-    </address>
-  </affiliation>
-</author>
-
+<author><firstname>Calum</firstname>  <surname>Benson</surname><affiliation><address><email>calum.benson@sun.com</email></address></affiliation></author>
+<author><firstname>Adam</firstname><surname>Elman</surname><affiliation><address><email>aelman@users.sourceforge.net</email></address></affiliation></author>
+<author><firstname>Gregory</firstname><surname>Merchan</surname><affiliation><address><email>merchan@phys.lsu.edu</email></address></affiliation></author>
+<author><firstname>Seth</firstname><surname>Nickell</surname><affiliation><address><email>snickell@stanford.edu</email></address></affiliation></author>
+<author><firstname>colin</firstname><othername role="mi">z</othername><surname>robertson</surname><affiliation><address><email>czr@rtnl.org.uk</email></address></affiliation></author>
 </authorgroup>
 
-<releaseinfo>
-  This is a pre-release!
-</releaseinfo>
-    
-<revhistory>
-
-<revision>
-<revnumber>0.1</revnumber>
-<date>2001-10-09</date>
-</revision>
-
-</revhistory>
-    
 <copyright>
 <year>2001</year>
 <holder>Calum Benson, Adam Elman, Gregory Merchan, Seth Nickell, colin z robertson</holder>
@@ -100,282 +40,52 @@
 </legalnotice>
 
 <!-- FIXME: Someone think of a better title. HI Handbook, perhaps? -->
-<title>The GNOME 2.0 Mini Human Interface Guidelines</title>
+<title>GNOME 2.0 Human Interface Guidelines (draft)</title>
 
 </articleinfo>
 
   <sect1 id="intro">
-  
     <title>Introduction</title>
-    <sect2 id="why-we-care">
-      
-      <title>Why We Care about Usability</title>
-      <para><emphasis role="bold">Usable</emphasis> <emphasis role="italic">Us"a*ble</emphasis>, a. - Capable of being used.</para>
+    <para>
+      You have at your fingertips the GNOME 2.0 Human Interface Guidelines, a collection of <link linkend="pandp">principles</link> and <link linkend="pandp">policies</link> that will guide you in creating applications that operate as a seamless part of the GNOME desktop. These guidelines will help you design applications that are both useful and aesthtically pleasing - applications that people want to use. We hope you will peruse them and refer to them when designing your software.
+    </para>
+    <para>
+    This document defines the GNOME style, an overarching methodology and appearance to be shared by GNOME applications. At times this entailed formalizing existing style. We recognized that in many areas there is already a distinct GNOME flavour, something we aspired to perpetuate and improve upon. At other times the guidelines depart from existing conventions, either because there was no one definitive style or because there was a strong usability impetus. 
+    </para>
+    <para>
+      The guidelines are designed to be useful to a wide range of GNOME contributors; developers, designers, artists, and writers. Consequently they address many aspects of application development, from menu organization to icon design to accessibility by disabled users. We hope you find them useful too!
+    </para>
+    <formalpara>
+      <title> Following thse guidelines will have many benefits</title>
       <para>
-	For such a simplistic definition, this encapsulates the fundamental goal of
-	usability very well. Usable software is software that people can use; whether to write 
-	Email, play games or develop the next killer application. GNOME is many 
-	different things, but certainely one of its significant aspects is to provide
-	an environment for users - for people. What a disappointment it should be when
-	a user's ability to access one of the features we have coded is impaired or 
-	altogether halted because they don't understand how to manipulate the
-	interface.
-      </para><para>
-	A segmentation fault is not the only total failure mechanism.
-      </para><para>
-	What is it that makes a segmentation fault (or a thread lock, or a failure
-	to activate a central component or any other manner of critical programming 
-	errors) a serious problem? Was the computer hurt? Probably not. Was the
-	operating system destablized? Hopefully not, that's one of the primary
-	motivations behind executing processes in seperate memory segments. Some of
-	the characteristics that, I believe, capture why
-	we consider segmentation faults to be serious are:
-      </para><para>
 	<itemizedlist>
-	  <listitem><para>The event is abrupt and unexpected (it is a surprise)</para></listitem>
-	  <listitem><para>The user is given no opportunity to recover their data</para></listitem>
-	  <listitem><para>The user's work flow has been completely interrupted</para></listitem>
-	  <listitem><para>Often, no explanation is given as to why the event occurred or how to work around it</para></listitem>      
+	  <listitem><para>Users will learn your application faster by applying skills and techniques they have acquired from using other GNOME applications.</para></listitem>
+	  <listitem><para>Users (even advanced users) will be able to use your application efficiently and effectively because the interface will help them get things done instead of getting in the way.</para></listitem>
+	  <listitem><para>Your application will be well integrated with the GNOME desktop, making it more liable to be used - no application is an island.</para></listitem>
+	  <listitem><para>Your application will be more aesthetically pleasing. Policies were chosen with aesthetic and visual qualities in mind in addition to usability concerns.</para></listitem>
+	  <listitem><para>Disabled and impaired users will find your application more accessible.</para></listitem>
+	  <listitem><para>The GNOME desktop will be strengthened as users perceive applications working together as a cohesive environment.</para></listitem>
 	</itemizedlist>
-      </para><para>
-	Usability issues can generate all these problems, even with perfectly written code.
-	And sadly, they often do in GNOME applications. There are many other classes of interface
-	problems, as serious as a segmentation fault, that a segmentation fault does not produce (for
-	example a confusing metaphor that leaves the user unsure how to proceed), but this list gives
-	us some major ones to think about for now. These total failures are just as serious when
-	they occur in an interface as when they occur in code.
-	Lets look at a seemingly innocuous UI problem that produces some of the same problems as
-	a segmentation fault. There are a variety of different ways GNOME applications handle save
-	and exit confirmation dialogues.
-	<figure>
-	  <title>The "standard" GNOME save dialogue</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/save1.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Dialogue with the text "'/home/seth/foobar' has been modified. Do you wish to save it?" and the buttons [Yes] [No] [Cancel]</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </para><para>
-	Given that a person were used to seeing the standard save dialogue above pop up when they exit a program
-	without saving, how do you suppose a user in a hurry might react to the following dialogue?
-	<figure>
-	  <title>Dialogue probably based on the XEmacs/Emacs saving conventions</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/save2.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Dialogue with the text "'/home/seth/foobar' has been modified. Are you sure you want to quit without saving changes?" and the buttons [Yes] [No] [Cancel]</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </para><para>
-	Some users will inadvertantly click on the "Yes" button even though they want to save
-	their document, and will hence lose work. Hopefully the user will figure out what happened
-	and learn to be cautious of the program bringing up the latter dialogue and will not repeat 
-	this "mistake", but other than this would it have been much worse for the user if the 
-	application had simply segfaulted?
-      </para><para>
-	Even supposing that both dialogue conventions were equally good (the latter has some serious 
-	problems), it is dangerous to have a dialogue that defies the users expectations, even if
-	the dialogue itself is clearly worded. People do not always read all text, they expect things
-	to behave in certain ways. Interface is a language, and our users have built up a vocabulary
-	and grammar. 
-      </para><para>
-	Here's another question, what do you expect to happen if you click "Yes" in the
-	second dialogue? OK, that seems clear. What about "No"? Will it offer to save, or does "No"
-	mean the same thing as "Cancel" in the first dialogue? Then what about "Cancel" in the 2nd
-	dialogue, what will it do? Perhaps we can figure out the behavior, but we shouldn't have to.
-	The problem is that the "No" most directly says "No, do not quit without saving", but doesn't
-	make it clear whether we are saying "No do not quit" or "Quit, but please save". This perhaps
-	won't cause a serious problem for most users (since both "No" and "Cancel" will hopefully
-	be non-destructive), but it is awkward and wastes people's time. This dialogue is not
-	comfortable to use.
-      </para><para>
-	Just for fun here are two more "exit dialogues", interestly from the same application depending 
-	on whether you choose to close the toolbox window or the document window:
-	<figure>
-	  <title>Conflicting dialogues from the same application</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/quit1.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Dialogue with the text "Modified diagrams exists. Are you sure you want to quit" and the buttons [Quit] [Cancel]</phrase>
-	    </textobject>
-	  </mediaobject>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/quit2.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Dialogue with the text "This diagram has not been saved. Save changes now?</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </para><para>
-	Dialogues are just one tiny example of how usability, or lack thereof, can affect people's
-	abilities to use our software effectively. Often applications are rife with much more
-	profound problems, but problems of any complexity cannot be easily presented in a short
-	article like this one. Any time a user needs to ask for help to make progress, or commits
-	an interface blunder due to a non-standard interface the application developer has failed
-	to provide functionality. The program is buggy, as much as it would be buggy if it was
-	filled with unitialized variables. You never know when or how the interface will cause a
-	problem. The only garuntee is that eventually it will, maybe even frequently.
-      </para><para>
-	There's always a certain temptation to dismiss anyone who doesn't "show you
-	the code". It is true that often times people who fail to produce substantial
-	code (and, for example, offer to help with architecture :-) are of little
-	use to projects. Sometimes it seems that hackers perceive usability engineers 
-	in the same light as they might Lord Halifax in the following story:
-      </para><para>
-	<blockquote>
-	  <attribution>Stephen Pile, "The Book of Heroic Failures"</attribution>
-	  <literallayout>
-	    The most important critic in our field of study is Lord Halifax. A
-	    most individual judge of poetry, he once invited Alexandar Pope round to give
-	    a public reading of his latest poem.
-	    Pope, the leading poet of his day, was greatly surprised when Lord
-	    Halifax stopped him four or five times and said, "I beg your pardon, Mr.
-	    Pope, but there is something in that passage that does not quite please me."
-	    Pope was rendered speechless, as this fine critic suggested sizable
-	    and unwise emendations to his latest masterpiece. "Be so good as to mark
-	    the place and consider at your leisure. I'm sure you can give it a better
-	    turn."
-	    After the reading, a good friend of Lord Halifax, a certain Dr.
-	    Garth, took the stunned Pope to one side. "There is no need to touch the
-	    lines," he said. "All you need do is leave them just as they are, call on
-	    Lord Halifax two or three months hence, thank him for his kind observation
-	    on those passages, and then read them to him as altered. I have known him
-	    much longer than you have, and will be answerable for the event."
-	    Pope took his advice, called on Lord Halifax and read the poem
-	    exactly as it was before. His unique critical faculties had lost none
-	    of their edge. "Ay", he commented, "now they are perfectly right. Nothing can
-	    be better."
-	  </literallayout>
-	</blockquote>
-      </para><para>
-	A lot of hackers and "advanced users" seem to have the misperception that usability is about
-	dumbing interfaces down, and is hence diametrically opposed to their use of the software. This
-	is completely untrue. It <emphasis>is</emphasis> true that sometimes a decision will need to be made
-	the favours either advanced users, or novice users, but this is the exception not the rule.
-	Most usability improvements are helpful to everyone. We are all novice users the first time
-	we use a new application. You need to remember that as the developer of an application or
-	interface you are the most expert user of it, not the average. Every new user of the program
-	goes through a learning curve from the time their first launch the program until they are 
-	proficient with it. Look at the following screenshot of "GNOME DiskFree" and its entry in the
-	Panel "Foot" Menu.
-	<figure>
-	  <title>The GDiskFree panel menu entry</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/gdiskfree-menu.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Menu entry with the caption "GNOME DiskFree" and the tooltip "Show free space on mounted file systems using dials"</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<figure>
-	  <title>A screenshot of the GDiskFree utility</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/gdiskfree.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Screenshot of the GDiskFree application showing three unlabled dials with various percentage values</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </para><para>
-	What's wrong with this picture? The tooltip and the name of the application itself suggests that GDiskFree
-	will be presenting the <emphasis>free space</emphasis> available to the user. The interface of GDiskFree
-	itself has no labels or captions to contradict this, and prominently displays a dial and a
-	percentage value. Based on a lack of contrary data, many (perhaps most) users immediately
-	conjugate the available information and mentally view the value as the "percentage free space".
-	Users with some knowledge of their disk usage may quickly realize this is wrong, and perhaps
-	even realize that the application is displaying the <emphasis>used space</emphasis> rather than the
-	<emphasis>free space</emphasis>.  Ironically, because of this single simple failing GDiskFree's command-line kindred
-	"df" is more usable (df's column titles save it). This is in spite of df displaying the information in a
-	less human readable format and including more technical information.
-	<figure>
-	  <title>A screenshot of the df utility</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/df.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Screenshot of the df utility</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </para><para>  
-	Also troubling in GDiskFree is the lack of details as to what the various other information
-	mean. It isn't too hard for an experienced user to infer that "19.1 Gb" probably refers to the
-	total size of the partition, "/" refers to its mount point and "/dev/hda1" refers to the device...
-	but it would be much better to caption these. The GDiskFree tooltip also makes
-	mention of an extraneous implementation detail, but that is of less significance.
-	It is amusing that when I had an experienced GNOME user and developer review this article, 
-	they commented
-	"Oh, I didn't know that's what GDiskFree was doing, I knew the values were wrong and I
-	thought it was broken". The entire purpose of GDiskFree has been subverted by a trivial to fix
-	usability bug. Once again, I'd like to emphasize that GNOME is full of brokenness like this,
-	I'm not trying to pick on any particular application.
-      </para><para>
-	Usability also extends far past "first time experience". Often usability is about streamlining
-	programs, removing unnecessary keystrokes and mouse clicks, providing a more accessible interface
-	to a commonly used feature, perhaps burying a feature that gets in most people's way. Yes,
-	this will often cause pain to some user of the program, and at some point you will be in the subset 
-	that is afflicted by a decision made to optimize for the majority. But the same thing is true
-	of API development. To keep interfaces clean and usable by the majority of programmers we have
-	to pare them down to a certain size. That means sometimes optimizing for the majority at the
-	expense of some subset of API users. We can try to minimize the problems it causes, but most
-	people accept that this tension is inevitable. As we make your software useful for a greater
-	number of people, there will sometimes be a price to pay.
-      </para><para>
-	More positively though, I am convinced that GNOME is not the epitomy of a perfect advanced
-	user's / hacker's desktop environment. We like the flexibility, but there are many times that the 
-	GNOME environment is awkward, and even some ways in which it is extremely inflexible. The Usability
-	Project is trying to concentrate on issues that will make it a better engineer's desktop, because
-	we believe that in most cases improvements made for the hacker community will benefit everyone.
-	Everyone saves when a needlessly cluttered interface is straightened out, or a much used feature
-	is made more accessible. Everyone saves when the menu system is navigable, or icons are clearly
-	recognizable. Everyone saves when they can expect pressing the "Enter" key to have a consistent
-	effect in all dialogues (what effect that will be is still in contention, but its more important
-	that there be a convention than that a particular convention is chosen).
-      </para><para>
-	Other than as an academic or exploratory excercise, software needs to be measured by the
-	benefits it brings to the people who choose to access it. No matter how
-	<emphasis>potentially</emphasis> useful a program is, only when the user succeeds in accessing
-	this functionality does it have merit. In fact, in the case that a user fails
-	to discover or employ basic functionality...as far as the user is concerned 
-	the code may as well have not been written. That is why you should care about usability. Usability
-	is the key that unlocks the abilities of your program to users.
-      </para><para>
-    
-      </para><para>
-	<emphasis role="bold">User</emphasis> <emphasis role="italic">Us"er</emphasis>, n. - One who uses.
-      </para><para>
-	Most of us probably want people to operate our programs, we desire "users". 
-	Why this is desirable is out of the scope of this document, but to suffice it 
-	to say that most hackers find gaining a userbase to be a motivating factor 
-	in developing applications. Certainely we hack some things out just for
-	ourselves, but with most projects into which we invest a significant amount 
-	of time, we envision the library or program being used by a number of 
-	end-users or other developers.
-      </para><para>
-	How do we attract users? Users will be drawn to software that helps them do
-	what they want to do, software that does not confound but assists, whether
-	that be for entertainment, creativity, or office work. Development needs to
-	be driven by users, driven by usability. What do people want out of your application? How
-	can you make it more convenient for them to extract this functionality?
-      </para> 
-
-    </sect2>
-    
+      </para>
+    </formalpara>
+    <formalpara id="pandp">
+      <title>Policies and Principles</title>
+      <para>
+	<emphasis>Policies</emphasis> are specific conventions that establish predictable behavior across all GNOME applications. Policies also encourage the standard implementation of features that improve the user experience of the desktop as a whole, such as being able to double click on documents in the file manager and have them open in an appropriate application. But design is a fluid process and policies can only define a restricted set of behaviors. So policies alone will not produce applications that truly maximize usability. Thus the HIG also emphasizes <emphasis>principles</emphasis>: the concepts and tradeoffs that underly policy. The HIG often explains the reasoning behind a policy in the hope that developers and designers will learn to naturally think of a GNOME-like solution when designing interfaces. Understanding these concepts will enable you to create new controls, interfaces and patterns based on design principles common to the entire desktop.
+      </para>
+    </formalpara>
+    <formalpara>
+      <title>Sources and influences</title>
+      <para>
+	The guidelines were evolved from a variety of sources. Whenever reasonable, we drew upon the conventions already used by GNOME programs, formalizing the general styles present in existent GNOME applications. Since this is the first interface standard for GNOME, it is unsuprising that different conventions frequently existed for the same function, forcing us to select one convention over another. Another key source of material were the Windows, Macintosh and Java environments. As many new GNOME users will already be familiar with these environments it made sense to selectively coopt their conventions, particularly where a choice was otherwise arbitrary from our perspective. Ultimately, of course, we drew upon our own knowledge and experiences in discerning between conflicting design goals and balancing improvement with familiarity.
+      </para>
+    </formalpara>
+    <formalpara>
+      <title>Balancing improvement and feasibility</title>
+      <para>
+	At times the guidelines <emphasis>do</emphasis> venture into new territory, making suggestions not found in first generation GNOME applications. Some of these changes are in preparation for future improvements, and some simply to rectify bad conventions before too many users became accustomed to them. As GNOME style becomes familiar to a larger base of users and increasingly codified, it will become difficult to make interface changes without significant user reprecussions. The guidelines try to strike a balance between keeping development work reasonable and incorporating important changes to the interface as soon as possible. To the extent we have succeeded, such departures from the "trodden path" have been restricted to items that are both significant to usability and feasible for developers to implement in a short timeframe.
+      </para>
+    </formalpara>
   </sect1>
 
 <sect1 id="menus">
