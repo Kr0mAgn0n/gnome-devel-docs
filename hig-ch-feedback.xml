@@ -81,7 +81,7 @@
 	</tgroup>
       </table>
 
-      <para>Make each response delay in your application as short as possible, unless users need time to see the displayed information before it is erased. The acceptable response delay for each event is based on a typical user's sense that the event is a logical point at which to stop or pause. The greater that sense is, the more willingly the user will wait for a response. Verify that your application responds to users' requests within the limits listed in the table above. If the application cannot respond within those limits, it probably has one or more general problems—ones caused by a particular algorithm or module.</para>
+      <para>Make each response delay in your application as short as possible, unless users need time to see the displayed information before it is erased. The acceptable response delay for each event is based on a typical user's sense that the event is a logical point at which to stop or pause. The greater that sense is, the more willingly the user will wait for a response. Verify that your application responds to users' requests within the limits listed in the table above. If the application cannot respond within those limits, it probably has one or more general problems caused by a particular algorithm or module.</para>
       <para>Recommendations:</para>
       
       <itemizedlist>
@@ -335,8 +335,7 @@
 	</tgroup>
       </table>
 
-      <para>In general, use a wait pointer in your user interface whenever users are blocked from interaction with your application for 1 second or longer. Display the wait pointer less than 1 second after the operation begins.  If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> button that lets users terminate the command's processing even if
-your application cannot undo the command's effects&mdash; see <link linkend="interrupting-commands">Letting Users Interrupt Operations</link>.
+      <para>In general, use a wait pointer in your user interface whenever users are blocked from interaction with your application for 1 second or longer. Display the wait pointer less than 1 second after the operation begins.  If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects&mdash; see <link linkend="interrupting-commands">Letting Users Interrupt Operations</link>.</para>
       
     </sect1>
     
@@ -384,7 +383,7 @@ your application cannot undo the command's effects&mdash; see <link linkend="int
       
       <para>If clicking the <guibutton>Stop</guibutton> button opens an alert box, ensure the button labels of the alert box are specific and precise. Ambiguous button labels can cause users to terminate or continue a command unintentionally.</para>
       
-      <para>If stopping a partially completed command will not undo all the command's effects, display an alert box to warn users. Ensure that the alert box includes two buttons that enable users to choose between continuing the partially completed command or terminating the command regardless of the side effects. Label each button of the alert box as specifically as possible, for example: <guibutton>Continue Deleting Files</guibutton> and <guibutton>Stop Deleting Files</guibutton> (default).
+      <para>If stopping a partially completed command will not undo all the command's effects, display an alert box to warn users. Ensure that the alert box includes two buttons that enable users to choose between continuing the partially completed command or terminating the command regardless of the side effects. Label each button of the alert box as specifically as possible, for example: <guibutton>Continue Deleting Files</guibutton> and <guibutton>Stop Deleting Files</guibutton> (default).</para>
 
     </sect1>
     

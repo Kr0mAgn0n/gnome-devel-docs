@@ -10,19 +10,20 @@
 
     <sect1 id="window-frames">
       <title>Frames</title>
-      <para>Most top-level windows will have frames; exceptions may include shaped windows and torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+      <para>Most top-level windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
     </sect1>
 
     <sect1 id="window-modality">
       <title>Modality</title>
-      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs. Modality has two degrees: local and global.</para>
-      <para>A local mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
-      <para>A global mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+      <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
+      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
+      <para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
+      <para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
     </sect1>
 
     <sect1 id="window-focus">
       <title>Focus</title>
-      <para>There are the focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
+      <para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
     </sect1>
 
     <sect1 id="window-other">
@@ -33,37 +34,101 @@
     
     <sect1 id="primary-windows">
       <title>Primary Windows</title>
-      <para>The primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+      <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+      <para>The basic types of primary windows are object-oriented windows and application-oriented windows.</para>
+      <sect2 id="object-primary-windows">
+	<title>Object-oriented Windows</title>
+	<para>An object-oriented window may present a single view of an object or it may present a container of objects. Objects include documents, images, spreadsheets, and previews. Containers of objects (which themselves may be objects) commonly present an collection of object icons or a list.</para>
+	<para>An application whose primary windows are all object-oriented presents a single document interface (SDI). 
+	</para>
+      </sect2>
+      <sect2 id="application-primary-windows">
+	<title>Application-oriented Windows</title>
+	<para>An application-oriented window may contain views of objects or controls common to the object-oriented windows of the application. An application window which contains views of windows presents a multiple document interface (MDI). One which contains a common control group presents part of a controled-single document interface (CSDI).</para>
+	<sect3 id="mdi">
+	  <title>Multiple Document Interface</title>
+	  <para>A paned or tabbed presentation of two documents<!--, or two views of the same document--> within a single window is an MDI. Often it is best to leave such presentation details to the window manager.</para>
+	</sect3>
+	<sect3 id="csdi">
+	  <title>Controlled Single Document Interface</title>
+	  <para>The use of CSDI is reserved for expert or special purpose applications. Complex drawing applications, such as the GIMP, present this kind of interface. The main toolbox of the GIMP is the control window.</para>
+	</sect3>
+      </sect2>
     </sect1>
       
     <sect1 id="utility-windows">
       <title>Utility Windows</title>
       <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, or a status bar.</para>
+      <!-- property windows, instant-apply preference windows, toolboxes, palettes, . . . -->
     </sect1>
-
 
     <sect1 id="alert-windows">
       <title>Alerts</title>
-      <para>An alert will have a dialog-like frame and be locally modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
+      <para>An alert will have a dialog-like frame and be object modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
 <!--
       <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
 -->
       <sect2 id="informational-alert">
 	<title>Information Alerts</title>
-	<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
-	<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
+	<para>An information alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+	<para>An information alert:
+	  <itemizedlist>
+	    <listitem>
+	      <para>Will use the stock information icon.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Will present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
+	    </listitem>
+	    <listitem>
+	      <para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword -->
+	    </listitem>
+	  </itemizedlist>
+	</para>
+      </sect2>
+      <sect2 id="error-alert">
+	<title>Error Alerts</title>
+	<para>FIXME - same as information alerts except for the icon.</para>
+	<para>An error alert:
+	  <itemizedlist>
+	    <listitem>
+	      <para>Will use the stock error icon.</para>
+	    </listitem>
+	    <listitem>
+	      <para>Will present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> will dismiss the error alert.</para>
+	    </listitem>
+	    <listitem>
+	      <para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword -->
+	    </listitem>
+	  </itemizedlist>
+	</para>
       </sect2>
 
       <sect2 id="confirmational-alert">
 	<title>Confirmation Alerts</title>
-	<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
-	<para>The confirmational alert will present . . . </para>
+	<para>A confirmation alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+	<para>A confirmation alert:
+	  <itemizedlist>
+	    <listitem><para>Will use the stock warning icon.</para></listitem>
+	    <listitem><para>Will present a button <!-- like OK --></para></listitem>
+	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command</para></listitem>
+	    <listitem><para>May present an alternative action button ...</para></listitem>
+	  </itemizedlist>
+	</para>
       </sect2>
 
       <sect2 id="alerts-authentication">
 	<title>Authentication Alerts</title>
 	<para>FIXME - We need a Gtk+ stock icon for this. http://bugzilla.gnome.org/show_bug.cgi?id=65765</para>
-	<para>Authentication alerts will have entries to meet authentication requirements, a <guibutton>Cancel</guibutton> button, and an <guibutton><replaceable>OK</replaceable></guibutton> equivalent such as <guibutton>Log In</guibutton>.</para>
+	<para>An authentication alert:
+	  <itemizedlist>
+	    <listitem><para>Will use the stock authentication icon.</para></listitem>
+	    <listitem><para>Will present labelled fields for the user to fill with the data needed for authentication.</para></listitem>
+	    <listitem><para>Will present a button <!-- like OK --></para></listitem>
+	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command</para></listitem>
+	    <listitem><para>May present an alternative action button ...</para></listitem>
+	  </itemizedlist>
+	</para>
+<!--	<para>Authentication alerts will have entries to meet authentication requirements, a <guibutton>Cancel</guibutton> button, and an <guibutton><replaceable>OK</replaceable></guibutton> equivalent such as <guibutton>Log In</guibutton>.</para> -->
       </sect2>
       <sect2 id="button-order">
 	<title>Alert Buttons</title>
