@@ -5,16 +5,16 @@
   
   <para>There are two elements to basic integration with the user environment of the GNOME Desktop.
     <orderedlist>
-      <listitem><para>Applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it.</para></listitem>
+      <listitem><para>Your application should place an entry in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users will discover your application</para></listitem>
       <listitem><para>Your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit.</para></listitem>
     </orderedlist>
 
   </para>
   <sect1 id="menuentries">
-    <title>Placing Entries in the Panel Menu</title>
+    <title>Placing Entries in the Applications Menu</title>
     
-    <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
-    <para>The panel menu is arranged into a set of broad categories. An application should place an entry in just one of these categories, unless it is a an application-suite such as Evolution or OpenOffice, in which case it should place an entry for each sub-application in the appropriate category(s).</para>
+    <para>Applications should place entries in the <guimenu>Applications</guimenu> menu. The <guimenu>Applications</guimenu> menu provides a convenient way for users to survey the available applications and select one to perform their next task.</para>
+    <para>The <guimenu>Applications</guimenu> menu is arranged into a set of categories. An application should place an entry in just one of these categories. In the case of application-suites such as Evolution or OpenOffice, a menu item should be added for each sub-application.</para>
     <para>Menu categories are:
       <itemizedlist>
 	<listitem><para>Internet</para></listitem>
@@ -28,76 +28,153 @@
       </itemizedlist>
       <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
     </para>
-    <sect2 id="menu-entry-captions">
-      <title>Menu Entry Captions</title>
-      <para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION_NAME APPLICATION_TYPE</emphasis>. Users are more likely to be able to discover your application if it is listed by functionality rather than by name. This will be especially useful to users of systems where numerous applications are installed by default, and to casual users.</para>
-      <tip><para>Try to use the same functional description as existing programs that fall into the same general category. For example, if there is a program called "FooBar Email" and you are writing a new mail program called Baz, it would be best to use "Baz Email" rather than "Baz Mail Client" in the menus.</para></tip>
-      <para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
-      <itemizedlist>
-	<listitem>
-	  <example>
-	    <title>A caption for Nautilus</title>
-	    <para>Nautilus File Manager</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>A caption for the GIMP</title>
-	    <para>GIMP Image Editor</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>A caption for Evolution's mail component</title>
-	    <para>Evolution Email</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>A caption for Evolution's calendar component</title>
-	    <para>Evolution Calendar</para>
-	  </example>
-	</listitem>
-      </itemizedlist>
-      
-      <para>If no appropriate general class exists, applications may reasonably follow the format <emphasis>APPLICATION_NAME</emphasis>. It is important to apply common sense in choosing which format to use. While it is generally preferable to list a general class, do not try to force a class where the information is not useful to the user. For example, listing all the entries in the Games section as <emphasis>APPLICATION_NAME Game</emphasis> would be awkward and redundant since the category they are contained in is already labled Games.</para>
-      <tip>
-	<para>If you can think of another application that could be viewed as a competitor to your application (if not in number of features or quality at least in general area of use), your application probably belongs to some general class and should use the first format.</para>
-      </tip>
-      
-      <itemizedlist>
-	<listitem>
-	  <example>
-	    <title>A caption for AisleRiot</title>
-	    <para>Aisle Riot</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>A caption for Time Tracking Tool</title>
-	    <para>Time Tracking Tool</para>
-	  </example>
-	</listitem>
-      </itemizedlist>
-      <para>If possible, it is better to remove explicit mention of GNOME or X-Windows or other platform details from menu entry captions. The user probably already knows what platform they are using, and if they don't, application names aren't the right place to inform them. Menu captions exist to assist users in finding the correct application to accomplish their tasks and should not burden them with technical details. Other technical details should also be avoided when the user does not need to know them or can infer them from context. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the caption for the client. Try not to clutter titles with unnecessary information, but be sure to retain enough information that similar applications are distinct from eachother.</para>
-      <itemizedlist>
-	<listitem>
-	  <example>
-	    <title>A caption for Same Gnome</title>
-	    <para>Same Game</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>A caption for GNOME VideoLAN Client</title>
-	    <para>VideoLAN Movie Player</para>
-	  </example>
-	</listitem>
-      </itemizedlist>
+    <sect2 id="menu-item-names">
+      <title>Menu Item Names</title>
+
+
+      <sect3 id="menu-item-functional-description">
+	<title>Include a functional description in the menu name</title>
+	<para>User testing of MIT's Athena system revealed that users had difficulty finding the file manager because they were unfamiliar with the name 'Nautilus'. Because users did not associate the word 'Nautilus' with the concept "file manager" the menu entry did not help them.</para>
+	<para>The menu entry label/name include a descriptor of functionality in addition to the proper name of the application. This will be especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>Revised menu name for "Nautilus"</title>
+	      <para>Nautilus File Manager</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+      </sect3>
+
+      <sect3>
+	<title>Only put useful information in the menu name</title>
+	<para>Don't include words like "GNOME", "X-Windows" or other platform details in <guimenu>Application</guimenu> menu names. The user probably already knows what platform they are using, and if they don't, application names are not the right place to inform them.</para>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>Revised menu name for "Same Gnome"</title>
+	      <para>Same</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>Revised menu name for "GNOME Search Tool"</title>
+	      <para>Search Tool</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+	<para>Technical details should also be avoided when the user does not need to know them or can infer them from context. Avoid technical jargon. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the menu name for the client.</para>
+	<itemizedlist>
+	  <listitem>
+	    <example>
+	      <title>Revised menu name for "Gnome Batalla Naval client"</title>
+	      <para>Batalla Naval</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>Revised menu name for "Gnome Batalla Naval server"</title>
+	      <para>Batalla Naval Multiplayer Server</para>
+	    </example>
+	  </listitem>
+	  <listitem>
+	    <example>
+	      <title>A caption for GNOME VideoLAN Client</title>
+	      <para>VideoLAN Movie Player</para>
+	    </example>
+	  </listitem>
+	</itemizedlist>
+	<tip><title>Providing the right information</title><para>Try imagining what words users will be looking for when they select your application from the <guimenu>Applications</guimenu> menu. That's the information that should be in the menu name. For example, a user wanting to play a movie will probably not be looking for the word "Client". On the other hand, a user wanting to transmit movies from their computer may well look for the word "Server".</para></tip>
+      </sect3>
+
+      <sect3>
+	<title>Formats for the menu name</title>
+	<orderedlist>
+	  <listitem>
+	    <para>If your application's proper name is already descriptive (and not just suggestive) of its functionality, it should use the format "<emphasis>APPLICATION-NAME</emphasis>"
+	      <itemizedlist>
+		<listitem>
+		  <example>
+		    <title>Menu name for "Dictionary"</title>
+		    <para>Dictionary</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Menu name for "Search Tool"</title>
+		    <para>Search Tool</para>
+		  </example>
+		</listitem>
+	      </itemizedlist>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>If there is a succinct functional description for your application, it should use the format "<emphasis>APPLICATION-NAME FUNCTIONAL-DESCRIPTION</emphasis>".
+	      <itemizedlist>
+		<listitem>
+		  <example>
+		    <title>Revised menu name for "The GIMP"</title>
+		    <para>GIMP Image Editor</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Menu name for Evolution's mail sub-application</title>
+		    <para>Evolution Email</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Revised menu name for "AbiWord"</title>
+		    <para>AbiWord Word Processor</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Revised menu name for "Galeon"</title>
+		    <para>Galeon Web Browser</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Menu name for "Gramps"</title>
+		    <para>Gramps Geneology</para>
+		  </example>
+		</listitem>
+		<listitem>
+		  <example>
+		    <title>Revised menu name for "AisleRiot"</title>
+		    <para>AisleRiot Solitaire</para>
+		  </example>
+		</listitem>
+	      </itemizedlist>
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>A few applications, particularly games, will not have appropriate functional descriptions. Note that many games <emphasis>will</emphasis> have a functional description. These may use "<emphasis>APPLICATION-NAME</emphasis>". This case should be avoided.
+	      <itemizedlist>
+		<listitem>
+		  <example>
+		    <title>Menu name for "BomberMaze"</title>
+		    <para>Bomber Maze</para>
+		  </example>
+		</listitem>
+	      </itemizedlist>
+	    </para>
+	  </listitem>
+	</orderedlist>
+      </sect3>
     </sect2>
-    <sect2 id="menu-entry-tooltips">
-      <title>Menu Entry Tooltips</title>
-      <para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
+    <sect2 id="menu-item-tooltips">
+
+      <title>Menu Item Tooltips</title>
+
+      <para>Tooltips are used to learn about a new environment and to quickly explore the 
+available functionality of applications in that environment.</para>
+      <para>Tooltips should be provided for all <guimenu>Application</guimenu> menu items to give the user information about the tasks they can perform with each of the applications in a menu. Tooltips should not be overly verbose, but should be more descriptive than the name used in the menu.</para>
+
+      <para>Panel menu tooltips should be phrased in verb form to describe the actions users can take with each application.</para>
+
       <itemizedlist>
 	<listitem>
 	  <example>
@@ -119,7 +196,7 @@
 	</listitem>
 	<listitem>
 	  <example>
-	    <title>A tooltip for Gnome Batalla Naval Client</title>
+	    <title>A tooltip for Gnome Batalla Naval client</title>
 	    <para>Find and sink enemy ships in this networked rendition of Battleship</para>
 	  </example>
 	</listitem>
@@ -128,7 +205,7 @@
   </sect1>
   
   <sect1 id="mimedatabase">
-    <title>Providing a Connection between Documents &amp; Applications</title>
+    <title>Mapping Document Types to Applications</title>
     
     <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
     <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
