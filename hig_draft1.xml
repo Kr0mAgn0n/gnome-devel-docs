@@ -428,7 +428,7 @@ text/mathml
 
     <sect2 id="window-focus">
       <title>Focus</title>
-      <para>There are the focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.
+      <para>There are the focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
     </sect2>
 
     <sect2 id="window-other">
@@ -759,9 +759,7 @@ Close all open documents. If there are unsaved changes in any of the currently o
 <guimenuitem>Cu<accel>t</accel>                Ctrl-X</guimenuitem>
 <guimenuitem><accel>C</accel>opy               Ctrl-C</guimenuitem>
 <guimenuitem><accel>P</accel>aste              Ctrl-V</guimenuitem>
-<!-- <guimenuitem><accel>D</accel>elete             Del</guimenuitem> -->
-<guimenuitem>Cl<accel>e</accel>ar              Del</guimenuitem>
-<!-- <guimenuitem>---</guimenuitem> -->
+<guimenuitem><accel>D</accel>elete             Del</guimenuitem>
 <guimenuitem>Select <accel>A</accel>ll         Ctrl-A</guimenuitem>
 <guimenuitem>---</guimenuitem>
 <guimenuitem>Find               Ctrl-F</guimenuitem>
@@ -1305,7 +1303,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify dialogs presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the dialog beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
       <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the dialog text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save dialog. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
 
-      <para>Buttons are best phrased in verb form, as users will be less liable to answer dialogs backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para></formalpara>
+      <para>Buttons are best phrased in verb form, as users will be less liable to answer dialogs backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
       <para>For example, the affirmative button for a dialog with text <quote>The document <quote>Book Report</quote> has unsaved changes. Would you like to save <quote>Book Report</quote> before quitting?</quote></para>
     </sect2>
 </sect1>
