@@ -496,11 +496,31 @@
 	       must be replaced by a suitable alternative when one of these
 	       themes is used.</para>
 
+	<tip><title>Adding icons to accessible themes</title>
+	<para>When you have designed high and low contrast versions of all
+	your icons, submit them to the gnome-themes module maintainers for
+	inclusion in the appropriate themes.</para></tip>
+
        <sect2 id="icons-design-highcontrast">
 	<title>High Contrast Icons</title>
 	<para>
-		High contrast icons are greatly simplified versions of an application's existing regular icons. They are drawn with two colors, black and white, and thicker borders. This style allows high contrast icons to be distinguishable when viewed by a user with a visual impairment. Below is an approximation of what well-designed high contrast icons look like when viewed by someone with a visual impairment.</para>
-    <table frame="topbot" pgwide="1">
+		High contrast icons, in conjunction with a high contrast theme, benefit users with reduced visual acuity.  A high contrast icon has these characteristics:</para>
+	<itemizedlist>
+		<listitem><para>Drawn only in black and white, with an external white border (black for inverse high contrast icons)</para></listitem>
+		<listitem><para>Simple visual style, typically comprising only a single symbol</para></listitem>
+		<listitem><para>All lines and borders at least 4 pixels wide (at 48x48 pixels)</para></listitem>
+	</itemizedlist>
+	 <figure>
+		 <title>Part of application window rendered in high contrast, large print theme</title>
+	         <mediaobject>
+			 <imageobject><imagedata fileref="images/highcontrast-theme.png" format="PNG"/></imageobject>
+			 <imageobject><imagedata fileref="images/highcontrast-theme.eps" format="EPS"/></imageobject>
+			 <textobject><phrase>Part of gedit window rendered in high contrast, large print theme</phrase></textobject>
+								               </mediaobject>
+									             </figure>
+
+	<para>This style allows high contrast icons to be distinguishable when viewed by a user with reduced visual acuity. Below is an approximation of what well-designed high contrast icons look like when viewed by such a user.</para>
+    <table frame="topbot" pgwide="0.5">
 	    <title>Simulation of low vision user viewing high contrast icons</title>
       
       <tgroup cols="3" colsep="0" rowsep="0" align="center">
@@ -579,7 +599,7 @@
 								               </mediaobject>
 									             </figure>
 
-	<para>High contrast icons are created in a vector drawing program. Black and white shapes are layered to create a simplified icon. The process feels like layering black and white pieces of construction paper, as if you were assembling a collage.</para>
+	<para>High contrast icons are most easily created in a vector drawing application. Black and white shapes are layered to create a simplified icon. The process feels like layering black and white pieces of construction paper, as if you were assembling a collage.</para>
 	 <figure>
 		<title>Layered technique for high contrast icons</title>
 	         <mediaobject>
@@ -593,15 +613,43 @@
 		<para>Often shapes from existing high contrast icons can be resized and reused to more quickly build up a new icon.</para></tip>
 
 	<tip><title>Don't forget the border!</title>
-		<para>It is useful to design high contrast icons over a temporary background color so you don't forget to draw the external white border.</para></tip>
+		<para>Design high contrast icons over a temporary background color so you don't forget to draw the external white border.</para></tip>
+
+
+
+	<sect3 id="icons-design-highcontrastinverse">
+	<title>High contrast inverse icons</title>
+	<para>High contrast inverse icons serve the same purpose as high contrast icons, but are easier to see for some users.  Create a high contrast inverse icon simply by inverting the pixel values of the equivalent high contrast icon, for example in GIMP.</para>
+	 <figure>
+		 <title>Part of application window rendered in high contrast inverse, large print theme</title>
+	         <mediaobject>
+			 <imageobject><imagedata fileref="images/highcontrastinverse-theme.png" format="PNG"/></imageobject>
+			 <imageobject><imagedata fileref="images/highcontrastinverse-theme.eps" format="EPS"/></imageobject>
+			 <textobject><phrase>Part of gedit window rendered in high contrast inverse, large print theme</phrase></textobject>
+								               </mediaobject>
+									             </figure>
+
+	</sect3>
      </sect2>
+
      <sect2 id="icons-design-lowcontrast">
 	     <title>Low Contrast Icons</title>
+	     <para>Low contrast are useful to users who are particularly sensitive to light, to the extent that they find even a high contrast inverse theme uncomfortable to use.  In low contrast icons, the colors are compressed towards the middle value range, so they do not contain any large luminance values (the 'V' in HSV).  That is, dark colors are lightened, and light colors are darkened.</para>
+	 <figure>
+		 <title>Part of application window rendered in low contrast theme</title>
+	         <mediaobject>
+			 <imageobject><imagedata fileref="images/lowcontrast-theme.png" format="PNG"/></imageobject>
+			 <imageobject><imagedata fileref="images/lowcontrast-theme.eps" format="EPS"/></imageobject>
+			 <textobject><phrase>Part of gedit window rendered in low contrast theme</phrase></textobject>
+								               </mediaobject>
+									             </figure>
 	     <para>
-		     The goal of low contrast themes is to eliminate, as much as possible, light values (e.g. a large 'V' value in HSV). To achieve this, the colors in low contrast icons are compressed toward the middle value range, i.e. dark colors are lightened and light colors are darkened.
-	     </para>
-	     <para>
-		     Low contrast icons are generated from the existing regular icons by adjusting the levels in GIMP. The Input Levels are set to 100, 1.25, 200 and the Output Levels are set to 100, 160, as shown in the Levels dialog below. Large numbers of regular icons can be quickly converted to low contrast by using GIMP's scripting facilities.</para>
+		     Low contrast icons are generated from the existing regular icons by adjusting the levels. In GIMP, use these values in the Levels dialog:</para>
+	<itemizedlist>
+		<listitem><para>Input: 100, 1.25, 200</para></listitem>
+		<listitem><para>Output: 100, 160</para></listitem>
+	</itemizedlist>
+	<para>Large numbers of regular icons can be quickly converted to low contrast by using GIMP's scripting facilities.  A <ulink url="http://cvs.gnome.org/viewcvs/gnome-themes/low-contrast-preset.scm?view=markup">script</ulink> to do this is provided in the gnome-themes module.</para>
 	      <figure>
 	        <title>Levels dialog in GIMP showing correct levels for generating low contrast icons</title>
 		<mediaobject>
