@@ -36,6 +36,7 @@
     <sect1 id="primary-windows">
       <title>Primary Windows</title>
       <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+<!-- OOUI
       <para>The basic types of primary windows are object-oriented windows and application-oriented windows.</para>
       <sect2 id="object-primary-windows">
 	<title>Object-oriented Windows</title>
@@ -46,21 +47,32 @@
       <sect2 id="application-primary-windows">
 	<title>Application-oriented Windows</title>
 	<para>An application-oriented window may contain views of objects or controls common to the object-oriented windows of the application. An application window which contains views of windows presents a multiple document interface (MDI). One which contains a common control group presents part of a controled-single document interface (CSDI).</para>
-	<sect3 id="mdi">
-	  <title>Multiple Document Interface</title>
-	  <para>A paned or tabbed presentation of two documents<!--, or two views of the same document--> within a single window is an MDI. Often it is best to leave such presentation details to the window manager.</para>
-	</sect3>
-	<sect3 id="csdi">
+-->
+<!-- This section added to cover the gap left by removing the OOUI parts. -->
+    <sect2 id="sdi">
+      <title>Single Document Interface</title>
+      <para>FIXME</para> <!-- I'm not sure yet what to write here other than a description. Having an SDI isn't very important when the rest of the UI is
+application-oriented.  -->
+    </sect2>
+<!-- OOUI <sect3 id="csdi"> -->
+    <sect2 id="csdi">
 	  <title>Controlled Single Document Interface</title>
 	  <para>The use of CSDI is reserved for expert or special purpose applications. Complex drawing applications, such as the GIMP, present this kind of interface. The main toolbox of the GIMP is the control window.</para>
-	</sect3>
-      </sect2>
+<!-- OOUI </sect3> -->
+    </sect2>
+<!-- OOUI <sect3 id="mdi"> -->
+    <sect2 id="mdi">
+	  <title>Multiple Document Interface</title>
+	  <para>A paned or tabbed presentation of two documents<!--, or two views of the same document--> within a single window is an MDI. Often it is best to leave such presentation details to the window manager.</para>
+<!-- OOUI </sect3> -->
+    </sect2>
+<!-- OOUI </sect2>-->
     </sect1>
 
     <sect1 id="utility-windows">
       <title>Utility Windows</title>
       <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, or a status bar.</para>
-      <!-- I don't know where the push for instant-apply started, or maybe I do, but I don't see it working for many things. -->
+
       <sect2 id="property-windows">
 	<title>Property Windows</title>
 	<para>FIXME</para>

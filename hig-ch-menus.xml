@@ -74,84 +74,181 @@
       <para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
       <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
     </sect1>
-
+<!-- Re-added for for structure without OOUI sections -->
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
+      <para>Each type of primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. {modify them this way, etc. ...}</para>
 
-      <para>There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order:
-	<guimenu>File</guimenu>,
-	<guimenu>Selected</guimenu>,
-	<guimenu>Edit</guimenu>,
-	<guimenu>View</guimenu>,
-	<guimenu>Insert</guimenu>,
-	<guimenu>Format</guimenu>,
-	<replaceable>other menus</replaceable>,
-	<guimenu>Bookmarks</guimenu>,
-	<guimenu>Go</guimenu>,
-	<guimenu>Tools</guimenu>,
-	<guimenu>Windows</guimenu>,
-	<guimenu>Help</guimenu>. (Help should be the rightmost menu, but it should not be flush-right.)</para>
-
-      <sect2 id="menu-standard-file">
-	<title>File</title>
-	<para>
-<!-- Note from GJM: I'm updating this to use markup rather than semi-literal symbols.
-          The HTML version will be not show underlines until we get that fixed,
-          but in the meanwhile we'll have nice printed versions.
-          We might want to use graphics instead.
-     Later note from GJM: DocBook sucks.
-          There's no reasonable way to handle this without graphics.
-          I'll be screenshooting, cropping, etc. then adding them in.
-  -->
-	  <!--
-<literallayout class="monospaced">
-<guimenu><accel>F</accel>ile</guimenu>
-<guimenuitem><accel>N</accel>ew                Ctrl-N</guimenuitem>
-<guimenuitem><accel>O</accel>pen...            Ctrl-O</guimenuitem>
-<guimenuitem><accel>C</accel>lose              Ctrl-W</guimenuitem>
-<guimenuitem>Open <accel>R</accel>ecent        &gt;</guimenuitem>
-<guimenuitem>- - -</guimenuitem>
-<guimenuitem><accel>S</accel>ave               Ctrl-S</guimenuitem>
-<guimenuitem>Save <accel>A</accel>s...</guimenuitem>
-<guimenuitem>Re<accel>v</accel>ert to Saved</guimenuitem>
-
-<guimenuitem>- - -</guimenuitem>
-<guimenuitem><accel>P</accel>rint              Ctrl-P</guimenuitem>
-<guimenuitem>Print Preview...</guimenuitem>
-<guimenuitem>Page Setup...</guimenuitem>
-<guimenuitem>- - -</guimenuitem>
-<guimenuitem>Close All                         Shift-Ctrl-W</guimenuitem>
-<guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem>
+<!-- OOUI
+    <sect1 id="object-menubar">
+      <title>The Object Menubar</title>
+      <note><para>Object-oriented interfaces are scheduled to appear in GNOME 3.0</para></note>
+      <para>An object's menus should contain only those commands which affect the object.</para>
+      <para>The first object menu should be labelled by the class of the object, or labelled <guilabel>File</guilabel> when no other label is applicable.</para>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="images/object-menubar.png" format="PNG"/>
+	</imageobject>
+	<textobject>
+	  <simplelist type="horiz" columns="9">
+	    <member><guimenu><replaceable>Object</replaceable></guimenu></member>
+	    <member><guimenu><accel>S</accel>elected</guimenu></member>
+	    <member><guimenu><accel>E</accel>dit</guimenu></member>
+	    <member><guimenu><accel>V</accel>iew</guimenu></member>
+	    <member><guimenu><accel>I</accel>nsert</guimenu></member>
+	    <member><guimenu>For<accel>m</accel>at</guimenu></member>
+	    <member><guimenu><accel>G</accel>o</guimenu></member>
+	    <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
+	    <member><guimenu><accel>T</accel>ools</guimenu></member>
+	    <member><guimenu><accel>H</accel>elp</guimenu></member>
+	  </simplelist>
+	</textobject>
+      </mediaobject>
+      <sect2 id="the-object-menu">
+	<title>The Object Menu</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/object-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+<literallayout>
+<guimenu>Object</guimenu>
+<guimenuitem><accel>O</accel>pen as...           Ctrl+O</guimenuitem>
+<guimenuitem>Open Proper<accel>t</accel>ies            </guimenuitem>
+-
+<guimenuitem><accel>S</accel>ave                 Ctrl+S</guimenuitem>
+<guimenuitem>Sa<accel>v</accel>e Copy...               </guimenuitem>
+<guimenuitem><accel>R</accel>evert                     </guimenuitem>
+-
+<guimenuitem><accel>P</accel>rint...             Ctrl+P</guimenuitem>
+<guimenuitem><accel>M</accel>ail...              Ctrl+M</guimenuitem>
 </literallayout>
-	  -->
-<literallayout class="monospaced">
-<guimenu><accel>F</accel>ile</guimenu>
-<guimenuitem>Open <accel>R</accel>ecent        &gt;</guimenuitem>
-<guimenuitem><accel>O</accel>pen...            Ctrl-O</guimenuitem>
-<guimenuitem><accel>C</accel>lose              Ctrl-W</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem><accel>S</accel>ave               Ctrl-S</guimenuitem>
-<guimenuitem>Save <accel>A</accel>s...</guimenuitem>
-<guimenuitem>Save Copy...</guimenuitem>
-<guimenuitem>Re<accel>v</accel>ert</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem><accel>P</accel>rint...           Ctrl-P</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem>
-</literallayout>
+	  </textobject>
+	</mediaobject>
+	<para>The object menu presents commands for the entire object. 
 	</para>
-
-	<para>All applications should have a <guimenu>File</guimenu> menu which should contain items relating to creating, opening, saving, closing and printing documents and for exiting the application.</para>
-
-	<para>Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guimenu>File</guimenu> menu.</para>
-
-	<sect3>
-
-	  <title>File Access</title>
-	  <para>On document-editing applications, the items <guimenuitem><accel>N</accel>ew</guimenuitem>, <guimenuitem><accel>O</accel>pen</guimenuitem>, <guimenuitem><accel>S</accel>ave</guimenuitem>, <guimenuitem>Save <accel>A</accel>s</guimenuitem> and <guimenuitem><accel>C</accel>lose</guimenuitem> must be present, <guimenuitem>Revert</guimenuitem> should be present, and <guisubmenu>Open <accel>R</accel>ecent</guisubmenu> may be present.</para>
-
+	<sect3 id="object-opening">
+	  <title>Opening Commands</title>
+	  <para>The opening commands open a new view (in a separate window) of the object data.</para>
 	  <variablelist>
-
+	    <varlistentry><term>Open As...</term>
+	      <listitem>
+		<para>FIXME</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry><term>Open Properties</term>
+	      <listitem>
+		<para>FIXME</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect3>
+	<sect3 id="object-saved">
+	  <title>Saved State Commands</title>
+	  <para>The saved state commands</para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Save</term>
+	      <listitem>
+		<para>The <guimenuitem>Save</guimenuitem> command . . . .  Provide this command only when the object is not automatically saved.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Save Copy...</term>
+	      <listitem>
+		<para>The <guimenuitem>Save Copy...</guimenuitem> command prompts the user to name a copy of the object. The copy is saved with the user provided name and the view is not altered. The copy dialog may present different ways to save the data. For example, an image object may be saved in a native format or as a PNG.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Revert</term>
+	      <listitem>
+		<para>The <guimenuitem>Revert</guimenuitem> command</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect3>
+	<sect3 id="object-export">
+	  <title>Exporting Commands</title>
+	  <para>FIXME</para>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Print...</term>
+	      <listitem>
+		<para>FIXME</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Send...</term>
+	      <listitem>
+		<para>FIXME</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect3>
+      </sect2>
+      <sect2 id="the-selected-menu">
+	<title>The Selected Menu</title>
+	<para>FIXME</para>
+      </sect2>
+    </sect1>
+-->
+<!-- OOUI
+    <sect1 id="application-menus">
+      <title>The Application Menubar</title>
+      <note><para>Application-oriented interfaces are deprecated in GNOME 3.0</para></note>
+      <para>FIXME</para> -->
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="images/application-menubar.png" format="PNG"/>
+	</imageobject>
+	<textobject>
+	  <simplelist type="horiz" columns="9">
+	    <member><guimenu><accel>F</accel>ile</guimenu></member>
+	    <member><guimenu><accel>E</accel>dit</guimenu></member>
+	    <member><guimenu><accel>V</accel>iew</guimenu></member>
+	    <member><guimenu><accel>I</accel>nsert</guimenu></member>
+	    <member><guimenu>For<accel>m</accel>at</guimenu></member>
+	    <member><guimenu><accel>G</accel>o</guimenu></member>
+	    <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
+	    <member><guimenu><accel>T</accel>ools</guimenu></member>
+	    <member><guimenu><accel>W</accel>indows</guimenu></member>
+	    <member><guimenu><accel>H</accel>elp</guimenu></member>
+	  </simplelist>
+	</textobject>
+      </mediaobject>
+      <sect2 id="the-file-menu">
+<!-- OOUI  <title>The File Menu</title> -->
+	<title>File</title>
+	<para>FIXME</para>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/file-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+<literallayout>
+<guimenu>File</guimenu>
+<guimenuitem><accel>N</accel>ew                  Ctrl+N</guimenuitem>
+<guimenuitem><accel>O</accel>pen...              Ctrl+O</guimenuitem>
+<guimenuitem>Open Recent...                 </guimenuitem>
+---
+<guimenuitem><accel>S</accel>ave                 Ctrl+S</guimenuitem>
+<guimenuitem>Save <accel>A</accel>s...     Shift+Ctrl+S</guimenuitem>
+<guimenuitem>Sa<accel>v</accel>e Copy...               </guimenuitem>
+<guimenuitem><accel>R</accel>evert                     </guimenuitem>
+---
+<guimenuitem><accel>P</accel>rint...             Ctrl+P</guimenuitem>
+<guimenuitem><accel>M</accel>ail...              Ctrl+M</guimenuitem>
+---
+<guimenuitem>Proper<accel>t</accel>ies                 </guimenuitem>
+---
+<guimenuitem><accel>C</accel>lose                Ctrl+W</guimenuitem>
+<guimenuitem><accel>Q</accel>uit                 Ctrl+Q</guimenuitem>
+</literallayout>
+	  </textobject>
+	</mediaobject>
+	<sect3>
+	  <title>Creation and Opening Operations</title>
+	  <variablelist>
 	    <varlistentry>
 	      <term>New</term>
 	      <listitem>
@@ -161,21 +258,23 @@
 		<para>A blank document will not necessarily be truly blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates --></para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry>
 	      <term>Open</term>
 	      <listitem>
 		<para>Opens an existing document. The user should be presented with a standard file open dialog from which they may choose an existing file. If the user's choice is already open in that application then the user should be notified via a dialog that the file is already open and the window containing that file should be given the focus and raised. If the current window contains a blank untitled document then it should be replaced with the selected file. Otherwise the file should be opened in a new window.</para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry>
 	      <term>Open Recent</term>
 	      <listitem>
 		<para>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.</para>
 	      </listitem>
 	    </varlistentry>
-
+	  </variablelist>
+	</sect3>
+	<sect3>
+	  <title>Saved State Operations</title>
+	  <variablelist>
 	    <varlistentry>
 	      <term>Save</term>
 	      <listitem>
@@ -189,105 +288,150 @@
 		<para>Saves the document to a new filename. The <guimenuitem>Save <accel>A</accel>s</guimenuitem> command should present the user with a standard file save as dialog and save the file with the chosen file name. <!-- FIXME: errors, additional information--></para>
 	      </listitem>
 	    </varlistentry>
-
+	    <varlistentry>
+	      <term>Save Copy</term>
+	      <listitem>
+		<para>The <guimenuitem>Save Copy...</guimenuitem> command prompts the user to name a copy of the object. The copy is saved with the user provided name and the view is not altered. The copy dialog may present different ways to save the data. For example, an image object may be saved in a native format or as a PNG.</para>
+	      </listitem>
+	    </varlistentry>
 	    <varlistentry>
 	      <term>Revert</term>
 	      <listitem>
 		<para>Reverts the document to the last saved state. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before reloading the file.</para>
 	      </listitem>
 	    </varlistentry>
-
+	  </variablelist>
+	</sect3>
+	<sect3>
+	  <title>Export Operations</title>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Print...</term>
+	      <listitem>
+		<para>Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry><term>Send...</term><listitem><para>FIXME</para></listitem></varlistentry>
+	  </variablelist>
+	</sect3>
+	<sect3>
+	  <title>Closing Operations</title>
+	  <variablelist>
 	    <varlistentry>
 	      <term>Close</term>
 	      <listitem>
 		<para>Close the current document. If the document in the current window has unsaved changes then the user should be presented with a dialog giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open.</para>
 	      </listitem>
 	    </varlistentry>
-
-	  </variablelist>
-
-	</sect3>
-
-	<sect3>
-
-	  <title>Printing</title>
-
-	  <variablelist>
-
-	    <varlistentry>
-	      <term>Print</term>
-	      <listitem>
-		<para>Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.</para>
-	      </listitem>
-	    </varlistentry>
-
-	    <varlistentry>
-	      <term>Print Preview</term>
-	      <listitem>
-		<para>Shows the user what the printed document will look like. The <guimenuitem>Print Preview</guimenuitem> command should bring up a new window containing an accruate represenation of the appearance of the document as it would be printed.</para>
-	      </listitem>
-	    </varlistentry>
-
-	    <varlistentry>
-	      <term>Page Setup</term>
-	      <listitem>
-		<para>Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.</para>
-	      </listitem>
-	    </varlistentry>
-
-	  </variablelist>
-
-	</sect3>
-
-	<sect3>
-	  <title>Quitting</title>
-
-	  <para>All Applications must have a <guimenuitem>Quit</guimenuitem> item. Applications which are capable of editing multiple documents simultaneously should have a <guimenuitem>Close All</guimenuitem> item.
-	  </para>
-
-	  <variablelist>
-
 	    <varlistentry>
 	      <term>Quit</term>
 	      <listitem>
 		<para>Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the File|Save command applied to every unsaved document. If there are no unsaved changes then the application should quit with no further interaction with the user.</para>
 	      </listitem>
 	    </varlistentry>
+	  </variablelist>
+	</sect3>
+	
+      </sect2>
+      <!-- OOUI  (moved below)
+      <sect2>
+      <title>The Windows Menu</title>
+      <para>FIXME</para>
+      </sect2>
+      -->
+<!-- OOUI    </sect1> -->
 
+<!--
+      <sect2 id="menu-standard-file">
+	<title>File</title>
+	<para> -->
+<!--
+<literallayout class="monospaced">
+<guimenu><accel>F</accel>ile</guimenu>
+<guimenuitem>Open <accel>R</accel>ecent        &gt;</guimenuitem>
+<guimenuitem><accel>O</accel>pen...            Ctrl-O</guimenuitem>
+<guimenuitem><accel>C</accel>lose              Ctrl-W</guimenuitem>
+-
+<guimenuitem><accel>S</accel>ave               Ctrl-S</guimenuitem>
+<guimenuitem>Save <accel>A</accel>s...</guimenuitem>
+<guimenuitem>Save Copy...</guimenuitem>
+<guimenuitem>Re<accel>v</accel>ert</guimenuitem>
+-
+<guimenuitem><accel>P</accel>rint...           Ctrl-P</guimenuitem>
+-
+<guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem>
+</literallayout>
+	</para>
+
+	<para>All applications should have a <guimenu>File</guimenu> menu which should contain items relating to creating, opening, saving, closing and printing documents and for exiting the application.</para>
+
+	<para>Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guimenu>File</guimenu> menu.</para>
+
+	<sect3>
+	  <title>File Access</title>
+	  <para>On document-editing applications, the items <guimenuitem><accel>N</accel>ew</guimenuitem>, <guimenuitem><accel>O</accel>pen</guimenuitem>, <guimenuitem><accel>S</accel>ave</guimenuitem>, <guimenuitem>Save <accel>A</accel>s</guimenuitem> and <guimenuitem><accel>C</accel>lose</guimenuitem> must be present, <guimenuitem>Revert</guimenuitem> should be present, and <guisubmenu>Open <accel>R</accel>ecent</guisubmenu> may be present.</para>
+	</sect3>
+	<sect3>
+	  <title>Printing</title>
+	  <variablelist>
+	    <varlistentry>
+	      <term>Print Preview</term>
+	      <listitem>
+		<para>Shows the user what the printed document will look like. The <guimenuitem>Print Preview</guimenuitem> command should bring up a new window containing an accruate represenation of the appearance of the document as it would be printed.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Page Setup</term>
+	      <listitem>
+		<para>Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</sect3>
+	<sect3>
+	  <title>Quitting</title>
+	  <para>All Applications must have a <guimenuitem>Quit</guimenuitem> item. Applications which are capable of editing multiple documents simultaneously should have a <guimenuitem>Close All</guimenuitem> item.
+	  </para>
+	  <variablelist>
 	    <varlistentry>
 	      <term>Close All</term>
 	      <listitem>
 		<para>Close all open documents. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command applied to every unsaved document. For an SDI application, <guimenuitem>Close All</guimenuitem> should leave the user with a blank document, and with a controlled SDI application the user should be left with the controlling window.</para>
 	      </listitem>
 	    </varlistentry>
-
 	  </variablelist>
-
 	</sect3>
-
       </sect2>
-
+-->
       <sect2 id="menu-standard-edit">
 
 	<title>Edit</title>
-
-	<para>
-<literallayout class="monospaced"><guimenu><accel>E</accel>dit</guimenu>
-<guimenuitem><accel>U</accel>ndo <replaceable>action</replaceable>        Ctrl-Z</guimenuitem>
-<guimenuitem><accel>R</accel>edo <replaceable>action</replaceable>        Ctrl-Shift-Z</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem>Cu<accel>t</accel>                Ctrl-X</guimenuitem>
-<guimenuitem><accel>C</accel>opy               Ctrl-C</guimenuitem>
-<guimenuitem><accel>P</accel>aste              Ctrl-V</guimenuitem>
-<guimenuitem><accel>D</accel>elete             Del</guimenuitem>
-<guimenuitem>Select <accel>A</accel>ll         Ctrl-A</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem>Find               Ctrl-F</guimenuitem>
-<guimenuitem>Replace            Ctrl-R</guimenuitem>
-<guimenuitem>---</guimenuitem>
-<guimenuitem>Preferences...</guimenuitem></literallayout>
-	</para>
-
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/application-edit-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+<literallayout class="monospaced">
+<guimenu><accel>E</accel>dit</guimenu>
+<guimenuitem><accel>U</accel>ndo                 Ctrl+Z</guimenuitem>
+<guimenuitem><accel>R</accel>edo           Shift+Ctrl+Z</guimenuitem>
+-
+<guimenuitem>Cu<accel>t</accel>                  Ctrl+X</guimenuitem>
+<guimenuitem><accel>C</accel>opy                 Ctrl+C</guimenuitem>
+<guimenuitem><accel>P</accel>aste                Ctrl+V</guimenuitem>
+<guimenuitem><accel>D</accel>elete               Del</guimenuitem>
+<guimenuitem><accel>S</accel>elect All           Ctrl+A</guimenuitem>
+<guimenuitem>Dese<accel>l</accel>ect All   Shift+Ctrl+A</guimenuitem>
+-
+<guimenuitem><accel>F</accel>ind                 Ctrl+F</guimenuitem>
+<guimenuitem>Find Ne<accel>x</accel>t            Ctrl+G</guimenuitem>
+<guimenuitem>Find Pre<accel>v</accel>ious  Shift+Ctrl+G</guimenuitem>
+<guimenuitem>R<accel>e</accel>place              Ctrl+R</guimenuitem>
+-
+<guimenuitem>Prefere<accel>n</accel>ces...</guimenuitem>
+</literallayout>
+	  </textobject>
+	</mediaobject>
 	<para>The <guimenu>Edit</guimenu> menu should contain items relating to editing the document, clipboard handling, selection and searching and replacing.</para>
 
 	<sect3>
@@ -334,7 +478,7 @@
 	      </listitem>
 	    </varlistentry>
 
-	    <varlistentry><term>Clear</term>
+	    <varlistentry><term>Delete</term>
 	      <listitem>
 		<para>Removes the selected content without placing it on the clipboard.</para>
 	      </listitem>
@@ -345,36 +489,31 @@
 		<para>Selects all parts of the document.</para>
 	      </listitem>
 	    </varlistentry>
-
+	    <varlistentry>
+	      <term>Deselect All</term>
+	      <listitem>
+		<para>Deselects all selected parts of the document. Only provide this when no other method of undoing selection may be apparent. It is expected that this item will be very rare, but when needed it should be placed after Select All</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
-
 	</sect3>
-
 	<sect3>
-
 	  <title>Searching and Replacing</title>
-
 	  <variablelist>
-
 	    <varlistentry><term>Find</term>
 	      <listitem><para>Brings up a Find dialog.</para></listitem>
 	    </varlistentry>
-
 	    <varlistentry><term>Replace</term>
 	      <listitem><para>Brings up a Replace dialog.</para></listitem>
 	    </varlistentry>
-
 	  </variablelist>
-
 	  <!-- Note moved here by CB from the middle of his stuff... --> 
 	  <note>
 	    <title>For Discussion</title>
 	    <para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
 	    <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para> 
 	  </note>
-
 	</sect3>
-
 	<sect3>
 	  <title>User Preferences</title>
 	  <para>User preferences pertaining to the entire application (in all its instances) should be editable from a preferences dialog. <!-- or utility window? --></para>
@@ -390,7 +529,17 @@
 	</para>
 	
       </sect2>
-      
+      <sect2 id="menu-standard-insert">
+	<title>Insert</title>
+	<para>FIXME</para>
+	
+	<para>
+	  <literallayout class="monospaced"><guimenu><accel>I</accel>nsert</guimenu>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+	
+      </sect2>      
       <sect2 id="menu-standard-format">
 	<title>Format</title>
 	<para>FIXME</para>
@@ -402,7 +551,34 @@
 	</para>
 	
       </sect2>
-      
+
+      <sect2 id="menu-standard-bookmarks">
+	<title>Bookmarks</title>
+	<para>FIXME</para>
+	
+	<para>
+	  <literallayout class="monospaced">
+<guimenu><accel>B</accel>ookmarks</guimenu>
+<guimenuitem><accel>A</accel>dd Bookmark   </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>
+<guimenuitem><accel>E</accel>dit Bookmarks </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+	
+      </sect2>
+
+      <sect2 id="menu-standard-go">
+	<title>Go</title>
+	<para>FIXME</para>
+	
+	<para>
+	  <literallayout class="monospaced"><guimenu><accel>G</accel>o</guimenu>
+	    <!-- FIXME -->
+	  </literallayout>
+	</para>
+	
+      </sect2>
+
       <sect2 id="menu-standard-tools">
 	<title>Tools</title>
 	<para>FIXME</para>
@@ -411,6 +587,11 @@
 	    <!-- FIXME -->
 	  </literallayout>
 	</para>
+      </sect2>
+
+      <sect2 id="application-windows-menu">
+	<title>Windows</title>
+	<para>FIXME</para>
       </sect2>
 
       <sect2 id="menu-standard-help">
