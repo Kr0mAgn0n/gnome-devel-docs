@@ -1,138 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <chapter id="desktop-integration">
-    <title>Desktop Integration</title>
+  <title>Desktop Integration</title>
+  
+  <para>There are two elements to basic integration with the user environment of the GNOME Desktop.
+    <orderedlist>
+      <listitem><para>Applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it.</para></listitem>
+      <listitem><para>Your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit.</para></listitem>
+    </orderedlist>
+
+  </para>
+  <sect1 id="menuentries">
+    <title>Placing Entries in the Panel Menu</title>
     
-    <para>There are two elements to basic integration with the user environment of the GNOME Desktop. First, applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it. Secondly, your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit. This is an important first step in evolving a document centered interface.</para>
-    <sect1 id="menuentries">
-      <title>Placing Entries in the Panel Menu</title>
+    <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
+    <para>The panel menu is arranged into a set of broad categories. An application should place an entry in just one of these categories, unless it is a an application-suite such as Evolution or OpenOffice, in which case it should place an entry for each sub-application in the appropriate category(s).</para>
+    <para>Menu categories are:
+      <itemizedlist>
+	<listitem><para>Internet</para></listitem>
+	<listitem><para>Multimedia</para></listitem>
+	<listitem><para>Office</para></listitem>
+	<listitem><para>Graphics</para></listitem>
+	<listitem><para>Utilities</para></listitem>
+	<listitem><para>Development Tools</para></listitem>
+	<listitem><para>Games</para></listitem>
+	<listitem><para>System</para></listitem>
+      </itemizedlist>
+      <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
+    </para>
+    <sect2 id="menu-entry-captions">
+      <title>Menu Entry Captions</title>
+      <para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION_NAME APPLICATION_TYPE</emphasis>. Users are more likely to be able to discover your application if it is listed by functionality rather than by name. This will be especially useful to users of systems where numerous applications are installed by default, and to casual users.</para>
+      <tip><para>Try to use the same functional description as existing programs that fall into the same general category. For example, if there is a program called "FooBar Email" and you are writing a new mail program called Baz, it would be best to use "Baz Email" rather than "Baz Mail Client" in the menus.</para></tip>
+      <para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
+      <itemizedlist>
+	<listitem>
+	  <example>
+	    <title>A caption for Nautilus</title>
+	    <para>Nautilus File Manager</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A caption for the GIMP</title>
+	    <para>GIMP Image Editor</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A caption for Evolution's mail component</title>
+	    <para>Evolution Email</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A caption for Evolution's calendar component</title>
+	    <para>Evolution Calendar</para>
+	  </example>
+	</listitem>
+      </itemizedlist>
       
-      <para>Applications should place entries in the GNOME panel menu. The panel menu provides a convenient way for users to survey the available applications and select one to perform their next task. </para>
-      <para>The panel menu is arranged into a set of broad categories. An application should place an entry in just one of these categories, unless it is a an application-suite such as Evolution or OpenOffice, in which case it should place an entry for each sub-application in the appropriate category(s). Creation of new categories should be done cautiously to avoid a potentially overwhelming proliferation of menu items, and should be discussed with the community first. Just remember that users would probably rather have a simple menu system than to have your one application in a precisely defined category. The temptation to over-estimate the importance of your application to users can easily lead to the justification of a new category, so be careful to prioritize user preferences over productisation.</para>
-      <para>Menu categories are:
-	<itemizedlist>
-	  <listitem><para>Internet</para></listitem>
-	  <listitem><para>Multimedia</para></listitem>
-	  <listitem><para>Office</para></listitem>
-	  <listitem><para>Graphics</para></listitem>
-	  <listitem><para>Utilities</para></listitem>
-	  <listitem><para>Development Tools</para></listitem>
-	  <listitem><para>Games</para></listitem>
-	  <listitem><para>System</para></listitem>
-	</itemizedlist>
-        <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
-      </para>
-      <sect2 id="menu-entry-captions">
-        <title>Menu Entry Captions</title>
-	<para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION TYPE (APPLICATION NAME)</emphasis>. Rather than focusing on branding the menu system tries to encourage listing based on functionality. Users are more likely to be able to discover your application when they need it if it is listed by functionality rather than by name. This is particularly important on systems where numerous applications are installed by default, so the user is less aware of the mapping between names and functionality. Try to think of what information users will have when they look for your application when choosing a general class, and try to copy similar applications if they have already chosen a general class.</para>
-	<para>In user testing of MIT's Athena system, users had a difficult time finding the file manager because they had never heard the name Nautilus before, and hence did not register the word when they looked for an application to fufill the concept "file manager". Unless the name of the program is very obvious (for example, "Font Selector"), it is preferable to describe the application in the caption by functionality rather than by name. The application name is retained both because it is important to give specific instances recognition, and because it clarifies the situation where multiple applications are installed filling the same general purpose.</para>
-	<note><para><emphasis>WE SHOULD PROBABLY INCLUDE AN APPENDIX (OR AT LEAST A LONG INLINE LIST) OF A BUNCH OF GENERAL CLASSES. EVERY GOOD NAME FOR A GENERAL CLASS WE THINK OF NOW IS A BAD NAME AVOIDED IN THE FUTURE</emphasis></para></note>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for Nautilus</title>
-	      <para>File Manager (Nautilus)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for the GIMP</title>
-	      <para>Image Editor (GIMP)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for GnomeMines</title>
-	      <para>Minesweeper (GnomeMines)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Evolution's mail component</title>
-	      <para>Email (Evolution)</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Evolution's calendar component</title>
-	      <para>Calendar (Evolution)</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	
-	<para>If no appropriate general class exists, applications may reasonably follow the format <emphasis>APPLICATION NAME</emphasis>. It is important to apply common sense in choosing which format to use. While it is generally preferable to list a general class, do not try to force a class where the information is not useful to the user. For example, listing all the entries in the Games section as <emphasis>Game (GAME NAME)</emphasis> would be awkward and redundant since the category they are contained in is already labled Games.</para>
-	<tip>
-	  <para>If you can think of another application that could be viewed as a competitor to your application (if not in number of features or quality at least in general area of use), your application probably belongs to some general class and should use the first format.</para>
-	</tip>
-	
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for AisleRiot</title>
-	      <para>Aisle Riot</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for Time Tracking Tool</title>
-	      <para>Time Tracking Tool</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	<para>If possible, it is better to remove explicit mention of GNOME or X-Windows or other platform details from menu entry captions. The user probably already knows what platform they are using, and if they don't, application names aren't the right place to inform them. Menu captions exist to assist users in finding the correct application to accomplish their tasks and should not burden them with technical details. Other technical details should also be avoided when the user does not need to know them or can infer them from context. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the caption for the client. Try not to clutter titles with unnecessary information, but be sure to retain enough information that similar applications are distinct from eachother.</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A caption for Same Gnome</title>
-	      <para>Same Game</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for GNOME VideoLAN Client</title>
-	      <para>Movie Player (VideoLAN)</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </sect2>
-      <sect2 id="menu-entry-tooltips">
-	<title>Menu Entry Tooltips</title>
-	<para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Character Map</title>
-	      <para>Insert special characters into documents</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Memprof</title>
-	      <para>Check your application for memory leaks</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Same Gnome</title>
-	      <para>Arrange long chains of similarly colored balls and eliminate them</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A tooltip for Gnome Batalla Naval Client</title>
-	      <para>Find and sink enemy ships in this networked rendition of Battleship</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </sect2>
-    </sect1>
+      <para>If no appropriate general class exists, applications may reasonably follow the format <emphasis>APPLICATION NAME</emphasis>. It is important to apply common sense in choosing which format to use. While it is generally preferable to list a general class, do not try to force a class where the information is not useful to the user. For example, listing all the entries in the Games section as <emphasis>Game (GAME NAME)</emphasis> would be awkward and redundant since the category they are contained in is already labled Games.</para>
+      <tip>
+	<para>If you can think of another application that could be viewed as a competitor to your application (if not in number of features or quality at least in general area of use), your application probably belongs to some general class and should use the first format.</para>
+      </tip>
+      
+      <itemizedlist>
+	<listitem>
+	  <example>
+	    <title>A caption for AisleRiot</title>
+	    <para>Aisle Riot</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A caption for Time Tracking Tool</title>
+	    <para>Time Tracking Tool</para>
+	  </example>
+	</listitem>
+      </itemizedlist>
+      <para>If possible, it is better to remove explicit mention of GNOME or X-Windows or other platform details from menu entry captions. The user probably already knows what platform they are using, and if they don't, application names aren't the right place to inform them. Menu captions exist to assist users in finding the correct application to accomplish their tasks and should not burden them with technical details. Other technical details should also be avoided when the user does not need to know them or can infer them from context. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the caption for the client. Try not to clutter titles with unnecessary information, but be sure to retain enough information that similar applications are distinct from eachother.</para>
+      <itemizedlist>
+	<listitem>
+	  <example>
+	    <title>A caption for Same Gnome</title>
+	    <para>Same Game</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A caption for GNOME VideoLAN Client</title>
+	    <para>Movie Player (VideoLAN)</para>
+	  </example>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+    <sect2 id="menu-entry-tooltips">
+      <title>Menu Entry Tooltips</title>
+      <para>Panel menu tooltips should be provided to give the user some information on the tasks they can perform with the application. Tooltips should not be overly verbose, but should go beyond the simple description given by the caption to help users decide if a given entry is really the application they want. Users often view tooltips when they suspect they have found the right tool for a job, but aren't entirely sure and want more confirmation before they begin the potentially slow operation of launching the program. Sometimes they are also used to quickly explore the potential functionality of a large set of applications. Because they describe the user actions to be performed with the tool, panel menu tooltips should usually be phrased in verb form. It is particularly important to have a good tooltip when a short functional description isn't found, or when the <emphasis>APPLICATION NAME</emphasis> form of caption is used (and hence little information is provided to the user about the application in the caption).</para>
+      <itemizedlist>
+	<listitem>
+	  <example>
+	    <title>A tooltip for Character Map</title>
+	    <para>Insert special characters into documents</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A tooltip for Memprof</title>
+	    <para>Check your application for memory leaks</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A tooltip for Same Gnome</title>
+	    <para>Arrange long chains of similarly colored balls and eliminate them</para>
+	  </example>
+	</listitem>
+	<listitem>
+	  <example>
+	    <title>A tooltip for Gnome Batalla Naval Client</title>
+	    <para>Find and sink enemy ships in this networked rendition of Battleship</para>
+	  </example>
+	</listitem>
+      </itemizedlist>
+    </sect2>
+  </sect1>
+  
+  <sect1 id="mimedatabase">
+    <title>Providing a Connection between Documents &amp; Applications</title>
     
-    <sect1 id="mimedatabase">
-      <title>Providing a Connection between Documents &amp; Applications</title>
-      
-      <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
-      <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
-<para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+    <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+    <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
+    <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
   </sect1>
 </chapter>
 
