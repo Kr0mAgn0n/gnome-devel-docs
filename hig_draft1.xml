@@ -826,7 +826,6 @@ Redoes the following action in the history. After the user has travelled back th
 <varlistentry><term>Clear</term>
 <listitem><para>Removes the selected content without placing it on the clipboard.</para></listitem>
 </varlistentry>
-
 <varlistentry><term>Select All</term>
 <listitem><para>Selects all parts of the document.</para></listitem>
 </varlistentry>
@@ -1295,6 +1294,19 @@ Brings up the About dialog for the application. The dialog should contain the na
     <sect2 id="dialogs-assistants">
       <title>Assistants</title>
       <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+    </sect2>
+
+    <sect2 id="button-order">
+      <title>Dialog Buttons</title>
+      
+      <para>Most dialogs should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Many dialogs should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
+      <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the dialog. The affirmative button accepts the action proposed by the dialog.</para></formalpara>
+      <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the dialog.</para></formalpara>
+      <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify dialogs presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the dialog beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
+      <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the dialog text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save dialog. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
+
+      <para>Buttons are best phrased in verb form, as users will be less liable to answer dialogs backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para></formalpara>
+      <para>For example, the affirmative button for a dialog with text <quote>The document <quote>Book Report</quote> has unsaved changes. Would you like to save <quote>Book Report</quote> before quitting?</quote></para>
     </sect2>
 </sect1>
 <!--
