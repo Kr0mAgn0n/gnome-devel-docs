@@ -5,10 +5,9 @@
 
 <!-- =============Document Header ============================= -->
 
-<article id="index"> <!-- please do not change the id -->
+<article id="index">
 
  <artheader>
-
   <title>Joining the GNOME Project</title>
 
   <authorgroup>
@@ -29,16 +28,11 @@
   </copyright>
 
   <!-- translators: uncomment this:
-
   <copyright>
    <year>2000</year>
    <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
   </copyright>
-
    -->
-
-  <!-- do not put authorname in the header except in copyright - use
-  section "authors" below -->
 
   <legalnotice>
    <para>
@@ -71,19 +65,19 @@
    created by the collaborative efforts of many people, most of
    whom work on GNOME as volunteers in their free time.  Some 
    GNOME contributors are paid to work on GNOME as part of their 
-   "day job", but a minority of GNOME contributors fall into this
-   group.  The success and direction of GNOME relies on the
+   <quote>day job</quote>, but a minority of GNOME contributors fall 
+   into this group.  The success and direction of GNOME relies on the
    efforts and ideas of all GNOME contributors and the GNOME project 
-   welcomes all contributions, from both individuals or corporations.
+   welcomes all contributions, from both individuals and corporations.
   </para>
   <para>
    Individual contributors will find that GNOME is a fun and exciting 
    project, and they will meet and collaborate with many of the 
    field's top developers on cutting-edge technology.  Corporations 
    who join the GNOME project will learn that free software development 
-   of software is a very efficient and powerful way to produce 
-   high-quality stable software, and that the GNOME development platform 
-   makes developing powerful, stable software easy.
+   is a very efficient way to produce high-quality stable software, 
+   and that the GNOME development platform makes developing powerful, 
+   stable software easy.
   </para>
   <para>
    This document will help the new GNOME contributor decide which
@@ -198,7 +192,7 @@
 
      <listitem>
       <formalpara>
-       <title>Web Design</title>
+       <title>Web Design and Development</title>
        <para>
         The web pages are typically the first impression one gets of
         a software project and it also generally the first place users
@@ -208,11 +202,11 @@
         url="http://developer.gnome.org">GNOME developer web pages</ulink>
         take quite a bit of work to maintain and improve to suit the
         expanding needs of the rapidly growing GNOME user and developer
-        bases.  Further, some tasks require an understanding of php or
-        other scripting in order to present and store information in
-        databases or process information which is stored in CVS.  For
-        information on helping with the GNOME web pages, see 
-        <xref linkend="joiningweb">.
+        bases.  Further, some tasks require an understanding of php, 
+        mysql, wml, or other scripting in order to present and 
+        store information in databases or process information which is 
+        stored in CVS.  For information on helping with the GNOME web 
+        pages, see <xref linkend="joiningweb">.
        </para>
       </formalpara>
      </listitem>
@@ -226,7 +220,8 @@
         extensively, keeping an eye out for bugs and reporting
         them to the <ulink type="http"
         url="http://bugs.gnome.org/">GNOME bug tracking 
-        database</ulink>.
+        database</ulink>.  For information on testing GNOME
+        see <xref linkend="joiningtesting">.
        </para>
       </formalpara>
      </listitem>
@@ -238,14 +233,12 @@
         We can never have enough good GNOME applications.  You can
         either start your own application or join an existing project.
         In many cases, it may be better to join an existing project
-        as it is better to have a few good applications than many
-        poor applications.  It also gives the developer the benefit
+        as it is better to have a few polished applications than many
+        incomplete applications.  It also gives the developer the benefit
         of meeting, working with, and learning from other GNOME 
         developers.  For information on selecting a project to
         work on and getting started developing see 
         <xref linkend="joiningdeveloping">.
-        (Note - this should point to info about finding a project - ie.
-        looking in the suggestion database, mailing gnome-hackers, ...)
         If you are the author of a GNOME applet or application, be sure
         to read <xref linkend="addingapps">. 
        </para>
@@ -340,7 +333,7 @@
    should help you get started.  The first part of the section
    introduces you to the standard GNOME methods of communication:
    email and IRC.  The latter part provides more detailed information
-   on how to join particular parts of GNOME.
+   on how to join particular parts of the GNOME project.
   </para>
 
   <sect2 id="gnomecommunication">
@@ -424,7 +417,10 @@
         Don't be afraid to speak up.  The mailing lists and IRC tend
         to be chaotic but newcomers are always welcome.  If you don't
         get your answer on the first try, try again or try a different
-        mailing list or IRC channel.
+        mailing list or IRC channel.  You might also consider trying
+        at another time of the day - some IRC channels become quiet
+        at certain times of the day, depending upon what time zone
+        you are in.
        </para>
       </listitem>
      </itemizedlist>
@@ -441,7 +437,7 @@
     file of the source.  One can often find the right person
     by asking on the <link linkend="mailinglists">GNOME mailing 
     lists</link> or on <link linkend="irc">IRC</link>. To make things
-    somewhat easier, many of the contacts for particular GNOME 
+    somewhat easier, some of the contacts for particular GNOME 
     projects are listed below:
     <itemizedlist>
      <listitem>
@@ -512,7 +508,7 @@
       <formalpara>
        <title>gnome-media</title>
        <para>
-        <ulink url="mailto:gnome-media-maint@gnome.org">gnome-applets 
+        <ulink url="mailto:gnome-media-maint@gnome.org">gnome-media
         maintainers</ulink> or <ulink 
         url="mailto:timg@means.net,gregm@comstar.net">Tim Gerla
         and Gregory McLean</ulink>. 
@@ -565,10 +561,11 @@
      Developer Web Pages</ulink>.  New members are encouraged
      to join the <ulink type="http" 
      url="http://mail.gnome.org/mailman/listinfo/gnome-doc-list/">
-     gnome-doc-list mailing list</ulink> and look over the 
+     gnome-doc-list mailing list</ulink> and look over 
      <ulink type="http" 
      url="http://developer.gnome.org/projects/gdp/handbook.html">
-     The GNOME Handbook of Writing Software Documentation</ulink>
+     <citetitle>The GNOME Handbook of Writing Software 
+     Documentation</citetitle></ulink>
      (also known as the <citetitle>GDP Handbook</citetitle>).
      Further information on joining the GDP can be found 
      <ulink type="http" 
@@ -576,7 +573,7 @@
      here</ulink>. New contributors may want to look through
      the <ulink type="http" 
      url="http://developer.gnome.org/projects/gdp/tasks.html">
-     GDP Tasks</ulink> and any recent <ulink type="http"
+     GDP Tasks</ulink> and some of the recent <ulink type="http"
      url="http://developer.gnome.org/projects/gdp/status/">GDP Status
      Reports</ulink>.
     </para>
@@ -608,21 +605,57 @@
    <sect3 id="joininggraphics">
     <title>Getting Started Contributing Graphics to GNOME</title>
     <para>
-     Contact <ulink url="mailto:tigert@gimp.org">Tuomas Kuosmanen</ulink>
+     GNOME does not yet have a GNOME Graphics Project.  We may consider
+     forming one in the future.  If you are interested in producing 
+     icons or graphics for the GNOME desktop, 
+     contact <ulink url="mailto:tigert@gimp.org">Tuomas Kuosmanen</ulink>
      and <ulink url="mailto:mawa@iname.com">Matthias Warkus</ulink>.
+     If you are interested in producing graphics for the web pages
+     or GNOME applications, contact the <link linkend="joiningweb">
+     coordinators for the web pages</link>
+     or applications directly.  If you are interested in starting a
+     GNOME Graphics Project, contact the <ulink 
+     url="mailto:d-mueth@uchicago.edu">author of this document</ulink>.
     </para>
    </sect3>
    <sect3 id="joiningsound">
     <title>Getting Started Contributing Sounds to GNOME</title>
     <para>
-     GNOME does not yet have a GNOME Sound Project.  The first step
-     is to create this project, identify what work needs to be done,
-     and coordinate any new contributors. If you are interested in 
-     taking on this project, please join the gnome-list@gnome.org
-     mailing list and announce your intention to start the GNOME
-     Sound Project.  Please also contact <ulink
-     url="mailto:d-mueth@uchicago.edu">Dan Mueth</ulink> so this
-     document can be updated to reflect the new status of the project.
+     GNOME is in the process of forming a GNOME Sound Project.  
+     The first steps are to start a mailing list for discussion, 
+     identify what work needs to be done, and determine what tools
+     are suitable. For more information 
+     contact <ulink url="mailto:d-mueth@uchicago.edu">Dan Mueth</ulink>. 
+    </para>
+   </sect3>
+   <sect3 id="joiningpackaging">
+    <title>Getting Started Packaging GNOME</title>
+    <para>
+     If you would like to help package GNOME applications, contact
+     the authors of the applications you would like to package.
+     Generally application authors do not want to spend a lot of 
+     time packaging their software and would be happy to have your
+     help. If you would like to create a new GNOME package containing
+     multiple related applications, email <ulink type="http" 
+     url="http://mail.gnome.org/archives/gnome-devel-list/">
+     gnome-devel-list</ulink> with a description of your plans.
+    </para>
+   </sect3>
+   <sect3 id="joiningweb">
+    <title>Getting Started On GNOME Web Development</title>
+    <para>
+     Send an email to 
+     <ulink url="mailto:joakim@helixcode.com">Joakim Ziegler</ulink>
+     for <ulink url="http://www.gnome.org"
+     type="http">www.gnome.org</ulink> or 
+     <ulink url="mailto:dcm@redhat.com,d-mueth@uchicago.edu">Dave 
+     Mason and Dan Mueth</ulink> for
+     <ulink url="http://developer.gnome.org"
+     type="http">developer.gnome.org</ulink> 
+     indicating what you are interested in working on. It 
+     will help the maintainers find a good project
+     for you to start with if you describe any relevant skills or 
+     experience you have.
     </para>
    </sect3>
    <sect3 id="joiningtesting">
@@ -643,33 +676,6 @@
      bugs easy.
     </para>
    </sect3>
-   <sect3 id="joiningpackaging">
-    <title>Getting Started Packaging GNOME</title>
-    <para>
-     If you would like to help package GNOME applications, contact
-     the authors of the applications you would like to package.
-     Generally application authors do not want to spend a lot of 
-     time packaging their software and would be happy to have your
-     help. 
-    </para>
-   </sect3>
-   <sect3 id="joiningweb">
-    <title>Getting Started On GNOME Web Development</title>
-    <para>
-     Send an email to 
-     <ulink url="mailto:joakim@helixcode.com">Joakim Ziegler</ulink>
-     for <ulink url="http://www.gnome.org"
-     type="http">www.gnome.org</ulink> or 
-     <ulink url="mailto:dcm@redhat.com,d-mueth@uchicago.edu">Dave 
-     Mason and Dan Mueth</ulink> for
-     <ulink url="http://developer.gnome.org"
-     type="http">developer.gnome.org</ulink> 
-     indicating what you are interested in working on. It 
-     will also help the maintainers find a good project
-     for you to start with if you describe any relevant skills or 
-     experience you have.
-    </para>
-   </sect3>
    <sect3 id="joiningdeveloping">
     <title>Getting Started Developing GNOME Applications</title>
     <para>
@@ -683,7 +689,7 @@
      you want to work on, then look in the <ulink type="http" 
      url="http://www.gnome.org/todo/index.php3">GNOME Todo
      Database</ulink> or consider joining an existing project.
-     If you need help getting started developer, see <xref
+     If you need help getting started developing, see <xref
      linkend="learningtodevelop">.  Make sure to register any new
      applications in the GNOME Todo Database.
     </para>
@@ -763,8 +769,8 @@
     Every developer who is considering GNOME as a development
     platform should look over <ulink type="http"
     url="http://developer.gnome.org">The GNOME Developer
-    Web Pages</ulink>.  This provides much valuable information
-    on <ulink type="http" url="http://developer.gnome.org/arch/">GNOME 
+    Web Pages</ulink>.  They provides much valuable information on
+    the <ulink type="http" url="http://developer.gnome.org/arch/">GNOME 
     architecture</ulink> along with tutorials, white papers, and
     helpful links to other resources.  It also has information about
     the various <ulink url="http://developer.gnome.org/tools/" 
@@ -775,7 +781,8 @@
   <sect2 id="ggad">
    <title>Gtk+/GNOME Application Development</title>
    <para>
-    Havoc Pennington wrote a very nice book on GNOME application
+    Havoc Pennington, one of the core GNOME develoeprs, 
+    wrote a very good book on GNOME application
     development called <citetitle>Gtk+/GNOME Application
     Development</citetitle>. It was published under an open license, meaning
     that you can either <ulink type="http"
@@ -850,7 +857,7 @@
 
 
   <para>
-   Often application developers would like to make their GNOME 
+   Often application developers would like to make their GNOME-based 
    application or applet part of GNOME. This may be done by either
    including the application in one of the core GNOME packages, 
    adding the application or applet to the 
