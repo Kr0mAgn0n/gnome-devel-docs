@@ -333,7 +333,7 @@
 	<listitem><para>Clicking a check box should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however. 
 </para></listitem>
 	
-	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls it affects to indicate that the controls are dependent on the state of the check box. (FIXME: pic required)
+	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the check box. (FIXME: pic required)
 </para></listitem>
 	
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
@@ -430,7 +430,7 @@
 
 	  <listitem><para>Clicking a radio button should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
       
-      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls it affects to indicate that the controls are dependent on the state of the radio button. (FIXME: pic required)
+      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the radio button. (FIXME: pic required)
 </para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
@@ -888,11 +888,32 @@
 
 	<listitem><para>When there is no interesting status to report, leave a status bar panel blank rather than displaying something uninformative like &quot;Ready&quot;.  This way, when something interesting does appear in the status bar, the user is more likely to notice it.</para></listitem>
 
-	<listitem><para>Consider making the text panels in your status bar respond to a double-click.  For example, double-clicking a panel that displays the current document zoom level could open the <menuchoice><guimenu>View</guimenu><guimenuitem>Zoom</guimenuitem></menuchoice> dialog.  If you need something on the status bar to respond to a single click, use a regular button that the user can click, rather than a text panel.</para></listitem>
-
+	<listitem><para>If you want to make all or part of your status bar interactive, use the following conventions:</para>
+	  <itemizedlist>
+	    <listitem><para>Raised or button-like appearance for areas that respond to a single click</para></listitem>
+	    <listitem><para>Panelled or inlaid appearance for areas that respond to a double click</para></listitem>
+	    <listitem><para>Flat appearance for areas that are not interactive</para></listitem>
+	  </itemizedlist>
+	  
+	  <para>In the example below, the left area would respond to a double click (perhaps by saving the document), the middle area is non-interactive, and button on the right responds to a single click:</para>
+	  
+	  <figure>
+	    <title>An interactive status bar</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-status-bar-interactive.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>A status bar with a text panel that responds to a double click, a button that responds to a single click, and a non-interactive progress area</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	  <para>Be sure that clicking or double-clicking in the status area does not provide any functionality that is not also available in the main application menu bar, or by some other accessible means.</para>
+	  
+	</listitem>
+	  
       </itemizedlist>
             
     </sect1>    
 
 </chapter>
-
