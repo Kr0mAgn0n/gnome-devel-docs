@@ -282,7 +282,6 @@ system appear slow, not doing this can cause the window manager to think the app
 	<replaceable>Unsaved Drawing</replaceable>, 
 	<replaceable>Unsaved Spreadsheet</replaceable>, or the more
 	generic <replaceable>Unsaved Document</replaceable>.</para>
-	<remark>Final recommendation TBD, here... see bug #119097.</remark> 
 
       <para>While document names are most pertinent to users, we understand
       that application developers may want to increase recognition of their
@@ -290,9 +289,9 @@ system appear slow, not doing this can cause the window manager to think the app
       title of a primary window, use the following format:
       <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>.
       This will ensure that the document name appears in limited space
-      situations such as the system window list. Note that including the
-      application name is <emphasis role="bold">not</emphasis> recommended,
-      however.</para>
+      situations such as the system window list.</para>
+
+      <warning><para>Including the application name in the title of a document-based application is <emphasis role="bold">not</emphasis> recommended.</para></warning>
 
       <para>For other types of application, use <replaceable>Application Name</replaceable>
       as the window title.</para>
@@ -335,6 +334,9 @@ system appear slow, not doing this can cause the window manager to think the app
       critical for bug information, placing version numbers can be useful, but
       remove them from stable releases. Place version information in the about
       box instead.</para>
+
+      <tip><para>Think about naming windows in the context of the panel window list. On a typical screen with a relatively small number of windows open, a window will have 20-30 characters of text and an icon. Consider which text will provide the most immediately obvious clues to a user looking for a particular window.</para></tip>
+
     </sect2>
 
     <sect2 id="primary-window-commands">
@@ -376,44 +378,6 @@ system appear slow, not doing this can cause the window manager to think the app
         </figure>
       </sect3>
 
-      <sect3 id="csdi">
-        <title>Controlled Single Document Interface (CSDI)</title>
-	<remark>We intend to remove CSDI from this version of the HIG,
-	see #116599.  However, we need to say why here, and what
-	people should use instead.</remark>
-
-	<!-- Rest of this section commented out in response to #116599
-        <para>CSDI is reserved for applications where the extra overhead of a
-        toolbar or menu per primary window is considered unacceptable. This is
-        rarely the case, as most documents require enough display space that
-        the toolbar and menu add relatively little overhead. The primary
-        exception to this is an application that must handle large numbers of
-        small images well. Complex drawing applications, such as The GIMP,
-        currently present this kind of interface. The main toolbox of The GIMP
-        is the control window.</para>
-
-        <figure>
-          <title>A typical controlled SDI application (The GIMP)</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata depth="198" fileref="images/csdi.png" format="PNG"
-              width="463" />
-            </imageobject>
-
-            <imageobject>
-              <imagedata fileref="images/csdi.eps" format="EPS" />
-            </imageobject>
-
-            <textobject>
-              <phrase>Screenshot of The GIMP image editor with six images open
-              for editing</phrase>
-            </textobject>
-          </mediaobject>
-        </figure>
-	-->
-      </sect3>
-
       <sect3 id="mdi">
         <title>Multiple Document Interface (MDI)</title>
 
@@ -450,6 +414,41 @@ system appear slow, not doing this can cause the window manager to think the app
         user&#39;s preferences) rather than your application to decide how to
         group and present document windows from the same application.</para>
       </sect3>
+
+      <sect3 id="csdi">
+        <title>Controlled Single Document Interface (CSDI)</title>
+        <para>In a typical SDI application, document windows are treated as
+        primary. For example, when all document windows have been closed, the 
+        application (including utility windows) exits as well. In CSDI a utility
+        window is treated as the primary window. For example, closing this
+        utility window will close all document windows and exit the application.</para>
+
+        <warning><para>Using CSDI is <emphasis role="bold">not</emphasis> recommended</para></warning>
+
+        <para>CSDI is sometimes used because document windows might be too
+        small to have menu bars. Typically this is not the normal use case for the
+        application, but does represent a significant minority use case. For
+        example, an image editor being used to edit small web page elements will
+        often result in very small document windows that cannot accomodate
+        a title bar.</para>
+
+        <remark>We should really have a way of doing overflow automatically
+                in GTK+.</remark>
+
+        <para>A better way to address this problem is to allow menu bars to "collapse"
+        into an overflow button, in much the same way toolbars operate when the window
+        shrinks to below the toolbar width. This allows for small windows, but also
+        provides an opportunity for people to figure out where their menus have gone.</para>
+
+        <tip><para>Note that if very small documents are the <emphasis>primary</emphasis> use 
+        case for your application, you should consider finding a means to avoid windows
+        altogether. Windows are not an effective interface for dealing with large
+        numbers of small items. Consider looking for a fixed/automated layout system
+        for presenting the "documents". Also consider if the "documents" will be primarily
+        used in a higher level grouping, in which case that grouping could become the
+        document instead.</para></tip>
+      </sect3>
+
     </sect2>
   </sect1>
 
@@ -684,6 +683,9 @@ system appear slow, not doing this can cause the window manager to think the app
         corner.</para>
       </formalpara>
 
+      <sect3 id="preference-windows-overriding-colors">
+        <title>Customizing Fonts and Colors</title>
+
 	<para>If your preferences window allows the user to customize fonts or colors, use the following wording and layout as a guide for these controls:</para>
 	
 	<example>
@@ -700,6 +702,8 @@ system appear slow, not doing this can cause the window manager to think the app
 	</example>
 
 	<para>The wording of the radio buttons may be more specific where required, for example, "Use monspace font from theme", or "Use background color from theme".</para>
+      </sect3>
+
     </sect2>
 
     <sect2 id="toolbox-windows">
@@ -792,15 +796,12 @@ system appear slow, not doing this can cause the window manager to think the app
 
         <listitem>
           <para>Ensure that closing a toolbox does not close or otherwise
-          alter any primary window with which it is associated, unless your
-          application uses the <link linkend="csdi">controlled SDI</link>
-          model.</para>
+          alter any primary window with which it is associated.</para>
         </listitem>
 
         <listitem>
-          <para>Do not place toolboxes in the system window list, unless your
-          application uses the <link linkend="csdi">controlled SDI</link>
-          model. Toolboxes should always remain above all primary windows with
+          <para>Do not place toolboxes in the system window list. Toolboxes 
+          should always remain above all primary windows with
           which they are associated.</para>
         </listitem>
 
@@ -1633,8 +1634,7 @@ saved, in case an error occurs.  Then hide the document window immediately after
       </figure>
 
       <para><itemizedlist><title>Guidelines</title><listitem><para>Use the
-      stock authentication icon. <note><para><ulink
-      url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note></para></listitem><listitem><para>Show
+      stock authentication icon.</para></listitem><listitem><para>Show
       a labelled field for each required item of information. Suggested fields
       are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in
       that order) where appropriate.</para></listitem><listitem><para>If it is
