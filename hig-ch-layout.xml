@@ -2,128 +2,142 @@
 
 <chapter id="layout">
 
-<title>Layout and Appearance</title>
+<title>Visual Design</title>
 
 <!-- TODO:
 - More than any other section this needs to be liberally sprinkled with examples
 -->
-
-<para>
-The layout of a GUI is important both because it communicates the relationships between elements, and because an aesthetically-pleasing interface is more pleasant to use.
-</para>
-
-<sect1 id="layout-order-relationships">
-
-<title>Order and Relationships</title>
-
-<para>
-Western users are accustomed to reading from the top-left to the bottom-right. For this reason, elements of an interface which are intended to be presented to the user in a specific order should be laid out in such a way that the first element the user should encounter is in the top-left and the last in the bottom-right.
-</para>
-
-<para>
-(Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.) <!-- Does it get more complex than this? -->
-</para>
-
-<para>
-Relationships between elements are usually indicated by their positions. Labels should be placed either above or to the left of the controls they relate to.
-</para>
+    <sect1 id="layout-appearance">
+      <title>Layout and Appearance</title>
       
-<!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
-
-      <figure id="label-placement-example">
-	<title>Correct label placement for various GUI elements</title>
-	<informaltable frame="all">
-	  <tgroup cols="3" align="center">
-	    <tbody>
-	      <row>
-		<entry valign="middle">
+      <para>The layout of a user interface is important both because it communicates the relationships between elements, and because an aesthetically-pleasing interface is more pleasant to use.</para>
+      
+      <sect2 id="layout-order-relationships">
+	
+	<title>Order and Relationships</title>
+	
+	<para>Recommendations:</para>
+	
+	<itemizedlist>
+	  
+	  <listitem><para>Users in western locales are accustomed to reading from the top-left to the bottom-right. For this reason, lay out elements of an interface that are intended to be presented to the user in a specific order such that the first element the user should encounter is in the top-left, and the last in the bottom-right.</para>
+	    
+	    <para>FIXME:example</para>
+	    
+	    <para>Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.<!-- Does it get more complex than this? --></para></listitem>
+	  
+	  <listitem><para>Relationships between elements are usually indicated by their positions. Place labels consistently according to the type of control they relate to:</para>
+	    
+	    <!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
+	    
+	    <figure id="label-placement-example">
+	      <title>Correct label placement for various UI elements</title>
+	      <informaltable frame="all">
+		<tgroup cols="3" align="center">
+		  <tbody>
+		    <row>
+		      <entry valign="middle">
 	          <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/label_above.png" format="PNG"/>
+			  <imageobject>
+			    <imagedata fileref="images/label_above.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		    <phrase>List control with label above</phrase>
-		  </textobject>
+			  <phrase>List control with label above</phrase>
+			</textobject>
 		  </mediaobject>
 	  List control with label above
 	        </entry>
-		
-		<entry valign="middle">
+		      
+		      <entry valign="middle">
 	          <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/label_below.png" format="PNG"/>
+			  <imageobject>
+			    <imagedata fileref="images/label_below.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		      <phrase>Large file manager icon with label underneath</phrase>
-		    </textobject>
+			  <phrase>Large file manager icon with label underneath</phrase>
+			</textobject>
 		  </mediaobject>
 	  Large file manager icon with label underneath
 	        </entry>
-		
-		<entry valign="middle">
+		      
+		      <entry valign="middle">
 	          <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/label_right.png" format="PNG"/>
+			  <imageobject>
+			    <imagedata fileref="images/label_right.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		    <phrase>Small toolbar icon with label to its right</phrase>
-		  </textobject>
+			  <phrase>Small toolbar icon with label to its right</phrase>
+			</textobject>
 		  </mediaobject>
 	  Small toolbar icon with label to its right
 	        </entry>
-		
-		<entry valign="middle">
+		      
+		      <entry valign="middle">
          	  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/label_left.png" format="PNG"/>
+			  <imageobject>
+			    <imagedata fileref="images/label_left.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		    <phrase>Spinbox control with label to its left</phrase>
-		  </textobject>
+			  <phrase>Spinbox control with label to its left</phrase>
+			</textobject>
 		  </mediaobject>
 	  Spinbox control with label to its left
         	</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</informaltable>
-      </figure>
+		    </row>
+		  </tbody>
+		</tgroup>
+	      </informaltable>
+	    </figure>
+	    
+	  </listitem>
+	</itemizedlist>
+	
+      </sect2>
+      
+      <sect2 id="layout-aesthetics">
+	
+	<title>FIXME:Aesthetics</title>
+	
+	<para>Simply making a user interface look tidier can make it seem less intimidating. This can be done by aligning elements with each other and by removing unnecessary elements.</para>
+	
+	<para>Windows are rarely pleasant to look at when their contents are densely packed onto the screen, so allow adequate space between them. The empty space between elements is frequently referred to as <wordasword>white space</wordasword>.</para>
+	
+      </sect2>
+      
+      <sect2 id="layout-grouping-separators">
+	
+	<title>FIXME:Grouping and Separators</title>
+	
+	<para>Break long lists of choices into smaller groups, where possible.  For lists of less than about eight items, use radio buttons or check boxes.  For longer lists, use a list control or option menu.</para>
+	
+	<para>You can visually divide controls into groups in different ways. The preferred method is to use a greater amount of white space between groups of elements.  If the layout of the groups is complex, you may prefer to use separators and frames to draw lines and boxes between elements. </para>
+	
+	<para>Clearly show the extent of groups of related controls, like radio buttons, using these methods as appropriate.</para>
+	
+      </sect2>
+      
+      <sect2 id="visual-balance">
+	<title>FIXME:Visual balance</title>
+	
+	<para>Even if you choose all the right controls for your dialog, and arrange them in all the right groups, it still might not look quite right on the screen.  One possible reason for this is that you've got the &quot;visual balance&quot; wrong.</para>
+	
+	<para>Visual balance works like balancing weights.  Every control or group of controls in your window has a visual 'weight', depending on its overall size, color, and how much white space it includes.  Darker, larger areas are 'heavier'.  Paler, smaller areas are 'lighter'.  The more balanced your window is overall, the more comfortable users will feel when they look at it.</para>
+	
+	
+      </sect2>
+      
+      
+      <sect2 id="proportion">
+	<title>FIXME:Proportion</title>
+	
+	<para>Like visual balance, people can feel uncomfortable if things feel out of proportion.</para>
+	<para>In nature, there is a ratio called the golden ratio&mdash;about 1.6:1&mdash; that crops up all over the place.  Architects have known about this for thousands of years, and used it to design aesthetically-pleasing buildings.</para>
+	<para>It turns out that people also prefer to look at windows and dialogs that stay within the golden ratio.  So, where possible, don't design windows that are more than 50% longer in one dimension than they are in the other.</para>
+	
+      </sect2>
       
     </sect1>
-
-<sect1 id="layout-aesthetics">
-
-<title>Aesthetics</title>
-
-<para>
-Simply making a GUI look tidier can make it seem less intimidating. This can be done by aligning elements with each other and by removing unnecessary elements.
-</para>
-
-<para>
-GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <wordasword>white space</wordasword>.
-</para>
-
-</sect1>
-
-<sect1 id="layout-grouping-separators">
-
-<title>Grouping and Separators</title>
-
-<para>
-There is a rule, frequently referred to in interface design, called the 7+/-2 rule. It states that humans can only hold between 5 and 9 items of information in their minds at a time. One of the implications of this in interface design is that long lists of choices should, where possible, be broken down into smaller groups of choices.
-</para>
-
-<para>
-There are a number of ways of visually dividing controls into groups. One method is to use separators and frameboxes to draw lines and boxes between elements. Another method is to use a greater amount of white space between groups of elements.
-</para>
-
-<para>
-It is essential that the extent of option groups such as radio buttons be made clear, using these methods as appropriate.
-</para>
-
-</sect1>
-
-
+    
     <!-- Colors, Fonts and Accessibility -->
     <sect1 id="colors-fonts">
       <title>Fonts and Text</title>
@@ -132,7 +146,7 @@ It is essential that the extent of option groups such as radio buttons be made c
       
       <para>Don't mix lots of different fonts and sizes in your application, it will just look unprofessional and be harder to read.  If you need to use different fonts for different types of information, don't use more than two or three in the same window, and choose visually distinct rather than similar-looking fonts.  In general, you should always use fonts from the current theme, and specify relative rather than absolute font sizes.</para>
       
-      <para>&lt;pics&gt;</para>
+      <para>FIXME:examples</para>
 
       <para>Recommendations:</para>
       
@@ -181,9 +195,9 @@ right of small icons, and immediately above or to the left of other controls. Se
 	
 	</orderedlist>
 	
-	<para>The table below tells you what sort of capitalization to use for which GUI elements.</para><table frame='all'>
+	<para>The table below tells you what sort of capitalization to use for which user interface elements.</para><table frame='all'>
 	  
-	  <title>Capitalization styles for different GUI elements</title>
+	  <title>Capitalization styles for different UI elements</title>
 	  <tgroup cols='3' align='left'>
 
 	    <thead>
@@ -307,47 +321,33 @@ right of small icons, and immediately above or to the left of other controls. Se
 
       <para>Poor choice of colors on the screen can cause problems for users with color blindness (for whom hue is important) or low-vision (for whom brightness/contrast is important). For example, some users require a high level of contrast between the background and text colors&mdash; black on white, white on black, or some other high-contrast combination. Others can experience discomfort unless they use low contrast settings, such as gray text on a lighter gray background.</para>
 
-      <para>It is therefore vital that you allow the user to customize the colors in any part of your application that conveys important information.  Normally, this means you should only use colors that are part of the user's chosen theme.  If you have to use any extra colors, they must be customizable in your application's <guilabel>Preferences</guilabel> dialog.</para>
+      <para>Colorblindness alone affects an estimated 2% of all females, and 9% of all males.  You must therefore allow the user to customize the colors in any part of your application that conveys important information.  Normally, this means you should only use colors that are part of the user's chosen theme.  If you have to use any extra colors, they must be customizable in your application's <guilabel>Preferences</guilabel> dialog.</para>
       
-      <figure id="redundant-color-example"> <title>Example illustrating redundant use of color</title>
-	<informaltable frame='all'>
-	  <tgroup cols='2'>
-	    <tbody>
-	      <row>
-		<entry valign='middle'> 
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/colour_only.png" format="PNG"/>
-		</imageobject>
-		  <textobject>
-		    <phrase>Example showing changes in stock price using color only</phrase>
-		  </textobject>
-		</mediaobject>
-		</entry>
-		
-		<entry>This display could cause problems for a red-green colorblind user (colorblindness affects as many as 1 in 7 males in some parts of the world).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
-	      </row>
-	      
-	      <row>
-		<entry valign='middle'>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="images/colour_and_arrows.png" format="PNG"/>
-		</imageobject>
-		  <textobject>
-		    <phrase>Example showing changes in stock price using both color and arrows</phrase>
-		  </textobject>
-		</mediaobject>
-		</entry>
-		
-		<entry>This display reinforces the color coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.  This needn't be the default colour scheme if testing were to show it to be too distracting for the majority of users, but it should be possible to customize it in this way either by theming or via the application's <guilabel>Preferences</guilabel> dialog.</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</informaltable>
+      <figure id="redundant-color-example"> 
+	<title>The red-on-black part of this display causes problems for users who have difficulty distinguishing contrast. Its use of color alone to distinguish different types of information can also cause problems for those with colorblindness.</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/colour_only.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Example showing changes in stock price using red and green figures on a black background</phrase>
+	  </textobject>
+	</mediaobject>
       </figure>
       
-      <para>Always design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <link linkend="icons">Icons</link> for more information.</para>
+      <figure>
+	<title>Color-coding reinforced with arrows to show stock price movement.  This version also uses darker shades of green and red on a lighter background to provide higher contrast.  This need not be the default colour scheme if testing were to show it to be too distracting for the majority of users, but it should be possible to customize it in this way either by theming or via the application's <guilabel>Preferences</guilabel> dialog.</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/colour_and_arrows.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Example showing changes in stock price using both color and arrows, on a white background</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      
+      <para>Design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <link linkend="icons">Icons</link> for more information.</para>
       
       <para>Recommendations:</para>
       <itemizedlist>
@@ -356,7 +356,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 
 	<listitem><para>Ensure your application is not dependent on a particular theme. Test it with different themes (including high contrast accessibility themes, which use fewer colors) to ensure your application respects the settings.</para></listitem>
 
-	<listitem><para>Don't use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See <link linkend="redundant-color-example">color and contrast example</link> above.</para></listitem>
+	<listitem><para>Do not use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See <link linkend="redundant-color-example">color and contrast example</link> above.</para></listitem>
 
       <listitem><para>Support high contrast GNOME themes (when these become available). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colors specified by the theme.</para></listitem>
 
