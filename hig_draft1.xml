@@ -758,7 +758,7 @@ Brings up the About dialog for the application. The dialog should contain the na
  
     <!-- Toolbars (subsection of menus+toolbars) -->
 <sect1 id ="toolbars-palettes">
-    <title>Toolbars and Palettes</title>
+    <title>Toolbars</title>
     
     <sect2 id="toolbars">
       <title>Toolbars</title>
@@ -839,10 +839,10 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  
 	  <listitem><para>By default, have your toolbars appear directly below the main menu bar.</para></listitem>
 	  
-	  <listitem><para>Allow toolbars to be turned on and off in your application's <guilabel>Preferences</guilabel> dialog and by using the <guimenu>View</guimenu>-&gt;<guimenuitem>Toolbar</guimenuitem> menu item.  If there is more than one toolbar, they are turned on and off by individual entries in the <guimenu>View</guimenu>-&gt;<guimenuitem>Toolbar</guimenuitem> submenu.</para></listitem>
+	  <listitem><para>Allow toolbars to be turned on and off in your application's <guilabel>Preferences</guilabel> dialog and by using the <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> menu item.  If there is more than one toolbar, they are turned on and off by individual entries in the <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> submenu.</para></listitem>
 	  
 	  
-	  <listitem><para>All functions that appear on your toolbars must also accessible via the main menu bar, either directly (i.e. an equivalent menu item) or indirectly (e.g. in the <guimenu>Options</guimenu>-&gt;<guimenuitem>Settings</guimenuitem> dialog).</para></listitem>
+	  <listitem><para>All functions that appear on your toolbars must also accessible via the main menu bar, either directly (i.e. an equivalent menu item) or indirectly (e.g. in the <menuchoice><guimenu>Options</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> dialog).</para></listitem>
 	  
 	  <listitem><para>Arrange toolbar buttons in the same order and groupings as their equivalents on the main menu bar. In particular, always group sets of mutually-exclusive toolbar buttons.</para></listitem>
 
@@ -1004,7 +1004,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  </mediaobject>
 	</figure>
 
-	<para>If your application supports all of these functions and you want to simplify your toolbar, consider leaving off the <guibutton>Undo</guibutton> and <guibutton>Redo</guibutton> buttons, or the <guibutton>Cut</guibutton>, <guibutton>Copy</guibutton>, <guibutton>Paste</guibutton> and <guibutton>Delete</guibutton> buttons, as most users prefer to use keyboard or menu for these functions.  However, you should include an option to re-add these buttons in your <guimenu>Toolbars</guimenu>-&gt;<guimenuitem>Customize</guimenuitem>... menu.</para>
+	<para>If your application supports all of these functions and you want to simplify your toolbar, consider leaving off the <guibutton>Undo</guibutton> and <guibutton>Redo</guibutton> buttons, or the <guibutton>Cut</guibutton>, <guibutton>Copy</guibutton>, <guibutton>Paste</guibutton> and <guibutton>Delete</guibutton> buttons, as most users prefer to use keyboard or menu for these functions.  However, you should include an option to re-add these buttons in your <menuchoice><guimenu>Toolbars</guimenu><guimenuitem>Customize</guimenuitem></menuchoice>... menu.</para>
 
 	<para>If you wish to add a <guibutton>Help</guibutton> toolbar button, it should be placed last (rightmost, in western locales) on the main toolbar.  However, adding a <guibutton>Help</guibutton> button to the toolbar is not generally recommended, as usability studies suggest that it will be rarely used.  (N.B. This finding applies only to toolbars, not <guibutton>Help</guibutton> buttons in dialogs).</para>
 	
@@ -2162,11 +2162,11 @@ text/mathml
 
       <para>&lt;pics&gt;</para>
 
-      <para>For right-handed users, the left button on a mouse is normally the one used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to as Button 1 or the Selection button.</para>
+      <para>For right-handed users, the left button on a mouse is normally the one used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
 
-      <para>For right-handed users, the right button on a mouse is normally the one used for operations involving pop-up menus. It is therefore referred to as the &quot;right button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to as Button 3 or the Menu button.</para>
+      <para>For right-handed users, the right button on a mouse is normally the one used for operations involving pop-up menus. It is therefore referred to as the &quot;right button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 3 or the Menu button.</para>
 
-      <para>Pointing devices with three buttons normally have a middle button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  You may sometimes see this referred to as Button 2 or the Transfer button.</para>
+      <para>Pointing devices with three buttons normally have a middle button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  You may sometimes see this referred to in code or documentation as Button 2 or the Transfer button.</para>
 
       <para>Recommendations:</para>
       <itemizedlist>
@@ -2269,7 +2269,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	<para>Recommendations:</para>
 	<itemizedlist>
 
-	  <listitem><para>By default, only objects that are completely enclosed by the bounding box when the mouse button is released should be selected.  However, it is sometimes useful to allow selection when any part of an object is enclosed, for example, when zoomed in to a high magnification in a drawing application.  If both these options prove useful within the same application, allow the user to choose which method they prefer in the <guilabel>Preferences</guilabel> dialog.</para></listitem>
+	  <listitem><para>By default, only objects that are completely enclosed by the bounding box when the mouse button is released should be selected.</para></listitem>
 
 	<listitem><para>Always use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Don't wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
 
@@ -2324,7 +2324,7 @@ Dragging with the right button instead of the left pops up a menu when the butto
       <para>Recommendations:</para>
       <itemizedlist>
 
-	<listitem><para>Provide good visual feedback throughout a drag and drop operation. As the mouse passes over valid targets, highlight them and change the mouse pointer. Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	<listitem><para>A drag and drop operation can be reversed by using the application's Edit-&gt;Undo function (Ctrl+Z).</para></listitem>
+	<listitem><para>Provide good visual feedback throughout a drag and drop operation. As the mouse passes over valid targets, highlight them and change the mouse pointer. Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	<listitem><para>A drag and drop operation can be reversed by using the application's <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice> function.</para></listitem>
 
 	<!-- Decided against the right mouse drag
       <listitem><para>Dragging with the right mouse button pops up a menu when the mouse button is released, offering the choice of Copy, Move, Link, and Cancel (or whichever subset of those actions is available).  Cancel should always be available.</para></listitem>
@@ -2434,7 +2434,7 @@ fine motor control skills required.</para>
       </figure>
 	
 
-      <para>Most functionality is easy to make available from the keyboard, by using keyboard mnemonics and accelerators, and the toolkit's built-in keyboard navigation features. All controls with labels should have mnemonic access, and frequently-used menu items should be assigned shortcuts. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
+      <para>Most functionality is easy to make available from the keyboard, by using keyboard mnemonics and shortcuts, and the toolkit's built-in keyboard navigation features. All controls with labels should have mnemonic access, and frequently-used menu items should be assigned shortcuts. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
 
       <para>Recommendations:</para>
 
@@ -2609,7 +2609,7 @@ fine motor control skills required.</para>
 -->
 
       <sect3>
-	<title>Mnemnonics</title>
+	<title>Mnemonics</title>
 
 	<para>All labelled components should have a mnemonic (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
 
@@ -2642,9 +2642,35 @@ fine motor control skills required.</para>
       </sect3>
       
       <sect3>
-	<title>Standard Application Accelerators and Mnemonics</title>
+	<title>Shortcuts</title>
 
-	<para>The tables in this section summarize the standard accelerators you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended accelerators for those functions you do support.</para> 
+	<para>The tables in this section summarize the standard shortcuts you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcuts for those functions you do support.</para> 
+
+	<para>You will probably also want to add your own shortcuts for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcuts they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
+
+	<para>Recommendations:</para>
+
+	<itemizedlist>
+
+	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcuts to your application.</para></listitem>
+
+	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Don't try to assign a shortcut key to everything.</para></listitem>
+
+	  <listitem><para>Choose new shortcut keys to be as mnemonic as possible, as they are easier to learn and remember.  For example, <keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo> would be a good shortcut for a menu item called <guimenuitem>Edit Page</guimenuitem>.</para></listitem>
+
+	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
+	  
+	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcuts unless the number has some significant relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcuts for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  	  
+	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcuts, as these may conflict with menu accelerators.</para></listitem>
+
+	  <listitem><para>Don't use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
+	  
+	  <listitem><para>Don't assign shortcuts to menu items that change over time, for example a list of open windows in the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
+	  
+	  <listitem><para>Don't use any of the shortcuts for the standard functions listed here for your own purposes,  even if your application doesn't support that function.  This will help further reinforce consistency between GNOME applications.</para></listitem>
+
+	</itemizedlist>
 
 	<table frame='all' pgwide='1'>
 	  <title>Standard GNOME application shortcuts and mnemonics - File menu</title>
@@ -2778,7 +2804,7 @@ fine motor control skills required.</para>
 
 	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser apps&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
 
-<!-- Consensus is to keep Letter-based accelerators
+<!-- Consensus is to keep Letter-based shortcuts
 	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
 -->
 
@@ -2835,8 +2861,13 @@ fine motor control skills required.</para>
 	    <tbody>
 	      <row>
 		<entry>Add _Bookmark</entry>
-		<entry>Ctrl+B</entry>
+		<entry>Ctrl+D</entry>
 		<entry>Add a bookmark for the current location</entry>
+	      </row>
+	      <row>
+		<entry>_Edit Bookmarks...</entry>
+		<entry>Ctrl+B</entry>
+		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -2873,7 +2904,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<note><title>For discussion</title>
-	  <para>Is it acceptable to specify the same shortcut for Format->Bold and Bookmarks->Add Bookmark, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
+	  <para>Is it acceptable to specify the same shortcut for <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Add Bookmark</guimenuitem></menuchoice>, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
 	</note>
 
 	<table frame='all' pgwide='1'>
@@ -2903,7 +2934,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<note>
-	  <title>For Duscussion</title>
+	  <title>For Discussion</title>
 	  <para>Greg suggested Ctrl+H for Search Help... this doesn't seem to me to be an important enough function to tie up Ctrl+H with, though, anyone got any other views/alternative suggestions?</para>
 	</note>
 	  
@@ -2940,8 +2971,8 @@ fine motor control skills required.</para>
 		<entry>Give focus to next/previous pane in a GtkPaned window</entry>
 	      </row>
 	      <row>
-		<entry>F8, Shift+F8</entry>
-		<entry>Give focus to next/previous splitter bar in a GtkPaned window</entry>
+		<entry>F8</entry>
+		<entry>Give focus to splitter bar in paned window</entry>
 	      </row>
 	      <row>
 		<entry>F10</entry>
@@ -2953,7 +2984,7 @@ fine motor control skills required.</para>
 	      </row>
 	      <row>
 		<entry>Space</entry>
-		<entry>Toggle selection state of focused checkbox, radio button etc.</entry>
+		<entry>Toggle selection state of focused checkbox, radio button, or toggle button</entry>
 	      </row>
 	      <row>
 		<entry>Return</entry>
