@@ -219,11 +219,79 @@
     </sect2>
   </sect1>
 
+	<sect1 id="dialog-boxes">
+	<title>Dialog Boxes</title>
+
+	<figure>
+	<title>An example of a dialog box</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/tabbed-dialog-box.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+		<phrase>An example of a dialog box: the Glade project options dialog</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+
+	<para>A dialog box provides an exchange of information, or dialog, between the user and the application.  Use a dialog box to obtain additional information from the user that is needed to carry out a particular command or task.</para>
+
+      <formalpara>
+	<title>Title Format:</title>
+	<para><replaceable>Name of button or menu item that opened the dialog, without ellipsis</replaceable></para>
+      </formalpara>
+      <formalpara>
+	<title>Window Commands:</title>
+	<para>Close, Minimize, Roll-up/Unroll</para>
+      </formalpara>
+      <formalpara>
+	<title>Buttons:</title>
+	<para>Place a <guibutton>Help</guibutton> button in the lower left of the dialog, and <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> (or equivalent) buttons in the lower right corner.</para>
+      </formalpara>
+
+	<para>Your dialog may specify a default button, that is activated when the user presses the <keycap>Return</keycap> key.  See <xref linkend="default-buttons"/> for guidance on choosing an appropriate default button.</para>
+
+	<para>Label the <guibutton>OK</guibutton> with a label more appropriate to the dialog's purpose where possible, for example <guibutton>Print</guibutton> or <guibutton>Save</guibutton>.</para>
+
+	<sect2 id="dialog-buttons">
+	<title>Additional Buttons</title>
+
+	<para>You can include other buttons in a dialog's main button area in addition to <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton>, but any more than one or two such buttons will make the dialog appear complicated and difficult to use.  As with any other button, keep the labels as concise as possible to minimize this effect.</para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Place buttons that apply to the dialog box as a whole in the main button area row at the bottom of the dialog box, to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
+		<listitem><para>Place buttons that apply to one or a few controls next to their associated controls. For instance, place a <guibutton>Browse...</guibutton> button at the trailing edge of the text field it fills in.</para></listitem>
+
+	</itemizedlist>
+
+	</sect2>
+
+	<sect2 id="dialog-layout">
+	<title>Layout</title>
+	<para>Arrange controls in your dialog in the direction that people read.  In western locales, this is generally left-to-right, top-to-bottom.  Position the main controls with which the user will interact as close to the upper left corner as possible.  Follow similar guidelines for arranging controls within groups in the dialog, and for specifying the order in which controls are traversed using the <keycap>Tab</keycap> key.</para>
+
+	<para>When opening a dialog, provide initial keyboard focus to the component that you expect users to operate first. This focus is especially important for users who must use a keyboard to navigate your application.</para>
+
+	<para>See <xref linkend="layout"/> for more detailed information on arranging controls in dialogs.</para>
+
+	</sect2>
+	
+	<sect2 id="common-dialogs">
+	<title>Common Dialogs</title>
+
+	<para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colours, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
+	
+	</sect2>
+
+	</sect1>
+
   <sect1 id="utility-windows">
     <title>Utility Windows</title>
     <para>Utility windows, such as palettes and toolboxes, normally have borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
 
-	<para>For property and preference windows that allow the user to change values or settings, update those values or settings immediately to reflect the changes made in the window.  The user should not have to press an <guibutton>OK</guibutton> or <guibutton>Apply</guibutton> button to make the changes happen, unless either:</para>
+	<sect2 id="instant-apply">
+	<title>Instant apply and explicit apply</title>
+	<para>For windows that allow the user to change values or settings, such as property and preference windows, update those values or settings immediately to reflect the changes made in the window.  This is known as &quot;instant apply&quot;.  Do not make the user press an <guibutton>OK</guibutton> or <guibutton>Apply</guibutton> button to make the changes happen, unless either:</para>
 
 	<itemizedlist>
 		<listitem><para>the change will take more than about one second to apply, in which case applying the change immediately could make the system feel slow or unresponsive, or</para></listitem>
@@ -231,6 +299,42 @@
 
 	</itemizedlist>
 
+	<para>If either these conditions apply to only a few of the controls in your window, arrange those controls together into one or more groups, each with its own <guibutton>Apply</guibutton> button.  Leave the rest of the controls as instant apply.</para>
+
+	<remark>FIXME: screenshot of such a window here</remark>
+
+	<para>If most of the controls in your window cannot be made instant apply, it may be easier to make the whole window &quot;explicit apply&quot;.   An explicit apply window has three buttons in its button box, plus an optional <guibutton>Help</guibutton> button:</para>
+
+	<itemizedlist>
+		<listitem><formalpara><title>Try</title>Applies all the settings in the window, but does not close the window in case the user wishes to change their mind.</formalpara></listitem>
+		<listitem><formalpara><title>Cancel</title>Resets all settings in the window to those that were in force when the window was opened.  Note:  this must undo the effects of all applications of the <guibutton>Try</guibutton> since the window was opened, not just the most recent one.</formalpara></listitem>
+		<listitem><formalpara><title>OK</title>Applies all settings in the window, and closes the window.</formalpara></listitem>
+	</itemizedlist>
+
+	<figure id="explicit-apply-figure">
+	<title>Buttons in an explicit apply window</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/explicit-apply.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot showing correct positions for Help, Try, Cancel and OK buttons in a dialog</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+
+	<remark>FIXME: better example of such a window here</remark>
+
+	</sect2>
+
+	<sect2 id="default-buttons">
+	<title>Default Buttons</title>
+	<para>When designing a dialog or utility window, you can assign the <keycap>Return</keycap> key to activate a particular button in the window.  GNOME indicates this button to the user by drawing a different border around it.  For example, the <guibutton>OK</guibutton> button in <xref linkend="explicit-apply-figure"/>.</para>
+
+	<para>Choose the default button to be the most likely action, such as a confirmation action or an action that applies changes in a utility window.  Do not make a button the default if its action is irreversible, destructive or otherwise inconvenient to the user.  If there is no appropriate button in your window, to designate as the default button, do not set one.</para>
+
+	<para>In particular, it is currently <emphasis>not</emphasis> recommended to make the <guibutton>Close</guibutton> button the default in an <link linkend="instant-apply">instant apply</link> window, as this can lead to users closing the window accidentally before they have finished using it.</para>
+
+	</sect2>
 
     <sect2 id="property-windows">
       <title>Property Windows</title>
@@ -365,7 +469,7 @@
 
   </sect1>
 
-  
+
 <sect1 id="alert-windows">
     <title>Alerts</title>
 
@@ -428,7 +532,7 @@
     </sect2>
 
       <sect2 id="alert-button-order">
-      <title>Buttons</title>
+      <title>Alert Buttons</title>
       <figure id="alert-buttons-figure">
 	<title>Button ordering and placement</title>
 	
