@@ -447,6 +447,7 @@ text/mathml
       <para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
     </sect2>
 
+
     <sect2 id="alert-windows">
       <title>Alerts</title>
       <para>An alert is a modal secondary window for . . .</para>
@@ -466,11 +467,36 @@ text/mathml
     <sect2 id="dialog-windows">
       <title>Dialogs</title>
       <para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
+      <sect3 id="button-order">
+	<title>Dialog Buttons</title>
+	
+	<para>Most dialogs should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Many dialogs should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
+	<formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the dialog. The affirmative button accepts the action proposed by the dialog.</para></formalpara>
+	<formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the dialog.</para></formalpara>
+	<formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify dialogs presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the dialog beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
+	<formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the dialog text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save dialog. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
+	
+	<para>Buttons are best phrased in verb form, as users will be less liable to answer dialogs backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
+	
+	<!-- actually this is a trashy dialog, somebody should make a good one with good phrasing -seth -->
+	<figure id="dialog-buttons">
+	  <title>A save dialog using good button labels and ordering</title>
+	  
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/save_dialog.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Save dialog: "               [Don't Quit] [Don't Save] [Save] "</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </sect3>
     </sect2>
     
     <sect2 id="assistant-windows">
       <title>Assistants</title>
       <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
+      <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
     </sect2>
     
 </sect1>
@@ -1290,40 +1316,6 @@ Brings up the About dialog for the application. The dialog should contain the na
   </sect1>
 -->
 
-<sect1 id="dialogs">
-    <title>Dialogs</title>
-    <para>A dialog is a application modal secondary window for acquiring information necessary to complete a task.</para>
-
-    <sect2 id="dialogs-assistants">
-      <title>Assistants</title>
-      <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
-    </sect2>
-
-    <sect2 id="button-order">
-      <title>Dialog Buttons</title>
-      
-      <para>Most dialogs should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Many dialogs should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
-      <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the dialog. The affirmative button accepts the action proposed by the dialog.</para></formalpara>
-      <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the dialog.</para></formalpara>
-      <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify dialogs presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the dialog beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
-      <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the dialog text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save dialog. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
-
-      <para>Buttons are best phrased in verb form, as users will be less liable to answer dialogs backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
-
-      <!-- actually this is a trashy dialog, somebody should make a good one with good phrasing -seth -->
-      <figure id="dialog-buttons">
-	<title>A save dialog using good button labels and ordering</title>
-	
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/save_dialog.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Save dialog: "               [Don't Quit] [Don't Save] [Save] "</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-    </sect2>
-</sect1>
 <!--
 <sect1 id="dialogs">
 
