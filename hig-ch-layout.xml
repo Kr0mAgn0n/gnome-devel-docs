@@ -2,7 +2,7 @@
 
 <chapter id="layout">
 
-<title>Visual Design</title>
+<title>Visual Design (DRAFT)</title>
 
     <para>Visual design is not just about making your application look pretty.  Good visual design is about communication.  A well-designed application will make it easy for the user to understand the information that is being presented, and show them clearly how they can interact with that information.  If you can achieve all that, your application <emphasis>will</emphasis> look good to the user, even if it doesn't have any fancy graphics or spinning logos!</para>
 
@@ -10,758 +10,17 @@
 - More than any other section this needs to be liberally sprinkled with examples
 -->
 
-<!-- Color section based on Coleen's HTML draft -->
-
-<sect1 id="color">
-      <title>Color</title>
-
-      <para> Color is a good tool for communicating information in a user interface. It can be used to buttress a desktop's look and feel by enhancing a theme, accent a dynamic alert in a system management application, emphasize an element in a long list to expedite scanning, or add aesthetically pleasing details to an icon. However, color should always be regarded as a useful addition to your design, not as a necessity. Your design should never depend upon colors alone to display important information, and you should keep in mind that if colors cannot be perceived correctly for whatever reason (user has an 8-bit system or is colorblind), your application should still be usable. </para>
-
-	<para></para>
-
-      <sect2 id="Palette">
-	<title>Palette</title>
-	
-	<!-- primary contributor to the href="http://primates.ximian.com/~tigert/new_stock_project/" GNOME stock icon repository -->
-	
-	<para>A basic thirty-two color palette has been developed for the GNOME desktop. It is public and may be downloaded from <ulink url="http://primates.ximian.com/~tigert/new_stock_project/">http://primates.ximian.com/~tigert/new_stock_project/</ulink>. You may save it to your ~/.gimp_1.2/palettes/ folder and restart GIMP to begin using it. A single, consistently used palette helps give a unified look and feel to the desktop while minimizing visual distractions. If you need a color that is darker or lighter than the colors in this basic palette (e.g., for antialiasing needs), choose a color that is closest to the hue you desire, then darken or lighten as needed.</para>
-
-	<figure><title>The basic GNOME 32-color palette</title>
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/ximian-palette.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The basic GNOME 32-color palette</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	
-	
-	<para>FIXME: Need to get actual colors to appear in this table, unfortunately docbook table cells don't have a bgcolor attribute!</para>
-
-	<table frame="topbot"> 
-	  <title>RGB and hexadecimal values for the basic palette</title> 
-
-	  <tgroup cols="8" colsep="0" rowsep="0" align="left">
-	    <colspec colnum="1" colname="col1" colwidth="1.51*" align="left"/><colspec colnum="2" colname="col2" colwidth="1.00*"/> 
-	    <thead> 
-	      <row rowsep="1" valign="top"> 
-		<entry>Color</entry> 
-		<entry>Description</entry>
-		<entry>RGB</entry>
-		<entry>Hex</entry>
-		<entry>Color</entry>
-		<entry>Description</entry>
-		<entry>RGB</entry>
-		<entry>Hex</entry>
-		</row>
-	      </thead>
-	    <tbody>
-	      <row valign="top">
-
-<!-- TODO : get the colors to appear in the table, bgcolor doesn't work in docbook :) -->	    
-		<entry>  <!--bgcolor="#EAE8E3"--> &nbsp;</entry>
-		<entry>Basic 3D Hilight</entry>
-		<entry>234 232 227</entry>
-		<entry>#EAE8E3 </entry>
-		<entry>  <!--bgcolor="#BAB5AB"--> &nbsp;</entry>
-		<entry>Basic 3D Medium</entry>
-		<entry>186 181 171</entry>
-		<entry>#BAB5AB</entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#807D74"--> &nbsp;</entry>
-		<entry>Basic 3D Dark</entry>
-		<entry>128 125 116</entry>
-		<entry>#807D74 </entry>
-		<entry>  <!--bgcolor="#565248"--> &nbsp;</entry>
-		<entry>3D Shadow</entry>
-		<entry>86 82 72</entry>
-		<entry>#565248 </entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#C5D2C8"--> &nbsp;</entry>
-		<entry>Green Hilight</entry>
-		<entry>197 210 200</entry>
-		<entry>#C5D2C8 </entry>
-		<entry>  <!--bgcolor="#83A67F"--> &nbsp;</entry>
-		<entry>Green Medium</entry>
-		<entry>131 166 127</entry>
-		<entry>#83A67F </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#5D7555"--> &nbsp;</entry>
-		<entry>Green Dark</entry>
-		<entry>93 117 85</entry>
-		<entry>#5D7555 </entry>
-		<entry>  <!--bgcolor="#445632"--> &nbsp;</entry>
-		<entry>Green Shadow</entry>
-		<entry>68 86 50</entry>
-		<entry>#445632 </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#E0B6AF"--> &nbsp;</entry>
-		<entry>Red Hilight</entry>
-		<entry>224 182 175</entry>
-		<entry>#E0B6AF </entry>
-		<entry>  <!--bgcolor="#C1665A"--> &nbsp;</entry>
-		<entry>Red Medium</entry>
-		<entry>193 102 90</entry>
-		<entry>#C1665A </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#884631"--> &nbsp;</entry>
-		<entry>Red Dark</entry>
-		<entry>136 70 49</entry>
-		<entry>#884631 </entry>
-		<entry> <!--bgcolor="#663822"--> &nbsp;</entry>
-		<entry>Red Shadow</entry>
-		<entry>102 56 34</entry>
-		<entry>#663822 </entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#ADA7C8"--> &nbsp;</entry>
-		<entry>Purple Hilight</entry>
-		<entry>173 167 200</entry>
-		<entry>#ADA7C8 </entry>
-		<entry> <!--bgcolor="#887FA3"--> &nbsp;</entry>
-		<entry>Purple Medium</entry>
-		<entry>136 127 163</entry>
-		<entry>#887FA3 </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#625B81"--> &nbsp;</entry>
-		<entry>Purple Dark</entry>
-		<entry>98 91 129</entry>
-		<entry>#625B81 </entry>
-		<entry> <!--bgcolor="#494066"--> &nbsp;</entry>
-		<entry>Purple Shadow</entry>
-		<entry>73 64 102</entry>
-		<entry>#494066 </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#9DB8D2"--> &nbsp;</entry>
-		<entry>Blue Hilight</entry>
-		<entry>157 184 210</entry>
-		<entry>#9DB8D2 </entry>
-		<entry> <!--bgcolor="#7590AE"--> &nbsp;</entry>
-		<entry>Blue Medium</entry>
-		<entry>117 144 174</entry>
-		<entry>#7590AE </entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#4B6983"--> &nbsp;</entry>
-		<entry>Blue Dark</entry>
-		<entry>75 105 131</entry>
-		<entry>#4B6983 </entry>
-		<entry>  <!--bgcolor="#314E6C"--> &nbsp;</entry>
-		<entry>Blue Shadow</entry>
-		<entry>49 78 108</entry>
-		<entry>#314E6C </entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#EFE0CD"--> &nbsp;</entry>
-		<entry>Face Skin Hilight</entry>
-		<entry>239 224 205</entry>
-		<entry>#EFE0CD </entry>
-		<entry> <!--bgcolor="#E0C39E"--> &nbsp;</entry>
-		<entry>Face Skin Medium</entry>
-		<entry>224 195 158</entry>
-		<entry>#E0C39E </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#B39169"--> &nbsp;</entry>
-		<entry>Face Skin Dark</entry>
-		<entry>179 145 105</entry>
-		<entry>#B39169 </entry>
-		<entry> <!--bgcolor="#826647"--> &nbsp;</entry>
-		<entry>Face Skin Shadow</entry>
-		<entry>130 102 71</entry>
-		<entry>#826647 </entry>
-	      </row>
-	      <row> 
-		<entry>  <!--bgcolor="#DF421E"--> &nbsp;</entry>
-		<entry>Accent Red</entry>
-		<entry>223 66 30</entry>
-		<entry>#DF421E </entry>
-		<entry> <!--bgcolor="#990000"--> &nbsp;</entry>
-		<entry>Accent Red Dark</entry>
-		<entry>153 0 0</entry>
-		<entry>#990000 </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#EED680"--> &nbsp;</entry>
-		<entry>Accent Yellow</entry>
-		<entry>238 214 128</entry>
-		<entry>#EED680 </entry>
-		<entry> <!--bgcolor="#D1940C"--> &nbsp;</entry>
-		<entry>Accent Yellow Dark</entry>
-		<entry>209 148 12</entry>
-		<entry>#D1940C </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#46A046"--> &nbsp;</entry>
-		<entry>Accent Green </entry>
-		<entry>70 160 70</entry>
-		<entry>#46A046 </entry>
-		<entry> <!--bgcolor="#267726"--> &nbsp;</entry>
-		<entry>Accent Green Dark</entry>
-		<entry>38 199 38</entry>
-		<entry>#267726 </entry>
-	      </row>
-	      <row> 
-		<entry> <!--bgcolor="#ffffff"--> &nbsp;</entry>
-		<entry>White</entry>
-		<entry>255 255 255</entry>
-		<entry>#ffffff </entry>
-		<entry>  <!--bgcolor="#000000"--> &nbsp;</entry>
-		<entry>Black</entry>
-		<entry>0 0 0</entry>
-		<entry>#000000 </entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	
-      </sect2>
+    <sect1 id="layout-appearance">
+      <title>Labels</title>
       
-      <sect2 id="hsv">
-	<title>Hue, Brightness, Contrast</title>
+
+      <sect2 id="layout-labels">
 	
-	<para>Users with vision disorders, such as colorblindess or low vision, require alternatives to default settings. A good user interface is one that anticipates these needs by providing customizable preferences and support for accessible themes. Even better is an application that is already configured with carefully chosen defaults when it comes to color and contrast.</para>
-
-	<para> Colorblind users constitute an estimated 11% of the world population and have trouble distinguishing between certain hues such as red and green (deuteranopia or protanopia) or blue and yellow (tritanopia). Therefore it is necessary to allow the user to customize colors in any part of your application that conveys important information. This means that your application should be able to effectively convey information using just the colors from any theme that the user chooses<!--, and that attributes such as hue and brighness are adjustable in your application's preferences dialog -->.</para>
+	<title>Positioning</title>
 	
-	<para>A useful tool for reviewing information about colorblindess and checking legibility of images for colorblind users is <ulink url="http://www.vischeck.com/">Vischeck</ulink>, an online tool that simulates the way an image or a website might appear to a user who has deuteranopia, protanopia, or tritanopia. </para>
-
-	<para>Other users have more problems when it comes to contrast levels rather than hue on their screen. Some users require a high level of contrast between background and foreground colors such as black on white, white on black, or some other high-contrast combination. Others can experience discomfort unless they use low-contrast settings, such as gray text on a lighter gray background. These needs can be met by making sure that your application supports accessible themes in GNOME, whether it be High Contrast Large Print, High Contrast, Low Contrast Large Print, Low Contrast, or Large Print. This means there is a need for large and default sizes of high, low, and normal-contrast icon sets that accompany the default set for your application (see the Icon Style section).</para>
-
-	<para>Guidelines:</para>
-	<itemizedlist>
-		<listitem><para>Use the GNOME color palette. If you need a darker or lighter shade, start from one of the colors from the palette and darken or lighten as needed.</para></listitem>
-
-		<listitem><para>Ensure your application is not dependent on a particular theme. Test it with different themes (including high contrast accessibility themes, which use fewer colors) to ensure your application respects the settings. For example, all text should appear in the foreground color against the background color specified in the chosen theme.</para></listitem>
-
-		<listitem><para>Select colors carefully: when they need to be recognizably different, select the light colors from orange, yellow, green or blue-green, and darker colors from blue, violet, purple or red, since most colorblind people already see blue, violet, purple and red as darker than normal.</para></listitem>
-
-		<listitem><para>Do not use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description.</para></listitem>
-	</itemizedlist>
-
-      </sect2>
-    </sect1>
-    
-      
-    <sect1 id="layout-window">
-      <title>Window Layout</title>
-      
-      <sect2>
-	<title>General</title> 
-
-	<para>Placement of visual components in an application is important because relationships between elements are usually indicated by their positions. This is called "layout" in graphical user interface (GUI) design. A clean layout is crucial to creating a smooth visual flow of information for the user. In this section, you will be introduced to proper component placement and spacing. The major components discussed will be: labels, icons, radio buttons and checkboxes, text fields, command buttons, and drop-down menus.</para>
-
-	</sect2>
-
-	<sect2 id="layout-dialogs">
-	<title>Dialogs</title>
-	
-	<para>When a user is scanning a complex preferences dialog consisting of many labels and corresponding checkboxes, text fields, and combo boxes, it is easy to see how she can quickly become hindered by poor layout in the visual design. </para>
-
-	<figure><title>Improved window layout</title>
-	  
-	  <informaltable>
-	    <tgroup cols="2" align="center">
-	      <tbody>
-		<row>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/layout1.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Initial layout with poor alignment and limited use of white space</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		  
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/layout2.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Improved layout with fewer alignment points, frames removed to relieve clutter, and clearer grouping with use of white space</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-	      </tbody>
-	    </tgroup>
-	  </informaltable>
-	</figure>
-
-<!-- picture here of a complex preferences dialog, badly designed: right-aligned similar length labels, very little spacing between elements (vertically), varying spaces between elements (horizontally) -->
-
-	<para> In this example, the dialog presents labels which are not left-aligned. The user's eye is not given a proper anchor to scan the dialog quickly.</para>
-
-	<para>Since the labels are all similar in length, they should be left-aligned. Now the user has a firm left margin to anchor the eye and scan the list of items vertically with more ease. If most of the labels greatly differ in length in a component grouping within a layout, they should be right-aligned so that the components don't end up far away from the corresponding labels.</para>
-
-	<para>Use of frames to separate component groupings within a layout is deprecated. Use spacing and bold headers instead to delineate categorization. The latter is more effective because there are less gratuitous lines to distract the user from the main content in a layout.</para>
-
-	<para>Try to keep components consonant with each other in terms of size and alignment. This is particularly important within a component grouping in a layout so that the user's ability to quickly scan information is not sacrificed. Minimize the need for the user's eye to jump around too much when scanning a layout.</para>
-	
-	<figure><title>Layout specifications</title>
-	  
-	  <mediaobject>
-	    <imageobject>
-	      <imagedata fileref="images/layout_callouts.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Improved layout with fewer alignment points, frames removed to relieve clutter, and clearer grouping with use of white space</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	
-<!-- Figure here of the above paragraph, giving examples -->
-	<para> Labels should be concise and make sense when taken out of context; otherwise, users relying on screenreaders or similar assistive technologies will not always be able to immediately understand the relationship between a control and those surrounding it.</para>
-
-	<para>Labels of editable components should have access keys (underlined character for navigation by users unable to use a mouse), and the labels should immediately precede its control in the tab order so that the access key assigned to the label will focus to or activate the correct control when pressed.</para>
-
-      </sect2>
-
-      <sect2 id="window-layout-spacing">
-	<title>Spacing and Alignment</title>
-
-	<para>Provide adequate space between controls and groups of controls. This white space will make it easier for the user to find the information they need. A basic rule of thumb is to put space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated componentts, it's good to leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is good to have between the contents of a dialog window and the window borders.</para>
-
-	<para>Break long lists of choices into smaller groups. For lists of less than about eight items, use radio buttons or check boxes. For longer lists, use a list control or option menu.</para>
-
-	<para>Try to keep elements of the same type correspond to each other in left justification. For instance, titles of component groupings as in figure ("General," "Actions") should be left-aligned and justified with each other. Indentation of, say, 12 to 18 pixels is useful to denote hierarchy and association. By the same token, aim to minimize the number of alignment points in your window. An alignment point is an imaginary vertical or horizontal line through your window which touches the edge of one or more labels or controls in the window. Right justification is pleasing to the eye but not crucial.</para>
-	
-	<para>Guidelines:</para>
-
-	<itemizedlist>
-		<listitem><para>DO lay out components left-to-right, top-to-bottom. Generally, the first element the user is meant to encounter should be in the top-left, and the last in the bottom right. Keep in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.</para></listitem>
-
-    		<listitem><para>DO space in increments of 6 pixels; using "white" or blank spacing and indentation to delineate component groupings is cleaner and preferable than using graphical separators such as "title borders" or frames.
-
-          		<itemizedlist>
-			<listitem><para>In Glade, set the default border width and spacing for GTkTables, GtkVBoxes and GtkHBoxes to 3 pixels.</para></listitem>
-
-    			<listitem><para>FIXME: correct/fill in technical information; keep in mind that some people reading this might not be engineers but designers.</para></listitem>
-			</itemizedlist>
-		</para></listitem>
-
-    		<listitem><para>Align controls in your layout EXACTLY. The eye is very sensitive to aligned and unaligned objects. If nothing lines up with anything else in a window, it will be very hard for the user to scan the contents and find the information he wants. Two things that almost line up, but not quite, are equally distracting.</para></listitem>
-
-    		<listitem><para>Be consistent. Use the same spacing, alignment, and component sizes in all dialogs appearing in your application. The OK and Cancel buttons, for example, should all appear exactly 12 vertical and horizontal pixels from the lower right corner of every dialog window.</para></listitem>
-
-    		<listitem><para>Ensure that light and dark areas as well as spacing are equally distributed around the window. Keep in mind that every control or group of controls in your window has a visual "weight," depending on its overall size, color, and how much white space it includes. Darker, larger areas are "heavier," while paler, smaller areas are "lighter."</para></listitem>
-
-    		<listitem><para>Do not design windows that are more than 50% longer in one dimension than in the other. People are more comfortable looking at windows and dialogs whose dimensions stay within the golden ratio (about 1.6 to 1), a ratio that artists and architects have used to create aesthetically-pleasing buildings and paintings for thousands of years.</para></listitem>
-	 	
-    		<!-- <para><listitem>Do not resize components to fit arbitrary or uncommon layout needs. Make it a practice to use GtkTables, GtkVBox and GtkHBox container widgets at their default /* Calum, is there such a thing? */ row, column and border sizes. This will help ensure that a lot of layout and alignment work is done for you automatically.</para></listitem>-->
-
-	</itemizedlist>
-
-      </sect2>
-
-    </sect1>
-
-    <sect1 id="layout-icons">
-	<title>Icons</title>
-
-	<para>FIXME: We currently have two sections in the HIG about icons... this one and the following chapter.  We obviously need to merge these :o)</para>
-
-	<para> A user encounters many small, usually clickable graphics in a desktop environment. These graphics represent objects, actions, properties or provide status information of objects. Graphics representing objects or actions are called "icons," and graphics representing object properties or statuses are called "glyphs." Since glyphs constitute a small portion of the graphics pool in desktop environments, they are briefly explained in this section of the chapter along with icons.</para>
-
-	<para>Icons are small graphics that represent objects (applications, files) or actions ("Create new," "Save") in a user's desktop environment. They come in standard default sizes of 48x48, 32x32, 24x24 and 16x16. Icons are originally designed on a 48x48 canvas, then automatically scaled-down in GNOME to appear in context-dependent sizes.</para>
-
-	<para>Glyphs are graphics are usually, but not always, smaller than what are formally considered icons. They do not have default sizes. They don't initiate actions or represent objects, but usually represent the state or distinguishing attribute of an object in a larger set of objects. A sort indicator in a table component, a tree turner in a navigation tree, alarm badges on object icons and emblems in Nautilus are all glyphs.</para>
-
-	<para>In the table below, the first graphic in each category is the original size in which it was designed. The object icon represents a jar file, The action icon represents a "save as" action in a toolbar or menu and the glyph represents one property ("important") of a directory object in Nautilus.</para>
-
-	<table id="different-icon-types">
-	  <title>Different types of icon</title>
-	    <tgroup cols="3" align="left">
-	      <thead>
-		<row>
-		  <entry>Object Icon</entry>
-		  <entry>Action Icon</entry>
-		  <entry>Glyph</entry>
-		</row>
-	      </thead>
-	      
-	      <tbody>
-		<row>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/object-icon.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Image showing large, medium and small versions of icon representing a Java archive file</phrase>
-		    </textobject>
-		  </mediaobject>
-		  </entry>
-	
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/action-icon.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Image showing large, medium and small versions of &quot;Save As&quot; icon as it would appear on a menu or toolbar</phrase>
-		    </textobject>
-		  </mediaobject>
-		  </entry>
-
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/glyph-icon.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Image showing large and small versions of the &quot;important&quot; Nautilus emblem, and an example of how it appears when attached to a folder</phrase>
-		    </textobject>
-		  </mediaobject>
-		  </entry>
-		</row>
-		<row>
-		  <entry>48x48, 24x24, 16x16</entry>
-		  <entry>48x48, 24x24, 16x16</entry>
-		  <entry>48x48, 22x22, in context</entry>
-		</row>
-		</tbody>
-	</tgroup>
-	</table>
-
-	<sect2 id="icon-style">
-	<title>Style</title>
-
-	<para>All of these graphics should be designed with a global desktop look and feel in mind. GNOME uses a soft, three-dimensional look that is exemplified in the <ulink url="http://primates.ximian.com/~tigert/new_stock_project">stock icons</ulink>. This style is achieved by using antialiasing, shading and highlighting techniques. A simple icon design tutorial by Jakub Steiner, focusing on gradient and alpha channel use in the GIMP (GNU Image Manipulation Tool), can be found here: <ulink url="http://www.ximian.com/devzone/tutorials/icon-design">http://www.ximian.com/devzone/tutorials/icon-design/</ulink></para>
-
-	<para>Components of an icon style can be broken down into several categories such as perspective, dimentionality, lighting effects and palette. These components play an important part in giving a group of icons a collectively distinctive look. For instance, the Java Look and Feel, or "metal," is recognizable by its use of a primary eight-color palette, interior highlighting and diagonal gradients. The Macintosh Look and Feel, or "aqua," is recognizable by its use of a cool palette based on blue, lighting effects mimicking reflectivity and antialiasing. The GNOME look and feel currently being developed exhibits a thirty-two color palette, soft drop shadows and a mix between cartoonish and photorealistic graphics:</para>
-
-        <table id="different-icon-styles">
-          <title>Different styles of icon</title>
-            <tgroup cols="3" align="left">
-              <thead>
-                <row>
-                  <entry>Java Look and Feel</entry>
-                  <entry>Macintosh Look and Feel</entry>
-                  <entry>GNOME Look and Feel</entry>
-                </row>
-              </thead>
-
-              <tbody>
-                <row>
-                  <entry>
-                  <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="images/jlf_globe.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase>Java globe icon, showing typical Java shading and coloring</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-
-                  <entry>
-                  <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="images/softwareupdateicon.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase>Macintosh OSX icon, showing typical Aqua shading and coloring</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-
-                  <entry>
-                  <mediaobject>
-                      <imageobject>
-                        <imagedata fileref="images/gnome-http-url.png" format="PNG"/>
-                    </imageobject>
-                    <textobject>
-                      <phrase>GNOME URL icon, showing typical GNOME shading and coloring</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-                </row>
-                </tbody>
-        </tgroup>
-        </table>
-
-	<para>To achieve the GNOME look and feel, observe these guidelines:</para>
-
-	<itemizedlist>
-		<listitem><para> Perspective: Flush perspective (as if you were looking at a three-dimentional object at eye-level) is useful for designing graphics representing actions because these usually appear in toolbar buttons and express a "shelved" metaphor. However, angled perspective can be used for variation, particularly for icons representing objects (such as application icons) or for central image components within a bounding component using the flush perspective.</para>
-
-	<table id="different-perspectives">
-          <title>Different perspectives</title>
-            <tgroup cols="3" align="left">
-              <thead>
-                <row>
-                  <entry>Flush perspective (action)</entry>
-                  <entry>Angled perspective (object)</entry>
-                  <entry>Angled within Flush (object)</entry>
-                </row>
-              </thead>
-
-              <tbody>
-                <row>
-                  <entry>
-                  <mediaobject>
-                      <imageobject> 
-                        <imagedata fileref="images/stock-save.png" format="PNG"/>                    </imageobject>
-                    <textobject>
-                      <phrase>GNOME Save icon: a floppy disk viewed from directly above</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-
-		  <entry>
-                  <mediaobject>
-                      <imageobject> 
-                        <imagedata fileref="images/gnome-package.png" format="PNG"/>                    </imageobject>
-                    <textobject>
-                      <phrase>GNOME package icon: a cardboard box viewed from one of its corners</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-
-		  <entry>
-                  <mediaobject>
-                      <imageobject> 
-                        <imagedata fileref="images/gnome-text-x-readme.png" format="PNG"/>                    </imageobject>
-                    <textobject>
-                      <phrase>GNOME README icon: a sheet of paper viewed from above, combined with a book viewd from one its corners</phrase>
-                    </textobject>
-                  </mediaobject>
-                  </entry>
-		  </row>
-
-		 <row>
-			<entry>&quot;Save&quot;</entry>
-			<entry>&quot;Package&quot;</entry>
-			<entry>&quot;README document&quot;</entry>
-		</row>
-
-                </tbody>
-              </tgroup>
-           </table>
-
-	   </listitem>
-
-		<listitem><para>Lighting: Icons should be designed as if there is lighting coming from the upper left corner, with a soft drop-shadow cast within the icon's 48x48 (original design size) borders (120 degrees, 4 pixel distance, 4 pixel blur).</para></listitem>
-
-		<listitem><para>Palette: Icons should use colors based on the basic thirty-two color palette, and darken or lighten the hues by hand as necessary when antialiasing.</para></listitem>
-
-		</itemizedlist>
-	</sect2>
-	
-	<sect2 id="icon-size">
-	<title>Size</title>
-
-	<para> When designing default size icons for GNOME, make sure that you create them to be as close to 48 pixels in height and 48 pixels in width as possible. These dimensions should include drop shadows and other effects, such as antialiasing.</para>
-
-	<figure id="icon-dimensions">
-	<title>Icon dimensions FIXME: This picture has gone horribly wrong!</title>
-	<mediaobject>
-        	<imageobject>
-                <imagedata fileref="images/size-48x48.png" format="PNG"/>                    </imageobject>
-                <textobject>
-                <phrase>Example of a 48x48 pixel icon</phrase>
-                </textobject>
-         </mediaobject>
-	</figure>
-
-	<para>This will ensure that icons appearing next to each other will not only have consistent color and style, but also be uniform in size.</para>
-
-	<para>GNOME will automatically scale icons down form their default 48x48 size to exactly one-half that size, to 24x24 pixels when placing versions of the icons in menu entries. GNOME will also provide padding around the icons in menus (4 vertical pixels between icons and 4 horizontal pixels between icons and their menu entry labels), so there is no need to build in the space around the icons when designing them.</para>
-
-	</sect2>
-
-	<sect2 id="icon-context">
-	<title>Context- to be added</title>
-	</sect2>
-
-	<sect2 id="icon-accessibility">
-	<title>Accessibility- to be added</title>
-	</sect2>
-
-	<para>Guidelines:</para>
-
-	<itemizedlist>
-
- 	<listitem><para>Make icons easily scannable. Toolbar and menu icons are downsized to exactly one-half of their original icon sizes and appear in groups; their small sizes and other shared charactics can make it difficult for users to scan for a particular icon quickly. Therefore, it's doubly necessary in this context to make sure that each icon is visually distinct from another. One way to achieve this is by giving icons distinct (e.g., irregular versus perfectly square) outlines.</para></listitem>
-
-    	<listitem><para>Denote categories. An icon often exists as one component of a set. While all icons being used on the GNOME desktop should use the same basic palette and adhere to one general style, icon sets (as in a set of icons for one application versus another) may have distinct characteristics such as a limited palette, harder light or stronger drop-shadows, use of a badge glyph, or a common theme. For example, stock icons created to represent MIME types constitute a category. These icons all have a common theme: a sheet of paper overlayed with a file type suffix badged over it, and some central image. In the following table, the first three icons show common document MIME types of GIF, JPG, and TIFF.</para>
-
-      <para>Table 5: Subtleties in design denoting categorization - to be added</para>
-
-	</listitem>
-
-
-    	<listitem><para>Opt for simplicity. Icons are often viewed in smaller sizes than ones they were originally created in; keep in mind that your icons need to be recognizable when reduced to 24x24 or even 16x16. If a user has to spend more than a second or two looking at the icon to recognize what it's representing, then the metaphor used in the icon is too complex.</para></listitem>
-
-
-    	<listitem><para>Use stock icons. GTK provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. FIXME: add updated information on how to access these in 2.0</para></listitem>
-
-
-    	<listitem><para>Do not use stock icons for anything other than their intended purpose. This will make your application inconsistent with others, and could easily confuse your users.</para></listitem>
-
-
-    	<listitem><para>Do not use text as the distinguishng feature of an icon. Text in icons is not encouraged because this makes them, in the worst-case scenario, useless for users who do not understand the language being used. However, exceptions may be made where internationalization is less of an issue. For instance, GIF, JPGs, and TIFs are file formats that are universal, and universally recognized. Otherwise, try to use icons more like the last two in Table 5, which have distinct distinguishing features that do not rely on text.</para></listitem>
-
-
-    	<listitem><para>Do not use representations of body parts in icons as they may be offensive to certain cultures.</para></listitem>
-
-    	<listitem><para>Do not base icon designs on idioms or product names. Instead, base designs on a product's functionality, which will pose less internationalization problems and be easier to recognize for new users. For example, the Nautilus icon is that of a nautilus shell, which does not make its functionality (file browsing) explicit.</para></listitem>
-
-
-	<listitem><para>Do not use violent imagery. Just as words like "kill" and "slay" are inappropriate in interfaces, violent or destructive icons (such as an explosive detonation swtich) should be avoided.</para></listitem>
-
-	</itemizedlist>
-
-     </sect1>
-
-
-     <sect1 id="text-labels">
-      <title>Text Labels</title>
-     
-	<para>To a user with normal vision, textual output provides the majority of the information and feedback in most applications. To a visually-impaired user who may not be able toosee or understand any additional graphical output, clear textual output is critical. it is therefore essential that you choose and position text carefully on the screen, and leave the choice of fonts and sizes to the user, to ensure that all users are able to use your application effectively.</para>
-
-      <sect2 id="layout-label-position">
-	
-	<title>Spacing and Alignment</title>
-
-	<para>Use spacing and alignment of text uniformly throughout your application. A basic rule of thumb is to put space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant.</para>
-
-	<table id="label-placement-example">
-	  <title>Alignment and spacing for different Text elements</title>
-	    <tgroup cols="3" align="left">
-	      <thead>
-		<row>
-		  <entry>Element</entry>
-		  <entry>Placement</entry>
-		  <entry>Example</entry>
-		</row>
-	      </thead>
-	      
-	      <tbody>
-		<row>
-		  <entry>Large Icons (file browser)</entry>
-		  <entry>Horizontally centered with and (6 pixels, if specification necessary)below large icon</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/large_icon_label.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Large icon with text label centred below</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-		
-		<row>
-		  <entry>Small icons (toolbar)</entry>
-		  <entry>Vertically centered with and (6 pixels, if specification necessary) to the right of small icons</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/small_icon_label.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Small icon with text label to the right</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-		
-		<row>
-		  <entry>List control label</entry>
-		  <entry>6 pixels above and horizontally left aligned with list control or 12 pixels to the left of and horizontally top aligned with list control</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/list_control_label.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>List control with text label horizontally aligned above</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-
-		<row>
-		  <entry>Radio button and checkbox labels</entry>
-		  <entry>6 pixels to the right of and vertically center aligned with radio button</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/radio_button_label.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Radio button with text label to its right</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-
-		</row>
-
-		<row> 
-		  <entry>Textfield labels</entry>
-		  <entry>6 pixels to the left of and vertically center aligned with textfield control</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/textbox_label.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Textbox with text label to its left</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-		
-		<row>
-		  <entry>Button labels</entry>
-		  <entry>12 pixels of padding to either side of centered text (and any accompanying graphic). If appearing in a group of buttons, longest button label sets button size, center all other button labels and accompanying graphics in same-sized buttons</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/icons_labels.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Buttons with centered text</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-		<row> 
-		  <entry>Other component labels (e.g., spin boxes, text fields </entry>
-		  <entry>12 pixels between the longest text label and its associated component, all other text labels in component grouping left aligned with the longest label. All labels vertically center aligned with associated components</entry>
-		  <entry>
-	          <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/other_labels.png" format="PNG"/>
-		    </imageobject>
-		    <textobject>
-		      <phrase>Option menu with label to its left</phrase>
-		    </textobject>
-		  </mediaobject>
-	        </entry>
-		</row>
-	      </tbody>
-	    </tgroup>
-	  </table>
-
- 
-<!-- CFB This table superceded by Coleen's examples, above 
 	<para>Relationships between elements are usually indicated by their positions. Place labels consistently according to the type of control they relate to:</para>
+	    
+	<!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
 	
 	<figure id="label-placement-example">
 	  <title>Correct label placement for various UI elements</title>
@@ -818,45 +77,38 @@
         	</entry>
 		</row>
 	      </tbody>
-	    </tgroupara>
+	    </tgroup>
 	  </informaltable>
 	</figure>
 
 	<para>Many widgets give you little or no choice about the positioning of the label, such as buttons or check boxes.  However, with text boxes, lists, option menus and others, it is up to you as the designer to choose the best position for the control's label.</para>
 
--->
-
-	<para>Guidelines:</para>
+	<para>Recommendations:</para>
 	
 	<itemizedlist>
-	 <listitem><para>If the label precedes the control it is labelling, end the label with a colon . For example, <guilabel>Email:</guilabel> to label a text field into which the user should type their email address. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
+	  <listitem><para>FIXME: Left align except when it's better to right align :)</para></listitem>
 	  
-	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the access key (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
-
-	 <listitem><para>Left align components and labels. Right-align labels only when most of the labels greatly differ in length in a component grouping, so that some of the components don't end up too far away from the corresponding labels.</para></listitem>
-
-
-	<listitem><para>Choose label names carefully. Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not always be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
-
-	<listitem><para>Be consistent with label use and semantics. For example, if you use the same label in different windows, it will help if it means the same thing in both windows. By the same token, don't use labels that are spelled differently but sound the same, e.g., "Read" and "Red", as this could be confusing for users relying on screenreaders.</para></listitem>
-
-	<listitem><para>Label unambiguously.  For example, don't use the same label more than once in the same window.</para></listitem>
- 
-	<listitem><para>Do not hard-code font styles and sizes. The user should be able to adjust all sizes and typefaces. If for some reason you cannot make this functionality available, never hardcode any font sizes smaller than 10 points.</para></listitem>
- 
-	<listitem><para>Do not use more than two or three different fonts and sizes in your application, and choose visually distinct rather than similar-looking fonts in one window. Too many font sizes and styles will make the interface look cluttered and unprofessional, and be harder to read. In general, you should always use fonts from the current theme, and specify relative rather than absolute sizes.</para></listitem>
- 
-	  <listitem><para>Do not use graphical backdrops or &quot;watermarks&quot; behind text, other than those specified by the user's chosen theme. Such images interfere with the contrast between the text and its background.  This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain backdrops.</para></listitem>
+	  <listitem><para>Don't use graphical backdrops or &quot;watermarks&quot; behind text, other than those specified by the user's chosen theme. Such images interfere with the contrast between the text and its background.  This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain backdrops.</para></listitem>
 	  
+	  <listitem><para>Position labels consistently throughout your application. This normally means immediately below large icons, immediately to the
+right of small icons, and immediately above or to the left of other controls. See <xref linkend="label-placement-example"/>.</para></listitem>
+	  
+	  <listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the access key (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
+	  
+	  
+	  <listitem><para>Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not always be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
+	  
+	  <listitem><para>When you use static text to label a control, end the label with a colon. For example, <guilabel>Email:</guilabel> to label a text field into which the user should type their email address. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
+	  
+	<listitem><para>Don't use the same label more than once in the same window. If you use the same label in different windows, it will help if it means the same thing in both windows. Also, don't use labels that are spelled differently but sound the same, e.g. &quot;Read&quot; and &quot;Red&quot;, as this could be confusing for users relying on screenreaders.</para></listitem>
+
 	</itemizedlist>
 	
       </sect2>
       
       <sect2 id="layout-capitalization">
 	
-	<title>Fonts and Capitalization</title>
-
-	<para>Use sans-serif fonts for better legibility, 12 point is usually a sufficient default for users of normal vision. Don't use too many different kinds of font styles (underlined, bold, italicized) in one context because they will distract the user from the information being conveyed. Also be sure to use capitalization consistently throughout your application. A general rule of thumb is: use sentence capitalization where length of text is longer or is less of an issue (text to the right of associated components), and if the text is functioning more as an explanation than a label.</para>
+	<title>Capitalization</title>
 
 	<para>Two styles of capitalization are used in GNOME user interface elements: 
          <variablelist> 
@@ -902,9 +154,8 @@
          The following table indicates the capitalization style to use for each type
          of user interface element. 
   </para>
-
 	<table frame="topbot"> 
-	  <title>Capitalization Style Guidelines for User Interface
+	  <title>Capitalization Style Recommendations for User Interface
          Elements</title> 
 	  <tgroup cols="2" colsep="0" rowsep="0" align="left"><colspec colnum="1"
 	      colname="col1" colwidth="1.51*" align="left"/><colspec colnum="2"
@@ -1259,7 +510,7 @@
 	
 	<para>FIXME:examples</para>
 	
-	<para>Guidelines:</para>
+	<para>Recommendations:</para>
 	
 	<itemizedlist>
 	  <listitem><para>Don't hard-code font styles and sizes. The user should be able to adjust all sizes and typefaces. If for some reason you cannot make this functionality available, never hardcode any font sizes smaller than 10 points.</para></listitem>
@@ -1275,8 +526,6 @@
 
     </sect1>
 
-<!--- Most stuff that was in this section now covered by Coleen's work 
-
     <sect1 id="layout-grouping-spacing">
       <title>Layout</title>
       
@@ -1284,7 +533,7 @@
       
       <para>Users in western locales are accustomed to reading from the top-left to the bottom-right. Generally, therefore, lay out your interface so that the first element the user is meant to encounter is in the top-left, and the last in the bottom-right.</para>
       
-      <para>Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.</para>
+      <para>Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.<!-- Does it get more complex than this? --></para>
       
 
       <sect2 id="layout-spacing">
@@ -1293,7 +542,7 @@
 	
 	<para>Provide adequate space between controls and groups of controls. This <wordasword>white space</wordasword> will make it easier for the user to find the information they need.</para>
 	
-	<para>Guidelines:</para>
+	<para>Recommendations:</para>
 	
 	<itemizedlist>
 	  <listitem><para>Allow 3 pixels of padding around every control within the same visual or functional group.  To achieve this:</para>
@@ -1336,7 +585,7 @@
 	
 	<para>The eye is very sensitive to aligned and unaligned objects.  If nothing lines up with anything else in a window, it will be very hard for the user to scan the contents and find the information they want.  Two things that almost line up, but not quite, are equally distracting.</para>
 
-	<para>Guidelines:</para>
+	<para>Recommendations:</para>
 	<itemizedlist>
 	  <listitem><para>Aim to minimize the number of alignment points in your window.  An alignment point is an imaginary vertical or horizontal line through your window with which touches the edge of one or more labels or controls in the window.</para>
 
@@ -1377,6 +626,8 @@
       
     </sect1>
     
+    <!-- Colors, Fonts and Accessibility -->
+
     
     <sect1 id="color-and-contrast">
       <title>Color and Contrast</title>
@@ -1411,7 +662,7 @@
       
       <para>Design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <xref linkend="icons"/> for more information.</para>
       
-      <para>Guidelines:</para>
+      <para>Recommendations:</para>
       <itemizedlist>
 
 	<listitem><para>Only use colors from the user's currently-selected theme in your application.  If for some reason you do need to use colors that are not available in the theme, make those colors customizable within your application's <guilabel>Preferences</guilabel> dialog.  Never hard-code application colors, as some users need to use particular combinations of colors and levels of contrast to be able to read the screen comfortably.</para></listitem>
@@ -1432,6 +683,5 @@
       </itemizedlist>
 
     </sect1>
--->
     
   </chapter>
