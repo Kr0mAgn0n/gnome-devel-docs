@@ -46,7 +46,7 @@
 
     <sect1 id="menu-controlsparts">
       <title>Menu Controls</title>
-      <para>FIXME</para>
+      <remark>FIXME</remark>
       <sect2 id="menu-types">
 	<title>Menu Types</title>
 	<sect3 id="menu-type-menubar">
@@ -54,10 +54,9 @@
 	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
 	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu in a menubar.</para>
 
-	  <note>
-	    <title>For Discussion</title>
-	    <para>We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink></para>
-	  </note>
+	  <remark>
+	    We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink>
+	  </remark>
 	</sect3>
 	<sect3 id="menu-type-drop-down">
 	  <title>Drop-down Menus</title>
@@ -145,10 +144,9 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 	  <para>Provide a keyboard shortcut for standard or frequently used command items.</para>
 	  <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
 	  <para>See <xref linkend="shortcuts"/> for more information.</para>
-	  <note>
-	    <title>For Discussion</title>
-	    <para>Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?</para>
-	  </note>
+	  <remark>
+	    Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?
+	  </remark>
 	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"/> for more information.</para> -->
 	  <para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
 	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
@@ -219,11 +217,10 @@ CFB: Making this note a comment... actually all I really suggested was that the 
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
       <para>The primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu; {modify them this way, etc. ...}</para>
-      <note>
-	<title>For Discussion</title>
-	<para>What is the best way to present menus given the known variants? Multiple shots? Segements? </para>
-	<para>Possible convention guideline: If the menu or submenu would contain only two items, rethink the interface.</para>
-      </note>
+      <remark>
+	What is the best way to present menus given the known variants? Multiple shots? Segements?
+	Possible convention guideline: If the menu or submenu would contain only two items, rethink the interface.
+      </remark>
       <figure id="generic-menu-bar">
 	<title>A generic menu bar</title>
 	<mediaobject>
@@ -248,7 +245,7 @@ CFB: Making this note a comment... actually all I really suggested was that the 
       </figure>
       <sect2 id="the-file-menu">
 	<title>File</title>
-	<para>FIXME</para>
+        <remark>FIXME</remark>
 	<figure id="generic-file-menu"><title>A generic File menu</title>
 	  <mediaobject>
 	    <imageobject>
@@ -315,10 +312,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	</sect3>
 	<sect3>
 	  <title>Saved State Operations</title>
-	  <note>
-	    <title>For Discussion</title>
-	    <para>This section needs a review with an eye to what can actually be done programmatically.</para>
-	  </note>
+	    <remark>This section needs a review with an eye to what can actually be done programmatically.</remark>
 	  <variablelist>
 	    <varlistentry>
 	      <term>Save</term>
@@ -342,10 +336,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<para>The <guimenuitem>Save Copy</guimenuitem> command prompts the user to enter a filename, with which a copy of the document is then saved.  Neither the view nor the filename of the original document is altered.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command).</para>
 
 		<para> Like the <guimenuitem>Save As</guimenuitem> dialog, the <guimenuitem>Save Copy</guimenuitem> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</para>
-		<note>
-		  <title>For Discussion</title>
-		  <para>Should this be "Save Copy As..."?</para>
-		</note>
+		  <remark>Should this be "Save Copy As..."?</remark>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -366,10 +357,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      <listitem>
 		<para>Prompts the user for a version of the current document to be restored. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before restoring the version.</para>
 		<para>This should be used only in conjunction with the <guimenuitem>Save Version</guimenuitem> command.</para>
-		<note>
-		  <title>For Discussion</title>
-		  <para>All of these items, (Print, Send . . . ) are export or save operations, to keep a semblance of a sane order of operations, the order of the items should follow the order of locality. Ergo, Save Print Send - local (disk), local or remote (printer), remote (someone else)</para>
-		</note>
+		  <remark>All of these items, (Print, Send . . . ) are export or save operations, to keep a semblance of a sane order of operations, the order of the items should follow the order of locality. Ergo, Save Print Send - local (disk), local or remote (printer), remote (someone else)</remark>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -417,20 +405,14 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      <term>Close</term>
 	      <listitem>
 		<para>Close the current document. If the document in the current window has unsaved changes, present the user with an alert giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application, then either leave the with a blank document if your application is MDI, or leave only the control window open if your application is CSD).</para>
-		<note>
-		  <title>For Discussion</title>
-		  <para>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut (at least). The graphic shows Alt+F4 which is a used in Windows, CDE, and OS/2 for closing windows.</para>
-		</note>
+		  <remark>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut (at least). The graphic shows Alt+F4 which is a used in Windows, CDE, and OS/2 for closing windows.</remark>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
 	      <term>Quit</term>
 	      <listitem>
 		<para>Quit the application. If there are unsaved changes in any open documents, present the user with an alert listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes then close the application immediately without presenting any further messages or dialogs.</para>
-		<note>
-		  <title>For Discussion</title>
-		  <para>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</para>
-		</note>
+		  <remark>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</remark>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -509,10 +491,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <varlistentry><term>Delete</term>
 	      <listitem>
 		<para>Removes the selected content without placing it on the clipboard.</para>
-		<note>
-		  <title>For Discussion</title>
-		  <para>Should Delete be provided from a menu? The command is as obvious as using the arrow keys to move about.</para>
-		</note>
+		  <remark>Should Delete be provided from a menu? The command is as obvious as using the arrow keys to move about.</remark>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -558,13 +537,10 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </varlistentry>
 	  </variablelist>
 	  <!-- Note moved here by CB from the middle of his stuff... --> 
-	  <note>
-	    <title>For Discussion</title>
-	    <para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
-	    <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para>
-	    <para>Replace is not always descriptive of what the user may do with the utility window. Formatting a section is also a possibility.</para>
-	    <para>Ideally, these would all be merged into a simple utility window</para>
-	  </note>
+	    <remark><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</remark>
+	    <remark><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</remark>
+	    <remark>Replace is not always descriptive of what the user may do with the utility window. Formatting a section is also a possibility.</remark>
+	    <remark>Ideally, these would all be merged into a simple utility window</remark>
 	</sect3>
 	<sect3>
 	  <title>User Preferences</title>
@@ -586,7 +562,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>FIXME</para>
+        <remark>FIXME</remark>
       </sect2>
 
       <sect2 id="menu-standard-insert">
@@ -690,7 +666,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>FIXME</para>
+	<remark>FIXME</remark>
       </sect2>
 
 <!-- CFB Commenting out until we have anything to go on it :/

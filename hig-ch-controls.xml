@@ -18,6 +18,7 @@
     
     <sect1 id="controls-sensitivity">
       <title>Sensitivity</title>
+      <remark>Do we really want to include GTK calls here? -Seth</remark>
       <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for GTK controls) to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus (although assistive technologies will still be able to detect and report it).</para>
       
       <para>It is usually better to make a control insensitive than to hide it altogether.  This way, the user can learn about functionality they may be able to use later, even if it is not available right now.</para>
@@ -505,9 +506,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
      
       
-      <note><title>For discussion</title>
-	<para>Can we suggest any better ways of manipulating radio button groups in mixed state that do not rely on having a Reset button? I can think of one that is more in line with the suggestion for checkboxes, but it would not be terribly intuitive to use and probably a hassle to implement as well.</para>
-      </note>
+	<remark>Can we suggest any better ways of manipulating radio button groups in mixed state that do not rely on having a Reset button? I can think of one that is more in line with the suggestion for checkboxes, but it would not be terribly intuitive to use and probably a hassle to implement as well.</remark>
       
     </sect1>
     
@@ -575,7 +574,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 <!-- CB-Fig: There's probably a better figure for fig 16 than this one, especially since you show toggle buttons here which are vertically aligned, which contradicts a bullet point on the page. Also, my 2 cents on the mixed state visual issue: mixed state MUST be visually DISTINCT from "set." What I see here isn't enough (I know this isn't set yet.) -->
 
-	  <para>(N.B. At time of writing, the exact visual appearance of mixed state toggle buttons was undecided.)  A mixed state toggle button should behave exactly as a mixed state check box or radio button, depending on whether the toggle button choices are independent or mutually exclusive, respectively.</para>
+	  <remark>(N.B. At time of writing, the exact visual appearance of mixed state toggle buttons was undecided.)  A mixed state toggle button should behave exactly as a mixed state check box or radio button, depending on whether the toggle button choices are independent or mutually exclusive, respectively.</remark>
 	  
 	</listitem>
 	
@@ -876,9 +875,9 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    </mediaobject>
 	  </figure>
 	  
-	  <para>As in this example, place the list control on the left-hand side of the window, with the dynamic portion of the window immediately to its right.  (FIXME: Should this be reversed for right-to-left locales?)</para>
+	  <para>As in this example, place the list control on the left-hand side of the window, with the dynamic portion of the window immediately to its right.  <remark>Should this be reversed for right-to-left locales?)</remark></para>
       
-      <para>For future consideration: it would be good if the notebook control supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</para>
+      <remark>For future consideration: it would be good if the notebook control supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</remark>
 
     </sect1>
     
@@ -992,7 +991,8 @@ Doing this will help prevent the user from accidentally closing the window befor
     </sect1>
 
     <sect1 id="controls-frames">
-      <title>FIXME:Frames and Separators</title>
+      <title>Frames and Separators</title>
+      <remark>FIXME: need to finish!</remark>
       <para>A frame is a box with a title that you can draw around controls to organise them into functional groups.  A separator is a single horizontal or vertical line that you can use to divide windows into functional groups.</para>
       <para>picture</para>
       <para>Recommendations:</para>
