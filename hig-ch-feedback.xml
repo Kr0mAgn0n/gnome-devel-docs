@@ -149,10 +149,17 @@
       <sect2 id="pointer-feedback">
 	<title>Pointer Feedback</title>
 	
-	<para>Pointer feedback changes the shape of the pointer.  For example, a wait pointer indicates that an operation is in progress and that the user cannot do other tasks.</para>
-
-	<para>(picture of wait pointer required)</para>
-
+	<para>Pointer feedback changes the shape of the pointer.  For example, a busy pointer indicates that an operation is in progress and that the user cannot do other tasks.  A busy-interactive pointer indicates that an operation is in progress but the window is still interactive.</para>
+	
+	<figure><title>Busy pointer (left) and Busy-Interactive pointer (right)</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/busy-pointers.png" format="PNG"/>
+	    </imageobject>
+	    <textobject><phrase>Busy pointer (watch) and busy-interactive pointer (arrow with watch attached)</phrase>           
+	    </textobject>
+	  </mediaobject>
+	</figure>
       </sect2>
       
       
@@ -164,13 +171,9 @@
 	<para>Recommendations:</para>
 	
 	<itemizedlist>
-	  <listitem><para>When displaying a progress animation, open it as quickly as possible and close it automatically as soon as the associated operation is complete.</para></listitem>
-	  <listitem><para>Use a measured-progress bar if your application can estimate either:</para>
-	    <itemizedlist>
-	      <listitem><para>How long the operation will take</para></listitem>
-	      <listitem><para>What proportion of the operation is complete</para></listitem>
-	    </itemizedlist>
-	  </listitem>
+	  <listitem><para>When displaying a progress animation, open it as soon as possible after you know it is required, and close it automatically as soon as the associated operation is complete.</para></listitem>
+
+	  <listitem><para>Use a measured-progress bar if your application can estimate either how long the operation will take, or what proportion of the operation is complete.</para></listitem>
 	  
 	  <listitem><para>If your application can make neither estimate, use an indeterminate-progress bar for operations with only one step. For operations with two or more steps, use a progress checklist that dynamically displays a check mark for each completed step.</para>
 
@@ -276,6 +279,8 @@
 	  <para>example required</para>
 
 	  <para>When providing feedback with a progress checklist, you can include a measured-progress bar directly below the checklist. The bar measures the progress of the current step in the progress checklist.</para>
+
+	  <para>example required</para>
 	  
 	</sect3>
 	
@@ -293,15 +298,6 @@
 	<listitem><para>Whether your application can provide an estimate of the operation's progress.</para></listitem>
 	<listitem><para>Whether the operation blocks the user from issuing further commands in your application.</para></listitem>
 	<listitem><para>Whether your application has a dedicated space, such as a status bar, for indicating the status of operations.</para></listitem>
-      </itemizedlist>
-
-      <para>Recommendations:</para>
-
-      <itemizedlist>
-	<listitem><para>Use a wait pointer whenever users are blocked from interaction with your application for 1 second or longer. Display the wait pointer less than 1 second after the operation begins.</para></listitem>
-
-	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <link linkend="interrupting-commands">Allow Interruptions</link>.</para></listitem>
-
       </itemizedlist>
       
       <para>The table below shows which type of feedback to provide for operations that usually take at least 1 second to finish. In the &quot;Appropriate Feedback&quot; column, &quot;Internal progress animations&quot; means progress animations displayed in an application's dedicated status area, and &quot;External progress animations&quot; means progress animations displayed somewhere other than in a dedicated status area&mdash; typically, in an alert box.</para>      
@@ -364,12 +360,22 @@
 	  </tbody>
 	</tgroup>
       </table>
-
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	<listitem><para>Use a busy pointer whenever users are blocked from interaction with your application for 1 second or longer. Display the busy pointer less than 1 second after the operation begins.</para></listitem>
+	
+	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <link linkend="interrupting-commands">Allowing Interruptions</link>.</para></listitem>
+	
+	<listitem><para>When using an external animation, leave the window containing the animation on-screen for at least 1 second after the operation has completed, with a successful completion message.  Change the <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button to an <guibutton>OK</guibutton> button during this period&mdash; pressing this button should close the window immediately.</para></listitem>
+	
+      </itemizedlist>
       
     </sect1>
     
     <sect1 id="interrupting-commands">
-      <title>Allow Interruptions</title>
+      <title>Allowing Interruptions</title>
       
       <para>Users sometimes need to stop a command&mdash; for example, because it is taking too long. Your application should let users stop commands in progress, even if stopping a command cannot undo or &quot;roll back&quot; all the command's effects.</para>
 
