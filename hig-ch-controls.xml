@@ -1817,9 +1817,11 @@
     the window, with the dynamic portion of the window immediately to its
     right. <remark>Should this be reversed for right-to-left locales?</remark></para>
 
-    <remark>FUTURE: it would be good if the notebook control supported a
-    standard way of showing that a tab had pending changes, e.g. changing the
-    font or label colour to some (themed) alternative.</remark>
+	<sect2 id="controls-tab-status">
+	  <title>Status Indicators</title>
+	  <remark>This section needs more concrete recommendations, it's currently (almost) taken verbatim from Sebastien's patch in bug #72101.</remark>
+	  <para>In some tabbed windows, such as preference windows, it might be desirable to indicate the status of a particular tab. This can be used to notify the user that a web page that is still loading or has been loaded, a new message is waiting in a particular instant messasing conversation, or that a document has not been saved. Such a status indicator should be an icon that is placed directly to the left of the tab label. Additionally, the tab label's color might be changed to indicate a certain status. Do not simply rely on a different coloring scheme for status indication.</para>
+	</sect2>
   </sect1>
 
   <sect1 id="controls-progress-bars">
