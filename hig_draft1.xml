@@ -394,7 +394,7 @@
 <title>Menu Principles</title>
 
 <para>
-Menus are a means by which a set of commands can be made available to the user, allowing the user to make a choice, and removing the need to memorise the command set.
+Menus are a means by which a set of commands can be made available to the user, allowing the user to make a choice, and removing the need to memorize the command set.
 </para>
 
 <sect3 id="menu-principles-drop-down">
@@ -452,7 +452,7 @@ Related items should be grouped together on a menu and should be separated from 
 <title>Naming Conventions</title>
 
 <para>
-Most menu items will be labelled with verbs or adjectives, which describe commands or properties respectively. Menu items should have the first letter of the first word and of any significant words capitalised.
+Most menu items will be labelled with verbs or adjectives, which describe commands or properties respectively. Menu items should have the first letter of the first word and of any significant words capitalized. (See also the section on <link linkend="layout-capitalization">Capitalization</link>).
 </para>
 
 <para>
@@ -992,11 +992,6 @@ Brings up the About dialog for the application. The dialog should contain the na
 	<listitem><para>Provide options to show toolbar buttons as text, graphics or both (see below for proposed standard menu structure for this)</para></listitem>
 
 	<listitem><para>Use Book Title capitalisation (also known as Title Caps) for toolbar button text and tooltips.  For example, <guilabel>Save As</guilabel>, and <guilabel>Always on Top</guilabel>.</para></listitem>
-	</itemizedlist>
-
-      <para>Suggestions:</para>
-
-      <itemizedlist>
 
 	<listitem><para>Users can configure toolbars to contain their own selection of commands, in whatever order they choose.</para></listitem>
 
@@ -1007,7 +1002,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       <sect3>
 	<title>Designing Toolbar Icons</title>
 
-	<para>Design icons to work in monochrome first, only adding colour later. This way you can be sure your design doesn't rely on colour, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para>
+	<para>Design icons to work in monochrome first, only adding colour later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para>
 
 	<para>Recommendations:</para>
 
@@ -1410,7 +1405,7 @@ Buttons should be used to initiate actions.
 </para>
 
 <para>
-Buttons should generally be labeled with verbs. Button labels should have the first letter of the first word and of any significant words capitalised. Where the action will require further input from the user before it can be carried out, the label should end with an ellipsis ("...").
+Buttons should generally be labeled with verbs. Button labels should have the first letter of the first word and of any significant words capitalized. Where the action will require further input from the user before it can be carried out, the label should end with an ellipsis ("...").
 </para>
 
 <para>
@@ -1582,13 +1577,13 @@ It is essential that the extent of option groups such as radio buttons be made c
 </sect2>
 
 
-    <!-- Colours, Fonts and Accessibility -->
-    <sect2 id="hig-colours-fonts">
+    <!-- Colors, Fonts and Accessibility -->
+    <sect2 id="hig-colors-fonts">
       <title>Fonts and Text</title>
       
-      <para>Even to a user with normal vision, textual output provides the majority of the information and feedback in most applications. It is therefore critical to choose and position text carefully on the screen, and leave the choice of font and size to the user, to ensure that people with vision impairments can also use your application effectively.</para>
+      <para>To a user with normal vision, textual output provides the majority of the information and feedback in most applications.  To a visually-impaired user who may not be able to see or understand any additional graphical output, clear textual output is critical.  It is therefore essential that you choose and position text carefully on the screen, and leave the choice of fonts and sizes to the user, to ensure that all users are able to use your application effectively.</para>
       
-      <para>Don't mix lots of different fonts and sizes in your application, it will just look unprofessional and be harder to read.  If you need to use different fonts for different types of information, don't use more than two or three in the same window, and choose visually distinct rather than similar-looking fonts.</para>
+      <para>Don't mix lots of different fonts and sizes in your application, it will just look unprofessional and be harder to read.  If you need to use different fonts for different types of information, don't use more than two or three in the same window, and choose visually distinct rather than similar-looking fonts.  In general, you should always use fonts from the current theme, and specify relative rather than absolute font sizes.</para>
       
       <para>&lt;pics&gt;</para>
 
@@ -1597,18 +1592,14 @@ It is essential that the extent of option groups such as radio buttons be made c
       <itemizedlist>
 	<listitem><para>Don't hard-code font styles and sizes. The user should be able to adjust all sizes and typefaces. If for some reason you cannot make this functionality available, never hardcode any font sizes smaller than 10 points.</para></listitem>
 	
-	<listitem><para>Provide options to turn off any graphical backdrops or &quot;watermarks&quot; behind text. Such images interfere with the contrast between the text and its background, which can cause difficulty for users with visual impairments.</para></listitem>
+	<listitem><para>Don't use graphical backdrops or &quot;watermarks&quot; behind text, other than those specified by the user's chosen theme. Such images interfere with the contrast between the text and its background.  This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain backdrops.</para></listitem>
 	
 	<listitem><para>Position labels consistently throughout your application. This normally means immediately below large icons, immediately to the
 right of small icons, and immediately above or to the left of other controls. See Fonts and Text Examples.</para></listitem>
 
 	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the mnemonic (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
 	
-      </itemizedlist>
-
-      <para>Suggestions:</para>
-      <itemizedlist>
-
+     
 	<listitem><para>Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not necessarily be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
 	
 	<listitem><para>When you use static text to label a control, end the label with a colon. For example, Username: to label a text field into which the user should type their username. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
@@ -1618,16 +1609,13 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<listitem><para>Provide alternatives to WYSIWYG. Some users may need to print text in a small font but edit in a larger screen font, for example. Possible alternatives include displaying all text in the same font and size (both of which are chosen by the user); a &quot;wrap-to-window&quot; option that allows you to read all the text in a window without scrolling horizontally; a single column view that shows the window's contents in a single column even if they will be printed in multiple columns; and a text-only view, where graphics are shown as placeholders or text descriptions.</para></listitem>
       </itemizedlist>
 
-      <sect3>
+      <sect3 id="layout-capitalization">
 
-	<title>Capitalisation</title>
+	<title>Capitalization</title>
 
+	<para>Two different styles of capitalization are used in a GUI: book title (or "title caps"), and sentence-style (or "sentence caps").</para>
 
-	<para><emphasis>This section probably doesn't really belong here, but it's as good a place as any for now...</emphasis></para>
-
-	<para>Two different styles of capitalisation are used in a GUI: book title (or title caps), and sentence-style (or sentence caps).</para>
-
-	<para>Book title capitalisation means capitalising the first letter of the first and last words.  Also, capitalise all words inbetween, except:</para>
+	<para>Book title capitalization means capitalizing the first letter of the first and last words.  Also, capitalize all words inbetween, except:</para>
 
 
 	<itemizedlist>
@@ -1640,96 +1628,113 @@ right of small icons, and immediately above or to the left of other controls. Se
 
 
 
-	<para>Sentence-style capitalisation means capitalising the first letter of the first word, and any other words normally capitalised in sentences such as proper nouns.</para>
+	<para>Sentence-style capitalization means capitalizing the first letter of the first word, and any other words normally capitalized in sentences, such as proper nouns.</para>
 
-	<para>The table below tells you what sort of capitalisation to use for which GUI elements.</para>
-
-	<table frame='all'>
+	<para>The table below tells you what sort of capitalization to use for which GUI elements.</para><table frame='all'>
 	  <title>Capitalisation styles for different GUI elements</title>
-	  <tgroup cols='2' align='left'>
+	  <tgroup cols='3' align='left'>
 
 	    <thead>
 	      <row>
 		<entry>Element</entry>
 		<entry>Style</entry>
+		<entry>Example</entry>
 	      </row>
 
 	    </thead>
 
 	    <tbody>
 
-
 	      <row>
 		<entry>Alt (alternate) text on web pages</entry>
 		<entry>Sentence</entry>
+		<entry>Screenshot showing sample panel layout</entry>
+	      </row>
+	      <row>
+		<entry>Button labels (except radio buttons)</entry>
+		<entry>Title</entry>
+		<entry>Find Now</entry>
 	      </row>
 	      <row>
 		<entry>Checkbox labels</entry>
 		<entry>Sentence</entry>
+		<entry>Don't show this again</entry>
 	      </row>
 	      <row>
 		<entry>Column headings</entry>
-		<entry>Book</entry>
-	      </row>
-	      <row>
-		<entry>Command button labels</entry>
-		<entry>Sentence</entry>
+		<entry>Title</entry>
+		<entry>File Type</entry>
 	      </row>
 	      <row>
 		<entry>Filenames</entry>
 		<entry>Sentence</entry>
+		<entry>Untitled.txt</entry>
 	      </row>
 	      <row>
 		<entry>Frame/group labels</entry>
 		<entry>Sentence</entry>
+		<entry>Desktop background</entry>
 	      </row>
 	      <row>
 		<entry>Icon labels</entry>
-		<entry>Book</entry>
+		<entry>Title</entry>
+		<entry>Time Tracking Tool</entry>
 	      </row>
 	      <row>
 		<entry>List entries</entry>
 		<entry>Sentence</entry>
+		<entry>Copy to next workspace</entry>
+		<entry>
 	      </row>
 	      <row>
-		<entry>Menu names and menu commands</entry>
-		<entry>Book</entry>
+		<entry>Menu titles and menu items</entry>
+		<entry>Title</entry>
+		<entry>Save As...</entry>
 	      </row>
 	      <row>
 		<entry>Messages</entry>
 		<entry>Sentence</entry>
+		<entry>No matches found.</entry>
 	      </row>
 	      <row>
 		<entry>Radio button labels</entry>
 		<entry>Sentence</entry>
+		<entry>Embossed logo</entry>
 	      </row>
 	      <row>
 		<entry>Status bar text</entry>
 		<entry>Sentence</entry>
+		<entry>File download complete</entry>
 	      </row>
 	      <row>
 		<entry>Tab titles (notebooks)</entry>
-		<entry>Book</entry>
+		<entry>Title</entry>
+		<entry>Panel Objects</entry>
 	      </row>
 	      <row>
 		<entry>Text box labels</entry>
 		<entry>Sentence</entry>
+		<entry>First name</entry>
 	      </row>
 	      <row>
 		<entry>Titlebar text</entry>
-		<entry>Book</entry>
+		<entry>Title</entry>
+		<entry>Text Properties</entry>
 	      </row>
 	      <row>
-		<entry>Toolbar titles and toolbar button labels</entry>
-		<entry>Book</entry>
+		<entry>Toolbar titles button labels</entry>
+		<entry>Title</entry>
+		<entry>Print Preview</entry>
 	      </row>
 	      <row>
 		<entry>Tooltips</entry>
-		<entry>Book</entry>
+		<entry>Title</entry>
+		<entry>Save As</entry>
 	      </row>
 	      <row>
 		<entry>Webpage titles and navigational elements</entry>
-		<entry>Book</entry>
+		<entry>Title</entry>
+		<entry>Return to Homepage</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -1742,20 +1747,13 @@ right of small icons, and immediately above or to the left of other controls. Se
     </sect2>
     
     <sect2>
-      <title>Colour and Contrast</title>
+      <title>Color and Contrast</title>
 
-      <para>Poor choice of colours on the screen can cause problems for users
-with colour blindness (for whom hue is important) or low-vision (for
-whom brightness/contrast is important). Generally, you should allow
-the user to customise the colours in any part of your application
-that conveys important information.</para>
+      <para>Poor choice of colors on the screen can cause problems for users with color blindness (for whom hue is important) or low-vision (for whom brightness/contrast is important). Generally, you should allow the user to customize the colors in any part of your application that conveys important information.  Normally, this means you should only use colors that are available to you in the theme that the user has chosen to use.  (If you insist on using any other colors, they must be customizable in your application's <guilabel>Preferences</guilabel> dialog.)</para>
 
-      <para>Users with visual impairments may require a high level of contrast
-between the background and text colours. Often a black background and
-white text is used to prevent the background from &quot;bleeding&quot;
-over. These settings are critical for users with visual impairments.</para>
+      <para>Users with visual impairments may require a high level of contrast between the background and text colors. Often a black background and white text is used to prevent the background from &quot;bleeding&quot; over. These settings are critical for users with visual impairments.</para>
       
-      <figure> <title>Example illustrating redundant use of colour</title>
+      <figure> <title>Example illustrating redundant use of color</title>
 	<informaltable frame='all'>
 	  <tgroup cols='2'>
 	    <tbody>
@@ -1766,12 +1764,12 @@ over. These settings are critical for users with visual impairments.</para>
 		      <imagedata fileref="images/colour_only.png" format="PNG"/>
 		</imageobject>
 		  <textobject>
-		    <phrase>Example showing changes in stock price using colour only</phrase>
+		    <phrase>Example showing changes in stock price using color only</phrase>
 		  </textobject>
 		</mediaobject>
 		</entry>
 		
-		<entry>This display could cause problems for a red-green colour blind user (as many as 1 in 10 males suffer from some degree of colour-blindness).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
+		<entry>This display could cause problems for a red-green color blind user (as many as 1 in 10 males suffer from some degree of color-blindness).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
 	      </row>
 	      
 	      <row>
@@ -1781,32 +1779,32 @@ over. These settings are critical for users with visual impairments.</para>
 		      <imagedata fileref="images/colour_and_arrows.png" format="PNG"/>
 		</imageobject>
 		  <textobject>
-		    <phrase>Example showing changes in stock price using both colour and arrows</phrase>
+		    <phrase>Example showing changes in stock price using both color and arrows</phrase>
 		  </textobject>
 		</mediaobject>
 		</entry>
 		
-		<entry>This display reinforces the colour coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.</entry>
+		<entry>This display reinforces the color coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
       </figure>
       
-      <para>Always design coloured elements, such as icons, in black and white first, then add the colour later.  If the design works in black and white, you can be fairly sure that the colour you add will be redundant, and used only to reinforce the black and white design.</para>
+      <para>Always design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See also section on <link linkend="icons">Designing Effective Icons</link>.</para>
       
       <para>Recommendations:</para>
       <itemizedlist>
 
-	<listitem><para>Don't hard-code application colors. Some users need to use particular combinations of colours and levels of contrast to be able to read the screen comfortably. Therefore all the main colours you use in your GNOME application should be taken from the GTK theme, so the user can set the colours for all their applications to something legible just by changing the theme. If for some reason you do need to use colours that are not available in the theme, ensure they are customisable within the application itself.</para></listitem>
+	<listitem><para>Only use colors from the user's currently-selected theme in your application.  If for some reason you do need to use colors that are not available in the theme, make those colors customizable within your application's <guilabel>Preferences</guilabel> dialog.  Never hard-code application colors, as some users need to use particular combinations of colors and levels of contrast to be able to read the screen comfortably.</para></listitem>
 
-	<listitem><para>Don't use colour as the only means to distinguish items of information. All such information should be provided by at least one
-other method, such as shape, position or textual description. See Colour and Contrast Examples.</para></listitem>
+	<listitem><para>Ensure your application is not dependent on a particular theme. Test it with different themes (including high contrast accessibility themes, which use fewer colors) to ensure your application respects the settings.</para></listitem>
 
-      <listitem><para>Support all the high contrast GNOME themes (when we have some!). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colours specified by the theme.</para></listitem>
+	<listitem><para>Don't use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See Color and Contrast Examples.</para></listitem>
 
-      <listitem><para>Ensure your application is not dependent on a particular high contrast theme. Test it with different high contrast themes to ensure
-your application respects the settings.</para></listitem>
+      <listitem><para>Support all the high contrast GNOME themes (when we have some!). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colors specified by the theme.</para></listitem>
+
+      
       </itemizedlist>
 
     </sect2>
@@ -1884,6 +1882,12 @@ your application respects the settings.</para></listitem>
       <title>Communicating concept with effective visual language</title>
       <para>...</para>
     </sect2>
+    <sect2>
+      <title>Shape & Perspective</title>
+      <formalpara><title>Toolbar Icons</title>
+	<para>Toolbar icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance which complements their shelf-like nature. While shape is important in any icon, it is particularly important to make sure that toolbar icons used together are easy to differentiate.</para>
+      </formalpara>
+    </sect2>
     <sect2><title>Types of Icons</title>
       <sect3><title>Toolbar and Menu Icons</title>
 	<para>Toolbar icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down. While shape is important in any icon, it is particularly important to make sure that sets of toolbar icons used together are easy to differentiate. Toolbar icons should be 24x24 pixels.</para>
@@ -1895,6 +1899,7 @@ your application respects the settings.</para></listitem>
       <sect3><title>Document Icons</title>
 	<para>Document icons should look like _______. (blah, blah) Document icons should be made in at least three common sizes, 24x24, 48x48, and 96x96. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para>
       </sect3>
+
     </sect2>
     <sect2>
       <title>Common problems with GNOME icons</title>
@@ -2081,7 +2086,7 @@ your application respects the settings.</para></listitem>
 	  <listitem>
 	    <example>
 	      <title>A tooltip for Same Gnome</title>
-	      <para>Arrange long chains of similarly coloured balls and eliminate them</para>
+	      <para>Arrange long chains of similarly colored balls and eliminate them</para>
 	    </example>
 	  </listitem>
 	  <listitem>
@@ -2194,10 +2199,6 @@ not always physically be so.</para>
 
 	<listitem><para>Allow all mouse operations to be cancelled. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
 	
-      </itemizedlist>
-      
-      <para>Suggestions:</para>
-      <itemizedlist>
 
 	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
 
@@ -2316,10 +2317,6 @@ releasing the mouse button, by dropping the object back on its original source, 
 	
 	<listitem><para>Valid targets are highlighted as the pointer passes over them.</para></listitem>
 	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
-      </itemizedlist>
-
-      <para>Suggestions:</para>
-      <itemizedlist>
 	<listitem><para>A tooltip is provided when the pointer is paused over a valid drop target. It describes what will happen if the object is dropped there.  <emphasis>Is this feasible in GNOME?</emphasis></para></listitem>
 	
 	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
@@ -2427,10 +2424,6 @@ fine motor control skills required.</para>
 
        <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
 
-      </itemizedlist>
-
-      <para>Suggestions:</para>
-      <itemizedlist>
 	<listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
 	<listitem><para>Don't assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
 
@@ -3027,7 +3020,7 @@ fine motor control skills required.</para>
       </sect3>
       
       <sect3>
-	<title>Themes/Colour/Contrast</title>
+	<title>Themes/Color/Contrast</title>
 
 	<para>Test various GNOME themes to ensure that your application respects all the available settings.</para>
 
@@ -3059,7 +3052,7 @@ fine motor control skills required.</para>
 
 	<para>If you intend your application to be translated into different languages, send draft designs of your application to the GNOME translation team.  They'll help you find potential translation problems.  For example, not leaving enough space for translated labels, keyboard shortcuts that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
 
-	<para>If possible, try out your application with users from the locales you are targeting.  This will help you determine whether users understand how to use the application, if they perceive the graphics and colours the way you intended, and if there are words or images in the application that may cause offence to users of that locale. </para>
+	<para>If possible, try out your application with users from the locales you are targeting.  This will help you determine whether users understand how to use the application, if they perceive the graphics and colors the way you intended, and if there are words or images in the application that may cause offence to users of that locale. </para>
       </sect3>
 
     </sect2>
