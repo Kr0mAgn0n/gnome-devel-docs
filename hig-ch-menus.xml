@@ -2,7 +2,7 @@
   <chapter id="menus">
     <title>Menus</title>
 
-<remark> Tear-off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)</remark>
+<remark> Tear|off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)</remark>
 <remark> Menu bar position </remark>
 <remark> Menu bar hiding </remark>
 
@@ -82,8 +82,8 @@
 
 	  <para>A drop-down menu appears when the user clicks on its title in a menubar, or focuses the title and presses <keycap>Return</keycap>.</para>
 
-<!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menubar, or "posted," makes sense.  -->
-<!-- CFB: I've just reworded everything to avoid the use of "post" -->
+<remark> CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menubar, or "posted," makes sense.  </remark>
+<remark> CFB: I've just reworded everything to avoid the use of "post" </remark>
 
     <itemizedlist><title>Guidelines</title>
 
@@ -91,17 +91,17 @@
 
       <listitem><para>Organize menu items in the standard order&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> followed by <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
 
-      <listitem><para>Limit top-level menus to a maximum of about 15 items. <!--<remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark>--> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
+      <listitem><para>Limit top-level menus to a maximum of about 15 items. If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
       <listitem><para>Do not add or remove individual menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menubar at runtime, however, for example in component-based applications.</para></listitem>
 
       <listitem><para>Immediately update menu items that are edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu.</para></listitem>
 
 
-  <!-- CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." -->
-  <!-- CFB: the keyboard navigation chapter already does so -->
-
     </itemizedlist>
+  <remark> CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." </remark>
+  <remark> CFB: the keyboard navigation chapter already does so </remark>
+
 
 	</sect2>
 
@@ -130,9 +130,9 @@
 		
 	</itemizedlist>
 
-	</sect2>
+<remark> CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  </remark> 
 
-<!-- CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  --> 
+	</sect2>
 
 	<sect2 id="menu-type-popup">
 	  <title>Popup Menus</title>
@@ -172,8 +172,8 @@
 
 	</itemizedlist>
 
-<!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
-<!-- SN-Ed: No, it should not be exposed to the user. I'm not really sure what possessed the GTK guys to put this in every right click menu for text boxes. I suppose in this case having it be a submenu is good (if they insist on it existing) because it makes it maximally invisible -->
+<remark> CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? </remark>
+<remark> SN-Ed: No, it should not be exposed to the user. I'm not really sure what possessed the GTK guys to put this in every right click menu for text boxes. I suppose in this case having it be a submenu is good (if they insist on it existing) because it makes it maximally invisible </remark>
 
 	</sect2>
 	</sect1>
@@ -228,10 +228,6 @@
 	<itemizedlist><title>Guidelines</title>
 
 		<listitem><para>Provide a keyboard shortcut for standard or frequently used command items.  See <xref linkend="shortcuts"/> for more information on choosing shortcut keys.</para></listitem>
-	  <remark>
-	    Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?
-	  </remark>
-
 	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"/> for more information.</para> -->
 	  
 	<listitem><para>Do not remove command items from the menu when they are unavailable, make them insensitive instead.  This allows the user to infer what functionality the application provides even if it is not currently available, and keeping the menu structure static makes it easier to memorize.</para></listitem>
@@ -239,8 +235,12 @@
 	  <listitem><para>Label the menu item with a trailing ellipsis ("...")  only if the command requires further input from the user before it can be performed. Do not add an ellipsis to items that only present a confirmation dialog (such as <guimenuitem>Delete</guimenuitem>), or that do not <emphasis>require</emphasis> further input (such as <guimenuitem>Properties</guimenuitem>, <guimenuitem>Preferences</guimenuitem> or <guimenuitem>About</guimenuitem>).</para></listitem>
 
 	</itemizedlist>
+	<remark>
+	  Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?
+	</remark>
 
-<!-- CB-Ed/Fig: Figure would be nice here. -->
+
+<remark> CB-Ed/Fig: Figure would be nice here. </remark>
 	</sect3>
 
 	<sect3 id="menu-item-type-mutable">
@@ -336,7 +336,7 @@
 	</itemizedlist>
 
         
-<!--<remark><para>What is the best way to present menus given the known variants? Multiple shots? Segments?</para></remark>-->
+    <remark>What is the best way to present menus given the known variants? Multiple shots? Segments?</remark>
 
       <figure id="generic-menu-bar">
 	<title>A menubar showing all the standard menu titles in their correct order</title>
@@ -407,8 +407,9 @@
         
 	<sect3>
 	  <title>Creation and Opening Operations</title>
-<remark><para>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
-menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</para><para>For non-game UI there would be at the very least, Open as ... and Open Settings.</para></remark>
+	<remark>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
+	  menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</remark>
+	<remark>>For non-game UI there would be at the very least, Open as ... and Open Settings.</remark>
 
 	<table frame="all"> 
 	  <title>Creation and Opening operation menu items </title> 
@@ -423,7 +424,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-	      	<entry><accel>N</accel>ew</entry>
+	      	<entry><guimenuitem><accel>N</accel>ew</guimenuitem></entry>
 	       <entry><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry>
 		<entry>Creates a new document. Open a new primary window, with the title <replaceable>Document name</replaceable>, containing a blank document.  How this window is displayed, e.g. as a tab or a separate window, is up to the window manager.
 			<para>If your application can create a number of different types of document, you can make the <guimenuitem><accel>N</accel>ew</guimenuitem> item a submenu, containing a menu item for each type. Label these items <guimenuitem>New <replaceable>document type</replaceable></guimenuitem>, make the first entry in the submenu the most commonly used document type, and give it the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.</para>
@@ -432,13 +433,12 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</row>
 
 		<row>
-		      <entry><accel>O</accel>pen...</entry>
+		      <entry><guimenuitem><accel>O</accel>pen...</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></entry>
 			<entry>Opens an existing document in a new window. Present the user with a standard Open File dialog <!-- Ref this elsewhere --> from which they can choose an existing file. If the chosen file is already open in the application, raise that window instead of opening a new one. <!-- If the current window contains a blank untitled document then replace it with the selected file. Otherwise open the file in a new window. -->
-		<remark><para>If your application provides more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</para>
-		  <para>Problem to be solved. It may be desirable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</para>
-		  <para>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</para>
-		</remark>
+		<remark>If your application provides more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</remark>
+		  <remark>>Problem to be solved. It may be desirable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</remark>
+		  <remark>>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</remark>
 			</entry>
 		</row>
 
@@ -473,7 +473,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-		<entry><accel>S</accel>ave</entry>
+		<entry><guimenuitem><accel>S</accel>ave</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
 		<entry>Saves the document with its current filename. If the document already has a filename associated with it, save the document immediately without any further interaction from the user. If there are any additional options involved in saving a file (eg. DOS or UNIX-style line endings in a text file), prompt for these first time the document is saved, but subsequently use the same values each time until the user changes them.
 		<para>If the document has no current filename or is read-only, selecting this item should be the same as selecting <guimenuitem>Save As</guimenuitem>.</para>
@@ -481,39 +481,39 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</row>
 
 		<row>
-		      <entry>Save <accel>A</accel>s...</entry>
+		      <entry><guimenuitem>Save <accel>A</accel>s...</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
 			<entry>Saves the document with a new filename. Present the user with the standard Save As dialog, and save the file with the chosen file name. <!-- FIXME: errors, additional information--></entry>
 
 		</row>
 		<row>
-	      		<entry>S<accel>a</accel>ve a Copy...</entry>
+	      		<entry><guimenuitem>S<accel>a</accel>ve a Copy...</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>Prompts the user to enter a filename, with which a copy of the document is then saved.  Do not alter either the view or the filename of the original document.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command.
 		<para> Like the <guimenuitem>Save As</guimenuitem> dialog, the <guimenuitem>Save a Copy</guimenuitem> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</para></entry>
 	      </row>
 
 	    <row>
-	      	<entry><accel>R</accel>evert</entry>
+	      	<entry><guimenuitem><accel>R</accel>evert</guimenuitem></entry>
 	      <entry>None</entry>
 		<entry>Reverts the document to the last saved state. Present the user with a warning that all changes will be lost, and offer the option of cancelling before reloading the file.</entry>
 
 		</row>
 
 		<row>
-		      <entry>Save <accel>V</accel>ersion...</entry>
+		      <entry><guimenuitem>Save <accel>V</accel>ersion...</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>An alternative to the <guimenuitem>Save a Copy</guimenuitem> command.  Only use this item in conjunction with the <guimenuitem>Restore Version</guimenuitem>.  <remark>Unless we can describe exactly what this ought to do, should we remove it for now?</remark>command.</entry>
 	      </row>
 
 		<row>
-		      <entry>R<accel>e</accel>store Version...</entry>
+		      <entry><guimenuitem>R<accel>e</accel>store Version...</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>Prompts the user for a version of the current document to be restored. Present the user with with a warning that all changes will be lost, and offer the option of cancelling before restoring the version. Only use this item in conjunction with the <guimenuitem>Save Version</guimenuitem> command.</entry>
 		</row>
 	
 		<row>
-		      <entry><accel>V</accel>ersions...</entry>
+		      <entry><guimenuitem><accel>V</accel>ersions...</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>An alternative to the <guimenuitem>Save Version</guimenuitem> and <guimenuitem>Restore Version</guimenuitem> commands. Use this when more utilities, such as a diff, are available.</entry>
 	      </row>
@@ -539,25 +539,25 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-	      	<entry>Page Set<accel>u</accel>p</entry>
+	      	<entry><guimenuitem>Page Set<accel>u</accel>p</guimenuitem></entry>
 		<entry>None</entry>
 	      	<entry>Allows the user to control print-related settings. Present the user with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on. <remark>We should have a standard dialog for this.</remark></entry>
 	      </row>
 
 		<row>
-		      <entry>Print Previe<accel>w</accel></entry>
+		      <entry><guimenuitem>Print Previe<accel>w</accel></guimenuitem></entry>
 	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
 			<entry>Shows the user what the printed document will look like. Present a new window containing an accruate represenation of the appearance of the document as it would be printed.  The libgnomeprintui library provides a standard Print Preview window that you should use if possible.</entry>
 		</row>
 
 	    <row>
-	    	<entry><accel>P</accel>rint...</entry>
+	    	<entry><guimenuitem><accel>P</accel>rint...</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
 	        <entry>Prints the current document. Present the user with a dialog allowing them to set options like the page range to be printed, the printer to be used, and so on. The dialog must contain a button labelled <guibutton>Print</guibutton> that starts printing and closes the dialog.  The <filename>libgnomeprintui</filename> library provides a standard Print dialog that you should use if possible.</entry>
 	    </row>
 
 	    <row>
-	      <entry>S<accel>e</accel>nd To...</entry>
+	      <entry><guimenuitem>S<accel>e</accel>nd To...</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>M</keycap></keycombo></entry>
 	      <entry>Provides the user a means to attach or send the current document as an email or email attachment<!-- (launch $MAILER -a $ATTACHMENT)-->, depending on its format.
 		<para>You may provide more than one <guimenuitem>Send</guimenuitem> item depending on which options are available. If there are more than two such items, move them into a submenu. For example, if only <guimenuitem>Send by Email</guimenuitem> and <guimenuitem>Send by Fax</guimenuitem> are available, leave them on the top-level menu  If there is a third option, such as <guimenuitem>Send by FTP</guimenuitem>, place all the options in a <guimenuitem>Send</guimenuitem> submenu.</para>
@@ -582,7 +582,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-		<entry>Proper<accel>t</accel>ies</entry>
+		<entry><guimenuitem>Proper<accel>t</accel>ies</guimenuitem></entry>
 		<entry>None</entry>
 	        <entry>Opens the document's <guilabel>Properties</guilabel> window.  This may contain editable information, such as the document author's name, or read-only information, such as the number of words in the document, or a combination of both.</entry>
 	    </row>
@@ -606,21 +606,21 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-		<entry><accel>C</accel>lose</entry>
+		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
 	        <entry>Closes the current document. If it has unsaved changes, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> giving the option to save changes, discard them, or cancel the action without closing or saving the document.
 		<para>If the window you are closing is the last open document in the application, the correct action depends on your application type:</para>
 		<itemizedlist>
-			<listitem>Single document interface: close the application</listitem>
-			<listitem>Controlled single document interface: leave only the control window open</listitem>
-			<listitem>Multiple document interface: <remark>what should we do here?  Close the current document, and open a new document window with a blank, untitled document?</remark></listitem>
+			<listitem><para>Single document interface: close the application</para></listitem>
+			<listitem><para>Controlled single document interface: leave only the control window open</para></listitem>
+			<listitem><para>Multiple document interface: close the current document and create a new blank document</para></listitem>
 		</itemizedlist>		
 		  <remark>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut.  But see also <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=76761">http://bugzilla.gnome.org/show_bug.cgi?id=76761</ulink></remark>
 	      </entry>
 	    </row>
 	    
 	    <row>
-	      <entry><accel>Q</accel>uit</entry>
+	      <entry><guimenuitem><accel>Q</accel>uit</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry>
 	      <entry>Closes the application. If there are unsaved changes in any open documents, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> for each affected document, giving the option to save the changes, discard them, or cancel. If there are no unsaved changes, close the application immediately without presenting any further messages or dialogs.  
 		  <remark>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</remark>
@@ -642,7 +642,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<listitem><para>most applications already contain a suitable <guimenu>Edit</guimenu> menu.</para></listitem>
 	</itemizedlist>
 
-	<remark><para>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</para></remark>
+	<remark>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</remark>
 
 	<figure id="generic-edit-menu">
 	  <title>A generic Edit menu</title>
@@ -698,14 +698,14 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-	  	<entry><accel>U</accel>ndo <replaceable>action</replaceable></entry>
+	  	<entry><guimenuitem><accel>U</accel>ndo <replaceable>action</replaceable></guimenuitem></entry>
 	       <entry><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
 		<entry>Undoes the previous action in the undo history list. Revert the document to its state before the previous action was performed.  
 		<para>Note: provide a separate <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> menu item even if your application only supports one level of undo.</para></entry>
 	      </row>
 
 		<row>
-	      		<entry><accel>R</accel>edo <replaceable>action</replaceable></entry>
+	      		<entry><guimenuitem><accel>R</accel>edo <replaceable>action</replaceable></guimenuitem></entry>
 			<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
 	      		<entry>Performs the next action in the undo history list, after the user has moved backwards through the list with the <guimenuitem>Undo</guimenuitem> command.  Move the user one step forwards again, restoring the document to the state it was in after that action was originally performed.
 			<para>Note: provide a separate <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> menu item even if your application only supports one level of undo.</para></entry>
@@ -731,50 +731,50 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-		<entry>Cu<accel>t</accel></entry>
+		<entry><guimenuitem>Cu<accel>t</accel></guimenuitem></entry>
 	      	<entry><keycombo><keycap>Ctrl</keycap><keycap>X</keycap></keycombo></entry>
 		<entry>Removes the selected content and places it onto the clipboard. Visually, remove the content from the document in the same manner as <guimenuitem><accel>D</accel>elete</guimenuitem>.</entry>
 	      </row>
 
 		<row>
-	    		<entry><accel>C</accel>opy</entry>
+	    		<entry><guimenuitem><accel>C</accel>opy</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></entry>
 			<entry>Copies the selected content onto the clipboard.</entry>
 	      </row>
 	    
 	    <row>
-		<entry><accel>P</accel>aste</entry>
+		<entry><guimenuitem><accel>P</accel>aste</guimenuitem></entry>
 	      <entry><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
 		<entry>Inserts the contents of the clipboard into the document.  If there is no current selection, use the caret as the insertion point.  If there is a current selection, replace it with the clipboard contents.</entry>
 	    </row>
 	    
 	    <row>
-		<entry>Paste <accel>S</accel>pecial...</entry>
+		<entry><guimenuitem>Paste <accel>S</accel>pecial...</guimenuitem></entry>
 	      <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
 		<entry>Inserts a non-default representation of the clipboard contents into the document.  Open a dialog presenting a list of the available formats from which the user can select.  For example, if the clipboard contains a PNG file copied from a file manager, the image may be embedded in the document, or a link to the file inserted so that changes to the image on disk are always reflected in the document.</entry>
 	    </row>
 
 	    <row>
-		<entry>Du<accel>p</accel>licate</entry>
+		<entry><guimenuitem>Du<accel>p</accel>licate</guimenuitem></entry>
 	      <entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
-		<entry>Creates a duplicate copy of the selected object.  Do not prompt for a name for the duplicate object, but give it a sensible default (for example, <label>Copy of ShoppingList.abw</label>) and allow the user to change it later.  Place the duplicate copy as near the original as possible without overlapping it, even if this means breaking the current sort order within the container, so the user sees it immediately.</entry>
+		<entry>Creates a duplicate copy of the selected object.  Do not prompt for a name for the duplicate object, but give it a sensible default (for example, <filename>Copy of ShoppingList.abw</filename>) and allow the user to change it later.  Place the duplicate copy as near the original as possible without overlapping it, even if this means breaking the current sort order within the container, so the user sees it immediately.</entry>
 	    </row>
 
 		<row>
-			<entry><accel>D</accel>elete</entry>
+			<entry><guimenuitem><accel>D</accel>elete</guimenuitem></entry>
 		      <entry><keycap>Delete</keycap></entry>
 			<entry>Removes the selected content without placing it on the clipboard.
 		      <remark>Should Delete be provided on a menu? The command is as obvious as using the arrow keys to move about.</remark></entry>
 	      </row>
 
 		<row>
-		      <entry>Select <accel>A</accel>ll</entry>
+		      <entry><guimenuitem>Select <accel>A</accel>ll</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 			<entry>Selects all content in the current document.</entry>
 	    	</row>
 	    
 		<row>
-		  <entry><accel>D</accel>eselect All</entry>
+		  <entry><guimenuitem><accel>D</accel>eselect All</guimenuitem></entry>
 	      	  <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Deselects all content in the current document. Only provide this item in situations when no other method of undoing selection is possible or apparent to the user.  For example, in complex graphics applications where selection and deselection is not usually possible simply by using the cursor keys.
 		<para>Note: Do not provide <guimenuitem>Deselect All</guimenuitem> in text entry fields, as <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keysym>hex digit</keysym></keycombo> is used to enter unicode characters so its shortcut will not work.</para></entry>
@@ -808,19 +808,19 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </row>
 
 	    <row>
-	      <entry>Find Ne<accel>x</accel>t</entry>
+	      <entry><guimenuitem>Find Ne<accel>x</accel>t</guimenuitem></entry>
 	      <entry><keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></entry>
 	      <entry>Selects the next instance of the last Find term in the current document.  <remark>What to do if there is no next instance?  Disable the menu item, which could be confusing, or pop up an annoying alert saying 'no matches found'?</remark></entry>
 	      </row>
 
 		<row>
-		      <entry>Find Pre<accel>v</accel>ious</entry>
+		      <entry><guimenuitem>Find Pre<accel>v</accel>ious</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></entry>
 			<entry>Selects the previous instance of the last Find term in the current document.</entry>
 	      </row>
 
 		<row>
-		      <entry><accel>R</accel>eplace...</entry>
+		      <entry><guimenuitem><accel>R</accel>eplace...</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
 			<entry>Opens a window or dialog allowing the user to search for specific content in the current document, and replace each occurrence with new content. 	    
 		 	<remark>Replace is not always descriptive of what the user may do with the utility window. Formatting a section is also a possibility. Ideally, these would all be merged into a simple utility window</remark>
@@ -856,7 +856,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-	 	      <entry>Prefere<accel>n</accel>ces</entry>
+	 	      <entry><guimenuitem>Prefere<accel>n</accel>ces</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>Opens a <link linkend="preference-windows">preferences window</link> allowing the user to change preferences for the whole application.  Changes will apply to all running and subsequent instances of the application.</entry>
 		</row>
@@ -916,13 +916,13 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      </thead>
 	    <tbody valign="top">
 	      <row>
-	 	      <entry><accel>T</accel>oolbar</entry>
+	 	      <entry><guimenuitem><accel>T</accel>oolbar</guimenuitem></entry>
 	      		<entry>None</entry>
 			<entry>Shows or hides the application's toolbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>. Include this item in every application that has a single toolbar.  See <xref linkend="toolbar-controlling-appearance"/> for information on how to deal with multiple toolbars.</entry>
 		</row>
 
 		<row>
-			<entry><accel>S</accel>tatusbar</entry>
+			<entry><guimenuitem><accel>S</accel>tatusbar</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Shows or hides the application's statusbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>.  Include this item in every application that has a statusbar.</entry>
 		</row>
@@ -946,63 +946,63 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>I</accel>cons</entry>
+			<entry><guimenuitem><accel>I</accel>cons</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Shows the contents of the selected container as rows and columns of large icons, each with its name underneath.  This is a <link linkend="menu-item-type-radio">radio button menu item</link>.</entry>
 		</row>
 
 		<row>
-			<entry><accel>L</accel>ist</entry>
+			<entry><guimenuitem><accel>L</accel>ist</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Shows the contents of the selected container as a list of small icons, possibly in multiple columns, each with its name on its right-hand side.  This is a <link linkend="menu-item-type-radio">radio button menu item</link>.</entry>
 		</row>
 
 		<row>
-			<entry><accel>D</accel>etails</entry>
+			<entry><guimenuitem><accel>D</accel>etails</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Shows the contents of the selected container as single column of small icons, each with its name on its right-hand side.  Additional columns give extra information about the object each icon represents, for example the size and modification date of files in a file manager.  This is a <link linkend="menu-item-type-radio">radio button menu item</link>.
 			<para>If your application has no need for both <guimenu>List</guimenu> and <guimenu>Details</guimenu> modes, use the <guimenu>List</guimenu> item for whichever of the two modes you support.</para></entry>
 		</row>
 
 		<row>
-			<entry>S<accel>o</accel>rt By...</entry>
+			<entry><guimenuitem>S<accel>o</accel>rt By...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sorts the contents of an container by user-specified criteria.  Open a dialog allowing the user to choose from pre-defined sort keys (for example, Name, Size, or Modification Date in a file manager), or to specify their own if applicable.</entry>
 		</row>
 
 		<row>
-			<entry><accel>F</accel>ilter...</entry>
+			<entry><guimenuitem><accel>F</accel>ilter...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Hides objects that are not of interest to the user.  Open a dialog allowing the user to choose from a list of types of object they want to display, or to enter their own criteria (for example, a regular expression matched against a particular property of the objects).</entry>
 		</row>
 
 
 		<row>
-			<entry><accel>Z</accel>oom In</entry>
+			<entry><guimenuitem><accel>Z</accel>oom In</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo></entry>
 			<entry>Zooms into the document.  Make the center of the new view the same as the center of the previous view.</entry>
 		</row>
 
 		<row>
-			<entry>Zoom <accel>O</accel>ut</entry>
+			<entry><guimenuitem>Zoom <accel>O</accel>ut</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo></entry>
 			<entry>Zooms out of the document.  Make the center of the new view the same as the center of the previous view.</entry>
 		</row>
 
 		<row>
-			<entry><accel>N</accel>ormal Size</entry>
+			<entry><guimenuitem><accel>N</accel>ormal Size</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>=</keycap></keycombo></entry>
 			<entry>Resets the zoom level back to the default value, normally 100%.  Make the center of the new view the same as the center of the previous view.</entry>
 		</row>
 
 		<row>
-			<entry>Best <accel>F</accel>it</entry>
+			<entry><guimenuitem>Best <accel>F</accel>it</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Makes the document fill the window.  Show the document, or the current page of the document, at as high a zoom level as will fit in the window whilst allowing the whole document or page to be visible without scrolling.</entry>
 		</row>
 
 		<row>
-			<entry><accel>R</accel>efresh</entry>
+			<entry><guimenuitem><accel>R</accel>efresh</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
 			<entry>Redraws the current view of the document from local storage.  For example, in a web browser application, this would redraw the page from the browser page cache.
 			<para>If you want to check if the actual content has changed before refreshing the view, for example, checking a web page on a web server, label this item <guimenuitem>Reload</guimenuitem> rather than <guimenuitem>Refresh</guimenuitem>.  If your application requires both <guimenuitem>Reload</guimenuitem> and <guimenuitem>Refresh</guimenuitem>, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> as the shortcut for <guimenuitem>Reload</guimenuitem>.</para></entry>
@@ -1060,61 +1060,61 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>P</accel>age Break</entry>
+			<entry><guimenuitem><accel>P</accel>age Break</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts a page break at the caret position.  Show the page break visually, for example as a dotted line across the page, unless the user has specifically requested not to see them.</entry>
 		</row>
 
 		<row>
-			<entry><accel>D</accel>ate and Time...</entry>
+			<entry><guimenuitem><accel>D</accel>ate and Time...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts the current date and/or time at the caret position.  Open a dialog giving a choice of date and time formats.  If applicable, also offer the choice to insert either as plain text, so the specified date and time will always appear in the document, or as a special field that will updated every time the document is opened, refreshed or printed.</entry>
 			</row>
 
 		<row>
-			<entry>Sy<accel>m</accel>bol...</entry>
+			<entry><guimenuitem>Sy<accel>m</accel>bol...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts a special symbol, such as a mathematical symbol or foreign character, at the caret position.  Open a dialog showing all the available symbols as a table, from which the user can choose.  The user must be able to add multiple symbols to the document at one time without having to close and re-open the dialog.</entry>
 			</row>
 
 		<row>
-			<entry><accel>S</accel>heet...</entry>
+			<entry><guimenuitem><accel>S</accel>heet...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Adds a new sheet to the current workbook.  Do not prompt for a name, but choose a sensible default (such as <guilabel>Sheet-2</guilabel>) and allow the user to change it later.</entry>
 			</row>
 
 		<row>
-			<entry><accel>R</accel>ows...</entry>
+			<entry><guimenuitem><accel>R</accel>ows...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Adds new rows to a table in which one or more rows or cells are currently selected.  Open a dialog asking whether to insert rows above or below the current selection, and for any other required information.  Copy the row format from the last or first row of the current selection respectively, unless the user specifies otherwise.</entry>
 			</row>
 
 		<row>
-			<entry><accel>C</accel>olumns...</entry>
+			<entry><guimenuitem><accel>C</accel>olumns...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Adds new columns to a table in which one or more columns or cells are currently selected.  Open a dialog asking whether to insert columns to the left or right of the current selection, and for any other required information.  Copy the column format from the right- or left-most column of the current selection respectively, unless the user specifies otherwise.</entry>
 			</row>
 
 		<row>
-			<entry><accel>I</accel>mage...</entry>
+			<entry><guimenuitem><accel>I</accel>mage...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts an image into the document from a file.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose an image file to insert.</entry>
 			</row>
 
 		<row>
-			<entry><accel>G</accel>raph...</entry>
+			<entry><guimenuitem><accel>G</accel>raph...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts a graph into the document.  Open a dialog or assistant that allows the user to build (or open from a file) a graph of their choice, using the current selection as an indication of which values, axis labels and data labels to use.</entry>
 			</row>
 
 		<row>
-			<entry><accel>F</accel>rom FIle...</entry>
+			<entry><guimenuitem><accel>F</accel>rom FIle...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts an object from any acceptable file type, for example plain text, formatted text, or an image.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose a file to insert.</entry>
 			</row>
 
 		<row>
-			<entry>E<accel>x</accel>ternal Link...</entry>
+			<entry><guimenuitem>E<accel>x</accel>ternal Link...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Inserts a link to an object stored in a different file, or on a remote system.  The object is not embedded in or saved with the document, only a link to it.  Open a dialog in which the user can type or choose the name of the object, for example a filename or a webpage URL.  Show the link in the document in as informative way as possible.  For example, show a link to an image as a thumbnail of that image, unless the user specifies otherwise.</entry>
 			</row>
@@ -1177,67 +1177,67 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>S</accel>tyle...</entry>
+			<entry><guimenuitem><accel>S</accel>tyle...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the style attributes of the selected text or objects either individually or to a named, predefined style.  Open a dialog allowing the user to set attributes such as bold, italic, size and spacing individually, and to create their own named styles where applicable.</entry>
 
 		</row>
 
 		<row>
-			<entry><accel>F</accel>ont...</entry>
+			<entry><guimenuitem><accel>F</accel>ont...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the font properties of the selected text or objects.  Open a dialog allowing the user to choose font, size, style, color, or whatever other attributes are applicable.</entry>
 		</row>
 
 		<row>
-			<entry><accel>P</accel>aragraph...</entry>
+			<entry><guimenuitem><accel>P</accel>aragraph...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the properties of the selected paragraph.  Open a dialog allowing the user to choose style, line spacing, tabulation, or whatever other attributes are applicable.</entry>
 		</row>
 
 		<row>
-			<entry><accel>B</accel>old</entry>
+			<entry><guimenuitem><accel>B</accel>old</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
 			<entry>Toggles the boldness of the current text selection on or off.  If some of the selection is currently bold and some is not, this command should bolden the selected text.</entry>
 
 		</row>
 
 		<row>
-			<entry><accel>I</accel>talic</entry>
+			<entry><guimenuitem><accel>I</accel>talic</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
 			<entry>Toggles the italicisation of the current text selection on or off.  If some of the selection is currently italicised and some is not, this command should italicise the selected text.</entry>
 
 		</row>
 
 		<row>
-			<entry><accel>U</accel>nderline</entry>
+			<entry><guimenuitem><accel>U</accel>nderline</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
 			<entry>Toggles underlining of the current text selection.  If some of the selection is currently underlined and some is not, this command should underline the selected text.</entry>
 
 		</row>
 
 		<row>
-			<entry><accel>C</accel>ells...</entry>
+			<entry><guimenuitem><accel>C</accel>ells...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the properties of the selected table cells.  Open a dialog allowing the user to choose alignment, borders, shading, text style, number format, or whatever other attributes are applicable.</entry>
 		</row>
 
 		<row>
-			<entry><accel>L</accel>ist...</entry>
+			<entry><guimenuitem><accel>L</accel>ist...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the properties of the selected list, or turns the selected paragraphs into a list if they are not already formatted as such.  Open a dialog allowing the user to choose number or bullet style, spacing, tabulation, or whatever other attributes are applicable.</entry>
 		</row>
 
 
 		<row>
-			<entry>Laye<accel>r</accel>...</entry>
+			<entry><guimenuitem>Laye<accel>r</accel>...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the properties of all or selected layers of a multi-layered document.  Open a dialog allowing the user to choose name, size, visibility, opacity, z-ordering, or whatever other attributes are applicable.</entry>
 		</row>
 
 
 		<row>
-			<entry>P<accel>a</accel>ge...</entry>
+			<entry><guimenuitem>P<accel>a</accel>ge...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Sets the properties of all or selected pages of the document.  Open a dialog allowing the user to choose paper size, orientation, columns, margins, or whatever other attributes are applicable.</entry>
 		</row>
@@ -1284,13 +1284,13 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>A</accel>dd Bookmark</entry>
+			<entry><guimenuitem><accel>A</accel>dd Bookmark</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
 			<entry>Adds a bookmark for the current document to the default bookmark list.  Do not pop up a dialog asking for a title or location for the bookmark, instead choose sensible defaults (such as the document's title or filename as the bookmark name) and allow the user to change them later using the <guimenuitem>Edit Bookmarks</guimenuitem> feature.</entry>
 		</row>
 
 		<row>
-			<entry><accel>E</accel>dit Bookmarks</entry>
+			<entry><guimenuitem><accel>E</accel>dit Bookmarks</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
 			<entry>Allows the user to edit the application's bookmark list.  Open a window in which the user can arrange bookmarks into a hierarchy, move, copy, and delete bookmarks, and change their properties.</entry>
 		</row>
@@ -1341,32 +1341,32 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>B</accel>ack</entry>
+			<entry><guimenuitem><accel>B</accel>ack</guimenuitem></entry>
 			<entry><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></entry>
 			<entry>Navigates to the previous document in the browser's history list.</entry>
 		</row>
 
 		<row>
-			<entry><accel>F</accel>orward</entry>
+			<entry><guimenuitem><accel>F</accel>orward</guimenuitem></entry>
 			<entry><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></entry>
 			<entry>Navigates to the next document in the browser's history list.</entry>		
 		</row>
 
 		<row>
-			<entry><accel>U</accel>p</entry>
+			<entry><guimenuitem><accel>U</accel>p</guimenuitem></entry>
 			<entry><keycombo><keycap>Alt</keycap><keycap>Up</keycap></keycombo></entry>
 			<entry>Navigates to the current document's (or folder's) parent document (or folder).  For a document browser, such as an online help viewer, this usually means navigating to the enclosing sub-section, section, chapter or contents page.</entry>		
 		</row>
 	
 		<row>
-			<entry><accel>H</accel>ome</entry>
+			<entry><guimenuitem><accel>H</accel>ome</guimenuitem></entry>
 			<entry><keycombo><keycap>Alt</keycap><keycap>Home</keycap></keycombo></entry>
 			<entry>Navigates to a starting page defined by the user or the application.</entry>
 		</row>
 
 
 		<row>
-			<entry><accel>L</accel>ocation...</entry>
+			<entry><guimenuitem><accel>L</accel>ocation...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Navigates to a user-specified URI.  Open a dialog into which the user can type a suitable URI, or select one from a list where applicable (for example, a file selection dialog for applications that can handle file:// URIs).</entry>		
 		</row>
@@ -1408,33 +1408,33 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>P</accel>revious Page</entry>
+			<entry><guimenuitem><accel>P</accel>revious Page</guimenuitem></entry>
 			<entry><keycap>PageUp</keycap></entry>
 			<entry>Navigates to the previous page in the document.</entry>
 		</row>
 
 		<row>
-			<entry><accel>N</accel>ext Page</entry>
+			<entry><guimenuitem><accel>N</accel>ext Page</guimenuitem></entry>
 			<entry><keycap>PageDown</keycap></entry>
 			<entry>Navigates to the next page in the document.</entry>		
 		</row>
 
 		<row>
-			<entry><accel>G</accel>o to Page...</entry>
+			<entry><guimenuitem><accel>G</accel>o to Page...</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Navigates to a user-specified page number.  Open a dialog into which the user can type a page number.
 			<para>Text-based applications may also include a <guimenuitem>Go  to Line...</guimenuitem> menu item, which allows the user to jump to a specified line number.</para></entry>		
 		</row>
 	
 		<row>
-			<entry><accel>F</accel>irst Page</entry>
+			<entry><guimenuitem><accel>F</accel>irst Page</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>Home</keycap></keycombo></entry>
 			<entry>Navigates to the first page in the document.</entry>
 		</row>
 
 
 		<row>
-			<entry><accel>L</accel>ast Page</entry>
+			<entry><guimenuitem><accel>L</accel>ast Page</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>End</keycap></keycombo></entry>
 			<entry>Navigates to the last page in the document.</entry>		
 		</row>
@@ -1506,21 +1506,21 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>1</accel>. <replaceable>first open window title</replaceable>
-			<para><accel>2</accel>. <replaceable>second open window title</replaceable></para>
+			<entry><guimenuitem><accel>1</accel>. <replaceable>first open window title</replaceable></guimenuitem>
+			<para><guimenuitem><accel>2</accel>. <replaceable>second open window title</replaceable></guimenuitem></para>
 			<para>etc.</para></entry>
 			<entry>None</entry>
 			<entry>Raises the corresponding window to the top of the window stack.</entry>
 		</row>
 
 		<row>
-			<entry><accel>S</accel>ave All</entry>
+			<entry><guimenuitem><accel>S</accel>ave All</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Saves all open documents.  If any documents have no current filename, prompt for a filename for each one in turn using the standard Save dialog.</entry>		
 		</row>
 
 		<row>
-			<entry><accel>C</accel>lose All</entry>
+			<entry><guimenuitem><accel>C</accel>lose All</guimenuitem></entry>
 			<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
 			<entry>Closes all open documents.  If there are any unsaved changes in any documents, post a <link linkend="alerts-confirmation">confirmation alert</link> for each one in turn.</entry>
 		</row>
@@ -1565,13 +1565,13 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <tbody valign="top">
 
 		<row>
-			<entry><accel>C</accel>ontents</entry>
+			<entry><guimenuitem><accel>C</accel>ontents</guimenuitem></entry>
 			<entry><keycap>F1</keycap></entry>
 			<entry>Opens the default help browser on the contents page for the application.</entry>
 		</row>
 
 		<row>
-			<entry><accel>A</accel>bout</entry>
+			<entry><guimenuitem><accel>A</accel>bout</guimenuitem></entry>
 			<entry>None</entry>
 			<entry>Opens the About dialog for the application.  Use the standard dialog provided by the GNOME libraries, which contains the name and version number of the application, a short description of the application's functionality, author contact details, copyright message and a pointer to the licence under which the application is made available.</entry>		
 		</row>
@@ -1580,7 +1580,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</tgroup>
 	</table>
 
-	<remark><para>We originally wanted a Search item on here too, but it's not technically possible to implement it right now.</para></remark>
+	<remark>We originally wanted a Search item on here too, but it's not technically possible to implement it right now.</remark>
 
       </sect2>
     </sect1>

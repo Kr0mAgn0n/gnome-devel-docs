@@ -58,10 +58,10 @@
 	<para>Ensure your application functions properly with the three different mechanisms by which windows can receive focus in GNOME:</para>
 
 	<itemizedlist>
-		<listitem><formalpara><title>Click-to-focus</title>A window is focused by clicking in it.</formalpara></listitem>
+		<listitem><formalpara><title>Click-to-focus</title><para>A window is focused by clicking in it.</para></formalpara></listitem>
 
-		<listitem><formalpara><title>Point-to-focus</title>A window is focused by moving the mouse pointer into it.  Sometimes known as &quot;sloppy focus&quot;.</formalpara></listitem>
-		<listitem><formalpara><title>Keyboard focus</title>A window is focused by using a keyboard shortcut such as <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>.</formalpara></listitem>
+		<listitem><formalpara><title>Point-to-focus</title><para>A window is focused by moving the mouse pointer into it.  Sometimes known as &quot;sloppy focus&quot;.</para></formalpara></listitem>
+		<listitem><formalpara><title>Keyboard focus</title><para>A window is focused by using a keyboard shortcut such as <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>.</para></formalpara></listitem>
 
 	</itemizedlist>
 
@@ -240,9 +240,9 @@
 	<para>If most of the controls in your window are not suitable for instant apply, consider making the whole window &quot;explicit apply&quot;.   An explicit apply window has these three buttons in its button box, plus an optional <guibutton>Help</guibutton> button:</para>
 
 	<itemizedlist>
-		<listitem><formalpara><title>Apply</title>Applies all the settings in the window, but does not close the window in case the user wishes to change their mind.</formalpara></listitem>
-		<listitem><formalpara><title>Cancel</title>Resets all settings in the window to those that were in force when the window was opened.  Note:  this must undo the effects of all applications of the <guibutton>Try</guibutton> since the window was opened, not just the most recent one.</formalpara></listitem>
-		<listitem><formalpara><title>OK</title>Applies all settings in the window, and closes the window.</formalpara></listitem>
+		<listitem><formalpara><title>Apply</title><para>Applies all the settings in the window, but does not close the window in case the user wishes to change their mind.</para></formalpara></listitem>
+		<listitem><formalpara><title>Cancel</title><para>Resets all settings in the window to those that were in force when the window was opened.  Note:  this must undo the effects of all applications of the <guibutton>Try</guibutton> since the window was opened, not just the most recent one.</para></formalpara></listitem>
+		<listitem><formalpara><title>OK</title><para>Applies all settings in the window, and closes the window.</para></formalpara></listitem>
 	</itemizedlist>
 
 	<figure id="explicit-apply-figure">
@@ -350,9 +350,13 @@
       <formalpara>
 	<title>Title Format:</title>
 	<para>Toolboxes have no title</para>
-	<remark><para>A toolbox still needs to have an appropriate accessible description, so a screenreader user hears some information about its content when they focus it.</para></remark>
       </formalpara>
+      <remark>How then does a screenreader user differentiate between toolboxes? --Calum.</remark>
+      <remark>ATK hints? How does Windows do this (or does it) ? There's not room for a title bar. Maybe we can have apps set the title bar but teach the WM to not draw it or something. In any case, for sighted users there's not even *room* for a titlebar in a toolbox. -Seth</remark>
+      <remark>A toolbox still needs to have an appropriate accessible description, so a screenreader user hears some information about its content when they focus it. -Calum</remark>
+      <remark>I think having the title set but having the WM ignore it might be the best way to do this? I'll talk to Havoc. -Seth</remark>
       <formalpara>
+
 	<title>Window Commands:</title>
 	<para>Close, Roll-up/Unroll</para>
       </formalpara>
@@ -428,7 +432,11 @@
     <formalpara><title>Title Format</title>
 	<para>Alert windows have no titles, as the title would usually unnecessarily duplicate the alert's primary text. This way, users can read and respond to alerts more quickly as there is less visual noise and confounding text.</para>
     </formalpara>
-   	<remark><para>An alert still needs to have an appropriate accessible description (perhaps the primary text of the alert itself?), so a screenreader user hears some information about its content when they focus it.</para></remark>
+    <remark>Without a title, how does a screenreader user identify an alert window? -Calum</remark>
+    <remark>The screen-reader finds out its an alert (do we need a WM mechanism for this?) and reads the primary text to identify the alert. The whole point for removing the title is that its redundant with the primary text, and puts more crap on the screen to be read. This problem applies double to users with screenreaders (i.e. reducing extra crap helps them even more). -Seth</remark>
+    <remark>An alert still needs to have an appropriate accessible description (perhaps the primary text of the alert itself?), so a screenreader user hears some information about its content when they focus it. -Calum</remark>
+    <remark>I'll talk to Havoc about this. -Seth</remark>
+    
 
     <formalpara><title>Resizing</title><para>Alert windows are not resizable. If the user needs to resize your alert, the text is probably not concise enough.</para></formalpara>
     <para>Alerts do not appear in the system window list. Consequently, take care to ensure that alerts stay above their parent window.</para>
@@ -756,8 +764,8 @@
 	<listitem><para>does not enable the <guibutton>OK</guibutton> or equivalent button until all fields have been filled by the user.</para></listitem>
 	  <listitem><para>may present an alternative action button or convenience button. Place this button to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
 	</itemizedlist>
-	<para>When the user presses <keycap>Return</keycap>, move focus to the next field instead of activating the default button, unless the field is the last one.  In that case, activate the default button.</para>
-	</para>
+      </para>
+      <para>When the user presses <keycap>Return</keycap>, move focus to the next field instead of activating the default button, unless the field is the last one.  In that case, activate the default button.</para>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>

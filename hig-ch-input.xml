@@ -175,7 +175,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
 	</itemizedlist>
 
-	  <remark><para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para></remark>
+	  <remark>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</remark>
 	
 	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</title>
 	  <mediaobject>
@@ -258,7 +258,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	
       </itemizedlist>
 
-	<remark><para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para></remark>
+	<remark>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</remark>
       
       <para>Allow the user to modify the default behavior of a drag and drop operation by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer immediately and perform the new action when the mouse button is released.</para>
 
@@ -445,7 +445,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- See <xref linkend="keynav-examples"/>.--></para></listitem>
 	  
 	  
-	  <listitem><para>Do not over-ride existing system-level accessibility features. For example, the MouseKeys feature in the GNOME <label>Keyboard Accessibility</label> preferences dialog allows mouse movement and button clicks to be simulated using the keypad. Therefore you cannot add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
+	  <listitem><para>Do not over-ride existing system-level accessibility features. For example, the MouseKeys feature in the GNOME <guilabel>Keyboard Accessibility</guilabel> preferences dialog allows mouse movement and button clicks to be simulated using the keypad. Therefore you cannot add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
 	  
 	  <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
 	  
@@ -459,7 +459,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	  <listitem><para>Do not assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
 	  
-	  <listitem><para>Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as the GNOME <label>Keyboard Accessibility</label> preferences dialog do allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
+	  <listitem><para>Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as the GNOME <guilabel>Keyboard Accessibility</guilabel> preferences dialog do allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
 	</itemizedlist>
 	
 	  <remark>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice.org, Explorer etc.?  What does our new 2.0 file selection dialog do?</remark>
@@ -1022,7 +1022,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<sect3 id="additional-widget-navigation">
 	  <title>Additional Widget Navigation Shortcut Keys</title>
 	  
-	  <para>The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields (by selecting the "emacs" scheme in the GNOME <label>Keyboard Shortcuts</label> preferences dialog), but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
+	  <para>The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields (by selecting the "emacs" scheme in the GNOME <guilabel>Keyboard Shortcuts</guilabel> preferences dialog), but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
 
 	  <table frame='all' pgwide='1'>
 	    <title>Emacs-style navigation keys for widgets</title>
