@@ -436,6 +436,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
     
     <sect1 id="keyboard">
       <title>Keyboard Interaction</title>
+      
+      
       <sect2 id="keyboard-navigation">
 	<title>Keyboard Navigation</title>
 	
@@ -667,7 +669,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       <sect3 id="shortcuts">
 	<title>Choosing Shortcut Keys</title>
 
-	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <xref linkend="standard-menus"/> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
+	<para>The tables in <xref linkend="standard-shortcuts"/> summarize the standard shortcut keys to use when your application supports those functions.  Your application will not necessarily support all of these functions&mdash; see <xref linkend="standard-menus"/> for more information.  However, use the recommended shortcut keys for those functions you do support.</para> 
 
 	<para>You will probably also want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
 
@@ -693,10 +695,19 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  
 	  <listitem><para>Don't assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
 	  
-	  <listitem><para>Don't use any of the standard shortcut keys listed here for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between GNOME applications.</para></listitem>
+	  <listitem><para>Don't use any of the standard shortcut keys listed in <xref linkend="standard-shortcuts"/> for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between all GNOME applications.</para></listitem>
 
 	</itemizedlist>
 
+	</sect3>
+	
+   </sect2>	
+   
+   <sect2 id="standard-shortcuts">
+   	<title>Standard Application Shortcut Keys</title>	
+
+	<para>If your application uses any of the standard functions listed in the following tables, use the recommended standard keyboard shortcut for that function.</para>
+	
 	<table frame='all' pgwide='1'>
 	  <title>Standard GNOME application shortcut keys and access keys - File menu</title>
 	  <tgroup cols='3' align='left'>
@@ -779,16 +790,22 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry>Paste contents of clipboard at mouse/cursor position</entry>
 	      </row>
 	      <row>
+		<entry><guimenuitem><accel>D</accel>uplicate</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+		<entry>Duplicate the currently-selected items and add them to the same window, without affecting the clipboard</entry>
+	      </row>
+	      <row>
 		<entry><guimenuitem>Select <accel>A</accel>ll</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Select everything in focused control or window</entry>
 	      </row>
 
-	      <row>
+	    <!--  <row>
 		<entry><guimenuitem>Deselect All</guimenuitem></entry>
 		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Deselect everything in focused control or window</entry>
-	      </row>
+	      </row>-->
+	      
 	      <row>
 		<entry><guimenuitem>In<accel>v</accel>ert Selection</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
@@ -802,7 +819,12 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      <row>
 		<entry><guimenuitem><accel>F</accel>ind</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
-		<entry>Find</entry>
+		<entry>Find matches in the current document, highlighting them in-place</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>S</accel>earch</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
+		<entry>Search for matches in multiple documents, files or other external sources</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Find Ne<accel>x</accel>t</guimenuitem></entry>
@@ -812,7 +834,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
 	      <row>
 		<entry><guimenuitem><accel>R</accel>eplace</guimenuitem></entry>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></entry>
 		<entry>Find and replace matches</entry>
 	      </row>
 
@@ -820,24 +842,27 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 
-
-	<note><title>For discussion</title>
-
-<!-- Consensus was for "Deselect All"
-	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
--->
-<!-- Um, consensus was to be rid of the item, iirc. (GJM) -->
-	  <para>Should we call it "Find Next" or "Find Again"?</para>
-
-	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
-
-	  <para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>
-
-<!-- Consensus is to keep Letter-based shortcut keys
-	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
--->
-
+	<note><title>Find and Search</title>
+		<para>If your application requires both <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find</guimenuitem></menuchoice> and <menuchoice><guimenu>Edit</guimenu><guimenuitem>Search</guimenuitem></menuchoice> menu items, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>F</keycap></keycombo> as the shortcut for <guimenuitem>Search</guimenuitem>.</para>
 	</note>
+	
+<!--
+	<note><title>For discussion</title> -->
+
+<!-- Consensus was for "Deselect All" -->
+	  <!-- <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para> -->
+	  <!-- Um, consensus was to be rid of the item, iirc. (GJM) -->
+	  <!--<para>Should we call it "Find Next" or "Find Again"?</para> -->
+
+	  <!--<para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>-->
+
+	  <!--<para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>-->
+
+	  <!-- Consensus is to keep Letter-based shortcut keys
+	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>-->
+
+<!--
+	  </note>-->
 
 	
 	
@@ -864,17 +889,22 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry>Zoom out of the document</entry>
 	      </row>
 	      <row>
-		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
+		<entry><guimenuitem><accel>R</accel>efresh</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
-		<entry>Redraw/reload the current document</entry>
+		<entry>Redraw current view of document, without checking if content has changed</entry>
 	      </row>
-
+	      <row>
+		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> (see note below)</entry>
+		<entry>Reload the current document, updating content from source if necessary</entry>
+	      </row>
+		
 	    </tbody>
 	  </tgroup>
 	</table>
 
-	<note><title>Reload/Refresh</title>
-	  <para>Some applications need both reload and refresh, should we specify shortcut keys for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
+	<note><title>Reload and Refresh</title>
+		<para>If your application requires both <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>Refresh</guimenuitem></menuchoice> menu items, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> as the shortcut for <guimenuitem>Reload</guimenuitem>.</para>
 	</note>
 	
 	<table frame='all' pgwide='1'>
@@ -895,12 +925,16 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>E</accel>dit Bookmarks...</guimenuitem></entry>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo> (see note)</entry>
 		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
 	</table>
+	
+	<note><title>Bold and Edit Bookmarks</title>
+		<para>If your application requires both <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Edit Bookmarks...</guimenuitem></menuchoice> menu items, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>B</keycap></keycombo> as the shortcut for <guimenuitem>Edit Bookmarks</guimenuitem>.</para>
+	</note>
 
 	<table frame='all' pgwide='1'>
 	  <title>Standard GNOME application shortcut keys and access keys - Go menu</title>
@@ -915,23 +949,23 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem><accel>B</accel>ack</guimenuitem></entry>
-		<entry><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Left</keysym></keycombo></entry>
 		<entry>Go to the previous location in the navigation chain</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Ne<accel>x</accel>t</guimenuitem></entry>
-		<entry><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Right</keysym></keycombo></entry>
 		<entry>Go to the next location in the navigation chain</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>U</accel>p a Level</guimenuitem></entry>
-		<entry><keycombo><keycap>Alt</keycap><keycap>Up</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Up</keysym></keycombo></entry>
 		<entry>Go up one level in the navigation hierarchy</entry>
 		  </row>
 	    
 		  <row>
 		<entry><guimenuitem><accel>H</accel>ome</guimenuitem></entry>
-		<entry><keycombo><keycap>Alt</keycap><keycap>Home</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Home</keysym></keycombo></entry>
 		<entry>Go to the starting page defined by the user or application</entry>
 	      </row>
 	    </tbody>
@@ -969,9 +1003,10 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tgroup>
 	</table>
 
-	<note><title>For discussion</title>
+<!--	<note><title>For discussion</title>
 	  <para>Is it acceptable to specify the same shortcut for <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Edit Bookmarks</guimenuitem></menuchoice>, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
 	</note>
+-->
 
 	<table frame='all' pgwide='1'>
 	  <title>Standard GNOME application shortcut keys and access keys - Help menu</title>
@@ -985,26 +1020,26 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry><guimenuitem>Help</guimenuitem></entry>
+		<entry><guimenuitem><accel>C</accel>ontents</guimenuitem></entry>
 		<entry><keycap>F1</keycap></entry>
-		<entry>Obtain help and documentation for the application</entry>
+		<entry>Show help contents page for the current application</entry>
 	      </row>
 	      <row>
-		<entry><guimenuitem>Context Help</guimenuitem></entry>
+		<entry><guimenuitem>(Context Help)</guimenuitem></entry>
 		<entry><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></entry>
-		<entry>Obtain help and documentation for the currently focused control or window</entry>
+		<entry>Show online help for the currently focused control or window</entry>
 	      </row>
 	
 	    </tbody>
 	  </tgroup>
 	</table>
 
+<!--
 	<note>
 	  <title>For Discussion</title>
 	  <para>Greg suggested Ctrl+H for Search Help... this doesn't seem to me to be an important enough function to tie up Ctrl+H with, though, anyone got any other views/alternative suggestions?</para>
 	</note>
-	  
-      </sect3>
+-->	  
 
       <sect3 id="widget-navigation">
 	<title>Standard Widget Navigation Shortcut Keys</title>
@@ -1031,6 +1066,10 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      <row>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo></entry>
 		<entry>Pop up tooltip for currently-focused control</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></entry>
+		<entry>Show context-sensitive help for currently-focused window or control</entry>
 	      </row>
 	      <row>
 		<entry><keycap>F6</keycap>, <keycombo><keycap>Shift</keycap><keycap>F6</keycap></keycombo></entry>
@@ -1073,7 +1112,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<sect3 id="additional-widget-navigation">
 	  <title>Additional Widget Navigation Shortcut Keys</title>
 	  
-	  <para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
+	  <para>The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields, but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
 
 	  <table frame='all' pgwide='1'>
 	    <title>Emacs-style navigation keys for widgets</title>
@@ -1142,17 +1181,17 @@ or by dropping the object on an invalid drop target.</para></listitem>
       </sect2>
       
       <sect2 id="keynav-applets">
-	<title>Keyboard Navigation for Applets</title>
+	<title>Keyboard Navigation in Panel Applications (Applets)</title>
 
-	<para>Panels are fully keyboard navigable in GNOME 2.0.  Since your applet can now gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
+	<para>Panels are fully keyboard navigable in GNOME 2.0.  Since your panel application can now gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
 
-	<para>The rules for applet keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</para>
+	<para>The rules for panel application keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</para>
 
 	<itemizedlist>
-	  <listitem><para>Do <emphasis>not</emphasis> use the the <keycap>Tab</keycap> key as the means of moving focus between controls in an applet.  Use the arrow keys for this purpose instead.</para></listitem>
+	  <listitem><para>Do <emphasis>not</emphasis> use the the <keycap>Tab</keycap> key as the means of moving focus between controls in a panel application.  Use the arrow keys for this purpose instead.</para></listitem>
 	</itemizedlist>
 
-	<para>This is because when a panel or any object on it has focus, the <keycap>Tab</keycap> key moves focus to the next object on the panel.  If your applet also uses <keycap>Tab</keycap>, the user will have to use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> or some other means to move focus away from your applet instead, which is detremental to the user experience.</para>
+	<para>This is because when a panel or any object on it has focus, the <keycap>Tab</keycap> key moves focus to the next object on the panel.  If your panel application also uses <keycap>Tab</keycap>, the user will have to use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> or some other means to move focus away from your applet instead, which is detremental to the user experience.</para>
 	
       </sect2>
       
