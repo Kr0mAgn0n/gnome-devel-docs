@@ -26,7 +26,7 @@
 
       <para>Different window commands are appropriate to different types of window. See the description of each particular window type for a list of appropriate window commands. These are the possible window commands:</para>
       <itemizedlist>
-	<listitem><formalpara><title>Close</title><para>Closes the window. <emphasis>Always</emphasis> draw this as a button on the window border when available.</para></formalpara></listitem>
+	<listitem><formalpara><title>Close</title><para>Closes the window. <emphasis>Always</emphasis> draw this as a button on the window border when relevant to the window type.</para></formalpara></listitem>
 	<listitem><formalpara><title>Maximize</title><para>Causes the window to use all unused screen space.</para></formalpara></listitem>
 	<listitem><formalpara><title>Minimize</title><para>Causes the window to be temporarily hidden.  It will continue to appear on the desktop window list.</para></formalpara></listitem>
 	<listitem><formalpara><title>Roll-up/Unroll</title><para>Shows only the title bar of the window, as if it has been &quot;rolled up&quot;.</para></formalpara></listitem>
@@ -434,7 +434,8 @@
     
 
     <formalpara><title>Resizing</title><para>Alert windows are not resizable. If the user needs to resize your alert, the text is probably not concise enough.</para></formalpara>
-    <para>Alerts do not appear in the system window list. Consequently, take care to ensure that alerts stay above their parent window.</para>
+    <formalpara><title>Window Commands:</title><para>None</para></formalpara>
+    <caution><title>Alerts must stay above their parent</title><para>Alerts do not appear in the system window list. Consequently, take care to ensure that alerts stay above their parent window. Otherwise, users will be likely to lose the alert and find your application unresponsive for no apparent reason. Modal windows should always stay above the window(s) they block.</para></caution>
 
 
       <!--    
@@ -766,6 +767,93 @@
       </formalpara>
     </sect2>
 
+  </sect1>
+  <sect1 id="progress-windows">
+    <title>Progress Windows</title>
+    
+    <figure id="example-progress-figure">
+      <title>An example of a progress window</title>
+      <mediaobject>
+	<imageobject><imagedata fileref="images/progress-window.png" format="PNG"/></imageobject>
+	<imageobject><imagedata fileref="images/progress-window.eps" format="EPS"/></imageobject>
+	<textobject>
+	  <phrase>An example of a progress window</phrase>
+	</textobject>
+      </mediaobject>
+    </figure>
+
+    <para>A progress window can be used to provide <link linkend="feedback">feedback</link> during an operation that takes more than a few seconds. See <xref linkend="controls-progress-bars"/> for more details about proper use of progress bars.</para>
+
+    <formalpara><title>Title Format</title>
+	<para>Progress windows should have the same title as their primary text. Unlike alerts, it is expected that progress windows will be present in the window list and may be active for extended periods.</para>
+    </formalpara>
+    <formalpara><title>Resizing</title>
+      <para>Progress windows should be resizable if they contain non-static information the user may want to copy (for example, the source URL in a download progress window). Otherwise they should not be resizable.</para>
+    </formalpara>
+    <itemizedlist><title>Guidelines</title>
+      <listitem><para>It is often better to use the progress bar contained in many primary windows' status bar rather than a progress window. See <xref linkend="progress-windows-vs-status-bar"/> for details on choosing between the two.</para></listitem>
+      <listitem><para>Progress windows should use primary and secondary text like an alert. See <xref linkend="alert-text"/></para></listitem>
+      <listitem><para>The progress bar text should provide an idea of how much work has been completed. It is better to provide specific information rather than a unitless percentage. For example, "13 of 19 images rotated" or "12.1 of 30 megabytes downloaded" rather than "13% complete".</para></listitem>
+      <listitem><para>If possible, an estimate of the time left until the operation is complete should also be included in the progress bar text. Be sure to indicate it is an estimate using words like "about".</para></listitem>
+      <listitem><para>Immediately beneath the progress bar, place italicized text indicating the current sub-operation being performed. This might be a step in a sequence, "Contacting control tower for permission to land", or it could be the current object being operated on in a bulk operation, "Rotating Mona Lisa".</para></listitem>
+      <listitem><para>If the operation in progress is potentially hazardous (destructive, costly, etc) or heavily taxes a limited resource for more than ten seconds (network bandwidth, hard disk, CPU, etc), consider placing a <guibutton>Pause</guibutton> <link linkend="controls-toggle-buttons">toggle button</link> to the right of the <guibutton>Cancel</guibutton> button. When paused, the italicized current sub-operation text should have " (Paused)" appended.</para></listitem>
+    </itemizedlist>
+
+    <figure id="example-complex-progress-figure">
+      <title>A more complex progress window illustrating more of the guidelines</title>
+      <mediaobject>
+	<imageobject><imagedata fileref="images/progress-window-copy.png" format="PNG"/></imageobject>
+	<imageobject><imagedata fileref="images/progress-window-copy.eps" format="EPS"/></imageobject>
+	<textobject>
+	  <phrase>A progress window for a copy operation</phrase>
+	</textobject>
+      </mediaobject>
+    </figure>
+
+    <sect2 id="progress-window-checklists">
+      <title>Checklist Windows</title>
+      <para>Occasionally a procedure is comprised of a series of user performable actions. In these cases, particularly when it is desirable that the user acquire some familiarity with the actions involved in a procedure, checklist windows may be used.</para>
+      <example>
+	<title>Firewall Setup Wizard</title>
+	<para>A personal firewall setup wizard might install the firewall package, add entries for the firewall to /etc/xinetd.conf, restart the internet super-daemon, and configure the user's web browser to operate through the firewall. It may be desirable that the user is exposed the series of actions involved in setting up the firewall to increase the chances that they will be sucessful in making modifications later, if they so desire.</para>
+      </example>
+      <figure id="example-checklist-in-progress-figure">
+	<title>An example checklist window (In Progress)</title>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/checklist-window-in-progress.png" format="PNG"/></imageobject>
+	  <imageobject><imagedata fileref="images/checklist-window-in-progress.eps" format="EPS"/></imageobject>
+	  <textobject>
+	    <phrase>A checklist window</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <figure id="example-checklist-start-figure">
+	<title>An example checklist window (Ready to Start)</title>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/checklist-window-start.png" format="PNG"/></imageobject>
+	  <imageobject><imagedata fileref="images/checklist-window-start.eps" format="EPS"/></imageobject>
+	  <textobject>
+	    <phrase>A checklist window</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <figure id="example-checklist-done-figure">
+	<title>An example checklist window (Completed)</title>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/checklist-window-done.png" format="PNG"/></imageobject>
+	  <imageobject><imagedata fileref="images/checklist-window-done.eps" format="EPS"/></imageobject>
+	  <textobject>
+	    <phrase>A checklist window</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <itemizedlist><title>Guidelines</title>
+	<listitem><para>If knowing the series of steps in an operation isn't that useful to the user, just use a regular progress window. Remember that you are probably more interested in the information than most users, many of whom will find the technical steps confusing rather than helpful.</para></listitem>
+	<listitem><para>Unlike regular progress windows, checklist windows should not close automatically when the operation is complete and should require explicit user input before they begin. This is because one of their purposes is to inform the user concerning an operation's contingent steps.</para></listitem>
+	<listitem><para>The progress bar indicates progress in the overall operation, not each step. While this is more difficult to program, it is the information most useful to the user. Just estimate how long each of the steps takes relative to each other and assign each step a fixed ratio of the progress bar's progress accordingly.</para></listitem>
+	<listitem><para>Do <emphasis>not</emphasis> use a checklist window for a series of internal programmatic steps, use a regular progress window. For example "Connect to mail server", "Authenticate with mail server", "Download messages", "Disconnect" would <emphasis>not</emphasis> be an appropriate series of steps for a checklist window, but would be appropriate sub-operation steps for a regular progress window.</para></listitem>
+      </itemizedlist>
+    </sect2>
   </sect1>
   
   <sect1 id="dialog-boxes">

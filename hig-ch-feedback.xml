@@ -261,6 +261,17 @@
 	    <para>Use an indeterminate-progress bar to provide feedback only for operations whose duration you cannot estimate at all.</para>
 	    
 	  </sect4>
+          <sect4 id="progress-windows-vs-status-bar">
+            <title>Progress Windows vs. the Status Bar</title>
+
+            <para>In an application where the <link linkend="primary-windows">primary windows</link> contain a <link linkend="controls-status-bars">status bar</link> (which in turn contains a progress bar), it will often be the case that an operation's feedback could be presented in either the status bar or a <link linkend="progress-windows">progress window</link>. A rule of thumb is to use the status bar when an operation is expected to take fewer than ten seconds, otherwise use a progress window. However, do consider the following when choosing between the two:</para>
+            <itemizedlist>
+              <listitem><para>Opening a new window, particularly when an operation is short, can needlessly disrupt the user's workflow.</para></listitem>
+              <listitem><para>Progress windows can convey more information.</para></listitem>
+              <listitem><para>Multiple progress windows can be open at once, whereas only a single operation can be presented in a status bar.</para></listitem>
+              <listitem><para>Progress windows provide a <guibutton>Cancel</guibutton> button.</para></listitem>
+            </itemizedlist>
+          </sect4>
 	  
 	</sect3>
 	
