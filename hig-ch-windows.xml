@@ -290,16 +290,45 @@
   
   <sect1 id="assistant-windows">
     <title>Assistants</title>
-    <para>An assistant guides the user through an operation by breaking it into distinct steps. Assistants are well suited to operations which involve a number of sequential steps. Assistants are also useful in making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
-    <formalpara><title>Buttons:</title><para>Assistant should have a <guibutton>Next</guibutton> button in the lower left corner, and a <guibutton>Previous</guibutton> button immediately to its left. On the last page the <guibutton>Next</guibutton> button should be replaced with a <guibutton>Finish</guibutton> button which accepts the information entered into the assistant. On the first page the <guibutton>Previous</guibutton> button should be hidden. A secondary <guibutton>Cancel</guibutton> button dismisses the assistant, discarding any information that was entered. An optional <guibutton>Help</guibutton> button may be placed in the lower left corner, but is discouraged as the assistant's descriptive text should be sufficiently helpful in most situations.</para></formalpara>
-    <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
-    <formalpara>
-      <title>Title Format:</title>
-      <para>FIXME</para>
-    </formalpara>
+    <para>An assistant is an application modal secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are also useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
     <formalpara>
       <title>Window Commands:</title>
       <para>FIXME, Roll-up/Unroll</para>
     </formalpara>
+    <sect2 id="assistant-first-page">
+      <title>First Page</title>
+      <formalpara><title>Title Format:</title><para>FIXME</para></formalpara>
+      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Next</guibutton></para></formalpara>
+      <figure>
+	<title>Example of the first page of an assistant</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/assistant-first-page.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot showing the first page for an assistant</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+    </sect2>
+    <sect2 id="assistant-middle-page">
+      <title>Middle Pages</title>
+      <formalpara><title>Title Format:</title><para></para></formalpara>
+      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Previous</guibutton>, <guibutton>Next</guibutton></para></formalpara>
+      <figure>
+	<title>Example of a middle page of an assistant</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/assistant-middle-page.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot showing a middle page for an assistant</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+    </sect2>
+    <sect2 id="assistant-last-page">
+      <title>Last Page</title>
+      <formalpara><title>Title Format:</title><para>FIXME</para></formalpara>
+      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Previous</guibutton>, <guibutton>Finish</guibutton></para></formalpara>
+    </sect2>
   </sect1>
 </chapter>
