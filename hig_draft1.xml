@@ -2580,7 +2580,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<sect4>
 	  <title>Mouse Pointers to Use for Drag and Drop</title>
 	  
-	  <para>Use drag and drop mouse pointers consistently so that the user knows exactly what will happen when they release the mouse button.  If the user changes modifier keys after a drag has started, for example holding <keycap>Ctrl</keycap> to change the meaning from move to copy, change the mouse pointer shape immediately and respect the new action when the mouse button is released.</para> 
+	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you do have to design a new pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
+
 	  <table frame='all'>
 	    <title>Mouse Pointers for Drag and Drop</title>
 	    <tgroup cols='2' align='left'>
@@ -2631,7 +2632,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		       </textobject>
 	             </mediaobject>
                   </entry>
-		  <entry>Link selection.  A link (for example a hyperlink, or an alias, depending on the application type) to the selection will be inserted at the drop location.</entry>
+		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</entry>
 		</row>
 
 <!-- This row omitted if we really don't want right mouse drags
@@ -2667,7 +2668,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </tgroup>
 	  </table>
 
-	  <para>Additionally, you should normally augment the mouse pointer shape with a representation of whatever is being dragged.  This representation should either be kept small or made translucent, so as not to obscure possible drop targets underneath it.</para>
+	  <para>If the user changes modifier keys after a drag has started, for example holding <keycap>Ctrl</keycap> to change the meaning from move to copy, change the mouse pointer shape immediately and respect the new action when the mouse button is released.</para> 
+
+	  <para>You should normally augment the mouse pointer shape with a representation of whatever is being dragged.  This representation should either be kept small or made translucent, so as not to obscure possible drop targets underneath it.</para>
 
 	  <figure>
 	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
@@ -2683,7 +2686,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  
 	  <note>
 	    <title>For Discussion</title>
-	    <para>The pointer shapes shown here are lifted (badly!) from the GDP's GNOME User Guide, and are the ones Nautilus uses.  Are these acceptable, and if so, where are the originals so I can get some better pictures...?</para>
+	    <para>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</para>
 	  </note>
 
 	</sect4>
