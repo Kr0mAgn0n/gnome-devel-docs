@@ -748,22 +748,22 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-      <para>An authentication alert:
-	<itemizedlist>
+	<para>
+	<itemizedlist><title>Guidelines</title>
 	  <listitem>
-	    <para>uses the stock authentication icon
+	    <para>Use the stock authentication icon.
 	      <note><para><ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note>
 	    </para>
 	  </listitem>
-	  <listitem><para>presents labelled fields for the user to fill with the data needed for authentication. Suggested fields are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in that order) where appropriate.</para></listitem>
-	  <listitem><para>may find it secure to retain username data longer than the password, in which case, pre-fill the username field and give the password field the default focus when the alert is displyed.</para></listitem>
-	  <listitem><para>will present a button labelled with a verb or verb phrase describing the action authenticated, or <guilabel>OK</guilabel> if such a phrase would be longer than three words. Place this button in the bottom right corner of the alert.</para></listitem>
-	  <listitem><para>will present a <guibutton>Cancel</guibutton> button that will prevent authentication. Place this button to the immediate left of the <guibutton>OK</guibutton> or equivalent button.</para></listitem>
-	<listitem><para>does not enable the <guibutton>OK</guibutton> or equivalent button until all fields have been filled by the user.</para></listitem>
-	  <listitem><para>may present an alternative action button or convenience button. Place this button to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
+	  <listitem><para>Show a labelled field for each required item of information. Suggested fields are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in that order) where appropriate.</para></listitem>
+	  <listitem><para>If it is secure to retain the username longer than the password, pre-fill the username field and give focus to the password field when the alert is displayed.</para></listitem>
+	  <listitem><para>Show a button labelled with a verb or verb phrase describing the authentication action, or <guilabel>OK</guilabel> if there is no appropriate phrase or such a phrase would be longer than three words. Place this button in the bottom right corner of the alert.</para></listitem>
+	  <listitem><para>Do not enable the <guibutton>OK</guibutton> or equivalent button until all fields that require input have been attended to by the user. Remember that not all fields may require input however, for example an empty password may be acceptable in some applications.</para></listitem>
+	  <listitem><para>Show a <guibutton>Cancel</guibutton> button that will prevent authentication and close the alert. Place this button to the immediate left of the <guibutton>OK</guibutton> or equivalent button.</para></listitem>
+	  <listitem><para>Place any alternative action or convenience button to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
+      	  <listitem><para>When the user presses <keycap>Return</keycap> in the last field, activate the default button. When the user presses <keycap>Return</keycap> in any other field, move focus to the next field.</para></listitem>
 	</itemizedlist>
       </para>
-      <para>When the user presses <keycap>Return</keycap>, move focus to the next field instead of activating the default button, unless the field is the last one.  In that case, activate the default button.</para>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
