@@ -41,7 +41,30 @@
     
     <sect1 id="controls-entry">
       <title>Text Entry Fields</title>
-      <para>For entering text.</para>
+      <para>For enter</para>
+    </sect1>
+    
+    <sect1 id="controls-range">
+      
+      <title>Sliders and Spinboxes</title>
+      
+      <para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it is always from "min" to "max"</para></listitem>
+	
+	<listitem><para>Use a slider if it is useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
+	
+	<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
+	
+	<listitem><para>Always give sliders and spinboxes a label, positioned above or to the left of the control and using sentence capitalization.</para></listitem>
+	
+      </itemizedlist>
+      
+      <para>Sometimes it is useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+      
     </sect1>
     
     <sect1 id="controls-buttons">
@@ -65,7 +88,7 @@
       <para>Recommendations:</para>
       
       <itemizedlist>
-	<listitem><para>Label your buttons with direct commands (imperative verbs), using <link linkend="layout-capitalization">book title capitalization</link>.  For example, <guilabel>Save</guilabel>, <guilabel>Sort</guilabel> or <guilabel>Update Now</guilabel>.</para></listitem>
+	<listitem><para>Label all buttons with direct commands (imperative verbs), using <link linkend="layout-capitalization">book title capitalization</link>.  For example, <guilabel>Save</guilabel>, <guilabel>Sort</guilabel> or <guilabel>Update Now</guilabel>.  Provide an access key in the label that allows the user to directly activate the button from the keyboard.</para></listitem>
 	
 	<listitem><para>After pressing a button, the user should expect to see the result of their action within 1 second, for example, closing the window or opening another.  See the <link linkend="feedback">Feedback</link> chapter for guidance on what to do if your application cannot respond this quickly.</para></listitem>
 	
@@ -126,6 +149,8 @@
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
 	
 	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example, rather than a checkbox labelled <guilabel>Status bar progress meter is on the right</guilabel>, use radio buttons labelled <guilabel>Right</guilabel> and <guilabel>Left</guilabel> under the label <guilabel>Status bar progress meter position:</guilabel> (FIXME: make this into a picture).</para></listitem>
+
+	<listitem><para>Provide an access key in all check box labels that allows the user to set or unset the check box directly from the keyboard.</para></listitem>
 	
 	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the "read only" property of three selected files), show the check box in its mixed state. (picture required)</para></listitem>
 	
@@ -183,7 +208,7 @@
       <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls it affects to indicate that the controls are dependent on the state of the radio button. (pic required)
 </para></listitem>
 
-	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel></para></listitem>
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
 
 	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the border style of a column of selected cells in a table), show the radio button in its mixed state. (picture required)</para></listitem>
 	
@@ -229,6 +254,8 @@
 	
 	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  The group should behave like either a group of check boxes where none, one or more of the buttons may be set at once, or a group of radio buttons, where exactly one button may be set at once, and setting one button unsets the others.</para></listitem>
 
+	<listitem><para>Provide an access key in the label of all toggle buttons that allows the user to set or unset the button directly from the keyboard.</para></listitem>
+
 	<listitem><para>Try to align groups of toggle buttons horizontally rather than vertically.  This is how toggle buttons normally appear on a toolbar, so the user will be more familiar with this arrangement.</para></listitem>
 
 	<listitem><para>Do not leave any space between toggle buttons in a group, otherwise they may look unrelated or may be mistaken for regular buttons.</para></listitem>
@@ -244,59 +271,20 @@
     </sect1>
 
     
-    <sect1 id="controls-combo-boxes">
-      
-      <title>Combo Boxes</title>
-      
-      <para>Combo boxes combine a text entry field and a dropdown list of pre-defined values. Selecting one of the pre-defined values updates the contents of the text field to that value.</para>
-
-      
-      <para>pic of combo box</para>
-      
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
-
-	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
-	
-	<listitem><para>Do not initiate an action when the user selects an item from the list in a combo box.  If used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the combo box immediately if possible.  If this isn't possible due to the contents of the entry field being invalid while the user is still typing into it, update the related setting when the combo box loses focus instead.</para></listitem>
-
-
-	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
-	
-	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).</para></listitem>
-	
-	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
-		
-      </itemizedlist>
-
-    </sect1>
-
-    <sect1 id="controls-lists">
-      <title>Lists</title>
-      <para>A list is a list of things.</para>
-    </sect1>
-    
-    <sect1 id="controls-trees">
-      <title>Trees</title>
-      <para>The oak is resplendent in autumn.</para>
-      
-    </sect1>
-    
-    <sect1 id="controls-option-menus">
+ <sect1 id="controls-option-menus">
 
       <title>Option Menus</title>
       
       <para>Option menus are used to select from a mutually exclusive set of options. They can be useful when there is insufficient space in a window to use a group of radio buttons or a single-selection list, with which they are functionally equivalent.</para>
       
        <figure>
-	<title>An option menu showing current setting (left) and the list of available choices when clicked on (right)</title>
+	<title>An option menu showing current selection (left) and the list of available choices when clicked on (right)</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-option-menu.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>One picture of an option menu displaying its current setting, and another showing its popup menu of available choices when it is clicked on</phrase>
+	    <phrase>One picture of an option menu displaying its current setting, and another showing its popup menu of available choices when clicked on</phrase>
 	  </textobject>
 	</mediaobject>
 	
@@ -312,7 +300,7 @@
 	
 	<listitem><para>Selecting an item from an option menu should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
 		
-	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).</para></listitem>
+	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).  Provide an access key in the label that allows the user to give focus directly to the option menu.</para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for option menu items, for example <guilabel>Switched movement</guilabel></para></listitem>
 
@@ -337,6 +325,179 @@
       
     </sect1>
     
+    <sect1 id="controls-combo-boxes">
+      
+      <title>Combo Boxes</title>
+      
+      <para>Combo boxes combine a text entry field and a dropdown list of pre-defined values. Selecting one of the pre-defined values sets the entry field to that value.</para>
+
+      <figure>
+	<title>A combo box showing current selection (left) and the list of available choices when clicked on (right)</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-combo.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>One picture of a combo box entry field displaying its current selection, and another showing its dropdown list of available choices when clicked on</phrase>
+	  </textobject>
+	    </mediaobject>
+	    
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+
+	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
+	
+	<listitem><para>Do not initiate an action when the user selects an item from the list in a combo box.  If used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the combo box immediately if possible.  If this isn't possible due to the contents of the entry field being invalid while the user is still typing into it, update the related setting when the combo box loses focus instead.</para></listitem>
+
+
+	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
+	
+	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required)  Provide an access key in the label that allows the user to give focus directly to the combo box.</para></listitem>
+	
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
+		
+      </itemizedlist>
+
+    </sect1>
+
+    <sect1 id="controls-lists">
+      <title>Lists</title>
+      
+      <para>A list control allows the user to inspect, manipulate or select from a list of items.  Lists may have one or more columns, and contain text, graphics, simple controls, or a combination of all three.</para>
+      
+      <figure>
+	<title>A simple two column list</title>
+      	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-list.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Picture of list control containing two unsorted columns of text</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+
+	<listitem><para>Always give list controls a label, positioned above or to the left of the list, in <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the list.</para></listitem>
+
+	<listitem><para>Do not use lists with less than about five items, unless the number of items may increase over time.  Use <link linkend="controls-check-boxes">check boxes</link>, <link linkend="controls-radio-buttons">radio buttons</link> or an <link linkend="controls-option-menus">option menu</link> if there are fewer items.</para></listitem>
+
+	<listitem><para>Use column headers when:</para>
+	  <itemizedlist>
+	    <listitem><para>the list has more than one column</para></listitem>
+	    <listitem><para>the list has only one column, but the user may wish to re-order the list.  This should rarely be true of single column lists.</para></listitem>
+	  </itemizedlist>
+	  <para>Do not use column headers if the list has a single column but sorting is not required&mdash;the static text label above or to the left of the list is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
+
+	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
+
+	<listitem><para>Consider using a check box list (picture required) for multiple-selection lists, as these make it more obvious that multiple selection is possible.</para></listitem>
+	
+	<listitem><para>For multiple selection lists, show the number of items currently selected in a static text label below the list, for example:</para>
+	  <para><guilabel>Names selected: 3</guilabel></para>
+	  <para>This also makes it more obvious that multiple selection is possible.</para></listitem>
+	
+	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection lists, if appropriate to the task.</para></listitem>
+	
+      </itemizedlist>
+      
+    </sect1>
+    
+    <sect1 id="controls-trees">
+      <title>Trees</title>
+
+      <para>A tree control allows the user to inspect, manipulate or select from a hierarchichal list of items.  Trees may have one or more columns, and contain text, graphics, simple controls, or a combination of all three.</para>
+
+      <tip><title>Use trees with care!</title>
+	<para>Because of their complexity compared to other controls, novice and some intermediate users often have problems using and understanding tree controls.  If your application is designed for that type of user, you might want to consider alternative ways of presenting the information, such as the Nautilus list or icon view, or the hierarchical browser lists found in <ulink url="http://www.gnustep.it/enrico/gworkspace/viewer.html">GNUstep's File Viewer</ulink>.</para>
+      </tip>
+      
+       <figure>
+	<title>A simple tree control with one level of hierarchy</title>
+      	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-tree.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Picture of tree control showing months of the year as top level nodes, and public holidays in those months as their children</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>Always give tree controls a label, positioned above or to the left of the tree, in <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the tree.</para></listitem>
+	
+	<listitem><para>Use column headers when:</para>
+	  <itemizedlist>
+	    <listitem><para>the tree has more than one column</para></listitem>
+	    <listitem><para>the tree has only one column, but the user may wish to re-order the tree.  This should rarely be true of single column trees.</para></listitem>
+	  </itemizedlist>
+	  <para>Do not use column headers if the tree has a single column but sorting is not required&mdash;the static text label above or to the left of the tree is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
+	
+	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
+	
+	<listitem><para>Consider using a check box tree (picture required) for multiple-selection trees, as these make it more obvious that multiple selection is possible.</para></listitem>
+	
+	<listitem><para>For multiple selection trees, show the number of items currently selected in a static text label below the tree, for example:</para>
+	  <para><guilabel>Names selected: 3</guilabel></para>
+	  <para>This also makes it more obvious that multiple selection is possible.</para></listitem>
+	
+	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection trees, if appropriate to the task.</para></listitem>
+	
+      </itemizedlist>
+      
+    </sect1>
+    
+    
+    <sect1 id="controls-notebooks">
+      <title>Notebooks</title>
+      <para>A notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analagous to the divider tabs in a notebook or file cabinet.</para>
+
+      <figure>
+	<title>A notebook control with five tabs</title>
+      	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-notebook.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Picture of notebook control with five tabs</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+
+      <para>Recommendations:</para>
+      <itemizedlist>
+
+	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (picture required)</para></listitem>
+
+	<listitem><para>Label tabs with <link linkend="layout-capitalization">book title capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
+
+	<listitem><para>Do not assign access keys to tab labels.  Every other control on each page should be assigned an access key, however.</para></listitem>
+
+	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (picture would be good here)</para></listitem>
+
+	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
+	
+	<listitem><para>If a button or other control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
+
+      <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, and do not center the controls on the page.</para></listitem>
+
+      <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
+
+      </itemizedlist>
+      
+      <para>For future consideration: it would be good if the notebook widget supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</para>
+
+    </sect1>
     
     <sect1 id="controls-progress-bars">
       
@@ -376,63 +537,7 @@
       
       <para>Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.</para>
       
-    </sect1>
-
-    <sect1 id="controls-range">
-      
-      <title>Sliders and Spinboxes</title>
-      
-      <para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
-	
-	<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it is always from "min" to "max"</para></listitem>
-	
-	<listitem><para>Use a slider if it is useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
-	
-	<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
-	
-	<listitem><para>Always give sliders and spinboxes a label, positioned above or to the left of the control and using sentence capitalization.</para></listitem>
-	
-      </itemizedlist>
-      
-      <para>Sometimes it is useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
-      
-    </sect1>
-
-    
-    <sect1 id="controls-notebooks">
-      <title>Notebooks</title>
-      <para>A notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analgous to the divider tabs in a notebook or file cabinet.</para>
-
-      <para>picture</para>
-
-      <para>Recommendations:</para>
-      <itemizedlist>
-
-	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (picture required)</para></listitem>
-
-	<listitem><para>Label tabs with <link linkend="layout-capitalization">book title capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
-
-	<listitem><para>Do not assign accelerator keys to tab labels.  Every other control on each page should be assigned an accelerator, however.</para></listitem>
-
-	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (picture would be good here)</para></listitem>
-
-	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
-	
-	<listitem><para>If a button or other control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
-
-      <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, and do not center the controls on the page.</para></listitem>
-
-      <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
-
-      </itemizedlist>
-      
-      <para>For future consideration: it would be good if the notebook widget supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</para>
-
-    </sect1>
-    
+    </sect1>    
 
 </chapter>
 
