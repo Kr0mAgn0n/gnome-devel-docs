@@ -14,240 +14,168 @@
 <!-- <title>Menu Principles</title> -->
 
     <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
-
     <sect1 id="menu-types">
       <title>Types of Menus</title>
-
       <sect2 id="menu-types-drop-down">
 	<title>Drop-Down Menus</title> <!-- "Pull-down" menus? -->
-	<para>The primary application window should possess a menubar providing a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
+	<para>Provide a menubar on each primary application window. The menubar
+provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
       </sect2>
-
       <sect2 id="menu-principles-context">
 	<title>Popup menus</title>
-	<para>Clicking on an object with the right mouse button may display a popup menu which should contain commands which can be applied to the selected object. (The act of clicking may change the selection.) Popup menus are accessible via the keyboard shortcut <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.
+	<para>Provide a popup menu for every object, selectable part, and text input target such as an entry. Show the popup menu in response to a right-click or the keycombo <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Unlike drop-down menus, do not show keyboard shortcuts in popup menus.</para>
+	<para>Provide an access key for each item.</para>
 	  <!-- Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar. -->
 	  <!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
-	</para>
+	<para>Place the default command for an object as the first item on its popup menu, followed by other commands in expected frequency-of-use order, followed by transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command>.</para>
+	<para>Avoid submenus from popup menus.</para>
+	<note>
+	  <para>An exception exists for the <guimenuitem>Input Methods</guimenuitem> submenu. When present, this must be the last item.</para>
+	</note>
+	<note>
+	  <title>For Discussion</title>
+	  <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
+	</note>
       </sect2>
-
     </sect1>
-
     <sect1 id="menu-organisation">
       <title>Menu Organisation</title>
-      <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menus and menu items should not appear or disappear while the application is running.</para>
-
+      <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
       <sect2 id="menu-organisation-submenus">
 	<title>Submenus</title>
-	<para>Submenus may be used to add a further level of hierarchy to a menu and to save space in an interface. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to find the items they contain.</para>
+	<para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three
+items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. A submenu should not have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
       </sect2>
-
       <sect2 id="menu-organisation-separators">
 	<title>Separators</title>
-	<para>Related items should be grouped together on a menu and should be separated from other groups using separators. This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.</para>
-      </sect2>
-
+	<para>Groups of two to about five related items should be separated from other groups using separators. A single item at the top or bottom of a menu may appear before or after a group. As with menus generally, the items within a group should be ordered sequentially or by expected frequency of use.</para>
+	<!-- This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.</para> -->      </sect2>
     </sect1>
-
     <sect1 id="menu-names">
       <title>Naming Conventions</title>
       <para>Most menu items will be labelled with verbs or adjectives, which describe commands or properties respectively. Menu items should have the first letter of the first word and of any significant words capitalized. See <link linkend="layout-capitalization">Capitalization</link> for more information.</para>
-      <para>Where a command requires further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
+      <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
     </sect1>
 
     <sect1 id="menu-unavailable">
       <title>Unavailable Commands</title>
-      <para>A menu item should be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
+      <para>Make a menu item insensitive when its command is unavailable; do not make an item with a submenu insenstive even if each item on the submenu would be.  be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
       <para>Do not remove an item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
     </sect1>
-
     <sect1 id="menu-toggled">
-      <title>Toggled Menu Items</title>
-      <para>Menu items may be toggled between two states. This may be done either independently in the same way as check boxes or as part of a group as with radio buttons.</para>
-      <para>Any group of items operating in the same manner as a group of radio buttons should appear on their own in a menu or submenu or be separated from other items in the menu by using separators.</para>
+      <title>Toggle-able Menu Items</title> <!-- "Toggle-able"??? -->
+      <sect2 id="menu-toggled-radio">
+	<title>Radio Groups</title>
+	<para>A group of mutually exclusive . . . FIXME</para>
+      </sect2>
+      <sect2 id="menu-toggled-check">
+	<title>Checked Items</title>
+	<para>An item which is either on or off . . . FIXME {e.g., Sort Folders First}</para>
+      </sect2>
+      <sect2 id="menu-toggled-changed">
+	<title>Changing Items</title>
+	<para>An item which has two states . . . FIXME {e.g., Show|Hide Toolbar}</para>
+      </sect2>
+      <!--
+      Adam notes that this whole section can be a significant source of
+      nastiness in a UI. We need explicit recommendations here on how to
+      represent different states of a toggled menu item via icons in the UI.
+      We also need to make recommendations to avoid some common mistakes,
+      including:
+
+      * Confusing menu items acting as radio buttons in a group with menu
+        items acting as checkboxes.
+      * Ambiguous names for checkbox/toggle menu items which make it difficult
+        to establish the current system state by looking at the menu.
+
+      Calum notes further that we should give recommendations on when to use 
+      two separate mutually-exclusive items rather than one with a checkbox 
+      (or a dynamic menu name). This is generally important when the two 
+      states are not naturally opposites.
+      -->
+
     </sect1>
 
     <sect1 id="menu-shortcuts-accesskeys">
       <title>Shortcuts and Access Keys</title>
-      <!-- Eeek! Names! Names! The previous version contradicted the API. We still need a conclusion. -->
-      <para>As with other controls, all menu items should have an access key associated with them. Unlike other controls, once a menu is visible, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
-      <para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
-      <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
+      <para>Provide an access key for each menu item. Unlike other controls, once a menu is visible, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
+      <para>Provide a keyboard shortcut for frequently used commands.</para>
+      <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
+      <para>Do not assign shortcuts to radio items, checkbox items, or dynamic items (such as those on the <guisubmenu>Recent Files</guisubmenu> submenu). Doing so would confuse users who would not know to look in the menus for a way to undo an accidental keying or would provide unpredictable results.</para>
+      <para>See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
+      <note>
+	<title>For Discussion</title>
+	<para>Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?</para>
+      </note>
+<!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para> -->
     </sect1>
-<!-- Re-added for for structure without OOUI sections -->
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
-      <para>Each type of primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. {modify them this way, etc. ...}</para>
-
-<!-- OOUI
-    <sect1 id="object-menubar">
-      <title>The Object Menubar</title>
-      <note><para>Object-oriented interfaces are scheduled to appear in GNOME 3.0</para></note>
-      <para>An object's menus should contain only those commands which affect the object.</para>
-      <para>The first object menu should be labelled by the class of the object, or labelled <guilabel>File</guilabel> when no other label is applicable.</para>
-      <mediaobject>
-	<imageobject>
-	  <imagedata fileref="images/object-menubar.png" format="PNG"/>
-	</imageobject>
-	<textobject>
-	  <simplelist type="horiz" columns="9">
-	    <member><guimenu><replaceable>Object</replaceable></guimenu></member>
-	    <member><guimenu><accel>S</accel>elected</guimenu></member>
-	    <member><guimenu><accel>E</accel>dit</guimenu></member>
-	    <member><guimenu><accel>V</accel>iew</guimenu></member>
-	    <member><guimenu><accel>I</accel>nsert</guimenu></member>
-	    <member><guimenu>For<accel>m</accel>at</guimenu></member>
-	    <member><guimenu><accel>G</accel>o</guimenu></member>
-	    <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
-	    <member><guimenu><accel>T</accel>ools</guimenu></member>
-	    <member><guimenu><accel>H</accel>elp</guimenu></member>
-	  </simplelist>
-	</textobject>
-      </mediaobject>
-      <sect2 id="the-object-menu">
-	<title>The Object Menu</title>
+      <para>The primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu; {modify them this way, etc. ...}</para>
+      <note>
+	<title>For Discussion</title>
+	<para>What is the best way to present menus given the known variants? Multiple shots? Segements? </para>
+	<para>Possible convention guideline: If the menu or submenu would contain only two items, rethink the interface.</para>
+      </note>
+      <figure id="generic-menu-bar">
+	<title>A generic menu bar</title>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="images/object-menu.png" format="PNG"/>
+	    <imagedata fileref="images/application-menubar.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-<literallayout>
-<guimenu>Object</guimenu>
-<guimenuitem><accel>O</accel>pen as...           Ctrl+O</guimenuitem>
-<guimenuitem>Open Proper<accel>t</accel>ies            </guimenuitem>
--
-<guimenuitem><accel>S</accel>ave                 Ctrl+S</guimenuitem>
-<guimenuitem>Sa<accel>v</accel>e Copy...               </guimenuitem>
-<guimenuitem><accel>R</accel>evert                     </guimenuitem>
--
-<guimenuitem><accel>P</accel>rint...             Ctrl+P</guimenuitem>
-<guimenuitem><accel>M</accel>ail...              Ctrl+M</guimenuitem>
-</literallayout>
+	    <simplelist type="horiz" columns="9">
+	      <member><guimenu><accel>F</accel>ile</guimenu></member>
+	      <member><guimenu><accel>E</accel>dit</guimenu></member>
+	      <member><guimenu><accel>V</accel>iew</guimenu></member>
+	      <member><guimenu><accel>I</accel>nsert</guimenu></member>
+	      <member><guimenu>For<accel>m</accel>at</guimenu></member>
+	      <member><guimenu><accel>G</accel>o</guimenu></member>
+	      <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
+	      <member><guimenu><accel>T</accel>ools</guimenu></member>
+	      <member><guimenu><accel>W</accel>indows</guimenu></member>
+	      <member><guimenu><accel>H</accel>elp</guimenu></member>
+	    </simplelist>
 	  </textobject>
 	</mediaobject>
-	<para>The object menu presents commands for the entire object. 
-	</para>
-	<sect3 id="object-opening">
-	  <title>Opening Commands</title>
-	  <para>The opening commands open a new view (in a separate window) of the object data.</para>
-	  <variablelist>
-	    <varlistentry><term>Open As...</term>
-	      <listitem>
-		<para>FIXME</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry><term>Open Properties</term>
-	      <listitem>
-		<para>FIXME</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
-	</sect3>
-	<sect3 id="object-saved">
-	  <title>Saved State Commands</title>
-	  <para>The saved state commands</para>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Save</term>
-	      <listitem>
-		<para>The <guimenuitem>Save</guimenuitem> command . . . .  Provide this command only when the object is not automatically saved.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Save Copy...</term>
-	      <listitem>
-		<para>The <guimenuitem>Save Copy...</guimenuitem> command prompts the user to name a copy of the object. The copy is saved with the user provided name and the view is not altered. The copy dialog may present different ways to save the data. For example, an image object may be saved in a native format or as a PNG.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Revert</term>
-	      <listitem>
-		<para>The <guimenuitem>Revert</guimenuitem> command</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
-	</sect3>
-	<sect3 id="object-export">
-	  <title>Exporting Commands</title>
-	  <para>FIXME</para>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Print...</term>
-	      <listitem>
-		<para>FIXME</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Send...</term>
-	      <listitem>
-		<para>FIXME</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
-	</sect3>
-      </sect2>
-      <sect2 id="the-selected-menu">
-	<title>The Selected Menu</title>
-	<para>FIXME</para>
-      </sect2>
-    </sect1>
--->
-<!-- OOUI
-    <sect1 id="application-menus">
-      <title>The Application Menubar</title>
-      <note><para>Application-oriented interfaces are deprecated in GNOME 3.0</para></note>
-      <para>FIXME</para> -->
-      <mediaobject>
-	<imageobject>
-	  <imagedata fileref="images/application-menubar.png" format="PNG"/>
-	</imageobject>
-	<textobject>
-	  <simplelist type="horiz" columns="9">
-	    <member><guimenu><accel>F</accel>ile</guimenu></member>
-	    <member><guimenu><accel>E</accel>dit</guimenu></member>
-	    <member><guimenu><accel>V</accel>iew</guimenu></member>
-	    <member><guimenu><accel>I</accel>nsert</guimenu></member>
-	    <member><guimenu>For<accel>m</accel>at</guimenu></member>
-	    <member><guimenu><accel>G</accel>o</guimenu></member>
-	    <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
-	    <member><guimenu><accel>T</accel>ools</guimenu></member>
-	    <member><guimenu><accel>W</accel>indows</guimenu></member>
-	    <member><guimenu><accel>H</accel>elp</guimenu></member>
-	  </simplelist>
-	</textobject>
-      </mediaobject>
+      </figure>
       <sect2 id="the-file-menu">
-<!-- OOUI  <title>The File Menu</title> -->
 	<title>File</title>
 	<para>FIXME</para>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="images/file-menu.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
+	<figure id="generic-file-menu"><title>A generic File menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/file-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
 <literallayout>
 <guimenu>File</guimenu>
 <guimenuitem><accel>N</accel>ew                  Ctrl+N</guimenuitem>
 <guimenuitem><accel>O</accel>pen...              Ctrl+O</guimenuitem>
-<guimenuitem>Open Recent...                 </guimenuitem>
+<guimenuitem>Recent <accel>F</accel>iles              &gt; </guimenuitem>
 ---
 <guimenuitem><accel>S</accel>ave                 Ctrl+S</guimenuitem>
 <guimenuitem>Save <accel>A</accel>s...     Shift+Ctrl+S</guimenuitem>
 <guimenuitem>Sa<accel>v</accel>e Copy...               </guimenuitem>
 <guimenuitem><accel>R</accel>evert                     </guimenuitem>
 ---
+<guimenuitem>Page Set<accel>u</accel>p                 </guimenuitem>
+<guimenuitem>Print Previe<accel>w</accel>  Shift+Ctrl+P</guimenuitem>
 <guimenuitem><accel>P</accel>rint...             Ctrl+P</guimenuitem>
 <guimenuitem><accel>M</accel>ail...              Ctrl+M</guimenuitem>
 ---
 <guimenuitem>Proper<accel>t</accel>ies                 </guimenuitem>
 ---
-<guimenuitem><accel>C</accel>lose                Ctrl+W</guimenuitem>
+<guimenuitem><accel>C</accel>lose                Alt+F4</guimenuitem>
 <guimenuitem><accel>Q</accel>uit                 Ctrl+Q</guimenuitem>
 </literallayout>
-	  </textobject>
-	</mediaobject>
+	    </textobject>
+	  </mediaobject>
+	</figure>
 	<sect3>
 	  <title>Creation and Opening Operations</title>
+<note><para>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
+menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</para><para>For non-game UI there would be at the very least, Open as ... and Open Settings.</para></note>
 	  <variablelist>
 	    <varlistentry>
 	      <term>New</term>
@@ -261,27 +189,40 @@
 	    <varlistentry>
 	      <term>Open</term>
 	      <listitem>
-		<para>Opens an existing document. The user should be presented with a standard file open dialog from which they may choose an existing file. If the user's choice is already open in that application then the user should be notified via a dialog that the file is already open and the window containing that file should be given the focus and raised. If the current window contains a blank untitled document then it should be replaced with the selected file. Otherwise the file should be opened in a new window.</para>
+		<para>Opens an existing document in a new window. The user should be presented with a standard file open dialog <!-- Ref this elsewhere --> from which they may choose an existing file. If the user's choice is already open in the application then it should request that the window containing that file be raised. <!-- If the current window contains a blank untitled document then it should be replaced with the selected file. Otherwise the file should be opened in a new window. --></para>
+		<note>
+		  <para>If the application would provide more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</para>
+		  <para>Problem to be solved. It may be desireable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</para>
+		  <para>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term>Open Recent</term>
+	      <term>Recent Files</term>
 	      <listitem>
 		<para>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.</para>
+		<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</sect3>
 	<sect3>
 	  <title>Saved State Operations</title>
+	  <note>
+	    <title>For Discussion</title>
+	    <para>This section needs a review with an eye to what can actually be done programmatically.</para>
+	  </note>
 	  <variablelist>
 	    <varlistentry>
 	      <term>Save</term>
 	      <listitem>
 		<para>Saves the document to its current filename. If the document has a filename associated with it then the document should be saved to that file without any further interaction with the user. If there are any additional options involved in saving a file (eg. DOS or UNIX-style line endings in a text file) then these should remain as they were the last time the document was saved. If the document has no associated filename then the action should be the same as that of <guimenuitem>Save As</guimenuitem>.</para>
+		<note>
+		  <para>Calum recommends disabling this item (making it insensitive) if the document is read-only.</para>
+		  <para>Gregory wonders why a read-only view would have this item.</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry>
 	      <term>Save As</term>
 	      <listitem>
@@ -291,7 +232,11 @@
 	    <varlistentry>
 	      <term>Save Copy</term>
 	      <listitem>
-		<para>The <guimenuitem>Save Copy...</guimenuitem> command prompts the user to name a copy of the object. The copy is saved with the user provided name and the view is not altered. The copy dialog may present different ways to save the data. For example, an image object may be saved in a native format or as a PNG.</para>
+		<para>The <guimenuitem>Save Copy</guimenuitem> command prompts the user to name a copy of the object. The copy is saved with the user provided name and the view is not altered. The copy dialog may present different ways to save the data. For example, an image object may be saved in a native format or as a PNG.</para>
+		<note>
+		  <title>For Discussion</title>
+		  <para>Should this be "Save Copy As..."?</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -300,18 +245,60 @@
 		<para>Reverts the document to the last saved state. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before reloading the file.</para>
 	      </listitem>
 	    </varlistentry>
+	    <varlistentry>
+	      <term>Save Version</term>
+	      <listitem>
+		<para>The <guimenuitem>Save Version</guimenuitem> is an alternative to the <guimenuitem>Save Copy</guimenuitem> command.</para>
+		<para>This should be used only in conjunction with the <guimenuitem>Restore Version</guimenuitem> command.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Restore Version</term>
+	      <listitem>
+		<para>Prompts the user for a version of the current document to be restored. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before restoring the version.</para>
+		<para>This should be used only in conjunction with the <guimenuitem>Save Version</guimenuitem> command.</para>
+		<note>
+		  <title>For Discussion</title>
+		  <para>All of these items, (Print, Send . . . ) are export or save operations, to keep a semblance of a sane order of operations, the order of the items should follow the order of locality. Ergo, Save Print Send - local (disk), local or remote (printer), remote (someone else)</para>
+		</note>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Versions</term>
+	      <listitem>
+		<para>An alternative to the <guimenuitem>Save Version</guimenuitem> and <guimenuitem>Restore Version</guimenuitem> commands. Use this when more utilities, such as a diff, are available.</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
 	</sect3>
 	<sect3>
 	  <title>Export Operations</title>
 	  <variablelist>
 	    <varlistentry>
-	      <term>Print...</term>
+	      <term>Page Setup</term>
+	      <listitem>
+		<para>Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Print Preview</term>
+	      <listitem>
+		<para>Shows the user what the printed document will look like. The <guimenuitem>Print Preview</guimenuitem> command should bring up a new window containing an accruate represenation of the appearance of the document as it would be printed.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Print</term>
 	      <listitem>
 		<para>Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.</para>
 	      </listitem>
 	    </varlistentry>
-	    <varlistentry><term>Send...</term><listitem><para>FIXME</para></listitem></varlistentry>
+	    <varlistentry>
+	      <term>Send</term>
+	      <listitem>
+		<para><guimenuitem>Send</guimenuitem> provides the user a means to instantly attach or send the currently viewed document as an email attachement <!-- (launch $MAILER -a $ATTACHMENT) -->or, in the case of plain text or html, to send the document as email to another user.</para>
+		<para>This item may be split according to the options to send which are available. As according to the general rule, if there are more than two items (usually with a common name) split them off into a submenu. For example, if just the commands Send by Email and Send by FAX were available, those could be left on the menu; but if there were a third option, perhaps Send by FTP, then all the options would be placed in a submenu.</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
 	</sect3>
 	<sect3>
@@ -320,97 +307,36 @@
 	    <varlistentry>
 	      <term>Close</term>
 	      <listitem>
-		<para>Close the current document. If the document in the current window has unsaved changes then the user should be presented with a dialog giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open.</para>
+		<para>Close the current document. If the document in the current window has unsaved changes then the user should be presented with an alert giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open.</para>
+		<note>
+		  <title>For Discussion</title>
+		  <para>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut (at least). The graphic shows Alt+F4 which is a used in Windows, CDE, and OS/2 for closing windows.</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
 	      <term>Quit</term>
 	      <listitem>
-		<para>Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the File|Save command applied to every unsaved document. If there are no unsaved changes then the application should quit with no further interaction with the user.</para>
+		<para>Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with an alert listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes then the application should quit with no further interaction with the user.</para>
+		<note>
+		  <title>For Discussion</title>
+		  <para>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</sect3>
 	
       </sect2>
-      <!-- OOUI  (moved below)
-      <sect2>
-      <title>The Windows Menu</title>
-      <para>FIXME</para>
-      </sect2>
-      -->
-<!-- OOUI    </sect1> -->
-
-<!--
-      <sect2 id="menu-standard-file">
-	<title>File</title>
-	<para> -->
-<!--
-<literallayout class="monospaced">
-<guimenu><accel>F</accel>ile</guimenu>
-<guimenuitem>Open <accel>R</accel>ecent        &gt;</guimenuitem>
-<guimenuitem><accel>O</accel>pen...            Ctrl-O</guimenuitem>
-<guimenuitem><accel>C</accel>lose              Ctrl-W</guimenuitem>
--
-<guimenuitem><accel>S</accel>ave               Ctrl-S</guimenuitem>
-<guimenuitem>Save <accel>A</accel>s...</guimenuitem>
-<guimenuitem>Save Copy...</guimenuitem>
-<guimenuitem>Re<accel>v</accel>ert</guimenuitem>
--
-<guimenuitem><accel>P</accel>rint...           Ctrl-P</guimenuitem>
--
-<guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem>
-</literallayout>
-	</para>
-
-	<para>All applications should have a <guimenu>File</guimenu> menu which should contain items relating to creating, opening, saving, closing and printing documents and for exiting the application.</para>
-
-	<para>Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guimenu>File</guimenu> menu.</para>
-
-	<sect3>
-	  <title>File Access</title>
-	  <para>On document-editing applications, the items <guimenuitem><accel>N</accel>ew</guimenuitem>, <guimenuitem><accel>O</accel>pen</guimenuitem>, <guimenuitem><accel>S</accel>ave</guimenuitem>, <guimenuitem>Save <accel>A</accel>s</guimenuitem> and <guimenuitem><accel>C</accel>lose</guimenuitem> must be present, <guimenuitem>Revert</guimenuitem> should be present, and <guisubmenu>Open <accel>R</accel>ecent</guisubmenu> may be present.</para>
-	</sect3>
-	<sect3>
-	  <title>Printing</title>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Print Preview</term>
-	      <listitem>
-		<para>Shows the user what the printed document will look like. The <guimenuitem>Print Preview</guimenuitem> command should bring up a new window containing an accruate represenation of the appearance of the document as it would be printed.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Page Setup</term>
-	      <listitem>
-		<para>Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
-	</sect3>
-	<sect3>
-	  <title>Quitting</title>
-	  <para>All Applications must have a <guimenuitem>Quit</guimenuitem> item. Applications which are capable of editing multiple documents simultaneously should have a <guimenuitem>Close All</guimenuitem> item.
-	  </para>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Close All</term>
-	      <listitem>
-		<para>Close all open documents. If there are unsaved changes in any of the currently open documents then the user should be presented with a dialog listing those documents and giving the option to save all, discard all, or cancel. Save All should behave like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command applied to every unsaved document. For an SDI application, <guimenuitem>Close All</guimenuitem> should leave the user with a blank document, and with a controlled SDI application the user should be left with the controlling window.</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
-	</sect3>
-      </sect2>
--->
       <sect2 id="menu-standard-edit">
-
 	<title>Edit</title>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="images/application-edit-menu.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
+	<figure id="generic-edit-menu">
+	  <title>A generic Edit menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/application-edit-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
 <literallayout class="monospaced">
 <guimenu><accel>E</accel>dit</guimenu>
 <guimenuitem><accel>U</accel>ndo                 Ctrl+Z</guimenuitem>
@@ -430,9 +356,10 @@
 -
 <guimenuitem>Prefere<accel>n</accel>ces...</guimenuitem>
 </literallayout>
-	  </textobject>
-	</mediaobject>
-	<para>The <guimenu>Edit</guimenu> menu should contain items relating to editing the document, clipboard handling, selection and searching and replacing.</para>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<para>The <guimenu>Edit</guimenu> menu should contain items relating to editing the document, clipboard handling, selection and searching and replacing. {. . . and the application Preferences item}</para>
 
 	<sect3>
 	  <title>Modification History</title>
@@ -444,43 +371,39 @@
 		<para>Undoes the previous action in the history. The document should be changed to the state it was in before the previous action was performed.</para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry>
 	      <term>Redo <replaceable>action</replaceable></term>
 	      <listitem>
 		<para>Redoes the following action in the history. After the user has travelled back through the modification history with the <guimenuitem>Undo</guimenuitem> command, the <guimenuitem>Redo</guimenuitem> command should move the user forwards through that history and change the document state to the state it was in after that action had been performed.</para>
 	      </listitem>
 	    </varlistentry>
-
 	  </variablelist>
-
 	</sect3>
-
 	<sect3>
 	  <title>Manipulating Selected Data</title>
-
 	  <variablelist>
 	    <varlistentry><term>Cut</term>
 	      <listitem>
 		<para>Removes the selected content and places it onto the clipboard. The content should be removed in the same manner as <guimenuitem><accel>D</accel>elete</guimenuitem>. This command should only be available when a section of the document is selected.</para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry><term>Copy</term>
 	      <listitem>
 		<para>Copies the selected content onto the clipboard. This command should only be available when a section of the document is selected.</para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry><term>Paste</term>
 	      <listitem>
 		<para>Inserts the contents of the clipboard at the caret or, if part of the document is selected, replaces that part with the clipboard contents.</para>
 	      </listitem>
 	    </varlistentry>
-
 	    <varlistentry><term>Delete</term>
 	      <listitem>
 		<para>Removes the selected content without placing it on the clipboard.</para>
+		<note>
+		  <title>For Discussion</title>
+		  <para>Should Delete be provided from a menu? The command is as obvious as using the arrow keys to move about.</para>
+		</note>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -500,18 +423,38 @@
 	<sect3>
 	  <title>Searching and Replacing</title>
 	  <variablelist>
-	    <varlistentry><term>Find</term>
-	      <listitem><para>Brings up a Find dialog.</para></listitem>
+	    <varlistentry>
+	      <term>Find</term>
+	      <listitem>
+		<para>Brings up a Find utility or dialog.</para>
+	      </listitem>
 	    </varlistentry>
-	    <varlistentry><term>Replace</term>
-	      <listitem><para>Brings up a Replace dialog.</para></listitem>
+	    <varlistentry>
+	      <term>Find Next</term>
+	      <listitem>
+		<para>Finds the next instance of the last Find term. This item should be insensitive if there is no next instance and the find does not wrap around to the beginning of the document.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Find Previous</term>
+	      <listitem>
+		<para>Finds the previous instance of the last Find term. This item should be insensitive if there is no previous instance and the find does not wrap around to the end of the document.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>Replace</term>
+	      <listitem>
+		<para>Brings up a Replace utility or dialog.</para>
+	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	  <!-- Note moved here by CB from the middle of his stuff... --> 
 	  <note>
 	    <title>For Discussion</title>
 	    <para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
-	    <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para> 
+	    <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para>
+	    <para>Replace is not always descriptive of what the user may do with the utility window. Formatting a section is also a possibility.</para>
+	    <para>Ideally, these would all be merged into a simple utility window</para>
 	  </note>
 	</sect3>
 	<sect3>
@@ -521,114 +464,197 @@
       </sect2>
       <sect2 id="menu-standard-view">
 	<title>View</title>
+	<figure id="generic-view-menu">
+	  <title>A generic View menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-view-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu><accel>V</accel>iew</guimenu><!-- FIXME -->
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
 	<para>FIXME</para>
-	<para>
-	  <literallayout class="monospaced"><guimenu><accel>V</accel>iew</guimenu>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
-	
-      </sect2>
-      <sect2 id="menu-standard-insert">
-	<title>Insert</title>
-	<para>FIXME</para>
-	
-	<para>
-	  <literallayout class="monospaced"><guimenu><accel>I</accel>nsert</guimenu>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
-	
-      </sect2>      
-      <sect2 id="menu-standard-format">
-	<title>Format</title>
-	<para>FIXME</para>
-	
-	<para>
-	  <literallayout class="monospaced"><guimenu><accel>F</accel>ormat</guimenu>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
-	
       </sect2>
 
+      <sect2 id="menu-standard-insert">
+	<title>Insert</title>
+	<figure id="generic-insert-menu">
+	  <title>A generic Insert menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-insert-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu><accel>I</accel>nsert</guimenu><!-- FIXME -->
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<para>FIXME</para>	
+      </sect2>
+      <sect2 id="menu-standard-format">
+	<title>Format</title>
+	<figure id="generic-format-menu">
+	  <title>A generic Format menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-format-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu>For<accel>m</accel>at</guimenu><!-- FIXME -->
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<para>FIXME</para>
+      </sect2>
       <sect2 id="menu-standard-bookmarks">
 	<title>Bookmarks</title>
-	<para>FIXME</para>
-	
-	<para>
-	  <literallayout class="monospaced">
+	<figure id="generic-bookmarks-menu">
+	  <title>A generic Bookmarks menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-bookmarks-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
 <guimenu><accel>B</accel>ookmarks</guimenu>
 <guimenuitem><accel>A</accel>dd Bookmark   </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>
 <guimenuitem><accel>E</accel>dit Bookmarks </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
-	
+		<!-- FIXME -->
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<para>FIXME</para>
       </sect2>
-
       <sect2 id="menu-standard-go">
 	<title>Go</title>
+	<figure id="generic-browser-go-menu">
+	  <title>A generic browser Go menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-browser-go-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+<literallayout class="monospaced">
+<guimenu><accel>G</accel>o</guimenu>
+<guimenuitem><accel>B</accel>ack       </guimenuitem>
+<guimenuitem><accel>F</accel>orward    </guimenuitem>
+<guimenuitem><accel>U</accel>p         </guimenuitem>
+<guimenuitem><accel>R</accel>eload     </guimenuitem>
+<guimenuitem><accel>S</accel>top       </guimenuitem>
+<guimenuitem><accel>H</accel>ome       </guimenuitem>
+<guimenuitem><accel>L</accel>ocation...</guimenuitem>
+</literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<figure id="generic-document-go-menu">
+	  <title>A generic document Go menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-document-go-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+<literallayout class="monospaced">
+<guimenu><accel>G</accel>o</guimenu>
+<guimenuitem><accel>P</accel>revious Page  </guimenuitem>
+<guimenuitem><accel>N</accel>ext Page      </guimenuitem>
+<guimenuitem><accel>J</accel>ump to Page...</guimenuitem>
+-
+<guimenuitem><accel>F</accel>irst Page     </guimenuitem>
+<guimenuitem><accel>L</accel>ast Page      </guimenuitem>
+</literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
 	<para>FIXME</para>
-	
-	<para>
-	  <literallayout class="monospaced"><guimenu><accel>G</accel>o</guimenu>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
-	
       </sect2>
 
       <sect2 id="menu-standard-tools">
 	<title>Tools</title>
+	<figure id="generic-tools-menu">
+	  <title>A generic Tools menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-tools-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu><accel>T</accel>ools</guimenu><!-- FIXME -->
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
 	<para>FIXME</para>
-	<para>
-	  <literallayout class="monospaced"><guimenu><accel>T</accel>ools</guimenu>
-	    <!-- FIXME -->
-	  </literallayout>
-	</para>
       </sect2>
-
       <sect2 id="application-windows-menu">
 	<title>Windows</title>
-	<para>FIXME</para>
+	<figure id="generic-windows-menu">
+	  <title>A generic Windows menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-windows-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu><accel>W</accel>indows</guimenu>
+<guimenuitem><accel>S</accel>ave All</guimenuitem>
+<guimenuitem><accel>C</accel>lose All</guimenuitem>
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	<para>Avoid presenting a multiple document interface (MDI).</para>
+	<para>If the application presents an MDI, provide a Windows menu for commands which apply to all of the application's windows. Provide a list of the application's primary windows to allow them to be raised.</para>
+	<para>The Windows menu may also be labelled <guimenu><accel>D</accel>ocuments</guimenu>, <guimenu><accel>B</accel>uffers</guimenu>, or similarly according to the application context.</para>
       </sect2>
-
       <sect2 id="menu-standard-help">
 	<title>Help</title>
-	<para>
-<literallayout class="monospaced"><guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem><accel>S</accel>earch Help</guimenuitem>
+	<figure id="generic-help-menu">
+	  <title>A generic Help menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/generic-help-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <literallayout class="monospaced">
+<guimenu><accel>H</accel>elp</guimenu>
+<guimenuitem><accel>S</accel>earch</guimenuitem>
 <guimenuitem>Help <accel>C</accel>ontents      F1</guimenuitem>
-<guimenuitem><accel>A</accel>bout <replaceable>appname</replaceable></guimenuitem></literallayout>
-	</para>
-
+<guimenuitem><accel>A</accel>bout <replaceable>appname</replaceable></guimenuitem>
+	      </literallayout>
+	    </textobject>
+	  </mediaobject>
+	</figure>
 	<variablelist>
 	  <varlistentry>
-	    <term>Search Help</term>
+	    <term>Search</term>
 	    <listitem>
 	      <para>Brings up a dialog allowing the user to search the application's documentation.</para>
 	    </listitem>
 	  </varlistentry>
-
 	  <varlistentry>
 	    <term>Help Contents</term>
 	    <listitem>
 	      <para>Brings up the default gnome help browser with the contents page of the application's documentation.</para>
 	    </listitem>
 	  </varlistentry>
-
 	  <!-- What about context-sensitive help? How will that work? Do we want to give it the F1 shortcut? -->
-
 	  <varlistentry>
 	    <term>About <replaceable>appname</replaceable></term>
 	    <listitem>
 	      <para>Brings up the About dialog for the application. The dialog should contain the name and version number of the application, a short description of what the application does, contact details of the authors, a copyright notice, and a pointer to the license under which the application is made available.</para>
 	    </listitem>
 	  </varlistentry>
-
 	</variablelist>
-
       </sect2>
     </sect1>
   </chapter>
