@@ -292,17 +292,26 @@
 
 	<listitem><para>Whether your application can provide an estimate of the operation's progress.</para></listitem>
 	<listitem><para>Whether the operation blocks the user from issuing further commands in your application.</para></listitem>
-	<listitem><para>Whether your application has a dedicated space&mdash; such as a status bar&mdash; for indicating the status of operations.</para></listitem>
+	<listitem><para>Whether your application has a dedicated space, such as a status bar, for indicating the status of operations.</para></listitem>
       </itemizedlist>
 
-      <para>The table below shows which type of feedback your application should provide for operations that usually take at least 1 second to finish. In this table, &quot;Internal progress animations&quot; are progress animations displayed in an application's dedicated status area, and &quot;External progress animations&quot; are progress animations displayed somewhere other than in a dedicated status area&mdash; typically, in an alert box.</para>      
+      <para>Recommendations:</para>
 
+      <itemizedlist>
+	<listitem><para>Use a wait pointer whenever users are blocked from interaction with your application for 1 second or longer. Display the wait pointer less than 1 second after the operation begins.</para></listitem>
+
+	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <link linkend="interrupting-commands">Allow Interruptions</link>.</listitem></para>
+
+      </itemizedlist>
+      
+      <para>The table below shows which type of feedback to provide for operations that usually take at least 1 second to finish. In the &quot;Appropriate Feedback&quot; column, &quot;Internal progress animations&quot; means progress animations displayed in an application's dedicated status area, and &quot;External progress animations&quot; means progress animations displayed somewhere other than in a dedicated status area&mdash; typically, in an alert box.</para>      
+      
       <table frame='all'>
 	<title>Visual feedback types for operations that take at least 1 second</title>
 	<tgroup cols='4' align='left'>
 	  <thead>
 	    <row>
-	      <entry>Duration usually &gt;5 seconds?</entry>
+	      <entry>Typical Duration &gt; 5 seconds?</entry>
 	      <entry>User blocked from issuing further commands?</entry>
 	      <entry>Application has dedicated status area?</entry>
 	      <entry>Appropriate feedback</entry>
@@ -313,7 +322,7 @@
 	      <entry>Yes</entry>
 	      <entry>Yes</entry>
 	      <entry>Yes</entry>
-	      <entry>Internal progress animation and pointer feedback</entry>
+	      <entry>Internal animation plus pointer feedback</entry>
 	    </row>
 	    <row>
 	      <entry>Yes</entry>
@@ -325,87 +334,77 @@
 	      <entry>Yes</entry>
 	      <entry>No</entry>
 	      <entry>Yes</entry>
-	      <entry>Internal progress animation</entry>
+	      <entry>Internal animation</entry>
 	    </row>
 	    <row>
 	      <entry>No</entry>
 	      <entry>Yes</entry>
 	      <entry>Yes</entry>
-	      <entry>Internal progress animation and pointer feedback</entry>
+	      <entry>Internal animation plus pointer feedback</entry>
 	    </row>
 	    <row>
 	      <entry>No</entry>
 	      <entry>Yes</entry>
 	      <entry>No</entry>
-	      <entry>External progress animation and pointer feedback</entry>
+	      <entry>External animation plus pointer feedback</entry>
 	    </row>
 	    <row>
 	      <entry>No</entry>
 	      <entry>No</entry>
 	      <entry>Yes</entry>
-	      <entry>Internal progress animation</entry>
+	      <entry>Internal animation</entry>
 	    </row>
 	    <row>
 	      <entry>No</entry>
 	      <entry>No</entry>
 	      <entry>No</entry>
-	      <entry>External progress animation</entry>
+	      <entry>External animation</entry>
 	    </row>
 	    
 	  </tbody>
 	</tgroup>
       </table>
 
-      <para>In general, use a wait pointer in your user interface whenever users are blocked from interaction with your application for 1 second or longer. Display the wait pointer less than 1 second after the operation begins.  If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects&mdash; see <link linkend="interrupting-commands">Letting Users Interrupt Operations</link>.</para>
       
     </sect1>
     
     <sect1 id="interrupting-commands">
-      <title>Letting Users Interrupt Operations</title>
+      <title>Allow Interruptions</title>
       
-      <para>Users sometimes need to stop a command&mdash; for example, because it is taking too long. Your application should let users stop commands in progress&mdash;even if stopping a command cannot undo, or &quot;roll back&quot;, all the command's effects.</para>
-      
-      <para>To let users stop a command, place a <guibutton>Stop</guibutton> button near the progress animation for that command.</para>
-      
-      <para>Alternatively, you can place the <guibutton>Stop</guibutton> button near the user-interface control with which the user issued the command that needs to be stopped. Place the <guibutton>Stop</guibutton> button in this alternative location only if:</para>
+      <para>Users sometimes need to stop a command&mdash; for example, because it is taking too long. Your application should let users stop commands in progress, even if stopping a command cannot undo or &quot;roll back&quot all the command's effects.</para>
+
+      <para>Recommendations</para>
       
       <itemizedlist>
 	
-	<listitem><para>There is no progress animation for command, or</para></listitem>
+	<listitem><para>Place a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button near the progress animation for the interruptable command.</para></listitem>
 	
-	<listitem><para>The progress animation is in a window's status area or in another location that lacks space for a <guibutton>Stop</guibutton> button.</para></listitem>
+	  <listitem><para>Label the button <guibutton>Cancel</guibutton> if the whole operation can be cleanly abandoned with no side effects, leaving the system in the state it was in prior to the operation beginning.  Terminate the command immediately when the user presses this button.</para></listitem>
+
+	  <listitem><para>Label the button <guibutton>Stop</guibutton> if the command can be interrupted, but its effects up to that point cannot (or should not) be reversed. When the user presses this button, open an alert box that warns of the potential side effects of stopping the command. The alert box should have only two buttons: one for continuing the command's processing, and one for immediately terminating it.</para></listitem>
+      
+      </itemizedlist>
+      
+      <para>Alternatively, you can place the <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button near the control with which the user issued the command that needs to be stopped. Place the button here only if:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>There is no progress animation for the command, or</para></listitem>
+	
+	<listitem><para>The progress animation is in a window's status area or in another location that lacks space for a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button.</para></listitem>
 	
       </itemizedlist>
       
-      <para>If a user clicks the <guibutton>Stop</guibutton> button, the effect should depend on whether terminating a command can have unwanted side-effects, such as an incomplete rollback of changes.</para>
+      <para>In the alert box that appears after pressing a <guibutton>Stop</guibutton> button, ensure the message and button labels in the alert box are specific and precise. Ambiguous button labels can cause users to terminate or continue a command unintentionally.  For example, use:</para>
       
-      <table frame='all'>
-	<title>Correct behavior for a <guibutton>Stop</guibutton> button that terminates an operation</title>
-	<tgroup cols='2' align='left'>
-	  <thead>
-	    <row>
-	      <entry>Could terminating have unwanted side-effects?</entry>
-	      <entry>Clicking <guibutton>Stop</guibutton>should...</entry>
-	    </row>
-	  </thead>
-	  <tbody>
-	    <row>
-	      <entry>No</entry>
-	      <entry>Immediately terminate the command.</entry>
-	    </row>
-	    <row>
-	      <entry>Yes</entry>
-	      <entry>Open an alert box that warns of potential side effects. The alert box should have only two buttons: one for continuing the command's processing (cancelling the request to terminate it), and one for immediately terminating the command's processing (despite potential side effects).</entry>
-	    </row>
-	    
-	  </tbody>
-	</tgroup>
-      </table>
-      
-      <para>If clicking the <guibutton>Stop</guibutton> button opens an alert box, ensure the button labels of the alert box are specific and precise. Ambiguous button labels can cause users to terminate or continue a command unintentionally.</para>
-      
-      <para>If stopping a partially completed command will not undo all the command's effects, display an alert box to warn users. Ensure that the alert box includes two buttons that enable users to choose between continuing the partially completed command or terminating the command regardless of the side effects. Label each button of the alert box as specifically as possible, for example: <guibutton>Continue Deleting Files</guibutton> and <guibutton>Stop Deleting Files</guibutton> (default).</para>
+      <para><screen>Continue deleting files? <guibutton>[Continue Deleting]</guibutton> <guibutton>[Stop Deleting]</guibutton></screen></para>
 
+      <para>rather than</para>
+
+      <para><screen>Operation interrupted, continue? <guibutton>[Yes]</guibutton> <guibutton>[No]</guibutton></screen></para>
+      
+      <para>since in the latter example, it is not clear whether pressing <guibutton>Yes</guibutton> would continue the operation or continue the interruption (i.e. cancel the operation).</para>
+      
     </sect1>
     
   </chapter>
