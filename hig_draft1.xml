@@ -976,7 +976,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       <para>Recommendations:</para>
 
       <itemizedlist>
-	<listitem><para>In addition to the common standard toolbar items detailed below, only the most commonly-used application functions should appear on the toolbar.  Don't just add buttons for every menu item.</para></listitem>
+	<listitem><para>In addition to the common standard toolbar items detailed below, place only the most commonly-used application functions on your toolbars.  Don't just add buttons for every menu item.</para></listitem>
 
 	<listitem><para>Ensure all functions that appear on your toolbars are also accessible via the main menu bar, either directly (i.e. an equivalent menu item) or indirectly (e.g. in the <guimenu>Options</guimenu>-&gt;<guimenuitem>Settings</guimenuitem> dialog).</para></listitem>
 
@@ -1111,36 +1111,71 @@ _Toolbars > [x] {Toolbar1 name}
 	
 	<para>Following this model, some current GNOME browser apps would have their toolbars re-ordered as follows:</para>
 
-<literallayout>
-Nautilus current: [Back][Forward][Up][Refresh][Home][WebSearch][Stop]
-Nautilus proposed: [Back][Forward][Up][Stop][Reload]-[Home]-[WebSearch]
-</literallayout>
- 
-	<para>(Note: We prefer "Reload" to "Refresh" where the data is actually re-read from its original source, rather than just redrawn)</para>
-
-<literallayout>
-Galeon current: [Back][Forward][Reload][Home][Stop][Zoom][URL][Go]
-Galeon proposed: [Back][Forward][Stop][Reload]-[Home]-[Zoom]-[URL][Go]
-
-</literallayout>
-
-<literallayout>
-GNOME Help current: [Back][Forward][Refresh][Index][History][Bookmarks][Help]
-GNOME Help proposed: [Back][Forward][Stop][Reload]-[Index][History][Bookmarks][Help]
-
-</literallayout>
-
 	<figure>
-	  <title>Nautilus 1.0 toolbar rearranged to follow recommended standard toolbar layout for browser applications (TODO: redo to match revised proposal)</title>
+	  <title>Nautilus 1.0 toolbar rearranged to follow recommended standard toolbar layout for browser applications</title>
 	  <mediaobject><imageobject>
 	      
 	      <imagedata fileref="images/GtkToolbar_browserdefault.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>Back-Forward-Up-Stop-Reload|Home|WebSearch</phrase>
+	      <phrase>Back Forward Up Stop Reload | Home | WebSearch Services</phrase>
 	    </textobject>
 	  </mediaobject>
 	</figure>
+	
+	<table>
+	  <title>Proposed toolbar re-ordering for Nautilus</title>
+	  <tgroup cols='2' align='left'>
+	    	    
+	    <tbody>
+	      <row>
+		<entry>Nautilus (1.0.x)</entry>
+		<entry>Back Forward Up Refresh Home WebSearch Services Stop</entry>
+	      </row>
+	      <row>
+		<entry>Nautilus (proposed)</entry>
+		<entry>Back Forward up Stop Reload | Home | WebSearch Services </entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<table>
+	  <title>Proposed toolbar re-ordering for Galeon</title>
+	  <tgroup cols='2' align='left'>
+
+	    <tbody>
+	      <row>
+		<entry>Galeon (0.12.x)</entry>
+		<entry>Back Forward Reload Home Stop Zoom [URL] Go</entry>
+	      </row>
+	      <row>
+		<entry>Galeon (proposed)</entry>
+		<entry>Back Forward Stop Reload | Home | Zoom [URL] Go </entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+	
+	<table>
+	  <title>Proposed toolbar re-ordering for GNOME Help (deprecated, for illustration purposes only)</title>
+	  <tgroup cols='2' align='left'>
+
+	    <tbody>
+	      <row>
+		<entry>GNOME Help (0.4)</entry>
+		<entry>Back Forward Refresh Index History Bookmarks Help</entry>
+	      </row>
+	      <row>
+		<entry>GNOME Help (proposed)</entry>
+		<entry>Back Forward Stop Reload | Index History Bookmarks</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<para>Note: In browser applications, use <guilabel>Reload</guilabel> rather than <guilabel>Refresh</guilabel> when the data will be actually re-read from its original source, rather than just re-painted on the screen.</para>
+
 
       </sect3>
 
@@ -1639,6 +1674,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<para>Sentence-style capitalization means capitalizing the first letter of the first word, and any other words normally capitalized in sentences, such as proper nouns.</para>
 
 	<para>The table below tells you what sort of capitalization to use for which GUI elements.</para><table frame='all'>
+	  
 	  <title>Capitalisation styles for different GUI elements</title>
 	  <tgroup cols='3' align='left'>
 
