@@ -54,12 +54,18 @@
             <date>4 September 2002</date>
             <revdescription>
                <para>Initial version. This document is maintained in the <ulink
-               url="http://cvs.gnome.org">GNOME CVS respository</ulink>. It is
+               url="http://cvs.gnome.org">GNOME CVS repository</ulink>. It is
                in the <filename class="directory">gnome-devel-docs</filename>
                module under <filename
                class="directory">gnome-devel-docs/articles/portable-programming</filename>.
                </para>
             </revdescription>
+         </revision>
+         <revision>
+            <revnumber>0.2</revnumber>
+            <date>6 September 2002</date>
+            <revremark>Incorporate fixes from various technical reviewers.
+            </revremark>
          </revision>
       </revhistory>
 
@@ -79,14 +85,14 @@
       <title>Introduction</title>
 
       <para>The <acronym>GNOME</acronym> suite of libraries and applications is
-      targeted to run on any <trademark>Unix</trademark>-like platform. No two
-      such platforms are identical, however, and so meeting this target
-      requires a certain amount of flexibility from developers. In this
-      document, we cover some of the pertinent information that has been
-      provided by developers working on multiple platforms. Adherence to the
-      concepts covered here will make it easier for you and others to build
-      your code directly from the source tarball, regardless of the
-      distribution or operating system that is being used. </para>
+      targeted to run on any UNIX-like platform. No two such platforms are
+      identical, however, and so meeting this target requires a certain amount
+      of flexibility from developers. In this document, we cover some of the
+      pertinent information that has been provided by developers working on
+      multiple platforms. Adherence to the concepts covered here will make it
+      easier for you and others to build your code directly from the source
+      tarball, regardless of the distribution or operating system that is being
+      used. </para>
 
       <para>Most of the material in the following sections is not specific to
       GNOME development. It applies equally to general software development on
@@ -183,7 +189,7 @@
 
       <para>Note that although some of the constituent libraries in a GNOME
       installation, such as <application>libxml2</application>,
-      &glib; and <application>GTK+</application> run on
+      &glib; and <application>Gtk+</application> run on
       <systemitem class="osname">Win32</systemitem>, we do not consider coding
       for those platforms here. There is simply too much variation from the
       baseline of common Unix-derived functionality. </para>
@@ -224,13 +230,14 @@
       <sect2 id="type-sizes">
          <title>Type sizes</title>
 
-         <para>Different compilers provide data types with different sizes. For
-         example, a character may not always be just one byte in size. There
-         may or may not be a 64 bit integer type available. The specifier that
-         is passed to <literal>printf</literal>-style format strings for
-         displaying or reading a <literal>long long</literal> value may be
-         platform specific. The list of possible differences is extremely long
-         and painful to accommodate. </para>
+         <para>Different compilers provide data types with different sizes and
+         requirements. For example, a pointer may or may not be the same size
+         as an integer. An integer and a character may have different memory
+         alignment requirements.  The specifier that is passed to
+         <literal>printf</literal>-style format strings for displaying or
+         reading a <literal>long long</literal> value may be platform specific.
+         The list of possible differences is extremely long and painful to
+         accommodate. </para>
 
          <para>The general, time honoured solution to working around compiler
          differences is to code to the lowest commonly available types and
@@ -247,10 +254,10 @@
 
          <para>Over time, new Unix-like systems have appeared via a number of
          different means. Some of been branches from an established version.
-         Others, such as Linux, have come into existence from scratch. In all
-         cases, the <acronym>OS</acronym> developers have aimed for similar
-         functionality, however no system has turned out identically to another
-         system. </para>
+         Others, such as <systemitem class="osname">Linux</systemitem>, have
+         come into existence from scratch. In all cases, the
+         <acronym>OS</acronym> developers have aimed for similar functionality,
+         however no system has turned out identically to another system. </para>
 
          <para>The differing development histories and timelines of the various
          platforms means that their core libraries often end up with annoying
@@ -278,14 +285,16 @@
          locations of various required packages. Even the standard location of
          a GNOME installation can vary wildly from system to system. </para>
 
-         <para>In the Linux world, incompatibilities due to historical
-         accidents are slowly becoming a thing of the past, due to the gradual
-         introduction of the <firstterm>Linux Standards Base</firstterm>
-         (<acronym>LSB</acronym>), incorporating the <firstterm>File Hierarchy
-         Standard</firstterm> (<acronym>FHS</acronym>). However, there remains
-         differences even on such similar platforms, so you can imagine the
-         potential for variation once you start to build on Solaris or OS X.
-         </para>
+         <para>In the <systemitem class="osname">Linux</systemitem> world,
+         incompatibilities due to historical accidents are slowly becoming a
+         thing of the past, due to the gradual introduction of the
+         <firstterm>Linux Standards Base</firstterm> (<acronym>LSB</acronym>),
+         incorporating the <firstterm>File Hierarchy Standard</firstterm>
+         (<acronym>FHS</acronym>). However, there remains differences even on
+         such similar platforms, so you can imagine the potential for variation
+         once you start to build on <systemitem
+         class="osname">Solaris</systemitem> or <systemitem class="osname">OS
+         X</systemitem>. </para>
 
          <para>Installation differences (which is really what I am talking
          about here) are primarily detected during the configuration phase just
@@ -326,7 +335,7 @@
          </para>
 
          <sect3 id="glib">
-            <title>&glib;</title>
+            <title id="glib-title">&glib;</title>
 
             <para>In GNOME's sphere of influence, one particularly useful
             portable library is &glib;. Here we have a library that was written
@@ -357,7 +366,12 @@
             . In particular, note the types for creating integers (signed and
             unsigned) of specific sizes and the macro that allows you to
             determine if 64 bit integers are supported on the current
-            platform.  </para>
+            platform
+               <footnote>
+                  <para>Owen Taylor pointed out to me that every platform on
+                  which you can build GNOME 2 supports 64 bit integers. </para>
+               </footnote>
+            .</para>
 
             <para>Some of the types (<literal>gchar</literal>,
             <literal>gint</literal>, <literal>gshort</literal>,
@@ -385,9 +399,37 @@ printf ("%" G_INT64_FORMAT, my_integer);
             correct string will have been coded into &glib; when it was
             compiled. </para>
 
+            <para>If you are working with binary data formats (reading from a
+            file or network), &glib; provides some macros for dealing with data
+            endian issues: <literal>GINT_FROM_BE</literal>,
+            <literal>GUINT_FROM_BE</literal> and so forth. However, you must be
+            careful when using these macros and note that they take
+            <emphasis>values</emphasis> and not pointers. This means that you
+            are responsible for having the values properly aligned in memory
+            when you store them. </para>
+            
+            <para>If you do not wish to have to worry so much about memory
+            alignment, have a look at the <literal>GSF_LE_GET_GUINT8</literal>
+            and similar macros from <filename
+            class="headerfile">gsf/gsf-utils.h</filename> in the
+            <application>libgsf</application>
+               <footnote>
+                  <para>A replacement for <application>libole2</application>
+                  and used as a support library in
+                  <application>Gnumeric</application>. Note, however, that
+                  while &glib; is licensed under the LGPL, all of the
+                  <application>libgsf</application> is under the GPL.
+                  This will not normally be a problem, but it is something to
+                  be aware of when considering how the code works with you
+                  preferred software license and release strategy. </para>
+               </footnote>
+            package. These macros guarantee that the resulting value will be
+            correctly aligned. </para>
+
             <para>In addition to the features mentioned above, &glib; gives you
             a portable threads implementation. By default, this will wrap
-            whichever of POSIX or Solaris threads is used on the build
+            whichever of POSIX or <systemitem
+            class="osname">Solaris</systemitem> threads is used on the build
             platform. In extreme cases (where neither of those models are
             used), it is also possible to tell &glib; about the specifics of
             the platforms threading implementation. However, that requires some
@@ -442,7 +484,7 @@ printf ("%" G_INT64_FORMAT, my_integer);
 
       </sect2>
 
-      <sect2 id="problematic-functions">
+      <sect2 id="problematic-functions" xreflabel="problematic functions">
          <title>Problematic functions</title>
 
          <para>Over time, developers have built up lists of commonly used
@@ -546,12 +588,26 @@ printf ("%" G_INT64_FORMAT, my_integer);
                   <row>
                      <entry><literal>scandir</literal></entry>
                      <entry>Y</entry>
-                     <entry/>
+                     <entry>*
+                        <footnote>
+                           <para>Similar functionality can be achieved by
+                           combining <literal>g_dir_open()</literal> and
+                           <literal>g_dir_read_name()</literal> with a
+                           <literal>for</literal> loop. </para>
+                        </footnote>
+                     </entry>
                   </row>
                   <row>
                      <entry><literal>fnmatch</literal></entry>
                      <entry/>
-                     <entry/>
+                     <entry>*
+                        <footnote>
+                           <para>Some of the functionality of
+                           <literal>fnmatch()</literal> is provided by the
+                           various <literal>g_pattern_*</literal> functions in
+                           &glib;, however. </para>
+                        </footnote>
+                     </entry>
                   </row>
                   <row>
                      <entry><literal>strerror</literal></entry>
@@ -647,6 +703,14 @@ printf ("%" G_INT64_FORMAT, my_integer);
             </tgroup>
          </table>
 
+         <para>In addition to these functions, a lot of the standard functions
+         whose name ends with '<literal>_r</literal>' &mdash; meaning they are
+         reentrant and hence can be used in multi-threaded programs &mdash;
+         take different arguments on different platforms. Have a look at the
+         <filename>configure.in</filename> file from
+         <application>Evolution</application> to see how you might code around
+         these differences. </para>
+
          <para>It is also worthwhile having a look at the &autoconf; info page,
          in particular the section calls <literal>Library functions -&gt;
          Particular Function Checks</literal>. That page lists a number of
@@ -666,13 +730,13 @@ printf ("%" G_INT64_FORMAT, my_integer);
 
       </sect2>
 
-      <sect2 id="coding-errors">
+      <sect2 id="coding-errors" xreflabel="coding errors">
          <title>Coding errors leading to portability problems</title>
 
          <para>In this section, I will mention a few of the small coding errors
          that seem to appear over and over again. Naturally, this list is not
          exhaustive and if your favourite coding error is not in the list, by
-         all means send it me for inclusion in a future version of this
+         all means send it to me for inclusion in a future version of this
          document. </para>
 
          <itemizedlist>
@@ -717,11 +781,11 @@ printf ("%d", getpid());
                they may leak memory on some platforms. </para>
             </listitem>
             <listitem>
-               <para>Respect the fact that your code may be running on a
-               platform with particular memory alignment requirements for
-               certain types. So do not go casting wildly between types unless
-               you are sure of the alignment issues. If you
-               <emphasis>really</emphasis> need to know to what multiple of
+               <para>As hinted earlier, respect the fact that your code may be
+               running on a platform with particular memory alignment
+               requirements for certain types. So do not go casting wildly
+               between types unless you are sure of the alignment issues. If
+               you <emphasis>really</emphasis> need to know to what multiple of
                bytes memory will be aligned on the current platform, you can
                use the <literal>G_MEM_ALIGN</literal> macro from &glib;.
                However, it is much safer just to avoid such subtleties
@@ -741,6 +805,36 @@ char c = *(char *) i;
                <para>Of course, you are unlikely to write something quite this
                blatant, but alarm bells should go off whenever you are casting
                between disparate types. </para>
+            </listitem>
+            <listitem>
+               <para>Do not pass <literal>NULL</literal> pointers as arguments
+               to be substituted into a format string (in a
+               <literal>printf()</literal> call, for example). Code like the
+               this
+<programlisting>
+/* Bad! Non-portable code */
+printf ("%s", NULL);
+</programlisting>
+               will work on a <systemitem class="osname">Linux</systemitem>
+               platform (it prints <computeroutput>(nil)</computeroutput>), but
+               will cause a segfault on <systemitem
+               class="osname">Solaris</systemitem> systems. </para>
+            </listitem>
+            <listitem>
+                <para>Sometimes it is useful to store an integer in a pointer
+                variable. This is particularly common if you are using
+                <application>Gtk+</application>, where application-specific
+                data is passed to callbacks via <literal>gpointer</literal>s
+                and you may just wish to pass a <literal>gint</literal>. If you
+                do this, make sure you use the GINT_TO_POINTER() and
+                GPOINTER_TO_INT() macros. Different platforms require different
+                typecasts. </para>
+            </listitem>
+            <listitem>
+                <para>There are times when it may be tempting to store a memory
+                address inside an integer variable. Do not do it. On some
+                platforms the size of integer types are less than the size of
+                pointer types. </para>
             </listitem>
             <listitem>
                <para>As mentioned earlier, use the
@@ -865,7 +959,8 @@ enum {
       . Furthermore, you need to write highly portable Bourne shell compatible
       scripts. </para>
 
-      <para>Many developers, particularly in the Linux world, get used to using
+      <para>Many developers, particularly in the <systemitem
+      class="osname">Linux</systemitem> world, get used to using
       <application>bash</application>. The widely available
       <application>bash</application> shell is a couple of generations worth of
       extensions beyond the original Bourne shells and many of its features are
@@ -1008,7 +1103,8 @@ test expr1 -o expr2
                   different platforms. In particular, the arguments to
                   <command>ps</command> vary wildly between platforms,
                   <command>killall</command> behaves a lot more literally on
-                  Solaris systems when compared to Linux
+                  <systemitem class="osname">Solaris</systemitem> systems when
+                  compared to <systemitem class="osname">Linux</systemitem>
                   (use <command>pkill</command> instead), and
                   <command>pidof</command> does not exist everywhere, so you
                   will need to do something like <literal>ps ... | grep
@@ -1045,21 +1141,21 @@ test expr1 -o expr2
          <listitem>
             <para>The <filename class="libraryfile">libz</filename> library is
             not always located in <filename
-            class="directory">/usr/lib/</filename> (which is the standard Linux
-            location). Look at a package that uses <filename
-            class="libraryfile">libz</filename> and copy their detection code.
-            Similar warnings apply for libbz, since that is even less
-            widespread. </para>
+            class="directory">/usr/lib/</filename> (which is the standard
+            <systemitem class="osname">Linux</systemitem> location). Look at a
+            package that uses <filename class="libraryfile">libz</filename> and
+            copy their detection code.  Similar warnings apply for libbz, since
+            that is even less widespread. </para>
          </listitem>
          <listitem>
             <para>If you are relying on advanced floating point mathematical
             functions, be careful about testing for and including the correct
             libraries. Have a look at the <filename>configure.in</filename>
-            file from <application>gnumeric</application> for some code to
+            file from <application>Gnumeric</application> for some code to
             emulate. In particular, if you are using the
             <literal>finite()</literal> function, you will need to include
             <filename class="headerfile">ieeefp.h</filename> when building on
-            Solaris machines. </para>
+            <systemitem class="osname">Solaris</systemitem> machines. </para>
          </listitem>
          <listitem>
             <para>It is probably not a good idea to use the
@@ -1144,9 +1240,12 @@ make DESTDIR=/u1/usr/ install
          <listitem>
             <para>One problem that had to be corrected throughout the main
             GNOME libraries is the standard install location for localised
-            strings. This location is different on Linux and Solaris systems
-            and the standard internationalisation scripts assume only the Linux
-            install path. </para>
+            strings. This location is different on <systemitem
+            class="osname">Linux</systemitem> and <systemitem
+            class="osname">Solaris</systemitem> systems and the standard
+            internationalisation scripts assume only the <systemitem
+            class="osname">Linux</systemitem> install path.
+            </para>
 
             <para>Assuming you are using the standard GNOME build tools, the
             solution is to have the following lines in your
@@ -1340,7 +1439,8 @@ INCLUDES = \
             <term>Jacob Berkman</term>
             <listitem>
                <para>Another Ximian programmer who has played a major part in
-               getting GNOME to build both on 64 bit platforms and on OS X.
+               getting GNOME to build both on 64 bit platforms and on
+               <systemitem class="osname">OS X</systemitem>.
                Jacob knows way too much about &autoconf; and testing for
                available functionality than can possibly be healthy. In
                addition, pieces of advice about C programming that he has
@@ -1353,7 +1453,45 @@ INCLUDES = \
             <listitem>
                <para>One of Sun's elite programming brigade who took time out
                to explain to me the reason for the locale directory technique
-               in <xref linkend="configuration-checks"/>. </para>
+               in the <xref linkend="configuration-checks"/> discussion. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Peter Wilson</term>
+            <listitem>
+               <para>Offered quit a few helpful improvements on the first
+               draft. His corrections appear in the sections about <xref
+               linkend="problematic-functions"/> and <xref
+               linkend="coding-errors"/>. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Owen Taylor</term>
+            <listitem>
+               <para>Red Hat programmer and one of the
+               <application>Gtk+</application> maintainers. He corrected a
+               couple of my sillier errors during a review of the first version
+               of this document. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Jody Goldberg</term>
+            <listitem>
+               <para>Pointed out the existence of the
+               <application>libgsf</application> macros that I mentioned in the
+               <xref linkend="glib" endterm="glib-title"/> section and
+               explained some of the dangers of not considering memory
+               alignment. Jody is the <application>Gnumeric</application>
+               maintainer and has also worked on
+               <application>gnome-print</application>, so he is all too
+               familiar with the problems of reading and writing binary data.
+               </para> </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Ray Strode</term>
+            <listitem>
+               <para>Sent in some corrections and additions to the first draft.
+               </para>
             </listitem>
          </varlistentry>
       </variablelist>
