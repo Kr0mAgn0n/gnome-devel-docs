@@ -467,7 +467,7 @@
 
 	<listitem><para>As a basic rule of thumb, leave space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated components, leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is recommended between the contents of a dialog window and the window borders.</para></listitem>
 	
-	<listitem><para>Break long lists of choices into smaller groups. For lists of less than about eight items, use radio buttons or check boxes. For longer lists, use a list control or option menu.</para></listitem>
+	<listitem><para>Break long lists of choices into smaller groups. For lists of less than about eight items, use radio buttons or check boxes. For longer lists, use a list control or drop-down list.</para></listitem>
 	
 	<listitem><para>Try to keep elements of the same type left-aligned with each other. For instance, in <xref linkend="layout-callouts-figure"/>, the group titles (<guilabel>General</guilabel> and <guilabel>Actions</guilabel>) are left-aligned and justified with each other.</para></listitem>
 
@@ -503,7 +503,7 @@
       <listitem><para>In the left column, place a label containing four space characters. This will serve to indent the category contents.</para></listitem>
       <listitem><para>In the right column, place a GtkVBox containing a row per control you wish to place in the category. Set the <property>Spacing</property> to <userinput>6</userinput>.
       <itemizedlist>
-      <listitem><para>For left-side labelled controls such as text boxes, option menus, and many others, place a 2 columned GtkHBox inside the row with a label in the left column and the corresponding control in the right. Set the <property>Spacing</property> on the GtkHBox to <userinput>6</userinput>. Place all labels such as this (for the whole window) in the same GtkSizeGroup (there is currently no way to do this using only Glade, you will have to use code as well). This will align the controls to their right, even between categories, which is important for allowing quick visual scans.</para></listitem>
+      <listitem><para>For left-side labelled controls such as text boxes, drop-down lists, and many others, place a 2 columned GtkHBox inside the row with a label in the left column and the corresponding control in the right. Set the <property>Spacing</property> on the GtkHBox to <userinput>6</userinput>. Place all labels such as this (for the whole window) in the same GtkSizeGroup (there is currently no way to do this using only Glade, you will have to use code as well). This will align the controls to their right, even between categories, which is important for allowing quick visual scans.</para></listitem>
       <listitem><para>For right-side labelled controls such as check boxes and radio buttons, simply place them directly in the row.</para></listitem>
     </itemizedlist>
     </para></listitem>
@@ -619,7 +619,7 @@
 		<mediaobject>
 		  <imageobject><imagedata fileref="images/other_labels.png" format="PNG"/></imageobject>
 		  <imageobject><imagedata fileref="images/other_labels.eps" format="EPS"/></imageobject>
-		  <textobject><phrase>Option menu with label to its left</phrase></textobject>
+		  <textobject><phrase>Drop-down list with label to its left</phrase></textobject>
 		</mediaobject>
 	      </entry>
 	    </row>
