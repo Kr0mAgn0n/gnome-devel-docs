@@ -54,7 +54,7 @@
     </table>
 
     <sect2 id="icon_style_perspective">
-      <title>Perspectives</title>
+      <title>Perspective</title>
       <formalpara>
 	<title>Table perspective</title>
 	<para>Presents objects as if they were sitting on a table or desk in front of the user.</para>
@@ -80,7 +80,7 @@
     </sect2>
 
     <sect2 id="icon_style_lighting">
-      <title>Light Sources</title>
+      <title>Lighting</title>
       <formalpara>
 	<title>Upper left</title>
 	<para>Design as if there is lighting coming from the upper left corner, with a soft drop-shadow cast within the icon's 48x48 (original design size) borders (120 degrees, 4 pixel distance, 4 pixel blur).</para>
@@ -170,14 +170,15 @@
       <title>Document Icons</title>
       <para>If possible, document icons should convey the type of the file using a physical object. For example a good icon for MPEG video would be a movie reel. Failing the existence of an appropriate object, when a document type corresponds to a specific application, another option is to use a piece of paper with the corresponding application's icon overlayed it as the document icon. This may be appropriate for a document type such as an application's settings files.</para>
       <itemizedlist>
-	<listitem><para>Do <emphasis>not</emphasis> display a piece of paper behind a document icon unless the document type has a use correspondence with physical paper (or a suitable object was not found and you are using the application icon). For example, the final state of most word processing documents is a piece of paper, so it is appropriate to use a piece of paper in the icon. On the other hand, a movie on the computer has little association with a piece of paper, so a piece of paper behind the movie reel primarily introduces <link linkend="icon_problems_extraneous_information">visual noise</link>. The use of a piece of paper in most or all document types creates an additional problem: it is harder to scan large numbers of icons because they do not possess distinct outlines. A useful technique for creating a subtle difference between document types with similar roles (for example, between image types or movie types) is to use different colours. Expert users who need to make this distinction frequently will become accustomed to these differences.</para></listitem>
-	<listitem><para>Do <emphasis>not</emphasis> include a file extension corresponding to the document type in the icon. The document icon's job is not to convey such precise information but to allow for rapid visual distinction between documents. Additionally, this text will not be displayed in the user's preferred font and size. Because many document types are associated with multiple file extensions, a file extension embedded in the icon will also frequently be wrong. In a context where such information as the file extension is actually useful, the application should composite the information onto the icon at runtime (thereby using the correct font and size, as well as getting the extension right).</para></listitem>
+	<listitem><para>Do <emphasis>not</emphasis> display a piece of paper behind a document icon unless the document type has a use correspondence with physical paper (or a suitable object was not found and you are using the application icon). For example, the final state of most word processing documents is a piece of paper, so it is appropriate to use a piece of paper in the icon. On the other hand, a movie on the computer has little association with a piece of paper, so a piece of paper behind the movie reel primarily introduces <link linkend="icon_problems_extraneous_information">visual noise</link>. The use of a piece of paper in most or all document types creates an additional problem: it is harder to scan large numbers of icons because they do not possess <link linkend="icon_design_silhouettes">distinct outlines</link>. A useful technique for creating a subtle difference between document types with similar roles (for example, between "JPEG", "PNG", "GIF", etc) is to use different colours. Expert users who need to make this distinction frequently will become accustomed to these differences.</para></listitem>
+	<listitem><para>Do <emphasis>not</emphasis> include a file extension in the icon. The document icon's job is not to convey such precise information but to allow for rapid visual distinction between documents. Additionally, this text will not be displayed in the user's preferred font and size. Because many document types are associated with multiple file extensions, a file extension embedded in the icon will also frequently be wrong. In a context where the file extension is actually useful, the application should composite the information onto the icon at runtime (thereby using the correct font and size, as well as getting the extension right).</para></listitem>
 	<listitem><para>Do <emphasis>not</emphasis> customize document icons to a particular Nautilus theme. Document icons are likely to be used in conjunction with a variety of different icon themes, and should work well with all of them.</para></listitem>
       </itemizedlist>
     </sect2>
 
     <sect2 id="application_icons">
       <title>Application Icons</title>
+      <!-- FIXME: we could give a lot more useful guidance here -->
       <para>Application's that handle documents should reflect the kind of document they handle in the icon. If an application's predominant purpose is to edit a particular kind of document, it should use this document's icon as its icon.</para>
     </sect2>
 
@@ -187,13 +188,14 @@
       <itemizedlist>
 	<listitem><para>Ensure that toolbar icons which will be used together are easy to visually distinguish. Try to <link linkend="icon_design_silhouettes">make the icons' silhouettes distinct</link> from one another.</para></listitem>
 	<listitem><para>While most user's will view toolbar icons at 24x24 pixels, it is important to include a "large print" set of icons at 48x48 pixels for accesibility reasons.</para></listitem>
+	<listitem><para>Often, you will not have to design any toolbar icons yourself as GTK provides a wide variety of stock icons. You should use these whenever representing one of their intended items. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
+	<para>To browse the available stock icons, install the development packages for GTK version 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para></listitem>
       </itemizedlist>
+    </sect2>
 
-      <sect3 id="stock_toolbar_icons">
-	<title>Stock Icons</title>
-	<para>Often, you will not have to design any toolbar icons yourself as GTK provides a wide variety of stock icons. You should use these whenever representing one of their intended items. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
-	<para>To browse the available stock icons, install the development packages for GTK version 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
-      </sect3>
+    <sect2 id="menu_icons">
+      <title>Menu Icons</title>
+      <para>Principles of toolbar icon design should be followed with menu icons, just at a smaller size. Where a corresponding toolbar icon exists, a menu icon should mirror its design.</para>
     </sect2>
   </sect1>
 
@@ -249,7 +251,7 @@
     <!-- FIXME: we need a short section that talks about finding useful metaphors and images for icons -->
     
     <sect2 id="icon_design_process">
-      <title>Suggested Design Process For Toolbar & Menu Icons</title>
+      <title>Suggested Design Process For Toolbar and Menu Icons</title>
       <para>For accessibility reasons, you should create high and low contrast and large print versions of all icons, in addition to the regular size and contrast icon. A suggested process for conveniently integrating this into your icon design is as follows:</para>
       <orderedlist>
 	<listitem>
