@@ -1,397 +1,810 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter id="windows">
   <title>Windows</title>
+
   <sect1 id="windows-properties">
     <title>Parts of Windows and System Interaction</title>
+
     <sect2 id="window-props-titles">
       <title>Titles</title>
-	<para>Give every window a title (with the exception of <link linkend="windows-alert">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
 
-       <figure>
-	<title>Example of a window title</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/window-title.png" format="PNG" width="367" depth="27"/></imageobject>
-	  <imageobject><imagedata fileref="images/window-title.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing a window title bar with title "blah.abw Properties"</phrase>
-	  </textobject>
-	</mediaobject>
+      <para>Give every window a title (with the exception of <link
+      linkend="windows-alert">alerts</link> and <link
+      linkend="toolbox-windows">toolboxes</link>). A good window title
+      contains information that is relevant to the user, and distinguishes a
+      particular window from other open windows. Omit information that does
+      not assist in this selection, for example the application&#39;s version
+      number or vendor name.</para>
+
+      <figure>
+        <title>Example of a window title</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="27" fileref="images/window-title.png"
+            format="PNG" width="367" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/window-title.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing a window title bar with title
+            &#34;blah.abw Properties&#34;</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
-            <para>See the description of each particular window type for title formats.</para>
+      <para>See the description of each particular window type for title
+      formats.</para>
     </sect2>
+
     <sect2 id="window-props-borders">
       <title>Borders and Window Commands</title>
-      <para>Most windows have borders, except certain shaped windows and some torn-off windows. Do not attempt to draw your own window borders, but instead provide hints to the window manager for the desired border type.</para>
 
-      <para>Different window commands are appropriate to different types of window. See the description of each particular window type for a list of appropriate window commands. These are the possible window commands:</para>
+      <para>Most windows have borders, except certain shaped windows and some
+      torn-off windows. Do not attempt to draw your own window borders, but
+      instead provide hints to the window manager for the desired border type.</para>
+
+      <para>Different window commands are appropriate to different types of
+      window. See the description of each particular window type for a list of
+      appropriate window commands. These are the possible window commands:</para>
+
       <itemizedlist>
-	<listitem><formalpara><title>Close</title><para>Closes the window. <emphasis>Always</emphasis> draw this as a button on the window border when relevant to the window type.</para></formalpara></listitem>
-	<listitem><formalpara><title>Maximize</title><para>Causes the window to use all unused screen space.</para></formalpara></listitem>
-	<listitem><formalpara><title>Minimize</title><para>Causes the window to be temporarily hidden.  It will continue to appear on the desktop window list.</para></formalpara></listitem>
-	<listitem><formalpara><title>Roll-up/Unroll</title><para>Shows only the title bar of the window, as if it has been &quot;rolled up&quot;.</para></formalpara></listitem>
-      </itemizedlist>
+        <listitem>
+          <formalpara>
+            <title>Close</title>
 
+            <para>Closes the window. <emphasis>Always</emphasis> draw this as
+            a button on the window border when relevant to the window type.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Maximize</title>
+
+            <para>Causes the window to use all unused screen space.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Minimize</title>
+
+            <para>Causes the window to be temporarily hidden. It will continue
+            to appear on the desktop window list.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Roll-up/Unroll</title>
+
+            <para>Shows only the title bar of the window, as if it has been
+            &#34;rolled up&#34;.</para>
+          </formalpara>
+        </listitem>
+      </itemizedlist>
     </sect2>
+
     <sect2 id="window-props-modality">
       <title>Modality</title>
 
-	<para>A <emphasis role="bold">non-modal</emphasis> window does not restrict the user's interaction with other open windows on the desktop in any way.  Using non-modal windows gives the user maximum flexibility to perform tasks within your application in any order and by whichever means they choose.</para>
+      <para>A <emphasis role="bold">non-modal</emphasis> window does not
+      restrict the user&#39;s interaction with other open windows on the
+      desktop in any way. Using non-modal windows gives the user maximum
+      flexibility to perform tasks within your application in any order and by
+      whichever means they choose.</para>
 
-      <para>An <emphasis role="bold">application modal</emphasis> window, while it is open, prevents the user from interacting with other windows in the same application.</para>
+      <para>An <emphasis role="bold">application modal</emphasis> window,
+      while it is open, prevents the user from interacting with other windows
+      in the same application.</para>
 
-	<para>A <emphasis role="bold">system modal</emphasis> window, while it is open, prevents the user from interacting with any other window in any application, including the desktop itself.</para>
+      <para>A <emphasis role="bold">system modal</emphasis> window, while it
+      is open, prevents the user from interacting with any other window in any
+      application, including the desktop itself.</para>
 
-	<itemizedlist><title>Guidelines</title>
+      <itemizedlist>
+        <title>Guidelines</title>
 
-		<listitem><para>Use an application modal window only if allowing interaction with other parts of the application while the window is open could cause data loss or some other serious problem.  Provide a clear way of leaving the modal window, such as a <guibutton>Cancel</guibutton> button in an alert.</para></listitem>
+        <listitem>
+          <para>Use an application modal window only if allowing interaction
+          with other parts of the application while the window is open could
+          cause data loss or some other serious problem. Provide a clear way
+          of leaving the modal window, such as a <guibutton>Cancel</guibutton>
+          button in an alert.</para>
+        </listitem>
 
-		<listitem><para>Do not use system modal windows.</para></listitem>
-
-	</itemizedlist>
-
+        <listitem>
+          <para>Do not use system modal windows.</para>
+        </listitem>
+      </itemizedlist>
     </sect2>
 
     <sect2 id="window-props-focus">
       <title>Focus</title>
-      <para>Focus is the means by which the user designates which window should receive data from the keyboard, mouse or other input device. If using a screen reader or similar assistive technology, focus may also designate the window that the user wants to receive information about. The focused window is considered the window the user is currently "working with".</para>
 
-	<para>Ensure your application functions properly with the three different mechanisms by which windows can receive focus in GNOME:</para>
+      <para>Focus is the means by which the user designates which window
+      should receive data from the keyboard, mouse or other input device. If
+      using a screen reader or similar assistive technology, focus may also
+      designate the window that the user wants to receive information about.
+      The focused window is considered the window the user is currently
+      &#34;working with&#34;.</para>
 
-	<itemizedlist>
-		<listitem><formalpara><title>Click-to-focus</title><para>A window is focused by clicking in it.</para></formalpara></listitem>
+      <para>Ensure your application functions properly with the three
+      different mechanisms by which windows can receive focus in GNOME:</para>
 
-		<listitem><formalpara><title>Point-to-focus</title><para>A window is focused by moving the mouse pointer into it.  Sometimes known as &quot;sloppy focus&quot;.</para></formalpara></listitem>
-		<listitem><formalpara><title>Keyboard focus</title><para>A window is focused by using a keyboard shortcut such as <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>.</para></formalpara></listitem>
+      <itemizedlist>
+        <listitem>
+          <formalpara>
+            <title>Click-to-focus</title>
 
-	</itemizedlist>
+            <para>A window is focused by clicking in it.</para>
+          </formalpara>
+        </listitem>
 
-	<note><title>Special restrictions for point to focus</title><para>Note that point-to-focus places a number of restrictions on GNOME applications that are not present in environments such as MacOS or Windows. For example, utility windows shared between multiple document windows, like the toolbox in the GIMP Image Editor, cannot be context-sensitive&mdash; that is, they cannot initiate an action such as <guibutton>Save</guibutton> on the current document.  This is because while moving the mouse from the current document to the utility window, the user could inadvertantly pass the pointer over a different document window, thus changing the focus and possibly saving the wrong document.</para></note>
+        <listitem>
+          <formalpara>
+            <title>Point-to-focus</title>
 
+            <para>A window is focused by moving the mouse pointer into it.
+            Sometimes known as &#34;sloppy focus&#34;.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Keyboard focus</title>
+
+            <para>A window is focused by using a keyboard shortcut such as
+            <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>.</para>
+          </formalpara>
+        </listitem>
+      </itemizedlist>
+
+      <note>
+        <title>Special restrictions for point to focus</title>
+
+        <para>Note that point-to-focus places a number of restrictions on
+        GNOME applications that are not present in environments such as MacOS
+        or Windows. For example, utility windows shared between multiple
+        document windows, like the toolbox in the GIMP Image Editor, cannot be
+        context-sensitive— that is, they cannot initiate an action such as
+        <guibutton>Save</guibutton> on the current document. This is because
+        while moving the mouse from the current document to the utility
+        window, the user could inadvertantly pass the pointer over a different
+        document window, thus changing the focus and possibly saving the wrong
+        document.</para>
+      </note>
     </sect2>
   </sect1>
- <sect1 id="windows-primary">
-  <title>Primary Windows</title>
 
-    <para>A primary window usually presents a view of the user's data, such as a text document in a word processor application, an image in a drawing program, or calculations in a calculator or spreadsheet application.  It may also be a view of something more abstract, like a game.   A single instance of an application may have more than one primary window, and more than one kind of primary window.</para>
-	<figure>
-	<title>A typical primary window (gedit)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/primary-window.png" format="PNG" width="372" depth="415"/></imageobject>
-	  <imageobject><imagedata fileref="images/primary-window.eps" format="EPS"/></imageobject>
-	  <textobject>
-		<phrase>A typical primary window: the gedit document view</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
+  <sect1 id="windows-primary">
+    <title>Primary Windows</title>
 
+    <para>A primary window usually presents a view of the user&#39;s data,
+    such as a text document in a word processor application, an image in a
+    drawing program, or calculations in a calculator or spreadsheet
+    application. It may also be a view of something more abstract, like a
+    game. A single instance of an application may have more than one primary
+    window, and more than one kind of primary window.</para>
 
-    <para>A primary application window normally has a border, a menubar and a statusbar, and may also contain one or more toolbars.</para>
+    <figure>
+      <title>A typical primary window (gedit)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata depth="415" fileref="images/primary-window.png"
+          format="PNG" width="372" />
+        </imageobject>
+
+        <imageobject>
+          <imagedata fileref="images/primary-window.eps" format="EPS" />
+        </imageobject>
+
+        <textobject>
+          <phrase>A typical primary window: the gedit document view</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+
+    <para>A primary application window normally has a border, a menubar and a
+    statusbar, and may also contain one or more toolbars.</para>
 
     <sect2 id="primary-window-titles">
       <title>Title</title>
-        <para>For document-based applications, use <replaceable>Document Name</replaceable> as the window title.  Use only the filename, not the full pathname, as this will make it easier to distinguish both here and other places the window title is used, such as the window list on the panel.  If the pathname is important, for example the user has opened two documents with the same name from different directories in the same application, show the full pathname in the statusbar.</para>
 
-	<example>
-		<title>Using document names as window titles</title>
-		<informaltable frame='all'>
-			
-			<tgroup cols='2' align='left'>
-			  <thead>
-				<row>
-		      			<entry>Application</entry>
-				      <entry>Example window title</entry>
-	   			</row>
-			  </thead>
-			<tbody>
-	     			<row>
-					<entry>AbiWord</entry>
-					<entry>My Report.abw</entry>
-				</row>
-				<row>
-					<entry>Evolution</entry>
-					<entry>Inbox</entry>
-				</row>
-				<row>
-					<entry>Music player</entry>
-					<entry>U2 - Better Than the Real Thing</entry>
-				</row>
+      <para>For document-based applications, use <replaceable>Document Name</replaceable>
+      as the window title. Use only the filename, not the full pathname, as
+      this will make it easier to distinguish both here and other places the
+      window title is used, such as the window list on the panel. If the
+      pathname is important, for example the user has opened two documents
+      with the same name from different directories in the same application,
+      show the full pathname in the statusbar.</para>
 
-	  		</tbody>
-         	</tgroup>
-		</informaltable>
-        	</example>	 
+      <example>
+        <title>Using document names as window titles</title>
 
-      <para>While document names are most pertinent to users, we understand that application developers may want to increase recognition of their application. If you plan to include your application's name in the title of a primary window, use the following format: <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>. This will ensure that the document name appears in limited space situations such as the system window list.  Note that including the application name is <emphasis role="bold">not</emphasis> recommended, however.</para>
+        <informaltable frame="all">
+          <tgroup align="left" cols="2">
+            <thead>
+              <row>
+                <entry>Application</entry>
 
-	<para> For other types of application, use <replaceable>Application Name</replaceable> as the window title.</para>
+                <entry>Example window title</entry>
+              </row>
+            </thead>
 
-	<example>
-		<title>Using application names as window titles</title>
-		<informaltable frame='all'>
-			
-			<tgroup cols='2' align='left'>
-			  <thead>
-				<row>
-		      			<entry>Application</entry>
-				      <entry>Window title</entry>
-	   			</row>
-			  </thead>
-			<tbody>
-	     			<row>
-					<entry>Dictionary</entry>
-					<entry>Dictionary</entry>
-				</row>
-				<row>
-					<entry>Calculator</entry>
-					<entry>Calculator</entry>
-				</row>
-	  		</tbody>
-         	</tgroup>
-		</informaltable>
-        	</example>	 
+            <tbody>
+              <row>
+                <entry>AbiWord</entry>
 
-      <para>Do not place version numbers, company names, or other information that is of no immediate use to the user in the window title. These consume space, making titles in limited spaces such as the system window list less useful, and add more text the user has to scan to find useful information. In a "beta" product, where version numbers are critical for bug information, placing version numbers can be useful, but remove them from stable releases.  Place version information in the about box instead.</para>
+                <entry>My Report.abw</entry>
+              </row>
+
+              <row>
+                <entry>Evolution</entry>
+
+                <entry>Inbox</entry>
+              </row>
+
+              <row>
+                <entry>Music player</entry>
+
+                <entry>U2 - Better Than the Real Thing</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </example>
+
+      <para>While document names are most pertinent to users, we understand
+      that application developers may want to increase recognition of their
+      application. If you plan to include your application&#39;s name in the
+      title of a primary window, use the following format:
+      <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>.
+      This will ensure that the document name appears in limited space
+      situations such as the system window list. Note that including the
+      application name is <emphasis role="bold">not</emphasis> recommended,
+      however.</para>
+
+      <para>For other types of application, use <replaceable>Application Name</replaceable>
+      as the window title.</para>
+
+      <example>
+        <title>Using application names as window titles</title>
+
+        <informaltable frame="all">
+          <tgroup align="left" cols="2">
+            <thead>
+              <row>
+                <entry>Application</entry>
+
+                <entry>Window title</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Dictionary</entry>
+
+                <entry>Dictionary</entry>
+              </row>
+
+              <row>
+                <entry>Calculator</entry>
+
+                <entry>Calculator</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </example>
+
+      <para>Do not place version numbers, company names, or other information
+      that is of no immediate use to the user in the window title. These
+      consume space, making titles in limited spaces such as the system window
+      list less useful, and add more text the user has to scan to find useful
+      information. In a &#34;beta&#34; product, where version numbers are
+      critical for bug information, placing version numbers can be useful, but
+      remove them from stable releases. Place version information in the about
+      box instead.</para>
     </sect2>
+
     <sect2 id="primary-window-commands">
       <title>Window Commands</title>
+
       <para>Close, Maximize/Restore, Minimize, Roll-up/Unroll</para>
     </sect2>
 
     <sect2 id="document-interface-types">
       <title>Relation between Documents and Windows</title>
+
       <sect3 id="sdi">
-	<title>Single Document Interface (SDI)</title>
+        <title>Single Document Interface (SDI)</title>
 
-	<para>A single document interface places each document in its own primary window. Toolboxes and other utility windows may be shared between multiple SDI documents, but closing them should have no effect on the document windows. Use SDI for your GNOME application unless there is a compelling reason not to.</para>
-	<figure>
-	<title>A typical SDI application (Eye of GNOME)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/sdi.png" format="PNG" width="217" depth="208"/></imageobject>
-	  <imageobject><imagedata fileref="images/sdi.eps" format="EPS"/></imageobject>
-	  <textobject>
-		<phrase>A typical SDI application: Eye of GNOME being used to inspect an icon</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
+        <para>A single document interface places each document in its own
+        primary window. Toolboxes and other utility windows may be shared
+        between multiple SDI documents, but closing them should have no effect
+        on the document windows. Use SDI for your GNOME application unless
+        there is a compelling reason not to.</para>
 
+        <figure>
+          <title>A typical SDI application (Eye of GNOME)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata depth="208" fileref="images/sdi.png" format="PNG"
+              width="217" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/sdi.eps" format="EPS" />
+            </imageobject>
+
+            <textobject>
+              <phrase>A typical SDI application: Eye of GNOME being used to
+              inspect an icon</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
       </sect3>
 
       <sect3 id="csdi">
-	<title>Controlled Single Document Interface (CSDI)</title>
+        <title>Controlled Single Document Interface (CSDI)</title>
 
-	<para>CSDI is reserved for applications where the extra overhead of a toolbar or menu per primary window is considered unacceptable. This is rarely the case, as most documents require enough display space that the toolbar and menu add relatively little overhead. The primary exception to this is an application that must handle large numbers of small images well. Complex drawing applications, such as The GIMP, currently present this kind of interface. The main toolbox of The GIMP is the control window.</para>
-	<figure>
-	<title>A typical controlled SDI application (The GIMP)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/csdi.png" format="PNG" width="463" depth="198"/></imageobject>
-	  <imageobject><imagedata fileref="images/csdi.eps" format="EPS"/></imageobject>
-	  <textobject>
-		<phrase>Screenshot of The GIMP image editor with six images open for editing</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
+        <para>CSDI is reserved for applications where the extra overhead of a
+        toolbar or menu per primary window is considered unacceptable. This is
+        rarely the case, as most documents require enough display space that
+        the toolbar and menu add relatively little overhead. The primary
+        exception to this is an application that must handle large numbers of
+        small images well. Complex drawing applications, such as The GIMP,
+        currently present this kind of interface. The main toolbox of The GIMP
+        is the control window.</para>
 
+        <figure>
+          <title>A typical controlled SDI application (The GIMP)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata depth="198" fileref="images/csdi.png" format="PNG"
+              width="463" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/csdi.eps" format="EPS" />
+            </imageobject>
+
+            <textobject>
+              <phrase>Screenshot of The GIMP image editor with six images open
+              for editing</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
       </sect3>
 
       <sect3 id="mdi">
-	<title>Multiple Document Interface (MDI)</title>
-	<para>A multiple document interface presents a paned, tabbed or similar presentation of two documents<!--, or two views of the same document--> within a single window.</para>
-	<figure>
-	<title>A typical MDI application (gedit) showing three open documents on tabbed pages</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/mdi.png" format="PNG" width="372" depth="415"/></imageobject>
-	  <imageobject><imagedata fileref="images/mdi.eps" format="EPS"/></imageobject>
-	  <textobject>
-		<phrase>A typical MDI application: gedit with three open documents in the same window</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-	<para>MDI has several inherent usability problems, so its use is discouraged in applications.  It is better to open each document in a new primary window, with its own menubar, toolbars and statusbar, or allow multiple instances of your application to be run simultaneously.  In either case, this leaves it for the window manager (acting on the user's preferences) rather than your application to decide how to group and present document windows from the same application.</para>
+        <title>Multiple Document Interface (MDI)</title>
 
+        <para>A multiple document interface presents a paned, tabbed or
+        similar presentation of two documents<!--, or two views of the same document-->
+        within a single window.</para>
+
+        <figure>
+          <title>A typical MDI application (gedit) showing three open
+          documents on tabbed pages</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata depth="415" fileref="images/mdi.png" format="PNG"
+              width="372" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/mdi.eps" format="EPS" />
+            </imageobject>
+
+            <textobject>
+              <phrase>A typical MDI application: gedit with three open
+              documents in the same window</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
+
+        <para>MDI has several inherent usability problems, so its use is
+        discouraged in applications. It is better to open each document in a
+        new primary window, with its own menubar, toolbars and statusbar, or
+        allow multiple instances of your application to be run simultaneously.
+        In either case, this leaves it for the window manager (acting on the
+        user&#39;s preferences) rather than your application to decide how to
+        group and present document windows from the same application.</para>
       </sect3>
     </sect2>
   </sect1>
 
-  
   <sect1 id="windows-utility">
     <title>Utility Windows</title>
-    <para>Utility windows, such as palettes and toolboxes, normally have borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
 
-	<sect2 id="instant-apply">
-	<title>Instant apply and explicit apply</title>
-	<para>For windows that allow the user to change values or settings, such as property and preference windows, update those values or settings immediately to reflect the changes made in the window.  This is known as &quot;instant apply&quot;.  Do not make the user press an <guibutton>OK</guibutton> or <guibutton>Apply</guibutton> button to make the changes happen, unless either:</para>
+    <para>Utility windows, such as palettes and toolboxes, normally have
+    borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
 
-	<itemizedlist>
-		<listitem><para>the change will take more than about one second to apply, in which case applying the change immediately could make the system feel slow or unresponsive, or</para></listitem>
-		<listitem><para>the changes in the window have to be applied simultaneously to prevent the system entering a potentially unstable state. For example, the hostname and proxy fields in a network properties window.</para></listitem>
+    <sect2 id="instant-apply">
+      <title>Instant apply and explicit apply</title>
 
-	</itemizedlist>
+      <para>For windows that allow the user to change values or settings, such
+      as property and preference windows, update those values or settings
+      immediately to reflect the changes made in the window. This is known as
+      &#34;instant apply&#34;. Do not make the user press an
+      <guibutton>OK</guibutton> or <guibutton>Apply</guibutton> button to make
+      the changes happen, unless either:</para>
 
-	<para>If either these conditions affect only a few of the controls in your window, arrange those controls together into one or more groups, each with its own <guibutton>Apply</guibutton> button.  Leave the rest of the controls as instant apply.</para>
+      <itemizedlist>
+        <listitem>
+          <para>the change will take more than about one second to apply, in
+          which case applying the change immediately could make the system
+          feel slow or unresponsive, or</para>
+        </listitem>
 
-	<remark>FIXME: screenshot of such a window here</remark>
+        <listitem>
+          <para>the changes in the window have to be applied simultaneously to
+          prevent the system entering a potentially unstable state. For
+          example, the hostname and proxy fields in a network properties
+          window.</para>
+        </listitem>
+      </itemizedlist>
 
-	<note><title>Applying changes in text fields</title>
-	<para>Do not attempt to validate or apply changes caused by editing a text field control until the user has moved focus to a different control in the window.  Validating after each keypress is usually annoying and unnecessary.</para></note>
+      <para>If either these conditions affect only a few of the controls in
+      your window, arrange those controls together into one or more groups,
+      each with its own <guibutton>Apply</guibutton> button. Leave the rest of
+      the controls as instant apply.</para>
 
-	<para>If most of the controls in your window are not suitable for instant apply, consider making the whole window &quot;explicit apply&quot;.   An explicit apply window has these three buttons in its button box, plus an optional <guibutton>Help</guibutton> button:</para>
+      <remark>FIXME: screenshot of such a window here</remark>
 
-	<itemizedlist>
-		<listitem><formalpara><title>Apply</title><para>Applies all the settings in the window, but does not close the window in case the user wishes to change their mind.</para></formalpara></listitem>
-		<listitem><formalpara><title>Cancel</title><para>Resets all settings in the window to those that were in force when the window was opened.  Note:  this must undo the effects of all applications of the <guibutton>Try</guibutton> since the window was opened, not just the most recent one.</para></formalpara></listitem>
-		<listitem><formalpara><title>OK</title><para>Applies all settings in the window, and closes the window.</para></formalpara></listitem>
-	</itemizedlist>
+      <note>
+        <title>Applying changes in text fields</title>
 
-	<figure id="explicit-apply-figure">
-	<title>Buttons in an explicit apply window</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/explicit-apply.png" format="PNG" width="449" depth="55"/></imageobject>
-	  <imageobject><imagedata fileref="images/explicit-apply.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing correct positions for Help, Apply, Cancel and OK buttons in a dialog</phrase>
-	  </textobject>
-	</mediaobject>
+        <para>Do not attempt to validate or apply changes caused by editing a
+        text field control until the user has moved focus to a different
+        control in the window. Validating after each keypress is usually
+        annoying and unnecessary.</para>
+      </note>
+
+      <para>If most of the controls in your window are not suitable for
+      instant apply, consider making the whole window &#34;explicit
+      apply&#34;. An explicit apply window has these three buttons in its
+      button box, plus an optional <guibutton>Help</guibutton> button:</para>
+
+      <itemizedlist>
+        <listitem>
+          <formalpara>
+            <title>Apply</title>
+
+            <para>Applies all the settings in the window, but does not close
+            the window in case the user wishes to change their mind.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Cancel</title>
+
+            <para>Resets all settings in the window to those that were in
+            force when the window was opened. Note: this must undo the effects
+            of all applications of the <guibutton>Try</guibutton> since the
+            window was opened, not just the most recent one.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>OK</title>
+
+            <para>Applies all settings in the window, and closes the window.</para>
+          </formalpara>
+        </listitem>
+      </itemizedlist>
+
+      <figure id="explicit-apply-figure">
+        <title>Buttons in an explicit apply window</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="55" fileref="images/explicit-apply.png"
+            format="PNG" width="449" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/explicit-apply.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing correct positions for Help, Apply,
+            Cancel and OK buttons in a dialog</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
-	<remark>FIXME: better example of such a window here</remark>
+      <remark>FIXME: better example of such a window here</remark>
+    </sect2>
 
-	</sect2>
+    <sect2 id="default-buttons">
+      <title>Default Buttons</title>
 
-	<sect2 id="default-buttons">
-	<title>Default Buttons</title>
-	<para>When designing a dialog or utility window, you can assign the <keycap>Return</keycap> key to activate a particular button in the window.  GNOME indicates this button to the user by drawing a different border around it.  For example, the <guibutton>OK</guibutton> button in <xref linkend="explicit-apply-figure"/>.</para>
+      <para>When designing a dialog or utility window, you can assign the
+      <keycap>Return</keycap> key to activate a particular button in the
+      window. GNOME indicates this button to the user by drawing a different
+      border around it. For example, the <guibutton>OK</guibutton> button in
+      <xref linkend="explicit-apply-figure" />.</para>
 
-	<para>Choose the default button to be the most likely action, such as a confirmation action or an action that applies changes in a utility window.  Do not make a button the default if its action is irreversible, destructive or otherwise inconvenient to the user.  If there is no appropriate button in your window, to designate as the default button, do not set one.</para>
+      <para>Choose the default button to be the most likely action, such as a
+      confirmation action or an action that applies changes in a utility
+      window. Do not make a button the default if its action is irreversible,
+      destructive or otherwise inconvenient to the user. If there is no
+      appropriate button in your window, to designate as the default button,
+      do not set one.</para>
 
-	<para>In particular, it is currently <emphasis>not</emphasis> recommended to make the <guibutton>Close</guibutton> button the default in an <link linkend="instant-apply">instant apply</link> window, as this can lead to users closing the window accidentally before they have finished using it.</para>
-
-	</sect2>
+      <para>In particular, it is currently <emphasis>not</emphasis>
+      recommended to make the <guibutton>Close</guibutton> button the default
+      in an <link linkend="instant-apply">instant apply</link> window, as this
+      can lead to users closing the window accidentally before they have
+      finished using it.</para>
+    </sect2>
 
     <sect2 id="property-windows">
       <title>Property Windows</title>
 
-      <para>Property windows allow the user to view and change the characteristics of an object such as a document, file, drawing, or application launcher.</para>
+      <para>Property windows allow the user to view and change the
+      characteristics of an object such as a document, file, drawing, or
+      application launcher.</para>
+
       <figure>
-	<title>Example of a property window</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/property-window.png" format="PNG" width="367" depth="377"/></imageobject>
-	  <imageobject><imagedata fileref="images/property-window.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing the "file properties" window from Nautilus</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Example of a property window</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="377" fileref="images/property-window.png"
+            format="PNG" width="367" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/property-window.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing the &#34;file properties&#34; window
+            from Nautilus</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
+      <formalpara>
+        <title>Title Format:</title>
+
+        <para><replaceable>Object Name</replaceable> Properties</para>
+      </formalpara>
 
       <formalpara>
-	<title>Title Format:</title>
-	<para><replaceable>Object Name</replaceable> Properties</para>
-      </formalpara>
-      <formalpara>
-	<title>Window Commands:</title>
-	<para>Close, Minimize, Roll-up/Unroll</para>
-      </formalpara>
-      <formalpara>
-	<title>Buttons:</title>
-	<para>Place a <guibutton>Close</guibutton> button in the lower right corner. A <guibutton>Help</guibutton> may be placed in the lower left corner.</para>
+        <title>Window Commands:</title>
+
+        <para>Close, Minimize, Roll-up/Unroll</para>
       </formalpara>
 
+      <formalpara>
+        <title>Buttons:</title>
+
+        <para>Place a <guibutton>Close</guibutton> button in the lower right
+        corner. A <guibutton>Help</guibutton> may be placed in the lower left
+        corner.</para>
+      </formalpara>
     </sect2>
 
     <sect2 id="preference-windows">
       <title>Preferences Windows</title>
-      <para>Preferences windows allow the user to change the way an application looks or behaves.</para>
+
+      <para>Preferences windows allow the user to change the way an
+      application looks or behaves.</para>
 
       <figure>
-	<title>Example of a preferences window</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/preferences-window.png" format="PNG" width="447" depth="82"/></imageobject>
-	  <imageobject><imagedata fileref="images/preferences-window.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing the Gnibbles preferences window</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Example of a preferences window</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="82" fileref="images/preferences-window.png"
+            format="PNG" width="447" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/preferences-window.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing the Gnibbles preferences window</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
       <formalpara>
-	<title>Title Format:</title>
-	<para><replaceable>Application Name</replaceable> Preferences</para>
-      </formalpara>
-      <formalpara>
-	<title>Window Commands:</title>
-	<para>Close, Minimize, Roll-up/Unroll</para>
-      </formalpara>
-      <formalpara>
-	<title>Buttons:</title>
-	<para>Place a <guibutton>Close</guibutton> button in the lower right corner. A <guibutton>Help</guibutton> may be placed in the lower left corner.</para>
+        <title>Title Format:</title>
+
+        <para><replaceable>Application Name</replaceable> Preferences</para>
       </formalpara>
 
+      <formalpara>
+        <title>Window Commands:</title>
+
+        <para>Close, Minimize, Roll-up/Unroll</para>
+      </formalpara>
+
+      <formalpara>
+        <title>Buttons:</title>
+
+        <para>Place a <guibutton>Close</guibutton> button in the lower right
+        corner. A <guibutton>Help</guibutton> may be placed in the lower left
+        corner.</para>
+      </formalpara>
     </sect2>
 
     <sect2 id="toolbox-windows">
       <title>Toolboxes</title>
-      <para>A toolbox provides convenient access to a set of actions and toggles through a set of small toolbar-like buttons. Toolboxes can be used to provide a specialized group of tools to augment a toolbar containing more universal items such as <guibutton>Save</guibutton> and <guibutton>open</guibutton>. A single toolbox can be shared between multiple documents to save screen space.</para>
-	<figure id="toolbox-figure">
-	  <title>An example of a toolbox</title>
-	  <mediaobject>
-	    <imageobject><imagedata fileref="images/toolbox-small.png" format="PNG" width="131" depth="89"/></imageobject>
-	    <imageobject><imagedata fileref="images/toolbox-small.eps" format="EPS"/></imageobject>
-	    <textobject>
-	      <phrase>A screenshot of a toolbox with eight buttons arranged into two rows</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
+
+      <para>A toolbox provides convenient access to a set of actions and
+      toggles through a set of small toolbar-like buttons. Toolboxes can be
+      used to provide a specialized group of tools to augment a toolbar
+      containing more universal items such as <guibutton>Save</guibutton> and
+      <guibutton>open</guibutton>. A single toolbox can be shared between
+      multiple documents to save screen space.</para>
+
+      <figure id="toolbox-figure">
+        <title>An example of a toolbox</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="89" fileref="images/toolbox-small.png"
+            format="PNG" width="131" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/toolbox-small.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>A screenshot of a toolbox with eight buttons arranged into
+            two rows</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
 
       <formalpara>
-	<title>Title Format:</title>
-	<para>Toolboxes have no title</para>
-      </formalpara>
-      <remark>How then does a screenreader user differentiate between toolboxes? --Calum.</remark>
-      <remark>ATK hints? How does Windows do this (or does it) ? There's not room for a title bar. Maybe we can have apps set the title bar but teach the WM to not draw it or something. In any case, for sighted users there's not even *room* for a titlebar in a toolbox. -Seth</remark>
-      <remark>A toolbox still needs to have an appropriate accessible description, so a screenreader user hears some information about its content when they focus it. -Calum</remark>
-      <remark>I think having the title set but having the WM ignore it might be the best way to do this? I'll talk to Havoc. -Seth</remark>
-      <formalpara>
+        <title>Title Format:</title>
 
-	<title>Window Commands:</title>
-	<para>Close, Roll-up/Unroll</para>
+        <para>Toolboxes have no title</para>
       </formalpara>
+
+      <remark>How then does a screenreader user differentiate between
+      toolboxes? --Calum.</remark>
+
+      <remark>ATK hints? How does Windows do this (or does it) ? There&#39;s
+      not room for a title bar. Maybe we can have apps set the title bar but
+      teach the WM to not draw it or something. In any case, for sighted users
+      there&#39;s not even *room* for a titlebar in a toolbox. -Seth</remark>
+
+      <remark>A toolbox still needs to have an appropriate accessible
+      description, so a screenreader user hears some information about its
+      content when they focus it. -Calum</remark>
+
+      <remark>I think having the title set but having the WM ignore it might
+      be the best way to do this? I&#39;ll talk to Havoc. -Seth</remark>
+
       <formalpara>
-	<title>Buttons:</title>
-	<para>Toolboxes have no buttons</para>
+        <title>Window Commands:</title>
+
+        <para>Close, Roll-up/Unroll</para>
       </formalpara>
+
       <formalpara>
-	<title>Resizing:</title>
-	<para>Make toolboxes resizable, but only resize by discrete toolbox item widths. In other words, the user can resize the toolbox to be one item wide, two items wide, three items wide, etc. but not one and a half items wide.</para>
+        <title>Buttons:</title>
+
+        <para>Toolboxes have no buttons</para>
+      </formalpara>
+
+      <formalpara>
+        <title>Resizing:</title>
+
+        <para>Make toolboxes resizable, but only resize by discrete toolbox
+        item widths. In other words, the user can resize the toolbox to be one
+        item wide, two items wide, three items wide, etc. but not one and a
+        half items wide.</para>
       </formalpara>
 
       <itemizedlist>
-	<title>Guidelines</title>
-	<listitem><para>Only place buttons in a toolbox that do not open another window.</para></listitem>
-	<listitem><para>Toolboxes are best used for modal toggle buttons that affect the operation of the mouse on the document, such as a set of buttons for choosing between paintbrush, eraser, and fill modes in a drawing application.  Buttons that initiate actions upon clicking (such as a save button) are better placed in toolbars.</para></listitem>
-	<listitem><para>Ensure that closing a toolbox does not close or otherwise alter any primary window with which it is associated, unless your application uses the <link linkend="csdi">controlled SDI</link> model.</para></listitem>
-	<listitem><para>Do not place toolboxes in the system window list, unless your application uses the <link linkend="csdi">controlled SDI</link> model. Toolboxes should always remain above all primary windows with which they are associated.</para></listitem>
-	<listitem><para>If all primary windows associated with a toolbox are closed or minimized, hide the toolbox as well. Show the toolbox again when one of the primary windows is opened or restored.</para></listitem>
-	<listitem><para>Make a toolbox two items wide by default, unless it is broken into <link linkend="toolbox_windows_categories">categories</link>. Make categorized toolboxes four items wide by default.</para></listitem>
+        <title>Guidelines</title>
+
+        <listitem>
+          <para>Only place buttons in a toolbox that do not open another
+          window.</para>
+        </listitem>
+
+        <listitem>
+          <para>Toolboxes are best used for modal toggle buttons that affect
+          the operation of the mouse on the document, such as a set of buttons
+          for choosing between paintbrush, eraser, and fill modes in a drawing
+          application. Buttons that initiate actions upon clicking (such as a
+          save button) are better placed in toolbars.</para>
+        </listitem>
+
+        <listitem>
+          <para>Ensure that closing a toolbox does not close or otherwise
+          alter any primary window with which it is associated, unless your
+          application uses the <link linkend="csdi">controlled SDI</link>
+          model.</para>
+        </listitem>
+
+        <listitem>
+          <para>Do not place toolboxes in the system window list, unless your
+          application uses the <link linkend="csdi">controlled SDI</link>
+          model. Toolboxes should always remain above all primary windows with
+          which they are associated.</para>
+        </listitem>
+
+        <listitem>
+          <para>If all primary windows associated with a toolbox are closed or
+          minimized, hide the toolbox as well. Show the toolbox again when one
+          of the primary windows is opened or restored.</para>
+        </listitem>
+
+        <listitem>
+          <para>Make a toolbox two items wide by default, unless it is broken
+          into <link linkend="toolbox_windows_categories">categories</link>.
+          Make categorized toolboxes four items wide by default.</para>
+        </listitem>
       </itemizedlist>
 
       <sect3 id="toolbox_windows_categories">
-	<title>Toolbox Categories</title>
-	<para>While categories may not be as visually appealing as a toolbox homogenously filled with beautiful icons, they make an unwieldy large toolbox more managable. Picking a small icon from more than fifteen other items is a difficult task. Additionally, categories allow users to hide sets of tool items that are not relevant to their current task.</para>
-	<figure id="example-toolbox-figure">
-	  <title>A large toolbox broken into categories</title>
-	  <mediaobject>
-	    <imageobject><imagedata fileref="images/toolbox.png" format="PNG" width="131" depth="332"/></imageobject>
-	    <imageobject><imagedata fileref="images/toolbox.eps" format="EPS"/></imageobject>
-	    <textobject>
-	      <phrase></phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<itemizedlist><title>Guidelines</title>
-		<listitem><para>Break toolboxes with more than sixteen items into categories.  The best size for a category is between four and ten items.</para></listitem>
-		<listitem><para>Give each category a label (in title caps) and a collapsing arrow. Clicking the label or the arrow toggles the category between a collapsed and uncollapsed state.</para></listitem>
-	</itemizedlist>
+        <title>Toolbox Categories</title>
+
+        <para>While categories may not be as visually appealing as a toolbox
+        homogenously filled with beautiful icons, they make an unwieldy large
+        toolbox more managable. Picking a small icon from more than fifteen
+        other items is a difficult task. Additionally, categories allow users
+        to hide sets of tool items that are not relevant to their current
+        task.</para>
+
+        <figure id="example-toolbox-figure">
+          <title>A large toolbox broken into categories</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata depth="332" fileref="images/toolbox.png" format="PNG"
+              width="131" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/toolbox.eps" format="EPS" />
+            </imageobject>
+
+            <textobject>
+              <phrase></phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
+
+        <itemizedlist>
+          <title>Guidelines</title>
+
+          <listitem>
+            <para>Break toolboxes with more than sixteen items into
+            categories. The best size for a category is between four and ten
+            items.</para>
+          </listitem>
+
+          <listitem>
+            <para>Give each category a label (in title caps) and a collapsing
+            arrow. Clicking the label or the arrow toggles the category
+            between a collapsed and uncollapsed state.</para>
+          </listitem>
+        </itemizedlist>
       </sect3>
     </sect2>
 
@@ -401,594 +814,1280 @@
       <para>FIXME</para>
     </sect2>
     -->
-
   </sect1>
 
-
-<sect1 id="windows-alert">
+  <sect1 id="windows-alert">
     <title>Alerts</title>
 
-	<para>An alert provides information about the state of the application system, or asks for essential information about how to proceed with a particular task.  It is distinct from other types of window in that it is not directly requested by the user, and usually contains a message or a question rather than editable controls. Since alerts are an unwelcome intrusion into the user's work, do not use them except where necessary to avoid potential data loss or other serious problems.</para>
-    <para>An alert has a border similar to that of a dialog, and is object modal. </para>
-	<figure id="example-alert-figure">
-	<title>An example of an alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/information-alert.png" format="PNG" width="438" depth="152"/></imageobject>
-	  <imageobject><imagedata fileref="images/information-alert.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>An example of an alert, showing the text "You have an appointment with George Wells in 15 minutes", and with an OK button to dismiss the window.</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
+    <para>An alert provides information about the state of the application
+    system, or asks for essential information about how to proceed with a
+    particular task. It is distinct from other types of window in that it is
+    not directly requested by the user, and usually contains a message or a
+    question rather than editable controls. Since alerts are an unwelcome
+    intrusion into the user&#39;s work, do not use them except where necessary
+    to avoid potential data loss or other serious problems.</para>
+
+    <para>An alert has a border similar to that of a dialog, and is object
+    modal.</para>
+
+    <figure id="example-alert-figure">
+      <title>An example of an alert</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata depth="152" fileref="images/information-alert.png"
+          format="PNG" width="438" />
+        </imageobject>
+
+        <imageobject>
+          <imagedata fileref="images/information-alert.eps" format="EPS" />
+        </imageobject>
+
+        <textobject>
+          <phrase>An example of an alert, showing the text &#34;You have an
+          appointment with George Wells in 15 minutes&#34;, and with an OK
+          button to dismiss the window.</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
 
     <!--<remark>FIXME: need to redo the spacing and icons in the alert shots. I think I have a glade file for these somewhere. -Seth</remark>-->
 
+    <formalpara>
+      <title>Title Format</title>
 
-    <formalpara><title>Title Format</title>
-	<para>Alert windows have no titles, as the title would usually unnecessarily duplicate the alert's primary text. This way, users can read and respond to alerts more quickly as there is less visual noise and confounding text.</para>
+      <para>Alert windows have no titles, as the title would usually
+      unnecessarily duplicate the alert&#39;s primary text. This way, users
+      can read and respond to alerts more quickly as there is less visual
+      noise and confounding text.</para>
     </formalpara>
-    <remark>Without a title, how does a screenreader user identify an alert window? -Calum</remark>
-    <remark>The screen-reader finds out its an alert (do we need a WM mechanism for this?) and reads the primary text to identify the alert. The whole point for removing the title is that its redundant with the primary text, and puts more crap on the screen to be read. This problem applies double to users with screenreaders (i.e. reducing extra crap helps them even more). -Seth</remark>
-    <remark>An alert still needs to have an appropriate accessible description (perhaps the primary text of the alert itself?), so a screenreader user hears some information about its content when they focus it. -Calum</remark>
-    <remark>I'll talk to Havoc about this. -Seth</remark>
-    
 
-    <formalpara><title>Resizing</title><para>Alert windows are not resizable. If the user needs to resize your alert, the text is probably not concise enough.</para></formalpara>
-    <formalpara><title>Window Commands:</title><para>None</para></formalpara>
-    <caution><title>Alerts must stay above their parent</title><para>Alerts do not appear in the system window list. Consequently, take care to ensure that alerts stay above their parent window. Otherwise, users will be likely to lose the alert and find your application unresponsive for no apparent reason. Modal windows should always stay above the window(s) they block.</para></caution>
+    <remark>Without a title, how does a screenreader user identify an alert
+    window? -Calum</remark>
 
+    <remark>The screen-reader finds out its an alert (do we need a WM
+    mechanism for this?) and reads the primary text to identify the alert. The
+    whole point for removing the title is that its redundant with the primary
+    text, and puts more crap on the screen to be read. This problem applies
+    double to users with screenreaders (i.e. reducing extra crap helps them
+    even more). -Seth</remark>
 
-      <!--    
+    <remark>An alert still needs to have an appropriate accessible description
+    (perhaps the primary text of the alert itself?), so a screenreader user
+    hears some information about its content when they focus it. -Calum</remark>
+
+    <remark>I&#39;ll talk to Havoc about this. -Seth</remark>
+
+    <formalpara>
+      <title>Resizing</title>
+
+      <para>Alert windows are not resizable. If the user needs to resize your
+      alert, the text is probably not concise enough.</para>
+    </formalpara>
+
+    <formalpara>
+      <title>Window Commands:</title>
+
+      <para>None</para>
+    </formalpara>
+
+    <caution>
+      <title>Alerts must stay above their parent</title>
+
+      <para>Alerts do not appear in the system window list. Consequently, take
+      care to ensure that alerts stay above their parent window. Otherwise,
+      users will be likely to lose the alert and find your application
+      unresponsive for no apparent reason. Modal windows should always stay
+      above the window(s) they block.</para>
+    </caution>
+
+    <!--    
     <para role="library-problem">Buttons in GTK dialogues end up the same size (sized to the button with the longest text label). This is wrong, and looks bad.</para>
     <para role="library-problem">Automatic wrapping of labels happens at funny places and ends up looking wrong. Labels should wrap before the last whole word that does not fit in the allotted space.</para> 
       -->
-    
-   <!--
+
+    <!--
   <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
     -->
 
     <sect2 id="alert-text">
       <title>Alert Text</title>
-	<para>An alert may contain both primary and secondary text.  The primary text briefly summarizes the situation.  The secondary text provides additional information.</para>
+
+      <para>An alert may contain both primary and secondary text. The primary
+      text briefly summarizes the situation. The secondary text provides
+      additional information.</para>
 
       <figure id="alert-text-figure">
-	<title>Primary and Secondary Text Placement</title>
-	
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/alert-text.png" format="PNG" width="529" depth="217"/></imageobject>
-	  <imageobject><imagedata fileref="images/alert-text.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot of an alert showing example of primary text in bold,  and secondary text in a smaller font underneath.</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Primary and Secondary Text Placement</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="217" fileref="images/alert-text.png"
+            format="PNG" width="529" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/alert-text.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot of an alert showing example of primary text in
+            bold, and secondary text in a smaller font underneath.</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
-      <formalpara><title>Primary Text</title><para>The primary text provides the user with a one sentence summary of the information or suggested action. This summary should concisely contain the essential details of the problem or suggestion. Every alert has primary text, displayed in a bold font slightly larger than the default.</para></formalpara>
+      <formalpara>
+        <title>Primary Text</title>
+
+        <para>The primary text provides the user with a one sentence summary
+        of the information or suggested action. This summary should concisely
+        contain the essential details of the problem or suggestion. Every
+        alert has primary text, displayed in a bold font slightly larger than
+        the default.</para>
+      </formalpara>
 
       <para role="technical-note">Denote primary text with the pango markup:
-	<programlisting>&lt;span weight="bold" size="larger"&gt;<replaceable>Primary Text</replaceable>&lt;/span&gt;</programlisting>
-      </para>
-      <formalpara><title>Secondary Text</title><para>Secondary text provides a more in-depth description of the problem and suggested action, including possible side effects. Secondary text can also provide information that may be helpful in allowing the user to make an informed decision. In most situations the user should only need the primary text to make a quick decision, but they may read the secondary text if they are unsure of the proper course of action, or require extra details. Secondary text is optional, but if used, place it one text line height beneath the primary text using the default font size and weight.</para></formalpara>
+      <programlisting>&#60;span weight=&#34;bold&#34;
+      size=&#34;larger&#34;&#62;<replaceable>Primary Text</replaceable>&#60;/span&#62;</programlisting></para>
+
+      <formalpara>
+        <title>Secondary Text</title>
+
+        <para>Secondary text provides a more in-depth description of the
+        problem and suggested action, including possible side effects.
+        Secondary text can also provide information that may be helpful in
+        allowing the user to make an informed decision. In most situations the
+        user should only need the primary text to make a quick decision, but
+        they may read the secondary text if they are unsure of the proper
+        course of action, or require extra details. Secondary text is
+        optional, but if used, place it one text line height beneath the
+        primary text using the default font size and weight.</para>
+      </formalpara>
     </sect2>
 
-      <sect2 id="alert-button-order">
+    <sect2 id="alert-button-order">
       <title>Alert Buttons</title>
-      <para>Give all alerts an affirmative button that dismisses the alert and performs the action suggested in the primary text. Provide a <guibutton>Cancel</guibutton> button for all alerts displayed in response to a user actions, such as <guimenuitem>Quit</guimenuitem>.  If the alert warns of a technical problem or other situation that could result in data loss, provide a <guibutton>Help</guibutton> button that provides more information on the particular situation and explains the user's options. You may also provide buttons to perform alternate actions that provide another possible solution, fix potential problems, or launch related dialogs or programs.</para>
+
+      <para>Give all alerts an affirmative button that dismisses the alert and
+      performs the action suggested in the primary text. Provide a
+      <guibutton>Cancel</guibutton> button for all alerts displayed in
+      response to a user actions, such as <guimenuitem>Quit</guimenuitem>. If
+      the alert warns of a technical problem or other situation that could
+      result in data loss, provide a <guibutton>Help</guibutton> button that
+      provides more information on the particular situation and explains the
+      user&#39;s options. You may also provide buttons to perform alternate
+      actions that provide another possible solution, fix potential problems,
+      or launch related dialogs or programs.</para>
+
       <figure id="alert-buttons-figure">
-	<title>Button ordering and placement for alerts</title>
-	
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/alert-button-order.png" format="PNG" width="481" depth="54"/></imageobject>
-	  <imageobject><imagedata fileref="images/alert-button-order.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing ordering and placement of alert buttons: Help button in bottom left, and Alternate, Cancel and Affirmative buttons in bottom right.</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Button ordering and placement for alerts</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="54" fileref="images/alert-button-order.png"
+            format="PNG" width="481" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/alert-button-order.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing ordering and placement of alert
+            buttons: Help button in bottom left, and Alternate, Cancel and
+            Affirmative buttons in bottom right.</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
-      <formalpara><title>Button Phrasing</title>
-	<para>Write button labels as imperative verbs, for example <guibutton>Save</guibutton>, <guibutton>Print</guibutton>.  This allows users to select an action with less hesitation. An active phrase also fits best with the button's role in initiating actions, as contrasted with a more passive phrase. For example <guibutton>Find</guibutton> and <guibutton>Log In</guibutton> are better buttons than than <guibutton>Yes</guibutton> and <guibutton>OK</guibutton>.</para></formalpara>
+
+      <formalpara>
+        <title>Button Phrasing</title>
+
+        <para>Write button labels as imperative verbs, for example
+        <guibutton>Save</guibutton>, <guibutton>Print</guibutton>. This allows
+        users to select an action with less hesitation. An active phrase also
+        fits best with the button&#39;s role in initiating actions, as
+        contrasted with a more passive phrase. For example
+        <guibutton>Find</guibutton> and <guibutton>Log In</guibutton> are
+        better buttons than than <guibutton>Yes</guibutton> and
+        <guibutton>OK</guibutton>.</para>
+      </formalpara>
+
       <itemizedlist>
-	<listitem><formalpara><title>Affirmative Button</title><para>Place the affirmative button in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert, or simply dismisses the alert if no action is suggested (as is the case with an <link linkend="alerts-information">information alert</link>).</para></formalpara></listitem>
-	<listitem><formalpara><title>Cancel Button</title><para>If the alert was produced in response to a user action, place a <guibutton>Cancel</guibutton> button immediately to the left of the affirmative button. This provides an escape route for users to stop an action in response to new information, or just if they clicked accidentally. Clicking the <guibutton>Cancel</guibutton> button reverts the application to its state prior to the user action.</para></formalpara></listitem>
-	<listitem><formalpara><title>Help Button</title><para>A <guibutton>Help</guibutton> button may be used to clarify alerts that present potentially destructive options. Place the <guibutton>Help</guibutton> button in the lower left corner of the alert. When clicked, launch a help window clarifying the situation, detailing the actions performed by the other buttons, and explaining any side-effects that each action may have.</para></formalpara></listitem>
-	<listitem><formalpara><title>Alternate Buttons</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. Place these buttons to the left of the <guibutton>Cancel</guibutton> button, or the affirmative button if <guibutton>Cancel</guibutton> is not present. An example of a common alternate action would be a <guibutton>Quit without Saving</guibutton> button in a save confirmation alert. This is an alternative to the primary suggested action <guibutton>Save</guibutton> and the <guibutton>Cancel</guibutton> button.</para></formalpara></listitem>
+        <listitem>
+          <formalpara>
+            <title>Affirmative Button</title>
+
+            <para>Place the affirmative button in the lower right corner of
+            the alert. The affirmative button accepts the action proposed by
+            the alert, or simply dismisses the alert if no action is suggested
+            (as is the case with an <link linkend="alerts-information">information
+            alert</link>).</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Cancel Button</title>
+
+            <para>If the alert was produced in response to a user action,
+            place a <guibutton>Cancel</guibutton> button immediately to the
+            left of the affirmative button. This provides an escape route for
+            users to stop an action in response to new information, or just if
+            they clicked accidentally. Clicking the <guibutton>Cancel</guibutton>
+            button reverts the application to its state prior to the user
+            action.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Help Button</title>
+
+            <para>A <guibutton>Help</guibutton> button may be used to clarify
+            alerts that present potentially destructive options. Place the
+            <guibutton>Help</guibutton> button in the lower left corner of the
+            alert. When clicked, launch a help window clarifying the
+            situation, detailing the actions performed by the other buttons,
+            and explaining any side-effects that each action may have.</para>
+          </formalpara>
+        </listitem>
+
+        <listitem>
+          <formalpara>
+            <title>Alternate Buttons</title>
+
+            <para>Extra buttons may be used to provide alternates to the
+            primary action proposed by the alert text. Place these buttons to
+            the left of the <guibutton>Cancel</guibutton> button, or the
+            affirmative button if <guibutton>Cancel</guibutton> is not
+            present. An example of a common alternate action would be a
+            <guibutton>Quit without Saving</guibutton> button in a save
+            confirmation alert. This is an alternative to the primary
+            suggested action <guibutton>Save</guibutton> and the
+            <guibutton>Cancel</guibutton> button.</para>
+          </formalpara>
+        </listitem>
       </itemizedlist>
     </sect2>
+
     <sect2 id="alert-spacing">
       <title>Spacing and Positioning Inside Alerts</title>
-	<para>Using clear, consistent spacing in alerts makes the message easier to digest and the available responses more obvious.</para>
+
+      <para>Using clear, consistent spacing in alerts makes the message easier
+      to digest and the available responses more obvious.</para>
+
       <figure id="alert-spacing-figure">
-	<title>Spacing inside an alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/alert-spacing.png" format="PNG" width="591" depth="213"/></imageobject>
-	  <imageobject><imagedata fileref="images/alert-spacing.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Diagram showing correct spacing to use between controls and buttons in an alert window.  This is detailed in the guidelines below.</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Spacing inside an alert</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="213" fileref="images/alert-spacing.png"
+            format="PNG" width="591" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/alert-spacing.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Diagram showing correct spacing to use between controls
+            and buttons in an alert window. This is detailed in the guidelines
+            below.</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
 
-      <itemizedlist><title>Guidelines</title>
-	<listitem><para>The border around all edges of the alert, and the space between the icon and the text, is 12 pixels.</para></listitem>
-	<listitem><para>The horizontal spacing between the buttons is 6 pixels.</para></listitem>
-	<listitem><para>Add one line break at the standard font size below both the primary and secondary text, or 24 pixels if you are using Glade.</para></listitem>
-	<listitem><para>Align the top of the icon with the top of the primary text.</para></listitem>
-	<listitem><para>Left-align the message text, for western locales.</para></listitem>
-	</itemizedlist>
+      <itemizedlist>
+        <title>Guidelines</title>
 
-      <tip><title>Technical Details for Proper Layout</title>
-	<para>Create a new GtkDialog window specifying the number of buttons you wish the alert to contain (and a help button if appropriate). The GtkDialog will contain a GtkVBox with an empty upper row, and a lower row containing a GtkButtonBox with buttons in it. In the empty upper row, place a new GtkHBox. In the left column of the GtkHBox place a GtkImage. In the right column of the GtkHBox place a GtkLabel. Inside the GtkLabel place <replaceable>Primary Text</replaceable> first (using the appropriate Pango markup, see <xref linkend="alert-text"/>), then put two linebreaks (return), then place <replaceable>Secondary Text</replaceable>. Now change the properties for each control according to these tables:</para>
-	<table frame="topbot" pgwide="0">
-	  <title>Properties for the GtkDialog</title>
-	  <tgroup cols="2" colsep="0" rowsep="0" align="left">
-	    <thead>
-	      <row valign="top">
-		<entry>Property</entry>
-		<entry>Value</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry>Title</entry>
-		<entry>(none)</entry>
-	      </row>
-	      <row>
-		<entry>Border Width</entry>
-		<entry>6</entry>
-	      </row>
-	      <row>
-		<entry>Type</entry>
-		<entry>Top Level</entry>
-	      </row>
-	      <row>
-		<entry>Resizable</entry>
-		<entry>No</entry>
-	      </row>
-	      <row>
-		<entry>Has Seperator</entry>
-		<entry>No</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	<table frame="topbot" pgwide="0">
-	  <title>Properties for the GtkVBox (included in the dialog by default)</title>
-	  <tgroup cols="2" colsep="0" rowsep="0" align="left">
-	    <thead>
-	      <row valign="top">
-		<entry>Property</entry>
-		<entry>Value</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry>Spacing</entry>
-		<entry>12</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	<table frame="topbot" pgwide="0">
-	  <title>Properties for the GtkHBox</title>
-	  <tgroup cols="2" colsep="0" rowsep="0" align="left">
-	    <thead>
-	      <row valign="top">
-		<entry>Property</entry>
-		<entry>Value</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry>Spacing</entry>
-		<entry>12</entry>
-	      </row>
-	      <row>
-		<entry>Border Width</entry>
-		<entry>6</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	<table frame="topbot" pgwide="0">
-	  <title>Properties for the GtkImage</title>
-	  <tgroup cols="2" colsep="0" rowsep="0" align="left">
-	    <thead>
-	      <row valign="top">
-		<entry>Property</entry>
-		<entry>Value</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry>Y Align</entry>
-		<entry>0.00</entry>
-	      </row>
-	      <row>
-		<entry>Icon Size</entry>
-		<entry>Dialog</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	<table frame="topbot" pgwide="0">
-	  <title>Properties for the GtkLabel</title>
-	    <tgroup cols="2" colsep="0" rowsep="0" align="left">
-	    <thead>
-	      <row valign="top">
-		<entry>Property</entry>
-		<entry>Value</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry>Use Markup</entry>
-		<entry>Yes</entry>
-	      </row>
-	      <row>
-		<entry>Wrap Text</entry>
-		<entry>Yes</entry>
-	      </row>
-	      <row>
-		<entry>Y Align</entry>
-		<entry>0.00</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-	</tip>
+        <listitem>
+          <para>The border around all edges of the alert, and the space
+          between the icon and the text, is 12 pixels.</para>
+        </listitem>
+
+        <listitem>
+          <para>The horizontal spacing between the buttons is 6 pixels.</para>
+        </listitem>
+
+        <listitem>
+          <para>Add one line break at the standard font size below both the
+          primary and secondary text, or 24 pixels if you are using Glade.</para>
+        </listitem>
+
+        <listitem>
+          <para>Align the top of the icon with the top of the primary text.</para>
+        </listitem>
+
+        <listitem>
+          <para>Left-align the message text, for western locales.</para>
+        </listitem>
+      </itemizedlist>
+
+      <tip>
+        <title>Technical Details for Proper Layout</title>
+
+        <para>Create a new GtkDialog window specifying the number of buttons
+        you wish the alert to contain (and a help button if appropriate). The
+        GtkDialog will contain a GtkVBox with an empty upper row, and a lower
+        row containing a GtkButtonBox with buttons in it. In the empty upper
+        row, place a new GtkHBox. In the left column of the GtkHBox place a
+        GtkImage. In the right column of the GtkHBox place a GtkLabel. Inside
+        the GtkLabel place <replaceable>Primary Text</replaceable> first
+        (using the appropriate Pango markup, see <xref linkend="alert-text" />),
+        then put two linebreaks (return), then place
+        <replaceable>Secondary Text</replaceable>. Now change the properties
+        for each control according to these tables:</para>
+
+        <table frame="topbot" pgwide="0">
+          <title>Properties for the GtkDialog</title>
+
+          <tgroup align="left" cols="2" colsep="0" rowsep="0">
+            <thead>
+              <row valign="top">
+                <entry>Property</entry>
+
+                <entry>Value</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Title</entry>
+
+                <entry>(none)</entry>
+              </row>
+
+              <row>
+                <entry>Border Width</entry>
+
+                <entry>6</entry>
+              </row>
+
+              <row>
+                <entry>Type</entry>
+
+                <entry>Top Level</entry>
+              </row>
+
+              <row>
+                <entry>Resizable</entry>
+
+                <entry>No</entry>
+              </row>
+
+              <row>
+                <entry>Has Seperator</entry>
+
+                <entry>No</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table frame="topbot" pgwide="0">
+          <title>Properties for the GtkVBox (included in the dialog by
+          default)</title>
+
+          <tgroup align="left" cols="2" colsep="0" rowsep="0">
+            <thead>
+              <row valign="top">
+                <entry>Property</entry>
+
+                <entry>Value</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Spacing</entry>
+
+                <entry>12</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table frame="topbot" pgwide="0">
+          <title>Properties for the GtkHBox</title>
+
+          <tgroup align="left" cols="2" colsep="0" rowsep="0">
+            <thead>
+              <row valign="top">
+                <entry>Property</entry>
+
+                <entry>Value</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Spacing</entry>
+
+                <entry>12</entry>
+              </row>
+
+              <row>
+                <entry>Border Width</entry>
+
+                <entry>6</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table frame="topbot" pgwide="0">
+          <title>Properties for the GtkImage</title>
+
+          <tgroup align="left" cols="2" colsep="0" rowsep="0">
+            <thead>
+              <row valign="top">
+                <entry>Property</entry>
+
+                <entry>Value</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Y Align</entry>
+
+                <entry>0.00</entry>
+              </row>
+
+              <row>
+                <entry>Icon Size</entry>
+
+                <entry>Dialog</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <table frame="topbot" pgwide="0">
+          <title>Properties for the GtkLabel</title>
+
+          <tgroup align="left" cols="2" colsep="0" rowsep="0">
+            <thead>
+              <row valign="top">
+                <entry>Property</entry>
+
+                <entry>Value</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>Use Markup</entry>
+
+                <entry>Yes</entry>
+              </row>
+
+              <row>
+                <entry>Wrap Text</entry>
+
+                <entry>Yes</entry>
+              </row>
+
+              <row>
+                <entry>Y Align</entry>
+
+                <entry>0.00</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </tip>
     </sect2>
+
     <sect2 id="alerts-information">
       <title>Information Alerts</title>
-      <para>Use an information alert when the user must know the information presented before continuing, or has specifically requested the information. Present less important information by other means such as a status bar message.</para>
+
+      <para>Use an information alert when the user must know the information
+      presented before continuing, or has specifically requested the
+      information. Present less important information by other means such as a
+      status bar message.</para>
+
       <figure id="information-alert-figure">
-	<title>An information alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/information-alert.png" format="PNG" width="438" depth="152"/></imageobject>
-	  <imageobject><imagedata fileref="images/information-alert.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase></phrase>
-	  </textobject>
-	</mediaobject>
+        <title>An information alert</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="152" fileref="images/information-alert.png"
+            format="PNG" width="438" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/information-alert.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
       </figure>
+
       <itemizedlist>
-	<title>An information alert...</title>
-	<listitem><para>uses the stock information icon.</para></listitem>
-	<listitem><para>presents a selectable message and an <guibutton>OK</guibutton> button. The button is placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> dismisses the alert.</para></listitem>
-	<listitem><para>may present a convenience button to give access to a relevant object. For example, a <guibutton>Details</guibutton> button in an appointment reminder alert that opens the appointment's property window.  Place this button to the left of the affirmative button.</para> <!-- FIXME: Reword --> </listitem>
+        <title>An information alert...</title>
+
+        <listitem>
+          <para>uses the stock information icon.</para>
+        </listitem>
+
+        <listitem>
+          <para>presents a selectable message and an <guibutton>OK</guibutton>
+          button. The button is placed in the bottom right corner of the
+          alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym>
+          dismisses the alert.</para>
+        </listitem>
+
+        <listitem>
+          <para>may present a convenience button to give access to a relevant
+          object. For example, a <guibutton>Details</guibutton> button in an
+          appointment reminder alert that opens the appointment&#39;s property
+          window. Place this button to the left of the affirmative button.</para>
+
+          <!-- FIXME: Reword -->
+        </listitem>
       </itemizedlist>
+
       <formalpara>
-	<title>Window Commands:</title>
-	<para>Roll-up/Unroll, Minimize (if the alert has no parent window), Close</para>
+        <title>Window Commands:</title>
+
+        <para>Roll-up/Unroll, Minimize (if the alert has no parent window),
+        Close</para>
       </formalpara>
     </sect2>
+
     <sect2 id="alerts-error">
       <title>Error Alerts</title>
-      <para>Display an error alert when a user-requested operation cannot be sucessfully completed. Present errors caused by operations not requested by the user by another means, unless the error could result in data loss or other serious problems. For example, an error encountered during an email check initiated by the user clicking a toolbar button should present an error alert. However, an error encountered in an automated periodic email check would more appropriately report failure with a status bar message.</para>
-      <figure id="error-alert-figure">
-	<title>An error alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/error-alert.png" format="PNG" width="461" depth="179"/></imageobject>
-	  <imageobject><imagedata fileref="images/error-alert.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase></phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-      <itemizedlist>
-	<title>An error alert...</title>
-	<listitem><para>uses the stock error icon.</para></listitem>
-	<listitem><para>presents a selectable message and an <guibutton>OK</guibutton> button. The button is placed in the bottom-right corner of the alert. Pressing <keysym>Enter</keysym> may dismiss the error alert.</para></listitem>
-	<listitem><para>may present a convenience button to allow immediate handling of the error.  For example, a <guibutton>Format...</guibutton> button in a &quot;This disk is not formatted&quot; alert.  Place this button to the left of the affirmative button.</para></listitem>
-      </itemizedlist>
-      <formalpara>
-	<title>Window Commands:</title>
-	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
-      </formalpara>
 
+      <para>Display an error alert when a user-requested operation cannot be
+      sucessfully completed. Present errors caused by operations not requested
+      by the user by another means, unless the error could result in data loss
+      or other serious problems. For example, an error encountered during an
+      email check initiated by the user clicking a toolbar button should
+      present an error alert. However, an error encountered in an automated
+      periodic email check would more appropriately report failure with a
+      status bar message.</para>
+
+      <figure id="error-alert-figure">
+        <title>An error alert</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="179" fileref="images/error-alert.png"
+            format="PNG" width="461" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/error-alert.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+
+      <itemizedlist>
+        <title>An error alert...</title>
+
+        <listitem>
+          <para>uses the stock error icon.</para>
+        </listitem>
+
+        <listitem>
+          <para>presents a selectable message and an <guibutton>OK</guibutton>
+          button. The button is placed in the bottom-right corner of the
+          alert. Pressing <keysym>Enter</keysym> may dismiss the error alert.</para>
+        </listitem>
+
+        <listitem>
+          <para>may present a convenience button to allow immediate handling
+          of the error. For example, a <guibutton>Format...</guibutton> button
+          in a &#34;This disk is not formatted&#34; alert. Place this button
+          to the left of the affirmative button.</para>
+        </listitem>
+      </itemizedlist>
+
+      <formalpara>
+        <title>Window Commands:</title>
+
+        <para><!-- Minimize, ??? -->Roll-up/Unroll</para>
+      </formalpara>
     </sect2>
 
     <sect2 id="alerts-confirmation">
       <title>Confirmation Alerts</title>
-	<para>Present a confirmation alert when the user's command may destroy their data, create a security risk, or take more than 30 seconds of user effort to recover from if it was selected in error.</para>
+
+      <para>Present a confirmation alert when the user&#39;s command may
+      destroy their data, create a security risk, or take more than 30 seconds
+      of user effort to recover from if it was selected in error.</para>
+
       <figure id="confirmation-alert-figure">
-	<title>A confirmation alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/confirmation-alert.png" format="PNG" width="529" depth="200"/></imageobject>
-	  <imageobject><imagedata fileref="images/confirmation-alert.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase></phrase>
-	  </textobject>
-	</mediaobject>
+        <title>A confirmation alert</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="200" fileref="images/confirmation-alert.png"
+            format="PNG" width="529" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/confirmation-alert.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
       </figure>
+
       <itemizedlist>
-	<title>A confirmation alert...</title>
-	<listitem><para>uses the stock warning icon.</para></listitem>
-	<listitem><para>presents a button labelled with a verb or verb phrase describing the action to be confirmed, or labelled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button is placed in the bottom right corner of the alert.</para></listitem>
-	<listitem><para>presents a <guibutton>Cancel</guibutton> button that will prevent execution of the user's command. This button is placed to the immediate left of the <guibutton>OK</guibutton> or equivalent button.</para></listitem>
-	<listitem><para>may present an alternate action button or a convenience button. Place this button to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
+        <title>A confirmation alert...</title>
+
+        <listitem>
+          <para>uses the stock warning icon.</para>
+        </listitem>
+
+        <listitem>
+          <para>presents a button labelled with a verb or verb phrase
+          describing the action to be confirmed, or labelled
+          <guilabel>OK</guilabel> if such a phrase would be longer than three
+          words. This button is placed in the bottom right corner of the
+          alert.</para>
+        </listitem>
+
+        <listitem>
+          <para>presents a <guibutton>Cancel</guibutton> button that will
+          prevent execution of the user&#39;s command. This button is placed
+          to the immediate left of the <guibutton>OK</guibutton> or equivalent
+          button.</para>
+        </listitem>
+
+        <listitem>
+          <para>may present an alternate action button or a convenience
+          button. Place this button to the left of the <guibutton>Cancel</guibutton>
+          button.</para>
+        </listitem>
       </itemizedlist>
+
       <formalpara>
-	<title>Window Commands:</title>
-	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
+        <title>Window Commands:</title>
+
+        <para><!-- Minimize, ??? -->Roll-up/Unroll</para>
       </formalpara>
-      
+
       <sect3 id="save-confirmation-alerts">
-	<title>Save Confirmation Alerts</title>
-	<para>Save confirmation alerts help ensure that users do not lose document changes when they close applications. This makes closing applications a less dangerous operation.</para>
-	<figure id="save-alert-figure">
-	  <title>A save confirmation alert</title>
-	  
-	  <mediaobject>
-	    <imageobject><imagedata fileref="images/save_alert.png" format="PNG" width="551" depth="181"/></imageobject>
-	    <imageobject><imagedata fileref="images/save_alert.eps" format="EPS"/></imageobject>
-	    <textobject>
-	      <phrase>Save confirmation alert: "[ Close without Saving] [ Cancel ] [[ Save ]] "</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<formalpara><title>Primary Text</title><para>Save changes to document <replaceable>Document Name</replaceable> before closing?</para></formalpara>
-	<para>You may replace <quote>document</quote> with a more appropriate description, for example <quote>image</quote> or <quote>diagram</quote> if the document in question is not primarily text.</para>
-	<formalpara><title>Secondary Text</title><para>If you close without saving, changes from the last <replaceable>Time Period</replaceable> will be discarded</para></formalpara>
-	<para role="explanation">The secondary text provides the user with some context about the number of changes that might be unsaved.</para>
-	<formalpara><title>Buttons</title><para><guibutton>Close without Saving</guibutton>, <guibutton>Cancel</guibutton>, <guibutton>Save</guibutton></para></formalpara>
-	
+        <title>Save Confirmation Alerts</title>
+
+        <para>Save confirmation alerts help ensure that users do not lose
+        document changes when they close applications. This makes closing
+        applications a less dangerous operation.</para>
+
+        <figure id="save-alert-figure">
+          <title>A save confirmation alert</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata depth="181" fileref="images/save_alert.png"
+              format="PNG" width="551" />
+            </imageobject>
+
+            <imageobject>
+              <imagedata fileref="images/save_alert.eps" format="EPS" />
+            </imageobject>
+
+            <textobject>
+              <phrase>Save confirmation alert: &#34;[ Close without Saving] [
+              Cancel ] [[ Save ]] &#34;</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>
+
+        <formalpara>
+          <title>Primary Text</title>
+
+          <para>Save changes to document <replaceable>Document Name</replaceable>
+          before closing?</para>
+        </formalpara>
+
+        <para>You may replace <quote>document</quote> with a more appropriate
+        description, for example <quote>image</quote> or <quote>diagram</quote>
+        if the document in question is not primarily text.</para>
+
+        <formalpara>
+          <title>Secondary Text</title>
+
+          <para>If you close without saving, changes from the last
+          <replaceable>Time Period</replaceable> will be discarded</para>
+        </formalpara>
+
+        <para role="explanation">The secondary text provides the user with
+        some context about the number of changes that might be unsaved.</para>
+
+        <formalpara>
+          <title>Buttons</title>
+
+          <para><guibutton>Close without Saving</guibutton>,
+          <guibutton>Cancel</guibutton>, <guibutton>Save</guibutton></para>
+        </formalpara>
       </sect3>
     </sect2>
 
     <sect2 id="alerts-authentication">
       <title>Authentication Alerts</title>
-      <para>Authentication alerts prompt the user for information necessary to gain access to protected resources, such as their username or password. Authentication alerts are a special kind of alert because they are both routine and largely unavoidable. Every attempt should be made to retain information entered into an authentication alert as long as is possible within security constraints.</para>
+
+      <para>Authentication alerts prompt the user for information necessary to
+      gain access to protected resources, such as their username or password.
+      Authentication alerts are a special kind of alert because they are both
+      routine and largely unavoidable. Every attempt should be made to retain
+      information entered into an authentication alert as long as is possible
+      within security constraints.</para>
+
       <figure id="authentication-alert-figure">
-	<title>An authentication alert</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/authentication-alert.png" format="PNG" width="338" depth="247"/></imageobject>
-	  <imageobject><imagedata fileref="images/authentication-alert.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase></phrase>
-	  </textobject>
-	</mediaobject>
+        <title>An authentication alert</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="247" fileref="images/authentication-alert.png"
+            format="PNG" width="338" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/authentication-alert.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase></phrase>
+          </textobject>
+        </mediaobject>
       </figure>
-	<para>
-	<itemizedlist><title>Guidelines</title>
-	  <listitem>
-	    <para>Use the stock authentication icon.
-	      <note><para><ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note>
-	    </para>
-	  </listitem>
-	  <listitem><para>Show a labelled field for each required item of information. Suggested fields are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in that order) where appropriate.</para></listitem>
-	  <listitem><para>If it is secure to retain the username longer than the password, pre-fill the username field and give focus to the password field when the alert is displayed.</para></listitem>
-	  <listitem><para>Show a button labelled with a verb or verb phrase describing the authentication action, or <guilabel>OK</guilabel> if there is no appropriate phrase or such a phrase would be longer than three words. Place this button in the bottom right corner of the alert.</para></listitem>
-	  <listitem><para>Do not enable the <guibutton>OK</guibutton> or equivalent button until all fields that require input have been attended to by the user. Remember that not all fields may require input however, for example an empty password may be acceptable in some applications.</para></listitem>
-	  <listitem><para>Show a <guibutton>Cancel</guibutton> button that will prevent authentication and close the alert. Place this button to the immediate left of the <guibutton>OK</guibutton> or equivalent button.</para></listitem>
-	  <listitem><para>Place any alternative action or convenience button to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
-      	  <listitem><para>When the user presses <keycap>Return</keycap> in the last field, activate the default button. When the user presses <keycap>Return</keycap> in any other field, move focus to the next field.</para></listitem>
-	</itemizedlist>
-      </para>
+
+      <para><itemizedlist><title>Guidelines</title><listitem><para>Use the
+      stock authentication icon. <note><para><ulink
+      url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note></para></listitem><listitem><para>Show
+      a labelled field for each required item of information. Suggested fields
+      are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in
+      that order) where appropriate.</para></listitem><listitem><para>If it is
+      secure to retain the username longer than the password, pre-fill the
+      username field and give focus to the password field when the alert is
+      displayed.</para></listitem><listitem><para>Show a button labelled with
+      a verb or verb phrase describing the authentication action, or
+      <guilabel>OK</guilabel> if there is no appropriate phrase or such a
+      phrase would be longer than three words. Place this button in the bottom
+      right corner of the alert.</para></listitem><listitem><para>Do not
+      enable the <guibutton>OK</guibutton> or equivalent button until all
+      fields that require input have been attended to by the user. Remember
+      that not all fields may require input however, for example an empty
+      password may be acceptable in some applications.</para></listitem><listitem><para>Show
+      a <guibutton>Cancel</guibutton> button that will prevent authentication
+      and close the alert. Place this button to the immediate left of the
+      <guibutton>OK</guibutton> or equivalent button.</para></listitem><listitem><para>Place
+      any alternative action or convenience button to the left of the
+      <guibutton>Cancel</guibutton> button.</para></listitem><listitem><para>When
+      the user presses <keycap>Return</keycap> in the last field, activate the
+      default button. When the user presses <keycap>Return</keycap> in any
+      other field, move focus to the next field.</para></listitem></itemizedlist></para>
+
       <formalpara>
-	<title>Window Commands:</title>
-	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
+        <title>Window Commands:</title>
+
+        <para><!-- Minimize, ??? -->Roll-up/Unroll</para>
       </formalpara>
     </sect2>
-
   </sect1>
+
   <sect1 id="windows-progress">
     <title>Progress Windows</title>
-    <para>A progress window can be used to provide <link linkend="feedback">feedback</link> during an operation that takes more than a few seconds. See <xref linkend="controls-progress-bars"/> for more details about proper use of progress bars.</para>
-	<remark>It's not at all clear to me how this section is supposed to interact with the Feedback chapter, as both now seem to contain guidelines for what type of progress window to use and when.  Perhaps this section should primarily focus on the window management features of progress windows? --Calum.</remark>
+
+    <para>A progress window can be used to provide <link linkend="feedback">feedback</link>
+    during an operation that takes more than a few seconds. See <xref
+    linkend="controls-progress-bars" /> for more details about proper use of
+    progress bars.</para>
+
+    <remark>It&#39;s not at all clear to me how this section is supposed to
+    interact with the Feedback chapter, as both now seem to contain guidelines
+    for what type of progress window to use and when. Perhaps this section
+    should primarily focus on the window management features of progress
+    windows? --Calum.</remark>
 
     <figure id="example-progress-figure">
       <title>An example of a progress window</title>
+
       <mediaobject>
-	<imageobject><imagedata fileref="images/progress-window.png" format="PNG" width="404" depth="230"/></imageobject>
-	<imageobject><imagedata fileref="images/progress-window.eps" format="EPS"/></imageobject>
-	<textobject>
-	  <phrase>An example of a progress window</phrase>
-	</textobject>
+        <imageobject>
+          <imagedata depth="230" fileref="images/progress-window.png"
+          format="PNG" width="404" />
+        </imageobject>
+
+        <imageobject>
+          <imagedata fileref="images/progress-window.eps" format="EPS" />
+        </imageobject>
+
+        <textobject>
+          <phrase>An example of a progress window</phrase>
+        </textobject>
       </mediaobject>
     </figure>
 
+    <formalpara>
+      <title>Title Format</title>
 
-    <formalpara><title>Title Format</title>
-	<para>Progress windows should have the same title as their primary text. Unlike alerts, it is expected that progress windows will be present in the window list and may be active for extended periods.</para>
+      <para>Progress windows should have the same title as their primary text.
+      Unlike alerts, it is expected that progress windows will be present in
+      the window list and may be active for extended periods.</para>
     </formalpara>
-    <formalpara><title>Resizing</title>
-      <para>Progress windows should be resizable if they contain non-static information the user may want to copy (for example, the source URL in a download progress window). Otherwise they should not be resizable.</para>
+
+    <formalpara>
+      <title>Resizing</title>
+
+      <para>Progress windows should be resizable if they contain non-static
+      information the user may want to copy (for example, the source URL in a
+      download progress window). Otherwise they should not be resizable.</para>
     </formalpara>
-    <itemizedlist><title>Guidelines</title>
-      <listitem><para>It is often better to use the progress bar contained in many primary windows' status bar rather than a progress window. See <xref linkend="progress-windows-vs-status-bar"/> for details on choosing between the two.</para></listitem>
-      <listitem><para>Progress windows should use primary and secondary text like an alert. See <xref linkend="alert-text"/></para></listitem>
-      <listitem><para>The progress bar text should provide an idea of how much work has been completed. It is better to provide specific information rather than a unitless percentage. For example, "13 of 19 images rotated" or "12.1 of 30 megabytes downloaded" rather than "13% complete".</para></listitem>
-      <listitem><para>If possible, an estimate of the time left until the operation is complete should also be included in the progress bar text. Be sure to indicate it is an estimate using words like "about".</para></listitem>
-      <listitem><para>Immediately beneath the progress bar, place italicized text indicating the current sub-operation being performed. This might be a step in a sequence, "Contacting control tower for permission to land", or it could be the current object being operated on in a bulk operation, "Rotating Mona Lisa".</para></listitem>
-      <listitem><para>If the operation in progress is potentially hazardous (destructive, costly, etc) or heavily taxes a limited resource for more than ten seconds (network bandwidth, hard disk, CPU, etc), consider placing a <guibutton>Pause</guibutton> <link linkend="controls-toggle-buttons">toggle button</link> to the right of the <guibutton>Cancel</guibutton> button. When paused, the italicized current sub-operation text should have " (Paused)" appended.</para></listitem>
+
+    <itemizedlist>
+      <title>Guidelines</title>
+
+      <listitem>
+        <para>It is often better to use the progress bar contained in many
+        primary windows&#39; status bar rather than a progress window. See
+        <xref linkend="progress-windows-vs-status-bar" /> for details on
+        choosing between the two.</para>
+      </listitem>
+
+      <listitem>
+        <para>Progress windows should use primary and secondary text like an
+        alert. See <xref linkend="alert-text" /></para>
+      </listitem>
+
+      <listitem>
+        <para>The progress bar text should provide an idea of how much work
+        has been completed. It is better to provide specific information
+        rather than a unitless percentage. For example, &#34;13 of 19 images
+        rotated&#34; or &#34;12.1 of 30 megabytes downloaded&#34; rather than
+        &#34;13% complete&#34;.</para>
+      </listitem>
+
+      <listitem>
+        <para>If possible, an estimate of the time left until the operation is
+        complete should also be included in the progress bar text. Be sure to
+        indicate it is an estimate using words like &#34;about&#34;.</para>
+      </listitem>
+
+      <listitem>
+        <para>Immediately beneath the progress bar, place italicized text
+        indicating the current sub-operation being performed. This might be a
+        step in a sequence, &#34;Contacting control tower for permission to
+        land&#34;, or it could be the current object being operated on in a
+        bulk operation, &#34;Rotating Mona Lisa&#34;.</para>
+      </listitem>
+
+      <listitem>
+        <para>If the operation in progress is potentially hazardous
+        (destructive, costly, etc) or heavily taxes a limited resource for
+        more than ten seconds (network bandwidth, hard disk, CPU, etc),
+        consider placing a <guibutton>Pause</guibutton> <link
+        linkend="controls-toggle-buttons">toggle button</link> to the right of
+        the <guibutton>Cancel</guibutton> button. When paused, the italicized
+        current sub-operation text should have &#34; (Paused)&#34; appended.</para>
+      </listitem>
     </itemizedlist>
 
     <figure id="example-complex-progress-figure">
-      <title>A more complex progress window illustrating more of the guidelines</title>
+      <title>A more complex progress window illustrating more of the
+      guidelines</title>
+
       <mediaobject>
-	<imageobject><imagedata fileref="images/progress-window-copy.png" format="PNG" width="417" depth="294"/></imageobject>
-	<imageobject><imagedata fileref="images/progress-window-copy.eps" format="EPS"/></imageobject>
-	<textobject>
-	  <phrase>A progress window for a copy operation</phrase>
-	</textobject>
+        <imageobject>
+          <imagedata depth="294" fileref="images/progress-window-copy.png"
+          format="PNG" width="417" />
+        </imageobject>
+
+        <imageobject>
+          <imagedata fileref="images/progress-window-copy.eps" format="EPS" />
+        </imageobject>
+
+        <textobject>
+          <phrase>A progress window for a copy operation</phrase>
+        </textobject>
       </mediaobject>
     </figure>
-    <remark>Woah, information overload... we wouldn't seriously recommend anyone ever design a progress dialog that looked like this, would we?  --Calum</remark>
+
+    <remark>Woah, information overload... we wouldn&#39;t seriously recommend
+    anyone ever design a progress dialog that looked like this, would we?
+    --Calum</remark>
 
     <sect2 id="progress-window-checklists">
       <title>Checklist Windows</title>
-      <para>Occasionally a procedure is comprised of a series of user performable actions. In these cases, particularly when it is desirable that the user acquire some familiarity with the actions involved in a procedure, checklist windows may be used.</para>
+
+      <para>Occasionally a procedure is comprised of a series of user
+      performable actions. In these cases, particularly when it is desirable
+      that the user acquire some familiarity with the actions involved in a
+      procedure, checklist windows may be used.</para>
+
       <example>
-	<title>Firewall Setup Wizard</title>
-	<para>A personal firewall setup wizard might install the firewall package, add entries for the firewall to /etc/xinetd.conf, restart the internet super-daemon, and configure the user's web browser to operate through the firewall. It may be desirable that the user is exposed the series of actions involved in setting up the firewall to increase the chances that they will be sucessful in making modifications later, if they so desire.</para>
+        <title>Firewall Setup Wizard</title>
+
+        <para>A personal firewall setup wizard might install the firewall
+        package, add entries for the firewall to /etc/xinetd.conf, restart the
+        internet super-daemon, and configure the user&#39;s web browser to
+        operate through the firewall. It may be desirable that the user is
+        exposed the series of actions involved in setting up the firewall to
+        increase the chances that they will be sucessful in making
+        modifications later, if they so desire.</para>
       </example>
+
       <figure id="example-checklist-in-progress-figure">
-	<title>An example checklist window (In Progress)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/checklist-window-in-progress.png" format="PNG" width="308" depth="280"/></imageobject>
-	  <imageobject><imagedata fileref="images/checklist-window-in-progress.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>A checklist window</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>An example checklist window (In Progress)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="280"
+            fileref="images/checklist-window-in-progress.png" format="PNG"
+            width="308" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/checklist-window-in-progress.eps"
+            format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>A checklist window</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
+
       <figure id="example-checklist-start-figure">
-	<title>An example checklist window (Ready to Start)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/checklist-window-start.png" format="PNG" width="401" depth="308"/></imageobject>
-	  <imageobject><imagedata fileref="images/checklist-window-start.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>A checklist window</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>An example checklist window (Ready to Start)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="308" fileref="images/checklist-window-start.png"
+            format="PNG" width="401" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/checklist-window-start.eps"
+            format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>A checklist window</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
+
       <figure id="example-checklist-done-figure">
-	<title>An example checklist window (Completed)</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/checklist-window-done.png" format="PNG" width="308" depth="269"/></imageobject>
-	  <imageobject><imagedata fileref="images/checklist-window-done.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>A checklist window</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>An example checklist window (Completed)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="269" fileref="images/checklist-window-done.png"
+            format="PNG" width="308" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/checklist-window-done.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>A checklist window</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
-      <itemizedlist><title>Guidelines</title>
-	<listitem><para>If knowing the series of steps in an operation isn't that useful to the user, just use a regular progress window. Remember that you are probably more interested in the information than most users, many of whom will find the technical steps confusing rather than helpful.</para></listitem>
-	<listitem><para>Unlike regular progress windows, checklist windows should not close automatically when the operation is complete and should require explicit user input before they begin. This is because one of their purposes is to inform the user concerning an operation's contingent steps.</para></listitem>
-	<listitem><para>The progress bar indicates progress in the overall operation, not each step. While this is more difficult to program, it is the information most useful to the user. Just estimate how long each of the steps takes relative to each other and assign each step a fixed ratio of the progress bar's progress accordingly.</para></listitem>
-	<listitem><para>Do <emphasis>not</emphasis> use a checklist window for a series of internal programmatic steps, use a regular progress window. For example "Connect to mail server", "Authenticate with mail server", "Download messages", "Disconnect" would <emphasis>not</emphasis> be an appropriate series of steps for a checklist window, but would be appropriate sub-operation steps for a regular progress window.</para></listitem>
+
+      <itemizedlist>
+        <title>Guidelines</title>
+
+        <listitem>
+          <para>If knowing the series of steps in an operation isn&#39;t that
+          useful to the user, just use a regular progress window. Remember
+          that you are probably more interested in the information than most
+          users, many of whom will find the technical steps confusing rather
+          than helpful.</para>
+        </listitem>
+
+        <listitem>
+          <para>Unlike regular progress windows, checklist windows should not
+          close automatically when the operation is complete and should
+          require explicit user input before they begin. This is because one
+          of their purposes is to inform the user concerning an
+          operation&#39;s contingent steps.</para>
+        </listitem>
+
+        <listitem>
+          <para>The progress bar indicates progress in the overall operation,
+          not each step. While this is more difficult to program, it is the
+          information most useful to the user. Just estimate how long each of
+          the steps takes relative to each other and assign each step a fixed
+          ratio of the progress bar&#39;s progress accordingly.</para>
+        </listitem>
+
+        <listitem>
+          <para>Do <emphasis>not</emphasis> use a checklist window for a
+          series of internal programmatic steps, use a regular progress
+          window. For example &#34;Connect to mail server&#34;,
+          &#34;Authenticate with mail server&#34;, &#34;Download
+          messages&#34;, &#34;Disconnect&#34; would <emphasis>not</emphasis>
+          be an appropriate series of steps for a checklist window, but would
+          be appropriate sub-operation steps for a regular progress window.</para>
+        </listitem>
       </itemizedlist>
     </sect2>
   </sect1>
-  
+
   <sect1 id="windows-dialog">
     <title>Dialogs</title>
-    
-    <para>A dialog provides an exchange of information, or dialog, between the user and the application.  Use a dialog to obtain additional information from the user that is needed to carry out a particular command or task.</para>
+
+    <para>A dialog provides an exchange of information, or dialog, between the
+    user and the application. Use a dialog to obtain additional information
+    from the user that is needed to carry out a particular command or task.</para>
+
     <figure>
       <title>An example of a dialog</title>
+
       <mediaobject>
-	<imageobject><imagedata fileref="images/tabbed-dialog-box.png" format="PNG" width="546" depth="423"/></imageobject>
-	<imageobject><imagedata fileref="images/tabbed-dialog-box.eps" format="EPS"/></imageobject>
-	<textobject>
-	  <phrase>An example of a dialog: the Glade project options dialog</phrase>
-	</textobject>
+        <imageobject>
+          <imagedata depth="423" fileref="images/tabbed-dialog-box.png"
+          format="PNG" width="546" />
+        </imageobject>
+
+        <imageobject>
+          <imagedata fileref="images/tabbed-dialog-box.eps" format="EPS" />
+        </imageobject>
+
+        <textobject>
+          <phrase>An example of a dialog: the Glade project options dialog</phrase>
+        </textobject>
       </mediaobject>
     </figure>
-    
-    
+
     <formalpara>
       <title>Title Format:</title>
-      <para><replaceable>Name of command that opened the dialog</replaceable> (without any trailing ellipsis)</para>
+
+      <para><replaceable>Name of command that opened the dialog</replaceable>
+      (without any trailing ellipsis)</para>
     </formalpara>
+
     <formalpara>
       <title>Window Commands:</title>
+
       <para>Minimize, Roll-up/Unroll</para>
     </formalpara>
+
     <formalpara>
-      <title>Buttons:</title><para>Follow the guidelines for Alert buttons, see <xref linkend="alert-button-order"/>.</para>
+      <title>Buttons:</title>
+
+      <para>Follow the guidelines for Alert buttons, see <xref
+      linkend="alert-button-order" />.</para>
     </formalpara>
-    
-    <para>Your dialog may specify a default button, that is activated when the user presses the <keycap>Return</keycap> key.  See <xref linkend="default-buttons"/> for guidance on choosing an appropriate default button.</para>
-    
+
+    <para>Your dialog may specify a default button, that is activated when the
+    user presses the <keycap>Return</keycap> key. See <xref
+    linkend="default-buttons" /> for guidance on choosing an appropriate
+    default button.</para>
+
     <sect2 id="dialog-buttons">
       <title>Additional Buttons</title>
-      
-      <para>You can include other buttons in a dialog's main button area in addition to the affirmative button and <guibutton>Cancel</guibutton>, but any more than one or two such buttons will make the dialog appear complicated and difficult to use.  As with any other button, keep the labels as concise as possible to minimize this effect.</para>
-      
-      <itemizedlist><title>Guidelines</title>
-	<listitem><para>Place buttons that apply to the dialog as a whole in the main button area row at the bottom of the dialog, to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
-	<listitem><para>Place buttons that apply to one or a few controls next to their associated controls. For instance, place a <guibutton>Browse...</guibutton> button at the trailing edge of the text field it fills in.</para></listitem>
-	
+
+      <para>You can include other buttons in a dialog&#39;s main button area
+      in addition to the affirmative button and <guibutton>Cancel</guibutton>,
+      but any more than one or two such buttons will make the dialog appear
+      complicated and difficult to use. As with any other button, keep the
+      labels as concise as possible to minimize this effect.</para>
+
+      <itemizedlist>
+        <title>Guidelines</title>
+
+        <listitem>
+          <para>Place buttons that apply to the dialog as a whole in the main
+          button area row at the bottom of the dialog, to the left of the
+          <guibutton>Cancel</guibutton> button.</para>
+        </listitem>
+
+        <listitem>
+          <para>Place buttons that apply to one or a few controls next to
+          their associated controls. For instance, place a
+          <guibutton>Browse...</guibutton> button at the trailing edge of the
+          text field it fills in.</para>
+        </listitem>
       </itemizedlist>
-      
     </sect2>
-    
+
     <sect2 id="dialog-layout">
       <title>Layout</title>
-      <para>Arrange controls in your dialog in the direction that people read.  In western locales, this is generally left-to-right, top-to-bottom.  Position the main controls with which the user will interact as close to the upper left corner as possible.  Follow similar guidelines for arranging controls within groups in the dialog, and for specifying the order in which controls are traversed using the <keycap>Tab</keycap> key.</para>
-      
-      <para>When opening a dialog, provide initial keyboard focus to the component that you expect users to operate first. This focus is especially important for users who must use a keyboard to navigate your application.</para>
-      
-      <para>Provide and show sensible default values for as many of the controls in your dialog as possible when it is opened, so the user does not have to generate the information from scratch.  These defaults may come from system settings (for example, hostname or IP address), or from information that the user has previously entered in this or another application (for example, email address or network proxy).</para>
-      
-      <para>See <xref linkend="design"/> for more detailed information on arranging controls in dialogs.</para>
-      
-      <para>See <xref linkend="controls-notebooks"/> for information on using tabbed notebook controls in dialogs.</para>
-      
+
+      <para>Arrange controls in your dialog in the direction that people read.
+      In western locales, this is generally left-to-right, top-to-bottom.
+      Position the main controls with which the user will interact as close to
+      the upper left corner as possible. Follow similar guidelines for
+      arranging controls within groups in the dialog, and for specifying the
+      order in which controls are traversed using the <keycap>Tab</keycap>
+      key.</para>
+
+      <para>When opening a dialog, provide initial keyboard focus to the
+      component that you expect users to operate first. This focus is
+      especially important for users who must use a keyboard to navigate your
+      application.</para>
+
+      <para>Provide and show sensible default values for as many of the
+      controls in your dialog as possible when it is opened, so the user does
+      not have to generate the information from scratch. These defaults may
+      come from system settings (for example, hostname or IP address), or from
+      information that the user has previously entered in this or another
+      application (for example, email address or network proxy).</para>
+
+      <para>See <xref linkend="design" /> for more detailed information on
+      arranging controls in dialogs.</para>
+
+      <para>See <xref linkend="controls-notebooks" /> for information on using
+      tabbed notebook controls in dialogs.</para>
     </sect2>
-    
+
     <sect2 id="common-dialogs">
       <title>Common Dialogs</title>
-      <para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colors, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
+
+      <para>The gtk and GNOME libraries provide standard dialogs for many
+      common tasks, including opening and saving files, choosing fonts and
+      colors, and printing. Always use these when the user is performing one
+      of these tasks. You may modify the dialogs to reflect the needs of your
+      particular application (for example, adding preview
+      <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to
+      the Open File dialog in an audio application), but do not change or
+      remove features so much as to make them unrecognizable.</para>
     </sect2>
-    
   </sect1>
 
   <sect1 id="windows-assistant">
     <title>Assistants</title>
+
     <!--<remark>FIXME: need to finish this section</remark>-->
-    <para>An assistant is a secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
-    
-	<para>Because assistants provide a relatively small number of controls on the screen at any given time, they have sufficient space for inline documentation. Therefore, do not include a <guibutton>Help</guibutton> button in an assistant window.  If you cannot make an operation sufficiently clear in an assistant without resorting to a <guibutton>Help</guibutton> button, you need to simplify it further.</para>
+
+    <para>An assistant is a secondary window that guides the user through an
+    operation by breaking it into sequential steps. Assistants are useful for
+    making complex operations less intimidating, as they restrict the
+    information visible to the user at any given moment.</para>
+
+    <para>Because assistants provide a relatively small number of controls on
+    the screen at any given time, they have sufficient space for inline
+    documentation. Therefore, do not include a <guibutton>Help</guibutton>
+    button in an assistant window. If you cannot make an operation
+    sufficiently clear in an assistant without resorting to a
+    <guibutton>Help</guibutton> button, you need to simplify it further.</para>
+
     <formalpara>
       <title>Window Commands:</title>
+
       <para>Close, Minimize/Unminimize, Roll-up/Unroll</para>
     </formalpara>
+
     <sect2 id="assistant-first-page">
       <title>Introductory Page</title>
-      <para>The first page provides the user with the "big picture". Place the title of the assistant in the window's title bar and the assistant's title area, along with an optional picture. Beneath this, state the goal of the assistant, and, if it is not obvious, where the user can find the information the assistant will be asking for.</para>
-      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable></para></formalpara>
-      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Next</guibutton></para></formalpara>
+
+      <para>The first page provides the user with the &#34;big picture&#34;.
+      Place the title of the assistant in the window&#39;s title bar and the
+      assistant&#39;s title area, along with an optional picture. Beneath
+      this, state the goal of the assistant, and, if it is not obvious, where
+      the user can find the information the assistant will be asking for.</para>
+
+      <formalpara>
+        <title>Title Format:</title>
+
+        <para><replaceable>Assistant Title</replaceable></para>
+      </formalpara>
+
+      <formalpara>
+        <title>Buttons:</title>
+
+        <para><guibutton>Cancel</guibutton>, <guibutton>Next</guibutton></para>
+      </formalpara>
+
       <figure>
-	<title>Example of the first page of an assistant</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/assistant-first-page.png" format="PNG" width="452" depth="341"/></imageobject>
-	  <imageobject><imagedata fileref="images/assistant-first-page.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing the first page of an assistant for creating a new email account</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Example of the first page of an assistant</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="341" fileref="images/assistant-first-page.png"
+            format="PNG" width="452" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/assistant-first-page.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing the first page of an assistant for
+            creating a new email account</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
     </sect2>
+
     <sect2 id="assistant-middle-page">
       <title>Content Pages</title>
-      <para>Content pages contain the actual settings of the assistant. Summarize the type of setting present on each content page in its title area. For example, <guilabel>Mail Server</guilabel>.</para>
-      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable> - (<replaceable>Current Page </replaceable> of <replaceable>Total Pages</replaceable>)</para></formalpara>
-      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Next</guibutton></para></formalpara>
+
+      <para>Content pages contain the actual settings of the assistant.
+      Summarize the type of setting present on each content page in its title
+      area. For example, <guilabel>Mail Server</guilabel>.</para>
+
+      <formalpara>
+        <title>Title Format:</title>
+
+        <para><replaceable>Assistant Title</replaceable> - (<replaceable>Current
+        Page </replaceable> of <replaceable>Total Pages</replaceable>)</para>
+      </formalpara>
+
+      <formalpara>
+        <title>Buttons:</title>
+
+        <para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>,
+        <guibutton>Next</guibutton></para>
+      </formalpara>
+
       <figure>
-	<title>Example of a middle page of an assistant</title>
-	<mediaobject>
-	  <imageobject><imagedata fileref="images/assistant-middle-page.png" format="PNG" width="452" depth="341"/></imageobject>
-	  <imageobject><imagedata fileref="images/assistant-middle-page.eps" format="EPS"/></imageobject>
-	  <textobject>
-	    <phrase>Screenshot showing the third page of an email account assistant, asking for mail server information</phrase>
-	  </textobject>
-	</mediaobject>
+        <title>Example of a middle page of an assistant</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata depth="341" fileref="images/assistant-middle-page.png"
+            format="PNG" width="452" />
+          </imageobject>
+
+          <imageobject>
+            <imagedata fileref="images/assistant-middle-page.eps" format="EPS" />
+          </imageobject>
+
+          <textobject>
+            <phrase>Screenshot showing the third page of an email account
+            assistant, asking for mail server information</phrase>
+          </textobject>
+        </mediaobject>
       </figure>
     </sect2>
+
     <sect2 id="assistant-last-page">
       <title>Last Page</title>
-      <para>The last page should summarize the settings that will be changed by the assistant, and how the user can modify them later.</para>
-      <formalpara><title>Title Format:</title><para>Finish <replaceable>Assistant Title</replaceable></para></formalpara>
-      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Finish</guibutton></para></formalpara>
+
+      <para>The last page should summarize the settings that will be changed
+      by the assistant, and how the user can modify them later.</para>
+
+      <formalpara>
+        <title>Title Format:</title>
+
+        <para>Finish <replaceable>Assistant Title</replaceable></para>
+      </formalpara>
+
+      <formalpara>
+        <title>Buttons:</title>
+
+        <para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>,
+        <guibutton>Finish</guibutton></para>
+      </formalpara>
     </sect2>
   </sect1>
 </chapter>
-<!-- Keep this comment at the end of the file
-Local variables:
-mode: xml
-sgml-omittag:nil
-sgml-shorttag:nil
-sgml-namecase-general:nil
-sgml-general-insert-case:lower
-sgml-minimize-attributes:nil
-sgml-always-quote-attributes:t
-sgml-indent-step:2
-sgml-indent-data:t
-sgml-parent-document:nil
-sgml-exposed-tags:nil
-sgml-local-catalogs:("/usr/lib/sgml/catalog")
-sgml-local-ecat-files:("ECAT" "~/sgml/ECAT" "/usr/lib/sgml/ECAT" "/usr/local/lib/sgml/ECAT")
-End:
--->
