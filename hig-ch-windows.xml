@@ -43,9 +43,7 @@
 
       <para>A modal window, while it is open, prevents the user from interacting with other windows in the same application (application modal), or in all applications, including the desktop itself (system modal).  These are used when allowing the user to interact with other windows before the information or task in the modal window has been read or completed could cause data loss or some other serious problem.</para>
 
-	<para>Guidelines:</para>
-
-	<itemizedlist>
+	<itemizedlist><title>Guidelines</title>
 
 		<listitem><para>Use an application modal window only if allowing interaction with other parts of the application while the window is open could cause data loss or some other serious problem.  Provide a clear way of leaving the modal window, such as a <guibutton>Cancel</guibutton> button in a dialog, or a close button in the window title bar.</para></listitem>
 
@@ -272,14 +270,18 @@
 
 	<para>When opening a dialog, provide initial keyboard focus to the component that you expect users to operate first. This focus is especially important for users who must use a keyboard to navigate your application.</para>
 
+	<para>Provide and show sensible default values for as many of the controls in your dialog as possible when it is opened, so the user does not have to generate the information from scratch.  These defaults may come from system settings (for example, hostname or IP address), or from information that the user has previously entered in this or another application (for example, email address or network proxy).</para>
+
 	<para>See <xref linkend="layout"/> for more detailed information on arranging controls in dialogs.</para>
+
+	<para>See <xref linkend="controls-notebooks"/> for information on using tabbed notebook contols in dialogs.</para>
 
 	</sect2>
 	
 	<sect2 id="common-dialogs">
 	<title>Common Dialogs</title>
 
-	<para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colours, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
+	<para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colors, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
 	
 	</sect2>
 
@@ -302,6 +304,9 @@
 	<para>If either these conditions apply to only a few of the controls in your window, arrange those controls together into one or more groups, each with its own <guibutton>Apply</guibutton> button.  Leave the rest of the controls as instant apply.</para>
 
 	<remark>FIXME: screenshot of such a window here</remark>
+
+	<note><title>Applying changes in text fields</title>
+	<para>Do not attempt to validate or apply changes caused by editing a text field control until the user has moved focus to a different control in the window.  Validating after each keypress is usually annoying and unnecessary.</para></note>
 
 	<para>If most of the controls in your window cannot be made instant apply, it may be easier to make the whole window &quot;explicit apply&quot;.   An explicit apply window has three buttons in its button box, plus an optional <guibutton>Help</guibutton> button:</para>
 
