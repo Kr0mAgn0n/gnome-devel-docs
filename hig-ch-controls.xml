@@ -18,7 +18,7 @@
     
     <sect1 id="controls-sensitivity">
       <title>Sensitivity</title>
-      <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for gtk controls) to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus (although assistive technologies will still be able to detect and report it).</para>
+      <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for GTK controls) to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus (although assistive technologies will still be able to detect and report it).</para>
       
       <para>It is usually better to make a control insensitive than to hide it altogether.  This way, the user can learn about functionality they may be able to use later, even if it is not available right now.</para>
       
@@ -35,7 +35,7 @@
 	
       </figure>
       
-      <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for gtk controls) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is probably better to hide the tab altogether.</para>
+      <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for GTK controls) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is probably better to hide the tab altogether.</para>
 
       <sect2 id="controls-locked">
 	<title>Locked Controls</title>
@@ -85,7 +85,7 @@
     <sect1 id="controls-entry">
       <title>Text Entry Fields</title>
 
-      <para>Text entry fields are used for entering one or more lines of plain text.  In gtk2, the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html">GtkEntry</ulink> control is used for single-line text entry, and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtktextview.html">GtkTextView</ulink> for multiple-line text entry.  Although GtkTextView can also be used for formatted, multi-lingual text editing and display, when used in dialogs for simple text entry its behavior should be kept as close as possible to that of a GtkEntry control.</para>
+      <para>Text entry fields are used for entering one or more lines of plain text.  In GTK 2, the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html">GtkEntry</ulink> control is used for single-line text entry, and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtktextview.html">GtkTextView</ulink> for multiple-line text entry.  Although GtkTextView can also be used for formatted, multi-lingual text editing and display, when used in dialogs for simple text entry its behavior should be kept as close as possible to that of a GtkEntry control.</para>
 
       <figure>
 	  <title>Dialog fragment showing single and multi-line entry fields</title> 
@@ -123,7 +123,7 @@
 	  
 	</listitem>
 	
-	<listitem><para>Where possible, provide an additional or alternative control that limits the required input to the valid range. For example, provide a <link linkend="controls-range">slider</link> if the required input is one of a fixed range of integers, or provide access to a <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkcalendar.html">GtkCalendar</ulink> control if the user has to enter a valid date:</para>  
+	<listitem><para>Where possible, provide an additional or alternative control that limits the required input to the valid range. For example, provide a <link linkend="controls-spin-boxes">spinbox</link> or <link linkend="controls-sliders">slider</link> if the required input is one of a fixed range of integers, or provide access to a <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkcalendar.html">GtkCalendar</ulink> control if the user has to enter a valid date:</para>  
 
 	  <figure>
 	    <title>Text entry field requiring a date as input, with a button beside it to pop up a GtkCalendar control to simplify the task</title> 
@@ -154,7 +154,7 @@
 	<para>If you need to provide a keyboard shortcut that activates the default button while a GtkTextView control has focus, use <keycombo><keycap>Ctrl</keycap><keycap>Return</keycap></keycombo>.</para>
 	
 	<note><title>Note</title>
-	  <para>Gtk does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates_default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so you will have to implement the focus change behavior yourself.</para>
+	  <para>GTK does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates_default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so you will have to implement the focus change behavior yourself.</para>
 	</note>
 	
       </sect2>
@@ -174,26 +174,75 @@
       
     </sect1>
     
-    <sect1 id="controls-range">
-      
-      <title>Sliders and Spinboxes</title>
-      
-      <para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
+    <sect1 id="controls-spin-boxes">
+      <title>Spin Boxes</title>
+
+      <para>A spin box is a text box that accepts a range of values. It has two arrow buttons attached that allow the user to increase or decrease the current value by a fixed amount.</para>
+
+      <para>picture</para>
+
       <para>Recommendations:</para>
       
       <itemizedlist>
 	
-	<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it is always from "min" to "max"</para></listitem>
+	<listitem><para>Use spin boxes for numerical input only.  Use a list or option menu when you need the user to select from fixed data sets of other types.</para></listitem>
+
+	<listitem><para>Use a spin box if the numerical value is meaningful or useful for the user to know, and the valid input range is unlimited or fixed at one end only.  For example, a control for specifying the number of iterations of some action, or a timeout value.  If the range is fixed at both ends, or the numerical values are arbitrary (for example, a volume control), use a slider control instead.</para></listitem>
 	
-	<listitem><para>Use a slider if it is useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
-	
-	<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
-	
-	<listitem><para>Always give sliders and spinboxes a label, positioned above or to the left of the control and using sentence capitalization.</para></listitem>
-	
+	<listitem><para>Label the spin box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the spin box.</para></listitem>	
+
       </itemizedlist>
       
-      <para>Sometimes it is useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+      
+    </sect1>
+    
+    <sect1 id="controls-sliders">
+      
+      <title>Sliders</title>
+      
+      <para>A slider allows the user to quickly select a value from a fixed, ordered range, or to increase or decrease the current value.  The control looks like the type of slider that you might find on an audio mixing desk or a hi-fi's graphic equalizer.  In GTK, you implement a slider using the GtkHScale or GtkVScale controls, for horizontal or vertical sliders respectively.</para>
+
+      <figure>
+	<title>A simple slider control</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-slider.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A slider control used to change the stereo audio balance between left and right speakers</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>Use a slider when:</para>
+	  <itemizedlist>
+	    <listitem><para>adjusting the value relative to its current value is more important than choosing an absolute value.  For example, a volume control: the average user will usually think about turning the volume up or down to make a sound louder or quieter, rather than setting the peak output to a specific decibel value.</para></listitem>
+	    <listitem><para>it is useful for the user to control the rate of change of the value in real time.  For example, to monitor the effects of a color change in a live preview window as they drag the RGB sliders.</para></listitem>
+	    
+	  </itemizedlist>
+	</listitem>
+	
+	<listitem><para>Label the slider with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the slider.</para></listitem>	
+
+	<listitem><para>Mark significant values along the length of the slider with text or tick marks.  For example the left, right and center points on an audio balance control (see example above).</para></listitem>
+
+	<listitem><para>For large ranges of integers (more than about 20), and for ranges of floating point numbers, consider providing a text box or spin box that is linked to the slider's value.  This allows the user to quickly set or fine-tune the setting more easily than they could with the slider control alone:</para>
+	  <figure>
+	    <title>Slider controls with linked spin boxes for direct numeric entry or fine adjustment</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-slider-spinbox.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Three slider controls used to change RGB values, each with a spinbox beside them to facilitate direct numeric entry</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
+	
+      </itemizedlist>
       
     </sect1>
     
@@ -203,7 +252,7 @@
       <para>A button initiates an action when the user clicks it.</para>
 
       <figure>
-	<title>Typical gtk buttons as found in a modal dialog</title>
+	<title>Typical GTK buttons as found in a modal dialog</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-buttons.png" format="PNG"/>
@@ -523,15 +572,26 @@
 	    <listitem><para>the list has more than one column</para></listitem>
 	    <listitem><para>the list has only one column, but the user may wish to re-order the list.  This should rarely be true of single column lists.</para></listitem>
 	  </itemizedlist>
-	  <para>Do not use column headers if the list has a single column but sorting is not required&mdash;the static text label above or to the left of the list is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
+	  <para>Do not use column headers if the list has a single column but sorting is not required.  The static text label above or to the left of the list is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
 
 	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
 
-	<listitem><para>Consider using a check box list (picture required) for multiple-selection lists, as these make it more obvious that multiple selection is possible.</para></listitem>
+	<listitem><para>Consider using a check box list for multiple-selection lists, as these make it more obvious that multiple selection is possible:</para>
+	 <figure>
+	    <title>A simple check box list</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-list-checkbox.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Picture of list control with two columns.  The first column consists of checkboxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+
+	  <para>If you do this, you should normally set the list control itself to be single-selection, but this depends on the particular task for which it will be used.</para>
+	</listitem>
 	
-	<listitem><para>For multiple selection lists, show the number of items currently selected in a static text label below the list, for example:</para>
-	  <para><guilabel>Names selected: 3</guilabel></para>
-	  <para>This also makes it more obvious that multiple selection is possible.</para></listitem>
+	<listitem><para>For multiple selection lists, show the number of items currently selected in a static text label below the list, for example, <guilabel>Names selected: 3</guilabel>.  Such a label also makes it more obvious that multiple selection is possible.</para></listitem>
 	
 	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection lists, if appropriate to the task.</para></listitem>
 	
@@ -575,11 +635,22 @@
 	
 	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
 	
-	<listitem><para>Consider using a check box tree (picture required) for multiple-selection trees, as these make it more obvious that multiple selection is possible.</para></listitem>
+	<listitem><para>Consider using a check box tree for multiple-selection trees, as these make it more obvious that multiple selection is possible:</para>
+	  <figure>
+	    <title>A simple check box tree</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-tree-checkbox.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Picture of tree control with two columns.  The first column consists of checkboxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	  <para>If you do this, you should normally set the tree control itself to be single-selection, but this depends on the particular task for which it will be used.</para>
+	</listitem>
 	
-	<listitem><para>For multiple selection trees, show the number of items currently selected in a static text label below the tree, for example:</para>
-	  <para><guilabel>Names selected: 3</guilabel></para>
-	  <para>This also makes it more obvious that multiple selection is possible.</para></listitem>
+	<listitem><para>For multiple selection trees, show the number of items currently selected in a static text label below the tree, for example, <guilabel>Names selected: 3</guilabel>.  Such a label also makes it more obvious that multiple selection is possible.</para></listitem>
 	
 	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection trees, if appropriate to the task.</para></listitem>
 	
