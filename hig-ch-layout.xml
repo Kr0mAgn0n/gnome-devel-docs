@@ -260,7 +260,7 @@
 	<sect2 id="layout-dialogs">
 	<title>Dialogs</title>
 	
-	<para>When a user is scanning a complex preferences dialog consisting of many labels and corresponding checkboxes, text fields, and combo boxes, it is easy to see how she can quickly become hindered by poor layout in the visual design. </para>
+	<para>When a user is scanning a complex preferences dialog consisting of many labels and corresponding checkboxes, text fields, and combo boxes, it is easy to see how she can quickly become hindered by poor layout in the visual design. For information on laying out Alerts, see <xref linkend="alert-spacing"/></para>
 
 	<figure><title>Improved window layout</title>
 	  
@@ -301,7 +301,7 @@
 
 	<para>Since the labels are all similar in length, they should be left-aligned. Now the user has a firm left margin to anchor the eye and scan the list of items vertically with more ease. If most of the labels greatly differ in length in a component grouping within a layout, they should be right-aligned so that the components don't end up far away from the corresponding labels.</para>
 
-	<para>Use of frames to separate component groupings within a layout is deprecated. Use spacing and bold headers instead to delineate categorization. The latter is more effective because there are less gratuitous lines to distract the user from the main content in a layout.</para>
+	<para>Use of frames with visible bordersto separate component groupings within a layout is deprecated. Use spacing and bold headers instead to delineate categorization. The latter is more effective because there are less gratuitous lines to distract the user from the main content in a layout. See <xref linkend="controls-frames"/> for more details.</para>
 
 	<para>Try to keep components consonant with each other in terms of size and alignment. This is particularly important within a component grouping in a layout so that the user's ability to quickly scan information is not sacrificed. Minimize the need for the user's eye to jump around too much when scanning a layout.</para>
 	
@@ -324,44 +324,56 @@
 
       </sect2>
 
-      <sect2 id="window-layout-spacing">
-	<title>Spacing and Alignment</title>
-
-	<para>Provide adequate space between controls and groups of controls. This white space will make it easier for the user to find the information they need. A basic rule of thumb is to put space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated componentts, it's good to leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is good to have between the contents of a dialog window and the window borders.</para>
-
-	<para>Break long lists of choices into smaller groups. For lists of less than about eight items, use radio buttons or check boxes. For longer lists, use a list control or option menu.</para>
-
-	<para>Try to keep elements of the same type correspond to each other in left justification. For instance, titles of component groupings as in figure ("General," "Actions") should be left-aligned and justified with each other. Indentation of, say, 12 to 18 pixels is useful to denote hierarchy and association. By the same token, aim to minimize the number of alignment points in your window. An alignment point is an imaginary vertical or horizontal line through your window which touches the edge of one or more labels or controls in the window. Right justification is pleasing to the eye but not crucial.</para>
-	
-	<para>Guidelines:</para>
-
+    <sect2 id="window-layout-spacing">
+      <title>Spacing and Alignment</title>
+      
+      <para>Provide adequate space between controls and groups of controls. This white space will make it easier for the user to find the information they need. A basic rule of thumb is to put space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated componentts, it's good to leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is good to have between the contents of a dialog window and the window borders.</para>
+      
+      <para>Break long lists of choices into smaller groups. For lists of less than about eight items, use radio buttons or check boxes. For longer lists, use a list control or option menu.</para>
+      
+      <para>Try to keep elements of the same type correspond to each other in left justification. For instance, titles of component groupings as in figure ("General," "Actions") should be left-aligned and justified with each other. Indent category members 12 pixels to denote hierarchy and association. By the same token, aim to minimize the number of alignment points in your window. An alignment point is an imaginary vertical or horizontal line through your window which touches the edge of one or more labels or controls in the window. Right justification is pleasing to the eye but not crucial.</para>
+      
+      <para>Guidelines:
 	<itemizedlist>
-		<listitem><para>DO lay out components left-to-right, top-to-bottom. Generally, the first element the user is meant to encounter should be in the top-left, and the last in the bottom right. Keep in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.</para></listitem>
-
-    		<listitem><para>DO space in increments of 6 pixels; using "white" or blank spacing and indentation to delineate component groupings is cleaner and preferable than using graphical separators such as "title borders" or frames.
-
-          		<itemizedlist>
-			<listitem><para>In Glade, set the default border width and spacing for GTkTables, GtkVBoxes and GtkHBoxes to 3 pixels.</para></listitem>
-
-    			<remark>FIXME: correct/fill in technical information; keep in mind that some people reading this might not be engineers but designers.</remark>
-			</itemizedlist>
-		</para></listitem>
-
-    		<listitem><para>Align controls in your layout EXACTLY. The eye is very sensitive to aligned and unaligned objects. If nothing lines up with anything else in a window, it will be very hard for the user to scan the contents and find the information he wants. Two things that almost line up, but not quite, are equally distracting.</para></listitem>
-
-    		<listitem><para>Be consistent. Use the same spacing, alignment, and component sizes in all dialogs appearing in your application. The OK and Cancel buttons, for example, should all appear exactly 12 vertical and horizontal pixels from the lower right corner of every dialog window.</para></listitem>
-
-    		<listitem><para>Ensure that light and dark areas as well as spacing are equally distributed around the window. Keep in mind that every control or group of controls in your window has a visual "weight," depending on its overall size, color, and how much white space it includes. Darker, larger areas are "heavier," while paler, smaller areas are "lighter."</para></listitem>
-
-    		<listitem><para>Do not design windows that are more than 50% longer in one dimension than in the other. People are more comfortable looking at windows and dialogs whose dimensions stay within the golden ratio (about 1.6 to 1), a ratio that artists and architects have used to create aesthetically-pleasing buildings and paintings for thousands of years.</para></listitem>
-	 	
-    		<!-- <para><listitem>Do not resize components to fit arbitrary or uncommon layout needs. Make it a practice to use GtkTables, GtkVBox and GtkHBox container widgets at their default /* Calum, is there such a thing? */ row, column and border sizes. This will help ensure that a lot of layout and alignment work is done for you automatically.</para></listitem>-->
-
+	  <listitem><para>Lay out components left-to-right, top-to-bottom. Generally, the first element the user is meant to encounter should be in the top-left, and the last in the bottom right. Keep in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.</para></listitem>
+	  
+	  <listitem><para>Space in increments of 6 pixels; using "white" or blank spacing and indentation to delineate component groupings is cleaner and preferable than using graphical separators such as "title borders" or frames.
+	    </para></listitem>
+	  
+	  <listitem><para>Align controls in your layout EXACTLY. The eye is very sensitive to aligned and unaligned objects. If nothing lines up with anything else in a window, it will be very hard for the user to scan the contents and find the information he wants. Two things that almost line up, but not quite, are equally distracting.</para></listitem>
+	  
+	  <listitem><para>Be consistent. Use the same spacing, alignment, and component sizes in all dialogs appearing in your application. The OK and Cancel buttons, for example, should all appear exactly 12 vertical and horizontal pixels from the lower right corner of every dialog window.</para></listitem>
+	  
+	  <listitem><para>Ensure that light and dark areas as well as spacing are equally distributed around the window. Keep in mind that every control or group of controls in your window has a visual "weight," depending on its overall size, color, and how much white space it includes. Darker, larger areas are "heavier," while paler, smaller areas are "lighter."</para></listitem>
+	  
+	  <listitem><para>Do NOT design windows that are more than 50% longer in one dimension than in the other. People are more comfortable looking at windows and dialogs whose dimensions stay within the golden ratio (about 1.6 to 1), a ratio that artists and architects have used to create aesthetically-pleasing buildings and paintings for thousands of years.</para></listitem>
+	  
+	  <!-- <para><listitem>Do not resize components to fit arbitrary or uncommon layout needs. Make it a practice to use GtkTables, GtkVBox and GtkHBox container widgets at their default /* Calum, is there such a thing? */ row, column and border sizes. This will help ensure that a lot of layout and alignment work is done for you automatically.</para></listitem>-->
+	  
 	</itemizedlist>
-
-      </sect2>
-
-    </sect1>
+      </para>
+      <tip><title>Technical Details for Proper Layout</title>
+	<para>Set <property>Border Width</property> for the GtkDialog to <userinput>12</userinput>. Place a GtkVBox containing as many rows as you wish to have categories inside the control area of the GtkDialog, and set the <property>Spacing</property> for the GtkVBox to <userinput>18</userinput>.</para>
+	<para>In turn, each category should be composed of a GtkVBox with two rows. Set the <property>Spacing</property> to <userinput>6</userinput>.
+	  <itemizedlist>
+	    <listitem><para>In the top row, place a label for the category header. Make the label bold using the Pango markup <programlisting>&lt;span weight="bold"&gt;<replaceable>Category Header</replaceable>&lt;/span&gt;</programlisting> Set the label property <property>Use Markup</property> to <userinput>Yes</userinput>, and <property>X Align</property> to <userinput>0.0</userinput> to left align the label.</para></listitem>
+	    <listitem><para>Place a 2-columned GtkHBox in the lower row of the top-level GtkVBox.
+		<itemizedlist>
+		  <listitem><para>In the left column, place a label containing four space characters. This will serve to indent the category contents.</para></listitem>
+		  <listitem><para>In the right column, place a GtkVBox containing a row per control you wish to place in the category. Set the <property>Spacing</property> to <userinput>6</userinput>.
+		      <itemizedlist>
+			<listitem>For left-side labelled controls such as text boxes, option menus, and many others, place a 2 columned GtkHBox inside the row with a label in the left column and the corresponding control in the right. Set the <property>Spacing</property> on the GtkHBox to <userinput>6</userinput>. Place all labels such as this (for the whole window) in the same GtkSizeGroup (there is currently no way to do this using only Glade, you will have to use code as well). This will align the controls to their right, even between categories, which is important for allowing quick visual scans.</listitem>
+			<listitem>For right-side labelled controls such as check boxes and radio buttons, simply place them directly in the row.</listitem>
+		      </itemizedlist>
+		    </para></listitem>
+		</itemizedlist>
+	      </para></listitem>
+	  </itemizedlist>
+	</para>
+      </tip>
+    </sect2>
+    
+  </sect1>
 
      <sect1 id="text-labels">
       <title>Text Labels</title>

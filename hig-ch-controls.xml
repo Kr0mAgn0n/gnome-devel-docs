@@ -988,26 +988,38 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  
       </itemizedlist>
             
-    </sect1>
-
-    <sect1 id="controls-frames">
-      <title>Frames and Separators</title>
-      <remark>FIXME: need to finish!</remark>
-      <para>A frame is a box with a title that you can draw around controls to organise them into functional groups.  A separator is a single horizontal or vertical line that you can use to divide windows into functional groups.</para>
-      <para>picture</para>
-      <para>Recommendations:</para>
-
+  </sect1>
+  
+  <sect1 id="controls-frames">
+    <title>Frames and Separators</title>
+    <para>A frame is a box with a title that you can draw around controls to organise them into functional groups.  A separator is a single horizontal or vertical line that you can use to divide windows into functional groups.</para>
+    <para>Frames with a border around their perimeter have traditionally been used for denoting groups of related controls. This is advantageous because it physically seperates disimilar controls, and also avoids repitition of the frame's label in individual member control labels. The downside of bordered frames is that they add extra visual noise that can both make a window appear more complex than it really is, and reduce the ability to quickly scan window elements.</para>
+    <para>Rather than using frames with borders, GNOME applications should use frames without borders, bold labels (to make the categories stand out), and indented contents. This combined, with good layout and spacing, is usually more than adequate to replace bordered frames.</para>
+    <figure>
+      <title>Preferred frame style, using bold labels, spacing and indentation</title>
+      <mediaobject><imageobject><imagedata fileref="images/controls-frames.png" format="PNG"/>
+	</imageobject>
+	<textobject><phrase>Frame showing the preferred style described above</phrase></textobject>
+      </mediaobject>
+    </figure>
+    <figure>
+      <title>Traditional frame style, using borders (avoid this style)</title>
+      <mediaobject><imageobject><imagedata fileref="images/controls-old-frames.png" format="PNG"/>
+	</imageobject>
+	<textobject><phrase>Frame showing the traditional style described above</phrase></textobject>
+      </mediaobject>
+    </figure>
+    <para>See <xref linkend="layout-dialogs"/> for technical details on implementing the preferred frame style in GTK.</para>
+    <para>Recommendations:
       <itemizedlist>
-	<listitem><para>Before you add a frame or separator to any window, consider carefully if you really need it.  It is usually better to do without, if the groups can be separated by space alone.  Do not use frames and separators to compensate for poor control layout or alignnment.</para>
-	<para>examples</para>
+	<listitem><para>Before you add a frame with a visible border or separator to any window, consider carefully if you really need it.  It is usually better to do without, if the groups can be separated by space alone.  Do not use frames and separators to compensate for poor control layout or alignnment.</para>
 	</listitem>
-	
 	<listitem><para>Do not mix framed and unframed groups in the same window.</para></listitem>
 	<listitem><para>Do not nest one frame inside another.  This results in visual clutter.</para></listitem>
-	
       </itemizedlist>
-
-    </sect1>
+    </para>
+    
+  </sect1>
       
 
 </chapter>
