@@ -47,7 +47,7 @@
 
 	<para>The menubar is normally visible at all times and is always accessible from the keyboard, so make all the commands available in your application available on the menubar.</para>
 
-	<note><title>Full screen mode</title><para>When your application is running in full screen mode, hide the menubar by default.  However, make its menus and items accessible from the keyboard as usual, and provide a non-keyboard method of showing the menubar again (standard method TBD)</para></note>
+	<note><title>Full screen mode</title><para>When your application is running in full screen mode, hide the menubar by default.  However, make its menus and items accessible from the keyboard as usual. Pressing <keycap>ESC</keycap> should cause the application to leave full screen mode. A <guibutton>Leave Fullscreen</guibutton> button should be placed in the upper right hand corner of the window. The button should disappear after the mouse is unused for 5 seconds, and should appear again when the moused is moved. Alternately, in applications where the mouse is used frequently in full screen mode, all but a two pixel row of the button may be slid off the top of the screen. The button should slide back on the screen when the mouse moves near it.</para></note>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -59,7 +59,7 @@
 
 		  <listitem><para>Menu titles on a menubar are single words with their first letter capitalized.  Do not use spaces in menu titles, as this makes them easily-mistaken for two separate menu titles.  Do not use compound words (such as <guimenu>WindowOptions</guimenu>) or hyphens (such as <guimenu>Window-Options</guimenu>) to circumvent this guideline.</para></listitem>
 
-		<listitem><para>Do not provide a mechanism for hiding the menubar, as this may be activated accidentally, resulting in the application being "broken" for some users.  If your users do require this option, provide a button elsewhere in the window (on a toolbar or in a toolbox, for example) that opens the menubar again.</para></listitem>
+		<listitem><para>Do not provide a mechanism for hiding the menubar, as this may be activated accidentally. Some users will not be able to figure out how to get the menu bar back in this case.</para></listitem>
 	
 	</itemizedlist>
 
