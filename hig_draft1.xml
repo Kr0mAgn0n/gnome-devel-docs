@@ -320,7 +320,7 @@ Any group of items operating in the same manner as a group of radio buttons shou
 
 <para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
 
-<para>Shortcuts consist of the Ctrl key and an alphanumeric key, or of one of the keys F1-F12, Insert, Delete, Home, End, Page Up or Page Down. The Shift key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the Shift key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
+<para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
 
 </sect3>
 
@@ -331,7 +331,7 @@ Any group of items operating in the same manner as a group of radio buttons shou
 <title>Standard Menus</title>
 
 <para>
-There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order: File, Edit, View, Format, Tools, <replaceable>application-specific menus</replaceable>, Help. (Help should be the rightmost menu, but it should not be flush-right.)
+There are a number of standard drop-down menus for common operations. The menus on a menubar should be placed in the following order: <guimenu>File</guimenu>, <guimenu>Edit</guimenu>, <guimenu>View</guimenu>, <guimenu>Format</guimenu>, <guimenu>Tools</guimenu>, <replaceable>application-specific menus</replaceable>, <guimenu>Help</guimenu>. (Help should be the rightmost menu, but it should not be flush-right.)
 </para>
 
 <sect3 id="menu-standard-file">
@@ -340,9 +340,12 @@ There are a number of standard drop-down menus for common operations. The menus 
 
 <para>
 <!-- Note from GJM: I'm updating this to use markup rather than semi-literal symbols.
-	  The HTML version will be not show underlines until we get that fixed,
-	  but in the meanwhile we'll have nice printed versions.
+          The HTML version will be not show underlines until we get that fixed,
+          but in the meanwhile we'll have nice printed versions.
           We might want to use graphics instead.
+     Later note from GJM: DocBook sucks.
+          There's no reasonable way to handle this without graphics.
+          I'll be screenshooting, cropping, etc. then adding them in.
   -->
 <literallayout class="monospaced"><guimenu><accel>F</accel>ile</guimenu>
 <guimenuitem><accel>N</accel>ew                Ctrl-N</guimenuitem>
@@ -358,7 +361,7 @@ There are a number of standard drop-down menus for common operations. The menus 
 <guimenuitem>Print Preview...</guimenuitem>
 <guimenuitem>Page Setup...</guimenuitem>
 <guimenuitem>---</guimenuitem>
-<guimenuitem>Close All</guimenuitem>
+<guimenuitem>Close All                         Shift-Ctrl-W</guimenuitem>
 <guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem></literallayout>
 </para>
 
@@ -383,7 +386,7 @@ Applications which do not obviously operate on files may rename this menu to som
 <title>File Access</title>
 
 <para>
-On document-editing applications, the items <guimenuitem>New</guimenuitem>, <guimenuitem>Open</guimenuitem>, <guimenuitem>Save</guimenuitem>, <guimenuitem>Save As</guimenuitem> and <guimenuitem>Close</guimenuitem> must be present, <guimenuitem>Revert</guimenuitem> should be present, and <guisubmenu>Open Recent</guisubmenu> may be present.
+On document-editing applications, the items <guimenuitem><accel>N</accel>ew</guimenuitem>, <guimenuitem><accel>O</accel>pen</guimenuitem>, <guimenuitem><accel>S</accel>ave</guimenuitem>, <guimenuitem>Save <accel>A</accel>s</guimenuitem> and <guimenuitem><accel>C</accel>lose</guimenuitem> must be present, <guimenuitem>Revert</guimenuitem> should be present, and <guisubmenu>Open <accel>R</accel>ecent</guisubmenu> may be present.
 </para>
 
 <variablelist>
@@ -396,7 +399,7 @@ Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> comman
 </para>
 
 <para>
-Where the application may create a number of different types of document, the <guimenuitem>New</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <guimenuitem>New <replaceable>document type</replaceable></guimenuitem> and the most commonly used item should be the first entry in the submenu and should be given the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.
+Where the application may create a number of different types of document, the <guimenuitem><accel>N</accel>ew</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <guimenuitem>New <replaceable>document type</replaceable></guimenuitem> and the most commonly used item should be the first entry in the submenu and should be given the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.
 </para>
 <para>
 A blank document will not necessarily be truly blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates -->
@@ -417,7 +420,7 @@ Opens an existing document. The user should be presented with a standard file op
 <term>Open Recent</term>
 <listitem>
 <para>
-Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem>Open</guimenuitem> does.
+Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.
 </para>
 </listitem>
 </varlistentry>
@@ -601,7 +604,7 @@ Redoes the following action in the history. After the user has travelled back th
 <term>Cut</term>
 <listitem>
 <para>
-Removes the contents of the current selection and places it onto the clipboard. The current selection should be removed in the same manner as <guimenuitem>Delete</guimenuitem>. This command should only be available when a section of the document is selected.
+Removes the selected content and places it onto the clipboard. The content should be removed in the same manner as <guimenuitem><accel>D</accel>elete</guimenuitem>. This command should only be available when a section of the document is selected.
 </para>
 </listitem>
 </varlistentry>
@@ -610,7 +613,7 @@ Removes the contents of the current selection and places it onto the clipboard. 
 <term>Copy</term>
 <listitem>
 <para>
-Copies the contents of the current selection onto the clipboard. This command should only be available when a section of the document is selected.
+Copies the selected content onto the clipboard. This command should only be available when a section of the document is selected.
 </para>
 </listitem>
 </varlistentry>
@@ -619,7 +622,7 @@ Copies the contents of the current selection onto the clipboard. This command sh
 <term>Paste</term>
 <listitem>
 <para>
-Inserts the contents of the clipboard at the caret or, if part of the document is selected, replaces the selection with the clipboard contents.
+Inserts the contents of the clipboard at the caret or, if part of the document is selected, replaces that part with the clipboard contents.
 </para>
 </listitem>
 </varlistentry>
@@ -628,7 +631,7 @@ Inserts the contents of the clipboard at the caret or, if part of the document i
 <term>Delete</term>
 <listitem>
 <para>
-Deletes the current selection. This should remove the current selection or perform an equivalent action such as blanking out an area of an image.
+Deletes the selected content.
 </para>
 </listitem>
 </varlistentry>
@@ -923,7 +926,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 	<itemizedlist>
 	  
-	  <listitem><para>Allow the user to over-ride the control center toolbar defaults for your particular application in the application's <guilabel>Preferences</guilabel> dialog.  In particular, ensure that the user can:</para>
+	  <listitem><para>Allow the user to override the control center toolbar defaults for your particular application in the application's <guilabel>Preferences...</guilabel> dialog.  In particular, ensure that the user can:</para>
 	    
 	    <itemizedlist>
 
@@ -1140,13 +1143,44 @@ Brings up the About dialog for the application. The dialog should contain the na
     </sect2>
   </sect1>
 
+<sect1 id="alerts">
+<title>Alerts</title>
+<para>An alert is a modal secondary window for . . .</para>
+<sect2 id="informational-alert">
+<title>Informational Alerts</title>
+<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
+</sect2>
+<sect2 id="confirmational-alert">
+<title>Confirmational Alert</title>
+<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+<para>The confirmational alert will present . . . </para>
+</sect2>
+</sect1>
+
 <sect1 id="dialogs">
-  
+<title>Dialogs</title>
+<para>A dialog is a application modal secondary window for acquiring information necessary to complete a task.</para>
+</sect1>
+
+<sect1 id="toolboxes">
+<title>Toolboxes</title>
+<para>A toolbox, or utility window, is a non-modal secondary window . . . </para>
+</sect1>
+
+<sect1 id="assistants">
+<title>Assistants</title>
+<para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+</sect1>
+
+<!--
+<sect1 id="dialogs">
+
 <title>Dialogs</title>
 
-<!-- TODO:
+< ! - - TODO:
 - Double-clicking to close a dialog
--->
+- - >
 	
 <sect2 id="dialog-principles">
 	
@@ -1378,7 +1412,7 @@ The color selector should be used wherever the user has to select a color. If th
 </sect2>
 
 </sect1>
-
+-->
 
 <sect1 id="controls">
 
