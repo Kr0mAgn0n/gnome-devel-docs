@@ -250,8 +250,8 @@
 	<example>
 		<title>X-Chat .desktop file</title>
 		 <programlisting>
-	Name=X-Chat IRC Client
-	GenericName=IRC Client
+	Name=X-Chat IRC
+	GenericName=IRC
 		 </programlisting>
 	</example>
 
@@ -345,7 +345,46 @@
 	</example>
 
     </sect2>
-  </sect1>
+   </sect1>
+    <sect1 id="gconf-keys">
+
+      <title>GConf Keys</title>
+
+      <para>GConf keys are required to have long and short descriptions for each key.  Many keys have no interface through the application, so for someone administering the key values from another application each description field will be the only interface available to them.</para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Short Descriptions should be short, less than 8 words, describing the purpose of the key</para></listitem>
+		<listitem><para>Long Description should be complete in describing the possible values of the key and the effects that those values have on the application</para></listitem>
+	</itemizedlist>
+
+	<example>
+		<title>Example descriptions for GConf Keys from gnome-terminal</title>
+		<informaltable frame="all">
+			
+			<tgroup cols="3" align="left">
+			  <thead>
+				<row>
+					<entry>Key</entry>
+		      			<entry>Short Description</entry>
+				      <entry>Long Description</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>background_type</entry>
+					<entry>Background type</entry>
+					<entry>Type of terminal background. May be &quot;solid&quot; for a solid color, &quot;image&quot; for an image, or &quot;transparent&quot; for pseudo-transparency. </entry>
+				</row>	
+	     			<row>
+					<entry>delete_binding</entry>
+					<entry>Effect of the Delete key</entry>
+					<entry>Sets what code the delete key generates. Possible values are &quot;ascii-del&quot; for the ASCII DEL character, &quot;control-h&quot; for Control-H (AKA the ASCII BS character), &quot;escape-sequence&quot; for the escape sequence typically bound to backspace or delete. &quot;escape-sequence&quot; is normally considered the correct setting for the Delete key. </entry>
+				</row>	
+			</tbody>
+	         	</tgroup>
+		</informaltable>
+	</example>
+   </sect1>
   
   <sect1 id="desktop-mimedatabase">
     <title>Mapping Document Types to Applications</title>
