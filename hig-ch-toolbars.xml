@@ -9,7 +9,8 @@
       <note><para>Although the latter is just a side-effect of the fact that palettes can't be created with the standard toolbar widgets&mdash; it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</para></note>
 -->
     
-    
+
+<!--    
     <figure id="mail-toolbar-example">
       <title>Example toolbar from an email composition window</title>
       
@@ -21,6 +22,7 @@
 	</textobject>
       </mediaobject>
     </figure>
+-->
     
     <figure id="web-toolbar-example">
       <title>Example toolbar from a web browser window</title>
@@ -33,7 +35,8 @@
 	</textobject>
       </mediaobject>
     </figure>
-    
+
+<!--    
     <figure id="fileman-toolbar-example">
       <title>Example toolbar from a file manager window</title>
       
@@ -56,8 +59,10 @@
 	  <phrase>Example text editor toolbar</phrase>
 	</textobject>
       </mediaobject>
-      
     </figure>
+
+-->
+
     <!-- Notes from GJM:
     Text-on-the-side toolbars are now part of Gtk+.
     Stock items have mnemonics/access keys. I don't think they should.
@@ -65,6 +70,8 @@
     
 
 <!-- CB-Fig: The four figures of the toolbars in rapid succession right at the beginning of the chapter is a little overwhelming, and possibly useless before the user reads anything about these.  Perhaps save them for later, when each type is discussed, or more details are given about toolbars so that the figures actually demonstrate something more than variety.  -->
+
+
     <!-- CFB: Assuming for now therefore that we ought to be recommending Gtk toolbars, but trying to keep the text as widget-neutral as possible
   <note>
   <title>For discussion</title>
@@ -81,18 +88,15 @@
       
       <para>As well as following the recommendations and examples given in this section, look at the toolbars in other well-designed GNOME 2.0 applications for guidance when deciding what&mdash; and what not&mdash; to put on your application's toolbar.</para>
       
-      <para>However many toolbars or palette windows your application provides, by default there should be one main toolbar that provides a subset of the application's overall functionality.  Many of the buttons on this toolbar will be the same regardless of the type of application.</para>
+      <para>However many toolbars or <link linkend="toolbox-windows">toolbox windows</link> your application offers, provide one main toolbar by default that contains a representative subset of the application's overall functionality.  Many of the buttons on this toolbar will be the same regardless of the type of application.</para>
       
-      <para>For example, the main toolbar in an office application should nearly always have <guilabel>New</guilabel>, <guilabel>Open</guilabel> and <guilabel>Save</guilabel> as its first three toolbar buttons.  Similarly, the first few buttons in a browser application should always include <guilabel>Back</guilabel>, <guilabel>Forward</guilabel>, <guilabel>Stop</guilabel> and <guilabel>Reload</guilabel>, in that order.</para>
+      <para>For example, the main toolbar in an office application will nearly always have <guilabel>New</guilabel>, <guilabel>Open</guilabel> and <guilabel>Save</guilabel> as its first three toolbar buttons.  Similarly, the first few buttons in a browser application should always include <guilabel>Back</guilabel>, <guilabel>Forward</guilabel>, <guilabel>Stop</guilabel> and <guilabel>Reload</guilabel>, in that order.</para>
       
-      <para>Recommendations:</para>
-     <!-- CB-Fig: A composite figure for all the listitems might be useful. --> 
-      <itemizedlist>
+      <!-- CB-Fig: A composite figure for all the listitems might be useful. --> 
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Place only the most commonly-used application functions on your toolbars.  Don't just add buttons for every menu item.</para></listitem>
-	
-	<listitem><para>Applications that require a single toolbar with a few buttons should use the standard GtkToolbar control.  Complex applications that require more buttons or multiple toolbars should consider using the Evolution/Abiword/Gnumeric style of "slim" toolbar.</para></listitem>
-	
+		
 	<listitem><para>By default, have your toolbars appear directly below the main menu bar.</para></listitem>
 	
 	<listitem><para>Allow toolbars to be turned on and off in your application's <guilabel>Preferences</guilabel> dialog and by using the <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> menu item.  If there is more than one toolbar, they are turned on and off by individual entries in the <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> submenu.</para></listitem>
@@ -102,11 +106,11 @@
 	
 	<listitem><para>Arrange toolbar buttons in the same order and groupings as their equivalents on the main menu bar. In particular, always group sets of mutually-exclusive toolbar buttons.</para></listitem>
 	
-	<listitem><para>Don't add buttons for <guilabel>Help</guilabel>, <guilabel>Close</guilabel> or <guilabel>Quit</guilabel> to your toolbar by default, as these are rarely used and the space is better used for more useful controls.  Similarly, <guilabel>Undo</guilabel>, <guilabel>Redo</guilabel> and the standard clipboard functions should only be provided by default if there is space on the toolbar to do so without sacrificing more useful, application-specific controls.</para></listitem>
+	<listitem><para>Don't add buttons for <guilabel>Help</guilabel>, <guilabel>Close</guilabel> or <guilabel>Quit</guilabel> to your toolbar by default, as these are rarely used and the space is better used for more useful controls.  Similarly, only provide buttons for <guilabel>Undo</guilabel>, <guilabel>Redo</guilabel> and the standard clipboard functions if there is space on the toolbar to do so without sacrificing more useful, application-specific controls.</para></listitem>
 	
 	<listitem><para>Provide options to show toolbar buttons as text, graphics or both&mdash; see <xref linkend="view-toolbar"/> for the menus to use for controlling toolbar display.  Also provide an option to return all toolbars in your application to the control center default for this setting.</para></listitem>
 	
-	<listitem><para>Allow users to configure toolbars to contain their own selection of commands, in whatever order they choose.  If you do this, you should also provide an option to return the toolbars to their default configuration.</para></listitem>
+	<listitem><para>Allow users to configure toolbars to contain their own selection of commands, in whatever order they choose.  Provide an option in the configuration dialog to return the toolbars to their default configuration.</para></listitem>
 	
 	<listitem><para>Save your application's toolbar position and contents as part of the application configuration, and restore them when the application is restarted.</para></listitem>
 	
@@ -115,19 +119,18 @@
       <sect2 id="vertical-toolbars">
 	<title>Vertical Toolbars</title>
 
-	<para>In general, vertical toolbars should be avoided.  The eye does not scan vertically as well as it does horizontally, and groups of mutually exclusive buttons are less obvious when arranged vertically.</para>  
-	<para>Also, if the user has configured GNOME to place text labels underneath toolbar button icons rather than to one side, a vertical toolbar becomes almost unusable.  The amount of space it occupies on the screen is almost doubled, and it can be difficult to tell which label is associated with which button.</para>
-	
+	<para>In general, don't use vertical toolbars.  The eye does not scan vertically as well as it does horizontally, groups of mutually exclusive buttons are less obvious when arranged vertically, and showing button labels is more awkard and less space-efficient.  Also, some toolbar controls just cannot be used vertically, such as dropdown lists.</para>
+  	
 	<para>Only consider using a vertical toolbar if:</para> 
 	
 	<itemizedlist>
 
-	  <listitem><para>the configuration of the application window means that there would be a lot of wasted space if a horizontal toolbar was used instead (Example required: gnome-meeting?), or</para></listitem>
-	  <listitem><para>your application would otherwise require three or more rows of toolbars to appear below the main menu bar by default.  Note however that in this situation, the better alternative would normally be to display fewer toolbars by default.</para></listitem>
+	  <listitem><para>the configuration of the application window means there would be a lot of wasted space if a horizontal toolbar was used instead, or</para></listitem>
+	  <listitem><para>your application would otherwise require three or more rows of toolbars to appear below the main menu bar by default.  Note however that in this situation, the better alternative is usually to display fewer toolbars by default.</para></listitem>
 
 	</itemizedlist>
 
-	<para>In either case, ensure the user can still configure the toolbar to appear horizontally below the main menu bar if they prefer.</para>
+	<para>If you must use a vertical toolbar, ensure the user can configure it to appear horizontally if they prefer.</para>
       
       </sect2>
 
@@ -138,12 +141,8 @@
       <title>Controlling Display and Appearance</title>
       
       <para>For each toolbar in your application, the user should be able to choose whether or not to show that toolbar, and whether to show its contents as icons only, text only or both.</para>
-      
-	<remark>Ideally, default settings for icons/text/both and text beside/below should be set in the control center, but over-rideable in each individual application&mdash; is this the current plan for 2.0?  If not, default for each application should probably be Icons Only.</remark>
-      
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+                  
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Allow the user to override the control center toolbar defaults for your particular application in the application's <guilabel>Preferences</guilabel> dialog.  In particular, ensure that the user can:</para>
 	  
@@ -153,7 +152,7 @@
 	    
 	    <listitem><para>return the icon/text/both status for all toolbars in your applicaton to the system default</para></listitem>
 
-	    <listitem><para>choose to show text labels either to the side or below toolbar icons, and to return this setting to the system default</para></listitem>
+	    <listitem><para>choose to show text labels either to the side of some or below all toolbar icons, and to return this setting to the system default</para></listitem>
 	    
 	    <listitem><para>return the layout and ordering of all toolbars in your application to the application default</para></listitem>
 	    
@@ -161,7 +160,7 @@
 	  
 	</listitem>
 	
-	<listitem><para>If your application has a single toolbar, allow the user to turn it on or off by placing a <guimenuitem>Toolbar</guimenuitem> menu item on the application's <guimenu>View</guimenu> menu that can be checked or unchecked.</para></listitem>
+	<listitem><para>If your application has a single toolbar, allow the user to turn it on or off with a <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> checkbox menu item.</para></listitem>
 	
 	<listitem><para>If your application has two or three toolbars, allow the user to turn them on or off individually by placing a menu item for each one on the application's <guimenu>View</guimenu> menu.  For example, <guimenuitem>Main Toolbar</guimenuitem>, <guimenuitem>Drawing Toolbar</guimenuitem>, <guimenuitem>Formatting Toolbar</guimenuitem>. Place the items together in a single group on the menu, with <guimenuitem>Main Toolbar</guimenuitem> first (if your application has one), followed by the others in alphabetical order.</para></listitem>
 	
@@ -181,25 +180,22 @@
 	</listitem>
 	
       </itemizedlist>
-      
 
-<!-- CB-Fig: Fix this figure, it is corrupted.  Plus, it might not be necessary after the composite figure.  -->
-
-	<remark>How should MDI and toolbars be handled?</remark>
-      
     </sect1>
     <sect1 id="labels-and-tooltips">
       <title>Labels and Tooltips</title>
       
-      <para>Many controls that appear on your toolbar will require a text label that appears below or beside it.  This should normally be a single word description of that control's function.</para>
+      <para>Most controls that appear on your toolbar will require a text label that appears on, below or beside it.  Keep this description as short as possible, preferably a single verb.  For example, <guibutton>Open</guibutton> or <guibutton>Undo</guibutton>.</para>
       
-      <para>Every control that appears on your toolbar should have a tooltip, whether or not that control has an associated text label.</para>
-      
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <para>Every control that appears on your toolbar should have a tooltip, whether or not that control has an associated text label.  The tooltip should be a concise description of the control, but should provide more information than its text label where possible.  For example, <guilabel>Open an existing document</guilabel>, or <guilabel>Undo last operation</guilabel>.</para>
+            
+      <itemizedlist><title>Guidelines</title>
+
+	<listitem><para>For buttons that correspond directly to menu items, make the text label the same as the menu item, but without any trailing ellipsis.  For example, <guibutton>Open</guibutton>, <guibutton>Save</guibutton>.</para></listitem>
+
+	<listitem><para>Do not provide access keys for toolbar buttons.  Since toolbars are in the same keyboard focus context as the menubar, it would be too difficult to provide unique access keys for every menu title and toolbar control.  Toolbars are primarily intended as a shortcut for mouse users, although they are keyboard-navigable for accessibility reasons.</para></listitem>
 	
-	<listitem><para>If your toolbar is configured to show labels below button icons, show a label for every button.  For example:</para>
+	<listitem><para>If your toolbar is configured to show labels below button icons, show a label for every control on the toolbar.  For example:</para>
 	  
 	  <figure>
 	    <title>Toolbar with labels under all buttons</title>
@@ -208,34 +204,31 @@
 		<imagedata fileref="images/GtkToolbar_gedit.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-		<phrase>Toolbar with labels under all buttons</phrase>
+		<phrase>Toolbar showing labels under all controls</phrase>
 	      </textobject>
 	    </mediaobject>
 	    
 	  </figure>
+
 	</listitem>
 	
-	<listitem><para>Don't provide access keys for toolbar buttons.</para></listitem>
-
-	<listitem><para>If your toolbar is configured to show labels beside button icons rather than below them, don't show labels for every button unless the user has selected "text only" mode.  Decide which buttons will be most frequently used, place those first on the toolbar, show the labels only for those buttons, and place separators between each of them to make it clear which label refers to which icon. For example:</para>
+	<listitem><para>If your toolbar is configured to show labels beside button icons rather than below them (using the &quot;priority text&quot; setting), do not show labels for every button.  Show labels only for the buttons that will be most-frequently used.  Choose no more than four such icons on any one toolbar, otherwise the effect will be diluted and the toolbar will become very wide.  For example:</para>
 	  
 	  <figure>
-	    <title>Toolbar with labels beside the first few buttons only</title>
+	    <title>Toolbar with &quot;priority text&quot; labels beside the first few buttons only</title>
 	    <mediaobject><imageobject>
 		<imagedata fileref="images/EvoToolbar.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-		<phrase>Toolbar with labels beside the first few items only</phrase>
+		<phrase>Toolbar with "priority text" labels beside the first few items only</phrase>
 	      </textobject>
 	    </mediaobject>
 	  </figure>
+
+	<para>If you are unsure which buttons will be most frequently used, choose the first few buttons on your toolbar and provide labels for those only.</para>
 	</listitem>
 	
-	
-	<listitem><para>Ensure toolbar controls have tooltips are displayed when the pointer is paused over a toolbar button. For buttons that directly correspond to menu items, make the tooltip label the same as the menu item name. For toolbar buttons with text labels, make the text label the same as the menu item name.</para></listitem>
-	
-	<listitem><para>Use header capitalization (also known as "title caps") for toolbar button text and tooltips.  For example, <guilabel>Save As</guilabel>, and <guilabel>Always on Top</guilabel>.  See <xref linkend="layout-capitalization"/> for more information.</para></listitem>
-	
+	<listitem><para>Ensure all toolbar controls have tooltips. The tooltip should be more descriptive than the corresponding menu item, if it has one, but still concise.  For example, <guilabel>Create new document</guilabel> for the <guibutton>Open</guibutton> toolbar button.  Use sentence capitalization for tooltips&mdash;see <xref linkend="layout-capitalization"/> for more information.</para></listitem>
 	
       </itemizedlist>
       
