@@ -67,6 +67,12 @@
             <revremark>Incorporate fixes from various technical reviewers.
             </revremark>
          </revision>
+         <revision>
+            <revnumber>0.3</revnumber>
+            <date>9 September 2002</date>
+            <revremark>Added section describing the GNOME autoconf macros.
+            </revremark>
+         </revision>
       </revhistory>
 
    </articleinfo>
@@ -1272,6 +1278,214 @@ INCLUDES = \
             <envar>DATADIRNAME</envar> appropriately for the platform. </para>
          </listitem>
       </itemizedlist>
+
+   </sect1>
+
+   <sect1 id="gnome-macros">
+      <title>GNOME autoconf macros</title>
+
+      <para>Some of the things that you need to do in a
+      <filename>configure.in</filename> script are common to almost every
+      application you will write. For this reason, the &autoconf; package
+      provides a large selection of macros with the standard distribution. In
+      addition to this, there are a number of GNOME-specific macros that are
+      available to all developers through the
+      <application>gnome-common</application> module in CVS. In this section, I
+      give a brief description of each of these macros, the flags they take and
+      the autoconf variables they set. </para>
+
+      <para>As much as possible, you should try to use the macros in this list,
+      rather then reinventing the wheel for your own purposes. These macros are
+      widely used and have been already been mostly debugged with the
+      <emphasis>many eyes</emphasis> approach. </para>
+
+      <variablelist>
+         <varlistentry>
+            <term>GNOME_COMPILE_WARNINGS</term>
+            <listitem>
+               <para>Allows the builder to pass
+               <option>--enable-compile-warnings</option>
+               <optional>=no/minimum/yes/maximum/error</optional> to turn on
+               various compiler warnings at build time. For
+               non-<application>gcc</application> compilers, this option does
+               nothing. </para>
+
+               <itemizedlist>
+                  <listitem>
+                     <para><literal>minimum</literal> is equivalent to
+                     <option>-Wall -Wunusesd</option>. </para>
+                  </listitem>
+                  <listitem>
+                     <para><literal>yes</literal> is equivalent to
+                     <option>-Wall -Wunused -Wmissing-prototypes
+                     -Wmissing-declarations</option>. </para>
+                  </listitem>
+                  <listitem>
+                     <para><literal>maximum</literal> is equivalent to
+                     <option>-Wall -Wunused -Wchar-subscripts
+                     -Wmissing-declarations -Wmissing-prototypes
+                     -Wnested-externs -Wpointer-arith</option>. </para>
+                  </listitem>
+                  <listitem>
+                     <para><literal>error</literal> is the same as
+                     <literal>maximum</literal>, with the addition of
+                     <option>-Werror</option>. </para>
+                  </listitem>
+               </itemizedlist>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_CXX_WARNINGS</term>
+            <listitem>
+               <para>Performs the same function as <systemitem
+               class="macro">GNOME_COMPILE_WARNINGS</systemitem>, but for C++
+               programs.  Provides a <option>--enable-cxx-warnings</option>
+               <optional>=no|minimum|yes</optional> flag, as well as a
+               <option>--enable-iso-cxx</option> flag. </para>
+
+               <para>For <option>--enable-cxx-warnings</option>,
+               <literal>yes</literal> enables <option>-Wall
+               -Wnounused</option>. The <literal>minimum</literal> option does
+               not appear to do anything. </para>
+
+               <para>The <option>--enable-iso-cxx</option> option will try to
+               warn if the the code being compiled is not ISO C++. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_DEBUG_CHECK</term>
+            <listitem>
+               <para>Provides a <option>--enable-debug</option>
+               <optional>=yes|no</optional> option. If <literal>yes</literal>,
+               sets the <literal>GNOME_ENABLE_DEBUG</literal> variable, so this
+               test is suitable when you want to permit simple on/off style
+               debugging. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_GTKDOC_CHECK</term>
+            <listitem>
+               <para>Provides a <option>--enable-gtk-doc</option>
+               <optional>=yes|no|auto</optional> flag, which tests for the
+               presence of the <application>gtk-doc</application> package and
+               then sets <literal>enable_gtk_doc</literal> if the builder
+               selected <literal>yes</literal> or <literal>auto</literal> and
+               the binaries are present. The default setting is
+               <literal>auto</literal> which means that the API documentation
+               is built if the requisite packages are available, but the
+               configuration process does not fail if the packages cannot be
+               found. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_CXX_CHECK</term>
+            <listitem>
+               <para>Checks for a working C++ compiler. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_CHECK_PKGCONFIG(script-if-enabled, [failflag])</term>
+            <listitem>
+               <para>Checks for the presence of the
+               <application>pkg-config</application> binary. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_REQUIRE_PKGCONFIG</term>
+            <listitem>
+               <para>Same as <systemitem
+               class="macro">GNOME_CHECK_PKGCONFIG</systemitem>, except the
+               configure process fails if the binary is not present. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_PLATFORM_GNOME_2(default, [force])</term>
+            <listitem>
+               <para>Perform some minimal checks to ascertain that we are
+               trying to build on a GNOME 2 platform. This sets the
+               <literal>GNOME_INTERFACE_VERSION</literal> variable for use by
+               packages that might have different code for different versions.
+               It also requires <application>pkg-config</application> to be
+               present. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME_PTHREAD_CHECK</term>
+            <listitem>
+               <para>Checks for the presence of the pthread library and sets
+               <literal>PTHREAD_LIB</literal> to the appropriate libraries to
+               link against. In general, you should not need this, since it is
+               preferable to use the &glib; threading API. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>GNOME2_X_CHECKS</term>
+            <listitem>
+               <para>Performs some basic X11 related checking (determining if
+               the session manager library is available, is xpm library is
+               available and what flags need passing to the X compiler). You
+               will probably not need to use this unless you are writing a very
+               low level application. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>AC_STRUCT_LINGER</term>
+            <listitem>
+               <para>Checks to see if struct <literal>linger</literal> is
+               available in <filename class="headerfile">socket.h</filename>.
+               </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>AC_CHECK_UTMP</term>
+            <listitem>
+               <para>Checks for the presence of certain fields in the
+               <literal>UTMP</literal> structure and sets variables if they are
+               present (where the presence of the <literal>ut_foo</literal>
+               field means that <literal>HAVE_UT_UT_FOO</literal> is set). The
+               following fields are checked for availability:
+               <literal>ut_host</literal>, <literal>ut_pid</literal>,
+               <literal>ut_id</literal>, <literal>ut_name</literal>,
+               <literal>ut_type</literal>,
+               <literal>ut_exit.e_termination</literal>,
+               <literal>ut_user</literal>, <literal>ut_time</literal>,
+               <literal>ut_tv</literal>, <literal>ut_syslen</literal>. </para>
+            </listitem>
+         </varlistentry>
+
+         <varlistentry>
+            <term>AC_CHECK_CURSES</term>
+            <listitem>
+               <para>Tries to determine which version of
+               <application>curses</application> is on the user's system. Also
+               provides options for forcing the choice with one of
+               <option>--with-sunos-curses</option>,
+               <option>--with-osf1-curses</option>,
+               <option>--with-vcurses</option> <optional>=incdir</optional>,
+               and <option>--ncurses</option> <optional>=dir</optional>. This
+               was originally used in Midnight Commander and may be of use to
+               you if you wish to provide a non-graphical fallback version of
+               your application. </para>
+
+               <para>This macro will return with the
+               <literal>CURSES_LIBS</literal> and
+               <literal>CURSES_INCLUDEDIR</literal> variables set and ready to
+               be substituted into other files via <systemitem
+               class="macro">AC_SUBST</systemitem>. </para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
 
    </sect1>
 
