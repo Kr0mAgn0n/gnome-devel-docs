@@ -200,11 +200,11 @@
 
   <sect1 id="alert-windows">
     <title>Alerts</title>
-    <remark>FIXME: need to redo the spacing and icons in the alert shots. I think I have a glade file for these somewhere</remark>
+    <remark>FIXME: need to redo the spacing and icons in the alert shots. I think I have a glade file for these somewhere. -Seth</remark>
     <para>An alert will have a dialog-like frame and be object modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
     <formalpara><title>Title Format</title><para>Alert windows should have no titles. Titles on these windows almost always mirror the window's primary text anyway, and only serve to throw extra words on the screen. Users will be able to read and respond to titleless alerts faster because there is less visual noise and confounding text.</para></formalpara>
     <formalpara><title>Resizing</title><para>Alert windows should generally not be resizable. If you feel the user may need to resize an alert, it is probably an indication that the alert is too long anyway.</para></formalpara>
-
+    <para>Alerts should not appear in the system window list. Consequently care should be taken that alerts stay above their parent window.</para>
       <!--    
     <para role="library-problem">Buttons in GTK dialogues end up the same size (sized to the button with the longest text label). This is wrong, and looks bad.</para>
     <para role="library-problem">Automatic wrapping of labels happens at funny places and ends up looking wrong. Labels should wrap before the last whole word that does not fit in the allotted space.</para> 
@@ -380,11 +380,11 @@
   <sect1 id="assistant-windows">
     <title>Assistants</title>
     <remark>FIXME: need to finish this section</remark>
-    <para>An assistant is an application modal secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are also useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
-    <para>Because assistants provide a relatively small number of controls on the screen at any given time, they have sufficient space for inline documentation. Thus out of band documentation, such as a <guibutton>Help</guibutton> button, should not be present. If you can't make an operation sufficiently clear in an assistant without feeling the need for a <guibutton>Help</guibutton> button, you should seriously reconsider your presentation of the information or the approach you are taking to the interface. It is probably overly complex.</para>
+    <para>An assistant is a secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are also useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
+    <para>Because assistants provide a relatively small number of controls on the screen at any given time, they have sufficient space for inline documentation. Other forms of documentation, such as a <guibutton>Help</guibutton> button, should be avoided. If you can't make an operation sufficiently clear in an assistant without feeling the need for a <guibutton>Help</guibutton> button, you should seriously reconsider your presentation of the information or the approach you are taking to the interface. It is probably overly complex.</para>
     <formalpara>
       <title>Window Commands:</title>
-      <para>FIXME, Roll-up/Unroll</para>
+      <para>Close, Minimize/Unminimize, Roll-up/Unroll</para>
     </formalpara>
     <sect2 id="assistant-first-page">
       <title>Introductory Page</title>
@@ -405,7 +405,7 @@
     <sect2 id="assistant-middle-page">
       <title>Content Pages</title>
       <para>Content pages contain the actual settings of the assistant. The title bar should contain a title for the current page, summarizing the types of settings present on the page (for example "Mail Server").</para>
-      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable> - (<replaceable>Current Page </replaceable> of <replaceable>Total Pages</replaceable></para></formalpara>
+      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable> - (<replaceable>Current Page </replaceable> of <replaceable>Total Pages</replaceable>)</para></formalpara>
       <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Next</guibutton></para></formalpara>
       <figure>
 	<title>Example of a middle page of an assistant</title>
