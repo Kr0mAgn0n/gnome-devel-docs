@@ -1,0 +1,1443 @@
+<?xml version="1.0" standalone="no"?>
+<!-- vim: set ai tw=80 ts=3 sw=3 et: -->
+
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+                  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+
+<!ENTITY malcolm-email "<email>malcolm@commsecure.com.au</email>">
+<!ENTITY glib "<application>GLib</application>">
+<!ENTITY libltdl "<application>libltdl</application>">
+<!ENTITY autoconf "<application>Autoconf</application>">
+<!ENTITY automake "<application>Automake</application>">
+<!ENTITY gcc "<application>gcc</application>">
+]>
+
+<article>
+   <articleinfo>
+      <title>Portable Programming In UNIX-like Environments</title>
+      <subtitle>Writing GNOME applications that will run everywhere</subtitle>
+      <titleabbrev>Portable Programming</titleabbrev>
+      <author>
+         <firstname>Malcolm</firstname><surname>Tredinnick</surname>
+         <affiliation>
+            <address>&malcolm-email;</address>
+         </affiliation>
+      </author>
+      <copyright>
+         <year>2002</year>
+         <holder>Malcolm Tredinnick</holder>
+      </copyright>
+      <legalnotice id="legalnotice">
+         <para>Permission is granted to copy, distribute and/or modify this
+         document under the terms of the <citetitle>GNU Free Documentation
+         License</citetitle>, Version 1.1 or any later version published by the
+         Free Software Foundation with no Invariant Sections, no Front-Cover
+         Texts, and no Back-Cover Texts.  A copy of the license can be found
+         <ulink url="FIXME">here</ulink> or in the file COPYING-DOCS which
+         shipped as part of this package. </para>
+
+         <para>Translators are given permission to use the current title of
+         this document in any translated versions. </para>
+
+         <para>Many of the names used by companies to distinguish their
+         products and services are claimed as trademarks. Where those names
+         appear in any GNOME documentation, and those trademarks are made aware
+         to the members of the GNOME Documentation Project, the names have been
+         printed in caps or initial caps. </para>
+
+      </legalnotice>
+
+      <revhistory>
+         <revision>
+            <revnumber>0.1</revnumber>
+            <date>4 September 2002</date>
+            <revdescription>
+               <para>Initial version. This document is maintained in the <ulink
+               url="http://cvs.gnome.org">GNOME CVS respository</ulink>. It is
+               in the <filename class="directory">gnome-devel-docs</filename>
+               module under <filename
+               class="directory">gnome-devel-docs/articles/portable-programming</filename>.
+               </para>
+            </revdescription>
+         </revision>
+      </revhistory>
+
+   </articleinfo>
+
+   <abstract>
+      <para>Developing high quality GNOME software requires attention to the
+      fact that the software will be required to run on a number of platforms.
+      Writing code to meet this requirement is not necessarily simple,
+      particularly for developers who have gained most of their experience on
+      only a single platform. This article will try to provide some guidance
+      in the area of writing portable code and includes copious references to
+      more comprehensive documents available online and in printed form. </para>
+   </abstract>
+
+   <sect1 id="introduction">
+      <title>Introduction</title>
+
+      <para>The <acronym>GNOME</acronym> suite of libraries and applications is
+      targeted to run on any <trademark>Unix</trademark>-like platform. No two
+      such platforms are identical, however, and so meeting this target
+      requires a certain amount of flexibility from developers. In this
+      document, we cover some of the pertinent information that has been
+      provided by developers working on multiple platforms. Adherence to the
+      concepts covered here will make it easier for you and others to build
+      your code directly from the source tarball, regardless of the
+      distribution or operating system that is being used. </para>
+
+      <para>Most of the material in the following sections is not specific to
+      GNOME development. It applies equally to general software development on
+      Unix platforms. However, since I am writing for an audience of GNOME
+      developers, GNOME-specific technologies have been mentioned where they
+      help overcome difficulties. </para>
+
+      <para>The focus throughout this document is on common scenarios. To that
+      end, most of the discussion is about <literal>C</literal> programming and
+      shell scripting (which is commonly used in the configuration and building
+      of packages). Developers working in other languages should take the
+      principles mentioned here and abstract them to their own specific cases.
+      In particular, the general considerations in the section about <xref
+      linkend="general-portability"/> should provide some food for thought.
+      </para>
+
+      <sect2 id="feedback-requested">
+         <title>Feedback and contributions requested</title>
+
+         <para>This document is a collection of my own experiences,
+         contributions on mailing lists and IRC by developers, and reading
+         various books and online resources. The task of writing fully portable
+         code is enormous and naturally only a subset of the topic can be
+         covered here. </para>
+
+         <para>If I have omitted anything that developers feel is particularly
+         important, please let me know
+            <footnote>
+               <para>Send mail to &malcolm-email;. </para>
+            </footnote>
+         . An incomplete reference work is often worse than no reference at
+         all, since it imbues the reader with a sense of false confidence in
+         the document's correctness. I have no wish to make any developer's job
+         harder by inadvertently understating the difficulties at a particular
+         stage.</para>
+
+      </sect2>
+
+   </sect1>
+
+   <sect1 id="general-portability" xreflabel="general portability">
+      <title>The need to consider portability</title>
+
+      <para>Throughout this document, we will see many specific examples of
+      differences between platforms. Naturally this cannot be an exhaustive
+      coverage of the situation. Consequently, in this section we consider the
+      general concepts by which portability issues can be categorised.
+      Discovering a new portability problem in your code and considering which
+      category or categories it falls under may lead you to consider other
+      places in your code where the same assumptions have been made. </para>
+
+      <para>It is probably appropriate to define a piece of terminology before
+      continuing. Whenever I talk about a <emphasis>platform</emphasis> in the
+      following text, I am referring to a distinct combination of operating
+      system and installed software. It is obvious to most people that there
+      will be differences between <systemitem
+      class="osname">Solaris</systemitem> and <systemitem
+      class="osname">Linux</systemitem> operating systems. Less obvious is the
+      fact that a Red Hat installation and a Debian installation may also have
+      pertinent differences; particularly in the location of some standard
+      pieces of software.</para>
+
+      <para>When attempting to write portable software, you should bear in mind
+      that your code may be expected to run on any of the following platforms.
+      </para>
+
+      <itemizedlist spacing="compact">
+         <title>Common platforms running GNOME</title>
+         <listitem>
+            <para>Various <systemitem class="osname">Linux</systemitem>
+            distributions (Red Hat, Debian, Slackware, Gentoo, Mandrake and
+            SuSE are all common). </para>
+         </listitem>
+         <listitem>
+            <para><systemitem class="osname">Solaris</systemitem>. </para>
+         </listitem>
+         <listitem>
+            <para>Apple's <systemitem class="osname">OS X</systemitem>. </para>
+         </listitem>
+         <listitem>
+            <para>BSD-based systems (including <systemitem
+            class="osname">FreeBSD</systemitem>, <systemitem
+            class="osname">Open BSD</systemitem> and <systemitem
+            class="osname">Net BSD</systemitem>). </para>
+         </listitem>
+         <listitem>
+            <para>Hewlett-Packard's <systemitem
+            class="osname">HP-UX</systemitem>. </para>
+         </listitem>
+         <listitem>
+            <para>Some 64-bit Unix systems such as Tru64. </para>
+         </listitem>
+      </itemizedlist>
+
+      <para>Note that although some of the constituent libraries in a GNOME
+      installation, such as <application>libxml2</application>,
+      &glib; and <application>GTK+</application> run on
+      <systemitem class="osname">Win32</systemitem>, we do not consider coding
+      for those platforms here. There is simply too much variation from the
+      baseline of common Unix-derived functionality. </para>
+
+      <sect2 id="byte-ordering">
+         <title>Byte ordering considerations</title>
+
+         <para>Consider two common situations:</para>
+
+         <para>Hardware based on IA32 processors (Intel- and AMD-based systems)
+         store multi-byte quantities in memory in
+         <firstterm>little-endian</firstterm> order.  That is, the least
+         significant byte is stored first, followed by the other bytes in order
+         up to the most significant byte. </para>
+
+         <para>Machines based on the Power PC chip use
+         <firstterm>big-endian</firstterm> ordering for their storage. Other
+         processor manufacturers also make a choice between whether to use big-
+         or little-endian storage
+            <footnote>
+               <para>In fact, there is another storage method, called
+               <firstterm>PDP-endian</firstterm> where words are stored in
+               little-endian order, but the bytes within words are stored in
+               big-endian order. Such a byte ordering is not currently
+               supported within the GNOME libraries. </para>
+            </footnote>
+         .</para>
+
+         <para>The consequence of these ordering differences is that you cannot
+         assume how your data is laid out in memory. You also cannot pass
+         binary data to another machine without first converting to a common
+         format. Along with data transmission considerations, we will see more
+         effects of endianness in the section about <xref
+         linkend="C-programming"/>. </para>
+
+         </sect2>
+
+      <sect2 id="type-sizes">
+         <title>Type sizes</title>
+
+         <para>Different compilers provide data types with different sizes. For
+         example, a character may not always be just one byte in size. There
+         may or may not be a 64 bit integer type available. The specifier that
+         is passed to <literal>printf</literal>-style format strings for
+         displaying or reading a <literal>long long</literal> value may be
+         platform specific. The list of possible differences is extremely long
+         and painful to accommodate. </para>
+
+         <para>The general, time honoured solution to working around compiler
+         differences is to code to the lowest commonly available types and
+         sizes (usually as specified in the C standard). It is also possible to
+         test for the existence of types of particular sizes and use them where
+         available; coding in alternate solutions for more limited platforms.
+         Wherever possible, you should write code that is not tightly tied to
+         the exact compiler implementation of your instructions. </para>
+
+      </sect2>
+
+      <sect2 id="libraries">
+         <title>Library implementations</title>
+
+         <para>Over time, new Unix-like systems have appeared via a number of
+         different means. Some of been branches from an established version.
+         Others, such as Linux, have come into existence from scratch. In all
+         cases, the <acronym>OS</acronym> developers have aimed for similar
+         functionality, however no system has turned out identically to another
+         system. </para>
+
+         <para>The differing development histories and timelines of the various
+         platforms means that their core libraries often end up with annoying
+         little idiosyncrasies. From a developer's perspective, this implies
+         that not every function you would like to use will be present in all
+         libraries. For the most part, using functions from the POSIX.1
+         standard should be fairly safe, but even that is not a guarantee of
+         success, since many systems are not yet fully POSIX-compliant. Ways to
+         work around the problem of library API differences will be discussed
+         in both the <xref linkend="C-programming"/> and <xref
+         linkend="configuration-checks"/> sections. </para>
+
+      </sect2>
+
+      <sect2 id="installation-difference">
+         <title>Installation differences</title>
+
+         <para>In parallel with the library differences mentioned in the
+         previous section, different systems will do things in slightly
+         different ways for no apparent reason.  The rationale is that it has
+         always been done in that particular way on that system, so changing
+         would introduce incompatibilities for long-term customers. </para>
+
+         <para>Particularly pertinent to this point are the installation
+         locations of various required packages. Even the standard location of
+         a GNOME installation can vary wildly from system to system. </para>
+
+         <para>In the Linux world, incompatibilities due to historical
+         accidents are slowly becoming a thing of the past, due to the gradual
+         introduction of the <firstterm>Linux Standards Base</firstterm>
+         (<acronym>LSB</acronym>), incorporating the <firstterm>File Hierarchy
+         Standard</firstterm> (<acronym>FHS</acronym>). However, there remains
+         differences even on such similar platforms, so you can imagine the
+         potential for variation once you start to build on Solaris or OS X.
+         </para>
+
+         <para>Installation differences (which is really what I am talking
+         about here) are primarily detected during the configuration phase just
+         before building a package and then the package integrates itself
+         smoothly with the existing platform during installation. See the
+         section about <xref linkend="configuration-checks"/> for some examples
+         of common cases. </para>
+
+      </sect2>
+
+   </sect1>
+
+   <sect1 id="C-programming" xreflabel="programming in C">
+      <title>Issues when programming in C</title>
+
+      <para>When it comes to writing portable C code, we need to bear in mind
+      two categories of differences. Firstly, we have platform-specific items.
+      This encompasses API and linking issues. Secondly there are the
+      differences caused by the C compiler and supporting tools. This is of
+      importance when you are trying to assert tighter control over the code
+      that is generated from your source than might occur naturally. </para>
+
+      <para>That being said, focusing on the differences between platforms is
+      probably the wrong way to approach portability problems. A superior
+      approach is to see if there are ways you can avoid the portability issues
+      altogether. </para>
+
+      <sect2 id="leveraging">
+         <title>Leveraging existing portable code</title>
+
+         <para>Certain problems in writing portable code arise time and time
+         again. For you, the developer, this is usually a good thing. It means
+         that often somebody will have written a widely available library that
+         presents a consistent API for the features you are interested in. They
+         will have done all the hard work of getting the library to build and
+         function on the various platforms of interest. You will simply have to
+         test that the library is available and then start using its features.
+         </para>
+
+         <sect3 id="glib">
+            <title>&glib;</title>
+
+            <para>In GNOME's sphere of influence, one particularly useful
+            portable library is &glib;. Here we have a library that was written
+            to provide many useful data types, conversion functions and API
+            wrappers over functionally similar, but implementation specific
+            platform libraries
+               <footnote>
+                  <para>Of course, &glib; also
+                  provides a number of advanced data structures and utility
+                  functions, such as error reporting, containers (hashes,
+                  lists, etc) and event driven program control. However, these
+                  latter features are more in the category of additions to any
+                  platform, rather than strict portability concerns.
+                  Consequently, they are outside the scope of this document.
+                  </para>
+               </footnote>
+            . </para>
+
+            <para>Before beginning to write new code, or while reviewing
+            existing code, read through the types and macros in the <ulink
+            url="http://developer.gnome.org/doc/API/2.0/glib/glib-fundamentals.html">GLib
+            Fundamentals</ulink> section of <xref linkend="bib-glib"/>
+               <footnote>
+                  <para>Note that here and in all that follows, I am talking
+                  about version 2.0 of &glib;. This contains quite a number of
+                  API additions and changes over version 1.2. </para>
+               </footnote>
+            . In particular, note the types for creating integers (signed and
+            unsigned) of specific sizes and the macro that allows you to
+            determine if 64 bit integers are supported on the current
+            platform.  </para>
+
+            <para>Some of the types (<literal>gchar</literal>,
+            <literal>gint</literal>, <literal>gshort</literal>,
+            <literal>glong</literal>, <literal>gfloat</literal> and
+            <literal>gdouble</literal>) and some of the conversion functions
+            (for example, <literal>g_htonl</literal> and friends) already exist
+            on most Unix-like platforms. You will probably still want to use
+            the &glib; versions, though. They provide consistency with the
+            naming of the other types and functions you use from that library.
+            </para>
+
+            <para>Note the macros of the form <literal>G_INTxx_FORMAT</literal>
+            and <literal>G_UINTxx_FORMAT</literal>, where <literal>xx</literal>
+            is one of 16, 32 or 64. These provide the correct format strings to
+            pass to a <literal>printf()</literal> or <literal>scanf()</literal>
+            call to have the appropriate integer value displayed. An example
+            will demonstrate the benefits here most clearly: on many platforms,
+            <literal>%ll</literal> is the correct format string to display a 64
+            bit integer. However, on BSD systems, you need to use
+            <literal>%q</literal>. If you write your code as
+<programlisting>
+printf ("%" G_INT64_FORMAT, my_integer);
+</programlisting>
+            then this difference will be handled automatically, since the
+            correct string will have been coded into &glib; when it was
+            compiled. </para>
+
+            <para>In addition to the features mentioned above, &glib; gives you
+            a portable threads implementation. By default, this will wrap
+            whichever of POSIX or Solaris threads is used on the build
+            platform. In extreme cases (where neither of those models are
+            used), it is also possible to tell &glib; about the specifics of
+            the platforms threading implementation. However, that requires some
+            tricky detection code during the configuration phase and is not
+            really required on the normal GNOME-supporting platforms. </para>
+
+            <para>Finally, if you wish to code support for dynamically loadable
+            modules (perhaps tool plugins, or optional feature additions),
+            there are functions in the &glib; API to do that too. Have a look
+            at the <ulink
+            url="http://developer.gnome.org/doc/API/2.0/glib/glib-dynamic-loading-of-modules.html">Dynamic
+            Loading of Modules</ulink> section in <xref linkend="bib-glib"/>
+            for the specific function calls. </para>
+
+         </sect3>
+
+         <sect3 id="libltdl">
+            <title>&libltdl;</title>
+
+            <para>There may be cases when your code cannot have &glib; as a
+            dependency
+               <footnote>
+                  <para>Although please think <emphasis>really</emphasis> hard
+                  before making such a decision. </para>
+               </footnote>
+            . Nevertheless, you may still wish to utilise dynamically loadable
+            modules. Fortunately, there is another common, portable library
+            which provides this functionality and runs on all major Unix
+            variants &mdash; &libltdl;. </para>
+
+            <para>This library is included with the
+            <application>libtool</application> package, which it is fairly safe
+            to assume is available for your target platforms (it is required to
+            build a large number of the core GNOME packages, for example).
+            </para>
+
+            <para>Since dynamic module loading is, from the programmer's
+            viewpoint, a relatively simple operation, &libltdl; does not have a
+            complex API. Essentially, you configure where to search for your
+            modules, open any modules of interest and scan them for the
+            appropriate symbols (such as functions to call). Of course, there
+            are also functions in &libltdl; to handle errors, unload modules,
+            reload modules that may have altered over time and various other
+            administrative tasks. But, on the whole, it is not a complex
+            package. </para>
+
+            <para>A good reference for those wishing to use &libltdl; is
+            chapter 17 of <xref linkend="bib-Vaughan"/> (or the online version
+            <xref linkend="bib-Vaughan2"/>). </para>
+
+         </sect3>
+
+      </sect2>
+
+      <sect2 id="problematic-functions">
+         <title>Problematic functions</title>
+
+         <para>Over time, developers have built up lists of commonly used
+         functions that cause portability concerns to be raised. Further,
+         sometimes a particular function exists quite portably, but it is
+         unclear which header file should be included on any given platform to
+         enable access to the function in question.  In most cases, these issues
+         can be worked around at the configuration phase of the build process
+         and that is discussed in the <xref linkend="configuration-checks"/>
+         section. </para>
+
+         <para>From time to time, a function will just not exist on certain
+         platforms. GNOME developers are begin reminded of this fact over and
+         over again recently as GNOME is built on <systemitem class="osname">OS
+         X</systemitem> platforms, where <application>libc</application>
+         appears to be missing a non-trivial number of important functions. In
+         cases like this, the only alternative is for you to provide your own
+         implementation of the missing functionality. Fortunately, due to the
+         wonders of Open Source, it is very easy for you to do this. </para>
+
+         <para>In the <filename class="directory">gnome-common</filename>
+         module in the main GNOME CVS repository, there is a subdirectory
+         called <filename class="directory">support</filename>. This directory
+         contains freely available
+            <footnote>
+               <para>They are licensed under the LGPL. </para>
+            </footnote>
+         implementations of various routines that are missing from some
+         platforms. Most of these implementations are taken from
+         <application>glibc</application>, so you can have confidence that they
+         have been heavily tested on production grade systems. </para>
+
+         <para>The correct way to use <filename
+         class="directory">gnome-common/support</filename> is to import that
+         directory into your CVS module (if you are using GNOME's CVS
+         repository). Alternatively, just copy the files you need into your own
+         source tree. In either case, you can then test whether the functions
+         exist natively on the build platform and, if not, include your own
+         copies in the build process. </para>
+
+         <para>For reference, here is a list of functions that are known to be
+         missing or behave inconsistently on various platforms. Where
+         available, I have listed the appropriate function from &glib; that you
+         should use instead, since that version will always be present (so you
+         can do away with a check in <filename>configure.in</filename>). </para>
+
+         <table frame="all">
+            <title>Problem functions and where to get replacements</title>
+            <tgroup cols="3">
+               <colspec colnum="2" align="center"/>
+               <colspec colnum="3" align="center"/>
+               <thead>
+                  <row>
+                     <entry>Function name</entry>
+                     <entry><filename
+                     class="directory">gnome-common/support</filename></entry>
+                     <entry>&glib;</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry><literal>vprintf</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>vsnprintf</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_vsnprintf</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>vasprintf</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_strdup_vprintf</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>memmove</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_memmove</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>strdup</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_strdup</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>strndup</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_strndup</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>mkstemp</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_mkstemp</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>strcasecmp</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_ascii_strcasecmp</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>scandir</literal></entry>
+                     <entry>Y</entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>fnmatch</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>strerror</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_strerror</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>strnlen</literal></entry>
+                     <entry>Y</entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>strtod</literal></entry>
+                     <entry>Y</entry>
+                     <entry><literal>g_ascii_strtod</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>strtok_r</literal></entry>
+                     <entry>Y</entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>strtol</literal></entry>
+                     <entry>Y</entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>strtoul</literal></entry>
+                     <entry>Y</entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>getline</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>getpagesize</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>gettimeofday</literal></entry>
+                     <entry/>
+                     <entry><literal>g_get_current_time</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>mmap</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>ptrace</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>setuid</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>alloca</literal></entry>
+                     <entry/> 
+                     <entry><literal>g_alloca</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>fork</literal></entry>
+                     <entry/>
+                     <entry><literal>g_spawn_async</literal></entry>
+                  </row>
+                  <row>
+                     <entry><literal>vfork</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>select</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>open</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry><literal>stat</literal></entry>
+                     <entry/>
+                     <entry/>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+
+         <para>It is also worthwhile having a look at the &autoconf; info page,
+         in particular the section calls <literal>Library functions -&gt;
+         Particular Function Checks</literal>. That page lists a number of
+         other functions which the &autoconf; authors have deemed problematic
+         enough to warrant shipping detection macros in the standard &autoconf;
+         distribution. </para>
+
+         <para>Finally, you could do worse than read chapter 14 of <xref
+         linkend="bib-Vaughan"/> or <xref linkend="bib-Vaughan2"/>, where there
+         is a discussion about C language portability. Also, for more obscure
+         problems, see if there are references to the problem function in <xref
+         linkend="bib-Stevens"/>. Although this latter reference is becoming a
+         bit old (nine years old as I write this), it still contains a lot of
+         relevant information about portability issues between different Unix
+         distributions and may provide you with some clues in the more obscure
+         cases. </para>
+
+      </sect2>
+
+      <sect2 id="coding-errors">
+         <title>Coding errors leading to portability problems</title>
+
+         <para>In this section, I will mention a few of the small coding errors
+         that seem to appear over and over again. Naturally, this list is not
+         exhaustive and if your favourite coding error is not in the list, by
+         all means send it me for inclusion in a future version of this
+         document. </para>
+
+         <itemizedlist>
+            <listitem>
+               <para>The standard C versions of <literal>isdigit()</literal>,
+               <literal>ispunct()</literal>, <literal>isupper()</literal>, etc
+               (the various functions defined in the
+               <filename class="headerfile">ctypes.h</filename> header) all
+               take <literal>unsigned char</literal>s, in effect, not
+               <literal>char</literal>s. The only other possibility is that you
+               can pass them an <literal>EOF</literal>, which is why they are
+               declared as taking <literal>int</literal>s. </para>
+            </listitem>
+            <listitem>
+               <para>If you are using the &glib; versions of the functions in
+               the previous point (<literal>g_ascii_isdigit()</literal> and so
+               on), be aware that they take <literal>gchar</literal>s (removing
+               the need to cast to <literal>guchar</literal>) and you cannot
+               pass <literal>EOF</literal> to them. In view of the
+               inconsistency between the &glib; versions and the standard C
+               versions, it is worth your while to just pick one version and
+               use it consistently. </para>
+            </listitem>
+            <listitem>
+               <para>Do not assume that the <literal>pid_t</literal> type is an
+               <literal>int</literal>. You cannot do
+<programlisting>
+/* Bad! Non-portable code */
+printf ("%d", getpid());
+</programlisting>
+               and expect it to work on all platforms. </para>
+            </listitem>
+            <listitem>
+               <para>Note that although the <literal>setenv()</literal>
+               function is a part of the standard C
+               <filename class="headerfile">stdlib.h</filename> header, the
+               <literal>unsetenv()</literal> and <literal>clearenv()</literal>
+               functions are not standard (although they are available on a
+               number of platforms). The <application>libgnome</application>
+               library contains <literal>gnome_unsetenv()</literal> and
+               <literal>gnome_clearenv()</literal> implementations, although
+               they may leak memory on some platforms. </para>
+            </listitem>
+            <listitem>
+               <para>Respect the fact that your code may be running on a
+               platform with particular memory alignment requirements for
+               certain types. So do not go casting wildly between types unless
+               you are sure of the alignment issues. If you
+               <emphasis>really</emphasis> need to know to what multiple of
+               bytes memory will be aligned on the current platform, you can
+               use the <literal>G_MEM_ALIGN</literal> macro from &glib;.
+               However, it is much safer just to avoid such subtleties
+               entirely. </para>
+            </listitem>
+            <listitem>
+               <para>Similar to the previous point: do not assume that
+               different data types have the same size.  The following code
+               will <emphasis>not</emphasis> work, for example, since it
+               assumes that an <literal>int</literal> is the same size as a
+               <literal>char</literal>. </para>
+<programlisting>
+/* Bad! Non-portable code */
+int i = 4;
+char c = *(char *) i;
+</programlisting>
+               <para>Of course, you are unlikely to write something quite this
+               blatant, but alarm bells should go off whenever you are casting
+               between disparate types. </para>
+            </listitem>
+            <listitem>
+               <para>As mentioned earlier, use the
+               <literal>G_INT64_FORMAT</literal> and similar macros, rather
+               than hard coding the print format string in your code. The format
+               strings, particularly for large types, vary between platforms.
+               </para>
+            </listitem>
+            <listitem>
+               <para>If you are using the <application>GObject</application>
+               libraries (part of &glib;), do not assume that
+               <literal>GType</literal> values are <literal>guint</literal>s.
+               This equivalence used to be universally true, but was changed
+               quite a while ago. If you make this mistake, your code will
+               mysteriously fail the first time it is built and run on a 64 bit
+               platform (like an Alpha). </para>
+            </listitem>
+         </itemizedlist>
+
+      </sect2>
+
+      <sect2 id="gcc-problems" xreflabel="gcc problems">
+         <title>Problems to watch for when coding with &gcc;</title>
+
+         <para>The GNU project's C compiler, &gcc;, is widely ported and
+         readily available. It provides a high degree of control over code
+         compilation and comes complete with a number of extensions for
+         checking code correctness and aiding debugging. Therein lies a
+         portability problem.</para>
+
+         <para>For one reason or another, not everybody uses &gcc;. So it is
+         important that your application is able to build on any standard C
+         (ISO C) compliant compiler with access to the correct libraries and
+         header files. This is not a difficult accomplishment and the checklist
+         is quite short. </para>
+
+         <itemizedlist>
+            <listitem>
+               <para>Do not use <literal>//</literal> for comments or use the
+               <literal>inline</literal> keyword for functions. Both of these
+               constructs are new in the C99 standard and have been supported
+               by &gcc; for a long time. However, they are not yet supported by
+               many commercial (non-Open Source) compilers, such as the one
+               that comes with Sun's operating systems. So you are quickly
+               going to cause problems for people working on almost any
+               commercial Unix system. </para>
+            </listitem>
+            <listitem>
+               <para>When laying out enumerated types, do not put a comma after
+               the last item in the enum. This causes problems, in particular,
+               with IBM's AIX compiler. </para>
+<programlisting>
+/* Bad! Works with gcc, fails with IBM's standard AIX compiler. */
+enum {
+   foo,
+   bar,
+   baz,
+};
+
+/* Good! Works everywhere. */
+enum {
+   foo,
+   bar,
+   baz  /* No trailing comma on last item */
+};
+</programlisting>
+            </listitem>
+            <listitem>
+               <para>In general, stick to standard C89 constructs. If you want
+               to be sure of achieving this aim, compile your program under
+               &gcc; with the <literal>-pedantic</literal> option. This
+               will cause &gcc; to halt if a non-ANSI C extension is used and
+               will issue all warnings required by the standard (see the
+               <citerefentry><refentrytitle>gcc</refentrytitle>
+               <manvolnum>1</manvolnum></citerefentry> manual page for more
+               information). </para>
+            </listitem>
+         </itemizedlist>
+
+      </sect2>
+
+      <sect2 id="gcc-benefits">
+         <title>Using &gcc; features when they are available</title>
+
+         <para>As I wrote in the previous section, &gcc; contains a number of
+         non-standard extensions designed to make your debugging job easier.
+         These include facilities to display the current filename, line number
+         and function that is executing at a particular point (a more
+         informative version of &quot;you are here&quot;). </para>
+
+         <para>The &glib; developers realised that it would be beneficial if
+         those features were still available when &gcc; was used as the
+         compiler and ignored when other compilers are being used. So they
+         created a number of macros, all starting with the prefix
+         <literal>G_GNUC_</literal>. You should read the <ulink
+         url="http://developer.gnome.org/doc/API/2.0/glib/glib-miscellaneous-macros.html">Miscellaneous
+         Macros</ulink> section in <xref linkend="bib-glib"/> for a
+         full description of what each macro does. In short, if you are
+         currently using particular &gcc; extensions in your error reporting
+         functions or for checking argument types in functions that take
+         variable number of arguments, you can accomplish the same behaviour
+         using the <literal>G_GNUC_*</literal> constants with the added benefit
+         that your code will still compile with other compilers. </para>
+
+      </sect2>
+
+   </sect1>
+
+   <sect1 id="shell-scripting">
+      <title>Shell scripting</title>
+
+      <para>Unfortunately for modern developers, coding an application in your
+      language of choice and making its code fully portable is not all you have
+      to worry about. When it comes time to write the scripts that will
+      configure the build process on each platform, you have to use shell
+      commands
+         <footnote>
+            <para>The implicit assumption here is that you are using the
+            various GNU autotools packages to configure and build your package.
+            </para>
+         </footnote>
+      . Furthermore, you need to write highly portable Bourne shell compatible
+      scripts. </para>
+
+      <para>Many developers, particularly in the Linux world, get used to using
+      <application>bash</application>. The widely available
+      <application>bash</application> shell is a couple of generations worth of
+      extensions beyond the original Bourne shells and many of its features are
+      not supported under all shells. So winding back your natural shell
+      programming instincts to meet the rigorous discipline of
+      <emphasis>portable</emphasis> shell programming may require some effort.
+      As a general rule, your code could be expected to run under any one of
+      <literal>ash</literal>, <literal>bash</literal>, <literal>bsh</literal>,
+      <literal>ksh</literal>, <literal>sh5</literal>, and
+      <literal>zsh</literal> &mdash; and possibly some others besides. </para>
+
+      <para>One of the best descriptions of the requirements for portable shell
+      scripts is given in <xref linkend="bib-Vaughan"/> and <xref
+      linkend="bib-Vaughan2"/>. The &autoconf; and &automake; authors, who
+      wrote these references, have clearly gained large amounts of experience
+      while making their programs (which are themselves shell scripts) run on
+      numerous common and esoteric platforms alike. This section will not be a
+      substitute for reading either their book or the online version of the
+      same, but I will mention some of the more common and troublesome points.
+      </para>
+
+      <itemizedlist>
+         <title>Tips for writing portable shell scripts</title>
+
+         <listitem>
+            <para>The <literal>source</literal> command is not portable (the
+            standard shell on BSD systems does not understand it, for example).
+            Use the '<literal>.</literal>' command instead to source other
+            shell scripts. </para>
+         </listitem>
+         <listitem>
+            <para>In POSIX-compliant shells, it is possible to perform command
+            substitution in this way:
+<programlisting>
+# Non-portable!
+foo=$(ls -R)
+</programlisting>
+            Unfortunately, this is not portable. You must use the older style
+            of enclosing the command in backticks to get full portability.
+            </para>
+<programlisting>
+# Portable
+foo=`ls -R`
+</programlisting>
+         </listitem>
+         <listitem>
+            <para>The '<literal>[</literal>' command that is a builtin for some
+            shells is not portable. You must use <command>test</command>
+            instead, and a fairly limited version of <command>test</command> at
+            that:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>Be careful of shell quoting and expansion rules, since
+                  <command>test</command> is very intolerant of extra or
+                  missing arguments. Often, you will see code like the following
+<programlisting>
+if test x"$with_html_dir" = "x"; then
+...
+</programlisting>
+                  This avoids two traps with one trick. Firstly, if
+                  <literal>with_html_dir</literal> is the empty string, the
+                  <command>test</command> command is not left with a missing
+                  lefthand side in the equality comparison. Secondly, if the
+                  variable begins with an exclamation mark, for example, the
+                  test will not interpret that as a shell command, but simply
+                  as a normal character. </para>
+               </listitem>
+               <listitem>
+                  <para>For true portability, you can only use the following
+                  unary and binary operators as arguments to
+                  <command>test</command>. </para>
+
+                  <simplelist>
+                     <member>
+                        <literal>-n</literal> <replaceable>string</replaceable>
+                     </member>
+                     <member>
+                        <literal>-z</literal> <replaceable>string</replaceable>
+                     </member>
+                     <member>
+                        <replaceable>string1</replaceable> <literal>=</literal>
+                        <replaceable>string2</replaceable>
+                     </member>
+                     <member>
+                        <replaceable>string1</replaceable>
+                        <literal>!=</literal> <replaceable>string2</replaceable>
+                     </member>
+                     <member>
+                        <literal>-d</literal> <replaceable>file</replaceable>
+                     </member>
+                     <member>
+                        <literal>-f</literal> <replaceable>file</replaceable>
+                     </member>
+                  </simplelist>
+
+                  <para>You can also write expressions of the form
+<programlisting>
+test expr1 -a expr2
+</programlisting>
+                  and
+<programlisting>
+test expr1 -o expr2
+</programlisting>
+                  provided you do not mix the <literal>-a</literal> and
+                  <literal>-o</literal> operators within a single test. </para>
+               </listitem>
+            </itemizedlist>
+         </listitem>
+         <listitem>
+            <para>Some common utility programs behave slightly in a slightly
+            platform-dependent fashion. The <xref linkend="bib-Vaughan"/> book
+            has a full discussion of this, but be aware that </para>
+
+            <itemizedlist>
+               <listitem>
+                  <para>The <command>echo</command> command might take either a
+                  <literal>-n</literal> option or a trailing
+                  <literal>\c</literal> to denote suppression of an automatic
+                  newline. </para>
+               </listitem>
+               <listitem>
+                  <para>It is not always possible to create soft links with the
+                  <command>ln</command> command. </para>
+               </listitem>
+               <listitem>
+                  <para>The <option>-p</option> to <command>mkdir</command> is
+                  not portable. Instead, &automake; comes with a script called
+                  <filename>mkinstalldirs</filename> which provides the same
+                  functionality in a portable fashion.  </para>
+               </listitem>
+               <listitem>
+                  <para>Passing any options at all to <command>cat</command> is
+                  non-portable. Resist the temptation to do this. </para>
+               </listitem>
+               <listitem>
+                  <para>Although you are unlikely to use it in configuration
+                  scripts, it is possible that you will want to use commands
+                  like <command>ps</command> in supporting scripts. Be aware
+                  that a lot of these commands take different arguments on
+                  different platforms. In particular, the arguments to
+                  <command>ps</command> vary wildly between platforms,
+                  <command>killall</command> behaves a lot more literally on
+                  Solaris systems when compared to Linux
+                  (use <command>pkill</command> instead), and
+                  <command>pidof</command> does not exist everywhere, so you
+                  will need to do something like <literal>ps ... | grep
+                  [f]oo</literal> instead. </para>
+               </listitem>
+            </itemizedlist>
+         </listitem>
+      </itemizedlist>
+
+   </sect1>
+
+   <sect1 id="configuration-checks" xreflabel="configuration checks">
+      <title>Configuration and build-time checks</title>
+
+      <para>The final phase of creating your fully portable application is to
+      write an appropriate <filename>configure.in</filename> file that tests for
+      various platform-specific features. These are tests that determine which
+      header files to include, which libraries to link against, any special API
+      incompatibilities you need to account for and where to install the
+      package by default. </para>
+
+      <para>I do not intend to write an &autoconf; tutorial here, since that is
+      a large subject (and, at the risk of repeating myself, read <xref
+      linkend="bib-Vaughan"/>). Instead, this section covers a few problems
+      that people have observed while porting packages to other platforms.
+      Experience is the best teacher, but using others' experience is much less
+      painful.
+      </para>
+
+      <itemizedlist>
+         <title>Things to think about when writing
+         <filename>configure.in</filename></title>
+
+         <listitem>
+            <para>The <filename class="libraryfile">libz</filename> library is
+            not always located in <filename
+            class="directory">/usr/lib/</filename> (which is the standard Linux
+            location). Look at a package that uses <filename
+            class="libraryfile">libz</filename> and copy their detection code.
+            Similar warnings apply for libbz, since that is even less
+            widespread. </para>
+         </listitem>
+         <listitem>
+            <para>If you are relying on advanced floating point mathematical
+            functions, be careful about testing for and including the correct
+            libraries. Have a look at the <filename>configure.in</filename>
+            file from <application>gnumeric</application> for some code to
+            emulate. In particular, if you are using the
+            <literal>finite()</literal> function, you will need to include
+            <filename class="headerfile">ieeefp.h</filename> when building on
+            Solaris machines. </para>
+         </listitem>
+         <listitem>
+            <para>It is probably not a good idea to use the
+            <option>-Werror</option> (halt on compiler warnings) flag when
+            building with non-gcc compilers. By all means, provide it as a
+            configuration option that the builder can select, but leave it off
+            by default. Some commercial compilers will print spurious warnings
+            and would cause an otherwise harmless problem to halt the build
+            with an error. Even with <application>gcc</application> compilers,
+            if you are going to have <option>-Werror</option> on by default,
+            make it easy for the builder to turn it off. </para>
+         </listitem>
+         <listitem>
+            <para>If you are building a threaded application and not using
+            &glib;, for some reason, be aware that compiling threaded programs
+            varies a bit from platform to platform. It is probably a good idea
+            to look in the &glib; distribution for their
+            <filename>configure.in</filename> tests and reuse them. </para>
+         </listitem>
+         <listitem>
+            <para>Allow orthogonal settings to be set independently. This means
+            that you should not assume the installation locations of a
+            third-party package based on the <option>--prefix</option> passed
+            to your configuration script. By all means, make the default
+            something reasonable (assume all packages are under the same
+            prefix). But allow the package builder to specify an alternate
+            location if they wish, since you do not have control over other
+            peoples' systems. </para>
+         </listitem>
+         <listitem>
+            <para>Bear in mind that some paths are meant to be possible to
+            change when <command>make</command> is run. For example, if you
+            (incorrectly) coded a pathname into your <filename
+            class="headerfile">config.h</filename> file at configuration time,
+            based on the existing value of <option>--prefix</option>, then your
+            users are going to be in for a nasty surprise when they run
+<programlisting>
+make prefix=/home/barney
+</programlisting>
+            and some things still end up being references as though they were
+            in <filename class="directory">/usr/local/</filename>. </para>
+
+            <para>On a similar note, it is especially important to remember
+            that users can run
+<programlisting>
+make DESTDIR=/u1/usr/ install
+</programlisting>
+            to install the program in a location that it was not explicitly
+            configured for. This might happen if, for example, <filename
+            class="directory">/u1/usr</filename> on the file server was
+            subsequently mounted under <filename
+            class="directory">/usr</filename> on a group of terminals.
+            Remember to prefix path locations in your installation rules with
+            <envar>$DESTDIR</envar> to accommodate this behaviour. </para>
+         </listitem>
+         <listitem>
+            <para>It is more flexible to test for specific features than for
+            operating systems or distributions. You will save time on platforms
+            that you do not have access to if you write configuration tests to
+            enable subsequent code like
+<programlisting>
+/* Good */
+#ifdef HAVE_ZLIB
+...
+#endif
+</programlisting>
+         The alternative is to see things like this
+<programlisting>
+/* Bad! */
+#ifdef SOLARIS
+...
+#elif RED_HAT
+...
+#endif
+</programlisting>
+         and that is not particularly helpful to somebody trying to build on a
+         platform you did not code in a special case for. Put all the logic for
+         separating out the differences between platforms into
+         <filename>configure.in</filename> and that will be the only file a
+         porter might need to alter. </para>
+         </listitem>
+         <listitem>
+            <para>One problem that had to be corrected throughout the main
+            GNOME libraries is the standard install location for localised
+            strings. This location is different on Linux and Solaris systems
+            and the standard internationalisation scripts assume only the Linux
+            install path. </para>
+
+            <para>Assuming you are using the standard GNOME build tools, the
+            solution is to have the following lines in your
+            <filename>configure.in</filename>.
+<programlisting>
+ALL_LINGUAS="..."
+AM_GLIB_GNU_GETTEXT
+
+# Here is the important step:
+mylocaledir='${prefix}/${DATADIRNAME}/locale'
+</programlisting>
+            Then, in the <filename>Makefile.am</filename> files that build
+            any code, you adjust the <literal>INCLUDES</literal> line to include
+<programlisting>
+INCLUDES = \
+        ...
+        -DMY_LOCALEDIR=\""$(mylocaledir)"\"
+</programlisting>
+            You can refer to <literal>MY_LOCALEDIR</literal> whenever you
+            subsequently need to install location of the localised strings (in
+            a call to <literal>bindtextdomain()</literal>, for example). This
+            technique works because the <systemitem
+            class="macro">AM_GLIB_GNU_GETTEXT</systemitem> macro sets
+            <envar>DATADIRNAME</envar> appropriately for the platform. </para>
+         </listitem>
+      </itemizedlist>
+
+   </sect1>
+
+   <sect1 id="resources">
+      <title>Resources</title>
+
+      <para>In addition to the references in the <xref
+      linkend="bibliography"/>, here are some online resources that may prove
+      useful. </para>
+
+      <variablelist>
+         <varlistentry>
+            <term><ulink
+            url="http://www.opengroup.org/onlinepubs/7908799/download/">Single
+            UNIX Specification, Version 2</ulink></term>
+            <listitem>
+               <para>The penultimate version
+                  <footnote>
+                     <para>Version 3 has been published, but is not freely
+                     downloadable. </para>
+                  </footnote>
+               of a document which attempts to define the functions, command
+               and general environment that make up a "standard" UNIX platform.
+               Of course, most platforms do not conform precisely to this
+               specification and many go beyond it in many areas. However, it
+               is a good reference when you are wondering what the lowest
+               common denominator version of a function or system header might
+               look like. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term><ulink url="http://www.eskimo.com/~scs/C-faq/faq.html">C
+            programming FAQ</ulink></term>
+            <listitem>
+               <para>This <acronym>FAQ</acronym> document contains a couple of
+               sections that are useful when trying to code portably. Have a
+               look at the sections about <ulink
+               url="http://www.eskimo.com/~scs/C-faq/s11.html">ANSI/ISO
+               Standard C</ulink> and the <ulink
+               url="http://www.eskimo.com/~scs/C-faq/s10.html">C
+               preprocessor</ulink>. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term><ulink
+            url="http://www.oakroadsystems.com/tech/c-predef.htm">C reserved
+            identifiers</ulink></term>
+            <listitem>
+               <para>A page discussing the ANSI/ISO C rules for function names.
+               Strictly speaking, not all GNOME software is guaranteed to build
+               on all compilers. For example, all the public functions in
+               <application>libgnome</application> begin with the prefix
+               <literal>gnome_</literal> and so they are not distinct in the
+               first six characters
+                  <footnote>
+                     <para>Have a look at the <option>-Wid-clash-len</option>
+                     option to <command>gcc</command> if you are wanting to
+                     test for things like this. </para>
+                  </footnote>
+               . However, this is clearly not a big
+               problem, since people have managed to build GNOME on every
+               platform of interest. Nevertheless, this references raises some
+               interesting points to keep in mind when you select function
+               names. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>The <ulink
+            url="http://www.gnu.org/software/ac-archive/">&autoconf; macro
+            archive</ulink></term>
+            <listitem>
+               <para>This site contains a number of user-contributed macros for
+               detecting various features as part of an &autoconf; script. For
+               example, <ulink
+               url="http://www.gnu.org/software/ac-archive/Installed_Packages/check_zlib.html"/>
+               contains a test for <filename
+               class="libraryfile">libz</filename>'s location, which was an
+               important one mentioned in <xref
+               linkend="configuration-checks"/>. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>The GNOME <ulink
+            url="http://developer.gnome.org/doc/API/">API
+            documentation</ulink></term>
+            <listitem>
+               <para>A collection of the automatically generated documentation
+               from all the major GNOME libraries. Wherever possible, you
+               should lean heavily on the GNOME libraries in your code, because
+               they have usually already solved the portability problems. Not
+               to mention the extra testing they have received when compared to
+               the application you are writing. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>The GNOME <ulink url="http://mail.gnome.org/">mailing
+            lists</ulink></term>
+            <listitem>
+               <para>Mailing lists about all things GNOME. Good places to ask
+               questions of an audience that works on many different
+               platforms. </para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+
+   </sect1>
+
+   <sect1 id="thanks">
+      <title>Thanks</title>
+
+      <para>As I mentioned in the <link
+      linkend="feedback-requested">introductory section</link>, this document
+      is just my own interpretation of many other peoples' work. Aside from the
+      large amounts of material I have pulled from the <xref
+      linkend="bib-Vaughan"/> and <xref linkend="bib-Stevens"/> books, the
+      following individuals in the GNOME community have all provided either
+      direct or indirect
+         <footnote>
+            <para>A tip for people who wish to stay anonymous: do not post on
+            mailing lists and do not rant on IRC. Otherwise, somebody will take
+            note of what you say and it might appear as instructive advice in a
+            document one day. </para>
+         </footnote>
+      assistance by providing material. </para>
+
+      <variablelist>
+         <varlistentry>
+            <term>Telsa Gwynne</term>
+            <listitem>
+               <para>She collected a lot of other peoples' comments and sent
+               some of them to me with a few less than subtle hints about how a
+               document would be nice. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Morten Welinder</term>
+            <listitem>
+               <para><application>Gnumeric</application> developer and somebody
+               with a finely tuned sense of smell towards portability issues.
+               He was one of the early providers of material to Telsa when she
+               started to collect items. Significant portions of the <xref
+               linkend="C-programming"/> and <xref
+               linkend="configuration-checks"/> sections come from Morten's
+               observations. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Frank Belew</term>
+            <listitem>
+               <para>A Ximian programmer who spent some time moaning about some
+               non-portable code he had to fix one evening on IRC; some of
+               those comments ended up in the section about <xref
+               linkend="gcc-problems"/>. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Alan Cox</term>
+            <listitem>
+               <para>Added clarifications to some of the other comments and
+               posted his own portability warnings to the gnome-hackers mailing
+               list from time to time. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Jacob Berkman</term>
+            <listitem>
+               <para>Another Ximian programmer who has played a major part in
+               getting GNOME to build both on 64 bit platforms and on OS X.
+               Jacob knows way too much about &autoconf; and testing for
+               available functionality than can possibly be healthy. In
+               addition, pieces of advice about C programming that he has
+               posted to various mailing lists have been woven into the <xref
+               linkend="C-programming"/> section. </para>
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term>Mark McLoughlin</term>
+            <listitem>
+               <para>One of Sun's elite programming brigade who took time out
+               to explain to me the reason for the locale directory technique
+               in <xref linkend="configuration-checks"/>. </para>
+            </listitem>
+         </varlistentry>
+      </variablelist>
+
+      <para>All the participants on the gnome-hackers, desktop-devel and
+      gnome-devel mailing lists have, through their questions and responses,
+      provided a lot of food for thought. Re-reading the archives of those
+      lists as I was writing this document revealed a lot of posts from people
+      who had struggled to build code on a not-so-common platform and either
+      succeeded eventually or failed due to an identifiable portability issue.
+      </para>
+
+   </sect1>
+
+   <bibliography id="bibliography">
+      <bibliodiv>
+         <title>Books</title>
+
+         <biblioentry id="bib-Stevens">
+            <abbrev>Stevens</abbrev>
+            <title>Advanced Programming in the <trademark>UNIX</trademark>
+            Environment</title>
+            <author>
+               <firstname>W.</firstname><othername>Richard</othername>
+               <surname>Stevens</surname>
+            </author>
+            <copyright>
+               <year>1993</year>
+               <holder>Addison Wesley Longman, Inc</holder>
+            </copyright>
+            <isbn>0-201-56317-7</isbn>
+            <publishername>Addison-Wesley</publishername>
+            <pubdate>April 1997 (thirteenth printing)</pubdate>
+         </biblioentry>
+
+         <biblioentry id="bib-Vaughan">
+            <abbrev>Vaughan</abbrev>
+            <title>GNU Autoconf, Automake, and Libtool</title>
+            <authorgroup>
+               <author>
+                  <firstname>Gary</firstname><othername>V.</othername>
+                  <surname>Vaughan</surname>
+               </author>
+               <author>
+                  <firstname>Ben</firstname><surname>Elliston</surname>
+               </author>
+               <author>
+                  <firstname>Tom</firstname><surname>Tromey</surname>
+               </author>
+               <author>
+                  <firstname>Ian</firstname><othername>Lance</othername>
+                  <surname>Taylor</surname>
+               </author>
+            </authorgroup>
+            <copyright>
+               <year>2001</year>
+               <holder>Gary V. Vaughan, Ben Elliston, Tom Tromey, and Ian Lance
+               Taylor</holder>
+            </copyright>
+            <isbn>1-57870-190-2</isbn>
+            <publishername>New Riders Publishing</publishername>
+         </biblioentry>
+
+      </bibliodiv>
+
+      <bibliodiv>
+         <title>Online resources</title>
+
+         <biblioentry id="bib-glib">
+            <abbrev>GLib</abbrev>
+            <title>GLib Reference Manual</title>
+            <subtitle>(<ulink
+            url="http://developer.gnome.org/doc/API/2.0/glib/"/>)</subtitle>
+         </biblioentry>
+
+         <biblioentry id="bib-Vaughan2">
+            <abbrev>Vaughan2</abbrev>
+            <title>GNU Autoconf, Automake, and Libtool</title>
+            <subtitle>(<ulink
+            url="http://sources.redhat.com/autobook/"/>)</subtitle>
+         </biblioentry>
+
+      </bibliodiv>
+
+   </bibliography>
+
+</article>
+
