@@ -1557,7 +1557,7 @@ It is essential that the extent of option groups such as radio buttons be made c
 	<listitem><para>Position labels consistently throughout your application. This normally means immediately below large icons, immediately to the
 right of small icons, and immediately above or to the left of other controls. See Fonts and Text Examples.</para></listitem>
 
-	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the mnemonic (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
+	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the access key (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
 	
      
 	<listitem><para>Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not necessarily be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
@@ -2181,7 +2181,7 @@ text/mathml
 
 	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
-	<listitem><para>Every operation that can be done with the mouse can also be done with the keyboard, where it makes sense to do so.  The only exceptions to this are for actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
+	<listitem><para>Ensure that every operation in your application that can be done with the mouse can also be done with the keyboard.  The only exceptions to this are actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
 
 	<listitem><para>Don't warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who don't rely on assistive technologies.</para></listitem>
 
@@ -2336,7 +2336,7 @@ Dragging with the right button instead of the left pops up a menu when the butto
 
 or by dropping the object on an invalid drop target.</para></listitem>
 
-	<listitem><para>Keyboard users can replicate all drag and drop actions using keyboard shortcuts, such as Copy (Ctrl+C) and Paste (Ctrl+V).</para></listitem>
+	<listitem><para>Keyboard users can replicate all drag and drop actions using shortcut keys, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
 
 	<listitem><para>Standard pointer shapes are used across all GNOME applications for move, copy, multiple move, multiple copy, and invalid drop target.</para></listitem>
 	
@@ -2423,24 +2423,24 @@ fine motor control skills required.</para>
 
 
       <figure>
-	<title>Dialog box and menu, with some of their mnemonics (red) and shortcuts (blue) highlighted</title>
+	<title>Dialog box and menu, with some of their access keys (red) and shortcut keys (blue) highlighted</title>
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/mnemonics_and_shortcuts.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Dialog box and menu with mnemonics and shortcuts highlighted</phrase>
+	    <phrase>Dialog box and menu with access keys and shortcut keys highlighted</phrase>
 	  </textobject>
 	</mediaobject>
       </figure>
 	
 
-      <para>Most functionality is easy to make available from the keyboard, by using keyboard mnemonics and shortcuts, and the toolkit's built-in keyboard navigation features. All controls with labels should have mnemonic access, and frequently-used menu items should be assigned shortcuts. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
+      <para>Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
 
       <para>Recommendations:</para>
 
       <itemizedlist>
 
-	<listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using mnemonics or keyboard shortcuts.</para></listitem>
+	<listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using access keys or shortcut keys.</para></listitem>
 
 	<listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
 
@@ -2609,24 +2609,24 @@ fine motor control skills required.</para>
 -->
 
       <sect3>
-	<title>Mnemonics</title>
+	<title>Access Keys</title>
 
-	<para>All labelled components should have a mnemonic (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
+	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
 
 
 
-<!-- Consensus was against giving OK and Cancel additional mnemonics
+<!-- Consensus was against giving OK and Cancel additional access keys
 
 	<note>
 	  <title>For discussion</title>
-	  <para>It's been suggested that even OK and Cancel should have mnemonics, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you don't always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C mnemonics, which could be awkward in larger/tabbed dialogs.</para>
+	  <para>It's been suggested that even OK and Cancel should have access keys, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you don't always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C access keys, which could be awkward in larger/tabbed dialogs.</para>
 	</note>
 -->
 
-	<para>Where possible, mnemonics should be chosen to be as easy to remember as possible&mdash; normally the first letter of the label should be used.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
+	<para>Where possible, access keys should be chosen to be as easy to remember as possible&mdash; normally the first letter of the label should be used.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
 
 	<orderedlist>
-	    <listitem><para>Assign mnemonics for the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign them from left to right, top to bottom (for Western locales).</para></listitem>
+	    <listitem><para>Assign access keys for the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign them from left to right, top to bottom (for Western locales).</para></listitem>
 
 	  <listitem><para>Use the first letter of the label, or the first letter in one of the words of a multi-word label, unless another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Exit</guilabel>.)</para></listitem>
 
@@ -2635,24 +2635,24 @@ fine motor control skills required.</para>
 	<listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
 	</orderedlist>
 
-	   <para>If possible, try not to assign mnemonics to &quot;thin&quot; letters (i,l) or letters with descenders (g,y), as the underscores often don't show up very well on those characters.</para>
+	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often don't show up very well on those characters.</para>
 
-	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as mnemonics.</para>
+	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
 	
       </sect3>
       
       <sect3>
-	<title>Shortcuts</title>
+	<title>Shortcut Keys</title>
 
-	<para>The tables in this section summarize the standard shortcuts you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcuts for those functions you do support.</para> 
+	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
 
-	<para>You will probably also want to add your own shortcuts for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcuts they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
+	<para>You will probably also want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
 
 	<para>Recommendations:</para>
 
 	<itemizedlist>
 
-	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcuts to your application.</para></listitem>
+	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcut keys to your application.</para></listitem>
 
 	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Don't try to assign a shortcut key to everything.</para></listitem>
 
@@ -2660,20 +2660,20 @@ fine motor control skills required.</para>
 
 	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
 	  
-	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcuts, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcuts for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
 	  	  
-	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcuts, as these may conflict with menu accelerators.</para></listitem>
+	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with menu access keys.</para></listitem>
 
 	  <listitem><para>Don't use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
 	  
-	  <listitem><para>Don't assign shortcuts to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
+	  <listitem><para>Don't assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
 	  
-	  <listitem><para>Don't use any of the standard shortcuts listed here for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between GNOME applications.</para></listitem>
+	  <listitem><para>Don't use any of the standard shortcut keys listed here for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between GNOME applications.</para></listitem>
 
 	</itemizedlist>
 
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - File menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - File menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2718,7 +2718,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - Edit menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - Edit menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2807,7 +2807,7 @@ fine motor control skills required.</para>
 
 	  <para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>
 
-<!-- Consensus is to keep Letter-based shortcuts
+<!-- Consensus is to keep Letter-based shortcut keys
 	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
 -->
 
@@ -2817,7 +2817,7 @@ fine motor control skills required.</para>
 	
 
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - View menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - View menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2848,11 +2848,11 @@ fine motor control skills required.</para>
 	</table>
 
 	<note><title>Reload/Refresh</title>
-	  <para>Some apps need both reload and refresh, should we specify shortcuts for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
+	  <para>Some apps need both reload and refresh, should we specify shortcut keys for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
 	</note>
 	
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - Bookmarks menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - Bookmarks menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2877,7 +2877,7 @@ fine motor control skills required.</para>
 	</table>
 	
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - Format menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - Format menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2911,7 +2911,7 @@ fine motor control skills required.</para>
 	</note>
 
 	<table frame='all' pgwide='1'>
-	  <title>Standard GNOME application shortcuts and mnemonics - Help menu</title>
+	  <title>Standard GNOME application shortcut keys and access keys - Help menu</title>
 	  <tgroup cols='3' align='left'>
 	    <thead>
 	      <row>
@@ -2944,8 +2944,8 @@ fine motor control skills required.</para>
       </sect3>
 
       <sect3>
-	<title>Standard Widget Navigation Shortcuts</title>
-	<para>The following shortcuts are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
+	<title>Standard Widget Navigation Shortcut Keys</title>
+	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
 
 	<table frame='all' pgwide='1'>
 	  <title>Standard GNOME keyboard navigation keys for widgets</title>
@@ -3008,9 +3008,9 @@ fine motor control skills required.</para>
       </sect3>
       
       <sect3>
-	<title>Additional Widget Navigation shortcuts</title>
+	<title>Additional Widget Navigation Shortcut Keys</title>
 
-	<para>The following emacs-style navigation shortcuts may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
+	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
 
 	<table frame='all' pgwide='1'>
 	  <title>Emacs-style navigation keys for widgets</title>
@@ -3111,7 +3111,7 @@ fine motor control skills required.</para>
 
 	  <listitem><para>Text and objects within the client area can be selected.</para></listitem>
 
-	  <listitem><para>Any keyboard enhancements or shortcuts are working as designed.</para></listitem>
+	  <listitem><para>Any keyboard enhancements or shortcut keys are working as designed.</para></listitem>
 
 	  <listitem><para>Verify that when moving among objects, the visual focus indicator is easy to identify at all times.</para></listitem>
 	</itemizedlist>
@@ -3149,7 +3149,7 @@ fine motor control skills required.</para>
       <sect3>
 	<title>Internationalization and Localization</title>
 
-	<para>If you intend your application to be translated into different languages, send draft designs of your application to the <ulink url="http://developer.gnome.org/projects/gtp/contact.html">GNOME Translation Team</ulink>.  They'll help you find potential translation problems, such as not leaving enough space for translated labels, keyboard shortcuts that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
+	<para>If you intend your application to be translated into different languages, send draft designs of your application to the <ulink url="http://developer.gnome.org/projects/gtp/contact.html">GNOME Translation Team</ulink>.  They'll help you find potential translation problems, such as not leaving enough space for translated labels, shortcut keys that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
 
 	<para>If possible, try out your application with users from the locales you are targeting.  This will help you determine whether users understand how to use the application, if they perceive the graphics and colors the way you intended, and if there are words or images in the application that may cause offence to users of that locale. </para>
       </sect3>
