@@ -31,30 +31,44 @@
          </affiliation>
       </author>
       <copyright>
-         <year>2002</year>
+         <year>2002</year><year>2003</year>
          <holder>Malcolm Tredinnick</holder>
       </copyright>
-      <legalnotice id="legalnotice">
-         <para>Permission is granted to copy, distribute and/or modify this
-         document under the terms of the <citetitle>GNU Free Documentation
-         License</citetitle>, Version 1.1 or any later version published by the
-         Free Software Foundation with no Invariant Sections, no Front-Cover
-         Texts, and no Back-Cover Texts.  A copy of the license can be found
-         <ulink url="FIXME">here</ulink> or in the file COPYING-DOCS which
-         shipped as part of this package. </para>
+      <legalnotice id="legal">
+         <title>Legal Notice</title>
 
-         <para>Translators are given permission to use the current title of
-         this document in any translated versions. </para>
+         <para>The following copyright notice applies to the text of this
+         article.</para>
 
-         <para>Many of the names used by companies to distinguish their
-         products and services are claimed as trademarks. Where those names
-         appear in any GNOME documentation, and those trademarks are made aware
-         to the members of the GNOME Documentation Project, the names have been
-         printed in caps or initial caps. </para>
+         <blockquote>
+            <para>Copyright 2002, 2003 Malcolm Tredinnick</para>
+   
+            <para>Permission is granted to copy, distribute and/or modify this
+            document under the terms of the <citetitle>GNU Free Documentation
+            License</citetitle>, Version 1.1 or any later version published by
+            the Free Software Foundation with no Invariant Sections, no
+            Front-Cover Texts, and no Back-Cover Texts.  A copy of the license
+            can be found <ulink url="FIXME">here</ulink> or in the file
+            COPYING-DOCS which shipped as part of this package.</para>
 
+            <para>Translators are given permission to use the current title of
+            this document in any translated versions.</para>
+
+            <para>Many of the names used by companies to distinguish their
+            products and services are claimed as trademarks. Where those names
+            appear in any GNOME documentation, and those trademarks are made
+            aware to the members of the GNOME Documentation Project, the names
+            have been printed in caps or initial caps.</para>
+         </blockquote>
       </legalnotice>
 
       <revhistory>
+         <revision>
+            <revnumber>0.4</revnumber>
+            <date>13 October 2003</date>
+            <revremark>Release to web.</revremark>
+         </revision>
+
          <revision>
             <revnumber>0.3</revnumber>
             <date>19 July 2003</date>
@@ -86,12 +100,13 @@
    </articleinfo>
 
    <abstract>
-      <para>Once a GNOME application has reached a sort of &quot;critical mass
-      &quot;, it becomes important to think about how to make it available to
-      people who speak other languages. This tutorial covers the steps required
-      to internationalise an application in a fashion that is consistent with
-      the rest of GNOME. It is mostly aimed towards applications written in C,
-      but the principles and support structure apply to all applications.</para>
+      <para>Once a GNOME application has reached a sort of &ldquo;critical
+      mass&rdquo;, it becomes important to think about how to make it available
+      to people who speak other languages. This tutorial covers the steps
+      required to internationalise an application in a fashion that is
+      consistent with the rest of GNOME. It is mostly aimed towards
+      applications written in C, but the principles and support structure apply
+      to all applications.</para>
    </abstract>
 
    <sect1 id="introduction">
@@ -1462,6 +1477,17 @@ about_box = gnome_about_new(...
       <title>ChangeLog</title>
 
       <itemizedlist>
+         <title>Changes between version 0.3 and 0.4</title>
+         <listitem>
+            <para>Added a stylesheet for the HTML version.</para>
+         </listitem>
+         <listitem>
+            <para>Fixed a couple of links that were pointing to the wrong
+            locations now.</para>
+         </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
          <title>Changes between version 0.2 and 0.3</title>
          <listitem>
             <para>Clarified that marking debugging strings for translation is
@@ -1508,7 +1534,7 @@ about_box = gnome_about_new(...
             <abbrev>menthos</abbrev>
             <title>L10N Guidelines for Developers</title>
             <subtitle>(<ulink
-            url="http://www.menthos.com/l10n/developer/"/>)</subtitle>
+            url="http://developer.gnome.org/doc/tutorials/gnome-i18n/developer.html"/>)</subtitle>
          </biblioentry>
 
       </bibliodiv>
