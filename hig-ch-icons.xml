@@ -5,21 +5,143 @@
 <chapter id="icons">
   <title>Icons</title>
   <para> </para>
-  <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. When a user sees a good icon they are immediately reminded of the item it represents, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar..</para>
+  <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. When a user sees a good icon they are immediately reminded of the item it represents, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
+  <para>
+    <itemizedlist>
+      <listitem><para>Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label.</para></listitem>
+      <listitem><para>Icons can augment text by providing visual suggestions to accompany the descriptive text. Some things are easier to communicate with a picture, even a very small one.</para></listitem>
+      <listitem><para>Icons can compactly represent a large number of objects when there is insufficient space to display textual descriptions (such as in a toolbar).</para></listitem>
+    </itemizedlist>
+  </para>
+
+  <sect1>
+    <title>Style</title>
+    
+    <para>GNOME uses a soft, three-dimensional look. This style is achieved by using antialiasing, shading and highlighting techniques. The <ulink url="http://www.ximian.com/devzone/tutorials/icon-design/"><citetitle>Gnome Icons</citetitle></ulink> tutoria details how one of GNOME's leading artists creates these effects.</para>
+    <para>Components of an icon style can be broken down into several categories such as perspective, dimentionality, lighting effects and palette. These components play an important part in giving a group of icons a collectively distinctive look. For instance, the Java Look and Feel is recognizable by its use of a primary eight-color palette, interior highlighting and diagonal gradients. The Macintosh Aqua style is recognizable by its use of a cool palette based on blue, lighting effects mimicking reflectivity and antialiasing. The GNOME style exhibits a subdued thirty-two color palette, soft drop shadows and a mix between cartoonish and photorealistic graphics.</para>
+    <table frame="topbot" pgwide="1">
+      <title>A globe in different icon styles</title>
+      
+      <tgroup cols="3" colsep="0" rowsep="0" align="center">
+	<thead>
+	  <row valign="top">
+	    <entry>Java Metal</entry>
+	    <entry>MacOS/X Aqua</entry>
+	    <entry>GNOME</entry>
+	  </row>
+	</thead>
+	<tbody>
+	  <row valign="top">
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/icon-style-java.png" format="PNG"/></imageobject>
+		<textobject><phrase>Java globe</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/icon-style-aqua.png" format="PNG"/></imageobject>
+		<textobject><phrase>Aqua globe</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/icon-style-gnome.png" format="PNG"/></imageobject>
+		<textobject><phrase>GNOME globe</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	</tbody>
+      </tgroup>
+    </table>
+  </sect1>
 
   <sect1 id="specifications">
     <title>Specifications for GNOME icons</title>
-    
+    <table frame="all" pgwide="1">
+      <title>Specifications for different types of icons</title>
+      <tgroup cols="4" colsep="1" rowsep="1" align="center">
+	<thead>
+	  <row>
+	    <entry>Icon Type</entry>
+	    <entry>Size (pixels)</entry>
+	    <entry>Perspective</entry>
+	    <entry>Light Source</entry>
+	    <entry>Examples</entry>
+	  </row>
+	</thead>
+	<tbody>
+	  <row>
+	    <entry>Object Icons</entry>
+	    <entry>48x48</entry>
+	    <entry>Table</entry>
+	    <entry>Upper Left</entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/document-icon-encrypted.png" format="PNG"/></imageobject>
+		<textobject><phrase>locked document</phrase></textobject>
+	      </mediaobject>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/document-icon-presentation.png" format="PNG"/></imageobject>
+		<textobject><phrase>presentation document</phrase></textobject>
+	      </mediaobject>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/object-icon-printer.png" format="PNG"/></imageobject>
+		<textobject><phrase>printer</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>Application Icons</entry>
+	    <entry>48x48</entry>
+	    <entry>Table</entry>
+	    <entry>Upper Left</entry>
+	    <entry>	
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/installer-icon.png" format="PNG"/></imageobject>
+		<textobject><phrase>A software box with a diskette and a cd next to it</phrase></textobject>
+	      </mediaobject>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/gide-icon.png" format="PNG"/></imageobject>
+		<textobject><phrase>A hammer</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>Menu Icons</entry>
+	    <entry>16x16</entry>
+	    <entry>Shelf</entry>
+	    <entry>Overhead</entry>
+	    <entry>FIXME</entry>
+	  </row>
+	  <row>
+	    <entry>Toolbar Icons</entry>
+	    <entry>24x24</entry>
+	    <entry>Shelf</entry>
+	    <entry>Overhead</entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/save-icon.png" format="PNG"/></imageobject>
+		<textobject><phrase>floppy disk</phrase></textobject>
+	      </mediaobject>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/print-icon.png" format="PNG"/></imageobject>
+		<textobject><phrase>printer</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	</tbody>
+      </tgroup>
+    </table>
+
     <sect2 id="toolbar_icons">
-      <title>Toolbar and Menu Icons</title>
+      <title>Toolbar Icons</title>
       
       <formalpara><title>Perspective and Lighting</title><para>Toolbar and menu icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down.</para></formalpara>
 
-      <!-- CB-Ed: In the formalpara above, terms like "head on" and the subsequent elaboration are wordy and/or not as clear as they could be.  Why not use more formal terminology like "flush" (JLF uses this term, vs. "3-D"). And... "shelf-like" nature?  Same for lighting terminology; it's too wordy and subjective. -->
-      
-      <formalpara><title>Shape</title><para>Make sure that sets of toolbar icons used together are easy to differentiate. Try looking at the silhouettes of toolbar icons that may be used together to ensure that they are visually distinct.</para></formalpara>
-      <figure>
-	<title>Silhouette of the toolbar icons from the Nautilus Crux theme</title>
+      <para>Ensure that toolbar icons which will be used together are easy to visually distinguish. Try making the icons' silhouettes distinct from one another.</para>
+      <example>
+	<title>Distinct silhouettes from the Nautilus Crux theme</title>
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/toolbar-silhouette.png" format="PNG"/>
 	  </imageobject>
@@ -27,36 +149,14 @@
 	    <phrase>Silhouettes of the various toolbar icons</phrase>
 	  </textobject>
 	</mediaobject>
-      </figure>
+      </example>
 
-      <formalpara><title>Size</title><para>Toolbar icons should be 24x24 pixels. Menu icons should be 16x16 pixels.</para></formalpara>
-      
-      <figure>
-	<title>Sample toolbar icon: 'Save'</title>
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/save-icon.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>floppy disk</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-      <figure>
-	<title>Sample toolbar icon: 'Print'</title>
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/print-icon.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Printer</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-      
       <sect3 id="stock_toolbar_icons">
 	<title>Stock Icons</title>
-	<para>Often, you will not have to design any toolbar icons yourself. GTK provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
-	<para>To browse the available stock icons, install the development packages for GTK version 1.3 or 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
+	<para>Often, you will not have to design any toolbar icons yourself as GTK provides a wide variety of stock icons. You should use these whenever representing one of their intended items. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
+	<para>To browse the available stock icons, install the development packages for GTK version 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
       </sect3>
+
     </sect2>
     
     <sect2 id="application_icons">
@@ -68,27 +168,6 @@
       <formalpara><title>Shape</title><para>Application icons should have an irregular outline in order to be visually appealing, but need not adhere to particular shape specifications.</para></formalpara>
       
       <formalpara><title>Size</title><para>Application icons should be 48x48 pixels, but should be test viewed at sizes down to 16x16 to ensure they scale well.</para></formalpara>
-      <figure>
-	<title>A great icon for a software installer</title>
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/installer-icon.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>A software box with a diskette and a cd next to it</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-      <figure>
-	<title>A reasonable icon for an IDE</title>
-	
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/gide-icon.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>A hammer</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
     </sect2>
     <sect2 id="document_icons"><title>Document Icons</title>
       <formalpara><title>Perspective and Lighting</title><para>Document icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
@@ -100,9 +179,6 @@
 
   <sect1 id="design">
     <title>Designing Effective Icons</title>
-    <para>
-      Icons have many uses. Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label. Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words. Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.
-    </para>
     <para>
       <tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
     </para>
