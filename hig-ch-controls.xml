@@ -36,6 +36,49 @@
       </figure>
       
       <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for GTK widgets) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is probably better to hide the tab altogether.</para>
+
+      <sect2 id="controls-locked">
+	<title>Locked Controls</title>
+
+	<para>In a network-managed environment, like a computer lab, system administrators usually want to &quot;lock down&quot; the values of certain settings, or remove them from the user interface altogether.  This makes it easier for them to troubleshoot any problems that their users may encounter.  In GNOME, the correct way for the system administrator to do this is by restricting write access to the GConf keys corresponding to those settings.</para>
+	
+	<para>When you are designing your application, consider which settings a system administrator might want to make unavailable to users.  These may typically include:</para>
+	
+	<itemizedlist>
+	  <listitem><para>Settings that, if set wrongly, could prevent the application from functioning at all.  For example, proxy settings in a network application.</para></listitem>
+	  <listitem><para>Settings that could refer to networked resources.  For example, the Templates directory in an office application, where shared stationery such as fax cover sheets might be stored.</para></listitem>
+	  <listitem><para>Settings that customize the user interface, other than those required for accessibility.  For example, certain menu, keyboard or toolbar customization options.</para></listitem>
+	</itemizedlist>
+
+	<para>When you implement the controls to change these settings, you therefore need to decide at runtime whether each one needs to be available to the user, depending on the read/write state of the GConf key that holds its value.  In the simplest case, your code for each control could look like that in the example below.</para>
+
+	<example>
+	  <title>Sample code fragment showing how to make a GConf-locked control insensitive</title>
+	  <programlisting>
+	if (!gconf_key_is_writable (http_proxy))
+	   gtk_widget_set_sensitive (http_proxy_field, FALSE);</programlisting>
+	</example>
+	
+	<para>Depending on the nature of the controls, you may want to explain to the user why their values cannot be edited.  You could do this in tooltips, static text elsewhere in the window, or online help.</para>
+
+	<para>For example:</para>
+	  
+	<figure>
+	  <title>Example of a dialog whose controls have been locked in GConf by a system administrator</title> 
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/controls-locked.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Screenshot showing disabled proxy controls in a web browser's property dialog, under the caption &quot;Only the system administrator can change these settings&quot;</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+
+	<para>In this example, the settings are still visible to the user, should they need to refer to them, but they cannot be edited.  In some cases, it may be better to hide the affected controls altogether.  Be aware of the documentation issues this could cause, however.  If users see controls in user guides and screenshots that they don't see on their screen, at best they will lose faith in the user guide, and at worst they may give up trying to use your application altogether.</para>
+
+	<para>Include a section in your user documentation for system administrators, explaining which settings they can lock and their corresponding GConf keys.</para>
+
+      </sect2>
       
     </sect1>
     
