@@ -8,7 +8,7 @@
 
     <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, place common menu items in the same locations as they appear in other applications, as this makes it much easier for the user to learn.</para>
   
-    <para>In most applications, only primary windows should have a menu bar. <link linkend="utility-windows">Utility windows</link> and <link linkend="dialog-boxes">dialog boxes</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
+    <para>In most applications, only primary windows should have a menubar. <link linkend="utility-windows">Utility windows</link> and <link linkend="dialog-boxes">dialog boxes</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
 
     <para>Occasionally, however, a utility window or dialog is so complex that there would be too many such controls. In this case, you may use a menubar provided that:</para>
 
@@ -33,20 +33,20 @@
 	  <title>The Menubar</title>
 
 	<figure id="example-menu-bar">
-	<title>A typical menu bar</title>
+	<title>A typical menubar</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="images/application-menubar.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>A typical application menu bar, showing File, Edit, View, Insert, Format, Go, Bookmarks, Tools, Windows and Help menus</phrase>
+	    <phrase>A typical application menubar, showing File, Edit, View, Insert, Format, Go, Bookmarks, Tools, Windows and Help menus</phrase>
 	  </textobject>
 	</mediaobject>
       </figure>
 
 	  <para>The menubar provides a number of drop-down menus. It is visible at all times and is always accessible from the keyboard as well as the mouse, so use it to give access to all commands available in your application.</para>
 
-	  <para>Each item on the menu bar is a menu title. Menu titles also appear in drop-down menus with submenus.</para>
+	  <para>Each item on the menubar is a menu title. Menu titles also appear in drop-down menus with submenus.</para>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -82,7 +82,7 @@
 
 	  <para>A drop-down menu appears when the user clicks on its title in a menubar, or focuses the title and presses <keycap>Return</keycap>.</para>
 
-<!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menu bar, or "posted," makes sense.  -->
+<!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menubar, or "posted," makes sense.  -->
 
     <itemizedlist><title>Guidelines</title>
 
@@ -92,7 +92,7 @@
 
       <listitem><para>Limit top-level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
-      <listitem><para>Do not add or remove individual menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menu bar at runtime, however, for example in component-based applications.</para></listitem>
+      <listitem><para>Do not add or remove individual menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menubar at runtime, however, for example in component-based applications.</para></listitem>
 
       <listitem><para>Immediately update menu items that are edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu.</para></listitem>
 
@@ -323,13 +323,13 @@
 
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
-      <para>The primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu; {modify them this way, etc. ...}</para>
+      <para>The primary application window has some standard menus and a standard menubar order. Not every menu is required, but the order of the menubar and of the individual menus should be preserved. Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu; {modify them this way, etc. ...}</para>
       <remark>
 	What is the best way to present menus given the known variants? Multiple shots? Segements?
 	Possible convention guideline: If the menu or submenu would contain only two items, rethink the interface.
       </remark>
       <figure id="generic-menu-bar">
-	<title>A generic menu bar</title>
+	<title>A generic menubar</title>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="images/application-menubar.png" format="PNG"/>
@@ -353,8 +353,7 @@
       <sect2 id="the-file-menu">
 	<title>File</title>
         <remark>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</remark>
-        <para>The File menu was originally conceived of as the location for commands that operate on the current document. It is the left most item in the menu bar in recognition of its importance and frequency of use (particularly for opening and saving), and because it is a relevant menu in a great number of applications (essentially all those that operate upon documents). Because most applications already had this menu, and because the distinction between closing documents and closing windows became blurred, the File menu also became the defacto location for <guimenuitem>Quit</guimenuitem>.</para>
-        <para>If an application does not operate upon documents it may choose to locate the <guimenuitem>Quit</guimenuitem> menu item in a substitute menu with a more appropriate name (for example, many games should use <guimenu>Game</guimenu> instead of <guimenu>File</guimenu>). However, this menu shold also be left-most in the menubar. The <guimenuitem>Quit</guimenuitem> menu item should always be located at the bottom of the left most menu.</para>
+
 	<figure id="generic-file-menu"><title>A generic File menu</title>
 	  <mediaobject>
 	    <imageobject>
@@ -385,147 +384,212 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
+
+        <para>The <guimenu>File</guimenu> menu was originally the location for commands that operate on the current document. It is the left-most item in the menubar because of its importance and frequency of use, and because it is a relevant menu in a great number of applications. Because most applications already had this menu, and because the distinction between closing documents and closing windows became blurred, the <guimenu>File</guimenu> menu has also become the standard location for <guimenuitem>Quit</guimenuitem>.</para>
+
+        <para>If your application does not operate on documents, use a substitute menu with a more appropriate name.  For example, many games should have a <guimenu>Game</guimenu> instead of a <guimenu>File</guimenu> menu.  You should still place the <guimenuitem>Quit</guimenuitem> menu item as the last item on this menu, however.</para>
+
 	<sect3>
 	  <title>Creation and Opening Operations</title>
 <remark><para>Adam noted in the last review that we don't make any suggestions for applications  that do not edit document/files. In an OOUI, the Game
 menu would have items such as (modulo phraeseology) Open New Game, Open Game Settings, High Scores.</para><para>For non-game UI there would be at the very least, Open as ... and Open Settings.</para></remark>
-	  <variablelist>
-	    <varlistentry>
-	      <term>New</term>
-	      <listitem>
-		<para>Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <remark>FIXME: titling of new documents</remark>></para>
 
-		<para>Where the application may create a number of different types of document, the <guimenuitem><accel>N</accel>ew</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <guimenuitem>New <replaceable>document type</replaceable></guimenuitem> and the most commonly used item should be the first entry in the submenu and should be given the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.</para>
-		<para>A blank document will not necessarily be truly blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates --></para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Open</term>
-	      <listitem>
-		<para>Opens an existing document in a new window. The user should be presented with a standard file open dialog <!-- Ref this elsewhere --> from which they may choose an existing file. If the user's choice is already open in the application then it should request that the window containing that file be raised. <!-- If the current window contains a blank untitled document then it should be replaced with the selected file. Otherwise the file should be opened in a new window. --></para>
-		<remark>>
-		  <para>If the application would provide more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</para>
-		  <para>Problem to be solved. It may be desireable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</para>
+	<table frame="all"> 
+	  <title>Creation and Opening operation menu items </title> 
+
+	  <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+	      <row>
+	      	<entry>New</entry>
+	       <entry><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry>
+		<entry>Creates a new document. Open a new primary window, with the title <replaceable>Document name</replaceable>, containing a blank document.  How this window is displayed, e.g. as a tab or a separate window, is up to the window manager.
+			<para>If your application can create a number of different types of document, you can make the <guimenuitem><accel>N</accel>ew</guimenuitem> item a submenu, containing a menu item for each type. Label these items <guimenuitem>New <replaceable>document type</replaceable></guimenuitem>, make the first entry in the submenu the most commonly used document type, and give it the <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut.</para>
+			<para>Note: A blank document will not necessarily be completely blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates --></para>
+		</entry>
+		</row>
+
+		<row>
+		      <entry>Open</entry>
+	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></entry>
+			<entry>Opens an existing document in a new window. Present the user with a standard file open dialog <!-- Ref this elsewhere --> from which they can choose an existing file. If the user's choice is already open in the application, raise that window instead of opening a new one. <!-- If the current window contains a blank untitled document then replace it with the selected file. Otherwise open the file in a new window. -->
+		<remark><para>If your application provides more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</para>
+		  <para>Problem to be solved. It may be desirable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</para>
 		  <para>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</para>
 		</remark>
-	      </listitem>
-	    </varlistentry>
+			</entry>
+		</row>
+
 	  <!-- I think this is totally broken, I'm moving back to having recent files on the main menu itself. -Seth
-	<varlistentry>
-	<term>Recent Files</term>
-	<listitem>
-	<para>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.</para>
-	<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
-	</listitem>
-	</varlistentry>
+		<row>
+			<entry>Recent Files</entry>
+			<entry>none</entry>	
+			<entry>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.
+			<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
+			</entry>
+		</row>
 	  -->
-	  </variablelist>
+		</tbody>
+		</tgroup>
+	</table>
 	</sect3>
+
+
 	<sect3>
 	  <title>Saved State Operations</title>
 	    <remark>This section needs a review with an eye to what can actually be done programmatically.</remark>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Save</term>
-	      <listitem>
-		<para>Saves the document to its current filename. If the document has a filename associated with it then the document should be saved to that file without any further interaction with the user. If there are any additional options involved in saving a file (eg. DOS or UNIX-style line endings in a text file) then these should remain as they were the last time the document was saved. If the document has no associated filename then the action should be the same as that of <guimenuitem>Save As</guimenuitem>.</para>
-		<note>
-		  <para>Calum recommends disabling this item (making it insensitive) if the document is read-only.</para>
-		  <para>Gregory wonders why a read-only view would have this item.</para>
-		</note>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Save As</term>
-	      <listitem>
-		<para>Saves the document to a new filename. The <guimenuitem>Save <accel>A</accel>s</guimenuitem> command should present the user with a standard file save as dialog and save the file with the chosen file name. <!-- FIXME: errors, additional information--></para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Save A Copy</term>
-	      <listitem>
-		<para>The <guimenuitem>Save A Copy</guimenuitem> command prompts the user to enter a filename, with which a copy of the document is then saved.  Neither the view nor the filename of the original document is altered.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command).</para>
 
-		<para> Like the <guimenuitem>Save As</guimenuitem> dialog, the <guimenuitem>Save Copy</guimenuitem> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Revert</term>
-	      <listitem>
-		<para>Reverts the document to the last saved state. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before reloading the file.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Save Version</term>
-	      <listitem>
-		<para>The <guimenuitem>Save Version</guimenuitem> is an alternative to the <guimenuitem>Save Copy</guimenuitem> command.</para>
-		<para>This should be used only in conjunction with the <guimenuitem>Restore Version</guimenuitem> command.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Restore Version</term>
-	      <listitem>
-		<para>Prompts the user for a version of the current document to be restored. The user should be presented with with a warning that all changes will be lost and given the option of cancelling before restoring the version.</para>
-		<para>This should be used only in conjunction with the <guimenuitem>Save Version</guimenuitem> command.</para>
-		  <remark>All of these items, (Print, Send . . . ) are export or save operations, to keep a semblance of a sane order of operations, the order of the items should follow the order of locality. Ergo, Save Print Send - local (disk), local or remote (printer), remote (someone else)</remark>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Versions</term>
-	      <listitem>
-		<para>An alternative to the <guimenuitem>Save Version</guimenuitem> and <guimenuitem>Restore Version</guimenuitem> commands. Use this when more utilities, such as a diff, are available.</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
+	<table>
+	  <title>Saved State Operation menu items</title>
+	  <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+	      <row>
+		<entry>Save</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
+		<entry>Saves the document with its current filename. If the document already has a filename associated with it, save the document immediately without any further interaction from the user. If there are any additional options involved in saving a file (eg. DOS or UNIX-style line endings in a text file), use the same values as the last time the document was saved.
+		<para>If the document has no associated filename, the action should be the same as that of <guimenuitem>Save As</guimenuitem>.</para>
+		</entry>
+		</row>
+
+		<row>
+		      <entry>Save As</entry>
+	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
+			<entry>Saves the document with a new filename. Present the user with the standard Save As dialog, and save the file with the chosen file name. <!-- FIXME: errors, additional information--></entry>
+
+		</row>
+		<row>
+	      		<entry>Save a Copy</entry>
+	      		<entry>None</entry>
+			<entry>Prompts the user to enter a filename, with which a copy of the document is then saved.  Do not alter either the view or the filename of the original document.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <guimenuitem>Save As</guimenuitem> command.
+		<para> Like the <guimenuitem>Save As</guimenuitem> dialog, the <guimenuitem>Save a Copy</guimenuitem> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</para></entry>
+	      </row>
+
+	    <row>
+	      	<entry>Revert</entry>
+	      <entry>None</entry>
+		<entry>Reverts the document to the last saved state. Present the user with a warning that all changes will be lost, and offer the option of cancelling before reloading the file.</entry>
+
+		</row>
+
+		<row>
+		      <entry>Save Version</entry>
+	      		<entry>None</entry>
+			<entry>An alternative to the <guimenuitem>Save Copy</guimenuitem> command.  Only use this item in conjunction with the <guimenuitem>Restore Version</guimenuitem> command.</entry>
+	      </row>
+
+		<row>
+		      <entry>Restore Version</entry>
+	      		<entry>None</entry>
+			<entry>Prompts the user for a version of the current document to be restored. Present the user with with a warning that all changes will be lost, and offer the option of cancelling before restoring the version. Only use this item in conjunction with the <guimenuitem>Save Version</guimenuitem> command.</entry>
+		</row>
+	
+		<row>
+		      <entry>Versions</entry>
+	      		<entry>None</entry>
+			<entry>An alternative to the <guimenuitem>Save Version</guimenuitem> and <guimenuitem>Restore Version</guimenuitem> commands. Use this when more utilities, such as a diff, are available.</entry>
+	      </row>
+
+		</tbody>
+		</tgroup>
+
+	</table>
 	</sect3>
+
 	<sect3>
 	  <title>Export Operations</title>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Page Setup</term>
-	      <listitem>
-		<para>Allows the user to control print-related settings. The user should be presented with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Print Preview</term>
-	      <listitem>
-		<para>Shows the user what the printed document will look like. The <guimenuitem>Print Preview</guimenuitem> command should bring up a new window containing an accruate represenation of the appearance of the document as it would be printed.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Print</term>
-	      <listitem>
-		<para>Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Send</term>
-	      <listitem>
-		<para><guimenuitem>Send</guimenuitem> provides the user a means to instantly attach or send the currently viewed document as an email attachement <!-- (launch $MAILER -a $ATTACHMENT) -->or, in the case of plain text or html, to send the document as email to another user.</para>
-		<para>This item may be split according to the options to send which are available. As according to the general rule, if there are more than two items (usually with a common name) split them off into a submenu. For example, if just the commands Send by Email and Send by FAX were available, those could be left on the menu; but if there were a third option, perhaps Send by FTP, then all the options would be placed in a submenu.</para>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
+		  <remark>All of these items, (Print, Send . . . ) are export or save operations, to keep a semblance of a sane order of operations, the order of the items should follow the order of locality. Ergo, Save Print Send - local (disk), local or remote (printer), remote (someone else)</remark>
+
+	<table>
+	  <title>Export Operation menu items</title>
+	  <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+	      <row>
+	      	<entry>Page Setup</entry>
+		<entry>None</entry>
+	      	<entry>Allows the user to control print-related settings. Present the user with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on. <remark>We should have a standard dialog for this.</remark></entry>
+	      </row>
+
+		<row>
+		      <entry>Print Preview</entry>
+	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
+			<entry>Shows the user what the printed document will look like. Present a new window containing an accruate represenation of the appearance of the document as it would be printed.  The libgnomeprintui library provides a standard Print Preview window that you should use if possible.</entry>
+		</row>
+
+	    <row>
+	    	<entry>Print</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
+	        <entry>Prints the current document. Present the user with a dialog allowing them to set options like the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.  The libgnomeprintui library provides a standard Print dialog that you should use if possible.</entry>
+	    </row>
+
+	    <row>
+	      <entry>Send</entry>
+		<entry>None</entry>
+	      <entry>Provides the user a means to attach or send the current document as an email or email attachment <!-- (launch $MAILER -a $ATTACHMENT)-->, depending on its format.
+		<para>You may provide more than one <guimenuitem>Send</guimenuitem> depending on which options are available. If there are more than two such items, move them into a submenu. For example, if just the commands <guimenuitem>Send by Email</guimenuitem> and <guimenuitem>Send by Fax</guimenuitem> were available, those could be left on the top-level menu  If there was a third option, such as <guimenuitem>Send by FTP</guimenuitem>, then you would place all the options in a <guimenuitem>Send</guimenuitem> submenu.</para>
+	      </entry>
+	    </row>
+	</tbody>
+	</tgroup>
+	</table>
 	</sect3>
+	
 	<sect3>
 	  <title>Closing Operations</title>
-	  <variablelist>
-	    <varlistentry>
-	      <term>Close</term>
-	      <listitem>
-		<para>Close the current document. If the document in the current window has unsaved changes, present the user with an alert giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application, then either leave the with a blank document if your application is MDI, or leave only the control window open if your application is CSD).</para>
-		  <remark>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut (at least). The graphic shows Alt+F4 which is a used in Windows, CDE, and OS/2 for closing windows.</remark>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>Quit</term>
-	      <listitem>
-		<para>Quit the application. If there are unsaved changes in any open documents, present the user with an alert listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes then close the application immediately without presenting any further messages or dialogs.</para>
+	<table>
+	  <title>Closing Operation menu items</title>
+	  <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+	      <row>
+		<entry>Close</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
+	        <entry>Closes the current document. If it has unsaved changes, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> giving the option to save changes, discard the changes, or cancel the action without closing or saving the document.
+		<para>If the window you are closing is the last open document in the application, the correct action depends on your application type:</para>
+		<itemizedlist>
+			<listitem>Single document interface: close the application</listitem>
+			<listitem>Controlled single document interface: leave only the control window open</listitem>
+			<listitem>Multiple document interface: <remark>what should we do here?  Close the current document, and open a new document window with a blank, untitled document?</remark></listitem>
+		</itemizedlist>		
+		  <remark>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut.  But see also <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=76761">http://bugzilla.gnome.org/show_bug.cgi?id=76761</ulink></remark>
+	      </entry>
+	    </row>
+	    
+	    <row>
+	      <entry>Quit</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry>
+	      <entry>Closes the application. If there are unsaved changes in any open documents, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes, close the application immediately without presenting any further messages or dialogs.  
 		  <remark>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</remark>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
+	      </entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+	</table>
 	</sect3>
 	
       </sect2>
