@@ -17,7 +17,7 @@
   <sect1>
     <title>Style</title>
     
-    <para>GNOME uses a soft, three-dimensional look. This style is achieved by using antialiasing, shading and highlighting techniques. The <ulink url="http://www.ximian.com/devzone/tutorials/icon-design/"><citetitle>Gnome Icons</citetitle></ulink> tutoria details how one of GNOME's leading artists creates these effects.</para>
+    <para>GNOME uses a soft, three-dimensional look. This style is achieved by using antialiasing, shading and highlighting techniques. The <ulink url="http://www.ximian.com/devzone/tutorials/icon-design/"><citetitle>Gnome Icons</citetitle></ulink> tutorial details how one of GNOME's leading artists creates some of these effects.</para>
     <para>Components of an icon style can be broken down into several categories such as perspective, dimentionality, lighting effects and palette. These components play an important part in giving a group of icons a collectively distinctive look. For instance, the Java Look and Feel is recognizable by its use of a primary eight-color palette, interior highlighting and diagonal gradients. The Macintosh Aqua style is recognizable by its use of a cool palette based on blue, lighting effects mimicking reflectivity and antialiasing. The GNOME style exhibits a subdued thirty-two color palette, soft drop shadows and a mix between cartoonish and photorealistic graphics.</para>
     <table frame="topbot" pgwide="1">
       <title>A globe in different icon styles</title>
@@ -64,7 +64,7 @@
 	<thead>
 	  <row>
 	    <entry>Icon Type</entry>
-	    <entry>Size (pixels)</entry>
+	    <entry>Sizes (pixels)</entry>
 	    <entry>Perspective</entry>
 	    <entry>Light Source</entry>
 	    <entry>Examples</entry>
@@ -72,38 +72,26 @@
 	</thead>
 	<tbody>
 	  <row>
-	    <entry>Object Icons</entry>
-	    <entry>48x48</entry>
+	    <entry>Object / Document Icons</entry>
+	    <entry>48x48, 24x24, 96x96</entry>
 	    <entry>Table</entry>
 	    <entry>Upper Left</entry>
 	    <entry>
 	      <mediaobject>
-		<imageobject><imagedata fileref="images/document-icon-encrypted.png" format="PNG"/></imageobject>
-		<textobject><phrase>locked document</phrase></textobject>
-	      </mediaobject>
-	      <mediaobject>
-		<imageobject><imagedata fileref="images/document-icon-presentation.png" format="PNG"/></imageobject>
-		<textobject><phrase>presentation document</phrase></textobject>
-	      </mediaobject>
-	      <mediaobject>
-		<imageobject><imagedata fileref="images/object-icon-printer.png" format="PNG"/></imageobject>
-		<textobject><phrase>printer</phrase></textobject>
+		<imageobject><imagedata fileref="images/object-icons.png" format="PNG"/></imageobject>
+		<textobject><phrase>variety of object icons</phrase></textobject>
 	      </mediaobject>
 	    </entry>
 	  </row>
 	  <row>
 	    <entry>Application Icons</entry>
-	    <entry>48x48</entry>
+	    <entry>48x48, 24x24</entry>
 	    <entry>Table</entry>
 	    <entry>Upper Left</entry>
 	    <entry>	
 	      <mediaobject>
-		<imageobject><imagedata fileref="images/installer-icon.png" format="PNG"/></imageobject>
-		<textobject><phrase>A software box with a diskette and a cd next to it</phrase></textobject>
-	      </mediaobject>
-	      <mediaobject>
-		<imageobject><imagedata fileref="images/gide-icon.png" format="PNG"/></imageobject>
-		<textobject><phrase>A hammer</phrase></textobject>
+		<imageobject><imagedata fileref="images/application-icons.png" format="PNG"/></imageobject>
+		<textobject><phrase>variety of application icons</phrase></textobject>
 	      </mediaobject>
 	    </entry>
 	  </row>
@@ -116,7 +104,7 @@
 	  </row>
 	  <row>
 	    <entry>Toolbar Icons</entry>
-	    <entry>24x24</entry>
+	    <entry>24x24, 48x48</entry>
 	    <entry>Shelf</entry>
 	    <entry>Overhead</entry>
 	    <entry>
@@ -175,23 +163,91 @@
       <formalpara><title>Size</title><para>Document icons should preferably be made in at least three sizes 24x24, 48x48 and 96x96 pixels. 48x48 is the most commonly used in the file manager, however the other two are important in various contexts. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para></formalpara>
     </sect2>
   </sect1>
-
+  <sect1>
+    <title>Suggested Design Process</title>
+    <para>For accessibility reasons, you should create high and low contrast and large print versions of all icons, in addition to the regular size and contrast icon. A suggested process for conveniently integrating this into your icon design is as follows:</para>
+    <orderedlist>
+      <listitem>
+	<para>Draw the basic outline as close to 48x48 pixels as possible:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-1.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Fill in with black and white to create detail. Do not add gratuities such as drop shadows or anti-aliasing:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-2.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Use the finished image as the large print high contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-3.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>GNOME will automatically scale it down to create the 24x24 high contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-4.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Or you may hand-create a 24x24 version, which will be superior in contrast and sharpness:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-5.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Add color and anti-aliasing to the large print high contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-6.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Add gradients for a smooth, realistic effect:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-7.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Add a drop shadow (120 degree global angle, 4 pixel distance, 4 pixel blur, 40% opacity), and use the finished image as the large print regular contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-8.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Now you should hand-create create a version of this icon at 24x24. Do <emphasis>not</emphasis> simply scale the larger icon, as this icon will be seen by the majority of users and the result of scaling would be less distinct:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-9.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Create a layer with the large print regular contrast icon's same outline and size then overlay that on the color icon. Give the overlay layer 40% opacity, and use the finished image as the large print low contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-10.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>GNOME will automatically scale it down to create the 24x24 low contrast icon:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-11.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+      <listitem>
+	<para>Or you may hand-create a 24x24 version, which will be superior in contrast and sharpness:</para>
+	<mediaobject>
+	  <imageobject><imagedata fileref="images/icon-design-process-12.png" format="PNG"/></imageobject>
+	</mediaobject>
+      </listitem>
+    </orderedlist>
+  </sect1>
+    
 
   <sect1 id="design">
     <title>Designing Effective Icons</title>
     <para>
       <tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
     </para>
-
-    <sect2 id="graphic_design">
-      <title>Graphic Design</title>
-      
-      <para>Blah blah, notes on graphic design of icons, blah blah, icons should be high contrast, distinct, etc etc</para>
-      
-      
-      <para>Try designing in monochrome, and adding color later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para>
-      
-    </sect2>
 
     <sect2 id="right_kind">
       <title>Kinds of Icons</title>
@@ -271,10 +327,8 @@
 	</itemizedlist>
       </sect3>
     </sect2>
-    <sect2>
-      <title>Communicating concept with effective visual language</title>
-      <para>...</para>
-    </sect2>
+
+    <!-- FIXME: we need a short section that talks about finding useful metaphors and images for icons -->
     
     <!-- CB-Ed: Much of this section has good substance, but is communicated poorly.  There seem to be a lot of blanket statements, and the tone is subjective (e.g., text describing figure 12, the Gnumeric icon.  Stick just to the facts, or try to stay closely to objective language, and language that will not be presenting things in a way that can be argued with or questioned. -->
     <!-- Seth: Objective language does not present the entire picture. While its better for laying down hard and fast guidelines, it does not assist designers in understanding the motivation behind various decisions. This document covers the design *philosophy* as well as providing specific guidelines. This is in fact one of my major complaints about the Java guidelines relative to the MacOS guidelines. Java guidelines attempt to maintain a facade of scientific objectivity and in doing so fail to educate designers as well as failing to communicate the real dynamics of good design. Dealing with more subjective issues is particularly important because many of the readers of the GNOME guidelines will not be professional icon artists, or even graphic designers. -->
