@@ -440,7 +440,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       <sect2 id="choosing-access-keys">
 	<title>Choosing Access Keys</title>
 
-	<para>Give all labelled components an access key (underlined letter), with the exception of toolbar control which would use up too many access key combinations.</para>
+	<para>Give all labelled components an access key (underlined letter), with the exception of toolbar controls which would use up too many access key combinations.</para>
 
 <!-- Consensus was against giving OK and Cancel additional access keys, but they have them anyway and Owen refuses to remove them...
 
@@ -455,6 +455,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<orderedlist>
 	    <listitem><para>Assign access keys to the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign access keys from left to right, top to bottom (for Western locales).</para></listitem>
 
+
 	  <listitem><para>Use the first letter of the label, or of one of its other words if it has more than one.  If another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Extra Large</guilabel>) however, consider using that letter instead.</para></listitem>
 
 	  <listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, for example, &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
@@ -462,7 +463,10 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
 	</orderedlist>
 
-	   <para>Do not assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y) unless you have to.  The underlines often do not show up very well on those characters.</para>
+	   <para>If duplication of access keys in a window is unavoidable, you should still refrain from duplicating the access keys for any of these buttons that appear in the same window: <guibutton>OK</guibutton>, <guibutton>Cancel</guibutton>, <guibutton>Close</guibutton>, <guibutton>Apply</guibutton> or <guibutton>Help</guibutton>.</para>
+
+	   <para>Also, it is better not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y) unless it is unavoidable.  The underline does not show up very well on those characters in some fonts.</para>
+
 
 	<para>Applications using a non-Roman writing system in conjunction with a standard keyboard can have control labels prefixed with Roman characters as access keys.</para>
 	
@@ -699,6 +703,11 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> (see note below)</entry>
 		<entry>Reload the current document, updating content from source if necessary</entry>
+	      </row>
+		  <row>
+		<entry><guimenuitem>Pr<accel>o</accel>perties</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>Enter</keycap></keycombo></entry>
+		<entry>Display the selected object's Properties window. May alternatively appear on the <guimenu>File</guimenu> menu if the document itself is the only object in the application whose properties can be inspected.</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
