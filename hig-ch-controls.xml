@@ -1542,6 +1542,71 @@
         lists, if appropriate.</para>
       </listitem>
     </itemizedlist>
+
+    <sect2 id="controls-lists-sortable">
+      <title>Sortable Lists</title>
+      <para>Users often prefer to sort long lists, either alphabetically or
+	      numerically, to make it easier to find items. Allow users
+	      to sort long or multi-column lists by clicking on the column
+	      header they want to sort.
+      </para>
+      <itemizedlist><title>Guidelines</title>
+	      <listitem><para>
+		Indicate which column is currently sorted by showing an
+		upward or downward facing arrow in its header:</para>
+	  <informaltable frame="all">
+            <tgroup align="left" cols="2">
+                <thead>
+	              <row>
+		      <entry>Sort Order</entry>
+                      <entry>Arrow Direction</entry>
+		      <entry>Example</entry>
+                    </row>
+                </thead>
+            <tbody>
+                  <row>
+		  <entry>Natural</entry>
+		  <entry>Down</entry>
+		 <entry>Alphabetical; smallest number first;
+			  earliest date first; checked items first</entry>
+                </row>
+                  <row>
+		  <entry>Reverse</entry>
+		  <entry>Up</entry>
+		  <entry>Reverse alphabetical; largest number first;
+		  	most recent date first; unchecked items first)</entry>
+                </row>
+            </tbody>
+             </tgroup>
+              </informaltable>
+      </listitem>
+      <listitem><para>Clicking an unsorted column header sorts the 
+		      column in natural order, indicated by showing a
+		      down arrow in its header.</para></listitem>
+
+      <listitem><para>Clicking a column header sorted in natural order
+		      re-sorts it in reverse order, indicated by
+		      showing an up arrow in its header.</para>
+	      
+		      <note><title>Un-sorting lists</title>
+	    		<para> Occasionally, 
+		      an unsorted state may be useful, for example to
+		      show items in the order in which the user added 
+		      them to the list.
+		      In such cases, clicking a column sorted in reverse
+		      order should un-sort it, indicated by removing the
+		      arrow from the column header.</para>
+	    	      <para>Usually, however,
+		      this is better achieved by adding an extra column
+		      that the user can sort in the usual way, such as a 
+		      sequence
+		      number column in this example.
+      		</para></note>
+	</listitem>
+
+	</itemizedlist>
+
+    </sect2>
   </sect1>
 
   <sect1 id="controls-trees">
@@ -1669,6 +1734,14 @@
         trees, if appropriate to the task.</para>
       </listitem>
     </itemizedlist>
+
+    <sect2 id="controls-trees-sortable">
+	    <title>Sortable Trees</title>
+	    <para>As with lists, the user may find it useful to sort long or
+	    multi-column trees. See the guidelines in 
+	    <xref linkend="controls-lists-sortable"/> for 
+	    more information.</para>
+    </sect2>
   </sect1>
 
   <sect1 id="controls-notebooks">
