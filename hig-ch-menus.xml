@@ -91,7 +91,7 @@
 
       <listitem><para>Organize menu items in the standard order&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> followed by <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
 
-      <listitem><para>Limit top-level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
+      <listitem><para>Limit top-level menus to a maximum of about 15 items. <!--<remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark>--> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
       <listitem><para>Do not add or remove individual menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menubar at runtime, however, for example in component-based applications.</para></listitem>
 
@@ -219,7 +219,7 @@
 	      <imagedata fileref="images/command-menu.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-		<phrase>Screenshot of a group on a menu containing only command items: Save, Save As, Save All, and Revert</phrase></textobject>
+		<phrase>Screenshot of a group on a menu containing only command items: Save, Save As, and Revert</phrase></textobject>
 	  </mediaobject>
 	</figure>
 
@@ -326,7 +326,7 @@
       <title>Standard Menus</title>
       <para>Most applications have many functions in common, such as <guimenu>Cut</guimenu>, <guimenu>Copy</guimenu>, <guimenu>Paste</guimenu> and <guimenu>Quit</guimenu>.  To aid learning and memorability, these menu items, and the menus on which they appear, must appear with the same labels and in the same order in every application.  The same commands must also behave the same way in different applications, to avoid surprising the user.</para>
 
-	<para>This section details the most common menus, menu items and their behaviors.  You will not need all of these menus or menu items in every application you write, but do preserve the order of the menu titles and of the menu items on them.</para>
+	<para>This section details the most common menus, menu items and their behaviors.  You will not need all of these menus or menu items in every application you write, but do preserve the order of the menu titles and of the menu items that you do use.</para>
 
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu</para></listitem>
@@ -336,8 +336,7 @@
 	</itemizedlist>
 
         
-
-      <remark>What is the best way to present menus given the known variants? Multiple shots? Segements?</remark>
+<!--<remark><para>What is the best way to present menus given the known variants? Multiple shots? Segments?</para></remark>-->
 
       <figure id="generic-menu-bar">
 	<title>A menubar showing all the standard menu titles in their correct order</title>
@@ -354,7 +353,7 @@
 	      <member><guimenu>For<accel>m</accel>at</guimenu></member>
 	      <member><guimenu><accel>G</accel>o</guimenu></member>
 	      <member><guimenu><accel>B</accel>ookmarks</guimenu></member>
-	      <member><guimenu><accel>T</accel>ools</guimenu></member>
+	      <!--<member><guimenu><accel>T</accel>ools</guimenu></member>-->
 	      <member><guimenu><accel>W</accel>indows</guimenu></member>
 	      <member><guimenu><accel>H</accel>elp</guimenu></member>
 	    </simplelist>
@@ -379,21 +378,26 @@
 <guimenu>File</guimenu>
 <guimenuitem><accel>N</accel>ew                  Ctrl+N</guimenuitem>
 <guimenuitem><accel>O</accel>pen...              Ctrl+O</guimenuitem>
-<guimenuitem>Recent <accel>F</accel>iles              &gt; </guimenuitem>
+<!--<guimenuitem>Recent <accel>F</accel>iles              &gt; </guimenuitem>-->
 ---
 <guimenuitem><accel>S</accel>ave                 Ctrl+S</guimenuitem>
 <guimenuitem>Save <accel>A</accel>s...     Shift+Ctrl+S</guimenuitem>
-<guimenuitem>Sa<accel>v</accel>e Copy...               </guimenuitem>
+<guimenuitem>Sa<accel>v</accel>e a Copy...               </guimenuitem>
 <guimenuitem><accel>R</accel>evert                     </guimenuitem>
 ---
 <guimenuitem>Page Set<accel>u</accel>p                 </guimenuitem>
 <guimenuitem>Print Previe<accel>w</accel>  Shift+Ctrl+P</guimenuitem>
 <guimenuitem><accel>P</accel>rint...             Ctrl+P</guimenuitem>
-<guimenuitem><accel>M</accel>ail...              Ctrl+M</guimenuitem>
+<guimenuitem><accel>S</accel>end To...              Ctrl+M</guimenuitem>
 ---
 <guimenuitem>Proper<accel>t</accel>ies                 </guimenuitem>
 ---
-<guimenuitem><accel>C</accel>lose                Alt+F4</guimenuitem>
+<guimenuitem><accel>1</accel>. Recent Document                 </guimenuitem>
+<guimenuitem><accel>2</accel>. Recent Document                </guimenuitem>
+<guimenuitem><accel>3</accel>. Recent Document                </guimenuitem>
+<guimenuitem><accel>4</accel>. Recent Document                </guimenuitem>
+---
+<guimenuitem><accel>C</accel>lose               Ctrl+W</guimenuitem>
 <guimenuitem><accel>Q</accel>uit                 Ctrl+Q</guimenuitem>
 </literallayout>
 	    </textobject>
@@ -565,6 +569,30 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	</sect3>
 	
 	<sect3>
+	  <title>File Properties</title>
+	<table>
+	  <title>Properties menu items</title>
+	  <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+	      <row>
+		<entry>Proper<accel>t</accel>ies</entry>
+		<entry>None</entry>
+	        <entry>Opens the document's <guilabel>Properties</guilabel> window.  This may contain editable information, such as the document author's name, or read-only information, such as the number of words in the document, or a combination of both.</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+	</table>
+	</sect3>
+	
+
+	<sect3>
 	  <title>Closing Operations</title>
 	<table>
 	  <title>Closing Operation menu items</title>
@@ -614,7 +642,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<listitem><para>most applications already contain a suitable <guimenu>Edit</guimenu> menu.</para></listitem>
 	</itemizedlist>
 
-	<remark>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</remark>
+	<remark><para>I think we should move to a MacOS/X concept of having an "AppName" menu that contains things like preferences, about, quit, etc. -Seth</para></remark>
 
 	<figure id="generic-edit-menu">
 	  <title>A generic Edit menu</title>
@@ -631,6 +659,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 <guimenuitem>Cu<accel>t</accel>                  Ctrl+X</guimenuitem>
 <guimenuitem><accel>C</accel>opy                 Ctrl+C</guimenuitem>
 <guimenuitem><accel>P</accel>aste                Ctrl+V</guimenuitem>
+<guimenuitem>Paste <accel>S</accel>pecial...                Shift+Ctrl+V</guimenuitem>
 <guimenuitem><accel>D</accel>elete               Del</guimenuitem>
 <guimenuitem><accel>S</accel>elect All           Ctrl+A</guimenuitem>
 <guimenuitem>Dese<accel>l</accel>ect All   Shift+Ctrl+A</guimenuitem>
@@ -638,9 +667,11 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 <guimenuitem><accel>F</accel>ind                 Ctrl+F</guimenuitem>
 <guimenuitem>Find Ne<accel>x</accel>t            Ctrl+G</guimenuitem>
 <guimenuitem>Find Pre<accel>v</accel>ious  Shift+Ctrl+G</guimenuitem>
-<guimenuitem>R<accel>e</accel>place              Ctrl+R</guimenuitem>
+<guimenuitem>R<accel>e</accel>place...              Ctrl+R</guimenuitem>
 -
-<guimenuitem>Prefere<accel>n</accel>ces...</guimenuitem>
+<guimenuitem><accel>I</accel>nsert...              </guimenuitem>
+-
+<guimenuitem>Prefere<accel>n</accel>ces</guimenuitem>
 </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -795,7 +826,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 
 	<sect3>
 	  <title>Inserting Special Objects</title>
-	  <para>Where applicable, allow the insertion of pre-formatted or programmatic objects such as images, links, GUI controls or the current date and time on the <guimenu>Edit</guimenu> menu. </para>
+	  <para>Where applicable, provide items on the <guimenu>Edit</guimenu> menu that insert special objects such as images, links, GUI controls or the current date and time. </para>
 
 	<para>If you have up to three types of object that can be inserted, add them as individual items to this menu, for example <guimenuitem>Insert Image</guimenuitem>, or <guimenuitem>Insert External Link</guimenuitem>.  If you have between three and six types, place them on an <menuchoice><guimenu>Edit</guimenu><guimenuitem>Insert</guimenuitem></menuchoice> submenu.  If you have more than six, add a separate <link linkend="menu-standard-insert"><guimenu>Insert</guimenu> menu</link> to the menubar.</para>
 
@@ -839,7 +870,24 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </imageobject>
 	    <textobject>
 	      <literallayout class="monospaced">
-<guimenu><accel>V</accel>iew</guimenu><!-- FIXME -->
+<guimenu><accel>V</accel>iew</guimenu>
+<guimenuitem><accel>T</accel>oolbar</guimenuitem>
+<guimenuitem><accel>S</accel>tatusbar</guimenuitem>
+---
+<guimenuitem><accel>I</accel>cons</guimenuitem>
+<guimenuitem><accel>L</accel>ist</guimenuitem>
+<guimenuitem><accel>D</accel>etails</guimenuitem>
+---
+<guimenuitem><accel>S</accel>ort By...</guimenuitem>
+<guimenuitem><accel>F</accel>ilter...</guimenuitem>
+---
+<guimenuitem><accel>Z</accel>oom in       Ctrl++</guimenuitem>
+<guimenuitem>Zoom <accel>O</accel>ut  Ctrl+-</guimenuitem>
+<guimenuitem><accel>N</accel>ormal Size   Ctrl+=</guimenuitem>
+<guimenuitem>Best <accel>F</accel>it    </guimenuitem>
+---
+<guimenuitem><accel>R</accel>efresh     Ctrl+R</guimenuitem>
+
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -847,9 +895,9 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 
 
 	<sect3>
-	<title>Window Decorations</title>
+	<title>Toolbar and Statusbar</title>
 	<table>
-	<title>Window Decoration menu items</title>
+	<title>Toolbar and Statusbar menu items</title>
 	 <tgroup cols="3" align="left">
 	    <thead> 
 	      <row> 
@@ -915,6 +963,13 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</row>
 
 		<row>
+			<entry><accel>F</accel>ilter...</entry>
+			<entry>None</entry>
+			<entry>Hides objects that are not of interest to the user.  Open a dialog allowing the user to choose from a list of types of object they want to display, or to enter their own criteria (for example, a regular expression matched against a particular property of the objects).</entry>
+		</row>
+
+
+		<row>
 			<entry><accel>Z</accel>oom In</entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo></entry>
 			<entry>Zooms into the document.  Make the center of the new view the same as the center of the previous view.</entry>
@@ -963,7 +1018,20 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </imageobject>
 	    <textobject>
 	      <literallayout class="monospaced">
-<guimenu><accel>I</accel>nsert</guimenu><!-- FIXME -->
+<guimenu><accel>P</accel>age Break</guimenu>
+<guimenuitem><accel>D</accel>ate and Time...</guimenuitem>
+<guimenuitem><accel>S</accel>ymbol...</guimenuitem>
+---
+<guimenuitem><accel>S</accel>heet...</guimenuitem>
+<guimenuitem><accel>R</accel>ows...</guimenuitem>
+<guimenuitem><accel>C</accel>olumns...</guimenuitem>
+---
+<guimenuitem><accel>I</accel>mage...</guimenuitem>
+<guimenuitem><accel>G</accel>raph...</guimenuitem>
+---
+<guimenuitem><accel>F</accel>rom File...</guimenuitem>
+<guimenuitem>E<accel>x</accel>ternal Link...</guimenuitem>
+
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1050,11 +1118,13 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 
       </sect2>
 
-<!-- CFB I think the format menu is *too* generic to be of much use here...
-     commenting out for now
 
       <sect2 id="menu-standard-format">
 	<title>Format</title>
+
+		<para>A <guimenu>Format</guimenu> menu contains commands to change the visual appearance of the document.  For example, changing the font, color, or line spacing of a text selection.</para>
+		<para>The difference between these commands and those on the <link linkend="menu-standard-view"><guimenuitem>View</guimenuitem> menu</link> is that changes made with Format commands are persistent and saved as part of the document, for example as HTML or RTF tags.</para>
+
 	<figure id="generic-format-menu">
 	  <title>A generic Format menu</title>
 	  <mediaobject>
@@ -1063,14 +1133,113 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </imageobject>
 	    <textobject>
 	      <literallayout class="monospaced">
-<guimenu>For<accel>m</accel>at</guimenu>
+<guimenu><accel>S</accel>tyle...</guimenu>
+---
+<guimenuitem><accel>F</accel>ont...</guimenuitem>
+<guimenuitem><accel>P</accel>aragraph...</guimenuitem>
+---
+<guimenuitem><accel>B</accel>old	Ctrl+B</guimenuitem>
+<guimenuitem><accel>I</accel>talic	Ctrl+I</guimenuitem>
+<guimenuitem><accel>U</accel>nderline	Ctrl+U</guimenuitem>
+---
+<guimenuitem><accel>C</accel>ells...</guimenuitem>
+<guimenuitem><accel>L</accel>ist...</guimenuitem>
+---
+<guimenuitem>L<accel>ayer</accel>...</guimenuitem>
+<guimenuitem>P<accel>a</accel>ge...</guimenuitem>
+
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>Provide a <guimenu>Format</guimenu> menu for commands which alter data such as markup and structural changes.</para>
+
+
+	<para>Items found on the <guimenu>Format</guimenu> will be very application-specific, but some common items are listed in the table below.</para>
+
+	<table>
+	<title>Format menu items</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>S</accel>tyle...</entry>
+			<entry>None</entry>
+			<entry>Sets the style attributes of the selected text or objects either individually or to a named, predefined style.  Open a dialog allowing the user to set attributes such as bold, italic, size and spacing individually, and to create their own named styles where applicable.</entry>
+
+		</row>
+
+		<row>
+			<entry><accel>F</accel>ont...</entry>
+			<entry>None</entry>
+			<entry>Sets the font properties of the selected text or objects.  Open a dialog allowing the user to choose font, size, style, color, or whatever other attributes are applicable.</entry>
+		</row>
+
+		<row>
+			<entry><accel>P</accel>aragraph...</entry>
+			<entry>None</entry>
+			<entry>Sets the properties of the selected paragraph.  Open a dialog allowing the user to choose style, line spacing, tabulation, or whatever other attributes are applicable.</entry>
+		</row>
+
+		<row>
+			<entry><accel>B</accel>old</entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
+			<entry>Toggles the boldness of the current text selection on or off.  If some of the selection is currently bold and some is not, this command should bolden the selected text.</entry>
+
+		</row>
+
+		<row>
+			<entry><accel>I</accel>talic</entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
+			<entry>Toggles the italicisation of the current text selection on or off.  If some of the selection is currently italicised and some is not, this command should italicise the selected text.</entry>
+
+		</row>
+
+		<row>
+			<entry><accel>U</accel>nderline</entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+			<entry>Toggles underlining of the current text selection.  If some of the selection is currently underlined and some is not, this command should underline the selected text.</entry>
+
+		</row>
+
+		<row>
+			<entry><accel>C</accel>ells...</entry>
+			<entry>None</entry>
+			<entry>Sets the properties of the selected table cells.  Open a dialog allowing the user to choose alignment, borders, shading, text style, number format, or whatever other attributes are applicable.</entry>
+		</row>
+
+		<row>
+			<entry><accel>L</accel>ist...</entry>
+			<entry>None</entry>
+			<entry>Sets the properties of the selected list, or turns the selected paragraphs into a list if they are not already formatted as such.  Open a dialog allowing the user to choose number or bullet style, spacing, tabulation, or whatever other attributes are applicable.</entry>
+		</row>
+
+
+		<row>
+			<entry>Laye<accel>r</accel>...</entry>
+			<entry>None</entry>
+			<entry>Sets the properties of all or selected layers of a multi-layered document.  Open a dialog allowing the user to choose name, size, visibility, opacity, z-ordering, or whatever other attributes are applicable.</entry>
+		</row>
+
+
+		<row>
+			<entry>P<accel>a</accel>ge...</entry>
+			<entry>None</entry>
+			<entry>Sets the properties of all or selected pages of the document.  Open a dialog allowing the user to choose paper size, orientation, columns, margins, or whatever other attributes are applicable.</entry>
+		</row>
+
+		</tbody>
+		</tgroup>
+	</table>
+
       </sect2>
--->
+
 
       <sect2 id="menu-standard-bookmarks">
 	<title>Bookmarks</title>
@@ -1139,12 +1308,11 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <textobject>
 <literallayout class="monospaced">
 <guimenu><accel>G</accel>o</guimenu>
-<guimenuitem><accel>B</accel>ack       </guimenuitem>
-<guimenuitem><accel>F</accel>orward    </guimenuitem>
-<guimenuitem><accel>U</accel>p         </guimenuitem>
-<guimenuitem><accel>R</accel>eload     </guimenuitem>
-<guimenuitem><accel>S</accel>top       </guimenuitem>
-<guimenuitem><accel>H</accel>ome       </guimenuitem>
+<guimenuitem><accel>B</accel>ack       Alt+Left</guimenuitem>
+<guimenuitem><accel>F</accel>orward	Alt+Right    </guimenuitem>
+<guimenuitem><accel>U</accel>p		Alt+Up         </guimenuitem>
+---
+<guimenuitem><accel>H</accel>ome	Alt+Home       </guimenuitem>
 <guimenuitem><accel>L</accel>ocation...</guimenuitem>
 </literallayout>
 	    </textobject>
@@ -1208,12 +1376,12 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <textobject>
 <literallayout class="monospaced">
 <guimenu><accel>G</accel>o</guimenu>
-<guimenuitem><accel>P</accel>revious Page  </guimenuitem>
-<guimenuitem><accel>N</accel>ext Page      </guimenuitem>
-<guimenuitem><accel>J</accel>ump to Page...</guimenuitem>
+<guimenuitem><accel>P</accel>revious Page 	PgUp </guimenuitem>
+<guimenuitem><accel>N</accel>ext Page      		PgDn</guimenuitem>
+<guimenuitem><accel>G</accel>o to Page...</guimenuitem>
 -
-<guimenuitem><accel>F</accel>irst Page     </guimenuitem>
-<guimenuitem><accel>L</accel>ast Page      </guimenuitem>
+<guimenuitem><accel>F</accel>irst Page    		Ctrl+Home </guimenuitem>
+<guimenuitem><accel>L</accel>ast Page		Ctrl+End</guimenuitem>
 </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1310,7 +1478,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	      <literallayout class="monospaced">
 <guimenu><accel>W</accel>indows</guimenu>
 <guimenuitem><accel>S</accel>ave All</guimenuitem>
-<guimenuitem><accel>C</accel>lose All</guimenuitem>
+<guimenuitem><accel>C</accel>lose All		Shift+Ctrl+W</guimenuitem>
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1368,9 +1536,9 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <textobject>
 	      <literallayout class="monospaced">
 <guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem><accel>S</accel>earch</guimenuitem>
-<guimenuitem>Help <accel>C</accel>ontents      F1</guimenuitem>
-<guimenuitem><accel>A</accel>bout <replaceable>appname</replaceable></guimenuitem>
+<!--<guimenuitem><accel>S</accel>earch</guimenuitem>-->
+<guimenuitem><accel>C</accel>ontents      F1</guimenuitem>
+<guimenuitem><accel>A</accel>bout</guimenuitem>
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1404,7 +1572,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		</tgroup>
 	</table>
 
-	<remark>We originally wanted a Search item on here too, but it's not technically possible to implement it right now.</remark>
+	<remark><para>We originally wanted a Search item on here too, but it's not technically possible to implement it right now.</para></remark>
 
       </sect2>
     </sect1>
