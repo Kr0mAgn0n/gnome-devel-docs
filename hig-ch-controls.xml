@@ -235,8 +235,8 @@
 
       <listitem>
         <para>In an instant-apply <link linkend="windows-utility">property or
-        preference window</link>, validate the contents of the entry field
-        when it loses focus or when the window is closed, not after each keypress. 
+        preference window</link>, validate and apply the contents of the entry field
+        when it loses focus or when the window is closed, but not after each keypress. 
 	Exception: if the field accepts only a fixed
         number of characters, such as a hexadecimal color code, validate and
         apply the change as soon as that number of characters have been entered.</para>
@@ -456,6 +456,14 @@
         where the user might want to compare two numerical values in the same
         column of controls. In this case, ensure the right edges of the
         relevant controls are also aligned.</para>
+      </listitem>
+      <listitem>
+        <para>In an instant-apply <link linkend="windows-utility">property or
+        preference window</link>, validate and apply the contents of a spin box
+        when a spin button is clicked, when it loses focus or when the window is closed, but not after each keypress. 
+	Exception: if the field accepts only a fixed
+        number of characters, such as a hexadecimal color code, validate and
+        apply the change as soon as that number of characters have been entered.</para>
       </listitem>
     </itemizedlist>
   </sect1>
