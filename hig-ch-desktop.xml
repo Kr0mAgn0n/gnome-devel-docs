@@ -242,6 +242,60 @@
 
 	</orderedlist>
       </sect3>
+	<sect3>
+	<title>Generic Name and Name</title>
+
+        <para>There are two name types required for a menu item, a generic name and a proper name.  The menu item requires these two names to distinguish the applications when there are more than one of the same application type present and to simplify the item name when there is only one present.  If only one application of a generic name exists in the menu the application assumes the generic name, otherwise the proper name is displayed.</para>
+
+	<example>
+		<title>X-Chat .desktop file</title>
+		 <programlisting>
+	Name=X-Chat IRC Client
+	GenericName=IRC Client
+		 </programlisting>
+	</example>
+
+	<para>
+	The generic name or GenericName, is a name describing only the applications functionality without the applications proper name.  This is the name to be displayed when there are no other applications of the same generic name present and should simply describe the pure functionality of the application without its actual name.
+	</para>
+
+	<para>
+	A proper name or Name, is the displayed name of the application when there are more than one applications present with the same generic name.  This distinguishes the multiple generic names with the applications proper name.
+	</para>
+
+	<example>
+		<title>GenericName and Name</title>
+		<informaltable frame="all">
+			
+			<tgroup cols="2" align="left">
+			  <thead>
+				<row>
+		      			<entry>GenericName</entry>
+					<entry>Name</entry>
+	   			</row>
+			  </thead>
+			  <tbody>
+	     			<row>
+					<entry>Web Browser</entry>
+					<entry>Epiphany Web Browser</entry>
+				</row>
+	     			<row>
+					<entry>Web Browser</entry>
+					<entry>Mozilla Web Browser</entry>
+				</row>
+	     			<row>
+					<entry>Word Processor</entry>
+					<entry>AbiWord Word Processor</entry>
+				</row>
+	     			<row>
+					<entry>Word Processor</entry>
+					<entry>OpenOffice.org Word Processor</entry>
+				</row>
+	  		</tbody>
+	         	</tgroup>
+		</informaltable>
+	</example>
+	</sect3>
     </sect2>
     <sect2 id="menu-item-tooltips">
 
