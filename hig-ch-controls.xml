@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="controls">
+
+<title>Controls</title>
+
+<para>
+The GNOME environment provides a set of controls (also known as widgets<!-- FIXME: which should we use? -->) for use in your applications. It is important that controls are used appropriately and that they follow standard behaviours since this allows users to predict the effects of their actions. Controls which behave in non-standard ways dilute the meaning of the GUI's visual language.
+</para>
+
+<para>
+Under some circumstances the value that a control manipulates may not have an effect, or the action that a control activates may not be able to run. At these times the control should be made unavailable. While a control is unavailable it will appear dimmed and will not be able to receive the focus.
+</para>
+
+<sect1 id="controls-buttons">
+
+<title>Buttons</title>
+
+<para>
+Buttons should be used to initiate actions.
+</para>
+
+<para>
+Buttons should generally be labeled with verbs. Button labels should have the first letter of the first word and of any significant words capitalized. Where the action will require further input from the user before it can be carried out, the label should end with an ellipsis ("...").
+</para>
+
+<para>
+In a dialog, one button may be made the default button. The guidelines for doing this are in the section on dialogs.
+</para>
+
+</sect1>
+
+<sect1 id="controls-toggle-buttons">
+
+<title>Toggle Buttons</title>
+
+<para>
+Toggle buttons are buttons which remain depressed after they have been clicked on. They can be used to indicate a currently active mode, and should work in the same manner as either radio buttons or check boxes. They may be raised either by a second click, or by another toggle button in the same group being clicked on.
+</para>
+
+<para>
+Toggle buttons should generally only be used where there is little available space, such as on toolbars or palettes. Otherwise check boxes or radio buttons will be more appropriate.
+</para>
+
+</sect1>
+
+<sect1 id="controls-check-boxes">
+
+<title>Check Boxes</title>
+
+<para>
+Check boxes are used to toggle an option on or off. Check box options should be independent of each other. Toggling a check box should not affect the values of other controls. 
+</para>
+
+<para>
+Toggling a check box may affect the availability of other controls. Where this happens, the check box should ideally be placed immediately above or to the left of the controls it affects, in such a way as to indicate that the controls are dependent on the state of the check box.
+</para>
+
+<para>
+While a check box option may be applied instantaneously, changing it should not initiate an action.
+</para>
+
+<para>
+Check boxes should be labeled in a way that unambiguously indicates what the effects of both their checked and unchecked states will be. Where this cannot be done, it may be better to use two radio buttons so that both states can be given labels.
+</para>
+
+</sect1>
+
+<sect1 id="controls-radio-buttons">
+
+<title>Radio Buttons</title>
+
+<para>
+Radio buttons are used in groups to select from a mutually exclusive set of options. Only one radio button within a group may be checked at any one time. As with check boxes, radio buttons should not be used to initiate actions.
+</para>
+
+</sect1>
+
+<sect1 id="controls-option-menus">
+
+<title>Option Menus</title>
+
+<para>
+Option menus are used to select from a mutually exclusive set of options. They should not be used to initiate actions.
+</para>
+
+<para>
+In general, radio buttons are preferable to option menus, since options menus only display the currently selected item. However, their use may be appropriate when there is little available space or where the list of options may change.
+</para>
+
+</sect1>
+
+<sect1 id="controls-combo-boxes">
+
+<title>Combo Boxes</title>
+
+<para>
+Combo boxes combine a text entry field and a menu of predefined values. Selecting one of the pre-defined values from the menu should update the contents of the text field to that value and may also perform the action that would be performed if the user pressed the Return key in that text field.
+</para>
+
+</sect1>
+
+<sect1 id="controls-progress-bars">
+
+<title>Progress Bars</title>
+
+<para>
+Progress bars are visual indicators of the progress of a task being carried out by the application. <!-- would it be good to have a section on feedback? -->
+</para>
+
+<para>
+There are two types of progress bar: Determinate progress bars, which indicate what proportion of the task has been completed, and indeterminate progress bars, which indicate only that the application is working on a task. Where the length of a task is known, a determinate progress bar should be used. Otherwise, an indeterminate progress bar should be used.
+</para>
+
+</sect1>
+
+<sect1 id="controls-status-bars">
+
+<title>Status Bars</title>
+
+<para>
+Status bars provide a small area which can be used to display one line of text describing the status of the application. Status bars should always be positioned at the bottom of a window.
+</para>
+
+<para>
+Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.
+</para>
+
+</sect1>
+<!-- CFB: Sliders/spinboxes
+Just had a chat with Stephen Browne, who's working on a GUI here and wondering when to use sliders rather than spinboxes-- so it seemed like a useful topic to address :o).  I came up with a few guidelines off the top of my head, and have summarised them here, but it would be good to come up with some more formal ones and write them up-->
+
+<sect1 id="controls-range">
+
+<title>Sliders and Spinboxes</title>
+
+<para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
+<para>Recommendations:</para>
+
+<itemizedlist>
+
+<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it's always from "min" to "max"</para></listitem>
+
+<listitem><para>Use a slider if it's useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
+
+<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
+
+</itemizedlist>
+
+<para>Sometimes it's useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+
+</sect1>
+
+</chapter>
+

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="layout">
+
+<title>Layout and Appearance</title>
+
+<!-- TODO:
+- More than any other section this needs to be liberally sprinkled with examples
+-->
+
+<para>
+The layout of a GUI is important both because it communicates the relationships between elements, and because an aesthetically-pleasing interface is more pleasant to use.
+</para>
+
+<sect1 id="layout-order-relationships">
+
+<title>Order and Relationships</title>
+
+<para>
+Western users are accustomed to reading from the top-left to the bottom-right. For this reason, elements of an interface which are intended to be presented to the user in a specific order should be laid out in such a way that the first element the user should encounter is in the top-left and the last in the bottom-right.
+</para>
+
+<para>
+(Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.) <!-- Does it get more complex than this? -->
+</para>
+
+<para>
+Relationships between elements are usually indicated by their positions. Labels should be placed either above or to the left of the controls they relate to.
+</para>
+      
+<!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
+
+      <figure id="label-placement-example">
+	<title>Correct label placement for various GUI elements</title>
+	<informaltable frame="all">
+	  <tgroup cols="3" align="center">
+	    <tbody>
+	      <row>
+		<entry valign="middle">
+	          <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_above.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		    <phrase>List control with label above</phrase>
+		  </textobject>
+		  </mediaobject>
+	  List control with label above
+	        </entry>
+		
+		<entry valign="middle">
+	          <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_below.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Large file manager icon with label underneath</phrase>
+		    </textobject>
+		  </mediaobject>
+	  Large file manager icon with label underneath
+	        </entry>
+		
+		<entry valign="middle">
+	          <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_right.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		    <phrase>Small toolbar icon with label to its right</phrase>
+		  </textobject>
+		  </mediaobject>
+	  Small toolbar icon with label to its right
+	        </entry>
+		
+		<entry valign="middle">
+         	  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_left.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		    <phrase>Spinbox control with label to its left</phrase>
+		  </textobject>
+		  </mediaobject>
+	  Spinbox control with label to its left
+        	</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </figure>
+      
+    </sect1>
+
+<sect1 id="layout-aesthetics">
+
+<title>Aesthetics</title>
+
+<para>
+Simply making a GUI look tidier can make it seem less intimidating. This can be done by aligning elements with each other and by removing unnecessary elements.
+</para>
+
+<para>
+GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <wordasword>white space</wordasword>.
+</para>
+
+</sect1>
+
+<sect1 id="layout-grouping-separators">
+
+<title>Grouping and Separators</title>
+
+<para>
+There is a rule, frequently referred to in interface design, called the 7+/-2 rule. It states that humans can only hold between 5 and 9 items of information in their minds at a time. One of the implications of this in interface design is that long lists of choices should, where possible, be broken down into smaller groups of choices.
+</para>
+
+<para>
+There are a number of ways of visually dividing controls into groups. One method is to use separators and frameboxes to draw lines and boxes between elements. Another method is to use a greater amount of white space between groups of elements.
+</para>
+
+<para>
+It is essential that the extent of option groups such as radio buttons be made clear, using these methods as appropriate.
+</para>
+
+</sect1>
+
+
+    <!-- Colors, Fonts and Accessibility -->
+    <sect1 id="colors-fonts">
+      <title>Fonts and Text</title>
+      
+      <para>To a user with normal vision, textual output provides the majority of the information and feedback in most applications.  To a visually-impaired user who may not be able to see or understand any additional graphical output, clear textual output is critical.  It is therefore essential that you choose and position text carefully on the screen, and leave the choice of fonts and sizes to the user, to ensure that all users are able to use your application effectively.</para>
+      
+      <para>Don't mix lots of different fonts and sizes in your application, it will just look unprofessional and be harder to read.  If you need to use different fonts for different types of information, don't use more than two or three in the same window, and choose visually distinct rather than similar-looking fonts.  In general, you should always use fonts from the current theme, and specify relative rather than absolute font sizes.</para>
+      
+      <para>&lt;pics&gt;</para>
+
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	<listitem><para>Don't hard-code font styles and sizes. The user should be able to adjust all sizes and typefaces. If for some reason you cannot make this functionality available, never hardcode any font sizes smaller than 10 points.</para></listitem>
+	
+	<listitem><para>Don't use graphical backdrops or &quot;watermarks&quot; behind text, other than those specified by the user's chosen theme. Such images interfere with the contrast between the text and its background.  This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain backdrops.</para></listitem>
+	
+	<listitem><para>Position labels consistently throughout your application. This normally means immediately below large icons, immediately to the
+right of small icons, and immediately above or to the left of other controls. See <link linkend="label-placement-example">label positioning example</link>.</para></listitem>
+
+	<listitem><para>When you use static text to label a control, ensure that the label immediately precedes that control in the Tab order. This will ensure that the access key (underlined character) you assign to the label will move focus to or activate the correct control when pressed.</para></listitem>
+	
+     
+	<listitem><para>Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not necessarily be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
+	
+	<listitem><para>When you use static text to label a control, end the label with a colon. For example, <guilabel>Email:</guilabel> to label a text field into which the user should type their email address. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
+
+	<listitem><para>Don't use the same label more than once in the same window. If you use the same label in different windows, it will help if it means the same thing in both windows. Also, don't use labels that are spelled differently but sound the same, e.g. &quot;Read&quot; and &quot;Red&quot;, as this could be confusing for users relying on screenreaders.</para></listitem>
+
+	<listitem><para>Provide alternatives to WYSIWYG. Some users may need to print text in a small font but edit in a larger screen font, for example. Possible alternatives include displaying all text in the same font and size (both of which are chosen by the user); a &quot;wrap-to-window&quot; option that allows you to read all the text in a window without scrolling horizontally; a single column view that shows the window's contents in a single column even if they will be printed in multiple columns; and a text-only view, where graphics are shown as placeholders or text descriptions.</para></listitem>
+      </itemizedlist>
+
+      <sect2 id="layout-capitalization">
+	
+	<title>Capitalization</title>
+
+	<para>Two different styles of capitalization are used in a GNOME user interface:</para>
+	
+	<orderedlist>
+	  
+	  <listitem><para>Book title capitalization (or "title caps") means capitalizing the first letter of the first and last words.  Also, capitalize all words inbetween, except:</para>
+	  
+	    <itemizedlist>
+	      <listitem><para>Articles (a, an, the...)</para></listitem>
+	      
+	      <listitem><para>Conjunctions (and, but, for, not, so, yet...)</para></listitem>
+	      
+	      <listitem><para>Prepositions of four or fewer letters (at, for, with, into...)</para></listitem>
+	  
+	    </itemizedlist>
+	    
+	  </listitem>
+	  
+	  <listitem><para>Sentence-style capitalization (or "sentence caps") means capitalizing the first letter of the first word, and any other words normally capitalized in sentences, such as proper nouns.</para></listitem>
+	
+	</orderedlist>
+	
+	<para>The table below tells you what sort of capitalization to use for which GUI elements.</para><table frame='all'>
+	  
+	  <title>Capitalization styles for different GUI elements</title>
+	  <tgroup cols='3' align='left'>
+
+	    <thead>
+	      <row>
+		<entry>Element</entry>
+		<entry>Style</entry>
+		<entry>Example</entry>
+	      </row>
+
+	    </thead>
+
+	    <tbody>
+
+	      <row>
+		<entry>Alt (alternate) text on web pages</entry>
+		<entry>Sentence</entry>
+		<entry>Screenshot showing sample panel layout</entry>
+	      </row>
+	      <row>
+		<entry>Button labels (except radio buttons)</entry>
+		<entry>Title</entry>
+		<entry>Find Now</entry>
+	      </row>
+	      <row>
+		<entry>Checkbox labels</entry>
+		<entry>Sentence</entry>
+		<entry>Don't show this again</entry>
+	      </row>
+	      <row>
+		<entry>Column headings</entry>
+		<entry>Title</entry>
+		<entry>File Type</entry>
+	      </row>
+	      <row>
+		<entry>Filenames</entry>
+		<entry>Sentence</entry>
+		<entry>Untitled.txt</entry>
+	      </row>
+	      <row>
+		<entry>Frame/group labels</entry>
+		<entry>Sentence</entry>
+		<entry>Desktop background</entry>
+	      </row>
+	      <row>
+		<entry>Icon labels</entry>
+		<entry>Title</entry>
+		<entry>Time Tracking Tool</entry>
+	      </row>
+	      <row>
+		<entry>List entries</entry>
+		<entry>Sentence</entry>
+		<entry>Copy to next workspace</entry>
+	      </row>
+	      <row>
+		<entry>Menu titles and menu items</entry>
+		<entry>Title</entry>
+		<entry>Save As...</entry>
+	      </row>
+	      <row>
+		<entry>Messages</entry>
+		<entry>Sentence</entry>
+		<entry>No matches found.</entry>
+	      </row>
+	      <row>
+		<entry>Radio button labels</entry>
+		<entry>Sentence</entry>
+		<entry>Embossed logo</entry>
+	      </row>
+	      <row>
+		<entry>Status bar text</entry>
+		<entry>Sentence</entry>
+		<entry>File download complete</entry>
+	      </row>
+	      <row>
+		<entry>Tab titles (notebooks)</entry>
+		<entry>Title</entry>
+		<entry>Panel Objects</entry>
+	      </row>
+	      <row>
+		<entry>Text box labels</entry>
+		<entry>Sentence</entry>
+		<entry>First name:</entry>
+	      </row>
+	      <row>
+		<entry>Titlebar text</entry>
+		<entry>Title</entry>
+		<entry>Text Properties</entry>
+	      </row>
+	      <row>
+		<entry>Toolbar button labels</entry>
+		<entry>Title</entry>
+		<entry>Print Preview</entry>
+	      </row>
+	      <row>
+		<entry>Tooltips - menu items</entry>
+		<entry>Sentence</entry>
+		<entry>Insert special characters into documents</entry>
+	      </row>
+	      <row>
+		<entry>Tooltips - toolbar controls</entry>
+		<entry>Title</entry>
+		<entry>Save As</entry>
+	      </row>
+	      <row>
+		<entry>Webpage titles and navigational elements</entry>
+		<entry>Title</entry>
+		<entry>Return to Homepage</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+
+
+      </sect2>
+
+
+    </sect1>
+    
+    <sect1>
+      <title>Color and Contrast</title>
+
+      <para>Poor choice of colors on the screen can cause problems for users with color blindness (for whom hue is important) or low-vision (for whom brightness/contrast is important). For example, some users require a high level of contrast between the background and text colors&mdash; black on white, white on black, or some other high-contrast combination. Others can experience discomfort unless they use low contrast settings, such as gray text on a lighter gray background.</para>
+
+      <para>It is therefore vital that you allow the user to customize the colors in any part of your application that conveys important information.  Normally, this means you should only use colors that are part of the user's chosen theme.  If you have to use any extra colors, they must be customizable in your application's <guilabel>Preferences</guilabel> dialog.</para>
+      
+      <figure id="redundant-color-example"> <title>Example illustrating redundant use of color</title>
+	<informaltable frame='all'>
+	  <tgroup cols='2'>
+	    <tbody>
+	      <row>
+		<entry valign='middle'> 
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/colour_only.png" format="PNG"/>
+		</imageobject>
+		  <textobject>
+		    <phrase>Example showing changes in stock price using color only</phrase>
+		  </textobject>
+		</mediaobject>
+		</entry>
+		
+		<entry>This display could cause problems for a red-green colorblind user (colorblindness affects as many as 1 in 7 males in some parts of the world).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
+	      </row>
+	      
+	      <row>
+		<entry valign='middle'>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/colour_and_arrows.png" format="PNG"/>
+		</imageobject>
+		  <textobject>
+		    <phrase>Example showing changes in stock price using both color and arrows</phrase>
+		  </textobject>
+		</mediaobject>
+		</entry>
+		
+		<entry>This display reinforces the color coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.  This needn't be the default colour scheme if testing were to show it to be too distracting for the majority of users, but it should be possible to customize it in this way either by theming or via the application's <guilabel>Preferences</guilabel> dialog.</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </figure>
+      
+      <para>Always design colored elements, such as icons, in black and white first, then add the color later.  If the design works in black and white, you can be fairly sure that the color you add will be redundant, and used only to reinforce the black and white design.  See <link linkend="icons">Icons</link> for more information.</para>
+      
+      <para>Recommendations:</para>
+      <itemizedlist>
+
+	<listitem><para>Only use colors from the user's currently-selected theme in your application.  If for some reason you do need to use colors that are not available in the theme, make those colors customizable within your application's <guilabel>Preferences</guilabel> dialog.  Never hard-code application colors, as some users need to use particular combinations of colors and levels of contrast to be able to read the screen comfortably.</para></listitem>
+
+	<listitem><para>Ensure your application is not dependent on a particular theme. Test it with different themes (including high contrast accessibility themes, which use fewer colors) to ensure your application respects the settings.</para></listitem>
+
+	<listitem><para>Don't use color as the only means to distinguish items of information. All such information should be provided by at least one other method, such as shape, position or textual description. See <link linkend="redundant-color-example">color and contrast example</link> above.</para></listitem>
+
+      <listitem><para>Support high contrast GNOME themes (when these become available). Ensure that when one of these themes is selected, all the text in your application appears in the high contrast foreground and background colors specified by the theme.</para></listitem>
+
+      
+      </itemizedlist>
+
+    </sect1>
+    
+  </chapter>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="windows">
+    <title>Windows</title>
+    <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
+
+    <sect1 id="window-names">
+      <title>Names</title>
+      <para>All top-level windows must have names. The name must have the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have names when they do stand alone.</para>
+    </sect1>
+
+    <sect1 id="window-frames">
+      <title>Frames</title>
+      <para>Most top-level windows will have frames; exception may include shaped windows and torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+    </sect1>
+
+    <sect1 id="window-modality">
+      <title>Modality</title>
+      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs. Modality has two degrees: local and global.</para>
+      <para>A local mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
+      <para>A global mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+    </sect1>
+
+    <sect1 id="window-focus">
+      <title>Focus</title>
+      <para>There are the focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
+    </sect1>
+
+    <sect1 id="window-other">
+      <title>General Communication with the Window Manager</title>
+      <para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
+      <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
+    </sect1>
+    
+    <sect1 id="primary-windows">
+      <title>Primary Windows</title>
+      <para>FIXME - normal frames; may have menu bar, tool bar, and status bar.</para>
+    </sect1>
+      
+    <sect1 id="utility-windows">
+      <title>Utility Windows</title>
+      <para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
+    </sect1>
+
+
+    <sect1 id="alert-windows">
+      <title>Alerts</title>
+      <para>An alert is a modal secondary window for . . .</para>
+      <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
+      <sect2 id="informational-alert">
+	<title>Informational Alerts</title>
+	<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+	<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
+      </sect2>
+      <sect2 id="confirmational-alert">
+	<title>Confirmational Alert</title>
+	<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+	<para>The confirmational alert will present . . . </para>
+      </sect2>
+      <sect2 id="button-order">
+	<title>Alert Buttons</title>
+	
+	<para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
+	<formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
+	<formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
+	<formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
+	<formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
+	
+	<para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
+	
+	<!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
+	<figure id="alert-buttons">
+	  <title>A save confirmation alert</title>
+	  
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/save_alert.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Save confirmation alert: "               [Don't Quit] [Don't Save] [Save] "</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </sect2>
+
+    </sect1>
+      
+    <sect1 id="dialog-windows">
+      <title>Dialogs</title>
+      <para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
+    </sect1>
+    
+    <sect1 id="assistant-windows">
+      <title>Assistants</title>
+      <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
+      <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+    </sect1>
+    
+</chapter>
+

@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="userinput">
+<title>User Input</title>
+  <sect1 id="mouse">
+    <title>Mouse Interaction</title>
+    
+    <sect2 id="mouse-buttons">
+      <title>Buttons</title>
+
+	<figure> <title>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/pointingdevices.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Pictures of different types of pointing device, including mouse, trackball, foot-operated mouse and joystick.</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      
+      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
+
+	
+      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the <mousebutton>left button</mousebutton> here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as &quot;Button 1&quot; or the &quot;Selection Button&quot;.</para>
+
+      <para>Also for right-handed users, the right button on a conventional mouse is the one used for operations involving pop-up menus. We therefore call it the <mousebutton>right button</mousebutton> here, even though it may not always physically be so.  You may sometimes see this referred to in code or documentation as &quot;Button 3&quot; or the &quot;Menu Button&quot;.</para>
+
+      <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <mousebutton>middle button</mousebutton>, but you may sometimes see this referred to in code or documentation as &quot;Button 2&quot; or the &quot;Transfer Button&quot;.</para>
+
+	<para>Recommendations:</para>
+	<itemizedlist>
+	  
+	  <listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
+	  
+	  <listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
+	  
+	  <listitem><para>The middle mouse button should be used to paste the current PRIMARY (usually the last-highlighted) selection at the pointer position, as follows:</para>
+	    
+	    <table frame='all'>
+	      <title>Effect of modifier keys on a <mousebutton>middle button</mousebutton> transfer operation</title>
+	      <tgroup cols='2' align='left'>
+		<thead>
+		  <row>
+		    <entry>Modifier</entry>
+		    <entry>Function</entry>
+		  </row>
+		</thead>
+		<tbody>
+		  <row>
+		    <entry>Unmodified</entry>
+		    <entry>Copy selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycap>Ctrl</keycap></entry>
+		    <entry>Copy selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycap>Shift</keycap></entry>
+		    <entry>Move selection</entry>
+		  </row>
+		  <row>
+		    <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo></entry>
+		    <entry>Create link, shortcut or alias to selection</entry>
+		</row>
+
+		</tbody>
+	      </tgroup>
+	    </table>
+
+	<para>Don't over-ride this functionality in any part of your user interface where the transfer action is likely to be useful.  If you do intend to use the middle button for a different purpose somewhere, only do so as a shortcut for experienced users, and only for operations that can also be performed without using the <mousebutton>right button</mousebutton> or <mousebutton>middle button</mousebutton>.</para></listitem>
+
+	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><mousebutton>scrollwheel</mousebutton></keycombo> <emphasis>(or perhaps <keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel</mousebutton></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
+
+	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
+
+	<listitem><para>Ensure that every operation in your application that can be done with the mouse can also be done with the keyboard.  The only exceptions to this are actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
+
+	<listitem><para>Don't warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who don't rely on assistive technologies.</para></listitem>
+
+	<listitem><para>Don't require the use of chording (pressing multiple mouse buttons simultaneously) for any operations.</para></listitem>
+
+	<listitem><para>Don't require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
+
+	<listitem><para>Allow all mouse operations to be cancelled. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
+
+	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
+
+	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</para></listitem>
+
+	<listitem><para>Don't refer to particular mouse buttons in your interface unless absolutely necessary.  Not everybody will be using a conventional mouse with left, middle and right buttons, so any text or diagrams that refer to those may be confusing.</para></listitem>
+
+      </itemizedlist>
+      
+    </sect2>
+
+    <sect2 id="selection">
+      <title>Selecting Objects</title>
+      <sect3>
+	<title>Mouse and keyboard equivalents</title>
+
+	<para>For controls or windows that contain a number of objects that the
+user can select, either singly or multiply, ensure the following mechanisms are in place to allow selections to be made using either the mouse or the keyboard.</para>
+	
+	<table frame='all' pgwide='1'>
+	  <title>Standard mouse and keyboard selection mechanisms</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry></entry>
+		<entry>Mouse</entry>
+		<entry>Keyboard</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>Select item, deselect all others</entry>
+		<entry>Click</entry>
+		<entry><keysym>Space</keysym></entry>
+	      </row>
+	      <row>
+		<entry>Add/remove item from selection</entry>
+		<entry><keycap>Ctrl</keycap> click (toggles item's selected state)</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo> (toggles focused item's selected state)</entry>
+	      </row>
+	      <row>
+		<entry>Extend selection</entry>
+		<entry><keycap>Shift</keycap> click</entry>
+		<entry><keycombo><keycap>Shift</keycap><keysym>Space</keysym></keycombo>, <keycombo><keycap>Ctrl</keycap><keycap>Home</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>End</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>PageUp</keycap></keycombo>, or <keycombo><keycap>Shift</keycap><keycap>PageDown</keycap></keycombo></entry>
+	      </row>
+	      <row>
+		<entry>Move focus</entry>
+		<entry>Click appropriate item to select it</entry>
+		<entry>Cursor keys, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>PageUp</keycap>, and <keycap>PageDown</keycap>. Also moves current selection if container is single-selection only.</entry>
+	      </row>
+	      <row>
+		<entry>Select All</entry>
+		<entry>Click first item, then <keycap>Shift</keycap> click last item</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+	      </row>
+	      <row>
+		<entry>Deselect All</entry>
+		<entry>Click container background</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+	      </row>
+	      <row>
+		<entry>Activate selection</entry>
+		<entry>Double-click to activate a single selection.  <keycap>Shift</keycap> or <keycap>Ctrl</keycap> double-clicking extends or adds item to selection first before activating the entire selection.</entry>
+		<entry><keysym>Return</keysym> activates entire selection.  If nothing is currently selected, selects currently-focused item first.</entry>
+	      </row>
+	      <row>
+		<entry>Invert Selection</entry>
+		<entry>No mouse equivalent</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+      </sect3>
+
+      <sect3>
+	<title>Bounding Box Selection</title>
+
+	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
+	<para>Recommendations:</para>
+	<itemizedlist>
+
+	  <listitem><para>By default, only objects that are completely enclosed by the bounding box when the mouse button is released should be selected.</para></listitem>
+
+	<listitem><para>Always use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Don't wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
+
+	<listitem><para>When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</para></listitem>
+
+	</itemizedlist>
+
+	<note>
+	  <title>For discussion</title>
+	  <para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para>
+	</note>
+	
+	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/rubberband.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Example illustrating dynamic selection highlighting during bounding box selection</phrase>
+	    </textobject>
+	  </mediaobject>
+
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/rubberband_dia.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Example illustrating dynamic selection highlighting during bounding box selection</phrase>
+	    </textobject>
+	  </mediaobject>
+	  
+	</figure>
+
+      </sect3>
+    </sect2>
+
+    <sect2 id="drag-drop">
+      <title>Drag and Drop</title>
+
+      <para>Drag and drop is a direct manipulation technique. It allows you to perform actions on selected objects by moving them around the screen with the mouse.</para>
+
+      <para>&lt;pics&gt;</para>
+
+      <para>An object is normally dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed. The object is dropped there by releasing the mouse button.  
+<!-- Consensus was not to recommend right-button dragging
+Dragging with the right button instead of the left pops up a menu when the button is released, allowing you to choose which action (normally one of Copy, Move, Link or Cancel) to perform.
+-->
+</para>
+
+      <para>Multiple objects may be dragged by <keycap>Shift</keycap> or <keycap>Ctrl</keycap> selecting them, then dragging any one of the selected objects.</para>
+      
+      <para>Recommendations:</para>
+      <itemizedlist>
+
+	<listitem><para>Provide good visual feedback throughout a drag and drop operation. As the mouse passes over valid targets, highlight them and change the mouse pointer. Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	<listitem><para>A drag and drop operation can be reversed by using the application's <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice> function.</para></listitem>
+
+	<!-- Decided against the right mouse drag
+      <listitem><para>Dragging with the right mouse button pops up a menu when the mouse button is released, offering the choice of Copy, Move, Link, and Cancel (or whichever subset of those actions is available).  Cancel should always be available.</para></listitem>
+	-->
+
+	<listitem><para>A drag and drop operation can be cancelled by: pressing Esc before releasing the mouse button, by dropping the object back on its original source,
+
+<!-- by dragging withe right mouse button and selecting <guimenu>Cancel</guimenu> on the pop-up menu that appears,--> 
+
+or by dropping the object on an invalid drop target.</para></listitem>
+
+	<listitem><para>Keyboard users can replicate all drag and drop actions using shortcut keys, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
+
+	<listitem><para>Standard pointer shapes are used across all GNOME applications for move, copy, multiple move, multiple copy, and invalid drop target.</para></listitem>
+	
+	<listitem><para>Valid targets are highlighted as the pointer passes over them.</para></listitem>
+	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
+
+	<!-- Not considered a terribly useful suggestion...
+	<listitem><para>A tooltip is provided when the pointer is paused over a valid drop target. It describes what will happen if the object is dropped there.  <emphasis>Is this feasible in GNOME?</emphasis></para></listitem>
+	-->
+	
+	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
+
+	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
+
+	<listitem><para>By default, dragging is non-destructive, i.e. dragging an object from one container to another drags a link or copy, leaving the original intact.</para></listitem>
+
+	<listitem><para>By default, dropping an object into a different window adds it to the existing contents of that window rather than overwriting them (if both options are available).</para></listitem>
+	
+      </itemizedlist>
+
+      <note>
+	<title>For discussion</title>
+	<para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para>
+      </note>
+      
+      <para>The default behaviour of a drag and drop operation may be modified by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer shape immediately and perform the new action when the mouse button is released.</para>
+
+	<table frame='all'>
+	  <title>Effect of modifier keys during a drag and drop operation</title>
+	  <tgroup cols='2' align='left'>
+	    <thead>
+	      <row>
+		<entry>Modifier</entry>
+		<entry>Function</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	    <row>
+	      <entry><keycap>Ctrl</keycap></entry>
+	      <entry>Copy</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>Shift</keycap></entry>
+	      <entry>Move</entry>
+	    </row>
+	    <row>
+	      <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo></entry>
+	      <entry>Create link, shortcut or alias</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+
+<!-- Booted out for now along with right button drags
+      <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
+-->
+
+      <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
+
+	<sect3>
+	  <title>Mouse Pointers to Use for Drag and Drop</title>
+	  
+	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you do have to design a new pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
+
+	  <table frame='all'>
+	    <title>Mouse Pointers for Drag and Drop</title>
+	    <tgroup cols='2' align='left'>
+	      <thead>
+		<row>
+		  <entry>Pointer Shape</entry>
+		  <entry>Meaning</entry>
+		</row>
+	      </thead>
+	      
+	      <tbody>
+		<row>
+		  <entry>
+	            <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-move.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Move" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  
+		  <entry>Move selection. The dragged selection will be moved to the drop location, removing it from its previous location.</entry>
+		</row>
+		
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-copy.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Copy" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  <entry>Copy selection.  The dragged selection will be copied to the drop location, leaving the original intact.</entry>
+		</row>
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-link.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Link" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</entry>
+		</row>
+
+<!-- This row omitted if we really don't want right mouse drags
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-rmb.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Query drop" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                   </entry>
+		   <entry>Right-mouse drag.  A pop-up menu will be posted at the drop location to ask whether the user wants to Move, Copy, or Link the selection, or Cancel the operation.</entry>
+		  </row>
+-->
+	
+		<row>
+		  <entry>
+                     <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-nodrop.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		      <phrase>"Can't drop here" pointer</phrase>
+		    </textobject>
+	             </mediaobject>
+</entry>
+		  <entry>Can't drop here.  Show this pointer while the mouse is over an area where the selection cannot be dropped.</entry>
+		</row>
+	      </tbody>
+	    </tgroup>
+	  </table>
+
+	  <para>If the user changes modifier keys after a drag has started, for example holding <keycap>Ctrl</keycap> to change the meaning from move to copy, change the mouse pointer shape immediately and respect the new action when the mouse button is released.</para> 
+
+	  <para>You should normally augment the mouse pointer shape with a representation of whatever is being dragged.  This representation should either be kept small or made translucent, so as not to obscure possible drop targets underneath it.</para>
+
+	  <figure>
+	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="images/dragcursor-augmented.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	  <note>
+	    <title>For Discussion</title>
+	    <para>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</para>
+	  </note>
+
+	</sect3>
+	
+	<sect3>
+	  <title>Mouse Interaction with Applets</title>
+	  <para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
+	  <itemizedlist>
+	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
+	    
+	    <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
+	    
+	    <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
+	  </itemizedlist>
+	  
+	</sect3>
+	
+      </sect2>
+    </sect1>
+    
+    
+    <sect1 id="keyboard">
+      <title>Keyboard Interaction</title>
+      <sect2 id="keyboard-navigation">
+	<title>Keyboard Navigation</title>
+	
+	<para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power-users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
+	
+	<para>You should therefore make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides should be available using the keyboard alone. Hide your mouse while you're testing your application if you have to!</para>
+	
+	
+	<figure>
+	  <title>Dialog box and menu, with some of their access keys (red) and shortcut keys (blue) highlighted</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/mnemonics_and_shortcuts.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Dialog box and menu with access keys and shortcut keys highlighted</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	
+	
+	<para>Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
+	
+	<para>Recommendations:</para>
+	
+	<itemizedlist>
+	  
+	  <listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using access keys or shortcut keys.</para></listitem>
+	  
+	  <listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
+	  
+	  <listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
+<!-- See <link linkend="keynav-examples">Keyboard Navigation Examples</link>.--></para></listitem>
+	  
+	  
+	  <listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
+	  
+	  <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
+	  
+	  <listitem><para>Ensure that objects that can be resized or moved by drag and drop can also be resized or moved with the keyboard. For example, icons and windows on the desktop. Where precision sizing and placement is potentially important, e.g. shapes in a diagram, also consider providing a dialog into which you can type co-ordinates, or a means of snapping objects to a user-definable grid.</para></listitem>
+	  
+	  <listitem><para>Don't use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
+	  
+	  <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
+	  
+	  <listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
+	  <listitem><para>Don't assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
+	  
+	  <listitem><para>Don't require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
+	</itemizedlist>
+	
+	<note>
+	  <title>For Discussion</title>
+	  <para>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</para>
+	</note>
+	
+	
+	
+	<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
+	
+      <sect2 id="keynav-examples">
+      <title>Keyboard Navigation Examples</title>
+	
+      <para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
+	
+      <example><title>Correct tab order for group of radio buttons with dependent controls</title>
+	
+      <informaltable frame='all'>
+	    
+	    <tgroup cols='2'>
+	      <tbody>
+		<row>
+		  <entry>
+		    <mediaobject><imageobject>
+			<imagedata fileref="images/depend1.png" format="PNG"/>
+		  </imageobject>
+		    <textobject>
+		      <phrase>Group of three radio buttons, first two of which have dependent text field. First radio button has focus.</phrase>
+		    </textobject>
+		  </mediaobject>
+		  </entry>
+	  
+		  <entry>State 1
+		    <itemizedlist>
+		      <listitem><para><keycap>Tab</keycap> moves to State 2</para></listitem>
+		      <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
+		      <listitem><para><keysym>Down Arrow</keysym> moves to State 3</para></listitem>
+		      <listitem><para><keycap>Up Arrow</keycap> beeps and doesn't move focus</para></listitem>
+		    </itemizedlist>
+		  </entry>
+		</row>
+	  
+		<row>
+		  <entry>
+		    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/depend1a.png" format="PNG"/>
+		  </imageobject>
+		    <textobject>
+		      <phrase>Group of three radio buttons, first two of which have dependent text field. First radio button's text field has focus.</phrase>
+		    </textobject>
+		  </mediaobject>
+		  </entry>
+		  
+	  <entry>State 2
+
+	  <itemizedlist>
+	      <listitem><para><keycap>Tab</keycap> moves to first control after radio button group</para></listitem>
+	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves to State 1</para></listitem>
+	  </itemizedlist>
+
+	</entry>		
+	</row>
+	  
+	  <row>
+	    <entry>
+
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/depend2.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Group of three radio buttons, first two of which have dependent text field. Second radio button has focus.</phrase>
+	    </textobject>
+	  </mediaobject>
+
+	</entry>
+	  
+	  <entry>State 3
+
+	  <itemizedlist>
+	    <listitem><para><keycap>Tab</keycap> moves to State 4</para></listitem>
+	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
+	    <listitem><para><keysym>Down Arrow</keysym> moves to State 5</para></listitem>
+	    <listitem><para><keysym>Up Arrow</keysym> moves to State 1</para></listitem>
+	  </itemizedlist>
+
+	</entry>
+	</row>
+	  
+	  <row>
+	    <entry>
+
+	       <mediaobject>
+		  <imageobject>
+		     <imagedata fileref="images/depend2a.png" format="PNG"/>
+		  </imageobject>
+		  <textobject>
+		     <phrase>Group of three radio buttons, first two
+		     of which have dependent text field. Second radio
+		     button's text field has focus.</phrase>
+		  </textobject>
+	       </mediaobject>
+
+	    </entry>
+	    
+	    <entry><para>State 4</para><itemizedlist>
+		<listitem><para><keycap>Tab</keycap> moves focus to first control after radio button group</para></listitem>
+		<listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves to State 3</para></listitem>
+	      </itemizedlist></entry>
+	    
+	  </row>
+	  
+	  <row>
+	    <entry>
+
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/depend3.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Group of three radio buttons, first two of which have dependent text field. Third radio button has focus.</phrase>
+	    </textobject>
+	  </mediaobject>
+
+	</entry>
+	  
+	  <entry>State 5
+
+	  <itemizedlist>
+	    <listitem><para><keycap>Tab</keycap> moves focus to first control after radio button group</para></listitem>
+	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to first control before radio button group</para></listitem>
+	    <listitem><para><keysym>Down Arrow</keysym> beeps and doesn't move focus</para></listitem>
+	    <listitem><para><keysym>Up Arrow</keysym> moves to State 3</para></listitem>
+	  </itemizedlist>
+
+	</entry>
+	</row>
+	  
+	</tbody>
+	</tgroup>
+	</informaltable>
+	</example>
+      </sect2>
+
+-->
+
+      <sect3>
+	<title>Choosing Access Keys</title>
+
+	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
+
+
+
+<!-- Consensus was against giving OK and Cancel additional access keys
+
+	<note>
+	  <title>For discussion</title>
+	  <para>It's been suggested that even OK and Cancel should have access keys, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you don't always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C access keys, which could be awkward in larger/tabbed dialogs.</para>
+	</note>
+-->
+
+	<para>Where possible, access keys should be chosen to be as easy to remember as possible&mdash; normally the first letter of the label should be used.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
+
+	<orderedlist>
+	    <listitem><para>Assign access keys for the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign them from left to right, top to bottom (for Western locales).</para></listitem>
+
+	  <listitem><para>Use the first letter of the label, or the first letter in one of the words of a multi-word label, unless another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Exit</guilabel>.)</para></listitem>
+
+	<listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, e.g. &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
+
+	<listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
+	</orderedlist>
+
+	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often don't show up very well on those characters.</para>
+
+	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
+	
+      </sect3>
+      
+      <sect3 id="shortcuts">
+	<title>Choosing Shortcut Keys</title>
+
+	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
+
+	<para>You will probably also want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
+
+	<para>Recommendations:</para>
+
+	<itemizedlist>
+
+	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcut keys to your application.</para></listitem>
+
+	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Don't assign them to unrelated functions just because you've run out of other shortcut key combinations.</para></listitem>
+
+	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Don't try to assign a shortcut key to everything.</para></listitem>
+
+	  <listitem><para>Choose new shortcut keys to be as mnemonic as possible, as they are easier to learn and remember.  For example, <keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo> would be a good shortcut for a menu item called <guimenuitem>Edit Page</guimenuitem>.</para></listitem>
+
+	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
+	  
+	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  	  
+	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with menu access keys.</para></listitem>
+
+	  <listitem><para>Don't use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
+	  
+	  <listitem><para>Don't assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
+	  
+	  <listitem><para>Don't use any of the standard shortcut keys listed here for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between GNOME applications.</para></listitem>
+
+	</itemizedlist>
+
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - File menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem><accel>N</accel>ew</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry>
+		<entry>Create a new document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>O</accel>pen</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></entry>
+		<entry>Open a document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>S</accel>ave</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
+		<entry>Save the current document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>P</accel>rint</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
+		<entry>Print the current document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
+		<entry>Close the current document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>Q</accel>uit</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry>
+		<entry>Quit the application</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - Edit menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem><accel>U</accel>ndo</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
+		<entry>Undo the last operation</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>R</accel>edo</guimenuitem></entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
+		<entry>Redo the last operation</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Cu<accel>t</accel></guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>X</keycap></keycombo></entry>
+		<entry>Cut the selected area and store it in the clipboard</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>C</accel>opy</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></entry>
+		<entry>Copy the selected area into the clipboard</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>P</accel>aste</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
+		<entry>Paste contents of clipboard at mouse/cursor position</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Select <accel>A</accel>ll</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+		<entry>Select everything in focused control or window</entry>
+	      </row>
+
+	      <row>
+		<entry><guimenuitem>Deselect All</guimenuitem></entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+		<entry>Deselect everything in focused control or window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>In<accel>v</accel>ert Selection</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
+		<entry>Select everything in focused control or window that was previously unselected, and deselect everything that was previously selected</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>D</accel>elete</guimenuitem></entry>
+		<entry><keycap>Del</keycap></entry>
+		<entry>Delete selection</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>F</accel>ind</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
+		<entry>Find</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Find Ne<accel>x</accel>t</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></entry>
+		<entry>Find the next match</entry>
+	      </row>
+<!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
+	      <row>
+		<entry><guimenuitem><accel>R</accel>eplace</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
+		<entry>Find and replace matches</entry>
+	      </row>
+
+	    </tbody>
+	  </tgroup>
+	</table>
+
+
+	<note><title>For discussion</title>
+
+<!-- Consensus was for "Deselect All"
+	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
+-->
+<!-- Um, consensus was to be rid of the item, iirc. (GJM) -->
+	  <para>Should we call it "Find Next" or "Find Again"?</para>
+
+	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
+
+	  <para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>
+
+<!-- Consensus is to keep Letter-based shortcut keys
+	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
+-->
+
+	</note>
+
+	
+	
+
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - View menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem>Zoom <accel>I</accel>n</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Plus</keysym></keycombo></entry>
+		<entry>Zoom in on the document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Zoom <accel>O</accel>ut</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Minus</keysym></keycombo></entry>
+		<entry>Zoom out of the document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
+		<entry>Redraw/reload the current document</entry>
+	      </row>
+
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<note><title>Reload/Refresh</title>
+	  <para>Some applications need both reload and refresh, should we specify shortcut keys for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
+	</note>
+	
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - Bookmarks menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem>Add <accel>B</accel>ookmark</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
+		<entry>Add a bookmark for the current location</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>E</accel>dit Bookmarks...</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
+		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+	
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - Format menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem><accel>B</accel>old</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
+		<entry>Make selected text bold/regular</entry>
+		</row>
+	      <row>
+		<entry><guimenuitem><accel>U</accel>nderline</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+		<entry>Underline/remove underline from selected text</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>I</accel>talic</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
+		<entry>Make selected text italic/regular</entry>
+	      </row>  
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<note><title>For discussion</title>
+	  <para>Is it acceptable to specify the same shortcut for <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Edit Bookmarks</guimenuitem></menuchoice>, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
+	</note>
+
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME application shortcut keys and access keys - Help menu</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><guimenuitem>Help</guimenuitem></entry>
+		<entry><keycap>F1</keycap></entry>
+		<entry>Obtain help and documentation for the application</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Context Help</guimenuitem></entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></entry>
+		<entry>Obtain help and documentation for the currently focused control or window</entry>
+	      </row>
+	
+	    </tbody>
+	  </tgroup>
+	</table>
+
+	<note>
+	  <title>For Discussion</title>
+	  <para>Greg suggested Ctrl+H for Search Help... this doesn't seem to me to be an important enough function to tie up Ctrl+H with, though, anyone got any other views/alternative suggestions?</para>
+	</note>
+	  
+      </sect3>
+
+      <sect3>
+	<title>Standard Widget Navigation Shortcut Keys</title>
+	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
+
+	<table frame='all' pgwide='1'>
+	  <title>Standard GNOME keyboard navigation keys for widgets</title>
+	  <tgroup cols='2' align='left'>
+	    <thead>
+	      <row>
+		<entry>Key</entry>
+		<entry>Function</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><keycap>Tab</keycap>, <keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo></entry>
+		<entry>Moves keyboard focus to next/previous control</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo></entry>
+		<entry>Moves keyboard focus out of enclosing widget to next/previous control, in those situations where Tab alone has another function (e.g. GtkTextView)</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo></entry>
+		<entry>Pop up tooltip for currently-focused control</entry>
+	      </row>
+	      <row>
+		<entry><keycap>F6</keycap>, <keycombo><keycap>Shift</keycap><keycap>F6</keycap></keycombo></entry>
+		<entry>Give focus to next/previous pane in a GtkPaned window</entry>
+	      </row>
+	      <row>
+		<entry><keycap>F8</keycap></entry>
+		<entry>Give focus to splitter bar in paned window</entry>
+	      </row>
+	      <row>
+		<entry><keycap>F10</keycap></entry>
+		<entry>Give focus to window's menu bar</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo></entry>
+		<entry>Pop up contextual menu for currently-selected objects</entry>
+	      </row>
+	      <row>
+		<entry><keysym>Space</keysym></entry>
+		<entry>Toggle selected state of focused checkbox, radio button, or toggle button</entry>
+	      </row>
+	      <row>
+		<entry><keysym>Return</keysym></entry>
+		<entry>Activate focused button, menu item etc.</entry>
+	      </row>
+	      <row>
+		<entry><keycap>Home</keycap>, <keycap>End</keycap></entry>
+		<entry>Select/move to first item in selected widget</entry>
+	      </row>
+	      <row>
+		<entry><keycap>PageUp</keycap>, <keycombo><keycap>Ctrl</keycap><keycap>PageUp</keycap></keycombo>, <keycap>PageDown</keycap>, <keycombo><keycap>Ctrl</keycap><keycap>PageDown</keycap></keycombo></entry>
+		<entry>Scroll selected view by one page up/right/down/left</entry>
+	      </row>
+ 	      </tbody>
+	  </tgroup>
+	</table>
+	     
+      </sect3>
+      
+      <sect3>
+	<title>Additional Widget Navigation Shortcut Keys</title>
+
+	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
+
+	<table frame='all' pgwide='1'>
+	  <title>Emacs-style navigation keys for widgets</title>
+	  <tgroup cols='2' align='left'>
+	    <thead>
+	      <row>
+		<entry>Key</entry>
+		<entry>Function</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+		<entry>Move cursor to beginning of line</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
+		<entry>Delete character following/under cursor</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
+		<entry>Move cursor to end of line</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo></entry>
+		<entry>Delete from cursor to end of line</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+		<entry>Delete current line</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
+		<entry>Cut to clipboard</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Y</keycap></keycombo></entry>
+		<entry>Paste from clipboard</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo></entry>
+		<entry>Set mark</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Del</keycap></keycombo>, <keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo></entry>
+		<entry>Delete from cursor to end of word</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Backspace</keysym></keycombo></entry>
+		<entry>Delete from cursor to start of word</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Space</keysym></keycombo></entry>
+		<entry>Delete all whitespace around cursor, reinsert single space</entry>
+	      </row>
+	      <row>
+		<entry><keycombo><keycap>Alt</keycap><keycap>\</keycap></keycombo></entry>
+		<entry>Delete all whitespace around cursor</entry>
+	      </row>
+	      </tbody>
+	  </tgroup>
+	</table>
+	
+      </sect3>
+
+    </sect2>
+
+
+  </sect1>
+  </chapter>
+

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="dialogs">
+
+<title>Dialogs</title>
+
+<!-- TODO:
+- Double-clicking to close a dialog
+-->
+	
+<sect1 id="dialog-principles">
+	
+<title>General Principles</title>
+
+<para>
+Dialog boxes are windows allowing the user to interact with an application in ways that supplement the main application window. They might typically be used to control the properties of an object, to request further information from the user or to notify the user of an event.
+</para>
+
+<para>
+Dialog boxes come in a number of different forms, suitable for different situations, and each with their own UI implications.
+</para>
+
+<sect2 id="dialogs-types">
+
+<title>Types of dialog boxes</title>
+
+<sect3 id="dialogs-modal-and-modeless">
+
+<title>Modal and modeless dialog boxes</title>
+
+<para>
+All dialogs can be classified according to whether they are modal or modeless. Modal dialog boxes are those which prevent the user from interacting with any other part of the application while they are visible. They should be used only where it is necessary that the user doesn't make any changes to the state of the application before performing an action with the dialog or closing it.
+</para>
+
+<para>
+Modeless dialog boxes allow the user to continue to interact with the rest of the application while the dialog is visible. They are generally suitable for tasks such as changing the properties of an object or tool.
+</para>
+
+<para>
+In general, modeless dialogs are preferable to modal dialogs since they are less intrusive. Dialogs should only be made modal if there is a compelling reason to do so.
+</para>
+
+</sect3>
+
+<sect3 id="dialogs-informational">
+
+<title>Informational dialog boxes</title>
+
+<para>
+Informational dialog boxes are those which do not require the user to enter any data or make choices; they are merely for notification purposes.  These dialogs typically only need a label for the user to read and a button to close the dialog. They can be modal or modeless as appropriate.
+</para>
+
+</sect3>
+
+<sect3 id="dialogs-druids">
+
+<title>Druids</title>
+
+<para>
+Druids are dialog boxes which lead the user through a sequence of steps. They are frequently used for software installation and configuration, though they are by no means limited to this role.
+</para>
+
+<para>
+Druids are best suited to situations in which the user requires some sort of hand-holding, due to the way in which they can combine documentation and functionality. Experienced users tend to find them inefficient and patronising.
+</para>
+
+<para>
+GNOME's druids are roughly equivalent to the <quote>Wizards</quote> frequently found in Microsoft Windows.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="dialogs-layout">
+
+<title>Dialog box layout</title>
+
+<para>
+Note that the left-right positioning of items described here only applies to Western systems. Localisation for other countries may change these positions.
+</para>
+
+<para>
+The top portion of a dialog box should contain the main area, the content of which is very much up to the developer.
+</para>
+
+<para>
+At the bottom of the dialog window should be a single row of buttons which pertain to the whole dialog. These can be divided into four main types: Action buttons, closing buttons, navigation buttons and help buttons.
+</para>
+
+<para>
+These buttons should be laid out as follows: Action or navigation buttons should be on the extreme right. Closing buttons should be to the left of any action or navigation buttons. A help button should be on the extreme left.
+</para>
+
+</sect2>
+
+<sect2 id="dialogs-behaviour">
+
+<title>Dialog box behaviour</title>
+
+<para>
+Dialogs should reflect the current state of the application. If changes are made to the state of the application while the dialog is on the screen then these changes should be immediately visible in the dialog.
+</para>
+
+<para>
+Care should be taken to ensure that it is obvious to the user whether changes made within the main area will immediately affect objects external to the dialog or whether the user will have to perform another action to apply those changes. For example, the presence of a button labeled <guibutton>Apply</guibutton> would imply that any changes would only be applied once that button had been pressed, while the presence of only a button marked <guibutton>Close</guibutton> would imply that changes were applied immediately.
+</para>
+
+<para>
+Nothing in the main area of the dialog should dismiss the dialog. Any actions which will dismiss the dialog should be confined to the bottom row of buttons.
+</para>
+
+</sect2>
+
+<sect2 id="dialogs-buttons">
+
+<title>Dialog box buttons</title>
+
+<para>
+These dialogs should be positioned on the bottom row of the dialog according to the rules specified above. Action and navigation buttons should only be enabled while it makes sense for the user to press them. Closing buttons should always be enabled; it should always make sense for the user to press them.
+</para>
+
+<sect3 id="dialogs-buttons-action">
+
+<title>Action buttons</title>
+
+<para>
+Most dialogs will have buttons to perform some kind of action. These should be labelled with a verb to describe the action. (Labels such as <guibutton>OK</guibutton>, <guibutton>Yes</guibutton> and <guibutton>No</guibutton> are discouraged since they are difficult for the user to quickly scan for the desired action.) The leftmost action button should be the default button, and so be activated by the Enter key in addition to any other accelerators it may possess.
+</para>
+
+<para>
+On modal dialogs the action button should also close the dialog. On modeless dialogs either all action buttons should close the dialog or none should.
+</para>
+
+</sect3>
+
+<sect3 id="dialogs-buttons-closing">
+
+<title>Closing buttons</title>
+
+<para>
+Closing buttons vary depending on the type of dialog on which they appear. On dialogs which are closed by their action buttons there should be a Cancel button which should close the dialog and return the application to the state it was in before the dialog was shown.
+</para>
+
+<para>
+On dialogs which are not closed by their action button there should be a Close button which should close the dialog without making any further changes to the state of the application.
+</para>
+
+<para>
+The situation is slightly different again for informational dialogs. As always, the closing button should close the dialog, but the labelling of the button is a decision for the developer and is dependent upon the context in which it appears. As a rough guide, <guibutton>Close</guibutton> will generally be an appropriate label for dialogs appearing in response to a user's request for information, while <guibutton>OK</guibutton> will often be more appropriate for unrequested alerts.
+</para>
+
+<para>
+In all of these cases the closing button should be activated by the escape key. On purely informational dialogs where the dismiss button is the only button in the bottom row of the dialog, it should also be the default button and so be activated by the Enter key.
+</para>
+
+</sect3>
+
+<sect3 id="dialogs-buttons-navigation">
+
+<title>Navigation buttons</title>
+
+<para>
+If the dialog contains a sequence of steps (as in a druid, for example), they should be navigable with <guibutton>Next</guibutton> and <guibutton>Previous</guibutton> buttons.
+</para>
+
+</sect3>
+
+<sect3 id="dialogs-buttons-help">
+
+<title>Help buttons</title>
+
+<para>
+Developers are encouraged to give their dialogs a <guibutton>Help</guibutton> button. This should launch the default help browser with the section of the application's help document relevant to the current dialog.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="dialogs-window-titles">
+<title>Dialog Window Titles</title>
+
+<para>
+Dialog windows should be given titles that enable the user to determine from the title alone both the task that the dialog is intended to carry out and the parent window (if any) that the task applies to. So, for example, the title for a search and replace dialog in a text editor should look something like: <guilabel>Replace in document.txt</guilabel>.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="standard-dialogs">
+	
+<title>Standard Dialogs</title>
+
+<para>
+GNOME provides a number of standard dialogs which should be used wherever appropriate.
+</para>
+
+<sect2>
+
+<title>File Selector</title>
+
+<para>
+The file selector should be used whenever the user is required to select one filename, either of a file that already exists or the desired name of a file that is to be created.
+</para>
+
+<para>
+If the file selector is being used to select a file that is to be opened in the application then its title should be <guilabel>Open File</guilabel>. If it is being used to choose a filename to save a file to then its title should be <guilabel>Save File</guilabel>.
+</para>
+
+<para>
+Sometimes it may be appriate to extend the file selector to include new features. For example, if an application is capable of saving a document in multiple different file formats then the file selector should include a mechanism for selecting the desired file type.
+</para>
+
+</sect2>
+
+<sect2>
+
+<title>Font Selector</title>
+
+<para>
+The font selector should be used wherever the user has to select a font. If the font is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Font</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Font</guilabel>.
+</para>
+
+</sect2>
+
+<sect2>
+
+<title>Color Selector</title>
+
+<para>
+The color selector should be used wherever the user has to select a color. If the color is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Color</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Color</guilabel>.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
