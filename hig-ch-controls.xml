@@ -139,6 +139,8 @@
 	  </figure>
 	  
 	  <para>This is less error-prone than expecting the user to format their text input in some arbitrary format.  You may still want to provide the entry field control as well, however, for expert users who are familiar with the required format.</para>
+	  
+	<listitem><para>If you implement an entry field that accepts only keystrokes valid in the task context, such as digits, play the system warning beep when the user tries to type an invalid character.  If the user types three invalid characters in a row, display an <link linkend="alert-windows">alert</link> that explains the valid inputs for that textfield.</para></listitem>
 
 	</listitem>
 
@@ -179,7 +181,7 @@
     <sect1 id="controls-spin-boxes">
       <title>Spin Boxes</title>
 
-      <para>A spin box is a text box that accepts a range of values. It has two arrow buttons attached that allow the user to increase or decrease the current value by a fixed amount.</para>
+      <para>A spin box is a text box that accepts a range of values. It incorporates two arrow buttons that allow the user to increase or decrease the current value by a fixed amount.</para>
 
       <figure>
 	<title>A spin box used to input an integral value</title> 
@@ -286,7 +288,7 @@
 	
 	<listitem><para>Use an ellipsis (...) at the end of the label if the action requires further input from the user before it can be carried out.  For example, <guilabel>Save As...</guilabel> or <guilabel>Find...</guilabel>.  Note that you should not add an ellipsis to commands like <guilabel>Properties</guilabel>, <guilabel>Preferences</guilabel>, or <guilabel>Settings</guilabel>, as these open windows that do not <emphasis>require</emphasis> further input.</para></listitem>
 	
-	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, however.</para></listitem>
+	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error.  Changing the default from one button to another can be confusing and inefficent, however, especially for users relying on assistive technologies.</para></listitem>
 	
 	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.  However, you may over-ride these preferences when there is no suitable icon to describe the button's action graphically, for example.</para></listitem>
 	
@@ -299,10 +301,8 @@
       </itemizedlist>
       
       <para>In a dialog, one button may be made the default button, which is shown with a different border and is activated by pressing <keycap>Return</keycap>. In general,  this will be the <guibutton>OK</guibutton> or equivalent button. However, if pressing this button by mistake could cause a loss of data, do not set a default button for the window. Do not make <guibutton>Cancel</guibutton> the default button instead.  See <link linkend="dialog-windows">Dialogs</link> for more information.</para>
-
-      <para>Similarly, if it does not make sense to have a default button until several fields in the dialog have been correctly completed (for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog), do not set the default button until they have both been completed.</para>
       
-      <para>Once it has been displayed, do not change a dialog's default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, but changing the default from one to another can be confusing and inefficent, especially for users relying on assistive technologies.</para>
+      <para>Similarly, if it does not make sense to have a default button until several fields in the dialog have been correctly completed&mdash;for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog&mdash;do not set the default button until they have both been completed.</para>
       
     </sect1>
     
@@ -346,7 +346,11 @@
 	
 	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the "read only" property of three selected files), show the check box in its mixed state. (picture required)</para></listitem>
 	
-	<listitem><para>Do not place more than about eight check boxes in the same visual or functional group in a window.  If you are using more than this, try to use blank space, heading labels or frames to divide them into smaller groups.  Otherwise, you should consider using a check box list instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
+	<listitem><para>Label a group of check boxes with a descriptive heading above or to the left of the group.</para></listitem>
+
+	<listitem><para>Use a frame around the group if necessary, but remember that blank space often works just as well and results in a less visually-cluttered dialog.</para></listitem>
+		
+	<listitem><para>Do not place more than about eight check boxes under the same heading.  If you need more than eight, try to use blank space, heading labels or frames to divide them into smaller groups.  Otherwise, consider using a check box list instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
 
 	<listitem><para>Try to align groups of check boxes vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
@@ -403,9 +407,13 @@
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
 
 	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the border style of a column of selected cells in a table), show the radio button in its mixed state. (picture required)</para></listitem>
-	
-	<listitem><para>Do not place more than about eight radio buttons in the same visual or functional group in a window.  If you are using more than this, consider using a single-selection list or an option menu instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
 
+	<listitem><para>Label a group of radio buttons with a descriptive heading above or to the left of the group.</para></listitem>
+	
+	<listitem><para>Use a frame around the group if necessary, but remember that blank space often works just as well and results in a less visually-cluttered dialog.</para></listitem>
+	
+	<listitem><para>Do not place more than about eight radio buttons under the same heading.  If you need more than eight, consider using a single-selection <link linkend="controls-lists">list</link> instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
+	
 	<listitem><para>Try to align groups of radio buttons vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
       
@@ -426,13 +434,13 @@
       <para>Toggle buttons look similar to regular <link linkend="controls-buttons">Buttons</link>, but are used to show or change a state rather than initiate an action.  A toggle button's two states, set and unset, are shown by its appearing &quot;pushed in&quot; or &quot;popped out&quot; respectively.</para>
       
       <figure>
-	<title>A typical group of toggle buttons that you might find on a toolbar or in a properties dialog</title>
+	<title>A typical group of toggle buttons</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-toggle-buttons.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>A group of three toggle buttons showing the bold, italic and underline properties of selected text</phrase>
+	    <phrase>A group of four toggle buttons representing a choice of measurement units: inches, centimeters, feet and meters</phrase>
 	  </textobject>
 	</mediaobject>
 	
@@ -442,12 +450,16 @@
       
       <itemizedlist>
 	
-	<listitem><para>Do not use groups of toggle buttons in dialogs unless space constraints force you to do so.  <link linkend="controls-check-boxes">Check boxes</link> or <link linkend="controls-radio-buttons">radio buttons</link> are usually preferable, as they allow more descriptive labels and are less easily-confused with other types of control.</para></listitem>
+	<listitem><para>Do not use groups of toggle buttons in dialogs unless space constraints force you to do so, or you need to provide consistency with a toolbar in your application.  <link linkend="controls-check-boxes">Check boxes</link> or <link linkend="controls-radio-buttons">radio buttons</link> are usually preferable, as they allow more descriptive labels and are less easily-confused with other types of control.</para></listitem>
 	
-	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  The group should behave like either a group of check boxes where none, one or more of the buttons may be set at once, or a group of radio buttons, where exactly one button may be set at once, and setting one button unsets the others.</para></listitem>
+	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  Make the group behave like either a group of check boxes where none, one or more of the buttons may be set at once, or a group of radio buttons, where exactly one button may be set at once, and setting one button unsets the others.</para></listitem>
 
 	<listitem><para>Provide an access key in the label of all toggle buttons that allows the user to set or unset the button directly from the keyboard.</para></listitem>
+	
+	<listitem><para>Label a group of toggle buttons with a descriptive heading above or to the left of the group, as you would with a group of check boxes or radio buttons.</para></listitem>
 
+	<listitem><para>Use a frame around the group of buttons if necessary, but remember that blank space often works just as well and results in a less visually-cluttered dialog.</para></listitem>
+	
 	<listitem><para>Try to align groups of toggle buttons horizontally rather than vertically.  This is how toggle buttons normally appear on a toolbar, so the user will be more familiar with this arrangement.</para></listitem>
 
 	<listitem><para>Do not leave any space between toggle buttons in a group, otherwise they may look unrelated or may be mistaken for regular buttons.</para></listitem>
@@ -455,6 +467,8 @@
 	<listitem><para>Use <link linkend="layout-capitalization">book title capitalization</link> for toggle button labels, for example <guibutton>No Wallpaper</guibutton>, <guibutton>Embossed Logo</guibutton>.</para></listitem>
 
 	<listitem><para>If your toggle button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
+	
+	<listitem><para>Use the same text or graphical label for a toggle button whether it is set or unset.</para></listitem>
 
 	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the Bold Text toolbar button for a selected paragraph), show the button in its mixed state. (picture required)</para></listitem>
 	
@@ -547,6 +561,8 @@
 
 	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
 	
+	<listitem><para>Interpret user input into a combo box in a case-insensitive way.  For example, if the user types <userinput>blue</userinput>, <userinput>Blue</userinput> and <userinput>BLUE</userinput> into the same combo box on different occasions, only store one of these in the combo's dropdown list, unless your application makes a distinction between the different forms (which would not normally be a good idea).</para></listitem>
+
 	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required)  Provide an access key in the label that allows the user to give focus directly to the combo box.</para></listitem>
 	
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
@@ -771,11 +787,11 @@
 
 	  <itemizedlist>
 	    
+	    <listitem><para>information relating to the task the user is currently performing.  For example, while using the selection tool in a drawing application, &quot;Hold Shift to extend the selection&quot;</para></listitem>
+	    
 	    <listitem><para>progress of a background operation.  For example, &quot;Sending to printer&quot;, &quot;Printing page 10 of 20&quot;, &quot;Printing Complete&quot;.</para></listitem>
 	    
-	    <listitem><para>information relating to the task the user is currently performing.  For example, while using the selection tool in a drawing application, &quot;Hold Shift to extend the selection&quot;</para></listitem>
-
-	    <listitem><para>a description of the control or area of the window under the mouse pointer.  For example, &quot;Drop files here to uploaded them&quot;</para></listitem>
+	    <listitem><para>a description of the control or area of the window under the mouse pointer.  For example, &quot;Drop files here to upload them&quot;</para></listitem>
 	    
 	  </itemizedlist>
 	  
