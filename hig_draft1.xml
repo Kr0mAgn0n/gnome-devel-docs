@@ -437,46 +437,40 @@ text/mathml
       <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
     </sect2>
     
-    <sect2 id="window-types">
-      <title>Types of Windows</title>
-      <para>Each type of window is discussed in greater depth in other sections. This is a brief overview of each.</para>
+    <sect2 id="primary-windows">
+      <title>Primary Windows</title>
+      <para>FIXME - normal frames; may have menu bar, tool bar, and status bar.</para>
+    </sect2>
+      
+    <sect2 id="utility-windows">
+      <title>Utility Windows</title>
+      <para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
+    </sect2>
 
-      <sect3 id="primary-windows">
-	<title>Primary Windows</title>
-	<para>FIXME - normal frames; may have menu bar, tool bar, and status bar.</para>
+    <sect2 id="alert-windows">
+      <title>Alerts</title>
+      <para>An alert is a modal secondary window for . . .</para>
+      <para>FIXME - reduced or no frame (?); one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
+      <sect3 id="informational-alert">
+	<title>Informational Alerts</title>
+	<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+	<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
       </sect3>
+      <sect3 id="confirmational-alert">
+	<title>Confirmational Alert</title>
+	<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+	<para>The confirmational alert will present . . . </para>
+      </sect3>
+    </sect2>
       
-      <sect3 id="utility-windows">
-	<title>Utility Windows</title>
-	<para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
-      </sect3>
-
-      <sect3 id="alert-windows">
-	<title>Alerts</title>
-	<para>An alert is a modal secondary window for . . .</para>
-	<para>FIXME - reduced or no frame (?); one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
-	<sect4 id="informational-alert">
-	  <title>Informational Alerts</title>
-	  <para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
-	  <para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
-	</sect4>
-	<sect4 id="confirmational-alert">
-	  <title>Confirmational Alert</title>
-	  <para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
-	  <para>The confirmational alert will present . . . </para>
-	</sect4>
-      </sect3>
-      
-      <sect3 id="dialog-windows">
-	<title>Dialogs</title>
-	<para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
-      </sect3>
-      
-      <sect3 id="assistant-windows">
-	<title>Assistants</title>
-	<para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
-      </sect3>
-      
+    <sect2 id="dialog-windows">
+      <title>Dialogs</title>
+      <para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
+    </sect2>
+    
+    <sect2 id="assistant-windows">
+      <title>Assistants</title>
+      <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
     </sect2>
     
 </sect1>
