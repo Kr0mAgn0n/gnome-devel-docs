@@ -497,7 +497,10 @@ system appear slow, not doing this can cause the window manager to think the app
         	<listitem><para>Do not attempt to validate or apply changes caused by editing a
         text field control until the user has moved focus to a different
         control in the window. Validating after each keypress is usually
-        annoying and unnecessary.</para></listitem>
+        annoying and unnecessary. Exception: if the field accepts only a fixed 
+	number of characters, such as a hexadecimal color code, validate and
+	apply the change as soon as that number of characters have been entered.
+	</para></listitem>
 		<listitem><para>When the user moves focus to a different control, do not indicate an invalid entry by displaying an alert or undoing the change the user made. Both of these methods are particularly disruptive for focus-follows-mouse users, for whom focus may leave the control more often than it does for a click-to-focus user.</para></listitem>
 	</itemizedlist>
 	<remark>We need to suggest what to do here, instead of just saying what not to do.</remark>
