@@ -18,12 +18,11 @@
       
 <!-- CB-Ed: The following paragraphs are VERY GOOD because they lay out terms and definitions for the reader clearly and unequivocally. -->
 
-      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
-
+      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used in this chapter to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
 	
-      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the <mousebutton>left button</mousebutton> here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as &quot;Button 1&quot; or the &quot;Selection Button&quot;.</para>
+      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the <mousebutton>left button</mousebutton> here, even though that may not physically be the case.  For this reason, you may sometimes see this button referred to in code or documentation as &quot;Button 1&quot; or the &quot;Selection Button&quot;.</para>
 
-      <para>Also for right-handed users, the right button on a conventional mouse is the one used for operations involving pop-up menus. We therefore call it the <mousebutton>right button</mousebutton> here, even though it may not always physically be so.  You may sometimes see this referred to in code or documentation as &quot;Button 3&quot; or the &quot;Menu Button&quot;.</para>
+      <para>Similarly for right-handed users, the right button on a conventional mouse is used for operations involving pop-up menus. We therefore call it the <mousebutton>right button</mousebutton> in this chapter.  You may sometimes see this button referred to in code or documentation as &quot;Button 3&quot; or the &quot;Menu Button&quot;.</para>
 
       <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <mousebutton>middle button</mousebutton>, but you may sometimes see this referred to in code or documentation as &quot;Button 2&quot; or the &quot;Transfer Button&quot;.</para>
 
@@ -162,20 +161,27 @@ user can select, either singly or multiply, ensure the following mechanisms are 
       <sect3 id="bounding-box-selection">
 	<title>Bounding Box Selection</title>
 
-	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), allow multiple selection by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
+	<para>For a container whose objects may be arranged in two dimensions, for example the icon view in a file manager, allow multiple selection by dragging a bounding box (sometimes called a "rubber band") around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
 
 	<itemizedlist><title>Guidelines</title>
 
-	  <listitem><para>By default, select only objects that are completely enclosed by the bounding box when the mouse button is released.</para></listitem>
+		<listitem><para><remark>This guideline needs to be so much better worded :) </remark>Allow a bounding box selection to begin only if the initial mouse button press is made:</para>
+		
+			<itemizedlist>
+				<listitem><para>Within the bounds of the container's background, and</para></listitem>
+				<listitem><para>outside the bounds of any another object in the same container that can be dragged.</para></listitem>
+			</itemizedlist>
+			
+		<para>In a drawing application, for example, this means that a bounding box click and drag could start on a blank area of the canvas, or within a shape that had been locked down to prevent accidental editing, but not in an active shape which would itself be dragged instead.</para></listitem>
+		
+		<listitem><para>Select any objects that lie wholly or partly within the bounding box when the mouse button is released. <remark>This is different from 1.0 advice, need to update figure 10.2 accordingly.</remark></para></listitem>
 
-	<listitem><para>Use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Do not wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
+		<listitem><para>Use dynamic highlighting during the drag to show which objects will be selected.  Do not wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
 
-	<listitem><para>When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</para></listitem>
+		<listitem><para>When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</para></listitem>
 
 	</itemizedlist>
 
-	  <remark>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</remark>
-	
 	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</title>
 	  <mediaobject>
 	    <imageobject><imagedata fileref="images/rubberband.png" format="PNG" width="542" depth="143"/></imageobject>
@@ -197,60 +203,73 @@ user can select, either singly or multiply, ensure the following mechanisms are 
     <sect2 id="drag-drop">
       <title>Drag and Drop</title>
 
-      <para>Drag and drop is a direct manipulation technique, by which you perform actions on selected objects by moving them around the screen with the mouse.  An object is dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed.  The object is dropped there by releasing the mouse button.  
-
-<!-- Consensus was not to recommend right-button dragging
-Dragging with the right button instead of the left pops up a menu when the button is released, allowing you to choose which action (normally one of Copy, Move, Link or Cancel) to perform.
--->
-</para>
+      <para>Drag and drop is a direct manipulation technique, where you perform actions on selected objects by moving them around the screen with the mouse.  You &quot;drag&quot; an object by clicking it, then holding the button while you move the pointer to the object's target location.  The object is &quot;dropped&quot; at that location by releasing the mouse button.</para>
       
       <itemizedlist><title>Guidelines</title>
 
-	<listitem><para>Provide visual feedback throughout a drag and drop operation. Highlight valid targets and change the mouse pointer as it passes over them.  Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	
+      	<listitem><para>Use drag and drop only where the user can reasonably guess what the effect might be.  The most common uses are:</para>
+		<itemizedlist>
+		<listitem><para>to move or copy objects from one place to another</para></listitem>
+		<listitem><para>to link one object to another</para></listitem>
+		<listitem><para>to perform an action on the objects by dropping them onto an icon representing that action, such as a trash can or printer icon.</para></listitem>
+		</itemizedlist>
+	</listitem>
+      
+      	<listitem><para>Provide visual feedback throughout a drag and drop operation. Highlight valid targets and change the mouse pointer as it passes over them.  Use the "no drop" mouse pointer when passing over invalid drop targets. See also <xref linkend="drag-drop-pointers"/>.</para></listitem>	
 
-	<listitem><para>Augment the mouse pointer with a representation of the objects being dragged.  Keep this representation small or make it translucent, so as not to obscure possible drop targets underneath it.</para>
+	<listitem><para>Augment the mouse pointer with a representation of the objects being dragged.  Keep this representation small or make it translucent, so as not to obscure possible drop targets underneath it. See also <xref linkend="drag-drop-pointers"/>.</para>
 
-	  <figure>
-	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
-	    <mediaobject>
-	      <imageobject><imagedata fileref="images/dragcursor-augmented.png" format="PNG" width="168" depth="97"/></imageobject>
-	      <imageobject><imagedata fileref="images/dragcursor-augmented.eps" format="EPS"/></imageobject>
-	      <textobject><phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase></textobject>
-	    </mediaobject>
-	  </figure>
+		<figure>
+		<title>Example of copy pointer augmented by an icon representing the file being copied</title>
+		<mediaobject>
+		<imageobject><imagedata fileref="images/dragcursor-augmented.png" format="PNG" width="168" depth="97"/></imageobject>
+		<imageobject><imagedata fileref="images/dragcursor-augmented.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase></textobject>
+		</mediaobject>
+		</figure>
 	  
-	    <remark>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</remark>
+	    	<remark>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</remark>
 	</listitem>
 
-	<listitem><para>Allow the user to undo the effects a drag and drop operation by selecting <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice>.</para></listitem>
 	<listitem><para>Only allow objects to be copied between applications, not moved.  This avoids any confusion about which application's <guimenuitem>Undo</guimenuitem> function reverses the operation.</para></listitem>
 
-	<!-- Decided against the right mouse drag
-      <listitem><para>Dragging with the right mouse button pops up a menu when the mouse button is released, offering the choice of Copy, Move, Link, and Cancel (or whichever subset of those actions is available).  Cancel should always be available.</para></listitem>
-	-->
-
-	<listitem><para>A drag and drop operation can be cancelled by: pressing Esc before releasing the mouse button, by dropping the object back on its original source,
-
-<!-- by dragging withe right mouse button and selecting <guimenu>Cancel</guimenu> on the pop-up menu that appears,--> 
-
-or by dropping the object on an invalid drop target.</para></listitem>
+	<listitem><para>Allow the user to cancel a drag and drop operation by all of these methods:</para> 
+		<itemizedlist>
+		<listitem><para>pressing <keycap>Esc</keycap> before releasing the mouse button</para></listitem>
+		
+		<listitem><para>dropping the object back on its original location</para></listitem>
+		
+		<listitem><para>performing a <action>query drag</action> and selecting <guimenuitem>Cancel</guimenuitem> on the pop-up menu (see <xref linkend="drag-drop-query"/>)</para></listitem>
+		
+		<listitem><para>dropping the object on an invalid drop target.</para></listitem>
+		</itemizedlist>
+	</listitem>
+	
+	<listitem><para>Allow the user to undo the effects a drag and drop operation by selecting <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice>.</para></listitem>
+	
       	<listitem><para>Allow multiple objects to be dragged by <keycap>Shift</keycap> or <keycap>Ctrl</keycap> selecting them, then dragging any one of the selected objects.</para></listitem>
 
-	<listitem><para>Ensure that keyboard users can replicate all drag and drop actions using shortcut keys, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
+	<listitem><para>Ensure that keyboard users can replicate all drag and drop actions using only menu items or keyboard shortcuts, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
 
-	<listitem><para>Use standard pointer shapes across all GNOME applications for move, copy, multiple move, multiple copy, and invalid drop target.</para></listitem>
-	
 	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
 	
 	<listitem><para>Pop up a menu when the user attemps to drop multiple objects on a target that only accepts single objects.  On the menu, list all the objects being dragged, and a <guimenuitem>Cancel</guimenuitem> item.</para></listitem>
 
-	<listitem><para>Move selected objects when the user drags them within a container.  Copy or link to selected objects when the user drags them between containers.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
+	<!-- CFB commenting this one out for now because it doesn't mean much the way it's written, and we'd ideally like to aim for more consistency than this anyway
+	
+	<listitem><para>Move selected objects when the user drags them within a container.  Copy or link to selected objects when the user drags them between containers.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para>
+	
+	<para><remark>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</remark></para></listitem>
+	-->
 	
       </itemizedlist>
 
-	<remark>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</remark>
+	
       
-      <para>Allow the user to modify the default behavior of a drag and drop operation by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer immediately and perform the new action when the mouse button is released.</para>
+      <sect3 id="drag-drop-override"><title>Overriding drag and drop behavior</title>
+      
+      	<sect4 id="drag-drop-modifiers"><title>Keyboard Modifiers</title>
+      	<para>Allow the user to force the behavior of a drag and drop operation by holding the <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or both keys throughout.  If the user changes modifier keys after they have started the drag, change the mouse pointer immediately and perform the new action when the mouse button is released.</para>
 
 	<table frame='all'>
 	  <title>Effect of modifier keys during a drag and drop operation</title>
@@ -277,16 +296,20 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  </tbody>
 	</tgroup>
       </table>
+      </sect4>
+      
+      <sect4 id="drag-drop-query"><title>Query Drag</title>
+      
+      	<para>Allow the user to drag objects with the <mousebutton>middle button </mousebutton>, or with <keycap>Alt</keycap><mousebutton> left button</mousebutton>. Pop up a menu when the mouse button is released, offering the choice of <guimenuitem>Copy</guimenuitem>, <guimenuitem>Move</guimenuitem> and <guimenuitem>Link</guimenuitem> (or whichever subset of those actions is available), and <guimenuitem>Cancel</guimenuitem>.  Dragging in this way is known as <action>query drag</action> because it prompts the user before changing anything.</para>
 
-<!-- Booted out for now along with right button drags
-      <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
--->
-
+      </sect4>
+      
+      </sect3>
 
 	<sect3 id="drag-drop-pointers">
 	  <title>Mouse Pointers to Use for Drag and Drop</title>
 	  
-	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you do have to design a new pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
+	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you have to design a pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
 
 	  <table frame='all'>
 	    <title>Mouse Pointers for Drag and Drop</title>
@@ -332,7 +355,6 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</entry>
 		</row>
 
-<!-- This row omitted if we really do not want right mouse drags
 		<row>
 		  <entry>
                     <mediaobject>
@@ -341,9 +363,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	              <textobject><phrase>"Query drop" pointer</phrase></textobject>
 	             </mediaobject>
                    </entry>
-		   <entry>Right-mouse drag.  A pop-up menu will be posted at the drop location to ask whether the user wants to Move, Copy, or Link the selection, or Cancel the operation.</entry>
+		   <entry>Middle button or Alt-left button drag.  A pop-up menu will be posted at the drop location to ask whether the user wants to Move, Copy, or Link the selection, or Cancel the operation.</entry>
 		  </row>
--->
 	
 		<row>
 		  <entry>
@@ -689,12 +710,17 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      <row>
 		<entry><guimenuitem>Zoom <accel>I</accel>n</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keysym>Plus</keysym></keycombo></entry>
-		<entry>Zoom in on the document</entry>
+		<entry>Zoom in on the document <remark>Should probably recommend that Ctrl-Equals work too</remark></entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Zoom <accel>O</accel>ut</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keysym>Minus</keysym></keycombo></entry>
 		<entry>Zoom out of the document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>N</accel>ormal Size</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>0</keysym></keycombo></entry>
+		<entry>Restore to zoom level to normal size (generally 100%)</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>R</accel>efresh</guimenuitem></entry>
