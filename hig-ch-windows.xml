@@ -5,6 +5,7 @@
     <title>Parts of Windows and System Interaction</title>
     <sect2 id="window-props-titles">
       <title>Titles</title>
+	<para>Give every window a title (with the exception of <link linkend="alert-windows">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
 
        <figure>
 	<title>Example of a window title</title>
@@ -17,8 +18,7 @@
 	</mediaobject>
       </figure>
 
-      <para>Give every window a title (with the exception of <link linkend="alert-windows">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
-      <para>See the description of each particular window type for title formats.</para>
+            <para>See the description of each particular window type for title formats.</para>
     </sect2>
     <sect2 id="window-props-borders">
       <title>Borders and Window Commands</title>
@@ -73,6 +73,7 @@
  <sect1 id="primary-windows">
   <title>Primary Windows</title>
 
+    <para>A primary window usually presents a view of the user's data, such as a text document in a word processor application, an image in a drawing program, or calculations in a calculator or spreadsheet application.  It may also be a view of something more abstract, like a game.   A single instance of an application may have more than one primary window, and more than one kind of primary window.</para>
 	<figure>
 	<title>A typical primary window (gedit)</title>
 	<mediaobject>
@@ -84,7 +85,6 @@
 	</mediaobject>
       </figure>
 
-    <para>A primary window usually presents a view of the user's data, such as a text document in a word processor application, an image in a drawing program, or calculations in a calculator or spreadsheet application.  It may also be a view of something more abstract, like a game.   A single instance of an application may have more than one primary window, and more than one kind of primary window.</para>
 
     <para>A primary application window normally has a border, a menubar and a statusbar, and may also contain one or more toolbars.</para>
 
@@ -163,6 +163,7 @@
       <sect3 id="sdi">
 	<title>Single Document Interface (SDI)</title>
 
+	<para>A single document interface places each document in its own primary window. Toolboxes and other utility windows may be shared between multiple SDI documents, but closing them should have no effect on the document windows. Use SDI for your GNOME application unless there is a compelling reason not to.</para>
 	<figure>
 	<title>A typical SDI application (Eye of GNOME)</title>
 	<mediaobject>
@@ -174,12 +175,12 @@
 	</mediaobject>
       </figure>
 
-	<para>A single document interface places each document in its own primary window. Toolboxes and other utility windows may be shared between multiple SDI documents, but closing them should have no effect on the document windows. Use SDI for your GNOME application unless there is a compelling reason not to.</para>
       </sect3>
 
       <sect3 id="csdi">
 	<title>Controlled Single Document Interface (CSDI)</title>
 
+	<para>CSDI is reserved for applications where the extra overhead of a toolbar or menu per primary window is considered unacceptable. This is rarely the case, as most documents require enough display space that the toolbar and menu add relatively little overhead. The primary exception to this is an application that must handle large numbers of small images well. Complex drawing applications, such as The GIMP, currently present this kind of interface. The main toolbox of The GIMP is the control window.</para>
 	<figure>
 	<title>A typical controlled SDI application (The GIMP)</title>
 	<mediaobject>
@@ -191,11 +192,11 @@
 	</mediaobject>
       </figure>
 
-	<para>CSDI is reserved for applications where the extra overhead of a toolbar or menu per primary window is considered unacceptable. This is rarely the case, as most documents require enough display space that the toolbar and menu add relatively little overhead. The primary exception to this is an application that must handle large numbers of small images well. Complex drawing applications, such as The GIMP, currently present this kind of interface. The main toolbox of The GIMP is the control window.</para>
       </sect3>
 
       <sect3 id="mdi">
 	<title>Multiple Document Interface (MDI)</title>
+	<para>A multiple document interface presents a paned, tabbed or similar presentation of two documents<!--, or two views of the same document--> within a single window.</para>
 	<figure>
 	<title>A typical MDI application (gedit) showing three open documents on tabbed pages</title>
 	<mediaobject>
@@ -206,8 +207,7 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-
-	<para>A multiple document interface presents a paned, tabbed or similar presentation of two documents<!--, or two views of the same document--> within a single window. MDI has several inherent usability problems, so its use is discouraged in applications.  It is better to open each document in a new primary window, with its own menubar, toolbars and statusbar, or allow multiple instances of your application to be run simultaneously.  In either case, this leaves it for the window manager (acting on the user's preferences) rather than your application to decide how to group and present document windows from the same application.</para>
+	<para>MDI has several inherent usability problems, so its use is discouraged in applications.  It is better to open each document in a new primary window, with its own menubar, toolbars and statusbar, or allow multiple instances of your application to be run simultaneously.  In either case, this leaves it for the window manager (acting on the user's preferences) rather than your application to decide how to group and present document windows from the same application.</para>
 
       </sect3>
     </sect2>
@@ -271,6 +271,7 @@
     <sect2 id="property-windows">
       <title>Property Windows</title>
 
+      <para>Property windows allow the user to view and change the characteristics of an object such as a document, file, drawing, or application launcher.</para>
       <figure>
 	<title>Example of a property window</title>
 	<mediaobject>
@@ -282,7 +283,6 @@
 	</mediaobject>
       </figure>
 
-      <para>Property windows allow the user to view and change the characteristics of an object such as a document, file, drawing, or application launcher.</para>
 
       <formalpara>
 	<title>Title Format:</title>
@@ -301,6 +301,7 @@
 
     <sect2 id="preference-windows">
       <title>Preferences Windows</title>
+      <para>Preferences windows allow the user to change the way an application looks or behaves.</para>
 
       <figure>
 	<title>Example of a preferences window</title>
@@ -313,7 +314,6 @@
 	</mediaobject>
       </figure>
 
-      <para>Preferences windows allow the user to change the way an application looks or behaves.</para>
       <formalpara>
 	<title>Title Format:</title>
 	<para><replaceable>Application Name</replaceable> Preferences</para>
@@ -331,7 +331,7 @@
 
     <sect2 id="toolbox-windows">
       <title>Toolboxes</title>
-
+      <para>A toolbox provides convenient access to a set of actions and toggles through a set of small toolbar-like buttons. Toolboxes can be used to provide a specialized group of tools to augment a toolbar containing more universal items such as <guibutton>Save</guibutton> and <guibutton>open</guibutton>. A single toolbox can be shared between multiple documents to save screen space.</para>
 	<figure id="toolbox-figure">
 	  <title>An example of a toolbox</title>
 	  <mediaobject>
@@ -343,7 +343,6 @@
 	  </mediaobject>
 	</figure>
 
-      <para>A toolbox provides convenient access to a set of actions and toggles through a set of small toolbar-like buttons. Toolboxes can be used to provide a specialized group of tools to augment a toolbar containing more universal items such as <guibutton>Save</guibutton> and <guibutton>open</guibutton>. A single toolbox can be shared between multiple documents to save screen space.</para>
       <formalpara>
 	<title>Title Format:</title>
 	<para>Toolboxes have no title</para>
@@ -378,6 +377,7 @@
 
       <sect3 id="toolbox_windows_categories">
 	<title>Toolbox Categories</title>
+	<para>While categories may not be as visually appealing as a toolbox homogenously filled with beautiful icons, they make an unwieldy large toolbox more managable. Picking a small icon from more than fifteen other items is a difficult task. Additionally, categories allow users to hide sets of tool items that are not relevant to their current task.</para>
 	<figure id="example-toolbox-figure">
 	  <title>A large toolbox broken into categories</title>
 	  <mediaobject>
@@ -388,9 +388,10 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>Break toolboxes with more than sixteen items into categories.  The best size for a category is between four and ten items.  Give each category a label and a collapsing arrow. Clicking the label or the arrow toggles the category between a collapsed and uncollapsed state.</para>
-	<para>While categories may not be as visually appealing as a toolbox homogenously filled with beautiful icons, they make an unwieldy large toolbox more managable. Picking a small icon from more than fifteen other items is a difficult task. Additionally, categories allow users to hide sets of tool items that are not relevant to their current task.</para>
-
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Break toolboxes with more than sixteen items into categories.  The best size for a category is between four and ten items.</para></listitem>
+		<listitem><para>Give each category a label (in title caps) and a collapsing arrow. Clicking the label or the arrow toggles the category between a collapsed and uncollapsed state.</para></listitem>
+	</itemizedlist>
       </sect3>
     </sect2>
 
@@ -407,6 +408,8 @@
 <sect1 id="alert-windows">
     <title>Alerts</title>
 
+	<para>An alert provides information about the state of the application system, or asks for essential information about how to proceed with a particular task.  It is distinct from other types of window in that it is not directly requested by the user, and usually contains a message or a question rather than editable controls. Since alerts are an unwelcome intrusion into the user's work, do not use them except where necessary to avoid potential data loss or other serious problems.</para>
+    <para>An alert has a border similar to that of a dialog, and is object modal. </para>
 	<figure id="example-alert-figure">
 	<title>An example of an alert</title>
 	<mediaobject>
@@ -420,10 +423,7 @@
 
     <!--<remark>FIXME: need to redo the spacing and icons in the alert shots. I think I have a glade file for these somewhere. -Seth</remark>-->
 
-	<para>An alert provides information about the state of the application system, or asks for essential information about how to proceed with a particular task.  It is distinct from other types of window in that it is not directly requested by the user, and usually contains a message or a question rather than editable controls. Since alerts are an unwelcome intrusion into the user's work, do not use them except where necessary to avoid potential data loss or other serious problems.</para>
 
-
-    <para>An alert has a border similar to that of a dialog, and is object modal. </para>
     <formalpara><title>Title Format</title>
 	<para>Alert windows have no titles, as the title would usually unnecessarily duplicate the alert's primary text. This way, users can read and respond to alerts more quickly as there is less visual noise and confounding text.</para>
     </formalpara>
@@ -449,6 +449,8 @@
 
     <sect2 id="alert-text">
       <title>Alert Text</title>
+	<para>An alert may contain both primary and secondary text.  The primary text briefly summarizes the situation.  The secondary text provides additional information.</para>
+
       <figure id="alert-text-figure">
 	<title>Primary and Secondary Text Placement</title>
 	
@@ -471,6 +473,7 @@
 
       <sect2 id="alert-button-order">
       <title>Alert Buttons</title>
+      <para>Give all alerts an affirmative button that dismisses the alert and performs the action suggested in the primary text. Provide a <guibutton>Cancel</guibutton> button for all alerts displayed in response to a user actions, such as <guimenuitem>Quit</guimenuitem>.  If the alert warns of a technical problem or other situation that could result in data loss, provide a <guibutton>Help</guibutton> button that provides more information on the particular situation and explains the user's options. You may also provide buttons to perform alternate actions that provide another possible solution, fix potential problems, or launch related dialogs or programs.</para>
       <figure id="alert-buttons-figure">
 	<title>Button ordering and placement for alerts</title>
 	
@@ -482,7 +485,6 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-      <para>Give all alerts an affirmative button that dismisses the alert and performs the action suggested in the primary text. Provide a <guibutton>Cancel</guibutton> button for all alerts displayed in response to a user actions, such as <guimenuitem>Quit</guimenuitem>.  If the alert warns of a technical problem or other situation that could result in data loss, provide a <guibutton>Help</guibutton> button that provides more information on the particular situation and explains the user's options. You may also provide buttons to perform alternate actions that provide another possible solution, fix potential problems, or launch related dialogs or programs.</para>
       <formalpara><title>Button Phrasing</title>
 	<para>Write button labels as imperative verbs, for example <guibutton>Save</guibutton>, <guibutton>Print</guibutton>.  This allows users to select an action with less hesitation. An active phrase also fits best with the button's role in initiating actions, as contrasted with a more passive phrase. For example <guibutton>Find</guibutton> and <guibutton>Log In</guibutton> are better buttons than than <guibutton>Yes</guibutton> and <guibutton>OK</guibutton>.</para></formalpara>
       <itemizedlist>
@@ -494,6 +496,7 @@
     </sect2>
     <sect2 id="alert-spacing">
       <title>Spacing and Positioning Inside Alerts</title>
+	<para>Using clear, consistent spacing in alerts makes the message easier to digest and the available responses more obvious.</para>
       <figure id="alert-spacing-figure">
 	<title>Spacing inside an alert</title>
 	<mediaobject>
@@ -508,9 +511,9 @@
       <itemizedlist><title>Guidelines</title>
 	<listitem><para>The border around all edges of the alert, and the space between the icon and the text, is 12 pixels.</para></listitem>
 	<listitem><para>The horizontal spacing between the buttons is 6 pixels.</para></listitem>
-	<listitem><para>The space below both the primary and secondary text is one line break at the standard font size, or 24 pixels if you are using Glade.</para></listitem>
-	<listitem><para>The top of the icon aligns with the top of the primary text.</para></listitem>
-	<listitem><para>The text is left-aligned, in western locales.</para></listitem>
+	<listitem><para>Add one line break at the standard font size below both the primary and secondary text, or 24 pixels if you are using Glade.</para></listitem>
+	<listitem><para>Align the top of the icon with the top of the primary text.</para></listitem>
+	<listitem><para>Left-align the message text, for western locales.</para></listitem>
 	</itemizedlist>
 
       <tip><title>Technical Details for Proper Layout</title>
@@ -636,6 +639,7 @@
     </sect2>
     <sect2 id="alerts-information">
       <title>Information Alerts</title>
+      <para>Use an information alert when the user must know the information presented before continuing, or has specifically requested the information. Present less important information by other means such as a status bar message.</para>
       <figure id="information-alert-figure">
 	<title>An information alert</title>
 	<mediaobject>
@@ -646,7 +650,6 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-      <para>Use an information alert when the user must know the information presented before continuing, or has specifically requested the information. Present less important information by other means such as a status bar message.</para>
       <itemizedlist>
 	<title>An information alert...</title>
 	<listitem><para>uses the stock information icon.</para></listitem>
@@ -660,6 +663,7 @@
     </sect2>
     <sect2 id="alerts-error">
       <title>Error Alerts</title>
+      <para>Display an error alert when a user-requested operation cannot be sucessfully completed. Present errors caused by operations not requested by the user by another means, unless the error could result in data loss or other serious problems. For example, an error encountered during an email check initiated by the user clicking a toolbar button should present an error alert. However, an error encountered in an automated periodic email check would more appropriately report failure with a status bar message.</para>
       <figure id="error-alert-figure">
 	<title>An error alert</title>
 	<mediaobject>
@@ -670,7 +674,6 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-      <para>Display an error alert when a user-requested operation cannot be sucessfully completed. Present errors caused by operations not requested by the user by another means, unless the error could result in data loss or other serious problems. For example, an error encountered during an email check initiated by the user clicking a toolbar button should present an error alert. However, an error encountered in an automated periodic email check would more appropriately report failure with a status bar message.</para>
       <itemizedlist>
 	<title>An error alert...</title>
 	<listitem><para>uses the stock error icon.</para></listitem>
@@ -686,6 +689,7 @@
 
     <sect2 id="alerts-confirmation">
       <title>Confirmation Alerts</title>
+	<para>Present a confirmation alert when the user's command may destroy their data, create a security risk, or take more than 30 seconds of user effort to recover from if it was selected in error.</para>
       <figure id="confirmation-alert-figure">
 	<title>A confirmation alert</title>
 	<mediaobject>
@@ -696,7 +700,6 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-	<para>Present a confirmation alert when the user's command may destroy their data, create a security risk, or take more than 30 seconds of user effort to recover from if it was selected in error.</para>
       <itemizedlist>
 	<title>A confirmation alert...</title>
 	<listitem><para>uses the stock warning icon.</para></listitem>
@@ -711,6 +714,7 @@
       
       <sect3 id="save-confirmation-alerts">
 	<title>Save Confirmation Alerts</title>
+	<para>Save confirmation alerts help ensure that users do not lose document changes when they close applications. This makes closing applications a less dangerous operation.</para>
 	<figure id="save-alert-figure">
 	  <title>A save confirmation alert</title>
 	  
@@ -722,7 +726,6 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>Save confirmation alerts help ensure that users do not lose document changes when they close applications. This makes closing applications a less dangerous operation.</para>
 	<formalpara><title>Primary Text</title><para>Save changes to document <replaceable>Document Name</replaceable> before closing?</para></formalpara>
 	<para>You may replace <quote>document</quote> with a more appropriate description, for example <quote>image</quote> or <quote>diagram</quote> if the document in question is not primarily text.</para>
 	<formalpara><title>Secondary Text</title><para>If you close without saving, changes from the last <replaceable>Time Period</replaceable> will be discarded</para></formalpara>
@@ -734,6 +737,7 @@
 
     <sect2 id="alerts-authentication">
       <title>Authentication Alerts</title>
+      <para>Authentication alerts prompt the user for information necessary to gain access to protected resources, such as their username or password. Authentication alerts are a special kind of alert because they are both routine and largely unavoidable. Every attempt should be made to retain information entered into an authentication alert as long as is possible within security constraints.</para>
       <figure id="authentication-alert-figure">
 	<title>An authentication alert</title>
 	<mediaobject>
@@ -744,7 +748,6 @@
 	  </textobject>
 	</mediaobject>
       </figure>
-      <para>Authentication alerts prompt the user for information necessary to gain access to protected resources, such as their username or password. Authentication alerts are a special kind of alert because they are both routine and largely unavoidable. Every attempt should be made to retain information entered into an authentication alert as long as is possible within security constraints.</para>
       <para>An authentication alert:
 	<itemizedlist>
 	  <listitem>
@@ -770,7 +773,7 @@
   </sect1>
   <sect1 id="progress-windows">
     <title>Progress Windows</title>
-    
+    <para>A progress window can be used to provide <link linkend="feedback">feedback</link> during an operation that takes more than a few seconds. See <xref linkend="controls-progress-bars"/> for more details about proper use of progress bars.</para>
     <figure id="example-progress-figure">
       <title>An example of a progress window</title>
       <mediaobject>
@@ -782,7 +785,6 @@
       </mediaobject>
     </figure>
 
-    <para>A progress window can be used to provide <link linkend="feedback">feedback</link> during an operation that takes more than a few seconds. See <xref linkend="controls-progress-bars"/> for more details about proper use of progress bars.</para>
 
     <formalpara><title>Title Format</title>
 	<para>Progress windows should have the same title as their primary text. Unlike alerts, it is expected that progress windows will be present in the window list and may be active for extended periods.</para>
@@ -859,6 +861,7 @@
   <sect1 id="dialog-boxes">
     <title>Dialog Boxes</title>
     
+    <para>A dialog box provides an exchange of information, or dialog, between the user and the application.  Use a dialog box to obtain additional information from the user that is needed to carry out a particular command or task.</para>
     <figure>
       <title>An example of a dialog box</title>
       <mediaobject>
@@ -870,7 +873,6 @@
       </mediaobject>
     </figure>
     
-    <para>A dialog box provides an exchange of information, or dialog, between the user and the application.  Use a dialog box to obtain additional information from the user that is needed to carry out a particular command or task.</para>
     
     <formalpara>
       <title>Title Format:</title>
