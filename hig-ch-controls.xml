@@ -161,6 +161,7 @@
 	  <para>This is less error-prone than expecting the user to format their text input in some arbitrary format.  You may still want to provide the entry field control as well, however, for expert users who are familiar with the required format.</para></listitem>
 	  
 	<listitem><para>If you implement an entry field that accepts only keystrokes valid in the task context, such as digits, play the system warning beep when the user tries to type an invalid character.  If the user types three invalid characters in a row, display an <link linkend="alert-windows">alert</link> that explains the valid inputs for that textfield.</para></listitem>
+      <listitem><para>The cursor blink rate is globally defined by the XSettings "gtk-cursor-blink" and "gtk-cursor-blink-time". Standard toolkit controls use these and they must <!-- a11y, right? --> not be altered in applications by any means. New controls with text cursors must respect these global values.</para></listitem>
 
       </itemizedlist>
 
@@ -958,6 +959,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  <para>Ensure that double-clicking in the status area does not provide any functionality that is not also available in the main application menu bar, or by some other accessible means.</para>
 	  
 	</listitem>
+      <listitem><para>Provide a drag handle in the bottom right corner of the status bar of resizeable windows. Subclasses of GtkStatusbar should use the drag handle provided by that class. A reimplementation of a status bar, which is discouraged, should also reimplement the GtkStatusbar drag handle in both appearance and function.</para></listitem>
 	  
       </itemizedlist>
             

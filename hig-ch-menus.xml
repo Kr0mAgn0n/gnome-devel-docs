@@ -156,7 +156,7 @@
 
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Provide a popup menu for every object, selectable part, and text input target such as entry fields.</para></listitem>
-		<listitem><para>Provide an access key for each item.  However, to enhance their spatial efficency and readability, do not show keyboard shortcuts in popup menus.</para></listitem>
+		<listitem><para>Provide an access key for each item.  However, to enhance their spatial efficiency and readability, do not show keyboard shortcuts in popup menus.</para></listitem>
 		
 		<listitem><para>Since the user may not be aware of their presence, do not provide functions that are only accessible from popup menus unless you are confident that your target users will know how to use popup menus.</para>
 		<remark>But see http://bugzilla.mozilla.org/show_bug.cgi?id=34357</remark>
@@ -171,7 +171,7 @@
 		</itemizedlist>
 		</listitem>
 
-	 	<listitem><para>Popup menus need to be as simple as possible to maximize their efficiency.  Do not place more than about ten items on a popup menu, and do not use submenus.</para></listitem>
+	 	<listitem><para>Popup menus need to be as simple as possible to maximize their efficiency.  Do not place more than about ten items on a popup menu, and do avoid submenus.</para></listitem>
 
 	</itemizedlist>
 
@@ -369,8 +369,9 @@
 
 		  <para>The items on the <guimenu>File</guimenu> menu are generally ordered by locality, closest first.  That is, items to save or load from file, followed by printing, followed by sending to a remote user.  Try to maintain this ordering if you have to add new items to the menu.</para>
 
-	        <para>If your application does not operate on documents, give this menu a more appropriate name.  For example, many games should have a <guimenu>Game</guimenu> instead of a <guimenu>File</guimenu> menu.  However, place the <guimenuitem>Quit</guimenuitem> menu item last on this menu nonetheless.</para>
-
+	        <para>If your application does not operate on documents, name this item for the type of object it displays.  For example, many games should have a <guimenu>Game</guimenu> instead of a <guimenu>File</guimenu> menu.  However, place the <guimenuitem>Quit</guimenuitem> menu item last on this menu nonetheless.</para>
+<remark>GJM: Quit should be deprecated. Close is often sufficient; especially when
+the application saves state as it should.</remark>
 	<figure id="generic-file-menu"><title>A generic File menu</title>
 	  <mediaobject>
 	    <imageobject>
@@ -586,8 +587,8 @@
 	    <tbody valign="top">
 	      <row>
 		<entry><guimenuitem>Proper<accel>t</accel>ies</guimenuitem></entry>
-		<entry>None</entry>
-	        <entry>Opens the document's <guilabel>Properties</guilabel> window.  This may contain editable information, such as the document author's name, or read-only information, such as the number of words in the document, or a combination of both.</entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>Return</keycap></keycombo></entry>
+	        <entry>Opens the document's <guilabel>Properties</guilabel> window.  This may contain editable information, such as the document author's name, or read-only information, such as the number of words in the document, or a combination of both. The <keycombo><keycap>Alt</keycap><keycap>Return</keycap></keycombo> shortcut should not be provided where <keycap>Return</keycap> is most frequently used to insert a new line.</entry>
 	    </row>
 	  </tbody>
 	</tgroup>
@@ -1484,11 +1485,11 @@
 	<title>Windows</title>
 		<para>The Windows menu contains commands that apply to all of the application's open windows.  Only use a Windows menu in <link linkend="mdi">multiple document interface</link> (MDI) applications.</para>
 
-		<note><title>MDI Applications</title><para>The use of MDI applications is not encouraged in GNOME, as they have a number of inherent usability problems.</para></note>
+      <note><title>MDI Applications</title><para>The use of MDI is discouraged, as they have a number of inherent usability problems.</para></note>
 	
 		<para>You may also label this menu <guimenu><accel>D</accel>ocuments</guimenu>, <guimenu><accel>B</accel>uffers</guimenu>, or similar according to the type of document handled by your application.</para>
 	
-	<para>The first items on this menu are a numbered list of the application's primary windows, for example <guimenuitem><accel>1</accel>shoppinglist.abw</guimenuitem>.  Selecting one of these items raises the corresponding window.</para>
+	<para>The last items on this menu are a numbered list of the application's primary windows, for example <guimenuitem><accel>1</accel>shoppinglist.abw</guimenuitem>.  Selecting one of these items raises the corresponding window.</para>
 
 	<figure id="generic-windows-menu">
 	  <title>A generic Windows menu</title>
@@ -1500,7 +1501,7 @@
 	      <literallayout class="monospaced">
 <guimenu><accel>W</accel>indows</guimenu>
 <guimenuitem><accel>S</accel>ave All</guimenuitem>
-<guimenuitem><accel>C</accel>lose All		Shift+Ctrl+W</guimenuitem>
+<guimenuitem><accel>C</accel>lose All</guimenuitem>
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1518,15 +1519,6 @@
 		</row>
 	      </thead>
 	    <tbody valign="top">
-
-		<row>
-			<entry><guimenuitem><accel>1</accel>. <replaceable>first open window title</replaceable></guimenuitem>
-			<para><guimenuitem><accel>2</accel>. <replaceable>second open window title</replaceable></guimenuitem></para>
-			<para>etc.</para></entry>
-			<entry>None</entry>
-			<entry>Raises the corresponding window to the top of the window stack.</entry>
-		</row>
-
 		<row>
 			<entry><guimenuitem><accel>S</accel>ave All</guimenuitem></entry>
 			<entry>None</entry>
@@ -1535,10 +1527,16 @@
 
 		<row>
 			<entry><guimenuitem><accel>C</accel>lose All</guimenuitem></entry>
-			<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
+			<entry>None</entry>
 			<entry>Closes all open documents.  If there are any unsaved changes in any documents, post a <link linkend="alerts-confirmation">confirmation alert</link> for each one in turn.</entry>
 		</row>
-
+		<row>
+			<entry><guimenuitem><accel>1</accel>. <replaceable>first open window title</replaceable></guimenuitem>
+			<para><guimenuitem><accel>2</accel>. <replaceable>second open window title</replaceable></guimenuitem></para>
+			<para>etc.</para></entry>
+			<entry>None</entry>
+			<entry>Raises the corresponding window to the top of the window stack.</entry>
+		</row>
 			</tbody>
 		</tgroup>
 	</table>
