@@ -1007,6 +1007,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  
 	
 	</itemizedlist>
+
 	
       </sect3>
       
@@ -1039,9 +1040,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 	<para>If you wish to add a <guibutton>Help</guibutton> toolbar button, it should be placed last (rightmost, in western locales) on the main toolbar.  However, adding a <guibutton>Help</guibutton> button to the toolbar is not generally recommended, as usability studies suggest that it will be rarely used.  (N.B. This finding applies only to toolbars, not <guibutton>Help</guibutton> buttons in dialogs).</para>
 	
-	<note><title>For Discussion</title>
-	  <para>Consensus was that neither the current "delete" nor "clear" stock icons were particularly good, but the preferred "red X" is already in use for <keycap>Close</keycap> and <keycap>Cancel</keycap>.  How can we reolve this?</para>
-	</note>
+
 
       </sect3>
       
@@ -1981,6 +1980,9 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<title>Standard Toolbar Icons</title>
 	  <note><title>For discussion</title>
 	    <para>Do we need to provide a table of stock icons and what they should be used for, or is it obvious when to use what?</para>
+
+	    <para>I just briefly mentioned the "trashcan is an inappropriate icon for Delete" issue to tigert on IRC... he'd be happy enough to change it to a red cross and redesign the Close/Cancel icons, if we can think of an alternative for the Close/Cancel icons :)  Or whatever else we can think of for delete/close/cancel.</para>
+	    
 	  </note>
 	  
 	</sect4>
@@ -2273,13 +2275,22 @@ text/mathml
       
       <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
 
-      <para>&lt;pics&gt;</para>
+      <figure> <title>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/pointingdevices.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Pictures of different types of pointing device, including mouse, trackball, foot-operated mouse and joystick.</phrase>
+	    </textobject>
+	  </mediaobject>
+      </figure>
+	
+      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
 
-      <para>For right-handed users, the left button on a mouse is normally used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
+      <para>Also for right-handed users, the right button on a conventional mouse is the one used for operations involving pop-up menus. We therefore call it the &quot;right button&quot; here, even though it may not always physically be so.  You may sometimes see this referred to in code or documentation as Button 3 or the Menu button.</para>
 
-      <para>For right-handed users, the right button on a mouse is normally the one used for operations involving pop-up menus. It is therefore referred to as the &quot;right button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 3 or the Menu button.</para>
-
-      <para>Pointing devices with three buttons normally have a middle button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  You may sometimes see this referred to in code or documentation as Button 2 or the Transfer button.</para>
+      <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the &quot;middle button;&quot, but you may sometimes see this referred to in code or documentation as Button 2 or the Transfer button.</para>
 
       <para>Recommendations:</para>
       <itemizedlist>
@@ -2288,7 +2299,7 @@ text/mathml
 
 	<listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
 
-	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere in your application, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
+	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  <keycombo><keycap>Ctrl</keycap><keycap>click</keycap></keycombo> (or unmodified click) should perform a copy, <keycombo><keycap>Shift</keycap><keycap>click<keycap></keycombo> should perform a move, and <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>click<keycap></keycombo> should insert a link to the primary selection, where supported.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
 
 	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><keycap>scrollwheel</keycap></keycombo> <emphasis>(or <keycombo><keycap>Ctrl</keycap><keycap>scrollwheel</keycap></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
 
@@ -2307,6 +2318,9 @@ text/mathml
 	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
 
 	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</para></listitem>
+
+	<listitem><para>Don't refer to particular mouse buttons in your interface unless absolutely necessary.  Not everybody will be using a conventional mouse with left, middle and right buttons, so any text or diagrams that refer to those may be confusing.</para></listitem>
+
       </itemizedlist>
       
     </sect2>
@@ -2503,13 +2517,15 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</tgroup>
       </table>
 
-      <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
+<!-- Booted out for now along with right button drags
+      <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
+-->
 
       <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
       <sect3>
 	<title>Mouse Interaction with Applets</title>
-	<para>Proposal for mouse interaction with Panel Gadgets:</para>
+	<para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
 	<itemizedlist>
 	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo>=copy, if moving to another panel; <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel).</para></listitem>
 
