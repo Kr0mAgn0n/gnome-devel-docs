@@ -1,5 +1,5 @@
 <!DOCTYPE ARTICLE PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN" [
-<!ENTITY version "1.0">
+<!ENTITY version "0.0.1"> <!-- Do we have a versioning policy? -->
 ]>
 
 <article id="index">
@@ -682,6 +682,10 @@ Brings up the About dialog for the application. The dialog should contain the na
 <sect1 id="dialogs">
   
 <title>Dialogs</title>
+
+<!-- TODO:
+- Double-clicking to close a dialog
+-->
 	
 <sect2 id="dialog-principles">
 	
@@ -868,14 +872,224 @@ Dialog windows should be given titles that enable the user to determine from the
 	
 <title>Standard Dialogs</title>
 
+<para>
+GNOME provides a number of standard dialogs which should be used wherever appropriate.
+</para>
+
+<sect3>
+
+<title>File Selector</title>
+
+<para>
+The file selector should be used whenever the user is required to select one filename, either of a file that already exists or the desired name of a file that is to be created.
+</para>
+
+<para>
+If the file selector is being used to select a file that is to be opened in the application then its title should be <quote>Open File</quote>. If it is being used to choose a filename to save a file to then its title should be <quote>Save File</quote>.
+</para>
+
+<para>
+Sometimes it may be appriate to extend the file selector to include new features. For example, if an application is capable of saving a document in multiple different file formats then the file selector should include a mechanism for selecting the desired file type.
+</para>
+
+</sect3>
+
 </sect2>
 
 </sect1>
 
-<sect1 id="controls-layout-and-aesthetics">
-  
-<title>Controls, Layout and Aesthetics</title>
-	
+<sect1 id="controls">
+
+<title>Controls</title>
+
+<para>
+The GNOME environment provides a set of controls (also known as widgets<!-- FIXME: which should we use? -->) for use in your applications. It is important that controls are used appropriately and that they follow standard behaviours since this allows users to predict the effects of their actions. Controls which behave in non-standard ways dilute the meaning of the GUI's visual language.
+</para>
+
+<para>
+Under some circumstances the value that a control manipulates may not have an effect, or the action that a control activates may not be able to run. At these times the control should be made unavailable. While a control is unavailable it will appear dimmed and will not be able to receive the focus.
+</para>
+
+<sect2 id="controls-buttons">
+
+<title>Buttons</title>
+
+<para>
+Buttons should be used to initiate actions.
+</para>
+
+<para>
+Buttons should generally be labeled with verbs. Button labels should have the first letter of the first word and of any significant words capitalised. Where the action will require further input from the user before it can be carried out, the label should end with an ellipsis ("...").
+</para>
+
+<para>
+In a dialog, one button may be made the default button. The guidelines for doing this are in the section on dialogs.
+</para>
+
+</sect2>
+
+<sect2 id="controls-toggle-buttons">
+
+<title>Toggle Buttons</title>
+
+<para>
+Toggle buttons are buttons which remain depressed after they have been clicked on. They can be used to indicate a currently active mode, and should work in the same manner as either radio buttons or check boxes. They may be raised either by a second click, or by another toggle button in the same group being clicked on.
+</para>
+
+<para>
+Toggle buttons should generally only be used where there is little available space, such as on toolbars or palettes. Otherwise check boxes or radio buttons will be more appropriate.
+</para>
+
+</sect2>
+
+<sect2 id="controls-check-boxes">
+
+<title>Check Boxes</title>
+
+<para>
+Check boxes are used to toggle an option on or off. Check box options should be independent of each other. Toggling a check box should not affect the values of other controls. 
+</para>
+
+<para>
+Toggling a check box may affect the availability of other controls. Where this happens, the check box should ideally be placed immediately above or to the left of the controls it affects, in such a way as to indicate that the controls are dependent on the state of the check box.
+</para>
+
+<para>
+While a check box option may be applied instantaneously, changing it should not initiate an action.
+</para>
+
+<para>
+Check boxes should be labeled in a way that unambiguously indicates what the effects of both their checked and unchecked states will be. Where this cannot be done, it may be better to use two radio buttons so that both states can be given labels.
+</para>
+
+</sect2>
+
+<sect2 id="controls-radio-buttons">
+
+<title>Radio Buttons</title>
+
+<para>
+Radio buttons are used in groups to select from a mutually exclusive set of options. Only one radio button within a group may be checked at any one time. As with check boxes, radio buttons should not be used to initiate actions.
+</para>
+
+</sect2>
+
+<sect2 id="controls-option-menus">
+
+<title>Option Menus</title>
+
+<para>
+Option menus are used to select from a mutually exclusive set of options. They should not be used to initiate actions.
+</para>
+
+<para>
+In general, radio buttons are preferable to option menus, since options menus only display the currently selected item. However, their use may be appropriate when there is little available space or where the list of options may change.
+</para>
+
+</sect2>
+
+<sect2 id="controls-combo-boxes">
+
+<title>Combo Boxes</title>
+
+<para>
+Combo boxes combine a text entry field and a menu of predefined values. Selecting one of the pre-defined values from the menu should update the contents of the text field to that value and may also perform the action that would be performed if the user pressed the Return key in that text field.
+</para>
+
+</sect2>
+
+<sect2 id="controls-progress-bars">
+
+<title>Progress Bars</title>
+
+<para>
+Progress bars are visual indicators of the progress of a task being carried out by the application. <!-- would it be good to have a section on feedback? -->
+</para>
+
+<para>
+There are two types of progress bar: Determinate progress bars, which indicate what proportion of the task has been completed, and indeterminate progress bars, which indicate only that the application is working on a task. Where the length of a task is known, a determinate progress bar should be used. Otherwise, an indeterminate progress bar should be used.
+</para>
+
+</sect2>
+
+<sect2 id="controls-status-bars">
+
+<title>Status Bars</title>
+
+<para>
+Status bars provide a small area which can be used to display one line of text describing the status of the application. Status bars should always be positioned at the bottom of a window.
+</para>
+
+<para>
+Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="layout">
+
+<title>Layout</title>
+
+<!-- TODO:
+- More than any other section this needs to be liberally sprinkled with examples
+-->
+
+<para>
+The layout of a GUI is important both because it communicates the relationships between elements, and because an aesthetically-pleasing interface is more pleasant to use.
+</para>
+
+<sect2 id="layout-order-relationships">
+
+<title>Order and Relationships</title>
+
+<para>
+Western users are accustomed to reading from the top-left to the bottom-right. For this reason, elements of an interface which are intended to be presented to the user in a specific order should be laid out in such a way that the first element the user should encounter is in the top-left and the last in the bottom-right.
+</para>
+
+<para>
+(Bear in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.) <!-- Does it get more complex than this? -->
+</para>
+
+<para>
+Relationships between elements are usually indicated by their positions. Labels should be placed either above or to the left of the controls they relate to.
+</para>
+
+</sect2>
+
+<sect2 id="layout-aesthetics">
+
+<title>Aesthetics</title>
+
+<para>
+Simply making a GUI look tidier can make it seem less intimidating. This can be done by aligning elements with each other and by removing unnecessary elements.
+</para>
+
+<para>
+GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <quote>white space</quote>.
+</para>
+
+</sect2>
+
+<sect2 id="layout-grouping-separators">
+
+<title>Grouping and Separators</title>
+
+<para>
+There is a rule, frequently referred to in interface design, called the 7+/-2 rule. It states that humans can only hold between 5 and 9 items of information in their minds at a time. One of the implications of this in interface design is that long lists of choices should, where possible, be broken down into smaller groups of choices.
+</para>
+
+<para>
+There are a number of ways of visually dividing controls into groups. One method is to use separators and frameboxes to draw lines and boxes between elements. Another method is to use a greater amount of white space between groups of elements.
+</para>
+
+<para>
+It is essential that the extent of option groups such as radio buttons be made clear, using these methods as appropriate.
+</para>
+
+</sect2>
+
 </sect1>
 
 <sect1 id="terminology">
