@@ -648,16 +648,16 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</note>
 -->
 
-	<para>Where possible, access keys should be chosen to be as easy to remember as possible&mdash; normally the first letter of the label should be used.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
+	<para>Choose access keys to be as easy to remember as possible&mdash; normally the first letter of the label.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
 
 	<orderedlist>
 	    <listitem><para>Assign access keys for the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign them from left to right, top to bottom (for Western locales).</para></listitem>
 
 	  <listitem><para>Use the first letter of the label, or the first letter in one of the words of a multi-word label, unless another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Extra Large</guilabel>.)</para></listitem>
 
-	<listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, e.g. &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
-
-	<listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
+	  <listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, e.g. &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
+ 
+	  <listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
 	</orderedlist>
 
 	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often don't show up very well on those characters.</para>
@@ -823,7 +823,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>S</accel>earch</guimenuitem></entry>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo> (see note below)</entry>
 		<entry>Search for matches in multiple documents, files or other external sources</entry>
 	      </row>
 	      <row>
@@ -854,7 +854,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <!-- Um, consensus was to be rid of the item, iirc. (GJM) -->
 	  <!--<para>Should we call it "Find Next" or "Find Again"?</para> -->
 
-	  <!--<para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>-->
+	  <!--<para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications... not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para> -->
 
 	  <!--<para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>-->
 
@@ -925,7 +925,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>E</accel>dit Bookmarks...</guimenuitem></entry>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo> (see note)</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo> (see note below)</entry>
 		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
 	      </row>
 	    </tbody>
@@ -1191,7 +1191,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>Do <emphasis>not</emphasis> use the the <keycap>Tab</keycap> key as the means of moving focus between controls in a panel application.  Use the arrow keys for this purpose instead.</para></listitem>
 	</itemizedlist>
 
-	<para>This is because when a panel or any object on it has focus, the <keycap>Tab</keycap> key moves focus to the next object on the panel.  If your panel application also uses <keycap>Tab</keycap>, the user will have to use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> or some other means to move focus away from your applet instead, which is detremental to the user experience.</para>
+	<para>When an object on a panel has focus, the <keycap>Tab</keycap> key normally moves focus to the next object on the panel.  If your panel application also used <keycap>Tab</keycap> for its own internal navigation, the user would have to press <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> to move focus out of your panel application instead.  This inconsistency would be detremental to the user experience.</para>
 	
       </sect2>
       
