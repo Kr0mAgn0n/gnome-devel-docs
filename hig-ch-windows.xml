@@ -171,23 +171,41 @@
     -->
     <sect2 id="alert-button-order">
       <title>Alert Buttons</title>
-      
-      <para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
-      <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
-      <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
-      <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
-      <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
-      
-      <para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Log In]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
-      <!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
-      <figure id="alert-buttons">
+      <para>All alerts should have an affirmative button which dismisses the alert and performs the action suggested in the primary text. Whenever an alert is displayed in response to a user action, a <guibutton>Cancel</guibutton> button should be present. Dangerous or archane alerts should consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options. Alternate actions, which provide another possible solution, fix potential problems, or launch related dialogs/programs (amongst other things) may also be provided.</para>
+      <formalpara><title>Button Phrasing</title><para>Whenever possible, buttons should be phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. An active phrase also fits best with the button's role in initiating actions, as contrasted with a more passive phrase. For example <guibutton>Save</guibutton> and <guibutton>Log In</guibutton> are better buttons than than <guibutton>Yes</guibutton> and <guibutton>OK</guibutton></para></formalpara>
+      <itemizedlist>
+	<listitem><formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert, or simply dismisses the alert if no action is suggested (such as in an information alert).</para></formalpara></listitem>
+	<listitem><formalpara><title>Cancel Button</title><para>If the alert was produced in response to a user action, place a <guibutton>[Cancel]</guibutton> button immediately to the left of the affirmative button. This provides an escape route for users to stop an action in response to new information, or if they <quote>clicked</quote> accidentally. Clicking the <guibutton>Cancel</guibutton> button should revert the application to its state prior to the user action.</para></formalpara></listitem>
+	<listitem><formalpara><title>Help Button</title><para>A <guibutton>Help</guibutton> button may be used to clarify alerts presenting potentially destructive options. The <guibutton>Help</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara></listitem>
+	<listitem><formalpara><title>Alternate Buttons</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the <guibutton>Cancel</guibutton> button, or affirmative button if <guibutton>Cancel</guibutton> is not present. An example of a common alternate action would be a <guibutton>Quit without Saving</guibutton> button in a save confirmation alert. This is an alternative to the primary suggested action <guibutton>Save</guibutton> and the <guibutton>Cancel</guibutton> button.</para></formalpara></listitem>
+      </itemizedlist>
+      <figure id="alert-buttons-figure">
 	<title>Button ordering and placement</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/alert-button-order.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
+	    <phrase></phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+    </sect2>
+    <sect2 id="alert-text">
+      <title>Alert Text</title>
+      <formalpara><title>Primary Text</title><para>Primary text provides the user with a one sentence summary of a suggested action or a piece of information. This summary should be "to the point", but should contain the essential details of the problem/suggestion. All alerts should have primary text, which should be displayed in a slightly larger than default font, and bold.</para></formalpara>
+      <para role="technical-note">Primary text should be denoted with the pango markup:
+	<programlisting>&lt;span weight="bold" size="larger"&gt;<replaceable>Primary Text</replaceable>&lt;/span&gt;</programlisting>
+      </para>
+      <formalpara><title>Secondary Text</title><para>Secondary text provides a more in depth description of the problem and suggested action, including possible side effects. Secondary text can also provide information that may be helpful in allowing the user to make an informed decision. In most situations the user should only need the primary text to make a quick decision, but they may read the secondary text if they are unsure of the proper course of action, or require extra details. Secondary text is optional, and should be placed one text line height beneath the primary text using the default font size.</para></formalpara>
+      <figure id="alert-text-figure">
+	<title>Primary & Secondary Text Placement</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/alert-text.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase></phrase>
 	  </textobject>
 	</mediaobject>
       </figure>
@@ -229,7 +247,7 @@
 	  <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	</itemizedlist>
       </para>
-      <formalpara><title>Title Format:</title><para>Information alerts should not display a window title.</para></formalpara>
+      <formalpara><title>Title Format:</title><para>Error alerts should not display a window title.</para></formalpara>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
@@ -331,13 +349,15 @@
   <sect1 id="assistant-windows">
     <title>Assistants</title>
     <para>An assistant is an application modal secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are also useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>
+    <para>Because assistants provide a relatively small number of controls on the screen at any given time, they have sufficient space for inline documentation. Thus out of band documentation, such as a <guibutton>Help</guibutton> button, should not be present. If you can't make an operation sufficiently clear in an assistant without feeling the need for a <guibutton>Help</guibutton> button, you should seriously reconsider your presentation of the information or the approach you are taking to the interface. It is probably overly complex.</para>
     <formalpara>
       <title>Window Commands:</title>
       <para>FIXME, Roll-up/Unroll</para>
     </formalpara>
     <sect2 id="assistant-first-page">
-      <title>First Page</title>
-      <formalpara><title>Title Format:</title><para>FIXME</para></formalpara>
+      <title>Introductory Page</title>
+      <para>The first page provides the user with the "big picture". It states the goal of the assistant, and perhaps where they can find the information the assistant asks for if this is not immediately obvious. The overall title of the assistant should be placed in the title bar, along with an optional picture. Beneath it should be the explanation.</para>
+      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable></para></formalpara>
       <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Next</guibutton></para></formalpara>
       <figure>
 	<title>Example of the first page of an assistant</title>
@@ -351,8 +371,9 @@
       </figure>
     </sect2>
     <sect2 id="assistant-middle-page">
-      <title>Middle Pages</title>
-      <formalpara><title>Title Format:</title><para></para></formalpara>
+      <title>Content Pages</title>
+      <para>Content pages contain the actual settings of the assistant. The title bar should contain a title for the current page, summarizing the types of settings present on the page (for example "Mail Server").</para>
+      <formalpara><title>Title Format:</title><para><replaceable>Assistant Title</replaceable> - (<replaceable>Current Page </replaceable> of <replaceable>Total Pages</replaceable></para></formalpara>
       <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Next</guibutton></para></formalpara>
       <figure>
 	<title>Example of a middle page of an assistant</title>
