@@ -352,55 +352,6 @@
 
       <para>The Application &amp; MIME database provides a mapping between document types (as defined by their MIME type) and applications. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document of a type they cannot handle. Users can edit the association between types &amp; applications in the "File Types &amp; Applications" capplet in the Control Center. Upon installation applications should associate themselves with any types they can handle, registering those types as necessary if they are not already present on the system. Technical details on performing this operation or other operations on the MIME database described in this section should be consulted in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
       <para>The preferred list for a particular document type defines applications which are considered first class handlers for that data type. The decision whether to appear in the preferred list or not is left to the discretion of the application developer, but you should generally only list your application in the preferred list if you think a majority of users manipulating that document will want to see your application in the <guimenu>Open With...</guimenu> menu in Nautilus. For example, while a text editor such as GEdit may be capable of editing all files of type text/*, it probably should not add itself to the preferred list for files of type text/html. While it is <emphasis>capable</emphasis> of editing and viewing these files, users will generally not prefer GEdit for HTML files. On the other hand, GEdit should register itself as being capable of handling these files, so if some user wishes to frequently use it to edit HTML files it is easy for them to add GEdit to the preferred list.</para>
-      <para>To provide a connection to document types an application should:
-	<itemizedlist>
-	  <listitem><para>Install a <filename>.applications</filename> file in <filename>$PREFIX/share/application-registry</filename> describing the abilities of your application.</para>
-	    <example>
-	      <title>A mozilla.applications file for Mozilla</title>
-	      <programlisting>
-mozilla
-        command=mozilla
-        name=Mozilla
-        can_open_multiple_files=true
-        expects_uris=true
-        requires_terminal=false
-        supported_uri_schemes=file,http,ftp,telnet,gopher
-        mime_types=text/html,text/mathml,x-directory/webdav,x-directory/webdav-prefer-directory,image/gif,image/jpeg,text/xml,text/*
-	      </programlisting>
-	    </example>
-	  </listitem>
-	  <listitem><para>Install a <filename>.mime</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you can handle.</para>
-	    <example>
-	      <title>Part of a mozilla.mime file for Mozilla</title>
-	      <programlisting>
-text/html
-        ext: html htm HTML
-text/xml
-        ext: xml
-image/jpeg
-        ext: jpe jpeg jpg
-	      </programlisting>
-	      </example>
-	  </listitem>
-	  <listitem><para>Install a <filename>.keys</filename> file in <filename>$PREFIX/share/mime-info</filename> describing the MIME types you handle in greater detail (optional). Also install a default icon for any new filetypes you add.</para>
-	    <example>
-	      <title>One entry in a mozilla.keys file for Mozilla</title>
-	      <programlisting>
-text/mathml
-        description=MathML document
-           ...
-        [es]description=documento de MathML
-	   ...
-	icon_filename=mathml.png
-	default_action_type=application
-	short_list_application_ids_for_novice_user_level=mozilla
-	short_list_application_ids_for_intermediate_user_level=mozilla
-	short_list_application_ids_for_advanced_user_level=mozilla
-	      </programlisting>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-      </para>
     </sect3>
   </sect2>
 </sect1>
