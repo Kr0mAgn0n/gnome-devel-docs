@@ -18,27 +18,31 @@
     
     <sect1 id="controls-sensitivity">
       <title>Sensitivity</title>
-      <remark>Do we really want to include GTK calls here? -Seth</remark>
-      <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for GTK controls) to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus (although assistive technologies will still be able to detect and report it).</para>
+
+	<!--      <remark>Do we really want to include GTK calls here? -Seth</remark> -->
+	<!--	 CFB have removed the GTK calls for the basic stuff, although left it in for the 
+		 more obscure things that hackers currently aren't doing -->
+
+      <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive <!--(for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for GTK controls)--> to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus, although assistive technologies like screenreaders will still be able to detect and report it.</para>
       
       <para>It is usually better to make a control insensitive than to hide it altogether.  This way, the user can learn about functionality they may be able to use later, even if it is not available right now.</para>
       
      <figure>
-	<title>Two check boxes: the top one is sensitive and will therefore respond to clicking, the lower is insensitive and will not respond</title>
+	<title>Two check boxes: sensitive (top) and insensitive (bottom)</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-sensitivity.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Screenshot comparing the visual appearance of sensitive and insensitive check box controls</phrase>
+	    <phrase>Screenshot showing the visual appearance of sensitive and insensitive check box controls</phrase>
 	  </textobject>
 	</mediaobject>
 	
       </figure>
-      
-<!-- CB-Fig: The above figure is good, but add callouts, and make the figure caption more succint; perhaps leave it at "Two check boxes" or "Disabled and enabled checkboxes," which may be the terms you want to use anyway; these are the most familiar terms to the UI community. -->
 
-      <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for GTK controls) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is probably better to hide the tab altogether.</para>
+<!--
+      <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for GTK controls) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is usually better to hide the tab altogether.</para>
+-->
 
 <!-- CB-Ed: Hmm. Not sure about the preceding paragraph and the suggestion it makes.  Usually you don't want to change an interface as drastically as removing an entire tab when a user clicks a button - it's jarring, first of all, and secondly, you want to keep the UI as consistent as possible: one of the reasons for disabling, say, a menu item, and not just making it disappear when it is unavailable, is to train the user's eye and behavior to know where certain things are located. You may want to back this up or verify the suggestion's strength before finalizing the HIG. -->
  
@@ -55,7 +59,7 @@
 	  <listitem><para>Settings that customize the user interface, other than those required for accessibility.  For example, certain menu, keyboard or toolbar customization options.</para></listitem>
 	</itemizedlist>
 
-	<para>When you implement the controls to change these settings, you therefore need to decide at runtime whether each one needs to be available to the user, depending on the read/write state of the GConf key that holds its value.  In the simplest case, your code for each control could look like that in the example below.</para>
+	<para>Your application needs to decide every time these controls are displayed whether or not they are available for editing, depending on the writeable state of the GConf key that holds its value.  In the simplest case, your code for each control could look like that in the example below.</para>
 
 <!-- CB-Ed: Again, reconsider who your readers are.  Some may not be comfortable with terms such as "runtime."  Use language that is more inclusive; you may reword the first sentence to say "...decide when you start up your machine whether..." or something along those lines. -->
 
@@ -68,12 +72,10 @@
 
 	<para>Include a section for system administrators in your user guide, explaining which settings they can lock, and their corresponding GConf keys.</para>
 
-	<para>You may want to explain to the user why their values cannot be edited.  You could do this in static text, tooltips or online help, depending on the situation.</para>
-	
-	<para>For example:</para>
+	<para>Explain to the user why these controls cannot be edited at this time.  You can do this with static text, tooltips or online help, depending on the situation.  For example:</para>
 	
 	<figure>
-	  <title>Example of a dialog whose controls have been locked in GConf by a system administrator</title> 
+	  <title>Example of a dialog with locked controls</title> 
 	  <mediaobject><imageobject>
 	      <imagedata fileref="images/controls-locked.png" format="PNG"/>
 	    </imageobject>
@@ -85,7 +87,7 @@
 
 <!-- CB-Fig: Figure is good, add callouts, taking some text from the caption, and make caption more succinct: "Dialog with locked settings/controls."  When referring to figures, use the figure number, preferably with the following format: chapter_no - figure_no so that figures can be referred to from outside its housing chapter. -->
 
-	<para>In this example, the settings are still visible to the user and copiable to the clipboard, but they cannot be edited.  In some cases, it may be better to hide the affected controls altogether.  Be aware of the possible documentation issues if you do this, however.  If users see controls in user guides and screenshots that they don't see on their screen, at best they will lose faith in the user guide, and at worst they may give up trying to use your application altogether.</para>
+	<para>Note that although they cannot be edited, the settings are still visible and selectable, and may be copied to the clipboard.  <!--In some cases, it may be better to hide the affected controls altogether, for example if a whole notebook page or dialog is affected.  Be aware of the possible documentation issues if you do this, however.  If users see controls in user guides and screenshots that they don't see on their screen, at best they will lose faith in the user guide, and at worst they may give up trying to use your application altogether.--></para>
 
 <!-- CB-Ed: Second sentence in above paragraph: "In some cases?"  Please provide solid examples and reasons for why you suggest such a thing as hiding "affected controls."  -->
       </sect2>
@@ -95,25 +97,24 @@
     <sect1 id="controls-entry">
       <title>Text Entry Fields</title>
 
-      <para>Text entry fields are used for entering one or more lines of plain text.  In GTK 2, the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html">GtkEntry</ulink> control is used for single-line text entry, and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtktextview.html">GtkTextView</ulink> for multiple-line text entry.  Although GtkTextView can also be used for formatted, multi-lingual text editing and display, when used in dialogs for simple text entry its behavior should be kept as close as possible to that of a GtkEntry control.</para>
+      <para>Text entry fields are used for entering one or more lines of plain text.  In GTK 2, the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html">GtkEntry</ulink> control is used for single-line text entry, and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtktextview.html">GtkTextView</ulink> for multiple-line text entry.<!--Although GtkTextView can also be used for formatted, multi-lingual text editing and display, when used in dialogs for simple text entry its behavior should be kept as close as possible to that of a GtkEntry control.--></para>
 
 <!-- CB-Ed: The second and third sentences are baffling.  It seems to be just directed at the developer; it is not inclusive to readers who are not coders.  This probably isn't what you want to get people like visual/UI designers to read and use this guide. -->
 
       <figure>
-	  <title>Dialog fragment showing single and multi-line entry fields</title> 
+	  <title>Single and multi-line entry fields</title> 
 	  <mediaobject><imageobject>
 	      <imagedata fileref="images/controls-text.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>Screenshot of dialog fragment containing both single and multi-line entry fields</phrase>
+	      <phrase>Screenshot of part of a dialog, containing both single and multi-line entry fields</phrase>
 	    </textobject>
 	  </mediaobject>
 	</figure>
 
 <!-- CB-Fig: Dialog "fragment?"  Use callouts.  Succinct caption: "Text fields." or "Single and Multi-line Entry Fields"-->
 
-      <para>Recommendations:</para>
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Label the entry field with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the entry field.</para></listitem>
 
@@ -130,7 +131,7 @@
 	<listitem><para>Provide a static text prompt for text boxes that require input in a particular format or in a particular unit of measurement.  For example:</para>
 	  
 	  <figure>
-	    <title>Text entry field showing required input format in an adjacent static text label</title> 
+	    <title>Text entry field with static text prompt</title> 
 	    <mediaobject><imageobject>
 		<imagedata fileref="images/controls-text-prompt.png" format="PNG"/>
 	      </imageobject>
@@ -166,15 +167,12 @@
       <sect2 id="controls-text-return">
 	<title>Behavior of Return key</title>
 	
-	<para>Normally, pressing <keycap>Return</keycap> in a dialog should activate the dialog's default button, unless the focused control uses <keycap>Return</keycap> for its own purposes.  You should set
-
-<!-- CB-Ed: delete preceding "set" -->
-
- therefore set the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html#GTK-ENTRY-SET-ACTIVATES-DEFAULT"><function>activates-default</function></ulink> property of most entry fields to TRUE.  (Note that GtkTextView does not have such a setting&mdash; pressing <keycap>Return</keycap> always inserts a new line.).</para>
+	<para>Normally, pressing <keycap>Return</keycap> in a dialog should activate the dialog's default button, unless the focused control uses <keycap>Return</keycap> for its own purposes.  You should therefore set the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html#GTK-ENTRY-SET-ACTIVATES-DEFAULT"><function>activates-default</function></ulink> property of most entry fields to TRUE.  (Note that GtkTextView does not have such a setting&mdash; pressing <keycap>Return</keycap> always inserts a new line.).</para>
 	
 	<para>However, if your dialog contains several entry fields that are usually filled out in order, for example <guilabel>Name</guilabel>, <guilabel>Address</guilabel> and <guilabel>Telephone Number</guilabel>, consider setting the <function>activates-default</function> property on those entry fields to FALSE.  Pressing <keycap>Return</keycap> should then move focus on to the next control instead.  
 
 <!-- CB-Ed: Do you have data to back up the previous suggestion?  My first instinct would be to press TAB to go to the next entry field, not RETURN. -->
+<!-- CFB: yes, we had numerous emails while discussing this on the mailing lists to suggest that novice users in particular tend to press Return rather than Tab while form-filling -->
 
 Doing this will help prevent the user from accidentally closing the window before they have entered all the information they wanted to.</para>
 
@@ -183,7 +181,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	<para>If you need to provide a keyboard shortcut that activates the default button while a GtkTextView control has focus, use <keycombo><keycap>Ctrl</keycap><keycap>Return</keycap></keycombo>.</para>
 	
 	<note><title>Note</title>
-	  <para>GTK does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates-default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so you will have to implement the focus change behavior yourself.</para>
+	  <para>Gtk does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates-default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so remember to implement the focus change behavior yourself.</para>
 	</note>
 	
       </sect2>
@@ -193,11 +191,9 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<para>Normally, pressing <keycap>Tab</keycap> in a single-line entry field should move focus to the next control, and in a multi-line entry field it should insert a tab character.  Pressing <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> in a multi-line entry field should move focus to the next control.</para>
 
-	<para>If you need to provide a keyboard shortcut that inserts a tab character into a single line entry field, use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo>.  There are unlikely to be many situations where this is useful, however.</para>
+	<para>If you need to provide a keyboard shortcut that inserts a tab character into a single line entry field, use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo>.  You are unlikely to find many situations where this is useful, however.</para>
 
-	<note><title>Pending patch</title>
-	  <para>There is a patch in bugzilla (bugid=<ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53763">53763</ulink>) that adds an <function>allow_tab_characters</function> function to GtkEntry controls.  This allows you to specify on a per-control basis whether <keycap>Tab</keycap> should insert a tab character or not.  It is currently not known whether this patch is likely to make it into a future version of gtk.</para>
-	</note>
+	<remark><para>There is a patch in bugzilla (bugid=<ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53763">53763</ulink>) that adds an <function>allow_tab_characters</function> function to GtkEntry controls.  This allows you to specify on a per-control basis whether <keycap>Tab</keycap> should insert a tab character or not.  It is currently not known whether this patch is likely to make it into a future version of gtk.</para></remark>
 
       </sect2>
       
@@ -209,7 +205,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       <para>A spin box is a text box that accepts a range of values. It incorporates two arrow buttons that allow the user to increase or decrease the current value by a fixed amount.</para>
 
       <figure>
-	<title>A spin box used to input an integral value</title> 
+	<title>Example of a spin box</title> 
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-spin-box.png" format="PNG"/>
 	  </imageobject>
@@ -221,9 +217,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 <!-- CB-Fig: Callout, shorten caption, fig no -->
 
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Use spin boxes for numerical input only.  Use a list or option menu when you need the user to select from fixed data sets of other types.</para></listitem>
 
@@ -242,9 +236,9 @@ Doing this will help prevent the user from accidentally closing the window befor
       
       <title>Sliders</title>
       
-      <para>A slider allows the user to quickly select a value from a fixed, ordered range, or to increase or decrease the current value.  The control looks like the type of slider that you might find on an audio mixing desk or a hi-fi's graphic equalizer.  In GTK, you implement a slider using the GtkHScale or GtkVScale controls, for horizontal or vertical sliders respectively.</para>
+      <para>A slider allows the user to quickly select a value from a fixed, ordered range, or to increase or decrease the current value.  The control looks like the type of slider that you might find on an audio mixing desk or a hi-fi's graphic equalizer.  In gtk, you implement a slider using the GtkHScale or GtkVScale controls, for horizontal or vertical sliders respectively.</para>
 
-      <figure>
+      <figure id="controls-slider-figure">
 	<title>A simple slider control</title>
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-slider.png" format="PNG"/>
@@ -255,9 +249,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	</mediaobject>
       </figure>
       
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Use a slider when:</para>
 	  <itemizedlist>
@@ -269,11 +261,11 @@ Doing this will help prevent the user from accidentally closing the window befor
 	
 	<listitem><para>Label the slider with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the slider.</para></listitem>	
 
-	<listitem><para>Mark significant values along the length of the slider with text or tick marks.  For example the left, right and center points on an audio balance control (see example above).</para></listitem>
+	<listitem><para>Mark significant values along the length of the slider with text or tick marks.  For example the left, right and center points on an audio balance control in <xref linkend="controls-slider-figure"/>.</para></listitem>
 
-	<listitem><para>For large ranges of integers (more than about 20), and for ranges of floating point numbers, consider providing a text box or spin box that is linked to the slider's value.  This allows the user to quickly set or fine-tune the setting more easily than they could with the slider control alone:</para>
+	<listitem><para>For large ranges of integers (more than about 20), and for ranges of floating point numbers, consider providing a text box or spin box that is linked to the slider's value.  This allows the user to quickly set or fine-tune the setting more easily than they could with the slider control alone.</para>
 	  <figure>
-	    <title>Slider controls with linked spin boxes for direct numeric entry or fine adjustment</title>
+	    <title>Slider controls with linked spin boxes</title>
 	    <mediaobject><imageobject>
 		<imagedata fileref="images/controls-slider-spinbox.png" format="PNG"/>
 	      </imageobject>
@@ -282,8 +274,6 @@ Doing this will help prevent the user from accidentally closing the window befor
 	      </textobject>
 	    </mediaobject>
 	  </figure>
-
-<!-- CB-Fig: Shorten caption: "Typical GTK Buttons," fig no. -->
 
 	</listitem>
 	
@@ -297,7 +287,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       <para>A button initiates an action when the user clicks it.</para>
 
       <figure>
-	<title>Typical GTK buttons as found in a modal dialog</title>
+	<title>Typical buttons in a modal dialog</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-buttons.png" format="PNG"/>
@@ -309,32 +299,33 @@ Doing this will help prevent the user from accidentally closing the window befor
 	
       </figure>
       
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
-	<listitem><para>Label all buttons with direct commands (imperative verbs), using <link linkend="layout-capitalization">header capitalization</link>.  For example, <guilabel>Save</guilabel>, <guilabel>Sort</guilabel> or <guilabel>Update Now</guilabel>.  Provide an access key in the label that allows the user to directly activate the button from the keyboard.</para></listitem>
+      <itemizedlist><title>Guidelines</title>
+
+	<listitem><para>Label all buttons with imperative verbs, using <link linkend="layout-capitalization">header capitalization</link>.  For example, <guilabel>Save</guilabel>, <guilabel>Sort</guilabel> or <guilabel>Update Now</guilabel>.  Provide an access key in the label that allows the user to directly activate the button from the keyboard.</para></listitem>
 	
-	<listitem><para>After pressing a button, the user should expect to see the result of their action within 1 second, for example, closing the window or opening another.  See <xref linkend="feedback"/> for guidance on what to do if your application cannot respond this quickly.</para></listitem>
+	<listitem><para>After pressing a button, the user should expect to see the result of their action within 1 second.  For example, closing the window or opening another.  See <xref linkend="feedback"/> for guidance on what to do if your application cannot respond this quickly.</para></listitem>
+
 	<!-- CB-Ed: Do you use ms in other parts of the HIG?  Might want to just use ms and not s as a measure, to keep things consistent and in case you need to finer granualarity than this later -->
-	<listitem><para>Use an ellipsis (...) at the end of the label if the action requires further input from the user before it can be carried out.  For example, <guilabel>Save As...</guilabel> or <guilabel>Find...</guilabel>.  Note that you should not add an ellipsis to commands like <guilabel>Properties</guilabel>, <guilabel>Preferences</guilabel>, or <guilabel>Settings</guilabel>, as these open windows that do not <emphasis>require</emphasis> further input.</para></listitem>
 	
-	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error.  Changing the default from one button to another can be confusing and inefficent, however, especially for users relying on assistive technologies.</para></listitem>
+	<listitem><para>Use an ellipsis (...) at the end of the label if the action requires further input from the user before it can be carried out.  For example, <guilabel>Save As...</guilabel> or <guilabel>Find...</guilabel>.  Do not add an ellipsis to commands like <guilabel>Properties</guilabel>, <guilabel>Preferences</guilabel>, or <guilabel>Settings</guilabel>, as these open windows that do not <emphasis>require</emphasis> further input.</para></listitem>
 	
-	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.  However, you may over-ride these preferences when there is no suitable icon to describe the button's action graphically, for example.</para></listitem>
+	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may add or remove default status from the same button if it helps prevent user error, however.  Changing the default from one button to another can be confusing and inefficent, especially for users relying on assistive technologies.</para></listitem>
 	
-	<listitem><para>Do not use more than one or two different sizes of button in the same window.  This will help give a pleasing uniform visual appearance to your window that makes it easier to use.</para></listitem>
+	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's preference in the GNOME Menus and Toolbars Preferences dialog.  However, you may over-ride this preference when there is no suitable icon to describe the button's action graphically, for example.</para></listitem>
+	
+	<listitem><para>Do not use more than one or two different widths of button in the same window, and make all of them the same height.  This will help give a pleasing uniform visual appearance to your window that makes it easier to use.</para></listitem>
 
-	<listitem><para>Do not assign actions to double-clicking or right-clicking a button, as users are unlikely to discover them.</para></listitem>
+	<listitem><para>Do not assign actions to double-clicking or right-clicking a button.  Users are unlikely to discover these actions, and if they do, it will distort their expectations of other buttons on the desktop.</para></listitem>
 
-	<listitem><para>Make invalid buttons insensitive rather than popping up an error message when the user clicks them.</para></listitem>
+	<listitem><para>Make invalid buttons insensitive, rather than popping up an error message when the user clicks them.</para></listitem>
 
       </itemizedlist>
       
-      <para>In a dialog, one button may be made the default button, which is shown with a different border and is activated by pressing <keycap>Return</keycap>. In general,  this will be the <guibutton>OK</guibutton> or equivalent button. However, if pressing this button by mistake could cause a loss of data, do not set a default button for the window. Do not make <guibutton>Cancel</guibutton> the default button instead.  See <xref linkend="windows"/> for more information.</para>
+      <para>In a dialog, one button may be made the default button, which is shown with a different border and is activated by pressing <keycap>Return</keycap>. Often this will be the <guibutton>OK</guibutton> or equivalent button. However, if pressing this button by mistake could cause a loss of data, do not set a default button for the window. Do not make <guibutton>Cancel</guibutton> the default button instead.  See <xref linkend="default-buttons"/> for more information.</para>
       
 <!-- CB-Fig: Add a figure here to illustrate a default button. -->
 
-      <para>Similarly, if it does not make sense to have a default button until several fields in the dialog have been correctly completed&mdash;for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog&mdash;do not set the default button until they have both been completed.</para>
+      <para>If it does not make sense to have a default button until several fields in the dialog have been correctly completed&mdash;for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog&mdash;do not set the default button until they have both been completed.</para>
       
     </sect1>
     
@@ -359,19 +350,17 @@ Doing this will help prevent the user from accidentally closing the window befor
       
 <!-- CB-Fig: callouts. -->
 
-      <para>Recommendations:</para>
-
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Do not initiate an action when the user clicks a check box.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the check box immediately.</para></listitem>
 	
 	<listitem><para>Clicking a check box should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however. 
 </para></listitem>
 	
-	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the check box. (FIXME: pic required)
+	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the check box.<!--FIXME: pic required)-->
 </para></listitem>
 	
-	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel>.</para></listitem>
 	
 	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example:</para>
 	  
@@ -382,15 +371,15 @@ Doing this will help prevent the user from accidentally closing the window befor
 		<imagedata fileref="images/controls-check-box-ambiguous.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-		<phrase>Two images: one showing a single checkbox ambiguously labelled &quot;Progress bar in left of status bar&quot;, the other making the choice explicit with radio buttons labelled &quot;Left&quot; and &quot;Right&quot; under the heading &quot;Status bar progress indicator position:&quot;</phrase>
+		<phrase>Two images: one showing a single check box ambiguously labelled &quot;Progress bar in left of status bar&quot;, the other making the choice explicit with radio buttons labelled &quot;Left&quot; and &quot;Right&quot; under the heading &quot;Status bar progress indicator position:&quot;</phrase>
 	      </textobject>
 	    </mediaobject>
 	    
 	  </figure>
 	  
-	  <para>The single checkbox in this example is ambiguous, as it is not clear where the &quot;progress indicator&quot; will go if the box is unchecked.  Two radio buttons are better in this case, as they make the options clear.</para></listitem>
+	  <para>The single check box in this example is ambiguous, as it is not clear where the &quot;progress indicator&quot; will go if the box is unchecked.  Two radio buttons are better in this case, as they make the options clear.</para></listitem>
 	
-<!-- CB-Fig: Again, callouts, shorten caption.  The callouts should include other bullet points as well (e.g., access keys).  The referring bullet item is badly phrased.  Perhaps make this the one checkbox images for the bullets, with different callouts for different bullet points.  -->
+<!-- CB-Fig: Again, callouts, shorten caption.  The callouts should include other bullet points as well (e.g., access keys).  The referring bullet item is badly phrased.  Perhaps make this the one check box images for the bullets, with different callouts for different bullet points.  -->
 
 	<listitem><para>Provide an access key in all check box labels that allows the user to set or unset the check box directly from the keyboard.</para></listitem>
 	
@@ -409,7 +398,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    
 	  </figure>
 
-	  <para>In this example, both selected files are hidden (since their filenames start with &quot;.&quot;), and the emblems on their icons show that neither file is writeable, but one is readable.  The <guilabel>Readable</guilabel> check box is therefore shown in its mixed state. (N.B. At time of writing, the exact visual appearance of a mixed state check box was undecided).</para>
+	  <para>In this example, both selected files are hidden (since their filenames start with &quot;.&quot;), and the emblems on their icons show that neither file is writeable, but one is readable.  The <guilabel>Readable</guilabel> check box is therefore shown in its mixed state. <remark>At time of writing, the exact visual appearance of a mixed state check box in gtk was undecided</remark>.</para>
 	  <para>When a check box is in its mixed state:</para>
 	  
 	  <itemizedlist>
@@ -422,7 +411,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    
 	  </itemizedlist>      
 	  
-<!-- CB-Ed: Mixed state checkboxes are a polemic-ridden issue.  Data to back this up? -->
+<!-- CB-Ed: Mixed state check boxes are a polemic-ridden issue.  Data to back this up? -->
 	</listitem>
 	
 	<listitem><para>Label a group of check boxes with a descriptive heading above or to the left of the group.</para></listitem>
@@ -456,8 +445,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	
       </figure>
       
-      <para>Recommendations:</para>
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Only use radio buttons in groups of at least two, never use a single radio button on its own.  To represent a single setting, use a check box or two radio buttons, one for each state.</para></listitem>
 
@@ -467,7 +455,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	  <listitem><para>Clicking a radio button should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
       
-      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the radio button. (FIXME: pic required)
+      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls that it affects.  This helps to indicate that the controls are dependent on the state of the radio button.<!--FIXME: pic required-->
 </para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
@@ -491,7 +479,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  
 <!-- CB-Fig: Show context for drawing application.  --> 
 
-	  <para>(N.B. At time of writing, the exact visual appearance of a mixed state radio button was undecided).  In this situation, clicking any radio button in the group should set the clicked button, and unset all the others.  Thereafter, the group should behave like a normal radio button group&mdash; there should be no way to reset a radio button to its mixed state by clicking on it.  Provide a <guibutton>Reset</guibutton> button or equivalent in the window that allows the previous mixed settings to be restored without closing the window or cancelling the dialog.</para></listitem>
+	  <para><remark>At time of writing, the exact visual appearance of a mixed state radio button in gtk was undecided</remark>.  In this situation, clicking any radio button in the group should set the clicked button, and unset all the others.  Thereafter, the group should behave like a normal radio button group&mdash; there is no way to reset a radio button to its mixed state by clicking on it.  Provide a <guibutton>Reset</guibutton> button or equivalent in the window that allows the previous mixed settings to be restored without closing the window or cancelling the dialog.</para></listitem>
 	
 	<listitem><para>Label a group of radio buttons with a descriptive heading above or to the left of the group.</para></listitem>
 	
@@ -503,10 +491,6 @@ Doing this will help prevent the user from accidentally closing the window befor
 
       
       </itemizedlist>
-
-     
-      
-	<remark>Can we suggest any better ways of manipulating radio button groups in mixed state that do not rely on having a Reset button? I can think of one that is more in line with the suggestion for checkboxes, but it would not be terribly intuitive to use and probably a hassle to implement as well.</remark>
       
     </sect1>
     
@@ -530,13 +514,12 @@ Doing this will help prevent the user from accidentally closing the window befor
       </figure>
       
 <!-- CB-Fig: callouts -->
-      <para>Recommendations:</para>
       
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Do not use groups of toggle buttons in dialogs unless space constraints force you to do so, or you need to provide consistency with a toolbar in your application.  <link linkend="controls-check-boxes">Check boxes</link> or <link linkend="controls-radio-buttons">radio buttons</link> are usually preferable, as they allow more descriptive labels and are less easily-confused with other types of control.</para></listitem>
 	
-	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  Make the group behave like either a group of check boxes where none, one or more of the buttons may be set at once, or a group of radio buttons, where exactly one button may be set at once, and setting one button unsets the others.</para></listitem>
+	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  Make the group behave like either a group of check boxes or a group of radio buttons, as required.</para></listitem>
 
 	<listitem><para>Provide an access key in the label of all toggle buttons that allows the user to set or unset the button directly from the keyboard.</para></listitem>
 	
@@ -550,9 +533,8 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Use <link linkend="layout-capitalization">header capitalization</link> for toggle button labels, for example <guibutton>No Wallpaper</guibutton>, <guibutton>Embossed Logo</guibutton>.</para></listitem>
 
-	<listitem><para>If your toggle button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
+	<listitem><para>If your toggle button can display text, an icon, or both, choose which to display at runtime according to the user's setting in the GNOME Menus and Toolbars preference dialog.</para></listitem>
 	
-<!-- CB-Ed: Preceding bullet point: which ...label?  You mean which button content? -->
 	<listitem><para>Use the same text or graphical label for a toggle button whether it is set or unset.</para></listitem>
 
 	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the button in its mixed state.  For example:</para>
@@ -572,9 +554,9 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  </figure>
 
 
-<!-- CB-Fig: There's probably a better figure for fig 16 than this one, especially since you show toggle buttons here which are vertically aligned, which contradicts a bullet point on the page. Also, my 2 cents on the mixed state visual issue: mixed state MUST be visually DISTINCT from "set." What I see here isn't enough (I know this isn't set yet.) -->
+<!-- CB-Fig: There's probably a better figure for fig 16 than this one. Also, my 2 cents on the mixed state visual issue: mixed state MUST be visually DISTINCT from "set." What I see here isn't enough (I know this isn't set yet.) -->
 
-	  <remark>(N.B. At time of writing, the exact visual appearance of mixed state toggle buttons was undecided.)  A mixed state toggle button should behave exactly as a mixed state check box or radio button, depending on whether the toggle button choices are independent or mutually exclusive, respectively.</remark>
+	  <remark>At time of writing, the exact visual appearance of mixed state toggle buttons was undecided.  A mixed state toggle button should behave exactly as a mixed state check box or radio button, depending on whether the toggle button choices are independent or mutually exclusive, respectively.</remark>
 	  
 	</listitem>
 	
@@ -623,7 +605,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Do not assign shortcut keys to option menu items by default.  The user may assign their own shortcut keys in the usual way if they wish, however.</para></listitem>
 
-	<listitem><para>Do not use an option menu in a situation where it may have to show a property of a multiple selection, as option menus have no concept of mixed state.  Use a group of radio or toggle buttons instead, as these can be show set, unset or mixed states.</para></listitem>
+	<listitem><para>Do not use an option menu in a situation where it may have to show a property of a multiple selection, as option menus have no concept of mixed state.  Use a group of radio or toggle buttons instead, as these can show set, unset or mixed states.</para></listitem>
 	
 <!-- CB-Fig: The bullet points probably could be illustrated in a main option menus figure (17 would work) -->
 
@@ -647,11 +629,12 @@ Doing this will help prevent the user from accidentally closing the window befor
       <title>Combo Boxes</title>
       
 <!-- CB-Fig: Be aware that some people may not distinguish between option menus and combo boxes; that is, they are taken as two types of combo boxes, editable and uneditable (see JLF DG). -->
+<!-- How odd, the whole point of a combo box is that it's a combination of a text field and a list... as such, therefore there is no such thing as an 'uneditable combo box' :o)  -->
 
       <para>Combo boxes combine a text entry field and a dropdown list of pre-defined values. Selecting one of the pre-defined values sets the entry field to that value.</para>
 
       <figure>
-	<title>A combo box showing current selection (left) and the list of available choices when clicked on (right)</title>
+	<title>A combo box before and after its dropdown list is displayed</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-combo.png" format="PNG"/>
@@ -665,9 +648,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       
 <!-- CB-Fig: callouts, shorten caption. -->
 
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
 	
@@ -676,11 +657,11 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
 	
-	<listitem><para>Interpret user input into a combo box in a case-insensitive way.  For example, if the user types <userinput>blue</userinput>, <userinput>Blue</userinput> and <userinput>BLUE</userinput> into the same combo box on different occasions, only store one of these in the combo's dropdown list, unless your application makes a distinction between the different forms (which would not normally be a good idea).</para></listitem>
+	<listitem><para>Interpret user input into a combo box in a case-insensitive way.  For example, if the user types <userinput>blue</userinput>, <userinput>Blue</userinput> and <userinput>BLUE</userinput> into the same combo box on different occasions, only store one of these in the combo's dropdown list, unless your application makes a distinction between the different forms (which is usually a bad idea).</para></listitem>
 
 	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the combo box.</para></listitem>
 	
-	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel>.</para></listitem>
 		
 <!-- CB-Ed: Make guilabel less literal: "List item." -->
       </itemizedlist>
@@ -693,6 +674,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       <para>A list control allows the user to inspect, manipulate or select from a list of items.  Lists may have one or more columns, and contain text, graphics, simple controls, or a combination of all three.</para>
       
 <!-- CB-Fig: Looks like a table, to me, complete with table row striping and column headers.  Lists are usually one column, scrollable... lists! Of text or, rarely, graphics which can be selected in order to be manipulated. Sorting also happens in tables, not lists, from my experience. -->
+<!-- CFB: It's not a table because there is no way to select or manipulate individual cells, only complete rows. -->
 
       <figure>
 	<title>A simple two column list</title>
@@ -706,24 +688,22 @@ Doing this will help prevent the user from accidentally closing the window befor
 	
       </figure>
       
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Always give list controls a label, positioned above or to the left of the list, in <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the list.</para></listitem>
 
 	<listitem><para>Make the list control large enough that it can show at least four items at a time without scrolling.  For lists of ten or more items, increase this minimum size as appropriate.</para></listitem>
 
-	<listitem><para>If the list appears in a dialog, consider making the dialog and the list within it resizable so that the user can choose how many list items are visible at a time without scrolling.  Each time the user opens this dialog, set its dimensions to those that the user last resized it to.</para></listitem>
+	<listitem><para>If the list appears in a dialog or utility window, consider making the window and the list within it resizable so that the user can choose how many list items are visible at a time without scrolling.  Each time the user opens this dialog, set its dimensions to those that the user last resized it to.</para></listitem>
 
 	<listitem><para>Do not use lists with less than about five items, unless the number of items may increase over time.  Use <link linkend="controls-check-boxes">check boxes</link>, <link linkend="controls-radio-buttons">radio buttons</link> or an <link linkend="controls-option-menus">option menu</link> if there are fewer items.</para></listitem>
 
-	<listitem><para>Use column headers when:</para>
+	<listitem><para>Only use column headers when:</para>
 	  <itemizedlist>
-	    <listitem><para>the list has more than one column</para></listitem>
-	    <listitem><para>the list has only one column, but the user may wish to re-order the list.  This should rarely be true of single column lists.</para></listitem>
+	    <listitem><para>the list has more than one column, or</para></listitem>
+	    <listitem><para>the list has only one column, but the user may wish to re-order the list.  (This is rarely useful with single column lists).</para></listitem>
 	  </itemizedlist>
-	  <para>Do not use column headers if the list has a single column but sorting is not required.  The static text label above or to the left of the list is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
+	  <para>In most other situations, column headers take up unnecessary space, and the extra label adds visual clutter.</para></listitem>
 
 	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
 
@@ -731,10 +711,10 @@ Doing this will help prevent the user from accidentally closing the window befor
 	 <figure>
 	    <title>A simple check box list</title>
 	    <mediaobject><imageobject>
-		<imagedata fileref="images/controls-list-checkbox.png" format="PNG"/>
+		<imagedata fileref="images/controls-list-check box.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-		<phrase>Picture of list control with two columns.  The first column consists of checkboxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
+		<phrase>Picture of list control with two columns.  The first column consists of check boxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
 	      </textobject>
 	    </mediaobject>
 	  </figure>
@@ -744,7 +724,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	
 	<listitem><para>For multiple selection lists, show the number of items currently selected in a static text label below the list, for example, <guilabel>Names selected: 3</guilabel>.  Such a label also makes it more obvious that multiple selection is possible.</para></listitem>
 	
-	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection lists, if appropriate to the task.</para></listitem>
+	<listitem><para>Consider providing <guibutton>Select All</guibutton> and <guibutton>Deselect All</guibutton> buttons beside multiple selection lists, if appropriate.</para></listitem>
 	
       </itemizedlist>
       
@@ -772,9 +752,8 @@ Doing this will help prevent the user from accidentally closing the window befor
       </figure>
       
 <!-- CB-Fig: Trees are usually used for navigation, so it's probably best to illustrate a tree in that context (GnomeCC, for example). -->
-      <para>Recommendations:</para>
       
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Always give tree controls a label, positioned above or to the left of the tree, in <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the tree.</para></listitem>
 	
@@ -783,7 +762,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    <listitem><para>the tree has more than one column</para></listitem>
 	    <listitem><para>the tree has only one column, but the user may wish to re-order the tree.  This should rarely be true of single column trees.</para></listitem>
 	  </itemizedlist>
-	  <para>Do not use column headers if the tree has a single column but sorting is not required&mdash;the static text label above or to the left of the tree is sufficient in this case.  The header row would take up unnecessary space, and the extra label would add visual clutter.</para></listitem>
+	  <para>In most other situations, column headers take up unnecessary space, and the extra label adds visual clutter.</para></listitem>
 	
 	<listitem><para>Always label column headers when used.  If the column is too narrow for a sensible label, provide a tooltip for the column instead. Apart from its obvious use, this will help ensure that assistive technologies can describe the use of the column to visually impaired users.</para></listitem>
 	
@@ -791,10 +770,10 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  <figure>
 	    <title>A simple check box tree</title>
 	    <mediaobject><imageobject>
-		<imagedata fileref="images/controls-tree-checkbox.png" format="PNG"/>
+		<imagedata fileref="images/controls-tree-check box.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-		<phrase>Picture of tree control with two columns.  The first column consists of checkboxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
+		<phrase>Picture of tree control with two columns.  The first column consists of check boxes showing whether or not the corresponding item in the second column is selected for further action.</phrase>
 	      </textobject>
 	    </mediaobject>
 	  </figure>
@@ -812,8 +791,8 @@ Doing this will help prevent the user from accidentally closing the window befor
     
     
     <sect1 id="controls-notebooks">
-      <title>Notebooks</title>
-      <para>A notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analagous to the divider tabs in a notebook or file cabinet.</para>
+      <title>Tabbed Notebooks</title>
+      <para>A tabbed notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analagous to the divider tabs in a ring binder or a file cabinet.</para>
 
       <figure>
 	<title>A typical notebook control with four tabs</title>
@@ -828,14 +807,14 @@ Doing this will help prevent the user from accidentally closing the window befor
       </figure>
 
 <!-- CB-Fig: Maybe I'm off, so if I am, then just ignore, but I'm concerned with terminology in the HIG at this point; maybe it's just one of those wizard/druid issues that are just here to stay because GNOME is GNOME, but I think people are more familiar with the term "Tabs" instead of the term "Pages," and "Tabbed pane" instead of "notebooks."  That's what they are called in JLF, anyway.   Callouts would also be nice here. -->
-      <para>Recommendations:</para>
-      <itemizedlist>
+
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many and should use a list control instead. See the <link linkend="controls-too-many-tabs">example below</link>.</para></listitem>
 	
 	<listitem><para>Label tabs with <link linkend="layout-capitalization">header capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
 
-	<listitem><para>Do not assign access keys to tab labels.  Every other control on each page should be assigned an access key, however.</para></listitem>
+	<listitem><para>Do not assign access keys to tab labels, as this means you cannot use those access keys for any control on <emphasis>any</emphasis> of the tabs.  Assign an access key to every other control on each page, however.</para></listitem>
 
 	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
 	
@@ -843,7 +822,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling.  For example:</para>
 <figure>
-	    <title>Fixed-width tabs (top), and the preferred proportional widthtabs (bottom)</title>
+	    <title>Fixed- and proportional-width tabs (preferred)</title>
 	    <mediaobject><imageobject>
 		<imagedata fileref="images/controls-notebook-tabs.png" format="PNG"/>
 	      </imageobject>
@@ -858,7 +837,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
       <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, and do not center the controls on the page.</para></listitem>
 
-      <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
+      <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preference in the GNOME Menus and Toolbars desktop preferences dialog.  Always show the text part of the label, however.</para></listitem>
 
       </itemizedlist>
 
@@ -875,9 +854,9 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    </mediaobject>
 	  </figure>
 	  
-	  <para>As in this example, place the list control on the left-hand side of the window, with the dynamic portion of the window immediately to its right.  <remark>Should this be reversed for right-to-left locales?)</remark></para>
+	  <para>As in this example, place the list control on the left-hand side of the window, with the dynamic portion of the window immediately to its right.  <remark>Should this be reversed for right-to-left locales?</remark></para>
       
-      <remark>For future consideration: it would be good if the notebook control supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</remark>
+      <remark>FUTURE: it would be good if the notebook control supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative. </remark>
 
     </sect1>
     
@@ -887,11 +866,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       
       <para>Progress bars are visual indicators of the progress of a task being carried out by the application.</para>
       
-      <para>There are two types of progress indicator: 
-
-<!-- CB-Ed: typo in preceding sentence: "the" between "of" and "progress." -->
-
-&quot;measured&quot; progress, which shows what proportion of the task has been completed, and &quot;indeterminate&quot; progress, which only shows that the application is busy.  Normally, the progress bar control is used to show measured progress.</para>
+      <para>There are two types of progress indicator: &quot;measured&quot; progress, which shows what proportion of the task has been completed, and &quot;indeterminate&quot; progress, which only shows that the application is busy.  The progress bar control is used to show measured progress.  (For more information on indeterminate progress indicators, see <xref linkend="indeterminate-progress"/>.)</para>
 
       <figure><title>A measured (&quot;time remaining&quot;) progress dialog</title>
 	<mediaobject>
@@ -901,8 +876,6 @@ Doing this will help prevent the user from accidentally closing the window befor
 	  <textobject><phrase>A measured (&quot;time remaining&quot;) progress dialog</phrase></textobject>
 	</mediaobject>
       </figure>
-            
-<!-- CB-Fig: Show both measured and indeterminate examples. -->
 
       <para>There are three styles of measured progress indicator in which you would typically use a progress bar control:</para>
       <itemizedlist>
@@ -913,7 +886,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
       <para>Always use a measured progress bar when the length of a task can be precisely or approximately predicted.  Otherwise, use an <link linkend="indeterminate-progress">indeterminate progress indicator</link> or a <link linkend="progress-checklists">progress checklist</link>.</para>
       
-      <para>See <xref linkend="feedback"/> for full details on when and how to use progress bars appropriately.</para>
+      <para>See <xref linkend="feedback"/> for more details on when and how to use progress bars.</para>
 
     </sect1>
     
@@ -924,7 +897,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       <para>A status bar is an area at the bottom of a window that can be used to display brief information about the status of the application.</para>
 
       <figure>
-	<title>A simple status bar at the bottom of a document window</title>
+	<title>A simple status bar</title>
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-status-bar.png" format="PNG"/>
 	  </imageobject>
@@ -934,14 +907,12 @@ Doing this will help prevent the user from accidentally closing the window befor
 	</mediaobject>
       </figure>
       
-<!-- CB-Fig: callouts, shorten caption to: "A simple status bar." -->
+<!-- CB-Fig: callouts -->
 
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
 	<listitem><para>Use status bars only in application or document windows.  Do not use them in dialogs, alerts or other secondary windows.</para></listitem>
-	<listitem><para>Place status bars along the bottom of a window, not in any other location.</para></listitem>
+	<listitem><para>Only place a status bar along the bottom of a window.</para></listitem>
 	
 	<listitem><para>Only use status bars to display non-critical information.  This might include:</para>
 
@@ -963,15 +934,17 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>If you want to make all or part of your status bar interactive, use the following conventions:</para>
 	  <itemizedlist>
-	    <listitem><para>Raised or button-like appearance for areas that respond to a single click</para></listitem>
-	    <listitem><para>Panelled or inlaid appearance for areas that respond to a double click</para></listitem>
+	    <!--<listitem><para>Raised or button-like appearance for areas that respond to a single click</para></listitem>-->
+	    <listitem><para>Inlaid appearance for areas that respond to a double click</para></listitem>
 	    <listitem><para>Flat appearance for areas that are not interactive</para></listitem>
 	  </itemizedlist>
 	  
 <!-- CB-Ed: I have never seen a button in a status bar area before.  I'll bet this is deprecated, or should be.  Do you have data to back this up?  And doesn't this conflict with one of the previous bullet points: Only use status bars to display non-critical information?  A cancel button is certainly not trivial. -->
-	  <para>In the example below, the left area would respond to a double click (perhaps by saving the document), the middle area is non-interactive, and button on the right responds to a single click:</para>
+<!-- CFB: removed this recommendation for now -->
+
+	  <para>In <xref linkend="status-bar-figure"/>, the appearance indicates that the left area would respond to a double click (perhaps by saving the document), and the progress indicator on the right is non-interactive.</para>
 	  
-	  <figure>
+	  <figure id="status-bar-figure">
 	    <title>An interactive status bar</title>
 	    <mediaobject><imageobject>
 		<imagedata fileref="images/controls-status-bar-interactive.png" format="PNG"/>
@@ -982,7 +955,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	    </mediaobject>
 	  </figure>
 	  
-	  <para>Be sure that clicking or double-clicking in the status area does not provide any functionality that is not also available in the main application menu bar, or by some other accessible means.</para>
+	  <para>Ensure that double-clicking in the status area does not provide any functionality that is not also available in the main application menu bar, or by some other accessible means.</para>
 	  
 	</listitem>
 	  
@@ -993,8 +966,10 @@ Doing this will help prevent the user from accidentally closing the window befor
   <sect1 id="controls-frames">
     <title>Frames and Separators</title>
     <para>A frame is a box with a title that you can draw around controls to organise them into functional groups.  A separator is a single horizontal or vertical line that you can use to divide windows into functional groups.</para>
-    <para>Frames with a border around their perimeter have traditionally been used for denoting groups of related controls. This is advantageous because it physically seperates disimilar controls, and also avoids repitition of the frame's label in individual member control labels. The downside of bordered frames is that they add extra visual noise that can both make a window appear more complex than it really is, and reduce the ability to quickly scan window elements.</para>
-    <para>Rather than using frames with borders, GNOME applications should use frames without borders, bold labels (to make the categories stand out), and indented contents. This combined, with good layout and spacing, is usually more than adequate to replace bordered frames.</para>
+    <para>Frames with a border around their perimeter have traditionally been used for denoting groups of related controls. This is advantageous because it physically seperates disimilar controls, and also avoids repitition of the frame's label in individual member control labels. Unfortunately, they add visual noise that can both make a window appear more complex than it really is, and reduce the ability to quickly scan window elements.</para>
+
+    <para>Rather than using bordered frames, use frames without borders, bold labels to make the categories stand out, and indented contents. This, combined with good layout and spacing, is usually a better alternative to bordered frames.</para>
+
     <figure>
       <title>Preferred frame style, using bold labels, spacing and indentation</title>
       <mediaobject><imageobject><imagedata fileref="images/controls-frames.png" format="PNG"/>
@@ -1003,21 +978,21 @@ Doing this will help prevent the user from accidentally closing the window befor
       </mediaobject>
     </figure>
     <figure>
-      <title>Traditional frame style, using borders (avoid this style)</title>
+      <title>Traditional frame style, using borders (deprecated)</title>
       <mediaobject><imageobject><imagedata fileref="images/controls-old-frames.png" format="PNG"/>
 	</imageobject>
 	<textobject><phrase>Frame showing the traditional style described above</phrase></textobject>
       </mediaobject>
     </figure>
-    <para>See <xref linkend="layout-dialogs"/> for technical details on implementing the preferred frame style in GTK.</para>
-    <para>Recommendations:
-      <itemizedlist>
+
+    <para>See <xref linkend="window-layout-spacing"/> for technical details on implementing the preferred frame style in gtk.</para>
+
+      <itemizedlist><title>Guidelines</title>
 	<listitem><para>Before you add a frame with a visible border or separator to any window, consider carefully if you really need it.  It is usually better to do without, if the groups can be separated by space alone.  Do not use frames and separators to compensate for poor control layout or alignnment.</para>
 	</listitem>
 	<listitem><para>Do not mix framed and unframed groups in the same window.</para></listitem>
 	<listitem><para>Do not nest one frame inside another.  This results in visual clutter.</para></listitem>
       </itemizedlist>
-    </para>
     
   </sect1>
       

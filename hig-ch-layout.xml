@@ -333,8 +333,7 @@
       
       <para>Try to keep elements of the same type correspond to each other in left justification. For instance, titles of component groupings as in figure ("General," "Actions") should be left-aligned and justified with each other. Indent category members 12 pixels to denote hierarchy and association. By the same token, aim to minimize the number of alignment points in your window. An alignment point is an imaginary vertical or horizontal line through your window which touches the edge of one or more labels or controls in the window. Right justification is pleasing to the eye but not crucial.</para>
       
-      <para>Guidelines:
-	<itemizedlist>
+	<itemizedlist><title>Guidelines</title>
 	  <listitem><para>Lay out components left-to-right, top-to-bottom. Generally, the first element the user is meant to encounter should be in the top-left, and the last in the bottom right. Keep in mind that when localized for non-western locales, interfaces may be reversed so that they read from right to left.</para></listitem>
 	  
 	  <listitem><para>Space in increments of 6 pixels; using "white" or blank spacing and indentation to delineate component groupings is cleaner and preferable than using graphical separators such as "title borders" or frames.
@@ -351,8 +350,8 @@
 	  <!-- <para><listitem>Do not resize components to fit arbitrary or uncommon layout needs. Make it a practice to use GtkTables, GtkVBox and GtkHBox container widgets at their default /* Calum, is there such a thing? */ row, column and border sizes. This will help ensure that a lot of layout and alignment work is done for you automatically.</para></listitem>-->
 	  
 	</itemizedlist>
-      </para>
-      <tip><title>Technical Details for Proper Layout</title>
+
+      <tip id="frame-layout-tech"><title>Technical Details for Proper Layout</title>
 	<para>Set <property>Border Width</property> for the GtkDialog to <userinput>12</userinput>. Place a GtkVBox containing as many rows as you wish to have categories inside the control area of the GtkDialog, and set the <property>Spacing</property> for the GtkVBox to <userinput>18</userinput>.</para>
 	<para>In turn, each category should be composed of a GtkVBox with two rows. Set the <property>Spacing</property> to <userinput>6</userinput>.
 	  <itemizedlist>
