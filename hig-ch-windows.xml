@@ -1,279 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <chapter id="windows">
-    <title>Windows</title>
-    <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
-    <sect1 id="window-properties">
-      <title>Parts of Windows and System Interaction</title>
-      <sect2 id="window-props-titles">
-	<title>Titles</title>
-	<para>Every windows will have a title<!-- composed of the proper name of the application and an identification of the window's purpose or content-->. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
-	<para>See the description of each particular window type for title formats.</para>
-      </sect2>
-      <sect2 id="window-props-frames">
-	<title>Frames</title>
-	<para>Most windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
-	<para>Frame commands for each window type are shown by name when they may be provided.</para>
-      </sect2>
-      <sect2 id="window-props-modality">
-	<title>Modality</title>
-	<para>FIXME</para>
-	<!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
-	<para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
-	<para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
-	<para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
-      </sect2>
-      <sect2 id="window-props-focus">
-	<title>Focus</title>
-	<para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
-      </sect2>
-      <sect2 id="window-props-other">
-	<title>General Communication with the Window Manager</title>
-	<para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
-	<para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
-      </sect2>
-    </sect1>
-    <sect1 id="primary-windows">
-      <title>Primary Windows</title>
-      <para>A primary window is a view of the contents of an object such as a document, a game, or an image. An application may have in any instance more than one primary window and more than one kind of primary window.</para>
-      <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+<chapter id="windows">
+  <title>Windows</title>
+  <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
+  <sect1 id="window-properties">
+    <title>Parts of Windows and System Interaction</title>
+    <sect2 id="window-props-titles">
+      <title>Titles</title>
+      <para>Every windows will have a title<!-- composed of the proper name of the application and an identification of the window's purpose or content-->. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
+      <para>See the description of each particular window type for title formats.</para>
+    </sect2>
+    <sect2 id="window-props-frames">
+      <title>Frames</title>
+      <para>Most windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+      <para>Frame commands for each window type are shown by name when they may be provided.</para>
+    </sect2>
+    <sect2 id="window-props-modality">
+      <title>Modality</title>
+      <para>FIXME</para>
+      <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
+      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
+      <para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
+      <para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+    </sect2>
+    <sect2 id="window-props-focus">
+      <title>Focus</title>
+      <para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
+    </sect2>
+    <sect2 id="window-props-other">
+      <title>General Communication with the Window Manager</title>
+      <para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
+      <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
+    </sect2>
+  </sect1>
+  <sect1 id="primary-windows">
+    <title>Primary Windows</title>
+    <para>A primary window is a view of the contents of an object such as a document, a game, or an image. An application may have in any instance more than one primary window and more than one kind of primary window.</para>
+    <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+    <formalpara>
+      <title>Title Format:</title>
+      <para><replaceable>Object</replaceable><optional>:N</optional> - <replaceable>Application</replaceable><optional>:N</optional></para>
+    </formalpara>
+    <formalpara>
+      <title>Window Buttons:</title>
+      <para>Close, Maximize, Restore, Minimize, Rollup/Unroll, Stick, Unstick</para>
+    </formalpara>
+
+    <sect2 id="sdi">
+      <title>Single Document Interface</title>
+      <para>A single document interface . . . FIXME</para> <!-- I'm not sure yet what to write here other than a description. Having an SDI isn't very important when the rest of the UI is application-oriented.  -->
+    </sect2>
+    <sect2 id="csdi">
+      <title>Controlled Single Document Interface</title>
+      <para>The use of CSDI is reserved for expert or special purpose applications. Complex drawing applications, such as the GIMP, present this kind of interface. The main toolbox of the GIMP is the control window.</para>
+    </sect2>
+    <sect2 id="mdi">
+      <title>Multiple Document Interface</title>
+      <para>A paned or tabbed presentation of two documents<!--, or two views of the same document--> within a single window is an MDI. Often it is best to leave such presentation details to the window manager.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="utility-windows">
+    <title>Utility Windows</title>
+    <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, a status bar, or the row of buttons seen in alerts and dialogs.</para>
+    <sect2 id="property-windows">
+      <title>Property Windows</title>
+      <para>Provide a property window when actions in the property window immediately affect the object's properties.</para>
       <formalpara>
 	<title>Title Format:</title>
-	<para><replaceable>Object</replaceable><optional>:N</optional> - <replaceable>Application</replaceable><optional>:N</optional></para>
+	<para><replaceable>Object Name</replaceable> - Settings</para>
       </formalpara>
       <formalpara>
-	<title>Frame Commands:</title>
-	<para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
+	<title>Window Buttons:</title>
+	<para>Close, Maximize, Restore, Minimize, Rollup/Unroll, Stick, Unstick</para>
       </formalpara>
+    </sect2>
+    <sect2 id="preference-windows">
+      <title>Preference Windows</title>
+      <para>Provide a preference window for applications which have instantly applied preferences.</para>
+      <formalpara>
+	<title>Title Format:</title>
+	<para><replaceable>Application Name</replaceable> - Preferences</para>
+      </formalpara>
+      <formalpara>
+	<title>Window Buttons:</title>
+	<para>Close, Maximize, Restore, Minimize, Rollup/Unroll, Stick, Unstick</para>
+      </formalpara>
+    </sect2>
+    <sect2 id="toolbox-windows">
+      <title>Toolboxes</title>
+      <para>FIXME</para>
+    </sect2>
+    <sect2 id="palette-windows">
+      <title>Palettes</title>
+      <para>FIXME</para>
+    </sect2>
+    <sect2 id="other-windows">
+      <title>Other</title>
+      <para>FIXME</para>
+    </sect2>
 
-      <sect2 id="sdi">
-	<title>Single Document Interface</title>
-	<para>A single document interface . . . FIXME</para> <!-- I'm not sure yet what to write here other than a description. Having an SDI isn't very important when the rest of the UI is application-oriented.  -->
-      </sect2>
-      <sect2 id="csdi">
-	<title>Controlled Single Document Interface</title>
-	<para>The use of CSDI is reserved for expert or special purpose applications. Complex drawing applications, such as the GIMP, present this kind of interface. The main toolbox of the GIMP is the control window.</para>
-      </sect2>
-      <sect2 id="mdi">
-	<title>Multiple Document Interface</title>
-	<para>A paned or tabbed presentation of two documents<!--, or two views of the same document--> within a single window is an MDI. Often it is best to leave such presentation details to the window manager.</para>
-      </sect2>
-    </sect1>
+  </sect1>
 
-    <sect1 id="utility-windows">
-      <title>Utility Windows</title>
-      <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, a status bar, or the row of buttons seen in alerts and dialogs.</para>
-      <sect2 id="property-windows">
-	<title>Property Windows</title>
-	<para>Provide a property window when actions in the property window immediately affect the object's properties.</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para><replaceable>Object Name</replaceable> - Settings</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
-	</formalpara>
-      </sect2>
-      <sect2 id="preference-windows">
-	<title>Preference Windows</title>
-	<para>Provide a preference window for applications which have instantly applied preferences.</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para><replaceable>Application Name</replaceable> - Preferences</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
-	</formalpara>
-      </sect2>
-      <sect2 id="toolbox-windows">
-	<title>Toolboxes</title>
+  <sect1 id="alert-windows">
+    <title>Alerts</title>
+    <para>An alert will have a dialog-like frame and be object modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
+    <!--
+  <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
+    -->
+    <sect2 id="alerts-information">
+      <title>Information Alerts</title>
+      <para>An information alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+      <para>An information alert:
+	<itemizedlist>
+	  <listitem><para>Will use the stock information icon.</para></listitem>
+	  <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para></listitem>
+	  <listitem><para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
+	</itemizedlist>
+      </para>
+      <formalpara>
+	<title>Title Format:</title>
 	<para>FIXME</para>
-      </sect2>
-      <sect2 id="palette-windows">
-	<title>Palettes</title>
+      </formalpara>
+      <formalpara>
+	<title>Window Buttons:</title>
+	<para><!-- Minimize, ??? -->Rollup/Unroll</para>
+      </formalpara>
+    </sect2>
+    <sect2 id="alerts-error">
+      <title>Error Alerts</title>
+      <para>FIXME - same as information alerts except for the icon.</para>
+      <para>An error alert:
+	<itemizedlist>
+	  <listitem><para>Will use the stock error icon.</para></listitem>
+	  <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> may dismiss the error alert.</para></listitem>
+	  <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
+	</itemizedlist>
+      </para>
+      <formalpara>
+	<title>Title Format:</title>
 	<para>FIXME</para>
-      </sect2>
-      <sect2 id="other-windows">
-	<title>Other</title>
+      </formalpara>
+      <formalpara>
+	<title>Window Buttons:</title>
+	<para><!-- Minimize, ??? -->Rollup/Unroll</para>
+      </formalpara>
+    </sect2>
+
+    <sect2 id="alerts-confirmation">
+      <title>Confirmation Alerts</title>
+      <para>A confirmation alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+      <para>A confirmation alert:
+	<itemizedlist>
+	  <listitem><para>Will use the stock warning icon.</para></listitem>
+	  <listitem><para>Will present a button labelled with a verb or verb phrase describing the action to be confirmed, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
+	  <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
+	  <listitem><para>May present an alternative action button or a convenience button. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --></listitem>
+	</itemizedlist>
+      </para>
+      <formalpara>
+	<title>Title Format:</title>
 	<para>FIXME</para>
-      </sect2>
+      </formalpara>
+      <formalpara>
+	<title>Window Buttons:</title>
+	<para><!-- Minimize, ??? -->Rollup/Unroll</para>
+      </formalpara>
+    </sect2>
 
-    </sect1>
-
-    <sect1 id="alert-windows">
-      <title>Alerts</title>
-      <para>An alert will have a dialog-like frame and be object modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
-<!--
-      <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
--->
-      <sect2 id="alerts-information">
-	<title>Information Alerts</title>
-	<para>An information alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
-	<para>An information alert:
-	  <itemizedlist>
-	    <listitem><para>Will use the stock information icon.</para></listitem>
-	    <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para></listitem>
-	    <listitem><para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
-	  </itemizedlist>
-	</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para>FIXME</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-      <sect2 id="alerts-error">
-	<title>Error Alerts</title>
-	<para>FIXME - same as information alerts except for the icon.</para>
-	<para>An error alert:
-	  <itemizedlist>
-	    <listitem><para>Will use the stock error icon.</para></listitem>
-	    <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> may dismiss the error alert.</para></listitem>
-	    <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
-	  </itemizedlist>
-	</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para>FIXME</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-
-      <sect2 id="alerts-confirmation">
-	<title>Confirmation Alerts</title>
-	<para>A confirmation alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
-	<para>A confirmation alert:
-	  <itemizedlist>
-	    <listitem><para>Will use the stock warning icon.</para></listitem>
-	    <listitem><para>Will present a button labelled with a verb or verb phrase describing the action to be confirmed, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
-	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
-	    <listitem><para>May present an alternative action button or a convenience button. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --></listitem>
-	  </itemizedlist>
-	</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para>FIXME</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-
-      <sect2 id="alerts-authentication">
-	<title>Authentication Alerts</title>
+    <sect2 id="alerts-authentication">
+      <title>Authentication Alerts</title>
+      <para>FIXME</para>
+      <para>An authentication alert:
+	<itemizedlist>
+	  <listitem>
+	    <para>Will use the stock authentication icon.
+	      <note><para><ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note>
+	    </para>
+	  </listitem>
+	  <listitem><para>Will present labelled fields for the user to fill with the data needed for authentication.</para></listitem>
+	  <listitem><para>Will present a button labelled with a verb or verb phrase describing the action authenticated, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
+	  <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent authentication. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
+	  <listitem><para>May present an alternative action button or convenience button. This button, when present, should be placed in the secondary area of the button box.</para><!-- FIXME: Reword --></listitem>
+	</itemizedlist>
+      </para>
+      <formalpara>
+	<title>Title Format:</title>
 	<para>FIXME</para>
-	<para>An authentication alert:
-	  <itemizedlist>
-	    <listitem>
-	      <para>Will use the stock authentication icon.
-		<note><para><ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note>
-	      </para>
-	    </listitem>
-	    <listitem><para>Will present labelled fields for the user to fill with the data needed for authentication.</para></listitem>
-	    <listitem><para>Will present a button labelled with a verb or verb phrase describing the action authenticated, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
-	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent authentication. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
-	    <listitem><para>May present an alternative action button or convenience button. This button, when present, should be placed in the secondary area of the button box.</para><!-- FIXME: Reword --></listitem>
-	  </itemizedlist>
-	</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para>FIXME</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-<!--
-      <sect2 id="button-order">
-	<title>Alert Buttons</title>
-	
-	<para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
-	<formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
-	<formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
-	<formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
-	<formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
-	
-	<para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
-      -->
-	<!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
-<!--
-      <figure id="alert-buttons">
-	<title>A save confirmation alert</title>
-	  
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/save_alert.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </sect2>
--->
-    </sect1>
-      
-    <sect1 id="dialog-windows">
-      <title>Dialogs</title>
-      <para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
-      <sect2 id="dialogs-selectors">
-	<title>Selection Dialogs</title>
-	<para>FIXME</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para>Choose <replaceable>an Item</replaceable> - <replaceable>Application</replaceable></para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para>Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-      <sect2 id="dialogs-property">
-	<title>Property Dialogs</title>
-	<para>Provide a property dialog for properties which cannot be immediately changed. </para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para><replaceable>Object Name</replaceable> - Settings</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-      <sect2 id="dialogs-preferences">
-	<title>Preferences Dialogs</title>
-	<para>Provide a prefernces dialog for application preferences which cannot be immediately changed.</para>
-	<formalpara>
-	  <title>Title Format:</title>
-	  <para><replaceable>Application Name</replaceable> - Preferences</para>
-	</formalpara>
-	<formalpara>
-	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
-	</formalpara>
-      </sect2>
-
-    </sect1>
+      </formalpara>
+      <formalpara>
+	<title>Window Buttons:</title>
+	<para><!-- Minimize, ??? -->Rollup/Unroll</para>
+      </formalpara>
+    </sect2>
+    <!--
+  <sect2 id="button-order">
+  <title>Alert Buttons</title>
     
-    <sect1 id="assistant-windows">
-      <title>Assistants</title>
-      <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
-      <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
-      <formalpara>
-	<title>Title Format:</title>
-	<para>FIXME</para>
-      </formalpara>
-      <formalpara>
-	<title>Frame Commands:</title>
-	<para>FIXME, Shade, Unshade</para>
-      </formalpara>
-    </sect1>
-  </chapter>
+  <para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
+  <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
+  <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
+  <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
+  <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
+    
+  <para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
+    -->
+    <!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
+    <!--
+  <figure id="alert-buttons">
+  <title>A save confirmation alert</title>
+    
+  <mediaobject><imageobject>
+  <imagedata fileref="images/save_alert.png" format="PNG"/>
+  </imageobject>
+  <textobject>
+  <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
+  </textobject>
+  </mediaobject>
+  </figure>
+  </sect2>
+    -->
+  </sect1>
+  
+  <sect1 id="assistant-windows">
+    <title>Assistants</title>
+    <para>Assistants step users through sequence of steps. Because assistants provide short explanations on each page and restrict the amount of information visible at a given time, they are also useful in making a complex operation less intimidating. and guiding users through a sequence of steps that must be performed in order.
+    <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
+    <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+    <formalpara>
+      <title>Title Format:</title>
+      <para>FIXME</para>
+    </formalpara>
+    <formalpara>
+      <title>Window Buttons:</title>
+      <para>FIXME, Rollup/Unroll</para>
+    </formalpara>
+  </sect1>
+</chapter>
