@@ -400,13 +400,15 @@
   <sect1 id="desktop-notification-area">
 	<title>Using the Status Notification Area</title>
 	<para>
-	The GNOME desktop features a status notification area that the user can add to any panel on their desktop.  This area is reserved for notifying the user of non-critical, application-related events (for example, arrival of new email, or a chat &apos;buddy&apos; having logged on), and for monitoring the status of system tasks (for example, network or printer activity, or laptop battery charging).</para>
+	 Using the status notification area applications can notify the user of non-critical events (for example, arrival of new email, or a chat &apos;buddy&apos; having logged on), and expose the status of active system processes (for example, a printing document, or a laptop's battery charging).</para>
 
 	<para>Following the guidelines in this section will help to clarify the difference in the user&apos;s mind between information presented in the notification area, and controls and information presented on other parts of the panel.</para>
 
+		<warning><para>The utility of the notification area decreases rapidly when more than about four icons are always present. For this reason, icons that appear only temporarily in response to events are preferable.</para></warning>
+
 	<sect2 id="desktop-notification-or-applet"><title>Notification Area or Panel Applet?</title>
 	<para>
-	Possible rule of thumb: you should probably write an applet instead of using the notification area if:</para>
+	You should probably write an applet instead of using the notification area if:</para>
 	<itemizedlist>
 		<listitem><para>clicking your notification area icon does anything other than opening a window directly associated with the icon (e.g. a mail folder window for a new mail icon, or a print queue window for printer notification icon), or </para></listitem>
 		<listitem><para>there are icon-specific options on its context menu for doing anything other than that</para></listitem> 
@@ -418,20 +420,14 @@
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Use table perspective for icons representing physical devices, with the light source above and to the left of the represented object.  For example, a printer icon during printing. See <xref linkend="icon_style_perspective"/> for more about table perspective.</para></listitem>
 		<listitem><para>Use shelf perspective, with overhead lighting, for all other icons. For example, an envelope shown when new mail arrives. See <xref linkend="icon_style_perspective"/> for more about shelf perspective.</para></listitem>	
-		<listitem><para>Use flat images for perpetual displays that change over
-time, such as load meters. Clearly delimit the boundaries of flat images.
-For example, a load meter which which displays
-a scrolling green bar graph on a black background should have a
-one black pixel border.</para></listitem>
+		<listitem><para>For monitors or progress bars that change over
+time, such as a battery charge monitor, clearly delimit the border of the area.</para></listitem>
 
 		</itemizedlist>
 
-		<para>The utility of the notification area decreases rapidly when more than
-about four(?) icons are always present.</para>
-
 		<itemizedlist><title>Guidelines</title>
-			<listitem><para>Only core GNOME programs may perpetually display an icon or use flat images.</para></listitem>
-			<listitem><para>Non-core programs for which a perpetual icon may be useful must default to not perpetually showing the icon.  They may present an option to do so, however. <remark>Standard way of presenting this option would be nice.</remark></para></listitem>
+			<listitem><para>Only core GNOME programs may perpetually display an icon in the status area.</para></listitem>
+			<listitem><para>Non-core programs for which a perpetual icon may be useful must default to not perpetually showing the icon. Users may select to enable a perpetual icon for the application as a preference. <remark>Standard way of presenting this option would be nice.</remark></para></listitem>
 		</itemizedlist>
 
 	</sect2>
@@ -439,16 +435,14 @@ about four(?) icons are always present.</para>
 	<sect2 id="notification-area-animation">
 	<title>Animation</title>
 	
-	<para>Henceforth "icon" means an icon or a flat image.</para>
-
 	<itemizedlist><title>Guidelines</title>
-		<listitem><para>Icons should not usually appear animated. The may change to
+		<listitem><para>Icons should not usually appear animated. They may change to
 indicate a change of state, but should not do so when that change
 is occurs regularly rapidly. A battery status indicator would
 usually change slowly, therefore an icon is appropriate. By contrast,
 a load meter would always be changing, therefore it should use a flat
 image.</para></listitem>
-		<listitem><para>Icons are permitted to blink under a few conditions.
+<!--		<listitem><para>Icons are permitted to blink under a few conditions.
  An icon may blink for n (=5?) seconds when first displayed
    if showing the icon is not caused by user action.
    A printing-in-progress icon would be shown because the user
@@ -461,13 +455,13 @@ image.</para></listitem>
    blinking recur. For example, an incoming email icon which was
    shown and blinked when a message arrived and which has remained
    visible may blink again when another message arrives.</para></listitem>
-
+-->
  		<listitem><para>Any icon may blink to indicate an error in deference to showing
    an alert. For example, a printing-in-progress icon may blink when
    there is a paper jam, but not when the printer is on fire - that
    should show an alert.
    </para></listitem>
-		<listitem><para>Do not rely on blinking or animation as a means of alerting the user to any particular event.  The notification area respects the global desktop "no animation" preference for accessibility reasons. <remark>Note: This doesn&apos;t exist yet but it&apos;s on the list...</remark></para></listitem>
+		<listitem><para>Do not rely on blinking or animation as a means of alerting the user to any particular event.  <!-- commenting out until it exists...  -Seth The notification area respects the global desktop "no animation" preference for accessibility reasons. <remark>Note: This doesn&apos;t exist yet but it&apos;s on the list...</remark> --></para></listitem>
 		</itemizedlist>
 
 	</sect2>
