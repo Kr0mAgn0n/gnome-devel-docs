@@ -1,119 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-  <chapter id="icons">
-    <title>Icons</title>
-    <para> </para>
-    <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. Good icons suggest to the user the sort of conceptual item they are associated with, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
+<chapter id="icons">
+  <title>Icons</title>
+  <para> </para>
+  <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. When a user sees a good icon they are immediately reminded of the item it represents, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar..</para>
+
+  <sect1 id="specifications">
+    <title>Specifications for GNOME icons</title>
     
-<!-- CB-Ed: The second sentence reads funny; perhaps making it succinct will help make it more eloquent. I'm primarily talking about the awkward "suggest to the user the sort of conceptual item they are associated with..."-->
-
-    <sect1 id="specifications">
-      <title>Specifications for GNOME icons</title>
+    <sect2 id="toolbar_icons">
+      <title>Toolbar and Menu Icons</title>
       
-      <sect2 id="toolbar_icons">
-	<title>Toolbar and Menu Icons</title>
+      <formalpara><title>Perspective and Lighting</title><para>Toolbar and menu icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down.</para></formalpara>
+
+      <!-- CB-Ed: In the formalpara above, terms like "head on" and the subsequent elaboration are wordy and/or not as clear as they could be.  Why not use more formal terminology like "flush" (JLF uses this term, vs. "3-D"). And... "shelf-like" nature?  Same for lighting terminology; it's too wordy and subjective. -->
+      
+      <formalpara><title>Shape</title><para>Make sure that sets of toolbar icons used together are easy to differentiate. Try looking at the silhouettes of toolbar icons that may be used together to ensure that they are visually distinct.</para></formalpara>
+      <figure>
+	<title>Silhouette of the toolbar icons from the Nautilus Crux theme</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/toolbar-silhouette.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Silhouettes of the various toolbar icons</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+
+      <formalpara><title>Size</title><para>Toolbar icons should be 24x24 pixels. Menu icons should be 16x16 pixels.</para></formalpara>
+      
+      <figure>
+	<title>Sample toolbar icon: 'Save'</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/save-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>floppy disk</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <figure>
+	<title>Sample toolbar icon: 'Print'</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/print-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Printer</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      
+      <sect3 id="stock_toolbar_icons">
+	<title>Stock Icons</title>
+	<para>Often, you will not have to design any toolbar icons yourself. GTK provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
+	<para>To browse the available stock icons, install the development packages for GTK version 1.3 or 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
+      </sect3>
+    </sect2>
+    
+    <sect2 id="application_icons">
+      <title>Application Icons</title>
+      <formalpara><title>Perspective and Lighting</title><para>Application icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
+      
+      <!-- CB-Ed: Again, terminology is unclear; "placed on a table in front of the user" can mean anything.  Be exact. -->
+      
+      <formalpara><title>Shape</title><para>Application icons should have an irregular outline in order to be visually appealing, but need not adhere to particular shape specifications.</para></formalpara>
+      
+      <formalpara><title>Size</title><para>Application icons should be 48x48 pixels, but should be test viewed at sizes down to 16x16 to ensure they scale well.</para></formalpara>
+      <figure>
+	<title>A great icon for a software installer</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/installer-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A software box with a diskette and a cd next to it</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <figure>
+	<title>A reasonable icon for an IDE</title>
 	
-	<formalpara><title>Perspective and Lighting</title><para>Toolbar and menu icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down.</para></formalpara>
-
-<!-- CB-Ed: In the formalpara above, terms like "head on" and the subsequent elaboration are wordy and/or not as clear as they could be.  Why not use more formal terminology like "flush" (JLF uses this term, vs. "3-D"). And... "shelf-like" nature?  Same for lighting terminology; it's too wordy and subjective. -->
- 
-	<formalpara><title>Shape</title><para>Make sure that sets of toolbar icons used together are easy to differentiate. Try looking at the silhouettes of toolbar icons that may be used together to ensure that they are visually distinct.</para></formalpara>
-	<figure>
-	  <title>Silhouette of the toolbar icons from the Nautilus Crux theme</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/toolbar-silhouette.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Silhouettes of the various toolbar icons</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-
-<!-- CB-Fig: This figure does not display properly in Netscape 4.76 on Solaris.  It is just a black bar. -->
-
-	<formalpara><title>Size</title><para>Toolbar icons should be 24x24 pixels. Menu icons should be 16x16 pixels.</para></formalpara>
-	
-	<figure>
-	  <title>Sample toolbar icon: 'Save'</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/save-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>floppy disk</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<figure>
-	  <title>Sample toolbar icon: 'Print'</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/print-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Printer</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	
-<!-- CB-Ed: Terminology, again.  Visual designers tend to call graphics in the toolbar "toolbar graphics," for toolbar buttons, which represent action, and graphics that represent objects, "icons." -->
-
-	<sect3 id="stock_toolbar_icons">
-	  <title>Stock Icons</title>
-	  <para>Often, you will not have to design any toolbar icons yourself. GTK provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
-	  <para>To browse the available stock icons, install the development packages for GTK version 1.3 or 2.x and run <command>gtk-demo</command>. Double click on <guimenuitem>Stock Item and Icon Browser</guimenuitem> to activate the stock icon browser. Note that icons vary in available resolution, so the images presented in the icon browser should not be taken as indicative of the maximuum quality of an image. To view the images in PNG format, look in the GTK 2 source code under <filename class="directory">gtk/stock-icons</filename>.</para>
-	</sect3>
-      </sect2>
-
-      <sect2 id="application_icons">
-	<title>Application Icons</title>
-	<formalpara><title>Perspective and Lighting</title><para>Application icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
-
-<!-- CB-Ed: Again, terminology is unclear; "placed on a table in front of the user" can mean anything.  Be exact. -->
-
-	<formalpara><title>Shape</title><para>Application icons should be shaped (rather than being square or a rectangle) in order to be visually appealing, but need not adhere to particular shape specifications.</para></formalpara>
-
-<!-- CB-Ed: "shaped?"  Use something like "Application icons should have an irregular outline..." -->
-
-	<formalpara><title>Size</title><para>Application icons should be 48x48 pixels, but should be test viewed at sizes down to 16x16 to ensure they scale well.</para></formalpara>
-	<figure>
-	  <title>A great icon for a software installer</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/installer-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>A software box with a diskette and a cd next to it</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<figure>
-	  <title>A reasonable icon for an IDE</title>
-
-<!-- CB-Ed: What do you mean by "reasonable"? Please keep wording objective and exact.  -->
-
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/gide-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>A hammer</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </sect2>
-      <sect2 id="document_icons"><title>Document Icons</title>
-	<formalpara><title>Perspective and Lighting</title><para>Document icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
-	<formalpara><title>Shape</title><para>Document icons have no specific shape requirements. When a document type corresponds to a specific application, one option is to use a piece of paper with the application icon on it as the document icon. A better option is to portray the type of the file directly, for example a good icon for MPEG video would be a movie reel. Also remember that document icons are likely to be used in conjunction with a variety of different icon themes and should not be customized to one particular theme or another.</para></formalpara>
-	<formalpara><title>Size</title><para>Document icons should preferably be made in at least three sizes 24x24, 48x48 and 96x96 pixels. 48x48 is the most commonly used in the file manager, however the other two are important in various contexts. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para></formalpara>
-      </sect2>
-    </sect1>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/gide-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A hammer</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+    </sect2>
+    <sect2 id="document_icons"><title>Document Icons</title>
+      <formalpara><title>Perspective and Lighting</title><para>Document icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
+      <formalpara><title>Shape</title><para>Document icons have no specific shape requirements. When a document type corresponds to a specific application, one option is to use a piece of paper with the application icon on it as the document icon. A better option is to portray the type of the file directly, for example a good icon for MPEG video would be a movie reel. Also remember that document icons are likely to be used in conjunction with a variety of different icon themes and should not be customized to one particular theme or another.</para></formalpara>
+      <formalpara><title>Size</title><para>Document icons should preferably be made in at least three sizes 24x24, 48x48 and 96x96 pixels. 48x48 is the most commonly used in the file manager, however the other two are important in various contexts. Because they are primarily viewed in the Nautilus file manager, which allows for a variety of other sizes, liberty should be taken to provide icons in as many different sizes as the artist has time for.</para></formalpara>
+    </sect2>
+  </sect1>
 
 
-    <sect1 id="design">
-      <title>Designing Effective Icons</title>
-      <para>
-	Icons have many uses. Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label. Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words. Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.
-      </para>
-      <para>
-	<tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
-      </para>
+  <sect1 id="design">
+    <title>Designing Effective Icons</title>
+    <para>
+      Icons have many uses. Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label. Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words. Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.
+    </para>
+    <para>
+      <tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
+    </para>
 
     <sect2 id="graphic_design">
       <title>Graphic Design</title>
@@ -125,10 +115,10 @@
       
     </sect2>
 
-      <sect2 id="right_kind">
-	<title>Kinds of Icons</title>
-	<para>Where possible, a <link linkend="functionally_suggestive">functionally suggestive</link> icon should be used. Failing that a <link linkend="name_suggestive">name suggestive</link> icon can be an appropriate choice. <emphasis><link linkend="text_icons">Text icons</link> and other desperate substitutes should not be used</emphasis>.</para>
-	
+    <sect2 id="right_kind">
+      <title>Kinds of Icons</title>
+      <para>Where possible, a <link linkend="functionally_suggestive">functionally suggestive</link> icon should be used. Failing that a <link linkend="name_suggestive">name suggestive</link> icon can be an appropriate choice. <emphasis><link linkend="text_icons">Text icons</link> and other desperate substitutes should not be used</emphasis>.</para>
+      
       <sect3 id="good-icons">
 	<title>Acceptable Icons</title>
 	
@@ -202,98 +192,98 @@
 	  </listitem>
 	</itemizedlist>
       </sect3>
-      </sect2>
-      <sect2>
-	<title>Communicating concept with effective visual language</title>
-	<para>...</para>
-      </sect2>
-      
-<!-- CB-Ed: Much of this section has good substance, but is communicated poorly.  There seem to be a lot of blanket statements, and the tone is subjective (e.g., text describing figure 12, the Gnumeric icon.  Stick just to the facts, or try to stay closely to objective language, and language that will not be presenting things in a way that can be argued with or questioned. -->
- 
-      
-      <sect2>
-	<title>Icon Problems to Avoid</title>
-	<formalpara><title>Extraneous information</title>
-	  <para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were misled by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual elements necessary to express the purpose of the program.
-	  </para>
-	</formalpara>
-	<figure>
-	  <title>Extraneous information - the Evolution icon</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/evolution-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The Evolution icon</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<para>
-	  The Gnumeric icon is a great icon except for the introduction of extra visual noise. The extra sheet of paper with the 'g' on it behind the spreadsheet and chart adds no significant value to the icon and provides extra visual distraction. In this case the contribution of the extraneous element to the appearance of the icon is negative. Simple well balanced icons look more attractive than cluttered icons. An improved icon might contain only the spreadsheet and chart; larger because they can use all of the space in the icon, and hence more visually distinct.
+    </sect2>
+    <sect2>
+      <title>Communicating concept with effective visual language</title>
+      <para>...</para>
+    </sect2>
+    
+    <!-- CB-Ed: Much of this section has good substance, but is communicated poorly.  There seem to be a lot of blanket statements, and the tone is subjective (e.g., text describing figure 12, the Gnumeric icon.  Stick just to the facts, or try to stay closely to objective language, and language that will not be presenting things in a way that can be argued with or questioned. -->
+    <!-- Seth: Objective language does not present the entire picture. While its better for laying down hard and fast guidelines, it does not assist designers in understanding the motivation behind various decisions. This document covers the design *philosophy* as well as providing specific guidelines. This is in fact one of my major complaints about the Java guidelines relative to the MacOS guidelines. Java guidelines attempt to maintain a facade of scientific objectivity and in doing so fail to educate designers as well as failing to communicate the real dynamics of good design. Dealing with more subjective issues is particularly important because many of the readers of the GNOME guidelines will not be professional icon artists, or even graphic designers. -->
+    
+    <sect2>
+      <title>Icon Problems to Avoid</title>
+      <formalpara><title>Extraneous information</title>
+	<para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were misled by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual elements necessary to express the purpose of the program.
 	</para>
-	<figure>
-	  <title>Extraneous information - the Gnumeric icon</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/gnumeric-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The Gnumeric icon</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-	<formalpara><title>Use of body parts</title>
-	  <para> Because GNOME aims to be an international desktop, it needs to avoid imagery that is potentially offensive or crass to other cultures. A prime source of offensive imagery is various body parts in a number of different configurations. Aside from offensive gestures with the hands, arms or fingers; body parts that are considered "clean" in one culture (such as eyes), will be considered tasteless or gross to another (such as a nose). Based on a survey of icons in GNOME, body parts frequently appear in the least communicative icons (often "pointing" at some element in the icon); they are being used as an ineffective crutch for poor metaphor. In these situations body parts should <emphasis>not</emphasis> be used. Even in situations where the metaphor is appropriate (for example an eye representing the sawfish appearance capplet) it is better to avoid using a body part. Often body parts have been used in GNOME to suggest a human "choosing" or "using" something. This is normally an unnecessary point for the icon designer to make. People naturally attempt to understand objects in reference to themselves (show someone a bat and they will think of hitting something with the bat, show someone a tool and they will think of using it, etc). For example, the font selector shows a finger pointing to an "F" suggesting the user choosing between a series of fonts. A better icon would be the text "Aa" presented in an ornate font (calling attention to the font rather than the text). The user doesn't need to be told that they are "choosing" the font, they can infer that easily.
-	    <figure>
-	      <title>Using body parts - the font selector icon</title>
-	      <mediaobject>
-		<imageobject>
-		  <imagedata fileref="images/fontsel-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>The Font Selector Icon</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>	    
-	    <figure>
-	      <title>A better icon for the Font Selector</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/fontsel-suggestion.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>A simple replacement icon showing an ornate "Aa"</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </para>
-	</formalpara>
-	<formalpara><title>Icons based off puns and word games</title>
-	  <para>This should be avoided for a couple reasons, the most obvious of which is that puns do not translate well. For example, representing the "system log monitor" as a log will likely be uncommunicative in languages other than English. Additionally, most users do not comprehend the word play until it is too late for the icon to assist them. Even after being familiar with the "system log monitor" being represented as a log, users do not form the association fast enough for the icon to assist through in scanning through menu entries. A popular instance of this problem was the proliferation of icons representing the "World Wide Web" as a spider web in the mid 1990s. Part of the value of icons is that they bypass linguistic comprehension and hence are complementary to captions, allowing users to utilize more areas of the mind than linguistic recognition (already used in scanning for captions) when they hunt for items.
-	    <figure>
-	      <title>Word play - System Log Monitor icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/log-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>A tree log</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </para>
-	</formalpara>
-	<formalpara><title>Violent Imagery</title>
-	  <para>Just as words like "kill" and "slay" are inappropriate in interfaces, violent or destructive icons should be avoided. The "shut down" icon uses the image of an explosive detonation switch, presumably trying to convey the idea of ending something abruptly. However, this icon is likely to intimidate some users of the computer who will not want to click on the icon for fear of breaking something.
-	    <figure>
-	      <title>Destructive-looking Shutdown icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/shutdown-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>An explosive detonation button</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </para>
-	</formalpara>
-      </sect2>
-    </sect1>
-  </chapter>
+      </formalpara>
+      <figure>
+	<title>Extraneous information - the Evolution icon</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/evolution-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>The Evolution icon</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <para>
+	The Gnumeric icon is a great icon except for the introduction of extra visual noise. The extra sheet of paper with the 'g' on it behind the spreadsheet and chart adds no significant value to the icon and provides extra visual distraction. In this case the contribution of the extraneous element to the appearance of the icon is negative. Simple well balanced icons look more attractive than cluttered icons. An improved icon might contain only the spreadsheet and chart; larger because they can use all of the space in the icon, and hence more visually distinct.
+      </para>
+      <figure>
+	<title>Extraneous information - the Gnumeric icon</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/gnumeric-icon.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>The Gnumeric icon</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+      <formalpara><title>Use of body parts</title>
+	<para> Because GNOME aims to be an international desktop, it needs to avoid imagery that is potentially offensive or crass to other cultures. A prime source of offensive imagery is various body parts in a number of different configurations. Aside from offensive gestures with the hands, arms or fingers; body parts that are considered "clean" in one culture (such as eyes), will be considered tasteless or gross to another (such as a nose). Based on a survey of icons in GNOME, body parts frequently appear in the least communicative icons (often "pointing" at some element in the icon); they are being used as an ineffective crutch for poor metaphor. In these situations body parts should <emphasis>not</emphasis> be used. Even in situations where the metaphor is appropriate (for example an eye representing the sawfish appearance capplet) it is better to avoid using a body part. Often body parts have been used in GNOME to suggest a human "choosing" or "using" something. This is normally an unnecessary point for the icon designer to make. People naturally attempt to understand objects in reference to themselves (show someone a bat and they will think of hitting something with the bat, show someone a tool and they will think of using it, etc). For example, the font selector shows a finger pointing to an "F" suggesting the user choosing between a series of fonts. A better icon would be the text "Aa" presented in an ornate font (calling attention to the font rather than the text). The user doesn't need to be told that they are "choosing" the font, they can infer that easily.
+	  <figure>
+	    <title>Using body parts - the font selector icon</title>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="images/fontsel-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>The Font Selector Icon</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>	    
+	  <figure>
+	    <title>A better icon for the Font Selector</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/fontsel-suggestion.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>A simple replacement icon showing an ornate "Aa"</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</para>
+      </formalpara>
+      <formalpara><title>Icons based off puns and word games</title>
+	<para>This should be avoided for a couple reasons, the most obvious of which is that puns do not translate well. For example, representing the "system log monitor" as a log will likely be uncommunicative in languages other than English. Additionally, most users do not comprehend the word play until it is too late for the icon to assist them. Even after being familiar with the "system log monitor" being represented as a log, users do not form the association fast enough for the icon to assist through in scanning through menu entries. A popular instance of this problem was the proliferation of icons representing the "World Wide Web" as a spider web in the mid 1990s. Part of the value of icons is that they bypass linguistic comprehension and hence are complementary to captions, allowing users to utilize more areas of the mind than linguistic recognition (already used in scanning for captions) when they hunt for items.
+	  <figure>
+	    <title>Word play - System Log Monitor icon</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/log-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>A tree log</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</para>
+      </formalpara>
+      <formalpara><title>Violent Imagery</title>
+	<para>Just as words like "kill" and "slay" are inappropriate in interfaces, violent or destructive icons should be avoided. The "shut down" icon uses the image of an explosive detonation switch, presumably trying to convey the idea of ending something abruptly. However, this icon is likely to intimidate some users of the computer who will not want to click on the icon for fear of breaking something.
+	  <figure>
+	    <title>Destructive-looking Shutdown icon</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/shutdown-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>An explosive detonation button</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</para>
+      </formalpara>
+    </sect2>
+  </sect1>
+</chapter>
 

@@ -164,19 +164,22 @@
   <sect1 id="alert-windows">
     <title>Alerts</title>
     <para>An alert will have a dialog-like frame and be object modal. Alerts are distinct from dialogs in that they are not directly requested by the user. As they are an unwelcome intrusion into the user's work, they should be avoided. Alerts may be used to inform the user of an exception, to request confirmation of a destructive action, or for unanticipated authentication.</para>
+    <formalpara><title>Title Format</title><para>Alert windows should have no titles. Titles on these windows almost always mirror the window's primary text anyway, and only serve to throw extra words on the screen. Users will be able to read and respond to titleless alerts faster because there is less visual noise and confounding text.</para></formalpara>
+      <!--    
     <para role="library-problem">Buttons in GTK dialogues end up the same size (sized to the button with the longest text label). This is wrong, and looks bad.</para>
-    <para role="library-problem">Automatic wrapping of labels happens at funny places and ends up looking wrong. Labels should wrap before the last whole word that does not fit in the allotted space.</para>
+    <para role="library-problem">Automatic wrapping of labels happens at funny places and ends up looking wrong. Labels should wrap before the last whole word that does not fit in the allotted space.</para> 
+      -->
     <!--
   <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
     -->
-    <sect2 id="alert-button-order">
+      <sect2 id="alert-button-order">
       <title>Alert Buttons</title>
       <para>All alerts should have an affirmative button which dismisses the alert and performs the action suggested in the primary text. Whenever an alert is displayed in response to a user action, a <guibutton>Cancel</guibutton> button should be present. Dangerous or archane alerts should consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options. Alternate actions, which provide another possible solution, fix potential problems, or launch related dialogs/programs (amongst other things) may also be provided.</para>
-      <formalpara><title>Button Phrasing</title><para>Whenever possible, buttons should be phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. An active phrase also fits best with the button's role in initiating actions, as contrasted with a more passive phrase. For example <guibutton>Save</guibutton> and <guibutton>Log In</guibutton> are better buttons than than <guibutton>Yes</guibutton> and <guibutton>OK</guibutton></para></formalpara>
+      <formalpara><title>Button Phrasing</title><para>Whenever possible, buttons should be phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. An active phrase also fits best with the button's role in initiating actions, as contrasted with a more passive phrase. For example <guibutton>Save</guibutton> and <guibutton>Log In</guibutton> are better buttons than than <guibutton>Yes</guibutton> and <guibutton>OK</guibutton>.</para></formalpara>
       <itemizedlist>
 	<listitem><formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert, or simply dismisses the alert if no action is suggested (such as in an information alert).</para></formalpara></listitem>
-	<listitem><formalpara><title>Cancel Button</title><para>If the alert was produced in response to a user action, place a <guibutton>[Cancel]</guibutton> button immediately to the left of the affirmative button. This provides an escape route for users to stop an action in response to new information, or if they <quote>clicked</quote> accidentally. Clicking the <guibutton>Cancel</guibutton> button should revert the application to its state prior to the user action.</para></formalpara></listitem>
-	<listitem><formalpara><title>Help Button</title><para>A <guibutton>Help</guibutton> button may be used to clarify alerts presenting potentially destructive options. The <guibutton>Help</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara></listitem>
+	<listitem><formalpara><title>Cancel Button</title><para>If the alert was produced in response to a user action, place a <guibutton>Cancel</guibutton> button immediately to the left of the affirmative button. This provides an escape route for users to stop an action in response to new information, or if they <quote>clicked</quote> accidentally. Clicking the <guibutton>Cancel</guibutton> button should revert the application to its state prior to the user action.</para></formalpara></listitem>
+	<listitem><formalpara><title>Help Button</title><para>A <guibutton>Help</guibutton> button may be used to clarify alerts presenting potentially destructive options. The <guibutton>Help</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>Help</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara></listitem>
 	<listitem><formalpara><title>Alternate Buttons</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the <guibutton>Cancel</guibutton> button, or affirmative button if <guibutton>Cancel</guibutton> is not present. An example of a common alternate action would be a <guibutton>Quit without Saving</guibutton> button in a save confirmation alert. This is an alternative to the primary suggested action <guibutton>Save</guibutton> and the <guibutton>Cancel</guibutton> button.</para></formalpara></listitem>
       </itemizedlist>
       <figure id="alert-buttons-figure">
@@ -220,7 +223,6 @@
 	  <listitem><para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	</itemizedlist>
       </para>
-      <formalpara><title>Title Format:</title><para>Information alerts should not display a window title.</para></formalpara>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
@@ -247,7 +249,6 @@
 	  <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	</itemizedlist>
       </para>
-      <formalpara><title>Title Format:</title><para>Error alerts should not display a window title.</para></formalpara>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
@@ -277,10 +278,6 @@
 	</itemizedlist>
       </para>
       <formalpara>
-	<title>Title Format:</title>
-	<para>FIXME</para>
-      </formalpara>
-      <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
       </formalpara>
@@ -298,7 +295,6 @@
       <sect3 id="save-confirmation-alerts">
 	<title>Save Confirmation Alerts</title>
 	<para>Save confirmation alerts help ensure that users do not lose document changes when they close applications. This makes closing applications a less dangerous operation.</para>
-	<formalpara><title>Title Format</title><para>Save "<replaceable>Document Name</replaceable>"?</para></formalpara>
 	<formalpara><title>Primary Text</title><para>Save changes to document <replaceable>Document Name</replaceable> before closing?</para></formalpara>
 	<para>Feel free to replace <quote>document</quote> with a more appropriate description, for example <quote>image</quote> or <quote>diagram</quote> if the document in question is not primarily text.</para>
 	<formalpara><title>Secondary Text</title><para>If you don't save, changes from the last <replaceable>Time Period</replaceable> will be discarded</para></formalpara>
@@ -334,10 +330,6 @@
 	  <listitem><para>May present an alternative action button or convenience button. This button, when present, should be placed in the secondary area of the button box.</para><!-- FIXME: Reword --></listitem>
 	</itemizedlist>
       </para>
-      <formalpara>
-	<title>Title Format:</title>
-	<para>FIXME</para>
-      </formalpara>
       <formalpara>
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
