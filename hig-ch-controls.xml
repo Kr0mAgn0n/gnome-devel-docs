@@ -6,7 +6,7 @@
     
     <sect1 id="controls-usage">
 
-      <title>Usage</title>
+      <title>Using Controls Effectively</title>
 
       <para>GNOME provides a set of controls, also known as widgets, which allow users to interact with your applications. Using these controls appropriately and not altering their standard behavior is important.  This allows users to predict the effects of their actions, and thus learn to use your application more quickly and efficiently. Controls that behave in non-standard ways break the user's mental model of how your application works, and dilute the meaning of the GUI's visual language.</para>
     </sect1>
@@ -103,6 +103,8 @@
 	
 	<listitem><para>Label the entry field with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the entry field.</para></listitem>
 
+	<listitem><para>Right-justify the contents of entry fields that are used only for numeric entry, unless the convention in the user's locale demands otherwise.  This is useful in windows where the user might want to compare two numerical values in the same column of controls.  In this case, ensure the right edges of the relevant controls are also aligned.</para></listitem>
+
 	<listitem><para>When the user gives focus to an entry field using the keyboard, place the text cursor at the end of the existing text and highlight its contents (but don't overwrite the existing PRIMARY clipboard selection).  This makes it easy to immediately overtype or append new text, the two most common operations performed on entry fields.</para></listitem> 
 	
 	<listitem><para>Size text entry fields according to the likely size of the input.  This gives a useful visual cue to the amount of input expected, and breaks up the dialog making it easier to scan.  Don't make all the fields in the dialog the same width just to make everything line up nicely.</para></listitem>
@@ -145,16 +147,16 @@
       <sect2 id="controls-text-return">
 	<title>Behavior of Return key</title>
 	
-	<para>Normally, pressing <keycap>Return</keycap> in a dialog should activate the dialog's default button, unless the focused control uses <keycap>Return</keycap> for its own purposes.  You should set therefore set the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html#GTK-ENTRY-SET-ACTIVATES-DEFAULT"><function>activates_default</function></ulink> setting of most entry fields to TRUE.  (Note that GtkTextView does not have such a setting&mdash; pressing <keycap>Return</keycap> always inserts a new line.).</para>
+	<para>Normally, pressing <keycap>Return</keycap> in a dialog should activate the dialog's default button, unless the focused control uses <keycap>Return</keycap> for its own purposes.  You should set therefore set the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html#GTK-ENTRY-SET-ACTIVATES-DEFAULT"><function>activates-default</function></ulink> property of most entry fields to TRUE.  (Note that GtkTextView does not have such a setting&mdash; pressing <keycap>Return</keycap> always inserts a new line.).</para>
 	
-	<para>However, if your dialog contains several entry fields that are usually filled out in order, for example <guilabel>Name</guilabel>, <guilabel>Address</guilabel> and <guilabel>Telephone Number</guilabel>, consider setting the <function>activates_default</function> setting on those entry fields to FALSE.  Pressing <keycap>Return</keycap> should then move focus on to the next control instead.  Doing this will help prevent the user from accidentally closing the window before they have entered all the information they wanted to.</para>
+	<para>However, if your dialog contains several entry fields that are usually filled out in order, for example <guilabel>Name</guilabel>, <guilabel>Address</guilabel> and <guilabel>Telephone Number</guilabel>, consider setting the <function>activates-default</function> property on those entry fields to FALSE.  Pressing <keycap>Return</keycap> should then move focus on to the next control instead.  Doing this will help prevent the user from accidentally closing the window before they have entered all the information they wanted to.</para>
 
 	<para>As a further safeguard, remember not to set the default button in a dialog until the minimum amount of required information has been entered, for example, both a username and a password in a login dialog.  Again, in this case you should move focus to the next control when the user presses <keycap>Return</keycap>, rather than just ignoring the keypress.</para>
 
 	<para>If you need to provide a keyboard shortcut that activates the default button while a GtkTextView control has focus, use <keycombo><keycap>Ctrl</keycap><keycap>Return</keycap></keycombo>.</para>
 	
 	<note><title>Note</title>
-	  <para>GTK does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates_default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so you will have to implement the focus change behavior yourself.</para>
+	  <para>GTK does not currently move focus to the next control when <keycap>Return</keycap> is pressed and either <function>activates-default=FALSE</function>, or there is no default button in the window.  For now, <keycap>Return</keycap> does nothing in these situations, so you will have to implement the focus change behavior yourself.</para>
 	</note>
 	
       </sect2>
@@ -179,7 +181,16 @@
 
       <para>A spin box is a text box that accepts a range of values. It has two arrow buttons attached that allow the user to increase or decrease the current value by a fixed amount.</para>
 
-      <para>picture</para>
+      <figure>
+	<title>A spin box used to input an integral value</title> 
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-spin-box.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A simple spin box used to specify the spacing between applets on a panel</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
 
       <para>Recommendations:</para>
       
@@ -190,6 +201,8 @@
 	<listitem><para>Use a spin box if the numerical value is meaningful or useful for the user to know, and the valid input range is unlimited or fixed at one end only.  For example, a control for specifying the number of iterations of some action, or a timeout value.  If the range is fixed at both ends, or the numerical values are arbitrary (for example, a volume control), use a slider control instead.</para></listitem>
 	
 	<listitem><para>Label the spin box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>. Provide an access key in the label that allows the user to give focus directly to the spin box.</para></listitem>	
+		
+	<listitem><para>Right-justify the contents of spin boxes, unless the convention in the user's locale demands otherwise.  This is useful in windows where the user might want to compare two numerical values in the same column of controls.  In this case, ensure the right edges of the relevant controls are also aligned.</para></listitem>
 
       </itemizedlist>
       
@@ -734,10 +747,46 @@
       
       <title>Status Bars</title>
       
-      <para>Status bars provide a small area which can be used to display one line of text describing the status of the application. Status bars should always be positioned at the bottom of a window.</para>
+      <para>A status bar is an area at the bottom of a window that can be used to display brief information about the status of the application.</para>
+
+      <figure>
+	<title>A simple status bar at the bottom of a document window</title>
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-status-bar.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A status bar at the bottom of a document window, showing current zoom level and a status message indicating that the document has been modified since it was last saved</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
       
-      <para>Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.</para>
+      <para>Recommendations:</para>
       
+      <itemizedlist>
+	
+	<listitem><para>Use status bars only in application or document windows.  Do not use them in dialogs, alerts or other secondary windows.</para></listitem>
+	<listitem><para>Place status bars along the bottom of a window, not in any other location.</para></listitem>
+	
+	<listitem><para>Only use status bars to display non-critical information.  This might include:</para>
+
+	  <itemizedlist>
+	    
+	    <listitem><para>progress of a background operation.  For example, &quot;Sending to printer&quot;, &quot;Printing page 10 of 20&quot;, &quot;Printing Complete&quot;.</para></listitem>
+	    
+	    <listitem><para>information relating to the task the user is currently performing.  For example, while using the selection tool in a drawing application, &quot;Hold Shift to extend the selection&quot;</para></listitem>
+
+	    <listitem><para>a description of the control or area of the window under the mouse pointer.  For example, &quot;Drop files here to uploaded them&quot;</para></listitem>
+	    
+	  </itemizedlist>
+	  
+	  <para>Remember that status bars are normally in the user's peripheral vision, and can even be turned off altogether using the application's <menuchoice><guimenu>View</guimenu><guimenuitem>Status Bar</guimenuitem></menuchoice> menu item.  The user may therefore never see anything you display there, unless they know when and where to look for it.</para></listitem>
+
+	<listitem><para>When there is no interesting status to report, leave a status bar panel blank rather than displaying something uninformative like &quot;Ready&quot;.  This way, when something interesting does appear in the status bar, the user is more likely to notice it.</para></listitem>
+
+	<listitem><para>Consider making the text panels in your status bar respond to a double-click.  For example, double-clicking a panel that displays the current document zoom level could open the <menuchoice><guimenu>View</guimenu><guimenuitem>Zoom</guimenuitem></menuchoice> dialog.  If you need something on the status bar to respond to a single click, use a regular button that the user can click, rather than a text panel.</para></listitem>
+
+      </itemizedlist>
+            
     </sect1>    
 
 </chapter>
