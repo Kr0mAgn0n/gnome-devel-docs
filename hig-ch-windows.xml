@@ -35,11 +35,12 @@
     </sect2>
     <sect2 id="window-props-modality">
       <title>Modality</title>
-      <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
 
-	<para>A non-modal window does not restrict the user's interaction with other open windows on the desktop in any way.  Using non-modal windows gives the user maximum flexibility to perform tasks within your application in any order and by whichever means they choose.</para>
+	<para>A <emphasis role="bold">non-modal</emphasis> window does not restrict the user's interaction with other open windows on the desktop in any way.  Using non-modal windows gives the user maximum flexibility to perform tasks within your application in any order and by whichever means they choose.</para>
 
-      <para>A modal window, while it is open, prevents the user from interacting with other windows in the same application (application modal), or in all applications, including the desktop itself (system modal).</para>
+      <para>An <emphasis role="bold">application modal</emphasis> window, while it is open, prevents the user from interacting with other windows in the same application.</para>
+
+	<para>A <emphasis role="bold">system modal</emphasis> window, while it is open, prevents the user from interacting with any other window in any application, including the desktop itself.</para>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -90,7 +91,7 @@
 
     <sect2 id="primary-window-titles">
       <title>Title</title>
-        <para>For document-based applications, use <replaceable>Document Name</replaceable> as the window title.</para>
+        <para>For document-based applications, use <replaceable>Document Name</replaceable> as the window title.  Use only the filename, not the full pathname, as this will make it easier to distinguish both here and other places the window title is used, such as the window list on the panel.  If the pathname is important, for example the user has opened two documents with the same name from different directories in the same application, show the full pathname in the statusbar.</para>
 
 	<example>
 		<title>Using document names as window titles</title>
@@ -604,6 +605,10 @@
 	      <row>
 		<entry>Y Align</entry>
 		<entry>0.00</entry>
+	      </row>
+	      <row>
+		<entry>Icon Size</entry>
+		<entry>Dialog</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>

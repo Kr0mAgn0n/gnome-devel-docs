@@ -11,16 +11,14 @@
 
       <para>Remember that the purpose of any software application is to enable some group of people to accomplish a specific set of tasks.  So, the first things to establish when designing your application are:</para>
 
-	<itemizedlist>
+	<orderedlist>
 		<listitem><para>who your users are</para></listitem>
 		<listitem><para>what you want to enable them to do</para></listitem>
-	</itemizedlist>
+	</orderedlist>
 
       <para>For example, you may be designing an application that will enable engineers (software, electrical, or mechanical) to create diagrams.  You may be designing an application that will enable system administrators to configure and monitor a web server.  You may be designing an application that will help elementary school students to learn math.</para>
 
-      <para>The important thing is that you know your audience, and you understand both their goals and the tasks necessary to achieve those goals.  There are a large number of professional interaction designers who write books and teach courses on design methods that can help with this process, many of which are extremely useful.  Most of these methods, however, boil down to specific ways of understanding your users, understanding the tasks you want to help them accomplish, and finding ways to support those tasks in your application.</para>
-
-	<remark>FUTURE: We ought to have a bibliography to point people to some of these "extremely useful" texts --Calum.</remark>
+      <para>The important thing is that you know your audience, and you understand both their goals and the tasks necessary to achieve those goals.  There are a large number of professional interaction designers who write books and teach courses on design methods that can help with this process, many of which are extremely useful&mdash; see the <xref linkend="bibliography"/> for a selection.  Most of these methods, however, boil down to specific ways of understanding your users, understanding the tasks you want to help them accomplish, and finding ways to support those tasks in your application.</para>
 
     </sect1>
     <sect1 id="broad-user-base">
@@ -31,7 +29,7 @@
       <sect2 id="accessibility">
 	<title>Accessibility</title>
 
-	<para>Accessibility means enabling people with disabilities of some kind to participate in life's activities: in this case, specifically to use your software.  For example:</para>
+	<para>Accessibility (sometimes called <emphasis>a11y</emphasis>) means enabling people with disabilities of some kind to participate in life's activities: in this case, specifically to use your software.  For example:</para>
 
 	<itemizedlist>
 		<listitem><para>Color-blind users may not be able to use your application if you rely only on color-coding to distinguish different types of information</para></listitem>
@@ -39,17 +37,17 @@
 		<listitem><para>Users with limited movement may not be able to use your application if you don't provide keyboard equivalents for commands</para></listitem>
 	</itemizedlist>
 
-	<para>Your software should also be usable with voice interfaces, screen readers such as <ulink url="http://developer.gnome.org/projects/gap/AT/Gnopernicus/index.html">gnopernicus</ulink>, alternate input devices, and other assistive technologies.  The standard GNOME libraries do most of this work for you, but with a little extra effort you can make your application every bit as useful to users who rely on those technologies as to those who don't.</para>
+	<para>Your software should also be usable with voice interfaces, screen readers such as <ulink url="http://developer.gnome.org/projects/gap/AT/Gnopernicus/index.html">Gnopernicus</ulink>, alternate input devices, and other assistive technologies.  The standard GNOME libraries do most of this work for you, but with a little extra effort you can make your application every bit as useful to users who rely on those technologies as to those who don't.</para>
 
-	<para>More information on accessibility in GNOME can be found at the <ulink url="http://developer.gnome.org/projects/gap/">GNOME Accessibility Project</ulink>.</para>
+	<para>GNOME has excellent inbuilt support for accessibility by means of the ATK and GAIL libraries, which in many cases can do most of the work for you. More information on accessibility in GNOME can be found at the <ulink url="http://developer.gnome.org/projects/gap/">GNOME Accessibility Project</ulink>.</para>
 
       </sect2>
       <sect2 id="internationalization">
 	<title>Internationalization and Localization</title>
 
-	<para>Internationalization is designing software so that it can function in different language environments.  Localization is the process of actually translating the messages, labels, and other interface elements of an application into another language.</para>
+	<para>Internationalization means designing software so that it can function in different language environments.  Localization is the process of actually translating the messages, labels, and other interface elements of an application into another language.</para>
 
-	<para>GNOME has excellent support for both internationalization (also referred to as i18n) and localization (also referred to as L10n).  In most cases, simply using standard GNOME APIs for displaying text and messages will allow you or others to localize your application for other locales.  For more information on how to make your application localizable, see the <ulink url="http://www.pango.org">Pango project home page</ulink> (Pango is the GNOME library for rendering internationalized text), the <ulink url="http://www.gnome.org/i18n/">GNOME Translations page</ulink>, and the <ulink url="http://developer.gnome.org/projects/gtp/">GNOME Translation Project page</ulink>.</para>
+	<para>GNOME has excellent support for both internationalization (also referred to as i18n) and localization (also referred to as l10n).  In most cases, simply using standard GNOME APIs for displaying text and messages will allow you or others to localize your application for other locales.  For more information on how to make your application localizable, see the <ulink url="http://www.pango.org">Pango project home page</ulink> (Pango is the GNOME library for rendering internationalized text), the <ulink url="http://www.gnome.org/i18n/">GNOME Translations page</ulink>, and the <ulink url="http://developer.gnome.org/projects/gtp/">GNOME Translation Project page</ulink>.</para>
       </sect2>
     
     </sect1>
@@ -76,14 +74,14 @@
 
       <para>Consistency enables users to apply their existing knowledge of their computing environment and other applications to understanding a new application.  This not only allows users to become familiar with new applications more quickly, but also helps create a sense of comfort and trust in the overall environment.  Most of the recommendations in the GNOME HI Guidelines are designed to help you create applications that are consistent with the GNOME environment and other GNOME applications.</para>
 
-      <para>A word of caution: a mis-applied or incomplete consistency is often worse than inconsistency.  If your application includes an <guimenuitem>Undo</guimenuitem> menu item for consistency, but it is always disabled because your application does not actually support Undo, this will reduce users' trust in the availability of Undo in other applications on their desktop.  Either make your application support Undo, or eliminate the <guimenuitem>Undo</guimenuitem> menu item.</para>
+      <para>A word of caution: a mis-applied or incomplete consistency is often worse than inconsistency.  If your application includes an <guimenuitem>Undo</guimenuitem> menu item for consistency, but it is always disabled because your application does not actually support Undo, this will reduce the user's trust in the availability of Undo in other applications on their desktop.  Either make your application support Undo, or eliminate the <guimenuitem>Undo</guimenuitem> menu item.</para>
 
     </sect1>
 
     <sect1 id="provide-feedback">
-      <title>Let Users Know What's Going On</title>
+      <title>Keep the User Informed</title>
 
-      <para>Always keep the user informed of what's going on in your application by using appropriate feedback at an appropriate time.  The user should never have to guess about the status of the system or of your application.  When the user performs an action, provide feedback to indicate that the system has received the input and is operating on it. Feedback can be visual, audio, or both. If the system will take a long time to process the request, provide as much feedback as possible about how lengthy the operation will be. Types of helpful feedback include but are not limited to: cursor changes, animated &quot;throbbers&quot;, progress indicators, audio feedback such as a beep, and error messages. Error messages should use simple language, clearly state the problem, and provide solutions or tell the user how to get out of the current situation if possible.</para>
+      <para>Always let the user know what is happening in your application by using appropriate feedback at an appropriate time.  The user should never have to guess about the status of the system or of your application.  When the user performs an action, provide feedback to indicate that the system has received the input and is operating on it. Feedback can be visual, audio, or both. If the system will take a long time to process the request, provide as much feedback as possible about how lengthy the operation will be. Types of helpful feedback include but are not limited to: cursor changes, animated &quot;throbbers&quot;, progress indicators, audio feedback such as a beep, and error messages. Error messages should use simple language, clearly state the problem, and provide solutions or tell the user how to get out of the current situation if possible.</para>
 
       <para>It is critical that feedback be <emphasis>accurate</emphasis> and <emphasis>precise</emphasis>.  If you display a determinate progress indicator to display the state of completion of a task and it is inaccurate, the user will lose faith in progress indicators, and they will find the environment less usable.  If you display a generic error message that indicates that there is a problem but fails to provide enough information to diagnose or solve the problem, your users will be unable to continue with their task.</para>
       <para>See <xref linkend="feedback"/>  and <xref linkend="alert-windows"/> for more information on feedback.</para>
@@ -94,7 +92,7 @@
 
       <para>Your application should enable the user to concentrate on the task at hand.  So, design your application to show only useful and relevant information and interface elements.  Every extra piece of information or interface control competes with the truly relevant bits of information and distracts the user from important information.  Hence, don't clutter your interface, and don't overload the user with buttons, menu options, icons, or irrelevant information.  Instead, use progressive disclosure and other techniques to limit what the user sees at any given moment.</para>
 
-      <para>Finally, present your information and interface elements in an aesthetically pleasing manner.  A disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly-aligned, and do not overuse or misuse color or graphics.</para>
+      <para>Finally, present your information and interface elements in an aesthetically pleasing manner.  A disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly-aligned, and do not overuse or misuse color or graphics.  If you know a graphic designer, seek their advice if possible&mdash; the guidelines in this document will help you with the basics, but there is no substitute for a trained eye.</para>
 
 	<para>See <xref linkend="layout"/> and <xref linkend="icons"/> for more information on designing the visual appearance of your application.</para>
 
@@ -103,7 +101,7 @@
     <sect1 id="user-control">
       <title>Put the User in Control</title>
 
-      <para>Remember that computers exist to serve humans.  A user should always feel in control, able to do what they want when they want.  This means you should generally avoid modes; users should be able to switch between different tasks (and specifically, different windows) at any time.</para>
+      <para>Remember that computers exist to serve humans.  A user should always feel in control, able to do what they want when they want.  This means you should generally avoid modes; users should be able to switch between different tasks (and specifically, different windows) at any time. See <xref linkend="window-props-modality"/> for more information on modes.</para>
 
       <para>The user should also be able to tailor aspects of their environment to fit personal preferences.  It is very important, however, to avoid the trap of allowing too much configuration, or allowing the configuration of parameters that most users will not understand or find useful to modify.  Wherever possible, inherit visual and behavioral parameters from global preferences and settings such as the current GTK+ theme.</para>
     </sect1>
@@ -120,9 +118,9 @@
     </sect1>
 
     <sect1 id="enable-direct-manipulation">
-      <title>Enable Direct Manipulation</title>
+      <title>Provide Direct Manipulation</title>
 
-      <para>Wherever possible, allow users to act on objects and data directly, rather than through dialog boxes or explicit commands.  For example, it is more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.</para>
+      <para>Wherever possible, allow users to act on objects and data directly, rather than through dialog boxes or explicit commands.  For example, it is more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.  Simlarly, in an email application, allow the user to attach files by dragging them from the file manager and dropping them onto the message composition window if they wish.</para>
 
 	<para>See <xref linkend="userinput"/> for more information on direct manipulation.</para>
 

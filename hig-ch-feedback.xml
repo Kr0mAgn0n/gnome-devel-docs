@@ -9,9 +9,7 @@
 
       <para>Although highly responsive applications can differ widely from one another, they share the following characteristics:</para>
       <itemizedlist>
-	<listitem><para>They keep up with users, even when they cannot fulfill users' requests immediately.</para></listitem>
-
-<!-- CB-Ed: What do you mean by "keep up with users?"  Be specific.  Say something like:  "They give immediate feedback to users, even when they cannot fulfill users' requests immediately." -->
+	<listitem><para>They give immediate feedback to users, even when they cannot fulfill their requests immediately.</para></listitem>
 
 	<listitem><para>They handle queued requests as users would expect, discarding requests that are no longer relevant and reordering requests according to users' probable priorities.</para></listitem>
 
@@ -87,9 +85,7 @@
 
       <para>Make each response delay in your application as short as possible, unless users need time to see the displayed information before it is erased. The acceptable response delay for each event is based on a typical user's sense that the event is a logical point at which to stop or pause. The greater that sense is, the more willingly the user will wait for a response. Verify that your application responds to users' requests within the limits listed in the table above. If your application cannot respond within those limits, it probably has one or more general problems caused by a particular algorithm or module.</para>
 
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
 	<listitem><para>Verify that your application provides feedback within 100 milliseconds (0.1 second) after each key press, movement of the mouse, or other physical input from the user.</para></listitem>
 
@@ -109,9 +105,7 @@
 
       <para>If your application takes too long to respond, users will become frustrated. Use these techniques to improve the responsiveness of your application.</para>
 
-      <para>Recommendations:</para>
-
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	<listitem><para>Display feedback as soon as possible.</para></listitem>
 
 	<listitem><para>If you cannot display all the information that a user has requested, display the most important information first.</para></listitem>
@@ -175,9 +169,7 @@
 	
 	<para>Progress animations show either how much of an operation is complete, or only that an operation is ongoing.  Normally, these take the form of either a progress bar or a progress checklist.</para>
 	
-	<para>Recommendations:</para>
-	
-	<itemizedlist>
+	<itemizedlist><title>Guidelines</title>
 	  <listitem><para>When displaying a progress animation, open it as soon as possible after you know it is required, and close it automatically as soon as the associated operation is complete.</para></listitem>
 
 	  <listitem><para>Use a measured-progress bar if your application can estimate either how long the operation will take, or what proportion of the operation is complete.</para></listitem>
@@ -389,12 +381,10 @@
 	</tgroup>
       </table>
       
-      <para>Recommendations:</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	<listitem><para>Use a busy pointer whenever users are blocked from interaction with your application for 1 second or longer. Display the busy pointer less than 1 second after the operation begins.</para></listitem>
 	
-	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <xref linkend="interrupting-commands"/>.</para></listitem>
+	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button, which can also be activated by pressing <keycap>Esc</keycap>, that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <xref linkend="interrupting-commands"/>.</para></listitem>
 	
 	<listitem><para>When using an external animation, leave the window containing the animation on-screen for at least 1 second after the operation has completed, with a successful completion message.  Change the <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button to an <guibutton>OK</guibutton> button during this period&mdash; pressing this button should close the window immediately.</para></listitem>
 	
@@ -407,11 +397,9 @@
       
       <para>Users sometimes need to stop a command&mdash; for example, because it is taking too long. Your application should let users stop commands in progress, even if stopping a command cannot undo or &quot;roll back&quot; all the command's effects.</para>
 
-      <para>Recommendations</para>
-      
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 	
-	<listitem><para>Place a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button near the progress animation for the interruptable command.</para></listitem>
+	<listitem><para>Place a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button, which can also be activated by pressing <keycap>Esc</keycap>, near the progress animation for the interruptable command.</para></listitem>
 	
 	  <listitem><para>Label the button <guibutton>Cancel</guibutton> if the whole operation can be cleanly abandoned with no side effects, leaving the system in the state it was in prior to the operation beginning.  Terminate the command immediately when the user presses this button.</para></listitem>
 

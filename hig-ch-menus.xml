@@ -45,7 +45,11 @@
 	</mediaobject>
       </figure>
 
-	  <para>The menubar provides a number of drop-down menus.  Only the menu titles are displayed, until the user clicks on one of them.  The menubar is visible at all times and is always accessible from the keyboard as well as the mouse, so make all the commands available in your application available from here.</para>
+	  <para>The menubar provides a number of drop-down menus.  Only the menu titles are displayed, until the user clicks on one of them.</para>
+
+	<para>The menubar is normally visible at all times and is always accessible from the keyboard, so make all the commands available in your application available on the menubar.</para>
+
+	<note><title>Full screen mode</title><para>When your application is running in full screen mode, hide the menubar by default.  However, make its menus and items accessible from the keyboard as usual, and provide a non-keyboard method of showing the menubar again (standard method TBD)</para></note>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -699,12 +703,12 @@
 	      <row>
 	  	<entry><guimenuitem><accel>U</accel>ndo <replaceable>action</replaceable></guimenuitem></entry>
 	       <entry><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
-		<entry>Undoes the previous action in the undo history list. Revert the document to its state before the previous action was performed.  
+		<entry>Undoes the effect of the previous action in the undo history list. Revert the document to its state before the previous action was performed. If your application supports undo, and the user undoes all changes since it was last saved, treat the document as unmodified.
 		<para>Note: provide a separate <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> menu item even if your application only supports one level of undo.</para></entry>
 	      </row>
 
 		<row>
-	      		<entry><guimenuitem><accel>R</accel>edo <replaceable>action</replaceable></guimenuitem></entry>
+	      	  <entry><guimenuitem><accel>R</accel>edo <replaceable>action</replaceable></guimenuitem></entry>
 			<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
 	      		<entry>Performs the next action in the undo history list, after the user has moved backwards through the list with the <guimenuitem>Undo</guimenuitem> command.  Move the user one step forwards again, restoring the document to the state it was in after that action was originally performed.
 			<para>Note: provide a separate <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> menu item even if your application only supports one level of undo.</para></entry>
@@ -1003,8 +1007,14 @@
 		<row>
 			<entry><guimenuitem><accel>R</accel>efresh</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
-			<entry>Redraws the current view of the document from local storage.  For example, in a web browser application, this would redraw the page from the browser page cache.
-			<para>If you want to check if the actual content has changed before refreshing the view, for example, checking a web page on a web server, label this item <guimenuitem>Reload</guimenuitem> rather than <guimenuitem>Refresh</guimenuitem>.  If your application requires both <guimenuitem>Reload</guimenuitem> and <guimenuitem>Refresh</guimenuitem>, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> as the shortcut for <guimenuitem>Reload</guimenuitem>.</para></entry>
+			<entry>Redraws the current view of the document from local storage.  For example, in a web browser application, this would redraw the page from the browser page cache.</entry>
+		</row>
+		<row>
+			<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
+
+			<entry>Redraws the current view of the document, checking the data source for changes first.  For example, checks the web server for updates to the page before redrawing it.
+			<para>If your application requires both <guimenuitem>Reload</guimenuitem> and <guimenuitem>Refresh</guimenuitem>, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> as the shortcut for <guimenuitem>Reload</guimenuitem>.</para></entry>
 		</row>
 
 		</tbody>
@@ -1252,6 +1262,7 @@
 	<title>Bookmarks</title>
 
 	<para>Provide a <guimenu>Bookmarks</guimenu> menu in any application that allows the user to browse files and folders, help documents, web pages or any other large information space.</para>
+	<note><title>Icons</title><para>Show icons for bookmark entries on the Bookmarks menu that indicate the type of the bookmark, even if the user has globally turned off icons for other menu items on the desktop.</para></note>
 
 	<figure id="generic-bookmarks-menu">
 	  <title>A generic Bookmarks menu</title>
@@ -1264,7 +1275,6 @@
 <guimenu><accel>B</accel>ookmarks</guimenu>
 <guimenuitem><accel>A</accel>dd Bookmark   </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>
 <guimenuitem><accel>E</accel>dit Bookmarks </guimenuitem><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo>
-		<!-- FIXME -->
 	      </literallayout>
 	    </textobject>
 	  </mediaobject>
@@ -1292,6 +1302,11 @@
 			<entry><guimenuitem><accel>E</accel>dit Bookmarks</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
 			<entry>Allows the user to edit the application's bookmark list.  Open a window in which the user can arrange bookmarks into a hierarchy, move, copy, and delete bookmarks, and change their properties.</entry>
+		</row>
+		<row>
+			<entry><emphasis>Bookmark List</emphasis></entry>
+			<entry>None</entry>
+			<entry>The user's current list of bookmarks for the application.</entry>
 		</row>
 		</tbody>
 		</tgroup>
