@@ -30,14 +30,13 @@
 
       <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <mousebutton>middle button</mousebutton>, but you may sometimes see this referred to in code or documentation as &quot;Button 2&quot; or the &quot;Transfer Button&quot;.</para>
 
-	<para>Recommendations:</para>
-	<itemizedlist>
+	<itemizedlist><title>Guidelines</title>
 	  
-	  <listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
+	  <listitem><para>Your application uses left button gestures for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
 	  
-	  <listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
+	  <listitem><para>Your application uses right button gestures to display and select actions from a popup menu.</para></listitem>  
 	  
-	  <listitem><para>The middle mouse button should be used to paste the current PRIMARY (usually the last-highlighted) selection at the pointer position, as follows:</para>
+	  <listitem><para>Your application uses the middle button to paste the current PRIMARY (usually the last-highlighted) selection at the pointer position, as follows:</para>
 	    
 	    <table frame='all'>
 	      <title>Effect of modifier keys on a <mousebutton>middle button</mousebutton> transfer operation</title>
@@ -70,27 +69,27 @@
 	      </tgroup>
 	    </table>
 
-	<para>Don't over-ride this functionality in any part of your user interface where the transfer action is likely to be useful.  If you do intend to use the middle button for a different purpose somewhere, only do so as a shortcut for experienced users, and only for operations that can also be performed without using the <mousebutton>right button</mousebutton> or <mousebutton>middle button</mousebutton>.</para></listitem>
+	<para>Do not over-ride this functionality in any part of your user interface where the transfer action is likely to be useful.  If you do intend to use the middle button for a different purpose somewhere, only do so as a shortcut for experienced users, and only for operations that can also be performed without using the <mousebutton>right button</mousebutton> or <mousebutton>middle button</mousebutton>.</para></listitem>
 
-	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><mousebutton>scrollwheel</mousebutton></keycombo> <emphasis>(or perhaps <keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel</mousebutton></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
+	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  <remark>If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><mousebutton>scrollwheel</mousebutton></keycombo> <emphasis>(or perhaps <keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel</mousebutton></keycombo>?)</emphasis> should scroll horizontally.</remark></para></listitem>
 
-	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
+	<listitem><para>Do not depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
 	<listitem><para>Ensure that every operation in your application that can be done with the mouse can also be done with the keyboard.  The only exceptions to this are actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
 
-	<listitem><para>Don't warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who don't rely on assistive technologies.</para></listitem>
+	<listitem><para>Do not warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who do not rely on assistive technologies.</para></listitem>
 
-	<listitem><para>Don't require the use of chording (pressing multiple mouse buttons simultaneously) for any operations.</para></listitem>
+	<listitem><para>Do not require the use of chording (pressing multiple mouse buttons simultaneously) for any operations.</para></listitem>
 
-	<listitem><para>Don't require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
+	<listitem><para>Do not require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
 
-	<listitem><para>Allow all mouse operations to be cancelled. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
+	<listitem><para>Allow all mouse operations to be cancelled before their completion. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
 
-	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
+	<listitem><para>Do not assign any actions exclusively to the middle button of a three-button mouse, as not all mice have one.</para></listitem>
 
-	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</para></listitem>
+	<listitem><para>Do not hard-code mouse target sizes, or make them too small. Define any mouse targets to be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</para></listitem>
 
-	<listitem><para>Don't refer to particular mouse buttons in your interface unless absolutely necessary.  Not everybody will be using a conventional mouse with left, middle and right buttons, so any text or diagrams that refer to those may be confusing.</para></listitem>
+	<listitem><para>Do not refer to particular mouse buttons in your interface unless absolutely necessary.  Not everybody will be using a conventional mouse with left, middle and right buttons, so any text or diagrams that refer to those may be confusing.</para></listitem>
 
       </itemizedlist>
       
@@ -133,7 +132,8 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	      <row>
 		<entry>Move focus</entry>
 		<entry>Click appropriate item to select it</entry>
-		<entry>Cursor keys, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>PageUp</keycap>, and <keycap>PageDown</keycap>. Also moves current selection if container is single-selection only.</entry>
+		<entry>Cursor keys, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>PageUp</keycap>, and <keycap>PageDown</keycap> move focus and selection simultaneously.
+		<para><keycombo><keycap>Ctrl</keycap><keysym>cursor keys</keysym></keycombo>, <keycombo><keycap>Ctrl</keycap><keycap>Home</keycap></keycombo>,<keycombo><keycap>Ctrl</keycap><keycap>End</keycap></keycombo>, <keycombo><keycap>Ctrl</keycap><keycap>PageUp</keycap></keycombo>, and <keycombo><keycap>Ctrl</keycap><keycap>PageDown</keycap></keycombo> move focus without affecting current selection.</para></entry>
 	      </row>
 	      <row>
 		<entry>Select All</entry>
@@ -163,25 +163,20 @@ user can select, either singly or multiply, ensure the following mechanisms are 
       <sect3 id="bounding-box-selection">
 	<title>Bounding Box Selection</title>
 
-	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
-	<para>Recommendations:</para>
-	<itemizedlist>
+	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), allow multiple selection by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl </keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
 
-	  <listitem><para>By default, only objects that are completely enclosed by the bounding box when the mouse button is released should be selected.</para></listitem>
+	<itemizedlist><title>Guidelines</title>
 
-	<listitem><para>Always use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Don't wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
+	  <listitem><para>By default, select only objects that are completely enclosed by the bounding box when the mouse button is released.</para></listitem>
+
+	<listitem><para>Use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Do not wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
 
 	<listitem><para>When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</para></listitem>
 
 	</itemizedlist>
 
-	<note>
-	  <title>For discussion</title>
-	  <para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para>
-	</note>
+	  <remark><para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para></remark>
 	
-<!-- CB-Fig: In the following figure, get rid of extraneous details in context, to give focus to what is being discussed.  the scrollbar and window edges, for example, are unnecessary, and perhaps make all icons in the context be folder icons.  Use callouts to highlight what you're talking about. -->
-
 	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</title>
 	  <mediaobject>
 	    <imageobject>
@@ -209,22 +204,36 @@ user can select, either singly or multiply, ensure the following mechanisms are 
     <sect2 id="drag-drop">
       <title>Drag and Drop</title>
 
-      <para>Drag and drop is a direct manipulation technique. It allows you to perform actions on selected objects by moving them around the screen with the mouse.</para>
+      <para>Drag and drop is a direct manipulation technique, by which you perform actions on selected objects by moving them around the screen with the mouse.  An object is dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed.  The object is dropped there by releasing the mouse button.  
 
-      <para>&lt;pics&gt;</para>
-
-      <para>An object is normally dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed. The object is dropped there by releasing the mouse button.  
 <!-- Consensus was not to recommend right-button dragging
 Dragging with the right button instead of the left pops up a menu when the button is released, allowing you to choose which action (normally one of Copy, Move, Link or Cancel) to perform.
 -->
 </para>
-
-      <para>Multiple objects may be dragged by <keycap>Shift</keycap> or <keycap>Ctrl</keycap> selecting them, then dragging any one of the selected objects.</para>
       
-      <para>Recommendations:</para>
-      <itemizedlist>
+      <itemizedlist><title>Guidelines</title>
 
-	<listitem><para>Provide good visual feedback throughout a drag and drop operation. As the mouse passes over valid targets, highlight them and change the mouse pointer. Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	<listitem><para>A drag and drop operation can be reversed by using the application's <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice> function.</para></listitem>
+	<listitem><para>Provide visual feedback throughout a drag and drop operation. Highlight valid targets and change the mouse pointer as it passes over them.  Use the "no drop" mouse pointer when passing over invalid drop targets.</para></listitem>	
+
+	<listitem><para>Augment the mouse pointer with a representation of the objects being dragged.  Keep this representation small or make it translucent, so as not to obscure possible drop targets underneath it.</para>
+
+	  <figure>
+	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="images/dragcursor-augmented.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	    <remark>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</remark>
+	</listitem>
+
+	<listitem><para>Allow the user to undo the effects a drag and drop operation by selecting <menuchoice><guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem></menuchoice>.</para></listitem>
+	<listitem><para>Only allow objects to be copied between applications, not moved.  This avoids any confusion about which application's <guimenuitem>Undo</guimenuitem> function reverses the operation.</para></listitem>
 
 	<!-- Decided against the right mouse drag
       <listitem><para>Dragging with the right mouse button pops up a menu when the mouse button is released, offering the choice of Copy, Move, Link, and Cancel (or whichever subset of those actions is available).  Cancel should always be available.</para></listitem>
@@ -235,34 +244,23 @@ Dragging with the right button instead of the left pops up a menu when the butto
 <!-- by dragging withe right mouse button and selecting <guimenu>Cancel</guimenu> on the pop-up menu that appears,--> 
 
 or by dropping the object on an invalid drop target.</para></listitem>
+      	<listitem><para>Allow multiple objects to be dragged by <keycap>Shift</keycap> or <keycap>Ctrl</keycap> selecting them, then dragging any one of the selected objects.</para></listitem>
 
-	<listitem><para>Keyboard users can replicate all drag and drop actions using shortcut keys, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
+	<listitem><para>Ensure that keyboard users can replicate all drag and drop actions using shortcut keys, such as <guimenuitem>Copy</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>) and <guimenuitem>Paste</guimenuitem> (<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>).</para></listitem>
 
-	<listitem><para>Standard pointer shapes are used across all GNOME applications for move, copy, multiple move, multiple copy, and invalid drop target.</para></listitem>
+	<listitem><para>Use standard pointer shapes across all GNOME applications for move, copy, multiple move, multiple copy, and invalid drop target.</para></listitem>
 	
-	<listitem><para>Valid targets are highlighted as the pointer passes over them.</para></listitem>
 	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
-
-	<!-- Not considered a terribly useful suggestion...
-	<listitem><para>A tooltip is provided when the pointer is paused over a valid drop target. It describes what will happen if the object is dropped there.  <emphasis>Is this feasible in GNOME?</emphasis></para></listitem>
-	-->
 	
-	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
+	<listitem><para>Pop up a menu when the user attemps to drop multiple objects on a target that only accepts single objects.  On the menu, list all the objects being dragged, and a <guimenuitem>Cancel</guimenuitem> item.</para></listitem>
 
-	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
-
-	<listitem><para>By default, dragging is non-destructive, i.e. dragging an object from one container to another drags a link or copy, leaving the original intact.</para></listitem>
-
-	<listitem><para>By default, dropping an object into a different window adds it to the existing contents of that window rather than overwriting them (if both options are available).</para></listitem>
+	<listitem><para>Move selected objects when the user drags them within a container.  Copy or link to selected objects when the user drags them between containers.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
 	
       </itemizedlist>
 
-      <note>
-	<title>For discussion</title>
-	<para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para>
-      </note>
+	<remark><para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para></remark>
       
-      <para>The default behaviour of a drag and drop operation may be modified by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer shape immediately and perform the new action when the mouse button is released.</para>
+      <para>Allow the user to modify the default behavior of a drag and drop operation by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer immediately and perform the new action when the mouse button is released.</para>
 
 	<table frame='all'>
 	  <title>Effect of modifier keys during a drag and drop operation</title>
@@ -294,7 +292,6 @@ or by dropping the object on an invalid drop target.</para></listitem>
       <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
 -->
 
-      <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
 	<sect3 id="drag-drop-pointers">
 	  <title>Mouse Pointers to Use for Drag and Drop</title>
@@ -354,7 +351,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</entry>
 		</row>
 
-<!-- This row omitted if we really don't want right mouse drags
+<!-- This row omitted if we really do not want right mouse drags
 		<row>
 		  <entry>
                     <mediaobject>
@@ -387,23 +384,6 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </tgroup>
 	  </table>
 
-	  <para>If the user changes modifier keys after a drag has started, for example holding <keycap>Ctrl</keycap> to change the meaning from move to copy, change the mouse pointer shape immediately and respect the new action when the mouse button is released.</para> 
-
-	  <para>You should normally augment the mouse pointer shape with a representation of whatever is being dragged.  This representation should either be kept small or made translucent, so as not to obscure possible drop targets underneath it.</para>
-
-	  <figure>
-	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
-	    <mediaobject>
-	      <imageobject>
-		<imagedata fileref="images/dragcursor-augmented.png" format="PNG"/>
-	      </imageobject>
-	      <textobject>
-		<phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase>
-	      </textobject>
-	    </mediaobject>
-	  </figure>
-	  
-	    <remark>The pointer shapes shown here aren't actually the current GTK defaults, they're the current KDE (and Windows) defaults.  Should we try and persuade GTK to change?</remark>
 
 	</sect3>
 	
@@ -411,17 +391,16 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  
 	  <title>Mouse Interaction with Applets</title>
 
-	  <para>The panel is a microcosm of the whole GNOME desktop.  Accordingly, all objects on the panel should behave as consistently as possible with each other, and applets are no exception.</para>
-
-	  <para>Recommendations:</para>
+	  <para>All objects on the desktop must behave consistently.  Despite their specialized nature, applets are no exception.</para>
 	  
-	  <itemizedlist>
-	    <listitem><para>Only the unmodified left button should be required to use the applet's controls. Applets should be simple enough not to require modified clicking, or clicking with other mouse buttons (except to pop up the applet's menu).</para>
-	      <para>Suggestion: Clicking and dragging anywhere within the applet window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the applet as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
+	  <itemizedlist><title>Guidelines</title>
+	    <listitem><para>The unmodified left mouse button must be sufficient to operate all your applet's controls.  Applets are meant to be simple enough that modified clicking, or clicking with other mouse buttons (except to pop up the applet's menu) is never required.</para>
+	      <remark>Suggestion: Clicking and dragging anywhere within the applet window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the applet as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</remark></listitem>
 	    
-	    <listitem><para>Clicking the right button <emphasis>anywhere</emphasis> within the applet's enclosing window should pop-up either the contextual menu for the whole applet, or the contextual menu for the object within the applet's window that currently lies under the mouse pointer.</para></listitem>
+	    <listitem><para>Clicking the right button <emphasis>anywhere</emphasis> within the applet's enclosing window must display either the popup menu for the whole applet, or the popup menu for the control under the mouse pointer.  Do not have &quot;dead areas&quot; in your applet that do not respond to a right click.</para></listitem>
 	    
-	    <listitem><para>The middle button should be used only for dragging the applet to a new location.  Clicking and dragging anywhere within the applet window should move the applet, a special drag bar area should not be required.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should copy the applet, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should move the applet, if moving to another panel.  If moving within same panel, <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement, <keycap>Alt</keycap>=free movement.</para></listitem>
+	    <listitem><para>Do not use the middle button for anything except dragging the applet to a new location.  Middle-clicking and dragging anywhere within the applet window must move the applet, do not require a drag bar or similar device.</para>
+		<para><keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should copy the applet, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should move the applet, if moving to another panel.  If moving within same panel, <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement, <keycap>Alt</keycap>=free movement.</para></listitem>
 
 	  </itemizedlist>
 	  
@@ -470,20 +449,20 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- See <xref linkend="keynav-examples"/>.--></para></listitem>
 	  
 	  
-	  <listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
+	  <listitem><para>Do not over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
 	  
 	  <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
 	  
 	  <listitem><para>Ensure that objects that can be resized or moved by drag and drop can also be resized or moved with the keyboard. For example, icons and windows on the desktop. Where precision sizing and placement is potentially important, e.g. shapes in a diagram, also consider providing a dialog into which you can type co-ordinates, or a means of snapping objects to a user-definable grid.</para></listitem>
 	  
-	  <listitem><para>Don't use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
+	  <listitem><para>Do not use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
 	  
 	  <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
 	  
 	  <listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
-	  <listitem><para>Don't assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
+	  <listitem><para>Do not assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
 	  
-	  <listitem><para>Don't require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
+	  <listitem><para>Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
 	</itemizedlist>
 	
 	  <remark>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</remark>
@@ -638,7 +617,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	<note>
 	  <title>For discussion</title>
-	  <para>It's been suggested that even OK and Cancel should have access keys, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you don't always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C access keys, which could be awkward in larger/tabbed dialogs.</para>
+	  <para>It's been suggested that even OK and Cancel should have access keys, as this is more obvious to newer users.  (KDE does this).  What do we think?  Advantages: means you do not always have to have an Enter-operated default button in dialogs where this might lead you to close the dialog by mistake.  Disadvantages: Adds an extra way for people to do things, potentially adding the "dither" factor; uses up O and C access keys, which could be awkward in larger/tabbed dialogs.</para>
 	</note>
 -->
 
@@ -654,7 +633,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
 	</orderedlist>
 
-	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often don't show up very well on those characters.</para>
+	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often do not show up very well on those characters.</para>
 
 	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
 	
@@ -673,23 +652,23 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcut keys to your application.</para></listitem>
 
-	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Don't assign them to unrelated functions just because you've run out of other shortcut key combinations.</para></listitem>
+	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Do not assign them to unrelated functions just because you've run out of other shortcut key combinations.</para></listitem>
 
-	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Don't try to assign a shortcut key to everything.</para></listitem>
+	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Do not try to assign a shortcut key to everything.</para></listitem>
 
 	  <listitem><para>Choose new shortcut keys to be as mnemonic as possible, as they are easier to learn and remember.  For example, <keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo> would be a good shortcut for a menu item called <guimenuitem>Edit Page</guimenuitem>.</para></listitem>
 
 	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
 	  
-	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  <listitem><para>Do not use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
 	  	  
-	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with menu access keys.</para></listitem>
+	  <listitem><para>Do not use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with menu access keys.</para></listitem>
 
-	  <listitem><para>Don't use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
+	  <listitem><para>Do not use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
 	  
-	  <listitem><para>Don't assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
+	  <listitem><para>Do not assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
 	  
-	  <listitem><para>Don't use any of the standard shortcut keys listed in <xref linkend="standard-shortcuts"/> for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between all GNOME applications.</para></listitem>
+	  <listitem><para>Do not use any of the standard shortcut keys listed in <xref linkend="standard-shortcuts"/> for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between all GNOME applications.</para></listitem>
 
 	</itemizedlist>
 
