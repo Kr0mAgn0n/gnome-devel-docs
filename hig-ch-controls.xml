@@ -120,7 +120,7 @@
 
 <!-- CB-Ed: Try to cluster input text fields so that fields of similar "types" end up together, and end up having uniform sizes.  Usually you want to size text entry fields to the width of the largest input expected in each clustering.  A clean and orderly visual flow is indeed important for the user; that is, line things up so that "everything line[s] up nicely" where possible.  The figure (3) actually shows this well. -->
 
-	<listitem><para>In an instant-apply <link linkend="utility-windows">property or preference window</link>, validate the contents of the entry field when it loses focus, not after each keypress.</para></listitem>
+	<listitem><para>In an instant-apply <link linkend="windows-utility">property or preference window</link>, validate the contents of the entry field when it loses focus, not after each keypress.</para></listitem>
 
 	<listitem><para>Provide a static text prompt for text boxes that require input in a particular format or in a particular unit of measurement.  For example:</para>
 	  
@@ -150,7 +150,7 @@
 	  
 	  <para>This is less error-prone than expecting the user to format their text input in some arbitrary format.  You may still want to provide the entry field control as well, however, for expert users who are familiar with the required format.</para></listitem>
 	  
-	<listitem><para>If you implement an entry field that accepts only keystrokes valid in the task context, such as digits, play the system warning beep when the user tries to type an invalid character.  If the user types three invalid characters in a row, display an <link linkend="alert-windows">alert</link> that explains the valid inputs for that textfield.</para></listitem>
+	<listitem><para>If you implement an entry field that accepts only keystrokes valid in the task context, such as digits, play the system warning beep when the user tries to type an invalid character.  If the user types three invalid characters in a row, display an <link linkend="windows-alert">alert</link> that explains the valid inputs for that textfield.</para></listitem>
       <listitem><para>The cursor blink rate is globally defined by the XSettings "gtk-cursor-blink" and "gtk-cursor-blink-time". Standard toolkit controls use these and they must <!-- a11y, right? --> not be altered in applications by any means. New controls with text cursors must respect these global values.</para></listitem>
 
       </itemizedlist>
@@ -333,7 +333,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
       <itemizedlist><title>Guidelines</title>
 
-	<listitem><para>Do not initiate an action when the user clicks a check box.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the check box immediately.</para></listitem>
+	<listitem><para>Do not initiate an action when the user clicks a check box.  However, if used in an instant-apply <link linkend="windows-utility">property or preference window</link>, update the setting represented by the check box immediately.</para></listitem>
 	
 	<listitem><para>Clicking a check box should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however. 
 </para></listitem>
@@ -426,7 +426,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Exactly one radio button should be set in the group at all times.  The only exception is when the group is showing the properties of a multiple selection, when one or more of the buttons may be in their mixed state.</para></listitem>
 
-	<listitem><para>Do not initiate an action when the user clicks a radio button.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the radio button immediately.</para></listitem>
+	<listitem><para>Do not initiate an action when the user clicks a radio button.  However, if used in an instant-apply <link linkend="windows-utility">property or preference window</link>, update the setting represented by the radio button immediately.</para></listitem>
 
 	  <listitem><para>Clicking a radio button should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
       
@@ -559,7 +559,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Do not use option menus with fewer than three items, or more than about ten.  To offer a choice of two options, use <link linkend="controls-radio-buttons">radio buttons</link> or <link linkend="controls-toggle-buttons">toggle buttons</link>.  To offer a choice of more than ten options, use a <link linkend="controls-lists">list</link>.</para></listitem>
 	
-	<listitem><para>Do not initiate an action when the user selects an item from an option menu.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting that the menu represents immediately.</para></listitem>
+	<listitem><para>Do not initiate an action when the user selects an item from an option menu.  However, if used in an instant-apply <link linkend="windows-utility">property or preference window</link>, update the setting that the menu represents immediately.</para></listitem>
 	
 	<listitem><para>Selecting an item from an option menu should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
 		
@@ -617,7 +617,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 
 	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
 	
-	<listitem><para>Do not initiate an action when the user selects an item from the list in a combo box.  If used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the combo box immediately if possible.  If this isn't possible due to the contents of the entry field being invalid while the user is still typing into it, update the related setting when the combo box loses focus instead.</para></listitem>
+	<listitem><para>Do not initiate an action when the user selects an item from the list in a combo box.  If used in an instant-apply <link linkend="windows-utility">property or preference window</link>, update the setting represented by the combo box immediately if possible.  If this isn't possible due to the contents of the entry field being invalid while the user is still typing into it, update the related setting when the combo box loses focus instead.</para></listitem>
 
 
 	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>

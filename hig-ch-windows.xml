@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter id="windows">
   <title>Windows</title>
-  <sect1 id="window-properties">
+  <sect1 id="windows-properties">
     <title>Parts of Windows and System Interaction</title>
     <sect2 id="window-props-titles">
       <title>Titles</title>
-	<para>Give every window a title (with the exception of <link linkend="alert-windows">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
+	<para>Give every window a title (with the exception of <link linkend="windows-alert">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
 
        <figure>
 	<title>Example of a window title</title>
@@ -70,7 +70,7 @@
 
     </sect2>
   </sect1>
- <sect1 id="primary-windows">
+ <sect1 id="windows-primary">
   <title>Primary Windows</title>
 
     <para>A primary window usually presents a view of the user's data, such as a text document in a word processor application, an image in a drawing program, or calculations in a calculator or spreadsheet application.  It may also be a view of something more abstract, like a game.   A single instance of an application may have more than one primary window, and more than one kind of primary window.</para>
@@ -214,7 +214,7 @@
   </sect1>
 
   
-  <sect1 id="utility-windows">
+  <sect1 id="windows-utility">
     <title>Utility Windows</title>
     <para>Utility windows, such as palettes and toolboxes, normally have borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
 
@@ -405,7 +405,7 @@
   </sect1>
 
 
-<sect1 id="alert-windows">
+<sect1 id="windows-alert">
     <title>Alerts</title>
 
 	<para>An alert provides information about the state of the application system, or asks for essential information about how to proceed with a particular task.  It is distinct from other types of window in that it is not directly requested by the user, and usually contains a message or a question rather than editable controls. Since alerts are an unwelcome intrusion into the user's work, do not use them except where necessary to avoid potential data loss or other serious problems.</para>
@@ -771,7 +771,7 @@
     </sect2>
 
   </sect1>
-  <sect1 id="progress-windows">
+  <sect1 id="windows-progress">
     <title>Progress Windows</title>
     <para>A progress window can be used to provide <link linkend="feedback">feedback</link> during an operation that takes more than a few seconds. See <xref linkend="controls-progress-bars"/> for more details about proper use of progress bars.</para>
 	<remark>It's not at all clear to me how this section is supposed to interact with the Feedback chapter, as both now seem to contain guidelines for what type of progress window to use and when.  Perhaps this section should primarily focus on the window management features of progress windows? --Calum.</remark>
@@ -861,7 +861,7 @@
     </sect2>
   </sect1>
   
-  <sect1 id="dialog-boxes">
+  <sect1 id="windows-dialog">
     <title>Dialogs</title>
     
     <para>A dialog provides an exchange of information, or dialog, between the user and the application.  Use a dialog to obtain additional information from the user that is needed to carry out a particular command or task.</para>
@@ -912,7 +912,7 @@
       
       <para>Provide and show sensible default values for as many of the controls in your dialog as possible when it is opened, so the user does not have to generate the information from scratch.  These defaults may come from system settings (for example, hostname or IP address), or from information that the user has previously entered in this or another application (for example, email address or network proxy).</para>
       
-      <para>See <xref linkend="layout"/> for more detailed information on arranging controls in dialogs.</para>
+      <para>See <xref linkend="design"/> for more detailed information on arranging controls in dialogs.</para>
       
       <para>See <xref linkend="controls-notebooks"/> for information on using tabbed notebook controls in dialogs.</para>
       
@@ -925,7 +925,7 @@
     
   </sect1>
 
-  <sect1 id="assistant-windows">
+  <sect1 id="windows-assistant">
     <title>Assistants</title>
     <!--<remark>FIXME: need to finish this section</remark>-->
     <para>An assistant is a secondary window that guides the user through an operation by breaking it into sequential steps. Assistants are useful for making complex operations less intimidating, as they restrict the information visible to the user at any given moment.</para>

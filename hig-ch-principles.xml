@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-  <chapter id="usabilityprinciples">
+  <chapter id="principles">
     
     <title>Usability Principles</title>
 
     <para>This section explains some of the basic principles behind the more specific technical guidelines recommended in this document.  We believe that these principles are important for all application development.</para>
 
-    <sect1 id="design-for-people">
+    <sect1 id="principles-people">
       <title>Design for People</title>
 
       <para>Remember that the purpose of any software application is to enable some group of people to accomplish a specific set of tasks.  So, the first things to establish when designing your application are:</para>
@@ -21,7 +21,7 @@
       <para>The important thing is that you know your audience, and you understand both their goals and the tasks necessary to achieve those goals.  There are a large number of professional interaction designers who write books and teach courses on design methods that can help with this process, many of which are extremely useful&mdash; see the <xref linkend="bibliography"/> for a selection.  Most of these methods, however, boil down to specific ways of understanding your users, understanding the tasks you want to help them accomplish, and finding ways to support those tasks in your application.</para>
 
     </sect1>
-    <sect1 id="broad-user-base">
+    <sect1 id="principles-broad-userbase">
       <title>Don't Limit Your User Base</title>
 
       <para>If you are designing an application for use by engineers, or by children, or by system administrators, be sure to create an application that can be used by <emphasis>all</emphasis> engineers, children, or system administrators, including those with disabilities or those who are native speakers of a language different from yours.  Be aware of accessibility issues and internationalization and localization issues, many of which are addressed by the guidelines in this document.</para>
@@ -52,7 +52,7 @@
     
     </sect1>
 
-    <sect1 id="application-world-match">
+    <sect1 id="principles-match">
       <title>Create a Match Between Your Application and the Real World</title>
 
       <para id="use-users-language">Always use words, phrases, and concepts that are familiar to the user rather than terms from the underlying system.  Use terms that relate to the user's knowledge of the tasks your application supports.  For example, in medicine, the paper folder that contains all information about a specific patient is called a &quot;chart.&quot;  Hence, a medical application might refer to a patient record that contains the same information as a paper chart as a &quot;patient chart&quot; rather than as a &quot;patient database record.&quot;</para>
@@ -67,7 +67,7 @@
       <para>When using metaphors, however, it is important to neither take the metaphor too literally, nor to extend the metaphor beyond its reasonable use.  For example, the capacity of a file folder should not be limited to the capacity of a physical file folder, which presumably could contain only a few documents before becoming unwieldy.  On the other hand, a waste basket should not be used for anything other than holding discarded files.  It should not be used, for example, to eject a removable disk such as a floppy or CD.</para>
     </sect1>
 
-    <sect1 id="be-consistent">
+    <sect1 id="principles-consistency">
       <title>Make Your Application Consistent</title>
 
       <para>Make your application consistent with itself and with other applications, in both its appearance and its behavior. This is one of the most important design principles, and probably the most famous, but it is also frequently ignored. While this document serves as the basis for consistency between GNOME applications, you are encouraged to look at and follow other application's conventions where this document provides no guidelines.</para>
@@ -78,27 +78,27 @@
 
     </sect1>
 
-    <sect1 id="provide-feedback">
+    <sect1 id="principles-feedback">
       <title>Keep the User Informed</title>
 
       <para>Always let the user know what is happening in your application by using appropriate feedback at an appropriate time.  The user should never have to guess about the status of the system or of your application.  When the user performs an action, provide feedback to indicate that the system has received the input and is operating on it. Feedback can be visual, audio, or both. If the system will take a long time to process the request, provide as much feedback as possible about how lengthy the operation will be. Types of helpful feedback include but are not limited to: cursor changes, animated &quot;throbbers&quot;, progress indicators, audio feedback such as a beep, and error messages. Error messages should use simple language, clearly state the problem, and provide solutions or tell the user how to get out of the current situation if possible.</para>
 
       <para>It is critical that feedback be <emphasis>accurate</emphasis> and <emphasis>precise</emphasis>.  If you display a determinate progress indicator to display the state of completion of a task and it is inaccurate, the user will lose faith in progress indicators, and they will find the environment less usable.  If you display a generic error message that indicates that there is a problem but fails to provide enough information to diagnose or solve the problem, your users will be unable to continue with their task.</para>
-      <para>See <xref linkend="feedback"/>  and <xref linkend="alert-windows"/> for more information on feedback.</para>
+      <para>See <xref linkend="feedback"/>  and <xref linkend="windows-alert"/> for more information on feedback.</para>
     </sect1>
 
-    <sect1 id="keep-it-simple">
+    <sect1 id="principles-simplicity">
       <title>Keep It Simple and Pretty</title>
 
       <para>Your application should enable the user to concentrate on the task at hand.  So, design your application to show only useful and relevant information and interface elements.  Every extra piece of information or interface control competes with the truly relevant bits of information and distracts the user from important information.  Hence, don't clutter your interface, and don't overload the user with buttons, menu options, icons, or irrelevant information.  Instead, use progressive disclosure and other techniques to limit what the user sees at any given moment.</para>
 
       <para>Finally, present your information and interface elements in an aesthetically pleasing manner.  A disorganized, cluttered-looking interface with a few elements can be just as distracting as an organized interface with too much information.  Make sure that dialog elements are cleanly-aligned, and do not overuse or misuse color or graphics.  If you know a graphic designer, seek their advice if possible&mdash; the guidelines in this document will help you with the basics, but there is no substitute for a trained eye.</para>
 
-	<para>See <xref linkend="layout"/> and <xref linkend="icons"/> for more information on designing the visual appearance of your application.</para>
+	<para>See <xref linkend="design"/> and <xref linkend="icons"/> for more information on designing the visual appearance of your application.</para>
 
     </sect1>
 
-    <sect1 id="user-control">
+    <sect1 id="principles-user-control">
       <title>Put the User in Control</title>
 
       <para>Remember that computers exist to serve humans.  A user should always feel in control, able to do what they want when they want.  This means you should generally avoid modes; users should be able to switch between different tasks (and specifically, different windows) at any time. See <xref linkend="window-props-modality"/> for more information on modes.</para>
@@ -106,7 +106,7 @@
       <para>The user should also be able to tailor aspects of their environment to fit personal preferences.  It is very important, however, to avoid the trap of allowing too much configuration, or allowing the configuration of parameters that most users will not understand or find useful to modify.  Wherever possible, inherit visual and behavioral parameters from global preferences and settings such as the current GTK+ theme.</para>
     </sect1>
 
-    <sect1 id="forgive-the-user">
+    <sect1 id="principles-forgiveness">
       <title>Forgive the User</title>
 
       <para>We all make mistakes.  Whether we're exploring and learning how to use the system, or we're experts who just hit the wrong key, we are only human.  Your application should therefore allow users to quickly undo the results of their actions.</para>
@@ -117,12 +117,12 @@
 
     </sect1>
 
-    <sect1 id="enable-direct-manipulation">
+    <sect1 id="principles-direct-manipulation">
       <title>Provide Direct Manipulation</title>
 
       <para>Wherever possible, allow users to act on objects and data directly, rather than through dialogs or explicit commands.  For example, it is more intuitive to drag a circle object around in a diagram rather than selecting a "Move" command from a menu while the circle is selected.  Simlarly, in an email application, allow the user to attach files by dragging them from the file manager and dropping them onto the message composition window if they wish.</para>
 
-	<para>See <xref linkend="userinput"/> for more information on direct manipulation.</para>
+	<para>See <xref linkend="input"/> for more information on direct manipulation.</para>
 
     </sect1>
 

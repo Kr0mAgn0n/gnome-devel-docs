@@ -4,7 +4,7 @@
 <chapter id="feedback">
     <title>Feedback</title>
 
-    <sect1 id="responsiveness">
+    <sect1 id="feedback-responsiveness">
       <title>Characteristics of Responsive Applications</title>
 
       <para>Although highly responsive applications can differ widely from one another, they share the following characteristics:</para>
@@ -42,11 +42,11 @@
 
       </itemizedlist>
       
-      <para>You can sometimes possible to improve an application's responsiveness without speeding up the application's code. For tips on how to make such improvements, see <xref linkend="responding-to-user-requests"/>.</para>
+      <para>You can sometimes possible to improve an application's responsiveness without speeding up the application's code. For tips on how to make such improvements, see <xref linkend="feedback-responding-to-user"/>.</para>
       
     </sect1>
 
-    <sect1 id="acceptable-response-times">
+    <sect1 id="feedback-response-times">
 
       <title>Acceptable Response Times</title>
       
@@ -99,7 +99,7 @@
 
     </sect1>
     
-    <sect1 id="responding-to-user-requests">
+    <sect1 id="feedback-responding-to-user">
       
       <title>Responding to User Requests</title>
 
@@ -264,7 +264,7 @@
           <sect4 id="progress-windows-vs-status-bar">
             <title>Progress Windows vs. the Status Bar</title>
 
-            <para>In an application where the <link linkend="primary-windows">primary windows</link> contain a <link linkend="controls-status-bars">status bar</link> (which in turn contains a progress bar), it will often be the case that an operation's feedback could be presented in either the status bar or a <link linkend="progress-windows">progress window</link>. A rule of thumb is to use the status bar when an operation is expected to take fewer than ten seconds, otherwise use a progress window. However, do consider the following when choosing between the two:</para>
+            <para>In an application where the <link linkend="windows-primary">primary windows</link> contain a <link linkend="controls-status-bars">status bar</link> (which in turn contains a progress bar), it will often be the case that an operation's feedback could be presented in either the status bar or a <link linkend="windows-progress">progress window</link>. A rule of thumb is to use the status bar when an operation is expected to take fewer than ten seconds, otherwise use a progress window. However, do consider the following when choosing between the two:</para>
             <itemizedlist>
               <listitem><para>Opening a new window, particularly when an operation is short, can needlessly disrupt the user's workflow.</para></listitem>
               <listitem><para>Progress windows can convey more information.</para></listitem>
@@ -307,7 +307,7 @@
       
     </sect1>
 
-    <sect1 id="choosing-correct-feedback">
+    <sect1 id="feedback-choosing">
       <title>Choosing Appropriate Feedback</title>
 
       <para>To determine which type of visual feedback to provide for a particular operation, consider these factors:</para>
@@ -383,7 +383,7 @@
       <itemizedlist><title>Guidelines</title>
 	<listitem><para>Use a busy pointer whenever users are blocked from interaction with your application for 1 second or longer. Display the busy pointer less than 1 second after the operation begins.</para></listitem>
 	
-	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button, which can also be activated by pressing <keycap>Esc</keycap>, that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <xref linkend="interrupting-commands"/>.</para></listitem>
+	<listitem><para>If a command will likely take 10 seconds or longer to finish, provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button, which can also be activated by pressing <keycap>Esc</keycap>, that lets users terminate the command's processing even if your application cannot undo the command's effects.  See <xref linkend="feedback-interrupting"/>.</para></listitem>
 	
 	<listitem><para>When using an external animation, leave the window containing the animation on-screen for at least 1 second after the operation has completed, with a successful completion message.  Change the <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button to an <guibutton>OK</guibutton> button during this period&mdash; pressing this button should close the window immediately.</para></listitem>
 	
@@ -391,7 +391,7 @@
       
     </sect1>
     
-    <sect1 id="interrupting-commands">
+    <sect1 id="feedback-interrupting">
       <title>Allowing Interruptions</title>
       
       <para>Users sometimes need to stop a command&mdash; for example, because it is taking too long. Your application should let users stop commands in progress, even if stopping a command cannot undo or &quot;roll back&quot; all the command's effects.</para>

@@ -8,12 +8,12 @@
 
     <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, place common menu items in the same locations as they appear in other applications, as this makes it much easier for the user to learn.</para>
   
-    <para>In most applications, only primary windows should have a menubar. <link linkend="utility-windows">Utility windows</link> and <link linkend="dialog-boxes">dialogs</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
+    <para>In most applications, only primary windows should have a menubar. <link linkend="windows-utility">Utility windows</link> and <link linkend="windows-dialog">dialogs</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
 
     <para>Occasionally, however, a utility window or dialog is so complex that there would be too many such controls. In this case, you may use a menubar provided that:</para>
 
     <itemizedlist>
-      <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
+      <listitem><para>the menus follow the same standard layout as described in <xref linkend="menus-standard" /></para></listitem>
       <listitem><para>the window does not include a dialog button area or any buttons that dismiss it, such as <guibutton>OK</guibutton>, <guibutton>Close</guibutton> or <guibutton>Cancel</guibutton>.  Place these commands on the <guimenu>File</guimenu> menu or equivalent instead.</para></listitem>
     </itemizedlist>
 
@@ -31,7 +31,7 @@
 	</itemizedlist>
 
 
-	<sect1 id="menu-type-menubar">
+	<sect1 id="menus-menubar">
 	  <title>The Menubar</title>
 
 	<figure id="example-menu-bar">
@@ -53,7 +53,7 @@
 
 		<listitem><para>Provide a menubar in each primary application window, containing at least a <guimenu>File</guimenu> and a <guimenu>Help</guimenu> menu.</para></listitem>
 
-      		<listitem><para>Organize menu titles in the standard order&mdash; see <xref linkend="standard-menus"/></para></listitem>
+      		<listitem><para>Organize menu titles in the standard order&mdash; see <xref linkend="menus-standard"/></para></listitem>
 
 		 <listitem><para>Do not disable menu titles. Allow the user to explore the menu, even though there might be no available items on it at that time.</para></listitem>
 
@@ -65,7 +65,7 @@
 
 	</sect1>
 
-   <sect1 id="menu-types">
+   <sect1 id="menus-types">
       <title>Types of Menu</title>
 
 
@@ -89,7 +89,7 @@
 
 	<listitem><para>Only place items on a menu that relate to that menu's title.</para></listitem>
 
-      <listitem><para>Organize menu items in the standard order&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> followed by <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
+      <listitem><para>Organize menu items in the standard order&mdash; see <xref linkend="menus-standard" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> followed by <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
 
       <listitem><para>Limit top-level menus to a maximum of about 15 items. If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
@@ -176,7 +176,7 @@
 	</sect2>
 	</sect1>
 
-	<sect1 id="menu-design">
+	<sect1 id="menus-design">
 	<title>Designing a Menu</title>
 
 	<sect2 id="menu-grouping">
@@ -313,7 +313,7 @@
 
     </sect1>
 
-    <sect1 id="standard-menus">
+    <sect1 id="menus-standard">
       <title>Standard Menus</title>
       <para>Most applications have many functions in common, such as <guimenu>Cut</guimenu>, <guimenu>Copy</guimenu>, <guimenu>Paste</guimenu> and <guimenu>Quit</guimenu>.  To aid learning and memorability, these menu items, and the menus on which they appear, must appear with the same labels and in the same order in every application.  The same commands must also behave the same way in different applications, to avoid surprising the user.</para>
 
@@ -906,7 +906,7 @@ the application saves state as it should.</remark>
 	      <row>
 	 	      <entry><guimenuitem><accel>T</accel>oolbar</guimenuitem></entry>
 	      		<entry>None</entry>
-			<entry>Shows or hides the application's toolbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>. Include this item in every application that has a single toolbar.  See <xref linkend="toolbar-controlling-appearance"/> for information on how to deal with multiple toolbars.</entry>
+			<entry>Shows or hides the application's toolbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>. Include this item in every application that has a single toolbar.  See <xref linkend="toolbars-controlling-display"/> for information on how to deal with multiple toolbars.</entry>
 		</row>
 
 		<row>
