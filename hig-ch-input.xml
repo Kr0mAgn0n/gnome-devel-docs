@@ -386,10 +386,11 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 
 	</sect3>
+	</sect2>
 	
-	<sect3 id="mouse-interaction-applets">
+	<sect2 id="mouse-interaction-applets">
 	  
-	  <title>Mouse Interaction with Applets</title>
+	  <title>Mouse Interaction with Panel Applications (Applets)</title>
 
 	  <para>All objects on the desktop must behave consistently.  Despite their specialized nature, applets are no exception.</para>
 	  
@@ -404,9 +405,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	  </itemizedlist>
 	  
-	</sect3>
+	</sect2>
 	
-      </sect2>
     </sect1>
     
     
@@ -419,27 +419,23 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	
 	<para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power-users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
 	
-	<para>You should therefore make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides should be available using the keyboard alone. Hide your mouse while you're testing your application if you have to!</para>
+	<para>Make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides must be available using the keyboard alone. Hiding your mouse while you test your application is a great way to test this!</para>
 	
 	
 	<figure>
-	  <title>Dialog box and menu, with some of their access keys (red) and shortcut keys (blue) highlighted</title>
+	  <title>Dialog box and menu, with some of their access and shortcut keys indicated</title>
 	  <mediaobject><imageobject>
 	      <imagedata fileref="images/mnemonics_and_shortcuts.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>Dialog box and menu with access keys and shortcut keys highlighted</phrase>
+	      <phrase>Screenshot of a dialog box and a menu with some of their access keys and shortcut keys highlighted</phrase>
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	
-	
-<!-- CB-Fig: Classic callouts (boxes and straight lines) would work better here than circles which may make it difficult to see what is being pointed at -->
+
 	<para>Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
-	
-	<para>Recommendations:</para>
-	
-	<itemizedlist>
+		
+	<itemizedlist><title>Guidelines</title>
 	  
 	  <listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using access keys or shortcut keys.</para></listitem>
 	  
@@ -449,7 +445,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- See <xref linkend="keynav-examples"/>.--></para></listitem>
 	  
 	  
-	  <listitem><para>Do not over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
+	  <listitem><para>Do not over-ride existing system-level accessibility features. For example, the MouseKeys feature in the GNOME <label>Keyboard Accessibility</label> preferences dialog allows mouse movement and button clicks to be simulated using the keypad. Therefore you cannot add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
 	  
 	  <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
 	  
@@ -457,163 +453,25 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  
 	  <listitem><para>Do not use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
 	  
-	  <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
+	  <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to, but without hiding or obscuring the object to which the menu or tooltip refers,. In GNOME, popup menus are activated with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo>.</para></listitem>
 	  
-	  <listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
+	  <listitem><para>Provide more than one method to perform keyboard tasks where possible. Users may find some keys and key combinations easier to use than others.</para></listitem>
+
 	  <listitem><para>Do not assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
 	  
-	  <listitem><para>Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
+	  <listitem><para>Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as the GNOME <label>Keyboard Accessibility</label> preferences dialog do allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
 	</itemizedlist>
 	
 	  <remark>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</remark>
 	
-	
-	
-	<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
-	
-      <sect2 id="keynav-examples">
-      <title>Keyboard Navigation Examples</title>
-	
-      <para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
-	
-      <example><title>Correct tab order for group of radio buttons with dependent controls</title>
-	
-      <informaltable frame='all'>
-	    
-	    <tgroup cols='2'>
-	      <tbody>
-		<row>
-		  <entry>
-		    <mediaobject><imageobject>
-			<imagedata fileref="images/depend1.png" format="PNG"/>
-		  </imageobject>
-		    <textobject>
-		      <phrase>Group of three radio buttons, first two of which have dependent text field. First radio button has focus.</phrase>
-		    </textobject>
-		  </mediaobject>
-		  </entry>
-	  
-		  <entry>State 1
-		    <itemizedlist>
-		      <listitem><para><keycap>Tab</keycap> moves to State 2</para></listitem>
-		      <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
-		      <listitem><para><keysym>Down Arrow</keysym> moves to State 3</para></listitem>
-		      <listitem><para><keycap>Up Arrow</keycap> beeps and doesn't move focus</para></listitem>
-		    </itemizedlist>
-		  </entry>
-		</row>
-	  
-		<row>
-		  <entry>
-		    <mediaobject>
-		      <imageobject>
-			<imagedata fileref="images/depend1a.png" format="PNG"/>
-		  </imageobject>
-		    <textobject>
-		      <phrase>Group of three radio buttons, first two of which have dependent text field. First radio button's text field has focus.</phrase>
-		    </textobject>
-		  </mediaobject>
-		  </entry>
-		  
-	  <entry>State 2
+	</sect2>
 
-	  <itemizedlist>
-	      <listitem><para><keycap>Tab</keycap> moves to first control after radio button group</para></listitem>
-	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves to State 1</para></listitem>
-	  </itemizedlist>
-
-	</entry>		
-	</row>
-	  
-	  <row>
-	    <entry>
-
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/depend2.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Group of three radio buttons, first two of which have dependent text field. Second radio button has focus.</phrase>
-	    </textobject>
-	  </mediaobject>
-
-	</entry>
-	  
-	  <entry>State 3
-
-	  <itemizedlist>
-	    <listitem><para><keycap>Tab</keycap> moves to State 4</para></listitem>
-	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
-	    <listitem><para><keysym>Down Arrow</keysym> moves to State 5</para></listitem>
-	    <listitem><para><keysym>Up Arrow</keysym> moves to State 1</para></listitem>
-	  </itemizedlist>
-
-	</entry>
-	</row>
-	  
-	  <row>
-	    <entry>
-
-	       <mediaobject>
-		  <imageobject>
-		     <imagedata fileref="images/depend2a.png" format="PNG"/>
-		  </imageobject>
-		  <textobject>
-		     <phrase>Group of three radio buttons, first two
-		     of which have dependent text field. Second radio
-		     button's text field has focus.</phrase>
-		  </textobject>
-	       </mediaobject>
-
-	    </entry>
-	    
-	    <entry><para>State 4</para><itemizedlist>
-		<listitem><para><keycap>Tab</keycap> moves focus to first control after radio button group</para></listitem>
-		<listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves to State 3</para></listitem>
-	      </itemizedlist></entry>
-	    
-	  </row>
-	  
-	  <row>
-	    <entry>
-
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/depend3.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>Group of three radio buttons, first two of which have dependent text field. Third radio button has focus.</phrase>
-	    </textobject>
-	  </mediaobject>
-
-	</entry>
-	  
-	  <entry>State 5
-
-	  <itemizedlist>
-	    <listitem><para><keycap>Tab</keycap> moves focus to first control after radio button group</para></listitem>
-	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to first control before radio button group</para></listitem>
-	    <listitem><para><keysym>Down Arrow</keysym> beeps and doesn't move focus</para></listitem>
-	    <listitem><para><keysym>Up Arrow</keysym> moves to State 3</para></listitem>
-	  </itemizedlist>
-
-	</entry>
-	</row>
-	  
-	</tbody>
-	</tgroup>
-	</informaltable>
-	</example>
-      </sect2>
-
--->
-
-      <sect3 id="choosing-access-keys">
+      <sect2 id="choosing-access-keys">
 	<title>Choosing Access Keys</title>
 
-	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
+	<para>Give all labelled components an access key (underlined letter), with the exception of toolbar control which would use up too many access key combinations.</para>
 
-
-
-<!-- Consensus was against giving OK and Cancel additional access keys
+<!-- Consensus was against giving OK and Cancel additional access keys, but they have them anyway and Owen refuses to remove them...
 
 	<note>
 	  <title>For discussion</title>
@@ -621,59 +479,53 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</note>
 -->
 
-	<para>Choose access keys to be as easy to remember as possible&mdash; normally the first letter of the label.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
+	<para>Choose access keys to be as easy to remember as possible.  Normally, this means using the first letter of the label.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</para>
 
 	<orderedlist>
-	    <listitem><para>Assign access keys for the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign them from left to right, top to bottom (for Western locales).</para></listitem>
+	    <listitem><para>Assign access keys to the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign access keys from left to right, top to bottom (for Western locales).</para></listitem>
 
-	  <listitem><para>Use the first letter of the label, or the first letter in one of the words of a multi-word label, unless another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Extra Large</guilabel>.)</para></listitem>
+	  <listitem><para>Use the first letter of the label, or of one of its other words if it has more than one.  If another letter provides a better association (e.g. &quot;x&quot; in <guilabel>Extra Large</guilabel>) however, consider using that letter instead.</para></listitem>
 
-	  <listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, e.g. &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
+	  <listitem><para>If the first letter is not available, choose an easy to remember consonant from the label, for example, &quot;p&quot; in <guilabel>Replace</guilabel>.</para></listitem>
  
 	  <listitem><para>If no such consonants are available, choose any available vowel from the label.</para></listitem>
 	</orderedlist>
 
-	   <para>If possible, try not to assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y).  The underlines often do not show up very well on those characters.</para>
+	   <para>Do not assign access keys to &quot;thin&quot; letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y) unless you have to.  The underlines often do not show up very well on those characters.</para>
 
-	<para>Applications using a non-Roman writing system (such as Kanji) in conjunction with a standard keyboard can have control labels prefixed with alphabetic (Roman) characters as access keys.</para>
+	<para>Applications using a non-Roman writing system in conjunction with a standard keyboard can have control labels prefixed with Roman characters as access keys.</para>
 	
-      </sect3>
+	</sect2>
       
-      <sect3 id="shortcuts">
+      <sect2 id="shortcuts">
 	<title>Choosing Shortcut Keys</title>
 
-	<para>The tables in <xref linkend="standard-shortcuts"/> summarize the standard shortcut keys to use when your application supports those functions.  Your application will not necessarily support all of these functions&mdash; see <xref linkend="standard-menus"/> for more information.  However, use the recommended shortcut keys for those functions you do support.</para> 
+	<para>The tables in <xref linkend="standard-shortcuts"/> summarize the standard shortcut keys to use when your application supports those functions.  Your application will not necessarily support all of these functions, see <xref linkend="standard-menus"/> for more information.  However, use the recommended shortcut keys for those functions you do support.</para> 
 
-	<para>You will probably also want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
+	<para>You will probably want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
 
-	<para>Recommendations:</para>
+	<itemizedlist><title>Guidelines</title>
 
-	<itemizedlist>
+	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keysym>letter</keysym></keycombo> in preference to other combinations when choosing new shortcut keys.</para></listitem>
 
-	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcut keys to your application.</para></listitem>
-
-	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Do not assign them to unrelated functions just because you've run out of other shortcut key combinations.</para></listitem>
+	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Do not assign them to unrelated functions just because you've run out of other shortcut key combinations, however.</para></listitem>
 
 	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Do not try to assign a shortcut key to everything.</para></listitem>
 
-	  <listitem><para>Choose new shortcut keys to be as mnemonic as possible, as they are easier to learn and remember.  For example, <keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo> would be a good shortcut for a menu item called <guimenuitem>Edit Page</guimenuitem>.</para></listitem>
+	  <listitem><para>Choose new shortcut keys to be as mnemonic as possible, as these will be easier to learn and remember.  For example, <keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo> would be a good shortcut for a menu item called <guimenuitem>Edit Page</guimenuitem>.</para></listitem>
 
-	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
+	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.  Note that you cannot use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A-thru-F</keycap></keycombo>, however, as these combinations are used to enter unicode characters in text fields.</para></listitem>
 	  
 	  <listitem><para>Do not use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
 	  	  
-	  <listitem><para>Do not use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with menu access keys.</para></listitem>
+	  <listitem><para>Do not use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with window manager or menu access keys.</para></listitem>
 
 	  <listitem><para>Do not use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
 	  
-	  <listitem><para>Do not assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
-	  
-	  <listitem><para>Do not use any of the standard shortcut keys listed in <xref linkend="standard-shortcuts"/> for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between all GNOME applications.</para></listitem>
+	  <listitem><para>Do not assign shortcut keys to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.  Do assign access keys to these items, however.</para></listitem>
+	  <listitem><para>Do not use any of the standard shortcut keys listed in <xref linkend="standard-shortcuts"/> for your own purposes,  even if your application doesn't support those functions.  This helps reinforce consistency between all GNOME applications.</para></listitem>
 
 	</itemizedlist>
-
-	</sect3>
-	
    </sect2>	
    
    <sect2 id="standard-shortcuts">
@@ -711,6 +563,11 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry><guimenuitem><accel>P</accel>rint</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
 		<entry>Print the current document</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>S<accel>e</accel>nd To...</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
+		<entry>Send the current document to an email recipient or remote location</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
@@ -875,12 +732,6 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> (see note below)</entry>
 		<entry>Reload the current document, updating content from source if necessary</entry>
 	      </row>
-		<row>
-		<entry><guimenuitem><accel>F</accel>ull Screen</guimenuitem></entry>
-		<entry><keycap>F11</keycap></entry>
-		<entry>Maximize the window and remove all window manager decorations. Pressing <keycap>F11</keycap> again should restore the window decorations and previous size.</entry>
-		
-	      </row>
 	    </tbody>
 	  </tgroup>
 	</table>
@@ -940,7 +791,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		<entry>Go to the next location in the navigation chain</entry>
 	      </row>
 	      <row>
-		<entry><guimenuitem><accel>U</accel>p a Level</guimenuitem></entry>
+		<entry><guimenuitem><accel>U</accel>p</guimenuitem></entry>
 		<entry><keycombo><keycap>Alt</keycap><keysym>Up</keysym></keycombo></entry>
 		<entry>Go up one level in the navigation hierarchy</entry>
 		  </row>
@@ -1025,6 +876,81 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</note>
 -->	  
 
+    <sect3 id="window-manager-navigation">
+	<title>Standard Window Manager Shortcut Keys</title>
+	<para>The following shortcut keys are used by many window managers, and should not normally be over-ridden by your application.</para>
+
+<table frame='all' pgwide='1'>
+	  <title>Standard window manager shortcut keys and access keys</title>
+	  <tgroup cols='3' align='left'>
+	    <thead>
+	      <row>
+		<entry>Function</entry>
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+		<entry>Switch windows</entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>Alt</keycap><keycap>Tab</keycap></keycombo></entry>
+		<entry>Switch focus to the next or previous window on the desktop</entry>
+	      </row>
+
+	      <row>
+		<entry>Switch panels</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Tab</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Tab</keycap></keycombo></entry>
+		<entry>Switch focus to the next or previous panel on the desktop</entry>
+	      </row>
+
+	      <row>
+
+		<entry>Window menu</entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>Space</keycap></keycombo></entry>
+		<entry>Pop up window menu</entry>
+		</row>
+	      <row>
+		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F4</keycap></keycombo></entry>
+		<entry>Close the focused window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>R</accel>estore</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F5</keycap></keycombo></entry>
+		<entry>Restore the focused to its previous size</entry>
+	      </row>
+
+	      <row>
+		<entry><guimenuitem><accel>M</accel>ove</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F7</keycap></keycombo></entry>
+		<entry>Move the focused window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Re<accel>s</accel>ize</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F8</keycap></keycombo></entry>
+		<entry>Resize the focused window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Mi<accel>n</accel>imize</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F9</keycap></keycombo></entry>
+		<entry>Minimze the focused window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem>Ma<accel>x</accel>imize</guimenuitem></entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>F10</keycap></keycombo></entry>
+		<entry>Maximize the focused window</entry>
+	      </row>
+	      <row>
+		<entry><guimenuitem><accel>F</accel>ull Screen</guimenuitem></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F11</keycap></keycombo></entry>
+		<entry>Show the window in full screen mode, with no border, menubar, toolbar or statusbar</entry>
+	      </row>
+
+	    </tbody>
+	  </tgroup>
+	</table>
+	</sect3>
+
       <sect3 id="widget-navigation">
 	<title>Standard Widget Navigation Shortcut Keys</title>
 	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
@@ -1096,7 +1022,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<sect3 id="additional-widget-navigation">
 	  <title>Additional Widget Navigation Shortcut Keys</title>
 	  
-	  <para>The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields, but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
+	  <para>The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields (by selecting the "emacs" scheme in the GNOME <label>Keyboard Shortcuts</label> preferences dialog), but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
 
 	  <table frame='all' pgwide='1'>
 	    <title>Emacs-style navigation keys for widgets</title>
@@ -1165,9 +1091,9 @@ or by dropping the object on an invalid drop target.</para></listitem>
       </sect2>
       
       <sect2 id="keynav-applets">
-	<title>Keyboard Navigation in Panel Applications (Applets)</title>
+	<title>Keyboard Interaction with Panel Applications (Applets)</title>
 
-	<para>Panels are fully keyboard navigable in GNOME 2.0.  Since your panel application can now gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
+	<para>Panels have been fully keyboard navigable since GNOME 2.0.  Since your panel application can gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
 
 	<para>The rules for panel application keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</para>
 
