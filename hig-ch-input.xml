@@ -96,7 +96,7 @@
 
     <sect2 id="selection">
       <title>Selecting Objects</title>
-      <sect3>
+      <sect3 id="mouse-keyboard-equivalents">
 	<title>Mouse and keyboard equivalents</title>
 
 	<para>For controls or windows that contain a number of objects that the
@@ -158,7 +158,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	</table>
       </sect3>
 
-      <sect3>
+      <sect3 id="bounding-box-selection">
 	<title>Bounding Box Selection</title>
 
 	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
@@ -292,7 +292,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
       <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
-	<sect3>
+	<sect3 id="drag-drop-pointers">
 	  <title>Mouse Pointers to Use for Drag and Drop</title>
 	  
 	  <para>Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you do have to design a new pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</para>
@@ -406,7 +406,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 	</sect3>
 	
-	<sect3>
+	<sect3 id="mouse-interaction-applets">
 	  <title>Mouse Interaction with Applets</title>
 	  <para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
 	  <itemizedlist>
@@ -456,7 +456,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
 	  
 	  <listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
-<!-- See <link linkend="keynav-examples">Keyboard Navigation Examples</link>.--></para></listitem>
+<!-- See <xref linkend="keynav-examples">.--></para></listitem>
 	  
 	  
 	  <listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
@@ -619,7 +619,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 -->
 
-      <sect3>
+      <sect3 id="choosing-access-keys">
 	<title>Choosing Access Keys</title>
 
 	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
@@ -655,7 +655,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       <sect3 id="shortcuts">
 	<title>Choosing Shortcut Keys</title>
 
-	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
+	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <xref linkend="standard-menus"> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
 
 	<para>You will probably also want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</para>
 
@@ -957,7 +957,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  
       </sect3>
 
-      <sect3>
+      <sect3 id="widget-navigation">
 	<title>Standard Widget Navigation Shortcut Keys</title>
 	<para>The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</para>
 
@@ -1021,7 +1021,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	     
       </sect3>
       
-      <sect3>
+      <sect3 id="additional-widget-navigation">
 	<title>Additional Widget Navigation Shortcut Keys</title>
 
 	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
