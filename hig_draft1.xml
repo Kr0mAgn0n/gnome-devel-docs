@@ -319,7 +319,7 @@ Any group of items operating in the same manner as a group of radio buttons shou
 
 <para>Developers may assign keyboard shortcuts to menu items. It is not necessary to assign shortcuts to every item -- just those which will be frequently used.</para>
 
-<para>Shortcuts consist of the Ctrl key and an alphanumeric key, or of one of the keys F1-F12, Insert, Delete, Home, End, Page Up or Page Down. The Shift key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the Shift key.</para>
+<para>Shortcuts consist of the Ctrl key and an alphanumeric key, or of one of the keys F1-F12, Insert, Delete, Home, End, Page Up or Page Down. The Shift key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the Shift key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
 
 </sect3>
 
@@ -804,14 +804,14 @@ Brings up the About dialog for the application. The dialog should contain the na
  
     <!-- Toolbars (subsection of menus+toolbars) -->
 <sect1 id ="toolbars-palettes">
-    <title>Toolbars</title>
+    <title>Toolbars and Palettes</title>
     
     <sect2 id="toolbars">
       <title>Toolbars</title>
       
       <para>A toolbar is a strip of controls that allows convenient access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
 
-      <para><emphasis>Although the latter is more a side-effect of the fact that palettes can't be created with the standard toolbar widgets-- it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</emphasis></para>
+      <para><emphasis>Although the latter is just a side-effect of the fact that palettes can't be created with the standard toolbar widgets-- it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</emphasis></para>
       
       <figure id="mail-toolbar-example">
 	<title>Example toolbar from an email composition window</title>
@@ -862,6 +862,11 @@ Brings up the About dialog for the application. The dialog should contain the na
 
       </figure>
 
+      <note>
+	<title>For discussion</title>
+	<para>A few people only want to recommend one type of toolbar.  Which should it be?  We can't really recommend the GAL one because it's not part of core GNOME.  On the other hand, the Gtk one is somewhat clunky, and projects like Evo, AbiWord etc. are unlikely to switch to it anyime soon.</para>
+      </note>
+      
       <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however.  Having too many toolbar controls reduces their efficiency by making them harder to find, and too many rows of toolbars reduces the amount of screen space available to the rest of the application.</para>
 
       <sect3>
@@ -904,9 +909,9 @@ Brings up the About dialog for the application. The dialog should contain the na
       </sect3>
 
  <sect3>
-	<title>Controlling Display and Appearance of Toolbars</title>
+	<title>Controlling Display and Appearance</title>
 
-	<para>For each toolbar in your application, the user should be able to choose whether or not to show that toolbar, and whether to show its contents as icons only, text only or both.  (Ideally, default settings for icons/text/both should be set in the control center, but over-rideable in each individual application&mdash; is this the current plan for 2.0?).</para>
+	<para>For each toolbar in your application, the user should be able to choose whether or not to show that toolbar, and whether to show its contents as icons only, text only or both.  (Ideally, default settings for icons/text/both should be set in the control center, but over-rideable in each individual application&mdash; is this the current plan for 2.0?  If not, default for each application should probably be Icons Only).</para>
 
 	<para>Recommendations:</para>
 
@@ -947,6 +952,11 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  
 	</itemizedlist>
 	
+	<note>
+	  <title>For Discussion</title>
+	  <para>How should MDI and toolbars be handled?</para>
+	</note>
+
       </sect3>
       
       <sect3>
@@ -959,36 +969,37 @@ Brings up the About dialog for the application. The dialog should contain the na
 	<para>Recommendations:</para>
 
 	<itemizedlist>
-	  
-	  <listitem><para>If you use a toolbar that allows text labels to be placed beside the button icons rather than below them, don't provide labels for every button.  Only provide labels for a few buttons, make those the first buttons on the toolbar, and place separators between each such button to make it clear which label refers to which icon. For example:</para>
+
+	  <listitem><para>If your toolbar is configured to show labels below button icons, show a label for every button.  For example:</para>
 
 	    <figure>
-	      <title>GAL toolbar with labels beside the first few buttons only</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/EvoToolbar.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>GAL toolbar with labels beside the first few items only</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </listitem>
-	  
-	  <listitem><para>If you use a toolbar that only allows text labels to be placed below button icons, ensure you provide labels for every button.  For example:</para>
-
-	    <figure>
-	      <title>Gtk toolbar with labels under all buttons</title>
+	      <title>Toolbar with labels under all buttons</title>
 	      
 	      <mediaobject><imageobject>
 		  <imagedata fileref="images/GtkToolbar_gedit.png" format="PNG"/>
 		</imageobject>
 		<textobject>
-		  <phrase>Gtk toolbar with labels under all buttons</phrase>
+		  <phrase>Toolbar with labels under all buttons</phrase>
 		</textobject>
 	      </mediaobject>
 	      
 	    </figure>
 	  </listitem>
+	  
+	  <listitem><para>If your toolbar is configured to show labels beside button icons (rather than below them), don't show labels for every button unless the user has selected "text only" mode.  Decide which buttons will be most frequently used, place those first on the toolbar, show the labels only for those buttons, and place separators between each of them to make it clear which label refers to which icon. For example:</para>
+	    
+	    <figure>
+	      <title>Toolbar with labels beside the first few buttons only</title>
+	      <mediaobject><imageobject>
+		  <imagedata fileref="images/EvoToolbar.png" format="PNG"/>
+		</imageobject>
+		<textobject>
+		  <phrase>Toolbar with labels beside the first few items only</phrase>
+		</textobject>
+	      </mediaobject>
+	    </figure>
+	  </listitem>
+	  
 	  
 	  <listitem><para>Ensure toolbar controls have tooltips are displayed when the pointer is paused over a toolbar button. For buttons that directly correspond to menu items, make the tooltip label the same as the menu item name. For toolbar buttons with text labels, make the text label the same as the menu item name.</para></listitem>
 	  
@@ -1000,33 +1011,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       </sect3>
       
 
-      <sect3 id="designing-toolbar-icons">
-	<title>Designing Toolbar Icons</title>
-
-	<para>Design icons to work in monochrome first, only adding colour later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.  See <link linkend="icons">Designing Effective Icons</link> for more information.</para>
-
-	<para>Recommendations:</para>
-
-	<itemizedlist>
-	  <listitem><para>Use stock button icons consistently across GNOME applications.</para></listitem>
-	  
-	  <listitem><para>All toolbar button icon pixmaps are the same, standard size. (Which is what, 24x24?)</para></listitem>
-	  
-	  <listitem><para>Don't include text in toolbar pixmaps, as this makes your application difficult to translate.</para></listitem>
-	  
-	  <listitem><para>Don't include visual puns in toolbar icons, for example, a fallen tree for "log", or a seashell for "shell".  The meaning will be lost when translated to other languages.</para></listitem>
-	  
-	  <listitem><para>Don't design icons that include images that may be offensive to some cultures, such as gesturing hands or representations of other body parts.  See <link linkend="icons">Designing Effective Icons</link> for more information.</para></listitem>
-
-	</itemizedlist>
-      </sect3>
-
-      <sect3>
-	<title>Standard Toolbar Icons</title>
-	<note><title>For discussion</title>
-	  <para>Do we need to provide a table of stock icons and what they should be used for, or is it obvious when to use what?</para>
-	</note>
-      </sect3>
+ 
       
      
       
@@ -1547,6 +1532,55 @@ Western users are accustomed to reading from the top-left to the bottom-right. F
 <para>
 Relationships between elements are usually indicated by their positions. Labels should be placed either above or to the left of the controls they relate to.
 </para>
+      
+<!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
+
+      <figure>
+	<title>Correct placement of labels for different GUI elements</title>
+	<informaltable frame=all>
+	  <tgroup cols=3 align=center>
+	    <tbody>
+	      <row>
+		<entry valign=middle>
+	  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_below.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Large file manager icon with label underneath</phrase>
+		    </textobject>
+		  </mediaobject>
+	  Large file manager icon with label underneath
+	</entry>
+		
+		<entry valign=middle>
+	  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_right.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Small toolbar icon with label to its right</phrase>
+		    </textobject>
+		  </mediaobject>
+	  Small toolbar icon with label to its right
+	</entry>
+		
+		<entry valign=middle>
+	  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_left.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Spinbox control with label to its left</phrase>
+		    </textobject>
+		  </mediaobject>
+	  Spinbox control with label to its left
+	</entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</informaltable>
+      </figure>
 
 </sect2>
 
@@ -1642,7 +1676,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	
 	<para>The table below tells you what sort of capitalization to use for which GUI elements.</para><table frame='all'>
 	  
-	  <title>Capitalisation styles for different GUI elements</title>
+	  <title>Capitalization styles for different GUI elements</title>
 	  <tgroup cols='3' align='left'>
 
 	    <thead>
@@ -1921,7 +1955,40 @@ right of small icons, and immediately above or to the left of other controls. Se
 	    </mediaobject>
 	  </figure>
 	<formalpara><title>Size</title><para>Toolbar icons should be 24x24 pixels. Menu icons should be 16x16 pixels.</para></formalpara>
+
+<!-- CFB: I've moved my "designing toolbar icons" guidelines in here, below.  Seth ought to delete/edit this part as required -->
+
+	<para>Often, you will not have to design any toolbar icons yourself.  Gtk provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent.  Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
+	
+	<para>If you do have to design your own icon for some functions, design in monochrome first, only adding color later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para>
+		
+	<para>Recommendations:</para>
+	
+	<itemizedlist>
+	  <listitem><para>If a stock icon is available for the function for which you are adding a toolbar button, use it.  Don't design your own icon instead.</para></listitem>
+	  
+	  <listitem><para>Ensure all your toolbar icon pixmaps are the same, standard size: 24x24 pixels.</para></listitem>
+	  
+	  <listitem><para>Don't include text in toolbar pixmaps, as this makes your application difficult to translate.</para></listitem>
+	  
+	  <listitem><para>Don't include visual puns in toolbar icons, for example, a fallen tree for "log", or a seashell for "shell".  The meaning will be lost when translated to other languages.</para></listitem>
+	  
+	  <listitem><para>Don't design icons that include images that may be offensive to some cultures, such as gesturing hands or representations of other body parts.</para></listitem>
+	  
+	</itemizedlist>
+
+	<sect4>
+	<title>Standard Toolbar Icons</title>
+	  <note><title>For discussion</title>
+	    <para>Do we need to provide a table of stock icons and what they should be used for, or is it obvious when to use what?</para>
+	  </note>
+	  
+	</sect4>
+	
       </sect3>
+
+
+
       <sect3><title>Application Icons</title>
 	<para>Application icons should have the perspective of ____________. (blah, blah) Application icons should be 48x48 pixels.</para>
       </sect3>
@@ -2199,7 +2266,7 @@ text/mathml
   </sect1>
 
   <sect1 id="mouse">
-    <title>Mouse Interaction Basics</title>
+    <title>Mouse Interaction</title>
     
     <sect2 id="mouse-buttons">
       <title>Buttons</title>
@@ -2208,7 +2275,7 @@ text/mathml
 
       <para>&lt;pics&gt;</para>
 
-      <para>For right-handed users, the left button on a mouse is normally the one used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
+      <para>For right-handed users, the left button on a mouse is normally used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
 
       <para>For right-handed users, the right button on a mouse is normally the one used for operations involving pop-up menus. It is therefore referred to as the &quot;right button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 3 or the Menu button.</para>
 
@@ -2217,7 +2284,7 @@ text/mathml
       <para>Recommendations:</para>
       <itemizedlist>
 	 
-	<listitem><para>The left button should be used for selection, activation of components, dragging, and the display of drop-down menus.</para></listitem>
+	<listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
 
 	<listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
 
@@ -2307,11 +2374,11 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	  </tgroup>
 	</table>
       </sect3>
-      
+
       <sect3>
 	<title>Bounding Box Selection</title>
 
-	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo> should add all the objects within the bounding box to the existing selection.  <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> should toggle the selection state of all the objects within the bounding box.</para>
+	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo> should add all the objects within the bounding box to the existing selection.  <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> should toggle the selected state of all the objects within the bounding box.</para>
 	<para>Recommendations:</para>
 	<itemizedlist>
 
@@ -2325,7 +2392,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
 	<note>
 	  <title>For discussion</title>
-	  <para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in apps where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para>
+	  <para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in applications where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para>
 	</note>
 	
 	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</title>
@@ -2458,7 +2525,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
 
   <sect1 id="keyboard">
-    <title>Keyboard Interaction Basics</title>
+    <title>Keyboard Interaction</title>
     <sect2 id="keyboard-navigation">
       <title>Keyboard Navigation</title>
       
@@ -2687,7 +2754,7 @@ fine motor control skills required.</para>
 	
       </sect3>
       
-      <sect3>
+      <sect3 id="shortcuts">
 	<title>Shortcut Keys</title>
 
 	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
@@ -2699,6 +2766,8 @@ fine motor control skills required.</para>
 	<itemizedlist>
 
 	  <listitem><para>Use <keycombo><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> in preference to other combinations when adding new shortcut keys to your application.</para></listitem>
+
+	  <listitem><para><keycap>Insert</keycap>, <keycap>Delete</keycap>, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>Page Up</keycap> and <keycap>Page Down</keycap> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Don't assign them to unrelated functions just because you've run out of other shortcut key combinations.</para></listitem>
 
 	  <listitem><para>Only assign shortcut keys to the most commonly-used actions in your application.  Don't try to assign a shortcut key to everything.</para></listitem>
 
@@ -2849,7 +2918,7 @@ fine motor control skills required.</para>
 -->
 	  <para>Should we call it "Find Next" or "Find Again"?</para>
 
-	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser apps&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
+	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
 
 	  <para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>
 
@@ -2894,7 +2963,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<note><title>Reload/Refresh</title>
-	  <para>Some apps need both reload and refresh, should we specify shortcut keys for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
+	  <para>Some applications need both reload and refresh, should we specify shortcut keys for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
 	</note>
 	
 	<table frame='all' pgwide='1'>
@@ -3033,7 +3102,7 @@ fine motor control skills required.</para>
 	      </row>
 	      <row>
 		<entry>Space</entry>
-		<entry>Toggle selection state of focused checkbox, radio button, or toggle button</entry>
+		<entry>Toggle selected state of focused checkbox, radio button, or toggle button</entry>
 	      </row>
 	      <row>
 		<entry>Return</entry>
