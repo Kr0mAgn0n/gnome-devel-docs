@@ -207,6 +207,8 @@ system appear slow, not doing this can cause the window manager to think the app
     game. A single instance of an application may have more than one primary
     window, and more than one kind of primary window.</para>
 
+    <para>A primary window is always shown on the panel window list.</para>
+
     <figure>
       <title>A typical primary window (gedit)</title>
 
@@ -478,6 +480,17 @@ system appear slow, not doing this can cause the window manager to think the app
 
     <para>Utility windows, such as palettes and toolboxes, normally have
     borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
+    <para>
+	A utility window should not appear in the panel window list unless
+	it is, or may be, the only window shown by an application.
+	<!-- Can't think of an example just now! CFB
+	For example, a BLAH window  may be shown after
+	the main BLAH application window has been closed.
+    </para>
+    <para> -->
+	Otherwise, the utility window should be raised above the application when
+	the application window itself is selected from the window list.
+    </para>
 
     <sect2 id="windows-instant-apply">
       <title>Instant apply windows</title>
@@ -905,8 +918,19 @@ system appear slow, not doing this can cause the window manager to think the app
     intrusion into the user&#39;s work, do not use them except where necessary
     to avoid potential data loss or other serious problems.</para>
 
-    <para>An alert has a border similar to that of a dialog, and is object
-    modal.</para>
+    <para>
+ 	An alert has a border similar to that of a dialog, and is object modal. 
+    </para>
+    <para>
+	An alert should not appear in the panel window list unless
+	it is, or may be, the only window shown by an application. For
+	example, an appointment reminder alert may be shown after
+	the main calendar application window has been closed.
+    </para>
+    <para>
+	Otherwise, an alert should be raised above the application when
+	the application window itself is selected from the window list.
+    </para>
 
     <figure id="example-alert-figure">
       <title>An example of an alert</title>
@@ -1694,6 +1718,13 @@ saved, in case an error occurs.  Then hide the document window immediately after
     during an operation that takes more than a few seconds. See <xref
     linkend="controls-progress-bars" /> for more details about proper use of
     progress bars.</para>
+	<para>A progress window may appear in the panel window list if it
+	is, or may be, the only window shown by an application. For example,
+	the file download progress window of a web browser may remain after
+	all the browser windows have been closed.</para>
+	<para>Otherwise, a progress window should be raised above the
+	application when the application window itself is selected from the
+	window list.</para>
 
     <figure id="example-progress-figure">
       <title>An example of a progress window</title>
@@ -1924,6 +1955,9 @@ saved, in case an error occurs.  Then hide the document window immediately after
     <para>A dialog provides an exchange of information, or dialog, between the
     user and the application. Use a dialog to obtain additional information
     from the user that is needed to carry out a particular command or task.</para>
+	<para>A dialog should not appear in the panel window list.
+	Any open dialogs should be raised above the application when
+	the application window itself is selected from the window list.</para>
 
     <figure>
       <title>An example of a dialog</title>
@@ -1998,25 +2032,33 @@ saved, in case an error occurs.  Then hide the document window immediately after
     <sect2 id="dialog-layout">
       <title>Layout</title>
 
-      <para>Arrange controls in your dialog in the direction that people read.
+      <para>A clean, logical dialog layout helps the user to quickly
+	understand what information is required from them.</para>
+
+      <itemizedlist><title>Guidelines</title>
+
+      <listitem><para>
+      Arrange controls in your dialog in the direction that people read.
       In western locales, this is generally left-to-right, top-to-bottom.
       Position the main controls with which the user will interact as close to
       the upper left corner as possible. Follow similar guidelines for
       arranging controls within groups in the dialog, and for specifying the
       order in which controls are traversed using the <keycap>Tab</keycap>
-      key.</para>
+      key.</para></listitem>
 
-      <para>When opening a dialog, provide initial keyboard focus to the
+      <listitem><para>
+    	When opening a dialog, provide initial keyboard focus to the
       component that you expect users to operate first. This focus is
       especially important for users who must use a keyboard to navigate your
-      application.</para>
+      application.</para></listitem>
 
-      <para>Provide and show sensible default values for as many of the
+      <listitem><para>Provide and show sensible default values for as many of the
       controls in your dialog as possible when it is opened, so the user does
       not have to generate the information from scratch. These defaults may
       come from system settings (for example, hostname or IP address), or from
       information that the user has previously entered in this or another
-      application (for example, email address or network proxy).</para>
+      application (for example, email address or network proxy).</para></listitem>
+	</itemizedlist>
 
       <para>See <xref linkend="design" /> for more detailed information on
       arranging controls in dialogs.</para>
@@ -2060,6 +2102,8 @@ saved, in case an error occurs.  Then hide the document window immediately after
     it is often hard to figure out where the individual settings aggregated
     into the assistant are stored. Often people will resort to re-running
     the assistant, re-entering many settings that they don't want to change.
+    <remark>Why do they need to re-enter anything? The assistant should
+	be populated with the exisiting settings whenever it is run.</remark>
     </para>
 
     <warning><para>Assistants are often used in situations where a better
