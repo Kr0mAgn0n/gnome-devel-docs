@@ -1,0 +1,682 @@
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+]>
+
+
+<!-- =============Document Header ============================= -->
+
+<article id="index"> <!-- please do not change the id -->
+
+ <artheader>
+
+  <title>Joining the GNOME Project</title>
+
+  <authorgroup>
+   <author>
+    <firstname>Daniel</firstname>
+    <surname>Mueth</surname>
+    <affiliation>
+     <address>
+      <email>d-mueth@uchicago.edu</email>
+     </address>
+    </affiliation>
+   </author>
+  </authorgroup>
+
+  <copyright>
+   <year>2000</year>
+   <holder>Dan Mueth</holder>
+  </copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2000</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+
+  <!-- do not put authorname in the header except in copyright - use
+  section "authors" below -->
+
+  <legalnotice>
+   <para>
+    Permission is granted to copy, distribute and/or modify this
+    document under the terms of the <citetitle>GNU Free Documentation
+    License</citetitle>, Version 1.1 or any later version published
+    by the Free Software Foundation with no Invariant Sections, no
+    Front-Cover Texts, and no Back-Cover Texts. You may obtain a copy
+    of the <citetitle>GNU Free Documentation License</citetitle> from
+    the Free Software Foundation by visiting <ulink type="http"
+    url="http://www.fsf.org">their Web site</ulink> or by writing to:
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+   </para>
+   <para>
+    Many of the names used by companies to distinguish their products and
+    services are claimed as trademarks. Where those names appear in any
+    GNOME documentation, and those trademarks are made aware to the members
+    of the GNOME Documentation Project, the names have been printed in caps
+    or initial caps.
+   </para>
+  </legalnotice>
+
+ </artheader>
+
+ <!-- ============= Document Body ============================= -->
+
+ <!-- ============= Introduction ============================== -->
+ <sect1 id="intro">
+  <title>Introduction</title>
+
+  <para>
+   GNOME is a large open source project which is 
+   created by the collaborative efforts of many people, most of
+   whom work on GNOME as volunteers in their free time.  Some 
+   GNOME contributors are paid to work on GNOME as part of their 
+   "day job", but a minority of GNOME contributors fall into this
+   group.  The success and direction of GNOME relies on the
+   efforts and ideas of all GNOME contributors and the GNOME project 
+   welcomes all contributions, from both individuals or corporations.
+  </para>
+  <para>
+   Individual contributors will find that GNOME is a fun and exciting 
+   project, and they will meet and collaborate with many of the 
+   field's top developers on cutting-edge technology.  Corporations 
+   who join the GNOME project will learn that open source development 
+   of software is a very efficient and powerful way to produce 
+   high-quality stable software, and that the GNOME development platform 
+   makes developing powerful, stable software easy.
+  </para>
+  <para>
+   This document will help the new GNOME contributor decide which
+   part of GNOME to work on, who within the GNOME project they should
+   contact, and how to get started.
+  </para>
+ </sect1>
+
+ <!-- ============= Choosing The Right Job For You ================= -->
+ <sect1 id="choosingtherightjob">
+  <title>Choosing The Right Job For You</title>
+
+  <para>
+   Creating a large project like GNOME requires many people who
+   contribute in various ways.  Not only do we need programmers who
+   can write the GNOME development platform and many GNOME applications,
+   we also need graphic artists, documentation writers, translators,
+   web designers, software testers, software packagers, user interface
+   designers, and many other people.  Whatever your particular interests
+   or skills, you can probably use them to improve GNOME. 
+  </para>
+
+  <sect2 id="suggestions">
+   <title>Suggestions On How To Contribute</title>
+   <para>
+    The first step in joining the GNOME project is determining how to
+    contribute.  You can typically decide how to contribute by considering
+    what your skills and interests are.  You may find the following list 
+    of suggestions helpful: 
+
+    <itemizedlist>
+
+     <listitem>
+      <formalpara>
+       <title>Documentation</title>
+       <para>
+        Documenting GNOME is a huge job.  GNOME documentation includes
+        user documents, such as application manuals, the 
+        <citetitle>GNOME User FAQ</citetitle>, and <citetitle>Introduction
+        to GNOME</citetitle>, and developer documents
+        such as GNOME technology white papers, developer tutorials,
+        the <citetitle>GNOME Developer FAQ</citetitle>, and API 
+        documentation.  In addition to document writers, we also need
+        editors and indexers.  For information on the GNOME 
+        Documentation Project and instructions for joining, see 
+        <xref linkend="joininggdp">.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Translation</title>
+       <para>
+        Translating GNOME is an ongoing process which requires many 
+        volunteers.  For each language which GNOME is translated into,
+        the strings used in the dialogs, menus, and buttons of each 
+        application must be translated. Once this is done, the user
+        manuals for each application as well as some general documents
+        such as the <citetitle>GNOME User FAQ</citetitle>, 
+        <citetitle>Introduction to GNOME</citetitle>, and 
+        <citetitle>The GNOME User's Guide</citetitle> should also
+        be translated for a fully localized GNOME experience.  For 
+        information on joining the GNOME Translation Project, see
+        <xref linkend="joininggtp">.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Graphics</title>
+       <para>
+        GNOME needs various types of graphics.  Graphics are necessary
+        for the GNOME web pages, desktop and menu icons, and various
+        other places inside particular applications.  High-quality graphics
+        are essential to produce an attractive and intuitive user 
+        experience.  For information on contributing graphics to GNOME,
+        see <xref linkend="joininggraphics">. 
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Packaging</title>
+       <para>
+        It is very important that applications be properly packaged,
+        making it easy for users to find and install the applications
+        they want.  In many cases, this is packaging individual applications
+        into RPMs and debs.  In some cases, it is packaging a group
+        of similar applications into one package for 
+        distribution(tgz,rpm,deb). For information on packaging
+        GNOME applications, see <xref linkend="joiningpackaging">.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Web Design</title>
+       <para>
+        The web pages are typically the first impression one gets of
+        a software project and it also generally the first place users
+        (and often developers) go to find further information about it.
+        The <ulink type="http" url="http://www.gnome.org">main GNOME
+        web page</ulink> and the <ulink type="http" 
+        url="http://developer.gnome.org">GNOME developer web pages</ulink>
+        take quite a bit of work to maintain and improve to suit the
+        expanding needs of the rapidly growing GNOME user and developer
+        bases.  Further, some tasks require an understanding of php or
+        other scripting in order to present and store information in
+        databases or process information which is stored in CVS.  For
+        information on helping with the GNOME web pages, see 
+        <xref linkend="joiningweb">.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Testing</title>
+       <para>
+        In order to make GNOME completely stable, intuitive, and 
+        bug-free, we need testers who can use applications 
+        extensively, keeping an eye out for bugs and reporting
+        them to the <ulink type="http"
+        url="http://bugs.gnome.org/">GNOME bug tracking 
+        database</ulink>.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Application Development</title>
+       <para>
+        We can never have enough good GNOME applications.  You can
+        either start your own application or join an existing project.
+        In many cases, it may be better to join an existing project
+        as it is better to have a few good applications than many
+        poor applications.  It also gives the developer the benefit
+        of meeting, working with, and learning from other GNOME 
+        developers.  For information on selecting a project to
+        work on and getting started developing see <xref linkend="joiningdeveloping">.
+        (Note - this should point to info about finding a project - ie.
+        looking in the suggestion database, mailing gnome-hackers, ...)
+        (Note2 - some people will want to take an existing application
+        and merge it into gnome-applets, etc... have info for them)
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>GNOME Platform Development</title>
+       <para>
+        This is for the serious GNOME hacker.  The GNOME development
+        platform is the set of libraries and tools upon which GNOME 
+        applications are built.  For more information... xxxxxxxx.
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
+       <title>Developer Tool Development</title>
+       <para>
+        Developers use many tools.  Application authors may use
+        GUI-builders (eg. Glade), IDEs, string-handling tools
+        (gettext), debuggers, memory profilers (memprof), 
+        revision control systems (CVS), build tools (autoconf,
+        automake), and many other tools.  Artists, documentation
+        authors, translators, and other contributors all need
+        their own set of tools to improve the quality of their
+        work and their development rate.  There are many places
+        where important tools are lacking or inadequate.  For
+        information .....  xxxxxxxxxxxxxx. 
+       </para>
+      </formalpara>
+     </listitem>
+
+
+    </itemizedlist>
+
+   </para>
+  </sect2>
+
+  <sect2 id="gnometaskdatabase">
+   <title>The GNOME Todo Database</title>
+   <para>
+    The <ulink type="http" 
+    url="http://www.gnome.org/todo/index.php3">GNOME Todo 
+    Database</ulink> is a list of tasks which current GNOME
+    developers feel are important but do not currently have
+    time to work on themselves.  Each project is described
+    and a contact person is listed.  Contributors should consider
+    browsing the GNOME Todo Database to see if any of the 
+    tasks suit their interests and skills.
+   </para>
+  </sect2>
+
+  <sect2 id="todolists">
+   <title>Project Todo Lists</title>
+   <para>
+    Some GNOME projects have todo lists to keep track
+    of what needs to be done and help new contributors find
+    out how they can help.  Here are some links to these 
+    individual todo lists:
+    <itemizedlist>
+     <listitem>
+      <para>
+       <ulink type="http" 
+       url="http://developer.gnome.org/projects/gdp/tasks.html">GNOME 
+       Documentation Project Task List</ulink>
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <ulink type="http" 
+       url="http://developer.gnome.org/projects/gtp/tasks.html">GNOME 
+       Translation Project Task List</ulink>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </sect2>
+
+ </sect1>
+
+ <!-- ============= Getting Started ===================== -->
+ <sect1 id="gettingstarted">
+  <title>Getting Started</title>
+
+  <para>
+   The previous section should have helped you decide which
+   part of GNOME you would like to contribute to.  This section
+   should help you get started.  The first part of the section
+   introduces you to the standard GNOME methods of communication:
+   email and IRC.  The latter part provides more detailed information
+   on how to join particular parts of GNOME.
+  </para>
+
+  <sect2 id="gnomecommunication">
+   <title>Standard GNOME Communication</title>
+   <para>
+    Because most GNOME developers are volunteers spread across 
+    the world, almost all communication is electronic.  Aside
+    from direct email between contributors, the primary
+    communication tools are the mailing lists and IRC.
+   </para>
+   <sect3 id="mailinglists">
+    <title>Mailing Lists</title>
+    <para>
+     There are many GNOME mailing lists for discussing the 
+     various aspects and applications in GNOME.  You
+     can find a list of GNOME mailing lists <ulink type="http" 
+     url="http://www.gnome.org/resources/mailing-lists.html">here</ulink>,
+     along with information on subscribing and links to their 
+     archives.  New contributors are encouraged to join the 
+     relevant mailing list(s) and introduce themselves and 
+     what they are planning on working on.  If you do not
+     know exactly what you want to work on, consider sending
+     an email to the mailing list asking for suggestions on
+     how you could contribute.  Be sure to indicate what your
+     interests and skills are in your email. 
+    </para>
+   </sect3>
+   <sect3 id="irc">
+    <title>IRC: Internet Relay Chat</title>
+    <para>
+     GNOME contributors use IRC(Internet Relay Chat) heavily.
+     If you are not familiar with IRC, it is a tool which allows
+     multiple people to communicate in real time by typing into
+     a common window.  The main power of this system is that it
+     is essentially real-time, as opposed to email where one
+     typically has to wait minutes, hours, or even days  before 
+     getting a response.
+    </para>
+    <para>
+     Using IRC is simple.  First, you need to find an IRC client.
+     If you are running GNOME, then you should have the 
+     excellent IRC client <application>Xchat</application>
+     installed already.  There are many other IRC clients to
+     choose from, on Linux as well as on other platforms, but
+     <application>Xchat</application> is one of the best.
+     All GNOME IRC channels can be found on the irc.gnome.org
+     server.  You can connect to this server by typing
+     <command>/server irc.gnome.org</command> into the IRC 
+     client's message entry box.  To join a given channel, you
+     use the <command>join</command> command.  So to join the
+     Gnumeric channel which is #gnumeric, you would type 
+     <command>/join #gnumeric</command>.
+    </para>
+    <para>
+     There are many GNOME channels on irc.gnome.org including:
+     #gnome, #gnome-help, #nautilus, #docs, #i18n, #guppi, 
+     #gnumeric, #interface, gtk+, and #medusa. For a complete
+     list, type <command>/list</command> after you have connected
+     to the irc.gnome.org server.
+    </para>
+   </sect3>
+  </sect2>
+
+  <sect2 id="contactperson">
+   <title>Finding the Right Contact Person</title>
+   <para>
+    Finding the right contact person for a particular task can
+    be difficult at times.  For many applications, the contact
+    person is listed in the About dialog or the <filename>README</filename>
+    file of the source.  One can often find the right person
+    by asking on the <link linkend="mailinglists">GNOME mailing 
+    lists</link> or on <link linkend="irc">IRC</link>. To make things
+    somewhat easier, many of the contacts for particular GNOME 
+    projects are listed below:
+    <itemizedlist>
+     <listitem>
+      <formalpara>
+       <title>Documentation</title>
+       <para>
+        <ulink url="mailto:d-mueth@uchicago.edu">Dan Mueth</ulink>
+        or the <ulink type="http"
+        url="http://mail.gnome.org/mailman/listinfo/gnome-doc-list/">gnome-doc-list 
+        mailing list</ulink>
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>Translation</title>
+       <para>
+        <ulink url="mailto:kmaraas@online.no">Kjartan Maraas</ulink>
+        or the <ulink type="http"
+        url="http://mail.gnome.org/mailman/listinfo/gnome-i18n-list/">gnome-i18n-list 
+        </ulink>
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>Graphics</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>Web Pages</title>
+       <para>
+        <ulink url="mailto:joakim@helixcode.com">Joakim Ziegler</ulink>
+        for www.gnome.org, xxxxxx for developer.gnome.org
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>gnome-applets</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>gnome-media</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>gnome-network</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>gnome-games</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
+       <title>gnome-utils</title>
+       <para>
+        <ulink url="mailto:gregm@comstar.net">Gregory McLean</ulink>
+       </para>
+      </formalpara>
+     </listitem>
+    </itemizedlist>
+     
+   </para>
+  </sect2>
+
+  <sect2 id="detailsjoining">
+   <title>Details on Joining Particular Parts of GNOME</title>
+   <para>
+    This section describes how a new contributor can get started
+    in his or her particular area of interest.
+   </para>
+   <sect3 id="joininggdp">
+    <title>Joining the GNOME Documentation Project(GDP)</title>
+    <para>
+     The <ulink type="http" 
+     url="http://developer.gnome.org/projects/gdp">GNOME Documentation
+     Project</ulink> oversees the writing, editing, and indexing
+     of all GNOME documentation (user and developer) as well as the
+     <ulink type="http" url="http://developer.gnome.org">GNOME
+     Developer Web Pages</ulink>.  New members are encouraged
+     to join the <ulink type="http" 
+     url="http://mail.gnome.org/mailman/listinfo/gnome-doc-list/">
+     gnome-doc-list mailing list</ulink> and look over the 
+     <ulink type="http" 
+     url="http://developer.gnome.org/projects/gdp/handbook.html">
+     The GNOME Handbook of Writing Software Documentation</ulink>
+     (also known as the <citetitle>GDP Handbook</citetitle>).
+     Further information on joining the GDP can be found 
+     <ulink type="http" 
+     url="http://developer.gnome.org/projects/gdp/join.html">
+     here</ulink>. New contributors may want to look through
+     the <ulink type="http" 
+     url="http://developer.gnome.org/projects/gdp/tasks.html">
+     GDP Tasks</ulink> and any recent <ulink type="http"
+     url="http://developer.gnome.org/projects/gdp/status/">GDP Status
+     Reports</ulink>.
+    </para>
+   </sect3>
+   <sect3 id="joininggtp">
+    <title>Joining the GNOME Translation Project(GTP)</title>
+    <para>
+     The <ulink type="http" 
+     url="http://developer.gnome.org/projects/gtp">GNOME Translation 
+     Project</ulink> translates application strings as well as 
+     application manuals and other GNOME documents.  To join the
+     GTP, you should first determine if a translation team 
+     exists for the language you would like to translate into.  You
+     can do this by checking the <ulink type="http"
+     url="http://developer.gnome.org/projects/gtp/teams.html">translation
+     teams list</ulink>. If a contact is listed, you should contact
+     this person and express your interest in helping.  If no contact
+     person is listed, you should consider starting a translation 
+     team as described <ulink type="http"
+     url="http://developer.gnome.org/projects/gtp/teams.html#starting">here
+     </ulink>.  All translators should consider joining the 
+     <ulink url="http://mail.gnome.org/mailman/listinfo/gnome-i18n/"
+     type="http">gnome-i18n-list</ulink> mailing list.  New translators
+     should find <ulink type="http"
+     url="http://developer.gnome.org/projects/gtp/translate-gnome/index.html">
+     Translation of the GNOME desktop environment</ulink> helpful.
+    </para>
+   </sect3>
+   <sect3 id="joininggraphics">
+    <title>Getting Started Contributing Graphics to GNOME</title>
+    <para>
+     (FIX ME)
+    </para>
+   </sect3>
+   <sect3 id="joiningtesting">
+    <title>Getting Started Testing GNOME</title>
+    <para>
+     (FIX ME)
+    </para>
+   </sect3>
+   <sect3 id="joiningpackaging">
+    <title>Getting Started Packaging GNOME</title>
+    <para>
+     (FIX ME)
+    </para>
+   </sect3>
+   <sect3 id="joiningweb">
+    <title>Getting Started On GNOME Web Development</title>
+    <para>
+     (FIX ME)
+    </para>
+   </sect3>
+   <sect3 id="joiningdeveloping">
+    <title>Getting Started Developing GNOME Applications</title>
+    <para>
+     (FIX ME)
+    </para>
+   </sect3>
+
+  </sect2>
+
+ </sect1>
+
+ <!-- ============= Learning to Develop ========================== -->
+ <sect1 id="learningtodevelop">
+  <title>Learning to Develop</title>
+
+  <para>
+   GNOME is a great development platform largely because the 
+   GNOME widgets and libraries handle many of the more tedious 
+   tasks a developer must tackle, allowing the
+   developer to focus on the primary parts of their application.
+   Since the core GNOME development team has put a lot of work into
+   developing these core GNOME technologies, they are generally of
+   much higher quality than applications could typically have.
+   Many of these technologies which are built into GNOME are new
+   to developers who are accustomed to more traditional
+   development environments.  If you are a developer who is new to GNOME,
+   you will benefit substantially by exploring these powerful tools
+   and using them to improve the power and stability of your application
+   while reducing the necessary development time and effort.
+  </para>
+
+  <para>
+   This section should help developers who are new to GNOME find
+   information on the various GNOME technologies and other tools
+   used by the GNOME project.
+  </para>
+
+  <sect2 id="overviewofgnometech">
+   <title>GNOME Technology Overview</title>
+   <para>
+    (An overview document describing the GNOME technologies is 
+    in development. Information on where it can be found 
+    will be placed here when it becomes available.)
+   </para>
+  </sect2>
+
+  <sect2 id="developerwp">
+   <title>The GNOME Developer Web Pages</title>
+   <para>
+    Every developer who is considering GNOME as a development
+    platform should look over <ulink type="http"
+    url="http://developer.gnome.org">The GNOME Developer
+    Web Pages</ulink>.  This provides much valuable information
+    on <ulink type="http" url="http://developer.gnome.org/arch/">GNOME 
+    architecture</ulink> along with tutorials, white papers, and
+    helpful links to other resources.  It also has information about
+    the various <ulink url="http://developer.gnome.org/tools/" 
+    type="http">tools</ulink> used by GNOME developers.
+   </para>
+  </sect2>
+
+  <sect2 id="ggad">
+   <title>Gtk+/GNOME Application Development</title>
+   <para>
+    Havoc Pennington wrote a very nice book on GNOME application
+    development called <citetitle>Gtk+/GNOME Application
+    Development</citetitle>. It was published under an open license, meaning
+    that you can either <ulink type="http"
+    url="http://developer.gnome.org/doc/GGAD/">read it online </ulink>
+    or purchase it in a bookstore or online by following the
+    link <ulink type="http"
+    url="http://www106.pair.com/rhp/gnome-app-devel.html">here</ulink>.
+   </para>
+  </sect2>
+
+  <sect2 id="glade">
+   <title>Glade: The GNOME Application Builder</title>
+   <para>
+    <ulink type="http" url="http://glade.pn.org/">Glade</ulink>
+    is a tool for quickly prototyping GNOME applications and experimenting 
+    with GNOME widgets.  It allows you to build your application's layout 
+    by graphically pasting and configuring your widgets.
+    Glade also generates much of the more tedious code needed such as
+    the autoconf/automake scripts, header files, translation potfiles,
+    and most of the application code except the actual content
+    of the callback functions.
+    More information can be found <ulink type="http"
+    url="http://developer.gnome.org/arch/devel/glade.html">here</ulink>
+    and by reading the documents that ship with Glade and are accessible
+    by selecting the <guimenu>Help</guimenu> menu items.
+   </para>
+  </sect2>
+
+  <sect2 id="cvs">
+   <title>Getting Application Source From CVS</title>
+   <para>
+    Most GNOME applications are stored in GNOME CVS, which is open to
+    the public for download.  One of the first tasks a new GNOME
+    developer must do is figure out how to download code from CVS.
+    For a brief introduction to CVS, read this <ulink type="http"
+    url="http://developer.gnome.org/tools/cvs.html">short 
+    CVS tutorial</ulink>.
+   </para>
+  </sect2>
+
+ </sect1>
+
+</article>
+
+
+
+
