@@ -17,22 +17,20 @@
 	</mediaobject>
       </figure>
 
-      <para>Give every window a title (with the exception of <link linkend="alert-windows">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number.</para>
+      <para>Give every window a title (with the exception of <link linkend="alert-windows">alerts</link> and <link linkend="toolbox-windows">toolboxes</link>). A good window title contains information that is relevant to the user, and distinguishes a particular window from other open windows. Omit information that does not assist in this selection, for example the application's version number or vendor name.</para>
       <para>See the description of each particular window type for title formats.</para>
     </sect2>
     <sect2 id="window-props-borders">
       <title>Borders and Window Commands</title>
       <para>Most windows have borders, except certain shaped windows and some torn-off windows. Do not attempt to draw your own window borders, but instead provide hints to the window manager for the desired border type.</para>
 
-      <para>Appropriate window commands are specified in following sections for each type of window. These are:</para>
+      <para>Different window commands are appropriate to different types of window. See the description of each particular window type for a list of appropriate window commands. These are the possible window commands:</para>
       <itemizedlist>
 	<listitem><formalpara><title>Close</title><para>closes the window. <emphasis>Always</emphasis> draw this as a button on the window border</para></formalpara></listitem>
 	<listitem><formalpara><title>Maximize</title><para>causes the window to use all unused screen space</para></formalpara></listitem>
 	<listitem><formalpara><title>Minimize</title><para>causes the window to be temporarily hidden</para></formalpara></listitem>
 	<listitem><formalpara><title>Roll-up/Unroll</title><para>shows only the title bar of the window, as if it has been "rolled up"</para></formalpara></listitem>
       </itemizedlist>
-
-	<remark>Are we saying here that *all* windows should have a Close button?  This can be dangerous, for alerts in particular  --Calum.</remark>
 
     </sect2>
     <sect2 id="window-props-modality">
@@ -67,7 +65,7 @@
 
 	</itemizedlist>
 
-	<para>Note that point-to-focus places a number of restrictions on GNOME applications that are not present in environments such as MacOS or Windows. For example, utility windows shared between multiple document windows, such as the toolbox in the GIMP Image Editor, cannot be context-sensitive.  That is, they cannot directly initiate an action such as <guibutton>Save</guibutton> on a particular document window.  In the act of moving the mouse from the currently focused document to the utility window, the user could inadvertantly pass the pointer over another document window, thus changing the focus.</para>
+	<note><title>Special restrictions for point to focus</title><para>Note that point-to-focus places a number of restrictions on GNOME applications that are not present in environments such as MacOS or Windows. For example, utility windows shared between multiple document windows, such as the toolbox in the GIMP Image Editor, cannot be context-sensitive.  That is, they cannot directly initiate an action such as <guibutton>Save</guibutton> on a particular document window.  In the act of moving the mouse from the currently focused document to the utility window, the user could inadvertantly pass the pointer over another document window, thus changing the focus.</para></note>
 
     </sect2>
   </sect1>
@@ -217,76 +215,7 @@
     </sect2>
   </sect1>
 
-	<sect1 id="dialog-boxes">
-	<title>Dialog Boxes</title>
-
-	<figure>
-	<title>An example of a dialog box</title>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="images/tabbed-dialog-box.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-		<phrase>An example of a dialog box: the Glade project options dialog</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-
-	<para>A dialog box provides an exchange of information, or dialog, between the user and the application.  Use a dialog box to obtain additional information from the user that is needed to carry out a particular command or task.</para>
-
-      <formalpara>
-	<title>Title Format:</title>
-	<para><replaceable>Name of button or menu item that opened the dialog, without ellipsis</replaceable></para>
-      </formalpara>
-      <formalpara>
-	<title>Window Commands:</title>
-	<para>Close, Minimize, Roll-up/Unroll</para>
-      </formalpara>
-      <formalpara>
-	<title>Buttons:</title>
-	<para>Place a <guibutton>Help</guibutton> button in the lower left of the dialog, and <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> (or equivalent) buttons in the lower right corner.</para>
-      </formalpara>
-
-	<para>Your dialog may specify a default button, that is activated when the user presses the <keycap>Return</keycap> key.  See <xref linkend="default-buttons"/> for guidance on choosing an appropriate default button.</para>
-
-	<para>Label the <guibutton>OK</guibutton> with a label more appropriate to the dialog's purpose where possible, for example <guibutton>Print</guibutton> or <guibutton>Save</guibutton>.</para>
-
-	<sect2 id="dialog-buttons">
-	<title>Additional Buttons</title>
-
-	<para>You can include other buttons in a dialog's main button area in addition to <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton>, but any more than one or two such buttons will make the dialog appear complicated and difficult to use.  As with any other button, keep the labels as concise as possible to minimize this effect.</para>
-
-	<itemizedlist><title>Guidelines</title>
-		<listitem><para>Place buttons that apply to the dialog box as a whole in the main button area row at the bottom of the dialog box, to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
-		<listitem><para>Place buttons that apply to one or a few controls next to their associated controls. For instance, place a <guibutton>Browse...</guibutton> button at the trailing edge of the text field it fills in.</para></listitem>
-
-	</itemizedlist>
-
-	</sect2>
-
-	<sect2 id="dialog-layout">
-	<title>Layout</title>
-	<para>Arrange controls in your dialog in the direction that people read.  In western locales, this is generally left-to-right, top-to-bottom.  Position the main controls with which the user will interact as close to the upper left corner as possible.  Follow similar guidelines for arranging controls within groups in the dialog, and for specifying the order in which controls are traversed using the <keycap>Tab</keycap> key.</para>
-
-	<para>When opening a dialog, provide initial keyboard focus to the component that you expect users to operate first. This focus is especially important for users who must use a keyboard to navigate your application.</para>
-
-	<para>Provide and show sensible default values for as many of the controls in your dialog as possible when it is opened, so the user does not have to generate the information from scratch.  These defaults may come from system settings (for example, hostname or IP address), or from information that the user has previously entered in this or another application (for example, email address or network proxy).</para>
-
-	<para>See <xref linkend="layout"/> for more detailed information on arranging controls in dialogs.</para>
-
-	<para>See <xref linkend="controls-notebooks"/> for information on using tabbed notebook controls in dialogs.</para>
-
-	</sect2>
-	
-	<sect2 id="common-dialogs">
-	<title>Common Dialogs</title>
-
-	<para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colors, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
-	
-	</sect2>
-
-	</sect1>
-
+  
   <sect1 id="utility-windows">
     <title>Utility Windows</title>
     <para>Utility windows, such as palettes and toolboxes, normally have borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
@@ -687,6 +616,72 @@
 
   </sect1>
   
+  <sect1 id="dialog-boxes">
+    <title>Dialog Boxes</title>
+    
+    <figure>
+      <title>An example of a dialog box</title>
+      <mediaobject>
+	<imageobject>
+	  <imagedata fileref="images/tabbed-dialog-box.png" format="PNG"/>
+	</imageobject>
+	<textobject>
+	  <phrase>An example of a dialog box: the Glade project options dialog</phrase>
+	</textobject>
+      </mediaobject>
+    </figure>
+    
+    <para>A dialog box provides an exchange of information, or dialog, between the user and the application.  Use a dialog box to obtain additional information from the user that is needed to carry out a particular command or task.</para>
+    
+    <formalpara>
+      <title>Title Format:</title>
+      <para><replaceable>Name of button or menu item that opened the dialog, without ellipsis</replaceable></para>
+    </formalpara>
+    <formalpara>
+      <title>Window Commands:</title>
+      <para>Minimize, Roll-up/Unroll</para>
+    </formalpara>
+    <formalpara>
+      <title>Buttons: Follow the guidelines for Alert buttons, see <xref linkend="alert-button-order"/>.</title>
+      <para>.</para>
+    </formalpara>
+    
+    <para>Your dialog may specify a default button, that is activated when the user presses the <keycap>Return</keycap> key.  See <xref linkend="default-buttons"/> for guidance on choosing an appropriate default button.</para>
+    
+    <sect2 id="dialog-buttons">
+      <title>Additional Buttons</title>
+      
+      <para>You can include other buttons in a dialog's main button area in addition to the affirmative button and <guibutton>Cancel</guibutton>, but any more than one or two such buttons will make the dialog appear complicated and difficult to use.  As with any other button, keep the labels as concise as possible to minimize this effect.</para>
+      
+      <itemizedlist><title>Guidelines</title>
+	<listitem><para>Place buttons that apply to the dialog box as a whole in the main button area row at the bottom of the dialog box, to the left of the <guibutton>Cancel</guibutton> button.</para></listitem>
+	<listitem><para>Place buttons that apply to one or a few controls next to their associated controls. For instance, place a <guibutton>Browse...</guibutton> button at the trailing edge of the text field it fills in.</para></listitem>
+	
+      </itemizedlist>
+      
+    </sect2>
+    
+    <sect2 id="dialog-layout">
+      <title>Layout</title>
+      <para>Arrange controls in your dialog in the direction that people read.  In western locales, this is generally left-to-right, top-to-bottom.  Position the main controls with which the user will interact as close to the upper left corner as possible.  Follow similar guidelines for arranging controls within groups in the dialog, and for specifying the order in which controls are traversed using the <keycap>Tab</keycap> key.</para>
+      
+      <para>When opening a dialog, provide initial keyboard focus to the component that you expect users to operate first. This focus is especially important for users who must use a keyboard to navigate your application.</para>
+      
+      <para>Provide and show sensible default values for as many of the controls in your dialog as possible when it is opened, so the user does not have to generate the information from scratch.  These defaults may come from system settings (for example, hostname or IP address), or from information that the user has previously entered in this or another application (for example, email address or network proxy).</para>
+      
+      <para>See <xref linkend="layout"/> for more detailed information on arranging controls in dialogs.</para>
+      
+      <para>See <xref linkend="controls-notebooks"/> for information on using tabbed notebook controls in dialogs.</para>
+      
+    </sect2>
+    
+    <sect2 id="common-dialogs">
+      <title>Common Dialogs</title>
+      <para>The gtk and GNOME libraries provide standard dialogs for many common tasks, including opening and saving files, choosing fonts and colors, and printing.  Always use these when the user is performing one of these tasks.  You may modify the dialogs to reflect the needs of your particular application (for example, adding preview <guibutton>Play</guibutton> and <guibutton>Stop</guibutton> buttons to the Open File dialog in an audio application), but do not change or remove features so much as to make them unrecognizable.</para>
+    </sect2>
+    
+  </sect1>
+
   <sect1 id="assistant-windows">
     <title>Assistants</title>
     <remark>FIXME: need to finish this section</remark>
