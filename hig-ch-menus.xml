@@ -6,42 +6,25 @@
 <remark> Menu bar position </remark>
 <remark> Menu bar hiding </remark>
 
-    <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, placing common menu items in the same locations as they appear in other applications makes it much easier for the user to learn.</para>
+    <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, place common menu items in the same locations as they appear in other applications, as this makes it much easier for the user to learn.</para>
   
-    <para>In most applications, only primary windows should have a menu bar. Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
+    <para>In most applications, only primary windows should have a menu bar. <link linkend="utility-windows">Utility windows</link> and <link linkend="dialog-boxes">dialog boxes</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
 
-    <para>Occasionally, however, a secondary window is so complex that there would be too many controls. In these cases you may use a menubar provided that:</para>
+    <para>Occasionally, however, a utility window or dialog is so complex that there would be too many controls. In these case, you may use a menubar provided that:</para>
 
     <itemizedlist>
       <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
-      <listitem><para>you do not include any dialog-style buttons to dismiss the window, such as <guibutton>OK</guibutton>, <guibutton>Close</guibutton> or <guibutton>Cancel</guibutton>, but place these commands on the <guimenu>File</guimenu> menu or equivalent instead.</para></listitem>
+      <listitem><para>you do not include a dialog button area or any buttons that dismiss the window, such as <guibutton>OK</guibutton>, <guibutton>Close</guibutton> or <guibutton>Cancel</guibutton>.  Place these commands on the <guimenu>File</guimenu> menu or equivalent instead.</para></listitem>
     </itemizedlist>
 
-    <para>Guidelines:</para>
-
-    <itemizedlist>
-
-	<listitem><para>Only place items on a menu that relate to that menu's title.</para></listitem>
-
-      <listitem><para>Organize menus according to the standard order when there is one&mdash; see <xref linkend="standard-menus" /> for the standard order for many common menu items.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> then <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
-
+	<itemizedlist><title>Guidelines</title>
       <listitem><para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para></listitem>
-
 
     <listitem><para>Provide an access key for each menu item. Note that unlike other controls, once a menu is displayed, its access keys may be used by just typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
 
-      <listitem><para>Design your menu structure to avoid more than one level of submenus.  Deep menu hierarchies are physically difficult to navigate, which has accessibility implications.  They are also harder to memorize.</para></listitem>
+      <listitem><para>Design your menu structure to avoid more than one level of submenus.  Deep menu hierarchies are harder to memorize and physically difficult to navigate.</para></listitem>
 
-      <listitem><para>Limit top level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
-
-      <listitem><para>Do not add or remove menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menu bar at runtime, however, for example in component-based applications.</para></listitem>
-
-      <listitem><para>Change menu items that have been edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, consequent to the appropriate user action.</para></listitem>
-
-
-  <!-- CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." -->
-
-    </itemizedlist>
+	</itemizedlist>
 
     <sect1 id="menu-controlsparts">
       <title>Controls Related to Menus</title>
@@ -49,60 +32,133 @@
 	<title>Types of Menu</title>
 	<sect3 id="menu-type-menubar">
 	  <title>The Menu Bar</title>
-	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application. Applications should not provide a mechanism for hiding the menubar, as this could be activated accidentally and would result in the application being "broken" for some users.</para>
-	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu in a menubar.</para>
+
+	<figure id="example-menu-bar">
+	<title>A typical menu bar</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/application-menubar.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A typical application menu bar, showing File, Edit, View, Insert, Format, Go, Bookmarks, Tools, Windows and Help menus</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+
+	  <para>Provide a menubar in each primary application window. The menubar provides a number of drop-down menus. It will be visible at all times and will always be accessible from the keyboard as well as the mouse, so use it to give access to all commands available in your application.</para>
+
+	<para>It is recommended that you do not provide a mechanism for hiding the menubar, as this can be activated accidentally, resulting in the application being "broken" for some users.  If your users do require this option, provide a button elsewhere in the window (on a toolbar or in a toolbox, for example) that opens the menubar again.</para>
 
 	</sect3>
 	<sect3 id="menu-type-drop-down">
 	  <title>Drop-down Menus</title>
+	<figure id="drop-down-menu">
+	<title>A typical drop-down menu</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/generic-view-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject><phrase>Screenshot of a typical drop-down menu</phrase></textobject>
+	</mediaobject>
+      </figure>
+
 	  <para>Drop-down menus post from the head items on the menu bar. . . .</para>
 
 <!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menu bar, or "posted," makes sense.  -->
 
+    <itemizedlist><title>Guidelines</title>
+
+	<listitem><para>Only place items on a menu that relate to that menu's title.</para></listitem>
+
+      <listitem><para>Organize menus according to the standard order when there is one&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> then <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
+
+      <listitem><para>Limit top-level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
+
+      <listitem><para>Do not add or remove individual menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menu bar at runtime, however, for example in component-based applications.</para></listitem>
+
+      <listitem><para>Immediately update menu items that are edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu.</para></listitem>
+
+
+  <!-- CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." -->
+  <!-- CFB: the keyboard navigation chapter already does so -->
+
+    </itemizedlist>
+
 	</sect3>
+
 	<sect3 id="menu-type-submenu">
 	  <title>Submenus</title>
-	  <para>A submenu posts from an item in a drop-down menu or a popup menu.</para>
 
-<!-- CB-Fig: Figure of submenu being "posted." -->
+	<figure id="submenu">
+	<title>A drop-down menu with a submenu</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/submenu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject><phrase>Screenshot of a drop-down menu with a submenu</phrase></textobject>
+	</mediaobject>
+      </figure>
 
-	  <para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. Usually a submenu should not itself have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
+	  <para>A submenu posts from an item in a drop-down menu or a popup menu.  Use submenus to save space on long menus by grouping related commands.</para>
+
+	<itemizedlist><title>Guidelines</title>
+
+		<listitem><para>Use submenus sparingly, as they are physically difficult to navigate and make it harder to find and reach the items they contain.</para></listitem>
+
+		<listitem><para>Do not create submenus with fewer than three items, unless the items are added dynamically (for example the <menuchoice><guimenu>File</guimenu><guimenuitem>New Tab</guimenuitem></menuchoice> submenu in <application>gnome-terminal</application>).</para></listitem>
+
+		<listitem><para>Do not nest submenus within submenus.  More than two levels of hierarchy are difficult to memorize and navigate.</para></listitem>
+		
+	</itemizedlist>
+
 	</sect3>
 
 <!-- CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  --> 
 
 	<sect3 id="menu-type-popup">
 	  <title>Popup Menus</title>
-	  <para>Provide a popup menu for every object, selectable part, and text input target such as an entry. Show the popup menu in response to a right-click or the keycombo <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Unlike drop-down menus, do not show keyboard shortcuts in popup menus.</para>
 
-<!-- CB-Ed: Why not? (Show keyboard shortcuts in popup menus) -->
+	<figure id="popup-menu">
+	<title>A popup menu for a mail folder</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/popup-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject><phrase>Screenshot of a popup menu for a mail folder, listing the actions that can be performed on that folder</phrase></textobject>
+	</mediaobject>
+      </figure>
 
-	  <para>Provide an access key for each item.</para>
-	  <!-- Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar. -->
-	  <!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
-	  <para>Place the default command for an object as the first item on its popup menu, followed by other commands in expected frequency-of-use order, followed by transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command>.</para>
-	  <para>Avoid submenus from popup menus.</para>
-	  <note>
-	    <para>An exception exists for the <guimenuitem>Input Methods</guimenuitem> submenu. When present, this must be the last item.</para>
-	  </note>
+	<para>Popup menus provide shortcuts to those menu items that are applicable only to the currently selected object.  As such, they are sometimes known as &quot;context menus&quot; or &quot;shortcut menus&quot;.  A popup menu is shown when the user right-clicks on an object, or selects the object and presses <keycombo><keycap>Ctrl</keycap><keycap>F10</keycap></keycombo>.</para>
+
+	<para>Be aware that popup menus are used primarily by intermediate and advanced users.  Even users who have used graphical desktops for many years may not know about popup menus!  You should .</para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Provide a popup menu for every object, selectable part, and text input target such as entry fields.</para></listitem>
+		<listitem><para>Provide an access key for each item.  However, to enhance their spatial efficency and readability, do not show keyboard shortcuts in popup menus.</para></listitem>
+		
+	<listitem><para>Since the user may not be aware of their presence, do not provide functions that are only accessible from popup menus unless you are confident that your target users will know how to use them</para>
+	<remark>But see http://bugzilla.mozilla.org/show_bug.cgi?id=34357</remark>
+	</listitem>
+
+	<listitem><para>Order items on a popup menu as follows:</para>
+	<itemizedlist>
+		<listitem><para>default action for object (same as double-clicking the object)</para></listitem>
+		<listitem><para>other commands in expected frequency-of-use order</para></listitem>
+		<listitem><para>transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command></para></listitem>
+		<listitem><para><guimenuitem>Input Methods</guimenuitem>, where applicable</para></listitem>
+	</itemizedlist>
+	</listitem>
+
+	 <listitem><para>Popup menus need to be as simple as possible to maximize their efficiency.  Do not place more than about ten items on a popup menu, and don't use submenus.</para></listitem>
+
+	</itemizedlist>
 
 <!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
 <!-- SN-Ed: No, it should not be exposed to the user. I'm not really sure what possessed the GTK guys to put this in every right click menu for text boxes. I suppose in this case having it be a submenu is good (if they insist on it existing) because it makes it maximally invisible -->
 
-<!--
-
-CFB: Making this note a comment... actually all I really suggested was that the structure ought to be consistent, whether or not 'Properties' is always the last item is kind of incidental.
-
-	  <note>
-	    <title>For Discussion</title>
-	    <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
-	  </note>
-
-
--->
-
 	</sect3>
       </sect2>
+
       <sect2 id="menu-item-types">
 	<title>Menu Item Types</title>
 	<para>Provide an access key for every menu item, except separators.</para>
@@ -121,8 +177,7 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 
 <!-- CB-Fig: A main figure for this chapter would probably be great, something along the lines of a menu anatomy figure, calling out different parts and rules for using those parts, of a menu.  The Separators may need its own figure, pointing out the rules shown below. -->
 	  
-	  <para>Guidelines:</para>
-	  <itemizedlist>
+	  <itemizedlist><title>Guidelines</title>
 
 	    <listitem><para>The best size for a group is around 2-5 items.  Single items should only appear at the top or bottom of a menu, otherwise try to group them with other single items on the same menu.</para></listitem>
 
