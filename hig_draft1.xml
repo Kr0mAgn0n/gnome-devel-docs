@@ -2458,43 +2458,43 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	    <tbody>
 	      <row>
 		<entry>Select item, deselect all others</entry>
-		<entry>Left click</entry>
-		<entry>Space</entry>
+		<entry>Click</entry>
+		<entry><keysym>Space</keysym></entry>
 	      </row>
 	      <row>
 		<entry>Add/remove item from selection</entry>
-		<entry>Ctrl+left click (toggles item's selected state)</entry>
-		<entry>Ctrl+Space (toggles focused item's selected state)</entry>
+		<entry><keycap>Ctrl</keycap> click (toggles item's selected state)</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo> (toggles focused item's selected state)</entry>
 	      </row>
 	      <row>
 		<entry>Extend selection</entry>
-		<entry>Shift+left click</entry>
-		<entry>Shift+Space, Shift+Home, Shift+End, Shift+PgUp, or Shift+PgDn</entry>
+		<entry><keycap>Shift</keycap> click</entry>
+		<entry><keycombo><keycap>Shift</keycap><keysym>Space</keysym></keycombo>, <keycombo><keycap>Ctrl</keycap><keycap>Home</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>End</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>PageUp</keycap></keycombo>, or <keycombo><keycap>Shift</keycap><keycap>PageDown</keycap></keycombo></entry>
 	      </row>
 	      <row>
 		<entry>Move focus</entry>
-		<entry>N/A</entry>
-		<entry>Cursor keys, Home, End, PgUp, and PgDn. (Also moves current selection if container is single-selection only).</entry>
+		<entry>Click appropriate item to select it</entry>
+		<entry>Cursor keys, <keycap>Home</keycap>, <keycap>End</keycap>, <keycap>PageUp</keycap>, and <keycap>PageDown</keycap>. Also moves current selection if container is single-selection only.</entry>
 	      </row>
 	      <row>
 		<entry>Select All</entry>
-		<entry>Left click first item, then Shift-left-click last item</entry>
-		<entry>Ctrl+A</entry>
+		<entry>Click first item, then <keycap>Shift</keycap> click last item</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 	      </row>
 	      <row>
 		<entry>Deselect All</entry>
-		<entry>Click on container background</entry>
-		<entry>Shift+Ctrl+A</entry>
+		<entry>Click container background</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 	      </row>
 	      <row>
 		<entry>Activate selection</entry>
-		<entry>Double-click</entry>
-		<entry>Return (should select currently-focused item first, if not already selected)</entry>
+		<entry>Double-click to activate a single selection.  <keycap>Shift</keycap> or <keycap>Ctrl</keycap> double-clicking extends or adds item to selection first before activating the entire selection.</entry>
+		<entry><keysym>Return</keysym> activates entire selection.  If nothing is currently selected, selects currently-focused item first.</entry>
 	      </row>
 	      <row>
 		<entry>Invert Selection</entry>
-		<entry>N/A</entry>
-		<entry>Ctrl+I</entry>
+		<entry>No mouse equivalent</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -2504,7 +2504,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
       <sect4>
 	<title>Bounding Box Selection</title>
 
-	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo> should add all the objects within the bounding box to the existing selection.  <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> should toggle the selected state of all the objects within the bounding box.</para>
+	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should add all the objects within the bounding box to the existing selection.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should toggle the selected state of all the objects within the bounding box.</para>
 	<para>Recommendations:</para>
 	<itemizedlist>
 
@@ -2558,7 +2558,7 @@ Dragging with the right button instead of the left pops up a menu when the butto
 -->
 </para>
 
-      <para>Multiple objects may be dragged by Shift or Ctrl selecting them, then dragging any one of the selected objects.</para>
+      <para>Multiple objects may be dragged by <keycap>Shift</keycap> or <keycap>Ctrl</keycap> selecting them, then dragging any one of the selected objects.</para>
       
       <para>Recommendations:</para>
       <itemizedlist>
@@ -2639,11 +2639,11 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<title>Mouse Interaction with Applets</title>
 	<para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
 	<itemizedlist>
-	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo>=copy, if moving to another panel; <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel).</para></listitem>
+	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
 
 	  <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
 
-	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> = copy, if moving to another panel; unmodified drag or <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
+	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
 	</itemizedlist>
 
       </sect4>
@@ -2739,7 +2739,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 		    <itemizedlist>
 		      <listitem><para><keycap>Tab</keycap> moves to State 2</para></listitem>
 		      <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
-		      <listitem><para><keycap>Down Arrow</keycap> moves to State 3</para></listitem>
+		      <listitem><para><keysym>Down Arrow</keysym> moves to State 3</para></listitem>
 		      <listitem><para><keycap>Up Arrow</keycap> beeps and doesn't move focus</para></listitem>
 		    </itemizedlist>
 		  </entry>
@@ -2785,8 +2785,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <itemizedlist>
 	    <listitem><para><keycap>Tab</keycap> moves to State 4</para></listitem>
 	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to last control before radio button group</para></listitem>
-	    <listitem><para><keycap>Down Arrow</keycap> moves to State 5</para></listitem>
-	    <listitem><para><keycap>Up Arrow</keycap> moves to State 1</para></listitem>
+	    <listitem><para><keysym>Down Arrow</keysym> moves to State 5</para></listitem>
+	    <listitem><para><keysym>Up Arrow</keysym> moves to State 1</para></listitem>
 	  </itemizedlist>
 
 	</entry>
@@ -2833,8 +2833,8 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	  <itemizedlist>
 	    <listitem><para><keycap>Tab</keycap> moves focus to first control after radio button group</para></listitem>
 	    <listitem><para><keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo> moves focus to first control before radio button group</para></listitem>
-	    <listitem><para><keycap>Down Arrow</keycap> beeps and doesn't move focus</para></listitem>
-	    <listitem><para><keycap>Up Arrow</keycap> moves to State 3</para></listitem>
+	    <listitem><para><keysym>Down Arrow</keysym> beeps and doesn't move focus</para></listitem>
+	    <listitem><para><keysym>Up Arrow</keysym> moves to State 3</para></listitem>
 	  </itemizedlist>
 
 	</entry>
@@ -2927,32 +2927,32 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem><accel>N</accel>ew</guimenuitem></entry>
-		<entry>Ctrl+N</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry>
 		<entry>Create a new document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>O</accel>pen</guimenuitem></entry>
-		<entry>Ctrl+O</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></entry>
 		<entry>Open a document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>S</accel>ave</guimenuitem></entry>
-		<entry>Ctrl+S</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></entry>
 		<entry>Save the current document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>P</accel>rint</guimenuitem></entry>
-		<entry>Ctrl+P</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
 		<entry>Print the current document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
-		<entry>Ctrl+W</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
 		<entry>Close the current document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>Q</accel>uit</guimenuitem></entry>
-		<entry>Ctrl+Q</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry>
 		<entry>Quit the application</entry>
 	      </row>
 	    </tbody>
@@ -2972,64 +2972,64 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem><accel>U</accel>ndo</guimenuitem></entry>
-		<entry>Ctrl+Z</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
 		<entry>Undo the last operation</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>R</accel>edo</guimenuitem></entry>
-		<entry>Shift+Ctrl+Z</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></entry>
 		<entry>Redo the last operation</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Cu<accel>t</accel></guimenuitem></entry>
-		<entry>Ctrl+X</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>X</keycap></keycombo></entry>
 		<entry>Cut the selected area and store it in the clipboard</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>C</accel>opy</guimenuitem></entry>
-		<entry>Ctrl+C</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></entry>
 		<entry>Copy the selected area into the clipboard</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>P</accel>aste</guimenuitem></entry>
-		<entry>Ctrl+V</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
 		<entry>Paste contents of clipboard at mouse/cursor position</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Select <accel>A</accel>ll</guimenuitem></entry>
-		<entry>Ctrl+A</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Select everything in focused control or window</entry>
 	      </row>
 
 	      <row>
 		<entry><guimenuitem>Deselect All</guimenuitem></entry>
-		<entry>Shift+Ctrl+A</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Deselect everything in focused control or window</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>In<accel>v</accel>ert Selection</guimenuitem></entry>
-		<entry>Ctrl+I</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
 		<entry>Select everything in focused control or window that was previously unselected, and deselect everything that was previously selected</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>D</accel>elete</guimenuitem></entry>
-		<entry>Del</entry>
+		<entry><keycap>Del</keycap></entry>
 		<entry>Delete selection</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>F</accel>ind</guimenuitem></entry>
-		<entry>Ctrl+F</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
 		<entry>Find</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Find Ne<accel>x</accel>t</guimenuitem></entry>
-		<entry>Ctrl+G</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo></entry>
 		<entry>Find the next match</entry>
 	      </row>
 <!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
 	      <row>
 		<entry><guimenuitem><accel>R</accel>eplace</guimenuitem></entry>
-		<entry>Ctrl+H (or Ctrl+R?)</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></entry>
 		<entry>Find and replace matches</entry>
 	      </row>
 
@@ -3071,17 +3071,17 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem>Zoom <accel>I</accel>n</guimenuitem></entry>
-		<entry>Ctrl+Plus</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Plus</keysym></keycombo></entry>
 		<entry>Zoom in on the document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Zoom <accel>O</accel>ut</guimenuitem></entry>
-		<entry>Ctrl+Minus</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Minus</keysym></keycombo></entry>
 		<entry>Zoom out of the document</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
-		<entry>Ctrl+R</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
 		<entry>Redraw/reload the current document</entry>
 	      </row>
 
@@ -3106,12 +3106,12 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem>Add <accel>B</accel>ookmark</guimenuitem></entry>
-		<entry>Ctrl+D</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
 		<entry>Add a bookmark for the current location</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>E</accel>dit Bookmarks...</guimenuitem></entry>
-		<entry>Ctrl+B</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
 		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
 	      </row>
 	    </tbody>
@@ -3131,17 +3131,17 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem><accel>B</accel>old</guimenuitem></entry>
-		<entry>Ctrl+B</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
 		<entry>Make selected text bold/regular</entry>
 		</row>
 	      <row>
 		<entry><guimenuitem><accel>U</accel>nderline</guimenuitem></entry>
-		<entry>Ctrl+U</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
 		<entry>Underline/remove underline from selected text</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem><accel>I</accel>talic</guimenuitem></entry>
-		<entry>Ctrl+I</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
 		<entry>Make selected text italic/regular</entry>
 	      </row>  
 	    </tbody>
@@ -3165,12 +3165,12 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    <tbody>
 	      <row>
 		<entry><guimenuitem>Help</guimenuitem></entry>
-		<entry>F1</entry>
+		<entry><keycap>F1</keycap></entry>
 		<entry>Obtain help and documentation for the application</entry>
 	      </row>
 	      <row>
 		<entry><guimenuitem>Context Help</guimenuitem></entry>
-		<entry>Shift+F1</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></entry>
 		<entry>Obtain help and documentation for the currently focused control or window</entry>
 	      </row>
 	
@@ -3200,47 +3200,47 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>Tab, Shift+Tab</entry>
+		<entry><keycap>Tab</keycap>, <keycombo><keycap>Shift</keycap><keycap>Tab</keycap></keycombo></entry>
 		<entry>Moves keyboard focus to next/previous control</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+Tab, Shift+Ctrl+Tab</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo>, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo></entry>
 		<entry>Moves keyboard focus out of enclosing widget to next/previous control, in those situations where Tab alone has another function (e.g. GtkTextView)</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+F1</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo></entry>
 		<entry>Pop up tooltip for currently-focused control</entry>
 	      </row>
 	      <row>
-		<entry>F6, Shift+F6</entry>
+		<entry><keycap>F6</keycap>, <keycombo><keycap>Shift</keycap><keycap>F6</keycap></keycombo></entry>
 		<entry>Give focus to next/previous pane in a GtkPaned window</entry>
 	      </row>
 	      <row>
-		<entry>F8</entry>
+		<entry><keycap>F8</keycap></entry>
 		<entry>Give focus to splitter bar in paned window</entry>
 	      </row>
 	      <row>
-		<entry>F10</entry>
+		<entry><keycap>F10</keycap></entry>
 		<entry>Give focus to window's menu bar</entry>
 	      </row>
 	      <row>
-		<entry>Shift+F10</entry>
+		<entry><keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo></entry>
 		<entry>Pop up contextual menu for currently-selected objects</entry>
 	      </row>
 	      <row>
-		<entry>Space</entry>
+		<entry><keysym>Space</keysym></entry>
 		<entry>Toggle selected state of focused checkbox, radio button, or toggle button</entry>
 	      </row>
 	      <row>
-		<entry>Return</entry>
+		<entry><keysym>Return</keysym></entry>
 		<entry>Activate focused button, menu item etc.</entry>
 	      </row>
 	      <row>
-		<entry>Home, End</entry>
+		<entry><keycap>Home</keycap>, <keycap>End</keycap></entry>
 		<entry>Select/move to first item in selected widget</entry>
 	      </row>
 	      <row>
-		<entry>PageUp, Ctrl+PageUp, PageDown, Ctrl+PageDown</entry>
+		<entry><keycap>PageUp</keycap>, <keycombo><keycap>Ctrl</keycap><keycap>PageUp</keycap></keycombo>, <keycap>PageDown</keycap>, <keycombo><keycap>Ctrl</keycap><keycap>PageDown</keycap></keycombo></entry>
 		<entry>Scroll selected view by one page up/right/down/left</entry>
 	      </row>
  	      </tbody>
@@ -3265,51 +3265,51 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>Ctrl+A</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Move cursor to beginning of line</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+D</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
 		<entry>Delete character following/under cursor</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+E</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
 		<entry>Move cursor to end of line</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+K</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo></entry>
 		<entry>Delete from cursor to end of line</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+U</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
 		<entry>Delete current line</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+W</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
 		<entry>Cut to clipboard</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+Y</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Y</keycap></keycombo></entry>
 		<entry>Paste from clipboard</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+Space</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo></entry>
 		<entry>Set mark</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+Del, Alt+D</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>Del</keycap></keycombo>, <keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo></entry>
 		<entry>Delete from cursor to end of word</entry>
 	      </row>
 	      <row>
-		<entry>Ctrl+Backspace</entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keysym>Backspace</keysym></keycombo></entry>
 		<entry>Delete from cursor to start of word</entry>
 	      </row>
 	      <row>
-		<entry>Alt+Space</entry>
+		<entry><keycombo><keycap>Alt</keycap><keysym>Space</keysym></keycombo></entry>
 		<entry>Delete all whitespace around cursor, reinsert single space</entry>
 	      </row>
 	      <row>
-		<entry>Alt+\</entry>
+		<entry><keycombo><keycap>Alt</keycap><keycap>\</keycap></keycombo></entry>
 		<entry>Delete all whitespace around cursor</entry>
 	      </row>
 	      </tbody>
