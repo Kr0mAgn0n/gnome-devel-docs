@@ -11,9 +11,11 @@
     <para>Use menus to reveal commands and options to the user.</para>
     <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
     <para>Organize menus according to the standard order, logical order, or freqency of use.</para>
+  <!-- CB-Ed: Clearly define "standard" and "logical" order, or give a succinct example, probably later on in the section where details are called for.-->
     <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
     <para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para>
     <para>Provide an access key for each menu item. Unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para>
+  <!-- CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." -->
     <sect1 id="menu-controlsparts">
       <title>Menu Controls</title>
       <para>FIXME</para>
@@ -23,6 +25,8 @@
 	  <title>The Menu Bar</title>
 	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
 	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu on a menubar.</para>
+
+<!-- CB-Ed: In the previous paragraph, intead of using the verb "focus" in that odd manner, try saying: "places the focus on..." -->
 	  <note>
 	    <title>For Discussion</title>
 	    <para>We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink></para>
@@ -31,15 +35,27 @@
 	<sect3 id="menu-type-drop-down">
 	  <title>Drop-down Menus</title>
 	  <para>Drop-down menus post from the head items on the menu bar. . . .</para>
+
+<!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menu bar, or "posted," makes sense.  -->
+
 	</sect3>
 	<sect3 id="menu-type-submenu">
 	  <title>Submenus</title>
 	  <para>A submenu posts from an item in a drop-down menu or a popup menu.</para>
+
+<!-- CB-Fig: Figure of submenu being "posted." -->
+
 	  <para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. A submenu should not have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
 	</sect3>
+
+<!-- CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  --> 
+
 	<sect3 id="menu-type-popup">
 	  <title>Popup Menus</title>
 	  <para>Provide a popup menu for every object, selectable part, and text input target such as an entry. Show the popup menu in response to a right-click or the keycombo <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Unlike drop-down menus, do not show keyboard shortcuts in popup menus.</para>
+
+<!-- CB-Ed: Why not? (Show keyboard shortcuts in popup menus) -->
+
 	  <para>Provide an access key for each item.</para>
 	  <!-- Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar. -->
 	  <!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
@@ -48,6 +64,8 @@
 	  <note>
 	    <para>An exception exists for the <guimenuitem>Input Methods</guimenuitem> submenu. When present, this must be the last item.</para>
 	  </note>
+
+<!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
 	  <note>
 	    <title>For Discussion</title>
 	    <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
@@ -57,14 +75,24 @@
       <sect2 id="menu-item-types">
 	<title>Menu Item Types</title>
 	<para>Provide an access key for kind every menu item, except separators.</para>
+
+<!-- CB-Ed: typo in previous para, correct to "Provide an access key for every kind of menu item... -->
+
 	<sect3 id="menu-item-type-head">
 	  <title>Heads</title>
 	  <para>Each item on the menu bar is a head item. Head items also appear in drop-down menus which have submenus.</para>
+
+<!-- CB-Ed/Fig: Again, lots of new terminology (it seems to me, anyway) is being introduced where familiar nomenclature exists.  Items on the menu bar are typically called "Menu Titles."  "Head item" just sounds goofy.  Figures would be good here, especially for the second sentence of the previous para. -->
+
 	  <para>Do not disable head items. Allow the user to explore the interface, even though there might be no item on the submenu which may be used.</para>
 	</sect3>
 	<sect3 id="menu-item-type-sep">
 	  <title>Separators</title>
 	  <para>A separator indicates the end of a group of related items on a drop-down menu, a submenu, or a popup menu.</para>
+
+
+<!-- CB-Fig: A main figure for this chapter would probably be great, something along the lines of a menu anatomy figure, calling out different parts and rules for using those parts, of a menu.  The Separators may need its own figure, pointing out the rules shown below. -->
+
 	  <para>Groups of two to about five related items should be separated from other groups using separators. A single item at the top or bottom of a menu may appear before or after a group. As with menus generally, the items within a group should be ordered sequentially or by expected frequency of use.</para>
 	</sect3>
 	<sect3 id="menu-item-type-command">
@@ -80,7 +108,12 @@
 	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"/> for more information.</para> -->
 	  <para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
 	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
+
+<!-- CB-Ed: The previous para is badly written, especially the last clause; it's grammatically incorrect, to begin with. -->
 	  <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
+
+
+<!-- CB-Ed/Fig: "requires" in the previous para probably doesn't require emphasis. Figure would be nice here. -->
 	</sect3>
 	<sect3 id="menu-item-type-mutable">
 	  <title>Mutable Command Items</title>

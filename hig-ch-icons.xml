@@ -5,6 +5,8 @@
     <para> </para>
     <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. Good icons suggest to the user the sort of conceptual item they are associated with, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
     
+<!-- CB-Ed: The second sentence reads funny; perhaps making it succinct will help make it more eloquent. I'm primarily talking about the awkward "suggest to the user the sort of conceptual item they are associated with..."-->
+
     <sect1 id="specifications">
       <title>Specifications for GNOME icons</title>
       
@@ -12,6 +14,9 @@
 	<title>Toolbar and Menu Icons</title>
 	
 	<formalpara><title>Perspective and Lighting</title><para>Toolbar and menu icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down.</para></formalpara>
+
+<!-- CB-Ed: In the formalpara above, terms like "head on" and the subsequent elaboration are wordy and/or not as clear as they could be.  Why not use more formal terminology like "flush" (JLF uses this term, vs. "3-D"). And... "shelf-like" nature?  Same for lighting terminology; it's too wordy and subjective. -->
+ 
 	<formalpara><title>Shape</title><para>Make sure that sets of toolbar icons used together are easy to differentiate. Try looking at the silhouettes of toolbar icons that may be used together to ensure that they are visually distinct.</para></formalpara>
 	<figure>
 	  <title>Silhouette of the toolbar icons from the Nautilus Crux theme</title>
@@ -23,6 +28,9 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
+
+<!-- CB-Fig: This figure does not display properly in Netscape 4.76 on Solaris.  It is just a black bar. -->
+
 	<formalpara><title>Size</title><para>Toolbar icons should be 24x24 pixels. Menu icons should be 16x16 pixels.</para></formalpara>
 	
 	<figure>
@@ -46,6 +54,8 @@
 	  </mediaobject>
 	</figure>
 	
+<!-- CB-Ed: Terminology, again.  Visual designers tend to call graphics in the toolbar "toolbar graphics," for toolbar buttons, which represent action, and graphics that represent objects, "icons." -->
+
 	<sect3 id="stock_toolbar_icons">
 	  <title>Stock Icons</title>
 	  <para>Often, you will not have to design any toolbar icons yourself. GTK provides many stock icons, and you should use these whenever you provide a toolbar button for one of the functions they represent. This establishes consistent language across applications, and makes it easier for users to search for items on the toolbar. Do not use stock toolbar icons for anything other than their intended purpose, however, as this will make your application inconsistent with others, and could easily confuse your users.</para>
@@ -56,7 +66,13 @@
       <sect2 id="application_icons">
 	<title>Application Icons</title>
 	<formalpara><title>Perspective and Lighting</title><para>Application icons should have the perspective of being placed on a table in front of the user. Light should come from the upper left corner, casting shadows onto the top of the imaginary table.</para></formalpara>
+
+<!-- CB-Ed: Again, terminology is unclear; "placed on a table in front of the user" can mean anything.  Be exact. -->
+
 	<formalpara><title>Shape</title><para>Application icons should be shaped (rather than being square or a rectangle) in order to be visually appealing, but need not adhere to particular shape specifications.</para></formalpara>
+
+<!-- CB-Ed: "shaped?"  Use something like "Application icons should have an irregular outline..." -->
+
 	<formalpara><title>Size</title><para>Application icons should be 48x48 pixels, but should be test viewed at sizes down to 16x16 to ensure they scale well.</para></formalpara>
 	<figure>
 	  <title>A great icon for a software installer</title>
@@ -70,6 +86,9 @@
 	</figure>
 	<figure>
 	  <title>A reasonable icon for an IDE</title>
+
+<!-- CB-Ed: What do you mean by "reasonable"? Please keep wording objective and exact.  -->
+
 	  <mediaobject><imageobject>
 	      <imagedata fileref="images/gide-icon.png" format="PNG"/>
 	    </imageobject>
@@ -189,6 +208,8 @@
 	<para>...</para>
       </sect2>
       
+<!-- CB-Ed: Much of this section has good substance, but is communicated poorly.  There seem to be a lot of blanket statements, and the tone is subjective (e.g., text describing figure 12, the Gnumeric icon.  Stick just to the facts, or try to stay closely to objective language, and language that will not be presenting things in a way that can be argued with or questioned. -->
+ 
       
       <sect2>
 	<title>Icon Problems to Avoid</title>

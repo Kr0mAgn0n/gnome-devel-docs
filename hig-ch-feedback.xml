@@ -11,6 +11,8 @@
       <itemizedlist>
 	<listitem><para>They keep up with users, even when they cannot fulfill users' requests immediately.</para></listitem>
 
+<!-- CB-Ed: What do you mean by "keep up with users?"  Be specific.  Say something like:  "They give immediate feedback to users, even when they cannot fulfill users' requests immediately." -->
+
 	<listitem><para>They handle queued requests as users would expect, discarding requests that are no longer relevant and reordering requests according to users' probable priorities.</para></listitem>
 
 	<listitem><para>They let users do other work while long operations proceed to completion&mdash; especially operations not requested by users&mdash; such as reclaiming unused memory or other &quot;housekeeping&quot; operations.</para></listitem>
@@ -23,6 +25,8 @@
 
 	<listitem><para>They let users set the pace of work, when possible, and they let users stop requested tasks that have started but not finished.</para></listitem>
       </itemizedlist>
+
+<!-- CB-Ed: Collapse some of the items in the list above, they are similar or have lots of overlap.  -->
 
       <para>Highly responsive applications put users in control by quickly acknowledging each user request, by providing continuous feedback about progress toward fulfilling each request, and by letting users complete tasks without unacceptable delays.</para>
 
@@ -160,6 +164,9 @@
 	    </textobject>
 	  </mediaobject>
 	</figure>
+
+<!-- CB-Fig: Replace above figure with one that is cleaned up.  -->
+
       </sect2>
       
       
@@ -222,6 +229,8 @@
 	      </mediaobject>
 	    </figure>
 
+<!-- CB-Fig: Above figure seems to be an incorrect one; where's the percentage in the dialog?  It looks identical to Fig 4. -->
+
 	    <para>Use a proportion-completed bar if your application will estimate an operation's duration by counting the units of work completed so far, without regard for changes that might affect how quickly the remaining units will be completed. If the operation will process a known number of objects or a set of objects whose total size is known, equate the length of the bar to the total number of units of work that the operation will perform. At least every four seconds, update the bar to show how much of the operation is complete.</para>
 
 	  </sect4>
@@ -264,6 +273,7 @@
 	      </mediaobject>
 	    </figure>
 
+<!-- CB-Fig: Above figure may benefit from showing the slider away from the right or left edge; otherwise it looks like the other progress bars, slightly modified. -->
 	    <para>Use an indeterminate-progress bar to provide feedback only for operations whose duration you cannot estimate at all.</para>
 	    
 	  </sect4>
@@ -407,6 +417,7 @@
 
 	  <listitem><para>Label the button <guibutton>Stop</guibutton> if the command can be interrupted, but its effects up to that point cannot (or should not) be reversed. When the user presses this button, open an alert box that warns of the potential side effects of stopping the command. The alert box should have only two buttons: one for continuing the command's processing, and one for immediately terminating it.</para></listitem>
       
+<!-- CB-Fig: Figure here showing example alertbox in context (overlaying the progress animation in a dialog, etc.) with sample alerbox text. JLFDG AT p. 107 shows this. (Fig 66) -->
       </itemizedlist>
       
       <para>Alternatively, you can place the <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton> button near the control with which the user issued the command that needs to be stopped. Place the button here only if:</para>
