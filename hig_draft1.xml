@@ -1783,70 +1783,79 @@ right of small icons, and immediately above or to the left of other controls. Se
     <title>Designing Effective Icons</title>
     <para> </para>
     <para>Icons are a graphical metaphor presenting a visual image that the user associates with a particular object, state or operation. Good icons suggest to the user the sort of conceptual item they are associated with, whether that be an application in the panel menu or the "right aligned" state in a word processor toolbar.</para>
-    <para>Icons have many uses:
-      <itemizedlist>
-	<listitem><para>Icons can assist the user in rapidly scanning a large number of entries to choose a desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label.</para></listitem>
-	<listitem><para>Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words.</para></listitem>
-	<listitem><para>Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.</para></listitem>
-      </itemizedlist>
+    <para>
+      Icons have many uses. Icons can assist the user in rapidly scanning a large number of objects to select the desired item. Particularly after a user is acustomed to an icon's appearance, they can identify it more rapidly than a text label. Icons can augment text, for example in a menu, in communicating the purpose of an item by providing visual suggestions to accompany the descriptive text. It is often true that a picture, even a very small one, is worth a thousand words. Icons can provide a compact representation for a large number of functions when there is insufficient space to display textual descriptions. This is evident in toolbars where icons are often used without text to reduce space usage, or when icons are placed on a small panel.
     </para>
     <tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
-    <para><emphasis role="bold">Icons tend to fall into one of four categories</emphasis></para>
-    <itemizedlist>
-      <listitem><para><emphasis role="bold">Functionally Suggestive Icons</emphasis></para>
-	<para>Icons should be, if possible, suggestive of the functionality of the program. The best icon will suggest to the user the primary purpose of the program without having to read the accompanying caption.</para>
-	<figure>
-	  <title>A functionally suggestive icon for a word processor (AbiWord)</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/abiword-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The AbiWord icon</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </listitem>
-      <listitem><para><emphasis role="bold">Name Suggestive Icons</emphasis></para>
-	<para>Some icons, such as the Nautilus icon, do not suggest the program's purpose, but instead suggest the program's name. This is less desirable than a functionally suggestive icon, because an extra layer of abstraction is added (rather than associating file management with an icon representing files, they have to represent file management with nautilus with an image of a nautilus shell). Additionally it makes it difficult for new users because, for example, may not know what "Nautilus" is, and hence will not look for a shell when they want to manage files.</para>
-	<figure>
-	  <title>A name suggestive icon for Nautilus</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/nautilus-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>A picture of a nautilus shell</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </listitem>
-      <listitem><para><emphasis role="bold">"Text Icons"</emphasis></para>
-	<para>Icons which contain the text of the program name in the icon. They effectively contain no metaphor or picture for the user to identify with, and are probably harder to read than the accompanying caption. Since icons draw the eyes, an icon that is harder to identify than text is potentially worse than no icon at all. Hence "text icons" should not be used.</para>
-	<figure>
-	  <title>A "text icon" for GEdit</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/gedit-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The GEdit icon</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </listitem>
-      <listitem><para><emphasis role="bold">Random Icons</emphasis></para>
-	<para>Random icons appear to have no association with the program (except perhaps some odd connection in the mind of the developer). These icons should <emphasis>never</emphasis> be used and will likely serve to confuse the user more than help them. The icon's purpose should not be to "look pretty"; this is merely a very desirable side effect.</para>
-	<figure>
-	  <title>A seemingly random icon for SodiPodi</title>
-	  <mediaobject><imageobject>
-	      <imagedata fileref="images/sodipodi-icon.png" format="PNG"/>
-	    </imageobject>
-	    <textobject>
-	      <phrase>The SodiPodi Icon (looks like a squirrel)</phrase>
-	    </textobject>
-	  </mediaobject>
-	</figure>
-      </listitem>
-    </itemizedlist>
-    <para>If at all possible, a functionally suggestive icon should be used. Failing that a name suggestive icon is appropriate. <emphasis>"Text Icons" and other desperate substitutes should not be used</emphasis>.</para>
+    <sect2 id="right_kind">
+      <title>Kinds of Icons</title>
+      <para>If at all possible, a <link linkend="functionally_suggestive">functionally suggestive</link> icon should be used. Failing that a <link linkend="name_suggestive">name suggestive</link> icon can be an appropriate choice. <emphasis><link linkend="text_icons">Text icons</link> and other desperate substitutes should not be used</emphasis>.</para>
+
+      <itemizedlist>
+	<listitem><para id="functionally_suggestive"><emphasis role="bold">Functionally Suggestive Icons</emphasis></para>
+	  <para>Icons should be, if possible, suggestive of the functionality with which they are associated. The best icon will suggest to the user the primary purpose of the program or operation without having to read accompanying text. Users tend to recognize functionally suggestive icons more rapidly than other forms because they directly associate with a physical object or action.</para>
+	  <figure>
+	    <title>A functionally suggestive icon for a word processor (AbiWord)</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/abiword-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>A document with a pen writing on it</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  <figure>
+	    <title>A functionally suggestive icon for underline</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/underline-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>An underlined character</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
+	<listitem><para id="name_suggestive"><emphasis role="bold">Name Suggestive Icons</emphasis></para>
+	  <para>Some icons, such as the Nautilus icon, do not suggest the program's purpose, but instead suggest the program's name. This is less desirable than a functionally suggestive icon, because an extra layer of abstraction is added (rather than associating file management with an icon representing files, they have to represent file management with nautilus with an image of a nautilus shell). Additionally it makes it difficult for new users because, for example, may not know what "Nautilus" is, and hence will not look for a shell when they want to manage files.</para>
+	  <figure>
+	    <title>A name suggestive icon for Nautilus</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/nautilus-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>A picture of a nautilus shell</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
+	<listitem><para id="text_icons"><emphasis role="bold">"Text Icons"</emphasis></para>
+	  <para>Icons which contain the text of the program name in the icon. They effectively contain no metaphor or picture for the user to identify with, and are probably harder to read than the accompanying caption. Since icons draw the eyes, an icon that is harder to identify than text is potentially worse than no icon at all. Hence "text icons" should not be used.</para>
+	  <figure>
+	    <title>A "text icon" for GEdit</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/gedit-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>The GEdit icon</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
+	<listitem><para><emphasis role="bold">Random Icons</emphasis></para>
+	  <para>Random icons appear to have no association with the program (except perhaps some odd connection in the mind of the developer). These icons should <emphasis>never</emphasis> be used and will likely serve to confuse the user more than help them. The icon's purpose should not be to "look pretty"; this is merely a very desirable side effect.</para>
+	  <figure>
+	    <title>A seemingly random icon for SodiPodi</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/sodipodi-icon.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>The SodiPodi Icon (looks like a squirrel)</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
+      </itemizedlist>
+    </sect2>
     <sect2>
       <title>Communicating concept with effective visual language</title>
       <para>...</para>
@@ -1857,7 +1866,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<para>Toolbar icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance which complements their shelf-like nature. While shape is important in any icon, it is particularly important to make sure that toolbar icons used together are easy to differentiate.</para>
       </formalpara>
     </sect2>
-    <sect2><title>Types of Icons</title>
+    <sect2 id="types"><title>Icon Types used by GNOME</title>
       <sect3><title>Toolbar and Menu Icons</title>
 	<para>Toolbar icons should have the perspective of being viewed head on, as if they were sitting in front of the user at eye-level. This gives toolbars a "flat" appearance that complements their shelf-like nature. Lighting should come from a point well above the user's head, casting a small shadow down. While shape is important in any icon, it is particularly important to make sure that sets of toolbar icons used together are easy to differentiate. Toolbar icons should be 24x24 pixels.</para>
 	<para>Menu icons should also be rendered in a head on perspective with overhead lighting. As they are used to augment textual descriptions, unique shaping is less important. Menu icons should be 16x16 pixels.</para>
