@@ -232,15 +232,19 @@ system appear slow, not doing this can cause the window manager to think the app
     <sect2 id="primary-window-titles">
       <title>Title</title>
 
-      <para>For document-based applications, use <replaceable>Document Name</replaceable>
-      as the window title. Use only the filename, not the full pathname, as
-      this will make it easier to distinguish both here and other places the
-      window title is used, such as the window list on the panel. If the
-      pathname is important, for example the user has opened two documents
-      with the same name from different directories in the same application,
-      show the full pathname in the statusbar.</para>
+      <para>The most important element of a document-based application's 
+	      window title is the name of the open document.  For other
+	      applications, it usually the name of the application.
+      </para>
 
-      <example>
+      <itemizedlist><title>Guidelines</title>
+
+	<listitem><para>Use <replaceable>Filename</replaceable>
+	as the window title for document-based applications. 
+	Do not use the full pathname, as
+	the filename alone is easier to distinguish amongst
+	other open window titles, for example on the window list.</para>
+      	<example>
         <title>Using document names as window titles</title>
 
         <informaltable frame="all">
@@ -274,29 +278,33 @@ system appear slow, not doing this can cause the window manager to think the app
             </tbody>
           </tgroup>
         </informaltable>
-      </example>
-
-	<para>Before a new document has been saved for the first time, set
+      	</example>
+	<para>If the
+      	pathname is important, for example the user has opened two documents
+      	with the same name from different directories in the same application,
+      	show the full pathname in the statusbar.</para>
+	</listitem>
+	
+	<listitem><para>Before a new document has been saved for the first time, set
 	the window title to <replaceable>Unsaved &lt;document type&gt;</replaceable>.
 	For example, 	
 	<replaceable>Unsaved Drawing</replaceable>, 
 	<replaceable>Unsaved Spreadsheet</replaceable>, or the more
 	generic <replaceable>Unsaved Document</replaceable>.</para>
+	</listitem>
 
-      <para>While document names are most pertinent to users, we understand
-      that application developers may want to increase recognition of their
-      application. If you plan to include your application&#39;s name in the
-      title of a primary window, use the following format:
-      <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>.
-      This will ensure that the document name appears in limited space
-      situations such as the system window list.</para>
 
-      <warning><para>Including the application name in the title of a document-based application is <emphasis role="bold">not</emphasis> recommended.</para></warning>
 
-      <para>For other types of application, use <replaceable>Application Name</replaceable>
-      as the window title.</para>
+      	<listitem><para>When a document has pending changes, insert an asterisk 
+      (*) at the beginning of the window title.
+      For example, <replaceable>*Unsaved Drawing</replaceable>,
+      <replaceable>*AnnualReport</replaceable>.</para></listitem>
+      
+	<listitem><para>For non-document-based applications, use 
+		<replaceable>Application Name</replaceable>
+      		as the window title.</para>
 
-      <example>
+      	<example>
         <title>Using application names as window titles</title>
 
         <informaltable frame="all">
@@ -325,15 +333,28 @@ system appear slow, not doing this can cause the window manager to think the app
           </tgroup>
         </informaltable>
       </example>
+      </listitem>
 
-      <para>Do not place version numbers, company names, or other information
+      <listitem><para>Do not place version numbers, company names, or other information
       that is of no immediate use to the user in the window title. These
       consume space, making titles in limited spaces such as the system window
       list less useful, and add more text the user has to scan to find useful
       information. In a &#34;beta&#34; product, where version numbers are
       critical for bug information, placing version numbers can be useful, but
       remove them from stable releases. Place version information in the about
-      box instead.</para>
+      box instead.</para></listitem>
+
+     </itemizedlist>
+
+      <para>While document names are most pertinent to users, we understand
+      that application developers may want to increase recognition of their
+      application. If you plan to include your application&#39;s name in the
+      title of a primary window, use the following format:
+      <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>.
+      This will ensure that the document name appears in limited space
+      situations such as the system window list.</para>
+
+      <warning><para>Including the application name in the title of a document-based application is <emphasis role="bold">not</emphasis> recommended.</para></warning>
 
       <tip><para>Think about naming windows in the context of the panel window list. On a typical screen with a relatively small number of windows open, a window will have 20-30 characters of text and an icon. Consider which text will provide the most immediately obvious clues to a user looking for a particular window.</para></tip>
 
