@@ -4,6 +4,7 @@
 <!-- Note from GJM: I'd like to start cutting out the sections that presently are in comments.
   If I don't see any negative feedback on this after the next person's changelog entry I'll go ahead and do it.
   We can always revert in CVS.
+  Later Note: I really meant just the crufty (non-content) stuff. I've already removed some of it.
 -->
 <articleinfo>
 
@@ -42,8 +43,6 @@
   </para>
 </legalnotice>
 
-<!-- FIXME: Someone think of a better title. HI Handbook, perhaps? -->
-<!-- seems done -->
 <title>GNOME 2.0 Human Interface Guidelines (draft)</title>
 
 </articleinfo>
@@ -384,8 +383,57 @@ text/mathml
 </sect1>
 
 <sect1 id="windows">
-<title>Windows</title>
-<para>FIXME</para>
+    <title>Windows</title>
+    <para>Windows are an essential part of many graphical user interfaces. However, the only windows apparent to the user are the top-level windows.</para>
+
+    <sect2 id="window-names">
+      <title>Names</title>
+      <para>All top-level windows must have names. The name must have the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have names when they do stand alone.</para>
+    </sect2>
+
+    <sect2 id="window-frames">
+      <title>Frames</title>
+      <para>Most top-level windows will have frames; exception may include shaped windows and torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+    </sect2>
+
+    <sect2 id="window-modality">
+      <title>Modality</title>
+      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs. Modality has two degrees: local and global.</para>
+      <para>A local mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
+      <para>A global mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+    </sect2>
+    
+    <sect2 id="window-types">
+      <title>Types of Windows</title>
+      <para>Each type of window is discussed in greater depth in other sections. This is a brief overview of each.</para>
+
+      <sect3 id="primary-windows">
+	<title>Primary Windows</title>
+	<para>FIXME - normal frames; may have menu bar, tool bar, and status bar.</para>
+      </sect3>
+      
+      <sect3 id="utility-windows">
+	<title>Utility Windows</title>
+	<para>FIXME - normal frames; should not have a menu bar, a tool bar, or a status bar (status should be indicated otherwise); these are also known as palettes and toolboxes.</para>
+      </sect3>
+      
+      <sect3 id="alert-windows">
+	<title>Alerts</title>
+	<para>FIXME - reduced or no frame (?); one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
+      </sect3>
+      
+      <sect3 id="dialog-windows">
+	<title>Dialogs</title>
+	<para>FIXME - reduced frame; at least the equivalents of <guibutton>Cancel</guibutton>and <guibutton>OK</guibutton>, possibly <guibutton>Help</guibutton> (in the secondary section) and an <guibutton><replaceable>Alternative</replaceable></guibutton> (and we probably need code to provide space between <guibutton>Help</guibutton> and <guibutton>Cancel</guibutton> for it.)</para>
+      </sect3>
+      
+      <sect3 id="assistant-windows">
+	<title>Assistants</title>
+	<para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
+      </sect3>
+      
+    </sect2>
+    
 </sect1>
 
 <sect1 id="menus">
@@ -477,18 +525,6 @@ Where a command requires further input from the user before it can be performed,
 <para>A menu item should be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
 <para>Do not remove an item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see
 commands which might be available at other times and keeps the item in a memorable place.</para>
-<!--
-<title>Unavailable Items</title>
-
-<para>
-Menu items should be made unavailable at any time at which they cannot be used. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> command, which relies on there being some data selected in the application, should be unavailable at any point at which no data is selected.
-</para>
-
-<para>
-Items should not be removed from the menu when they are unavailable. Instead, they are presented in dimmed lettering. This allows the user to see what commands might be available at other times and prevents menu items from shifting positions.
-</para>
-
--->
 
 </sect3>
 
@@ -565,14 +601,6 @@ There are a number of standard drop-down menus for common operations. The menus 
 All applications should have a <guimenu>File</guimenu> menu which should contain items relating to creating, opening, saving, closing and printing documents and for exiting the application.
 </para>
 
-<!-- Note from GJM:  I'm uncomfortable with this. I see two ways to go:
-	1) "File" is a verb and all the translations been wrong for years. If this is so, then the item should always be File because the operations are
-	   always filing operations.
-	2) "File" is a noun. If this is so, then the item should be descriptive of the data manipulated by the application. Being descriptice makes more
-	   sense to me than arguments for keeping the item the same to preserve muscle memory or recognition. With a compund document, File as a noun
-	   doesn't make sense - there is more than one file. Presumably it would be appropriate still for applications that do not operate on data of
-	   reasonable distinguishable types.
-  -->
 <para>
 Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guimenu>File</guimenu> menu.
 </para>
@@ -851,14 +879,6 @@ Selects all parts of the document.
 </listitem>
 </varlistentry>
 
-<!--
-<varlistentry>
-<term>Deselect All</term>
-<listitem>
-<para>Deselects all parts of the document.</para>
-</listitem>
-</varlistentry>
--->
 </variablelist>
 
 </sect4>
@@ -938,25 +958,7 @@ User preferences pertaining to the entire application (in all its instances) sho
 	  </literallayout>
 	</para>
       </sect3>
-      <!--
-      <sect3 id="menu-standard-options">
 
-      <title>Options</title>
-<para>
-<literallayout class="monospaced">
-_Options
-<replaceable>appname</replaceable> _Options...
-<replaceable>specific options...</replaceable>
- - - -
-<replaceable>checkbox and radiobutton options</replaceable></literallayout>
-</para>
-
-      <para>In reality, there needs to be a proper analysis of application configuration mechanisms. There are a number of different models, with no obvious consensus. Consideration needs to be given to, among other things, the distinctions between application, window and document settings, how multiple running instances of the same application interact, etc.</para>
-      
-      <para>Developers are encouraged to put settings that are likely to be changed frequently in the menu as checkboxes or radiobutton groups.</para>
-      
-    </sect3>
-      -->
 <sect3 id="menu-standard-help">
 
 <title>Help</title>
@@ -1080,8 +1082,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       </note>
       
       <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however.  Having too many toolbar controls reduces their efficiency by making them harder to find, and too many rows of toolbars reduces the amount of screen space available to the rest of the application.</para>
-<!-- per the realignment -->
-<!--      <sect3> -->
+
     <sect2>
 	<title>Appearance and Content</title>
 
@@ -1119,11 +1120,9 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  <listitem><para>Save your application's toolbar position and contents in the application configuration file &lt;give GConf key?&gt;, and restore them when the application is restarted.</para></listitem>
 
 	</itemizedlist>
-<!-- idem ;-) -->
-<!--      </sect3> -->
+
 </sect2>
 
-<!-- <sect3> -->
 <sect2>
 	<title>Controlling Display and Appearance</title>
 
@@ -1172,12 +1171,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 	  <title>For Discussion</title>
 	  <para>How should MDI and toolbars be handled?</para>
 	</note>
-<!-- idem -->
-<!--
-      </sect3>
-      
-      <sect3>
--->
+
 </sect2>
 <sect2>
 	<title>Labels and Tooltips</title>
@@ -1228,8 +1222,6 @@ Brings up the About dialog for the application. The dialog should contain the na
 	
 	</itemizedlist>
 
-<!-- idem -->	
-<!--      </sect3> -->
       </sect2>
 
  
@@ -1343,9 +1335,7 @@ Brings up the About dialog for the application. The dialog should contain the na
 
       </sect3>
 -->
-<!-- idem 
-    </sect2>
--->
+
 </sect1>
 <!-- Note from GJM: I think palettes should go with toolboxes/utility windows. -->
 <!--
@@ -1357,36 +1347,16 @@ Brings up the About dialog for the application. The dialog should contain the na
     </sect2>
   </sect1>
 -->
-<sect1 id="alerts">
-<title>Alerts</title>
-<para>An alert is a modal secondary window for . . .</para>
-<sect2 id="informational-alert">
-<title>Informational Alerts</title>
-<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
-<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
-</sect2>
-<sect2 id="confirmational-alert">
-<title>Confirmational Alert</title>
-<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
-<para>The confirmational alert will present . . . </para>
-</sect2>
-</sect1>
 
 <sect1 id="dialogs">
-<title>Dialogs</title>
-<para>A dialog is a application modal secondary window for acquiring information necessary to complete a task.</para>
-</sect1>
+    <title>Dialogs</title>
+    <para>A dialog is a application modal secondary window for acquiring information necessary to complete a task.</para>
 
-<sect1 id="toolboxes">
-<title>Toolboxes</title>
-<para>A toolbox, or utility window, is a non-modal secondary window . . . </para>
+    <sect2 id="dialogs-assistants">
+      <title>Assistants</title>
+      <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+    </sect2>
 </sect1>
-
-<sect1 id="assistants">
-<title>Assistants</title>
-<para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
-</sect1>
-
 <!--
 <sect1 id="dialogs">
 
@@ -1628,8 +1598,22 @@ The color selector should be used wherever the user has to select a color. If th
 </sect1>
 -->
 <sect1 id="feedback">
-<title>Feedback</title>
-<para>FIXME</para>
+    <title>Feedback</title>
+    <para>FIXME</para>
+    <sect2 id="alerts">
+      <title>Alerts</title>
+      <para>An alert is a modal secondary window for . . .</para>
+      <sect3 id="informational-alert">
+	<title>Informational Alerts</title>
+	<para>An informational alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
+	<para>The informational alert should present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
+      </sect3>
+      <sect3 id="confirmational-alert">
+	<title>Confirmational Alert</title>
+	<para>A confirmational alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
+	<para>The confirmational alert will present . . . </para>
+      </sect3>
+    </sect2>
 </sect1>
 <sect1 id="controls">
 
@@ -3043,6 +3027,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- Consensus was for "Deselect All"
 	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
 -->
+<!-- Um, consensus was to be rid of the item, iirc. (GJM) -->
 	  <para>Should we call it "Find Next" or "Find Again"?</para>
 
 	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser applications&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
