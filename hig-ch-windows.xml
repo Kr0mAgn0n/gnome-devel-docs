@@ -232,6 +232,21 @@
 	<title>Window Commands:</title>
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
       </formalpara>
+      <sect3 id="save-confirmation-alerts">
+	<title>Save Confirmation Alerts</title>
+	<para>FIXME</para>
+	<figure id="save-alert-figure">
+	  <title>A save confirmation alert</title>
+	  
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/save_alert.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </sect3>
     </sect2>
 
     <sect2 id="alerts-authentication">
@@ -259,33 +274,29 @@
 	<para><!-- Minimize, ??? -->Roll-up/Unroll</para>
       </formalpara>
     </sect2>
-    <!--
-  <sect2 id="button-order">
-  <title>Alert Buttons</title>
-    
-  <para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
-  <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
-  <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
-  <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
-  <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
-    
-  <para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
-    -->
-    <!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
-    <!--
-  <figure id="alert-buttons">
-  <title>A save confirmation alert</title>
-    
-  <mediaobject><imageobject>
-  <imagedata fileref="images/save_alert.png" format="PNG"/>
-  </imageobject>
-  <textobject>
-  <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
-  </textobject>
-  </mediaobject>
-  </figure>
-  </sect2>
-    -->
+    <sect2 id="button-order">
+      <title>Alert Buttons</title>
+      
+      <para>Most alerts should have an affirmative button and a negative button. Alternate actions, such as cancelling the action that initiated the question or providing another solution, may also be provided. Dangerous or archane alerts should also consider having a <guibutton>Help</guibutton> which provides more information on the particular situation and explains the user's options.</para>
+      <formalpara><title>Affirmative Button</title><para>The affirmative button should be placed in the lower right corner of the alert. The affirmative button accepts the action proposed by the alert.</para></formalpara>
+      <formalpara><title>Negative Button</title><para>The negative button should be placed immediately to the left of the affirmative button. The negative button rejects the action proposed by the alert.</para></formalpara>
+      <formalpara><title>Help Button</title><para>A <guibutton>[Help]</guibutton> may be used to clarify alerts presenting potentially destructive options. The <guibutton>[Help]</guibutton> button should be placed in the lower left corner of the alert beneath the icon. Clicking <guibutton>[Help]</guibutton> should launch a help window clarifying the situation and detailing the actions performed by the other buttons. Any unobvious side effects of the buttons should also be explained.</para></formalpara>
+      <formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
+      
+      <para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
+      <!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
+      <figure id="alert-buttons">
+	<title>A save confirmation alert</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/save_alert.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Save confirmation alert: "              [ Don't Save ] [ Cancel ] [[ Save ]] "</phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
+    </sect2>
   </sect1>
   
   <sect1 id="assistant-windows">
@@ -313,7 +324,7 @@
     <sect2 id="assistant-middle-page">
       <title>Middle Pages</title>
       <formalpara><title>Title Format:</title><para></para></formalpara>
-      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Previous</guibutton>, <guibutton>Next</guibutton></para></formalpara>
+      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Next</guibutton></para></formalpara>
       <figure>
 	<title>Example of a middle page of an assistant</title>
 	<mediaobject><imageobject>
@@ -328,7 +339,7 @@
     <sect2 id="assistant-last-page">
       <title>Last Page</title>
       <formalpara><title>Title Format:</title><para>FIXME</para></formalpara>
-      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Previous</guibutton>, <guibutton>Finish</guibutton></para></formalpara>
+      <formalpara><title>Buttons:</title><para><guibutton>Cancel</guibutton>, <guibutton>Back</guibutton>, <guibutton>Finish</guibutton></para></formalpara>
     </sect2>
   </sect1>
 </chapter>
