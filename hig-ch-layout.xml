@@ -110,148 +110,396 @@ right of small icons, and immediately above or to the left of other controls. Se
 	
 	<title>Capitalization</title>
 
-	<para>Two different styles of capitalization are used in a GNOME user interface:</para>
-	
-	<orderedlist>
-	  
-	  <listitem><para>Book title capitalization (or "title caps") means capitalizing the first letter of the first and last words.  Also, capitalize all words inbetween, except:</para>
-	  
-	    <itemizedlist>
-	      <listitem><para>Articles (a, an, the...)</para></listitem>
-	      
-	      <listitem><para>Conjunctions (and, but, for, not, so, yet...)</para></listitem>
-	      
-	      <listitem><para>Prepositions of four or fewer letters (at, for, with, into...)</para></listitem>
-	  
-	    </itemizedlist>
-	    
-	  </listitem>
-	  
-	  <listitem><para>Sentence-style capitalization (or "sentence caps") means capitalizing the first letter of the first word, and any other words normally capitalized in sentences, such as proper nouns.</para></listitem>
-	
-	</orderedlist>
-	
-	<para>The table below tells you what sort of capitalization to use for which user interface elements.</para><table frame='all'>
-	  
-	  <title>Capitalization styles for different UI elements</title>
-	  <tgroup cols='3' align='left'>
+	<para>Two styles of capitalization are used in GNOME user interface elements: 
+         <variablelist> 
+                <varlistentry> 
+                  <term>Header capitalization</term> 
+                  <listitem> 
+                         <para>Capitalize all words in the element, with the following exceptions:
+                                
+                                <itemizedlist> 
+                                  <listitem> 
+                                         <para>Articles: <emphasis>a</emphasis>, <emphasis>an</emphasis>, <emphasis>the</emphasis>.</para>
+		    </listitem> 
+		    <listitem> 
+		      <para>
+                                                Conjunctions: <emphasis>and</emphasis>,
+                                                <emphasis>but</emphasis>, <emphasis>for</emphasis>, <emphasis>not</emphasis>,
+                                                <emphasis>so</emphasis>, <emphasis>yet</emphasis> ... 
+                                         </para>
+		    </listitem> 
+		    <listitem> 
+		      <para>
+                                                Prepositions of three or fewer letters:
+                                                <emphasis>at</emphasis>, <emphasis>for</emphasis>, <emphasis>by</emphasis>,
+                                                <emphasis>in</emphasis>, <emphasis>to</emphasis> ... 
+                                         </para>
+		    </listitem> 
+		  </itemizedlist> 
+                         </para>
+	      </listitem> 
+	    </varlistentry> 
+	    <varlistentry> 
+	      <term>Sentence capitalization</term> 
+	      <listitem> 
+		<para>
+                                Capitalize the first letter of the first word, and any other words
+                                normally capitalized in sentences, such as application names. 
+                         </para>
+	      </listitem> 
+	    </varlistentry> 
+	  </variablelist> 
+  </para>
+	<para>
+         The following table indicates the capitalization style to use for each type
+         of user interface element. 
+  </para>
+	<table frame="topbot"> 
+	  <title>Capitalization Style Recommendations for User Interface
+         Elements</title> 
+	  <tgroup cols="2" colsep="0" rowsep="0" align="left"><colspec colnum="1"
+	      colname="col1" colwidth="1.51*" align="left"/><colspec colnum="2"
+	      colname="col2" colwidth="1.00*"/> 
+	    <thead> 
+	      <row rowsep="1" valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                     Element 
+                  </entry> 
+		<entry colname="col2" valign="top" align="left">
+                                Style
+                </entry>
+	      </row> 
+	    </thead> 
+	    <tbody> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Check box labels 
+                      
+                  </entry> 
+		<entry colname="col2" valign="top">
+                      
+                                Sentence 
+                       
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                         
+                                Command button labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                       
+                                Header 
+                         
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                        
+                                Column heading labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Header 
+                         
+                  </entry> 
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Desktop background object labels 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                       
+                                Header 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Dialog messages 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                        
+                                Sentence 
+                         
+                  </entry>
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Drop-down combo box labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                        
+                                Sentence 
+                         
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top">
+                       
+                                Drop-down list box labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                      
+                                Sentence 
+                        
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                       
+                                Field labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
 
-	    <thead>
-	      <row>
-		<entry>Element</entry>
-		<entry>Style</entry>
-		<entry>Example</entry>
+                  </entry> 
 	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Filenames 
+                         
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Sentence 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Graphic equivalent text: for example, Alt text on web pages 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Sentence 
+                        
+                  </entry>
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                       
+                                Group box or frame labels 
+                      
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                       
+                                Header 
+                         
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                       
+                                Items in drop-down combo boxes, drop-down list boxes, and
+                                list boxes 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
+                        
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                         
+                                List box labels 
+                         
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
+                        
+                  </entry> 
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Menu items 
+                      
+                  </entry>
+		<entry colname="col2" valign="top">
+                       
+                                Header 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Menu items in applications 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Header 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Menu titles in applications 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Header 
+                        
+                  </entry>
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                         
+                                Radio button labels 
+                       
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
+                        
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                        
+                                Slider labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
+                         
+                  </entry> 
+	      </row> 
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top"> 
+                        
+                                Spin box labels 
+                         
+                  </entry> 
+		<entry colname="col2" valign="top"> 
+                         
+                                Sentence 
+                        
+                  </entry> 
+	      </row> 
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top"> 
 
-	    </thead>
+                                Tabbed section titles 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                       
+                                Header 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top"> 
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Text box labels 
+                        
+                  </entry> 
+		<entry colname="col2" valign="top">
+                      
+                                Sentence 
+                        
+                  </entry> 
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Titlebar labels 
+                       
+                  </entry>
+		<entry colname="col2" valign="top">
+                        
+                                Header 
+                        
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Toolbar button labels 
+                         
+                  </entry>
+		<entry colname="col2" valign="top">
+                        
+                                Header 
+                         
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Tooltips for menu items 
+                         
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Sentence 
+                         
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Tooltips for menu items in applications 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                         
+                                Sentence 
+                         
+                  </entry>
+	      </row> 
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                         
+                                Tooltips for toolbar items 
+                         
+                  </entry>
+		<entry colname="col2" valign="top">
+                        
+                                Header 
+                         
+                  </entry>
+	      </row>
+	      <row valign="top">
+		<entry colname="col1" align="left" valign="top">
+                        
+                                Webpage titles and navigational elements 
+                        
+                  </entry>
+		<entry colname="col2" valign="top">
+                        
+                                Header 
+                         
+                  </entry>
+	      </row> 
+	    </tbody> 
+	  </tgroup> 
+	</table> 
 
-	    <tbody>
-
-	      <row>
-		<entry>Alt (alternate) text on web pages</entry>
-		<entry>Sentence</entry>
-		<entry>Screenshot showing sample panel layout</entry>
-	      </row>
-	      <row>
-		<entry>Button labels (except radio buttons)</entry>
-		<entry>Title</entry>
-		<entry>Find Now</entry>
-	      </row>
-	      <row>
-		<entry>Checkbox labels</entry>
-		<entry>Sentence</entry>
-		<entry>Don't show this again</entry>
-	      </row>
-	      <row>
-		<entry>Column headings</entry>
-		<entry>Title</entry>
-		<entry>File Type</entry>
-	      </row>
-	      <row>
-		<entry>Filenames</entry>
-		<entry>Sentence</entry>
-		<entry>Untitled.txt</entry>
-	      </row>
-	      <row>
-		<entry>Frame label</entry>
-		<entry>Title</entry>
-		<entry>Desktop Background</entry>
-	      </row>
-		  <row>
-		<entry>Group label</entry>
-		<entry>Sentence</entry>
-		<entry>File types</entry>
-	      </row>
-	      <row>
-		<entry>Icon labels</entry>
-		<entry>Title</entry>
-		<entry>Time Tracking Tool</entry>
-	      </row>
-	      <row>
-		<entry>List entries</entry>
-		<entry>Sentence</entry>
-		<entry>Copy to next workspace</entry>
-	      </row>
-	      <row>
-		<entry>Menu titles and menu items</entry>
-		<entry>Title</entry>
-		<entry>Save As...</entry>
-	      </row>
-	      <row>
-		<entry>Messages</entry>
-		<entry>Sentence</entry>
-		<entry>No matches found.</entry>
-	      </row>
-	      <row>
-		<entry>Radio button labels</entry>
-		<entry>Sentence</entry>
-		<entry>Embossed logo</entry>
-	      </row>
-	      <row>
-		<entry>Status bar text</entry>
-		<entry>Sentence</entry>
-		<entry>File download complete</entry>
-	      </row>
-	      <row>
-		<entry>Tab titles (notebooks)</entry>
-		<entry>Title</entry>
-		<entry>Panel Objects</entry>
-	      </row>
-	      <row>
-		<entry>Text box labels</entry>
-		<entry>Sentence</entry>
-		<entry>First name:</entry>
-	      </row>
-	      <row>
-		<entry>Titlebar text</entry>
-		<entry>Title</entry>
-		<entry>Text Properties</entry>
-	      </row>
-	      <row>
-		<entry>Toolbar button labels</entry>
-		<entry>Title</entry>
-		<entry>Print Preview</entry>
-	      </row>
-	      <row>
-		<entry>Tooltips - menu items and other controls (except toolbar buttons)</entry>
-		<entry>Sentence</entry>
-		<entry>Insert special characters into documents</entry>
-	      </row>
-	      <row>
-		<entry>Tooltips - toolbar buttons</entry>
-		<entry>Title</entry>
-		<entry>Save As</entry>
-	      </row>
-	      <row>
-		<entry>Webpage titles and navigational elements</entry>
-		<entry>Title</entry>
-		<entry>Return to Homepage</entry>
-	      </row>
-	    </tbody>
-	  </tgroup>
-	</table>
-
-	
       </sect2>
 
       <sect2 id="colors-fonts">

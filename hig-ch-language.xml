@@ -4,6 +4,91 @@
   <chapter id="language">
     <title>Language</title>
 
+    <para>Consistent labelling creates a familiar environment that the user can navigate comfortably. The more familiar the environment, the easier task of finding information.</para>
+
+    <sect1 id="labels">
+      <title>Labels</title>
+      
+      <sect2 id="language-controls"> 
+	<title>Controls</title> 
+	<para>Clear, consistent and concise labelling of controls helps users to work out the purpose of a window or dialog they have never seen before. To a visually-impaired user, clear labels are even more important. A user who relies on a screenreader has no assistance from icons, layout, or spacing to work out what the controls do, so clear labelling is essential.</para>
+	
+	<para>Guidelines:</para>
+	
+	<itemizedlist> 
+	  <listitem><para>Create short labels.  The reasons for keeping labels as short as possible are as follows:
+	    <itemizedlist> 
+		<listitem><para>Reduces the expansion of text when translated, and thus minimizes the effort required to localize the UI. Translated English text can expand up to 30% in some languages.</para></listitem> 
+		
+		<listitem><para>Facilitates the use of translation engines.</para></listitem> 
+		<listitem><para>Improves speed of comprehension for the user.</para></listitem> 
+	      </itemizedlist> 
+         </para>
+	    
+	    <para> A word of caution, however: do not shorten your labels to the point of losing meaning. A three-word label that provides clear information is better than a one-word label that is ambiguous or vague. Try to find the fewest possible words to satisfactorily convey the meaning of your label.</para></listitem> 
+	  
+	  <listitem><para>Avoid functional descriptions.  As well as increasing the wordcount of the UI, descriptive labels can also conflict with information provided in documentation </para></listitem> 
+	  
+	  <listitem><para>Use standard terms.  You can find a list of standard user interface terms in the<emphasis> GNOME Documentation Style Guide, Recommended Terminology</emphasis>.</para></listitem> 
+	  
+	  <listitem><para>Apply UI capitalization rules.  See <xref linkend="layout-capitalization"/> for guidelines about capitalization of user interface labels </para></listitem> 
+	</itemizedlist>
+
+      </sect2> 
+      
+      <sect2> 
+	<title>Tooltips</title> 
+	
+	<sect3>
+	  <title>Toolbar Tooltips</title>
+	  
+	  <para>A toolbar tooltip is the short description of a toolbar control's functionality that the user sees when they mouse over it.</para>
+
+	  <para>Guidelines:</para>
+	  
+	  <itemizedlist> 
+	    <listitem><para>Concisely state the purpose of the control.  If the control directly duplicates a menu item, make the tooltip the same as the corresponding menu item.</para></listitem> 
+
+	    <listitem><para>Use header capitalization rules. See <xref linkend="layout-capitalization"/>.</para></listitem> 
+	  </itemizedlist>            
+	  
+	</sect3> 
+	
+	<sect3>
+	  <title>Application Tooltips</title> 
+
+	  <para>An application tooltip is the short description of your application that the user sees when they mouse over the launcher or menu item for your application.  It is stored in the <structfield>comment</structfield> field of your application's <filename>desktop</filename> file.</para>
+
+	  <para>Guidelines:</para>
+	  <itemizedlist> 
+	    <listitem><para>Create short tooltips. Aim to accurately communicate the functionality of an element with the fewest words possible.</para></listitem> 
+	    <listitem><para>Use sentence capitalization rules. See <xref linkend="layout-capitalization"/>.</para></listitem> 
+	    
+	    <listitem><para>Use standard punctuation rules, with the exception that you do not use a period to end the tooltip. </para></listitem> 
+	    
+	  </itemizedlist> 
+	</sect3> 
+      </sect2> 
+      
+      
+      <sect2> 
+	<title>Menus</title> 
+	
+	<para>Guidelines:</para>
+	
+	<itemizedlist> 
+	
+	  <listitem><para>Use the recommended standard labels for menu items and titles, where they exist. Do not use synonyms such as <guimenuitem>Exit</guimenuitem> instead of <guimenuitem>Quit</guimenuitem>. See <xref linkend="standard-menus"/> for a list and descriptions of standard menu items and titles.</para></listitem>
+
+	  <listitem><para>Use header capitalization rules for all menu items and titles. See <xref linkend="layout-capitalization"/>.</para></listitem> 
+	    
+	</itemizedlist> 
+	
+      </sect2>
+      
+    </sect1>
+
+<!--
     <sect1 id="language-labels">
       <title>Labels</title>
       
@@ -26,6 +111,8 @@
       </sect2>
 
     </sect1>
+
+-->
 
     <sect1 id="language-errors">
       <title>Warning and Error Messages</title>
