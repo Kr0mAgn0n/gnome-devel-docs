@@ -169,6 +169,15 @@
 
      <listitem>
       <formalpara>
+       <title>Sounds</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+
+     <listitem>
+      <formalpara>
        <title>Packaging</title>
        <para>
         It is very important that applications be properly packaged,
@@ -228,11 +237,12 @@
         poor applications.  It also gives the developer the benefit
         of meeting, working with, and learning from other GNOME 
         developers.  For information on selecting a project to
-        work on and getting started developing see <xref linkend="joiningdeveloping">.
+        work on and getting started developing see 
+        <xref linkend="joiningdeveloping">.
         (Note - this should point to info about finding a project - ie.
         looking in the suggestion database, mailing gnome-hackers, ...)
-        (Note2 - some people will want to take an existing application
-        and merge it into gnome-applets, etc... have info for them)
+        If you are the author of a GNOME applet or application, be sure
+        to read <xref linkend="addingapps">. 
        </para>
       </formalpara>
      </listitem>
@@ -381,9 +391,9 @@
     <para>
      There are many GNOME channels on irc.gnome.org including:
      #gnome, #gnome-help, #nautilus, #docs, #i18n, #guppi, 
-     #gnumeric, #interface, gtk+, and #medusa. For a complete
-     list, type <command>/list</command> after you have connected
-     to the irc.gnome.org server.
+     #gnumeric, #interface, #gtk+, #evolution, and #medusa. 
+     For a complete list, type <command>/list</command> after 
+     you have connected to the irc.gnome.org server.
     </para>
    </sect3>
   </sect2>
@@ -432,6 +442,14 @@
      </listitem>
      <listitem>
       <formalpara>
+       <title>Sounds</title>
+       <para>
+        (FIX ME)
+       </para>
+      </formalpara>
+     </listitem>
+     <listitem>
+      <formalpara>
        <title>Web Pages</title>
        <para>
         <ulink url="mailto:joakim@helixcode.com">Joakim Ziegler</ulink>
@@ -443,7 +461,8 @@
       <formalpara>
        <title>gnome-applets</title>
        <para>
-        (FIX ME)
+        <ulink url="mailto:gnome-applets-maint@gnome.org">gnome-applets 
+        maintainers</ulink> or <ulink url="mailto:jacob@helixcode.com,jirka@5z.com">Jacob Berkman and George Lebl</ulink>. 
        </para>
       </formalpara>
      </listitem>
@@ -667,6 +686,67 @@
     For a brief introduction to CVS, read this <ulink type="http"
     url="http://developer.gnome.org/tools/cvs.html">short 
     CVS tutorial</ulink>.
+   </para>
+  </sect2>
+
+ </sect1>
+
+ <!-- =========== Adding Applications to GNOME =========== -->
+ <sect1 id="addingapps">
+  <title>Adding Applications to GNOME</title>
+
+
+  <para>
+   Often application developers would like to make their GNOME 
+   application or applet part of GNOME. This may be done by either
+   including the application in one of the core GNOME packages, 
+   adding the application or applet to the 
+   XXX-LIST-OF-APPROVED-EXTRA-APPS-XXX (FiX ME), or adding the 
+   application to the GNOME Software Map.
+  </para>
+
+  <sect2 id="addingappscore">
+   <title>Adding Applications to Core GNOME Packages</title>
+   <para>
+    If you would like to add an application to one of the 
+    standard GNOME packages such as gnome-applets, gnome-utils,
+    gnome-media, or gnome-games, you should contact the maintainer
+    of the package.  The maintainer of the package can be found
+    by reading the <filename>MAINTAINERS</filename> file in the 
+    CVS module for the package or by consulting the <xref 
+    linkend="contactperson">.  Note that any package in GNOME CVS
+    which has a <filename>MAINTAINERS</filename> file should
+    have a mailing list associated with it which is at 
+    &lt;packagename&gt;-maint@gnome.org and forwards to all of the 
+    email addresses in the <filename>MAINTAINERS</filename> file.
+    This is generally a great way to contact all of the maintainers
+    of a module.
+   </para>
+  </sect2>
+
+  <sect2 id="addingtoapprovedlist">
+   <title>Adding Applications to the XXX-LIST-OF-APPROVED-EXTRA-APPS-XXX(FIXME)</title>
+   <para>
+    If you would like to add an application to the  
+    XXX-LIST-OF-APPROVED-EXTRA-APPS-XXX... (FiX ME).
+   </para>
+  </sect2>
+
+  <sect2 id="addingtosoftwaremap">
+   <title>Adding Applications to the GNOME Software Map</title>
+   <para>
+    The <ulink url="http://www.gnome.org/applist/list.php3"
+    type="http">GNOME Software Map</ulink> is a web-based resource 
+    which keeps track of GNOME applications.  It sorts the 
+    applications by subject and lists information about each 
+    application such as description, web page, version, and where
+    to download the application from. Each time a new version of 
+    the application is released, an announcement of the release 
+    is posted on the front page of <ulink type="http"
+    url="http://www.gnome.org">www.gnome.org</ulink>.  All GNOME
+    application authors are encouraged to register their application(s)
+    in the GNOME Software Map and update the entry every time a new
+    release is made.
    </para>
   </sect2>
 
