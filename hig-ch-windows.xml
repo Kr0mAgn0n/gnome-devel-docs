@@ -2,40 +2,48 @@
   <chapter id="windows">
     <title>Windows</title>
     <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
-    <sect1 id="window-titles">
-      <title>Titles</title>
-      <para>All top-level windows will have titles composed of the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
-      <para>See the description of each particular window type for title formats.</para>
-<!--      <para>Object Name - View Name:View Number</para> -->
-    </sect1>
-    <sect1 id="window-frames">
-      <title>Frames</title>
-      <para>Most top-level windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
-    </sect1>
-
-    <sect1 id="window-modality">
-      <title>Modality</title>
-      <para>FIXME</para>
-      <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
-      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
-      <para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
-      <para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
-    </sect1>
-
-    <sect1 id="window-focus">
-      <title>Focus</title>
-      <para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
-    </sect1>
-    <sect1 id="window-other">
-      <title>General Communication with the Window Manager</title>
-      <para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
-      <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
+    <sect1 id="window-properties">
+      <title>Parts of Windows and System Interaction</title>
+      <sect2 id="window-props-titles">
+	<title>Titles</title>
+	<para>All top-level windows will have titles composed of the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
+	<para>See the description of each particular window type for title formats.</para>
+      </sect2>
+      <sect2 id="window-props-frames">
+	<title>Frames</title>
+	<para>Most top-level windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+      </sect2>
+      <sect2 id="window-props-modality">
+	<title>Modality</title>
+	<para>FIXME</para>
+	<!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
+	<para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
+	<para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
+	<para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+      </sect2>
+      <sect2 id="window-props-focus">
+	<title>Focus</title>
+	<para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
+      </sect2>
+      <sect2 id="window-props-other">
+	<title>General Communication with the Window Manager</title>
+	<para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
+	<para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
+      </sect2>
     </sect1>
     <sect1 id="primary-windows">
       <title>Primary Windows</title>
-      <para>A primary window is a view of the contents of an object such as a document, a game, an image. An application may have in any instance more than one primary window and more than one kind of primary window.</para>
+      <para>A primary window is a view of the contents of an object such as a document, a game, or an image. An application may have in any instance more than one primary window and more than one kind of primary window.</para>
       <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
-      <formalpara><title>Title:</title><para><replaceable>Object</replaceable> - <replaceable>Application</replaceable></para></formalpara>
+      <formalpara>
+	<title>Title Format:</title>
+	<para><replaceable>Object</replaceable><optional>:N</optional> - <replaceable>Application</replaceable><optional>:N</optional></para>
+      </formalpara>
+      <formalpara>
+	<title>Frame Commands:</title>
+	<para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+      </formalpara>
+
       <sect2 id="sdi">
 	<title>Single Document Interface</title>
 	<para>A single document interface . . . FIXME</para> <!-- I'm not sure yet what to write here other than a description. Having an SDI isn't very important when the rest of the UI is application-oriented.  -->
@@ -56,12 +64,26 @@
       <sect2 id="property-windows">
 	<title>Property Windows</title>
 	<para>Provide a property window when actions in the property window immediately affect the object's properties.</para>
-	<formalpara><title>Title:</title><para><replaceable>Object Name</replaceable> - Properties</para></formalpara>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para><replaceable>Object Name</replaceable> - Properties</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+	</formalpara>
       </sect2>
       <sect2 id="preference-windows">
 	<title>Preference Windows</title>
 	<para>Provide a preference window for applications which have instantly applied preferences.</para>
-	<formalpara><title>Title:</title><para><replaceable>Application Name</replaceable> - Preferences</para></formalpara>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para><replaceable>Application Name</replaceable> - Preferences</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+	</formalpara>
       </sect2>
       <sect2 id="toolbox-windows">
 	<title>Toolboxes</title>
@@ -94,6 +116,14 @@
 	    <listitem><para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	  </itemizedlist>
 	</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
       <sect2 id="alerts-error">
 	<title>Error Alerts</title>
@@ -105,6 +135,14 @@
 	    <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	  </itemizedlist>
 	</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
 
       <sect2 id="alerts-confirmation">
@@ -118,6 +156,14 @@
 	    <listitem><para>May present an alternative action button or a convenience button. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --></listitem>
 	  </itemizedlist>
 	</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
 
       <sect2 id="alerts-authentication">
@@ -136,6 +182,14 @@
 	    <listitem><para>May present an alternative action button or convenience button. This button, when present, should be placed in the secondary area of the button box.</para><!-- FIXME: Reword --></listitem>
 	  </itemizedlist>
 	</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
 <!--
       <sect2 id="button-order">
@@ -172,14 +226,38 @@
       <sect2 id="dialogs-selectors">
 	<title>Selection Dialogs</title>
 	<para>FIXME</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para>Shade</para>
+	</formalpara>
       </sect2>
       <sect2 id="dialogs-property">
 	<title>Property Dialogs</title>
 	<para>Provide a property dialog for properties which cannot be immediately changed. </para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
       <sect2 id="dialogs-preferences">
 	<title>Preferences Dialogs</title>
 	<para>Provide a prefernces dialog for application preferences which cannot be immediately changed.</para>
+	<formalpara>
+	  <title>Title Format:</title>
+	  <para>? - ?</para>
+	</formalpara>
+	<formalpara>
+	  <title>Frame Commands:</title>
+	  <para><!-- Minimize, ??? -->Shade</para>
+	</formalpara>
       </sect2>
 
     </sect1>
@@ -188,5 +266,13 @@
       <title>Assistants</title>
       <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
       <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
+      <formalpara>
+	<title>Title Format:</title>
+	<para>? - ?</para>
+      </formalpara>
+      <formalpara>
+	<title>Frame Commands:</title>
+	<para><!-- Minimize, ??? -->Shade</para>
+      </formalpara>
     </sect1>
   </chapter>

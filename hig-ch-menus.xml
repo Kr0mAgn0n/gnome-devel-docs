@@ -2,112 +2,116 @@
   <chapter id="menus">
     <title>Menus</title>
 
-<!-- <sect1 id="menu-principles"> -->
-
 <!-- TODO:
 - Tear-off menus?
 - Menu bar position
 - Menu bar hiding
 - When should there be a menu bar?
 -->
-
-<!-- <title>Menu Principles</title> -->
-
     <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
-    <sect1 id="menu-types">
-      <title>Types of Menus</title>
-      <sect2 id="menu-types-drop-down">
-	<title>Drop-Down Menus</title> <!-- "Pull-down" menus? -->
-	<para>Provide a menubar on each primary application window. The menubar
-provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
-      </sect2>
-      <sect2 id="menu-principles-context">
-	<title>Popup menus</title>
-	<para>Provide a popup menu for every object, selectable part, and text input target such as an entry. Show the popup menu in response to a right-click or the keycombo <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Unlike drop-down menus, do not show keyboard shortcuts in popup menus.</para>
-	<para>Provide an access key for each item.</para>
+    <para>Organize menus according to the standard order, logical order, or freqency of use.</para>
+    <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
+    <para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in the <link linkend="layout-capitalization">Capitalization</link> section.</para>
+    <para>Provide an access key for each menu item. Unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
+    <sect1 id="menu-controlsparts">
+      <title>Menu Controls</title>
+      <para>FIXME</para>
+      <sect2 id="menu-types">
+	<title>Menu Types</title>
+	<sect3 id="menu-type-menubar">
+	  <title>The Menu Bar</title>
+	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
+	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu on a menubar.</para>
+	  <note>
+	    <title>For Discussion</title>
+	    <para>We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink></para>
+	  </note>
+	</sect3>
+	<sect3 id="menu-type-drop-down">
+	  <title>Drop-down Menus</title>
+	  <para>Drop-down menus post from the head items on the menu bar. . . .</para>
+	</sect3>
+	<sect3 id="menu-type-submenu">
+	  <title>Submenus</title>
+	  <para>A submenu posts from an item in a drop-down menu or a popup menu.</para>
+	  <para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. A submenu should not have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
+	</sect3>
+	<sect3 id="menu-type-popup">
+	  <title>Popup Menus</title>
+	  <para>Provide a popup menu for every object, selectable part, and text input target such as an entry. Show the popup menu in response to a right-click or the keycombo <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Unlike drop-down menus, do not show keyboard shortcuts in popup menus.</para>
+	  <para>Provide an access key for each item.</para>
 	  <!-- Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar. -->
 	  <!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
-	<para>Place the default command for an object as the first item on its popup menu, followed by other commands in expected frequency-of-use order, followed by transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command>.</para>
-	<para>Avoid submenus from popup menus.</para>
-	<note>
-	  <para>An exception exists for the <guimenuitem>Input Methods</guimenuitem> submenu. When present, this must be the last item.</para>
-	</note>
-	<note>
-	  <title>For Discussion</title>
-	  <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
-	</note>
+	  <para>Place the default command for an object as the first item on its popup menu, followed by other commands in expected frequency-of-use order, followed by transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command>.</para>
+	  <para>Avoid submenus from popup menus.</para>
+	  <note>
+	    <para>An exception exists for the <guimenuitem>Input Methods</guimenuitem> submenu. When present, this must be the last item.</para>
+	  </note>
+	  <note>
+	    <title>For Discussion</title>
+	    <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
+	  </note>
+	</sect3>
       </sect2>
-    </sect1>
-    <sect1 id="menu-organisation">
-      <title>Menu Organisation</title>
-      <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
-      <sect2 id="menu-organisation-submenus">
-	<title>Submenus</title>
-	<para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three
-items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. A submenu should not have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
+      <sect2 id="menu-item-types">
+	<title>Menu Item Types</title>
+	<para>Provide an access key for kind every menu item, except separators.</para>
+	<sect3 id="menu-item-type-head">
+	  <title>Heads</title>
+	  <para>Each item on the menu bar is a head item. Head items also appear in drop-down menus which have submenus.</para>
+	  <para>Do not disable head items. Allow the user to explore the interface, even though there might be no item on the submenu which may be used.</para>
+	</sect3>
+	<sect3 id="menu-item-type-sep">
+	  <title>Separators</title>
+	  <para>A separator indicates the end of a group of related items on a drop-down menu, a submenu, or a popup menu.</para>
+	  <para>Groups of two to about five related items should be separated from other groups using separators. A single item at the top or bottom of a menu may appear before or after a group. As with menus generally, the items within a group should be ordered sequentially or by expected frequency of use.</para>
+	</sect3>
+	<sect3 id="menu-item-type-command">
+	  <title>Command Items</title>
+	  <para>Command items . . .</para>
+	  <para>Provide a keyboard shortcut for standard or frequently used command items.</para>
+	  <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
+	  <para>See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
+	  <note>
+	    <title>For Discussion</title>
+	    <para>Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?</para>
+	  </note>
+	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para> -->
+	  <para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
+	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
+	  <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
+	</sect3>
+	<sect3 id="menu-item-type-mutable">
+	  <title>Mutable Command Items</title>
+	  <para>A mutable command item changes its label when activated.</para>
+	</sect3>
+	<sect3 id="menu-item-type-check">
+	  <title>Check Items</title>
+	  <para>A check item . . .</para>
+	</sect3>
+	<sect3 id="menu-item-type-radio">
+	  <title>Radio Group Items</title>
+	  <para>Radio group items . . .</para>
+	</sect3>
+	<!--
+	Adam notes that this whole section can be a significant source of
+	nastiness in a UI. We need explicit recommendations here on how to
+	represent different states of a toggled menu item via icons in the UI.
+	We also need to make recommendations to avoid some common mistakes,
+	including:
+	
+	* Confusing menu items acting as radio buttons in a group with menu
+          items acting as checkboxes.
+	* Ambiguous names for checkbox/toggle menu items which make it
+	  difficult to establish the current system state by looking at
+	  the menu.
+
+	Calum notes further that we should give recommendations on when to use 
+	two separate mutually-exclusive items rather than one with a checkbox 
+	(or a dynamic menu name). This is generally important when the two 
+	states are not naturally opposites.
+	-->
       </sect2>
-      <sect2 id="menu-organisation-separators">
-	<title>Separators</title>
-	<para>Groups of two to about five related items should be separated from other groups using separators. A single item at the top or bottom of a menu may appear before or after a group. As with menus generally, the items within a group should be ordered sequentially or by expected frequency of use.</para>
-	<!-- This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.</para> -->      </sect2>
-    </sect1>
-    <sect1 id="menu-names">
-      <title>Naming Conventions</title>
-      <para>Most menu items will be labelled with verbs or adjectives, which describe commands or properties respectively. Menu items should have the first letter of the first word and of any significant words capitalized. See <link linkend="layout-capitalization">Capitalization</link> for more information.</para>
-      <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
-    </sect1>
-
-    <sect1 id="menu-unavailable">
-      <title>Unavailable Commands</title>
-      <para>Make a menu item insensitive when its command is unavailable; do not make an item with a submenu insenstive even if each item on the submenu would be.  be made insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
-      <para>Do not remove an item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
-    </sect1>
-    <sect1 id="menu-toggled">
-      <title>Toggle-able Menu Items</title> <!-- "Toggle-able"??? -->
-      <sect2 id="menu-toggled-radio">
-	<title>Radio Groups</title>
-	<para>A group of mutually exclusive . . . FIXME</para>
-      </sect2>
-      <sect2 id="menu-toggled-check">
-	<title>Checked Items</title>
-	<para>An item which is either on or off . . . FIXME {e.g., Sort Folders First}</para>
-      </sect2>
-      <sect2 id="menu-toggled-changed">
-	<title>Changing Items</title>
-	<para>An item which has two states . . . FIXME {e.g., Show|Hide Toolbar}</para>
-      </sect2>
-      <!--
-      Adam notes that this whole section can be a significant source of
-      nastiness in a UI. We need explicit recommendations here on how to
-      represent different states of a toggled menu item via icons in the UI.
-      We also need to make recommendations to avoid some common mistakes,
-      including:
-
-      * Confusing menu items acting as radio buttons in a group with menu
-        items acting as checkboxes.
-      * Ambiguous names for checkbox/toggle menu items which make it difficult
-        to establish the current system state by looking at the menu.
-
-      Calum notes further that we should give recommendations on when to use 
-      two separate mutually-exclusive items rather than one with a checkbox 
-      (or a dynamic menu name). This is generally important when the two 
-      states are not naturally opposites.
-      -->
-
-    </sect1>
-
-    <sect1 id="menu-shortcuts-accesskeys">
-      <title>Shortcuts and Access Keys</title>
-      <para>Provide an access key for each menu item. Unlike other controls, once a menu is visible, its access keys are accessible just by typing the letter; it is not necessary to press the Alt key at the same time.</para>
-      <para>Provide a keyboard shortcut for frequently used commands.</para>
-      <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
-      <para>Do not assign shortcuts to radio items, checkbox items, or dynamic items (such as those on the <guisubmenu>Recent Files</guisubmenu> submenu). Doing so would confuse users who would not know to look in the menus for a way to undo an accidental keying or would provide unpredictable results.</para>
-      <para>See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para>
-      <note>
-	<title>For Discussion</title>
-	<para>Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?</para>
-      </note>
-<!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <link linkend="shortcuts">Shortcut Keys</link> for more information.</para> -->
     </sect1>
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
