@@ -10,17 +10,498 @@
 - More than any other section this needs to be liberally sprinkled with examples
 -->
 
-    <sect1 id="layout-appearance">
+<!-- Color section based on Coleen's HTML draft -->
+
+<sect1 id="color">
+      <title>Color</title>
+
+      <sect2 id="Palette">
+	<title>Palette</title>
+	
+	<!-- primary contributor to the Ça href="http://primates.ximian.com/~tigert/new_stock_project/"ÈGNOME stock icon repositoryÇ/aÈ, -->
+	
+	<para>The GNOME basic palette is a useful tool in designing for the GNOME desktop.</para>
+	
+	<para> The palette is public and may be downloaded from <ulink url="http://primates.ximian.com/~tigert/new_stock_project/">http://primates.ximian.com/~tigert/new_stock_project/</ulink>:</para>
+
+	<figure><title>The basic GNOME 32-color palette</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/ximian-palette.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The basic GNOME 32-color palette</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	
+	<!-- CFB need to include a direct link to the palette here -->
+	<para>Save it to your ~/.gimp_1.2/palettes/ folder and restart GIMP to make use of it.  Start with the 32 basic colors and darken or lighten the tone for antialiasing needs.</para>
+	
+	<para>FIXME: Need to get actual colors to appear in this table, unfortunately docbook table cells don't have a bgcolor attribute!</para>
+
+	<table frame="topbot"> 
+	  <title>RGB and hexadecimal values for the basic palette</title> 
+
+	  <tgroup cols="8" colsep="0" rowsep="0" align="left">
+	    <colspec colnum="1" colname="col1" colwidth="1.51*" align="left"/><colspec colnum="2" colname="col2" colwidth="1.00*"/> 
+	    <thead> 
+	      <row rowsep="1" valign="top"> 
+		<entry>Color</entry> 
+		<entry>Description</entry>
+		<entry>RGB</entry>
+		<entry>Hex</entry>
+		<entry>Color</entry>
+		<entry>Description</entry>
+		<entry>RGB</entry>
+		<entry>Hex</entry>
+		</row>
+	      </thead>
+	    <tbody>
+	      <row valign="top">
+
+<!-- TODO : get the colors to appear in the table, bgcolor doesn't work in docbook :) -->	    
+		<entry bgcolor="#EAE8E3">&nbsp;</entry>
+		<entry>Basic 3D Hilight</entry>
+		<entry>234 232 227</entry>
+		<entry>#EAE8E3 </entry>
+		<entry bgcolor="#BAB5AB">&nbsp;</entry>
+		<entry>Basic 3D Medium</entry>
+		<entry>186 181 171</entry>
+		<entry>#BAB5AB </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#807D74">&nbsp;</entry>
+		<entry>Basic 3D Dark</entry>
+		<entry>128 125 116</entry>
+		<entry>#807D74 </entry
+		<entry bgcolor="#565248">&nbsp;</entry>
+		<entry>3D Shadow</entry>
+		<entry>86 82 72</entry>
+		<entry>#565248 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#C5D2C8">&nbsp;</entry>
+		<entry>Green Hilight</entry>
+		<entry>197 210 200</entry>
+		<entry>#C5D2C8 </entry>
+		<entry bgcolor="#83A67F">&nbsp;</entry>
+		<entry>Green Medium</entry>
+		<entry>131 166 127</entry>
+		<entry>#83A67F </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#5D7555">&nbsp;</entry>
+		<entry>Green Dark</entry>
+		<entry>93 117 85</entry>
+		<entry>#5D7555 </entry>
+		<entry bgcolor="#445632">&nbsp;</entry>
+		<entry>Green Shadow</entry>
+		<entry>68 86 50</entry>
+		<entry>#445632 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#E0B6AF">&nbsp;</entry>
+		<entry>Red Hilight</entry>
+		<entry>224 182 175</entry>
+		<entry>#E0B6AF </entry>
+		<entry bgcolor="#C1665A">&nbsp;</entry>
+		<entry>Red Medium</entry>
+		<entry>193 102 90</entry>
+		<entry>#C1665A </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#884631">&nbsp;</entry>
+		<entry>Red Dark</entry>
+		<entry>136 70 49</entry>
+		<entry>#884631 </entry>
+		<entry bgcolor="#663822">&nbsp;</entry>
+		<entry>Red Shadow</entry>
+		<entry>102 56 34</entry>
+		<entry>#663822 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#ADA7C8">&nbsp;</entry>
+		<entry>Purple Hilight</entry>
+		<entry>173 167 200</entry>
+		<entry>#ADA7C8 </entry>
+		<entry bgcolor="#887FA3">&nbsp;</entry>
+		<entry>Purple Medium</entry>
+		<entry>136 127 163</entry>
+		<entry>#887FA3 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#625B81">&nbsp;</entry>
+		<entry>Purple Dark</entry>
+		<entry>98 91 129</entry>
+		<entry>#625B81 </entry>
+		<entry bgcolor="#494066">&nbsp;</entry>
+		<entry>Purple Shadow</entry>
+		<entry>73 64 102</entry>
+		<entry>#494066 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#9DB8D2">&nbsp;</entry>
+		<entry>Blue Hilight</entry>
+		<entry>157 184 210</entry>
+		<entry>#9DB8D2 </entry>
+		<entry bgcolor="#7590AE">&nbsp;</entry>
+		<entry>Blue Medium</entry>
+		<entry>117 144 174</entry>
+		<entry>#7590AE </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#4B6983">&nbsp;</entry>
+		<entry>Blue Dark</entry>
+		<entry>75 105 131</entry>
+		<entry>#4B6983 </entry>
+		<entry bgcolor="#314E6C">&nbsp;</entry>
+		<entry>Blue Shadow</entry>
+		<entry>49 78 108</entry>
+		<entry>#314E6C </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#EFE0CD">&nbsp;</entry>
+		<entry>Face Skin Hilight</entry>
+		<entry>239 224 205</entry>
+		<entry>#EFE0CD </entry>
+		<entry bgcolor="#E0C39E">&nbsp;</entry>
+		<entry>Face Skin Medium</entry>
+		<entry>224 195 158</entry>
+		<entry>#E0C39E </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#B39169">&nbsp;</entry>
+		<entry>Face Skin Dark</entry>
+		<entry>179 145 105</entry>
+		<entry>#B39169 </entry>
+		<entry bgcolor="#826647">&nbsp;</entry>
+		<entry>Face Skin Shadow</entry>
+		<entry>130 102 71</entry>
+		<entry>#826647 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#DF421E">&nbsp;</entry>
+		<entry>Accent Red</entry>
+		<entry>223 66 30</entry>
+		<entry>#DF421E </entry>
+		<entry bgcolor="#990000">&nbsp;</entry>
+		<entry>Accent Red Dark</entry>
+		<entry>153 0 0</entry>
+		<entry>#990000 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#EED680">&nbsp;</entry>
+		<entry>Accent Yellow</entry>
+		<entry>238 214 128</entry>
+		<entry>#EED680 </entry>
+		<entry bgcolor="#D1940C">&nbsp;</entry>
+		<entry>Accent Yellow Dark</entry>
+		<entry>209 148 12</entry>
+		<entry>#D1940C </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#46A046">&nbsp;</entry>
+		<entry>Accent Green </entry>
+		<entry>70 160 70</entry>
+		<entry>#46A046 </entry>
+		<entry bgcolor="#267726">&nbsp;</entry>
+		<entry>Accent Green Dark</entry>
+		<entry>38 199 38</entry>
+		<entry>#267726 </entry>
+	      </row>
+	      <row> 
+		<entry bgcolor="#ffffff">&nbsp;</entry>
+		<entry>White</entry>
+		<entry>255 255 255</entry>
+		<entry>#ffffff </entry>
+		<entry bgcolor="#000000">&nbsp;</entry>
+		<entry>Black</entry>
+		<entry>0 0 0</entry>
+		<entry>#000000 </entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+	
+	<para>A single, consistently used palette helps give a unified look and feel to the desktop while minimizing visual distractions. </para>
+  
+      </sect2>
+      
+      <sect2 id="hsv">
+	<title>Hue, Brightness, Contrast</title>
+	
+	<para>Users with vision disorders, such as colorblindess or low vision, require alternatives to default settings. A good user interface is one that anticipates these needs by providing customizable preferences and support for accessible themes. Even better is an application that is already configured with carefully chosen defaults when it comes to color and contrast.</para>
+
+	<para> Colorblind users constitute an estimated 11% of the world population and have trouble distinguishing between certain hues such as red and green (deuteranopia or protanopia) or blue and yellow (tritanopia). Therefore it's necessary to allow the user to customize colors in any part of your application that conveys important information. This means that your application should be able to effectively convey information using just the colors from any theme that the user chooses<!--, and that attributes such as hue and brighness are adjustable in your application's preferences dialog -->.</para>
+	
+	<para>A useful tool for reviewing information about colorblindess and checking legibility of images for colorblind users is <ulink url="http://www.vischeck.com/">Vischeck</ulink>, an online tool that simulates the way an image or a website might appear to a user who has deuteranopia, protanopia, or tritanopia. </para>
+
+	<para>Other users have more problems when it comes to contrast levels rather than hue on their screen. Some users require a high level of contrast between background and foreground colors such as black on white, white on black, or some other high-contrast combination. Others can experience discomfort unless they use low-contrast settings, such as gray text on a lighter gray background. These needs can be met by making sure that your application supports accessible themes in GNOME, whether it be High Contrast Large Print, High Contrast, Low Contrast Large Print, Low Contrast, or Large Print. This means there is a need for large and default sizes of high, low, and normal-contrast icon sets that accompany the default set for your application (see the Icon Style section).</para>
+      </sect2>
+    </sect1>
+    
+      
+    <sect1 id="layout-window">
+      <title>Window Layout</title>
+      
+      <sect2>
+	<title>General</title> 
+
+	<para> Placement of visual components in an application is important because relationships 
+  between elements are usually indicated by their positions. This is called "layout" 
+  in graphical user interface (GUI) design. A clean layout is crucial to creating 
+  a smooth visual flow of information for the user. In this section, you will 
+  be introduced to proper component placement and spacing. The major components 
+  discussed will be: labels, icons, radio buttons and checkboxes, text fields, 
+  command buttons, and drop-down menus. </para>
+	
+	<para> When a user is scanning a complex preferences dialog consisting of many labels 
+  and corresponding checkboxes, text fields, and combo boxes, it is easy to see 
+  how she can quickly become hindered by poor layout in the visual design. </para>
+
+	<figure><title>Improved window layout</title>
+	  
+	  <informaltable>
+	    <tgroup cols="2" align="center">
+	      <tbody>
+		<row>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/layout1.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Initial layout with poor alignment and limited use of white space</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		  
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/layout2.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Improved layout with fewer alignment points, frames removed to relieve clutter, and clearer grouping with use of white space</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+	      </tbody>
+	    </tgroup>
+	  </informaltable>
+	</figure>
+
+<!-- picture here of a complex preferences dialog, badly designed: right-aligned similar length labels, very little spacing between elements (vertically), varying spaces between elements (horizontally) -->
+
+	<para> In this example, the dialog presents labels which are not left-aligned. The user's 
+  eye is not given a proper anchor to scan the dialog quickly. </para>
+
+	<para> Since the labels are all similar in length, they should be left-aligned. Now 
+  the user has a firm left margin to anchor the eye and scan the list of items 
+  vertically with more ease. If most of the labels greatly differ in length in 
+  a component grouping within a layout, they should be right-aligned so that the 
+  components don't end up far away from the corresponding labels. </para>
+	
+	<para>Use of frames to separate component groupings within a layout is deprecated. 
+  Use spacing and bold headers instead to delineate categorization. The latter 
+  is more effective because there are less gratuitous lines to distract the user 
+  from the main content in a layout.</para>
+
+	<para>Try to keep components consonant with each other in terms of size and alignment. 
+  This is particularly important within a component grouping in a layout so that 
+  the user's ability to quickly scan information is not sacrificed. Minimize the 
+  need for the user's eye to jump around too much when scanning a layout.</para>
+	
+	<figure><title>Layout specifications</title>
+	  
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/layout_callouts.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Improved layout with fewer alignment points, frames removed to relieve clutter, and clearer grouping with use of white space</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	
+<!-- Figure here of the above paragraph, giving examples -->
+
+	<para> Labels should be concise and make sense when taken out of context; otherwise, 
+  users relying on screenreaders or similar assistive technologies will not always 
+  be able to immediately understand the relationship between a control and those 
+  surrounding it. </para>
+
+	<para> Labels of editable components should have access keys (underlined character 
+  for navigation by users unable to use a mouse), and the labels should immediately 
+  precede its control in the tab order so that the access key assigned to the 
+  label will focus to or activate the correct control when pressed. </para>
+
+      </sect2>
+
+      <sect2 id="window-layout-spacing">
+	<title>Spacing</title>
+
+	<para>Provide adequate space between controls and groups of controls. This white 
+  space will make it easier for the user to find the information they need. A 
+  basic rule of thumb is to put space between user interface components in increments 
+  of 6 pixels, going up as the relationship between related elements becomes more 
+  distant. For example, between icon labels and associated graphics within an 
+  icon, 6 pixels are adequate. Between labels and associated componentts, it's 
+  good to leave 12 horizontal pixels. For vertical spacing between groups of components, 
+  18 pixels is adequate. A general padding of 12 pixels is good to have between 
+  the contents of a dialog window and the window borders. </para>
+
+      </sect2>
+
+      <sect2 id="window-layout-alignment">
+	<title>Alignment</title>
+
+	<para>Try to keep elements of the same type correspond to each other in left justification. 
+  For instance, titles of component groupings as in figure (&quot;General,&quot; 
+  &quot;Actions&quot;) should be left-aligned and justified with each other. Indentation 
+  of, say, 12 to 18 pixels is useful to denote hierarchy and association. Right 
+  justification is pleasing to the eye but not crucial.</para>
+
+      </sect2>
+      
+    </sect1>
+
+    
+    <sect1 id="layout-labels">
       <title>Labels</title>
       
 
-      <sect2 id="layout-labels">
+      <sect2 id="layout-label-position">
 	
 	<title>Positioning</title>
-	
+
+	<para>Use spacing and alignment of text uniformly throughout your application. A basic rule of thumb is to put space between user interface components in increments of 6 pixels, going up as the relationship between related elements becomes more distant.</para>
+
+	<table id="label-placement-example">
+	  <title>Alignment and spacing for different Text elements</title>
+	    <tgroup cols="3" align="left">
+	      <thead>
+		<row>
+		  <entry>Element</entry>
+		  <entry>Placement</entry>
+		  <entry>Example</entry>
+		</row>
+	      </thead>
+	      
+	      <tbody>
+		<row>
+		  <entry>Large Icons (file browser)</entry>
+		  <entry>Horizontally centered with and (6 pixels, if specification necessary)below large icon</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/large_icon_label.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Large icon with text label centred below</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+		
+		<row>
+		  <entry>Small icons (toolbar)</entry>
+		  <entry>Vertically centered with and (6 pixels, if specification necessary) to the right of small icons</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/small_icon_label.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Small icon with text label to the right</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+		
+		<row>
+		  <entry>List control label</entry>
+		  <entry>6 pixels above and horizontally left aligned with list control or 12 pixels to the left of and horizontally top aligned with list control</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/list_control_label.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>List control with text label horizontally aligned above</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+
+		<row>
+		  <entry>Radio button and checkbox labels</entry>
+		  <entry>6 pixels to the right of and vertically center aligned with radio button</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/radio_button_label.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Radio button with text label to its right</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+
+		</row>
+
+		<row> 
+		  <entry>Textfield labels</entry>
+		  <entry>6 pixels to the left of and vertically center aligned with textfield control</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/textbox_label.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Textbox with text label to its left</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+		
+		<row>
+		  <entry>Button labels</entry>
+		  <entry>12 pixels of padding to either side of centered text (and any accompanying graphic). If appearing in a group of buttons, longest button label sets button size, center all other button labels and accompanying graphics in same-sized buttons</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/icons_labels.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Buttons with centered text</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+		<row> 
+		  <entry>Other component labels (e.g., spin boxes, text fields </entry>
+		  <entry>12 pixels between the longest text label and its associated component, all other text labels in component grouping left aligned with the longest label. All labels vertically center aligned with associated components</entry>
+		  <entry>
+	          <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/other_labels.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		      <phrase>Option menu with label to its left</phrase>
+		    </textobject>
+		  </mediaobject>
+	        </entry>
+		</row>
+	      </tbody>
+	    </tgroup>
+	  </table>
+
+ 
+<!-- CFB This table superceded by Coleen's examples, above 
 	<para>Relationships between elements are usually indicated by their positions. Place labels consistently according to the type of control they relate to:</para>
-	    
-	<!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
 	
 	<figure id="label-placement-example">
 	  <title>Correct label placement for various UI elements</title>
@@ -77,11 +558,13 @@
         	</entry>
 		</row>
 	      </tbody>
-	    </tgroup>
+	    </tgroupara>
 	  </informaltable>
 	</figure>
 
 	<para>Many widgets give you little or no choice about the positioning of the label, such as buttons or check boxes.  However, with text boxes, lists, option menus and others, it is up to you as the designer to choose the best position for the control's label.</para>
+
+-->
 
 	<para>Recommendations:</para>
 	
