@@ -6,12 +6,13 @@
       <title>Parts of Windows and System Interaction</title>
       <sect2 id="window-props-titles">
 	<title>Titles</title>
-	<para>All top-level windows will have titles composed of the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
+	<para>Every windows will have a title<!-- composed of the proper name of the application and an identification of the window's purpose or content-->. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
 	<para>See the description of each particular window type for title formats.</para>
       </sect2>
       <sect2 id="window-props-frames">
 	<title>Frames</title>
-	<para>Most top-level windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+	<para>Most windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
+	<para>Frame commands for each window type are shown by name when they may be provided.</para>
       </sect2>
       <sect2 id="window-props-modality">
 	<title>Modality</title>
@@ -41,7 +42,7 @@
       </formalpara>
       <formalpara>
 	<title>Frame Commands:</title>
-	<para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+	<para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
       </formalpara>
 
       <sect2 id="sdi">
@@ -66,11 +67,11 @@
 	<para>Provide a property window when actions in the property window immediately affect the object's properties.</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para><replaceable>Object Name</replaceable> - Properties</para>
+	  <para><replaceable>Object Name</replaceable> - Settings</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+	  <para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
 	</formalpara>
       </sect2>
       <sect2 id="preference-windows">
@@ -82,7 +83,7 @@
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para>Close, Maximize, Restore, Minimize, Shade, Stick, Unstick</para>
+	  <para>Close, Maximize, Restore, Minimize, Shade, Unshade, Stick, Unstick</para>
 	</formalpara>
       </sect2>
       <sect2 id="toolbox-windows">
@@ -118,11 +119,11 @@
 	</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para>FIXME</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
       <sect2 id="alerts-error">
@@ -137,11 +138,11 @@
 	</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para>FIXME</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
 
@@ -158,11 +159,11 @@
 	</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para>FIXME</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
 
@@ -184,11 +185,11 @@
 	</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para>FIXME</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
 <!--
@@ -228,11 +229,11 @@
 	<para>FIXME</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para>Choose <replaceable>an Item</replaceable> - <replaceable>Application</replaceable></para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para>Shade</para>
+	  <para>Shade, Unshade</para>
 	</formalpara>
       </sect2>
       <sect2 id="dialogs-property">
@@ -240,11 +241,11 @@
 	<para>Provide a property dialog for properties which cannot be immediately changed. </para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para><replaceable>Object Name</replaceable> - Settings</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
       <sect2 id="dialogs-preferences">
@@ -252,11 +253,11 @@
 	<para>Provide a prefernces dialog for application preferences which cannot be immediately changed.</para>
 	<formalpara>
 	  <title>Title Format:</title>
-	  <para>? - ?</para>
+	  <para><replaceable>Application Name</replaceable> - Preferences</para>
 	</formalpara>
 	<formalpara>
 	  <title>Frame Commands:</title>
-	  <para><!-- Minimize, ??? -->Shade</para>
+	  <para><!-- Minimize, ??? -->Shade, Unshade</para>
 	</formalpara>
       </sect2>
 
@@ -268,11 +269,11 @@
       <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
       <formalpara>
 	<title>Title Format:</title>
-	<para>? - ?</para>
+	<para>FIXME</para>
       </formalpara>
       <formalpara>
 	<title>Frame Commands:</title>
-	<para><!-- Minimize, ??? -->Shade</para>
+	<para>FIXME, Shade, Unshade</para>
       </formalpara>
     </sect1>
   </chapter>
