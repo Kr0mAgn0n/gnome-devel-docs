@@ -474,6 +474,144 @@
 	</listitem>
       </itemizedlist>
     </sect2>
+    </sect1>
+
+    <sect1 id="icons-design-accessible">
+       <title>Designing Accessible Icons</title>
+       <para>
+	       The GNOME desktop includes accessible themes that make the desktop and the applications running on it accessible to users with a range of visual impairments. By default, these are:</para>
+       <itemizedlist>
+	       <listitem><para>a high contrast theme</para></listitem>
+	       <listitem><para>an inverse high contrast theme</para></listitem>
+	       <listitem><para>a large print theme</para></listitem>
+       </itemizedlist>
+       <para>The following accessible themes are also available:</para>
+       <itemizedlist>
+	       <listitem><para>a high contrast large print theme</para></listitem>
+	       <listitem><para>an inverse high contrast large print theme</para></listitem>
+	       <listitem><para>a low contrast theme</para></listitem>
+	       <listitem><para>a low contrast,large print theme</para></listitem>
+       </itemizedlist>
+       <para>To be considered fully accessible, all icons in your application
+	       must be replaced by a suitable alternative when one of these
+	       themes is used.</para>
+
+       <sect2 id="icons-design-highcontrast">
+	<title>High Contrast Icons</title>
+	<para>
+		High contrast icons are greatly simplified versions of an application's existing regular icons. They are drawn with two colors, black and white, and thicker borders. This style allows high contrast icons to be distinguishable when viewed by a user with a visual impairment. Below is an approximation of what well-designed high contrast icons look like when viewed by someone with a visual impairment.</para>
+    <table frame="topbot" pgwide="1">
+	    <title>Simulation of low vision user viewing high contrast icons</title>
+      
+      <tgroup cols="3" colsep="0" rowsep="0" align="center">
+	<thead>
+	  <row valign="top">
+	    <entry>Description</entry>
+	    <entry>High Contrast Icon</entry>
+	    <entry>Simulated Appearance</entry>
+	  </row>
+	</thead>
+	<tbody>
+	  <row valign="top">
+		<entry>Book</entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-book.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-book.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Book icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-book-blur.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-book-blur.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Blurred Book icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	  <row valign="top">
+		<entry>CD-ROM</entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-cdrom.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-cdrom.eps" format="EPS"/></imageobject>
+		<textobject><phrase>CD-ROM icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-cdrom-blur.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-cdrom-blur.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Blurred CD-ROM icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	  <row valign="top">
+		<entry>Copy</entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-copy.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-copy.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Copy icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	    <entry>
+	      <mediaobject>
+		<imageobject><imagedata fileref="images/highcontrast-copy-blur.png" format="PNG"/></imageobject>
+		<imageobject><imagedata fileref="images/highcontrast-copy-blur.eps" format="EPS"/></imageobject>
+		<textobject><phrase>Blurred Copy icon</phrase></textobject>
+	      </mediaobject>
+	    </entry>
+	  </row>
+	</tbody>
+      </tgroup>
+    </table>
+
+	<para>
+		If a regular icon uses a simple, straightforward metaphor the corresponding high contrast icon can often use the same metaphor. In many cases the same metaphor will need to be drawn differently to create a simplified high contrast icon.
+	</para>
+	 <figure>
+		 <title>Simplified representation of metaphors for high contrast icons</title>
+	         <mediaobject>
+			 <imageobject><imagedata fileref="images/highcontrast-metaphors.png" format="PNG"/></imageobject>
+			 <imageobject><imagedata fileref="images/highcontrast-metaphors.eps" format="EPS"/></imageobject>
+			 <textobject><phrase>Comparison of photorealistic style of regular icons with the simpler, line-art style of high contrast icons</phrase></textobject>
+								               </mediaobject>
+									             </figure>
+
+	<para>High contrast icons are created in a vector drawing program. Black and white shapes are layered to create a simplified icon. The process feels like layering black and white pieces of construction paper, as if you were assembling a collage.</para>
+	 <figure>
+		<title>Layered technique for high contrast icons</title>
+	         <mediaobject>
+			 <imageobject><imagedata fileref="images/floppy-dissected.png" format="PNG"/></imageobject>
+		             <imageobject><imagedata fileref="images/floppy-dissected.eps" format="EPS"/></imageobject>
+			     <textobject><phrase>Exploded view of layers used in high contrast floppy disk icon</phrase></textobject>
+								               </mediaobject>
+									             </figure>
+
+	<tip><title>Reuse existing shapes</title>
+		<para>Often shapes from existing high contrast icons can be resized and reused to more quickly build up a new icon.</para></tip>
+
+	<tip><title>Don't forget the border!</title>
+		<para>It is useful to design high contrast icons over a temporary background color so you don't forget to draw the external white border.</para></tip>
+     </sect2>
+     <sect2 id="icons-design-lowcontrast">
+	     <title>Low Contrast Icons</title>
+	     <para>
+		     The goal of low contrast themes is to eliminate, as much as possible, light values (e.g. a large 'V' value in HSV). To achieve this, the colors in low contrast icons are compressed toward the middle value range, i.e. dark colors are lightened and light colors are darkened.
+	     </para>
+	     <para>
+		     Low contrast icons are generated from the existing regular icons by adjusting the levels in GIMP. The Input Levels are set to 100, 1.25, 200 and the Output Levels are set to 100, 160, as shown in the Levels dialog below. Large numbers of regular icons can be quickly converted to low contrast by using GIMP's scripting facilities.</para>
+	      <figure>
+	        <title>Levels dialog in GIMP showing correct levels for generating low contrast icons</title>
+		<mediaobject>
+		  <imageobject><imagedata fileref="images/levels-lowcontrast.png" format="PNG"/></imageobject>
+                  <imageobject><imagedata fileref="images/levels-lowcontrast.eps" format="EPS"/></imageobject>
+		  <textobject><phrase>Levels dialog in GIMP showing input levels set to 100, 1.25, 200, and output levels set to 100 and 160.</phrase></textobject>
+		 </mediaobject>
+	      </figure>
+
+     </sect2>
   </sect1>
 </chapter>
 
