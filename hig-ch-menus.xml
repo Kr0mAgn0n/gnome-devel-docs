@@ -9,7 +9,7 @@
 -->
     <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, placing common menu items in the same menus as they appear in other applications makes it much easier for the user to learn.</para>
   
-    <para>In most applications, only the top level window should have a menu bar.  Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
+    <para>In most applications, only primary windows should have a menu bar.  Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
 
     <para>Occasionally, however, a secondary window is so complex that there would be too many controls.  In these cases you may use a menubar provided that:</para>
 
@@ -17,8 +17,6 @@
       <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
       <listitem><para>you do not include any dialog-style buttons to dismiss the window, such as <guibutton>OK</guibutton>, <guibutton>Close</guibutton> or <guibutton>Cancel</guibutton>, but place these commands on the <guimenu>File</guimenu> menu or equivalent instead.</para></listitem>
     </itemizedlist>
-
-  <!-- CB-Ed: Clearly define "standard" and "logical" order, or give a succinct example, probably later on in the section where details are called for.-->
 
     <para>Guidelines:</para>
 
@@ -54,9 +52,8 @@
 	<sect3 id="menu-type-menubar">
 	  <title>The Menu Bar</title>
 	  <para>Provide a menubar on each primary application window. The menubar provides a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.</para>
-	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu on a menubar.</para>
+	  <para>The keyboard shortcut <keycap>F10</keycap> focuses the first menu in a menubar.</para>
 
-<!-- CB-Ed: In the previous paragraph, intead of using the verb "focus" in that odd manner, try saying: "places the focus on..." -->
 	  <note>
 	    <title>For Discussion</title>
 	    <para>We should have this same function on release of Alt. <ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=53543">http://bugzilla.gnome.org/show_bug.cgi?id=53543</ulink></para>
@@ -75,7 +72,7 @@
 
 <!-- CB-Fig: Figure of submenu being "posted." -->
 
-	  <para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. A submenu should not have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
+	  <para>Submenus should be used to save space on otherwise crowded menu by grouping related commands. A submenu should container no fewer than three items, unless the items are added dynamically as in the <guisubmenu>Open Recent</guisubmenu> submenu of the <guimenu>File</guimenu> menu. Usually a submenu should not itself have a submenu. Submenus should be used sparingly, since they are physically difficult to navigate and they make it harder to reach the items they contain.</para>
 	</sect3>
 
 <!-- CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  --> 
@@ -96,7 +93,7 @@
 	  </note>
 
 <!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
-
+<!-- SN-Ed: No, it should not be exposed to the user. I'm not really sure what possessed the GTK guys to put this in every right click menu for text boxes. I suppose in this case having it be a submenu is good (if they insist on it existing) because it makes it maximally invisible -->
 
 <!--
 
@@ -115,8 +112,6 @@ CFB: Making this note a comment... actually all I really suggested was that the 
       <sect2 id="menu-item-types">
 	<title>Menu Item Types</title>
 	<para>Provide an access key for every menu item, except separators.</para>
-
-<!-- CB-Ed: typo in previous para, correct to "Provide an access key for every kind of menu item... -->
 
 	<sect3 id="menu-item-type-head">
 	  <title>Titles</title>
@@ -159,10 +154,10 @@ CFB: Making this note a comment... actually all I really suggested was that the 
 	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
 
 <!-- CB-Ed: The previous para is badly written, especially the last clause; it's grammatically incorrect, to begin with. -->
-	  <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
+	  <para>Where a command requires further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
 
 
-<!-- CB-Ed/Fig: "requires" in the previous para probably doesn't require emphasis. Figure would be nice here. -->
+<!-- CB-Ed/Fig: Figure would be nice here. -->
 	</sect3>
 
 	<sect3 id="menu-item-type-mutable">

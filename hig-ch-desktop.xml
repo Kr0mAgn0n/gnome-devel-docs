@@ -5,33 +5,18 @@
   
   <para>There are two elements to basic integration with the user environment of the GNOME Desktop.
     <orderedlist>
-      <listitem><para>Your application should place an entry in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users will discover your application</para></listitem>
-      <listitem><para>Your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit.</para></listitem>
+      <listitem><para>Applications should have an entry in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users discover and launch applications</para></listitem>
+      <listitem><para>Applications which handle files should have entries in the application database and the document type (MIME) database. This allows the desktop and other applications to automatically launch your application when they encounter a file it can handle.</para></listitem>
     </orderedlist>
 
   </para>
-  <sect1 id="menuentries">
+  <sect1 id="application-menu-entries">
     <title>Placing Entries in the Applications Menu</title>
     
-    <para>Applications should place entries in the <guimenu>Applications</guimenu> menu. The <guimenu>Applications</guimenu> menu provides a convenient way for users to survey the available applications and select one to perform their next task.</para>
+    <para>Applications should place entries in the <guimenu>Applications</guimenu> menu by installing an appropriate ".desktop" file. The <guimenu>Applications</guimenu> menu provides a convenient way for users to survey the available applications and select one to perform their next task.</para>
 
 
-    <para>The <guimenu>Applications</guimenu> menu is arranged into a set of categories. An application should place an entry in just one of these categories. In the case of application-suites such as Evolution or OpenOffice, a menu item should be added for each sub-application.</para>
-    <para>Menu categories are:
-      <itemizedlist>
-	<listitem><para>Internet</para></listitem>
-	<listitem><para>Multimedia</para></listitem>
-	<listitem><para>Office</para></listitem>
-	<listitem><para>Graphics</para></listitem>
-	<listitem><para>Utilities</para></listitem>
-	<listitem><para>Development Tools</para></listitem>
-	<listitem><para>Games</para></listitem>
-	<listitem><para>System</para></listitem>
-      </itemizedlist>
-      <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
-    </para>
-
-<!-- CB-Ed:  Perhaps you should come up with a protocol for how to choose where your application goes, in terms of submenus.  For instance:  all applications that manipulate mp3 files should go into the Multimedia (or Sounds and Video or whatever it's now called) submenu under the Applications menu.  -->
+    <para>The <guimenu>Applications</guimenu> menu is arranged into a set of categories. An application should have an entry in just one of these categories. In the case of application suites which wrap a number of smaller sub-applications into a single window, such as Evolution or OpenOffice, a menu item should be added for each sub-application. For example, the mail, calendar, and tasklist aspects of Evolution would each have their own menu item. Applications are placed in particular categories based on the set of keywords they include in their .desktop file. Technical details on this can be found in the VFolder and Desktop file specifications available from <ulink url="http://www.freedesktop.org">Free Desktop</ulink>.</para>
 
     <sect2 id="menu-item-names">
       <title>Menu Item Names</title>
@@ -39,8 +24,8 @@
 
       <sect3 id="menu-item-functional-description">
 	<title>Include a functional description in the menu name</title>
-	<para>User testing of MIT's Athena system revealed that users had difficulty finding the file manager because they were unfamiliar with the name 'Nautilus'. Because users did not associate the word 'Nautilus' with the concept "file manager" the menu entry did not help them.</para>
-	<para>The menu entry label/name include a descriptor of functionality in addition to the proper name of the application. This will be especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
+	<para>User testing of MIT's Athena system revealed that users had difficulty finding the file manager because they were unfamiliar with the name 'Nautilus'. Because users did not associate the word 'Nautilus' with the concept "file manager" the menu item did not help them. Using only the word 'Nautilus' in the menus was a failure to use the user's language. See <xref linkend="application-world-match"/> for more on speaking the user's language.</para>
+	<para>The menu item name should include a descriptor of functionality in addition to the proper name of the application. This will be especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
 	<itemizedlist>
 	  <listitem>
 	    <example>
@@ -96,7 +81,7 @@
 	<title>Formats for the menu name</title>
 	<orderedlist>
 	  <listitem>
-	    <para>If your application's proper name is already descriptive (and not just suggestive) of its functionality, it should use the format "<emphasis>APPLICATION-NAME</emphasis>"
+	    <para>If an application's proper name is already descriptive (and not just suggestive) of its functionality, it should use the format: <replaceable>ApplicationName</replaceable></para>
 	      <itemizedlist>
 		<listitem>
 		  <example>
@@ -111,10 +96,9 @@
 		  </example>
 		</listitem>
 	      </itemizedlist>
-	    </para>
 	  </listitem>
 	  <listitem>
-	    <para>If there is a succinct functional description for your application, it should use the format "<emphasis>APPLICATION-NAME FUNCTIONAL-DESCRIPTION</emphasis>".
+	    <para>If there is a succinct functional description of an application, it should use the format: <replaceable>ApplicationName FunctionalDescription</replaceable></para>
 	      <itemizedlist>
 		<listitem>
 		  <example>
@@ -153,10 +137,9 @@
 		  </example>
 		</listitem>
 	      </itemizedlist>
-	    </para>
 	  </listitem>
 	  <listitem>
-	    <para>A few applications, particularly games, will not have appropriate functional descriptions. Note that many games <emphasis>will</emphasis> have a functional description. These may use "<emphasis>APPLICATION-NAME</emphasis>". This case should be avoided.
+	    <para>A few applications, particularly games, will not have appropriate functional descriptions (note that many games <emphasis>will</emphasis> have appropriate functional descriptions). <replaceable>ApplicationName</replaceable> may be used in this case.
 	      <itemizedlist>
 		<listitem>
 		  <example>
@@ -174,34 +157,30 @@
 
       <title>Menu Item Tooltips</title>
 
-      <para>Tooltips are used to learn about a new environment and to quickly explore the 
-available functionality of applications in that environment.</para>
-      <para>Tooltips should be provided for all <guimenu>Application</guimenu> menu items to give the user information about the tasks they can perform with each of the applications in a menu. Tooltips should not be overly verbose, but should be more descriptive than the name used in the menu.</para>
-
-      <para>Panel menu tooltips should be phrased in verb form to describe the actions users can take with each application.</para>
+      <para>Tooltips are important for providing users with enough information to make the correct decision. Many users use tooltips to explore a new environment. A tooltip should be provided for each <guimenu>Application</guimenu> menu item. The tooltip should be phrased in verb form, and should describe the most important tasks users can accomplish with that application. While tooltips should not be verbose, they should be longer and more descriptive than the item's name.</para>
 
       <itemizedlist>
 	<listitem>
 	  <example>
-	    <title>A tooltip for Character Map</title>
+	    <title>Tooltip for Character Map</title>
 	    <para>Insert special characters into documents</para>
 	  </example>
 	</listitem>
 	<listitem>
 	  <example>
-	    <title>A tooltip for Memprof</title>
+	    <title>Tooltip for Memprof</title>
 	    <para>Check your application for memory leaks</para>
 	  </example>
 	</listitem>
 	<listitem>
 	  <example>
-	    <title>A tooltip for Same Gnome</title>
+	    <title>Tooltip for Same Gnome</title>
 	    <para>Arrange long chains of similarly colored balls and eliminate them</para>
 	  </example>
 	</listitem>
 	<listitem>
 	  <example>
-	    <title>A tooltip for Gnome Batalla Naval client</title>
+	    <title>Tooltip for Gnome Batalla Naval client</title>
 	    <para>Find and sink enemy ships in this networked rendition of Battleship</para>
 	  </example>
 	</listitem>

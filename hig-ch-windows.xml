@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter id="windows">
   <title>Windows</title>
-  <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
+  <para>Windows allow users to organize and control the information available on their screen at any given time in large chunks.</para>
   <sect1 id="window-properties">
     <title>Parts of Windows and System Interaction</title>
     <sect2 id="window-props-titles">
       <title>Titles</title>
-      <para>Every window should have a title<!-- composed of the proper name of the application and an identification of the window's purpose or content-->. A window title should contain information that is relevant to the user in distinguishing a particular window from other open windows. Information that does not assist in this selection, for example the application's version number, should be ommitted.</para>
+      <para>Every window should have a title. A window title should contain information that is relevant to the user in distinguishing a particular window from other open windows. Information that does not assist in this selection, for example the application's version number, should be ommitted.</para>
       <para>See the description of each particular window type for title formats.</para>
     </sect2>
-    <sect2 id="window-props-frames">
-      <title>Frames</title>
-      <para>Most windows will have frames; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to provide its own frame, but should provide hints to the window manager for the desired frame type.</para>
-      <para>Frame commands for each window type are shown by name when they may be provided.</para>
+    <sect2 id="window-props-borders">
+      <title>Borders and Window Commands</title>
+      <para>Most windows will have borders; exceptions are shaped windows and sometimes torn-off windows. An application window should not attempt to draw its own border, but should provide hints to the window manager for the desired border type.</para>
+      <para>Appropriate window commands are specified in following sections for each type of window. These are:</para>
+      <itemizedlist>
+	<listitem><formalpara><title>Close</title><para>close the window. This window command should <emphasis>always</emphasis> drawn as a button on the window border</para></formalpara></listitem>
+	<listitem><formalpara><title>Maximize</title><para>cause the window to use all unused screen space</para></formalpara></listitem>
+	<listitem><formalpara><title>Minimize</title><para>cause the window to be temporarily hidden</para></formalpara></listitem>
+	<listitem><formalpara><title>Roll-up/Unroll</title><para>show only the title bar of the window, as if it has been "rolled up"</para></formalpara></listitem>
+      </itemizedlist>
+	  
     </sect2>
     <sect2 id="window-props-modality">
       <title>Modality</title>
-      <para>FIXME</para>
       <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
-      <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
-      <para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
-      <para>A system mode should not be used by applications. The session and window managers are excepted as these are global interface features. The toolkit also makes use of a global mode for operations such as popping up menus or drag and drop.</para>
+      <para>Modal windows prevent the user from performing actions on either the application that opened the window (application modal) or all applications, including the desktop itself (system modal) while they are open. A mode is a limits the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs, or a close button in the window title bar.</para>
+      <para>An object or application modal window will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task. Modal windows should only be used where allowing input into other parts of the application while the window is open could cause a serious problem.</para>
+      <para>System modal windows should not be used by GNOME applications.</para>
     </sect2>
     <sect2 id="window-props-focus">
       <title>Focus</title>
-      <para>There are three focus types from which the user may choose: click-to-focus, enter-to-focus (also known as sloppy focus), and cross-to-focus (also known as focus follows mouse or PointerRoot mode). Applications must not attempt to override the user's choice, but should hint to the window manager their focus requirements. If one of your application windows may have special focus requirements then consult the Inter-Client Communication Conventions Manual (ICCCM), the wm-spec of the Free Desktop Group, and the toolkit API for the appropriate input model and how to hint to the window manager.</para>
-    </sect2>
-    <sect2 id="window-props-other">
-      <title>General Communication with the Window Manager</title>
-      <para>The toolkit API should provide all the functions needed for communicating with the window manager. The wm-spec of the Free Desktop Group and the ICCCM provide a thorough explanation of the toolkit functions.</para>
-      <para>The Feedback section provides more information about when to use the available forms of window manager communication.</para>
+      <para>Focus allows the user to designate the window to receive data from input devices such as the keyboard (and sometimes the mouse too). In situations where the user has a screen reader, focus may also designate the particular window or application to receive information about. The focused window is considered the window the user is currently "working with". GNOME applications should function properly with three different mechanisms by which windows can receive focus: click to focus, point to focus, and selection of focus using the keyboard. Allowing "point to focus" places a number of restrictions on GNOME applications not present in environments such as MacOS or Windows. For example, utility windows shared between multiple document windows (such as the toolbox in the GIMP Image Editor) cannot be context sensitive (i.e. they cannot directly initiate an action such as saving on a particular document window), because in the act of moving the mouse from the currently focused document to the utility window, the user could inadvertantly pass the pointer over another document window, shifting the focus.</para>
     </sect2>
   </sect1>
  <sect1 id="primary-windows">
   <title>Primary Windows</title>
     <para>A primary window is a view of the contents of an object such as a document, a game, or an image. An application may have in any instance more than one primary window and more than one kind of primary window.</para>
-    <para>A primary application window will be normally framed. It will usually contain a menu bar and a status bar and may also contain one or more toolbars.</para>
+    <para>A primary application window will be normally have a border. It will usually contain a menu bar and a status bar, and may also contain one or more toolbars.</para>
     <sect2 id="primary-window-titles">
       <title>Primary Window Titles</title>
       <formalpara>
@@ -48,8 +49,7 @@
 	  </itemizedlist>
         </para>
       </formalpara>
-      <para>While document names are most pertinent to users, we understand that application developers may want to raise the recognition of their application. If you plan to include your application's name in the title of a primary window, use the following format: <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>. This will at least ensure that the document name appears in limited space situations such as the window list. Please note that this is <emphasis role="bold">not</emphasis> recommended.</para>
-      <para><emphasis role="bold">Do not</emphasis> place version numbers, company names, or other data the user will not find helpful in the window title. It consumes space in the title, making titles in limited spaces such as the window list less useful, and it provides more text the user will have to scan to find useful information. In a "beta" product where version numbers are critical for bug information placing version numbers is useful, but do not keep them in stable releases, instead place version information in the about box.</para>
+      <para>While document names are most pertinent to users, we understand that application developers may want to increase recognition of their application. If you plan to include your application's name in the title of a primary window, use the following format: <replaceable>Document Name</replaceable> - <replaceable>Application Name</replaceable>. This will at least ensure that the document name appears in limited space situations such as the window list. Please note that including the application name is <emphasis role="bold">not</emphasis> recommended.</para>
       <formalpara>
         <title>Title Format for other applications:</title>
         <para><replaceable>Application Name</replaceable>
@@ -57,21 +57,22 @@
 	    <listitem><example><title>Title for the primary Dictionary window</title><para>Dictionary</para></example></listitem></itemizedlist>
         </para>
       </formalpara>
+      <para><emphasis role="bold">Do not</emphasis> place version numbers, company names, or other data the user will not find helpful in the window title. It consumes space in the title, making titles in limited spaces such as the window list less useful, and it provides more text the user will have to scan to find useful information. In a "beta" product where version numbers are critical for bug information placing version numbers is useful, but do not keep them in stable releases, instead place version information in the about box.</para>
     </sect2>
     <sect2 id="primary-window-commands">
       <title>Window Commands</title>
-      <para>Close, Maximize/Restore, Minimize, Roll-up/Unroll, Stick/Unstick</para>
+      <para>Close, Maximize/Restore, Minimize, Roll-up/Unroll</para>
     </sect2>
 
     <sect2 id="document-interface-types">
-      <title>Document to Window Mapping</title>
+      <title>Relation between Documents and Windows</title>
       <sect3 id="sdi">
 	<title>Single Document Interface (SDI)</title>
 	<para>A single document interface places each document in its own primary window. Toolboxes and other utility windows may be shared between multiple SDI documents, but closing them should have no effect on the document windows. SDI should be used unless there is a compelling reason to use CSDI or MDI.</para>
       </sect3>
       <sect3 id="csdi">
 	<title>Controlled Single Document Interface (CSDI)</title>
-	<para>The use of CSDI is reserved for expert or special purpose applications. Complex drawing applications, such as the GIMP, present this kind of interface. The main toolbox of the GIMP is the control window.</para>
+	<para>The use of CSDI is reserved for expert or special purpose applications where the extra overhead of a toolbar or menu per primary window is considered unacceptable. This is rarely the case, as most documents will require enough display space anyway that the toolbar and menu are relatively little overhead. The primary exception to this is an application that must handle large numbers of small images well. Complex drawing applications, such as the GIMP, currently present this kind of interface. The main toolbox of the GIMP is the control window.</para>
       </sect3>
       <sect3 id="mdi">
 	<title>Multiple Document Interface (MDI)</title>
@@ -82,11 +83,11 @@
 
   <sect1 id="utility-windows">
     <title>Utility Windows</title>
-    <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, or a status bar.</para>
+    <para>Utility windows, such as palettes and toolboxes, normall have borders. They should not contain a menu bar, a tool bar, or a status bar.</para>
 
     <sect2 id="property-windows">
       <title>Property Windows</title>
-      <para>Provide a property window when actions in the property window immediately affect the object's properties.</para>
+      <para>Property windows allow the user to view and change aspects of an object such as a document, file, drawing, or application launcher. Changes made in property windows should be reflected immediately in their target objects if at all possible.</para>
 
       <formalpara>
 	<title>Title Format:</title>
@@ -94,11 +95,11 @@
       </formalpara>
       <formalpara>
 	<title>Window Commands:</title>
-	<para>Close, Minimize, Roll-up/Unroll, Stick/Unstick</para>
+	<para>Close, Minimize, Roll-up/Unroll</para>
       </formalpara>
       <formalpara>
 	<title>Buttons:</title>
-	<para>A <guibutton>Close</guibutton> should be placed in the lower right corner.</para>
+	<para><guibutton>Close</guibutton> should be placed in the lower right corner.</para>
       </formalpara>
 
       <figure>
@@ -122,11 +123,11 @@
       </formalpara>
       <formalpara>
 	<title>Window Commands:</title>
-	<para>Close, Minimize, Roll-up/Unroll, Stick/Unstick</para>
+	<para>Close, Minimize, Roll-up/Unroll</para>
       </formalpara>
       <formalpara>
 	<title>Buttons:</title>
-	<para>A <guibutton>Close</guibutton> should be placed in the lower right corner.</para>
+	<para><guibutton>Close</guibutton> should be placed in the lower right corner.</para>
       </formalpara>
 
       <figure>
@@ -142,16 +143,32 @@
     </sect2>
 
     <sect2 id="toolbox-windows">
-      <title>Toolboxes and Palettes</title>
-      <para>A toolbox provides convenient access to a set of common actions.</para>
+      <title>Toolboxes</title>
+      <para>A toolbox provides convenient access to a set of actions and toggles through a set of small toolbar-like buttons. Toolboxes can be used to provide a specialized group of tools to augment a toolbar containing more universal items such as "save" and "open".</para>
+      <para>Toolbox items should be lightweight, equivalent to menu items not requiring a trailing "...". This means that clicking a toolbox button should not open a window. It is recommended that toolboxes consist of a set of modal toggles that affect the operation of the mouse on the document (such as a set of buttons changing between paintbrush, eraser, and fill modes in a drawing application), rather than buttons that initiate actions upon clicking (such as a save button).</para>
       <formalpara>
 	<title>Title Format:</title>
-	<para>FIXME</para>
+	<para>no title</para>
+      </formalpara>
+      <formalpara>
+	<title>Window Commands:</title>
+	<para>Close, Roll-up/Unrol</para>
       </formalpara>
       <formalpara>
 	<title>Buttons:</title>
 	<para>None.</para>
       </formalpara>
+      <figure id="toolbox-figure">
+	<title>Toolbox for an image editor</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/toolbox.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase></phrase>
+	  </textobject>
+	</mediaobject>
+      </figure>
     </sect2>
 
     <sect2 id="other-windows">
@@ -241,7 +258,6 @@
     </sect2>
     <sect2 id="alerts-error">
       <title>Error Alerts</title>
-      <para>FIXME - same as information alerts except for the icon.</para>
       <para>An error alert:
 	<itemizedlist>
 	  <listitem><para>Will use the stock error icon.</para></listitem>
