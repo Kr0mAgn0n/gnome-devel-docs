@@ -1608,6 +1608,30 @@ Status bars should only contain information which it is not critical that the us
 
 </sect1>
 
+<!-- CFB: Sliders/spinboxes
+Just had a chat with Stephen Browne, who's working on a GUI here and wondering when to use sliders rather than spinboxes-- so it seemed like a useful topic to address :o).  I came up with a few guidelines off the top of my head, and have summarised them here, but it would be good to come up with some more formal ones and write them up-->
+
+<sect1 id="controls-range">
+
+<title>Sliders and Spinboxes</title>
+
+<para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
+<para>Recommendations:</para>
+
+<itemizedlist>
+
+<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it's always from "min" to "max"</para></listitem>
+
+<listitem><para>Use a slider if it's useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
+
+<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
+
+</itemizedlist>
+
+<para>Sometimes it's useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+
+</sect1>
+
 </chapter>
 
 <chapter id="layout">
