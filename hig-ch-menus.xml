@@ -662,6 +662,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 <guimenuitem>Paste <accel>S</accel>pecial...                Shift+Ctrl+V</guimenuitem>
 <guimenuitem><accel>D</accel>elete               Del</guimenuitem>
 <guimenuitem><accel>S</accel>elect All           Ctrl+A</guimenuitem>
+<guimenuitem>Du<accel>p</accel>licate           Ctrl+U</guimenuitem>
 <guimenuitem>Dese<accel>l</accel>ect All   Shift+Ctrl+A</guimenuitem>
 -
 <guimenuitem><accel>F</accel>ind                 Ctrl+F</guimenuitem>
@@ -747,12 +748,18 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<entry>Inserts the contents of the clipboard into the document.  If there is no current selection, use the caret as the insertion point.  If there is a current selection, replace it with the clipboard contents.</entry>
 	    </row>
 	    
-
 	    <row>
 		<entry>Paste <accel>S</accel>pecial...</entry>
 	      <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
 		<entry>Inserts a non-default representation of the clipboard contents into the document.  Open a dialog presenting a list of the available formats from which the user can select.  For example, if the clipboard contains a PNG file copied from a file manager, the image may be embedded in the document, or a link to the file inserted so that changes to the image on disk are always reflected in the document.</entry>
 	    </row>
+
+	    <row>
+		<entry>Du<accel>p</accel>licate</entry>
+	      <entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+		<entry>Creates a duplicate copy of the selected object.  Do not prompt for a name for the duplicate object, but give it a sensible default (for example, <label>Copy of ShoppingList.abw</label>) and allow the user to change it later.  Place the duplicate copy as near the original as possible without overlapping it, even if this means breaking the current sort order within the container, so the user sees it immediately.</entry>
+	    </row>
+
 		<row>
 			<entry><accel>D</accel>elete</entry>
 		      <entry><keycap>Delete</keycap></entry>
