@@ -496,7 +496,8 @@ system appear slow, not doing this can cause the window manager to think the app
 		
         	<listitem><para>Do not attempt to validate or apply changes caused by editing a
         text field control until the user has moved focus to a different
-        control in the window. Validating after each keypress is usually
+        control in the window, or the window is closed. 
+	Validating after each keypress is usually
         annoying and unnecessary. Exception: if the field accepts only a fixed 
 	number of characters, such as a hexadecimal color code, validate and
 	apply the change as soon as that number of characters have been entered.
