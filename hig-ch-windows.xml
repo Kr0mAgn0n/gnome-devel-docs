@@ -174,7 +174,7 @@
         context-sensitive— that is, they cannot initiate an action such as
         <guibutton>Save</guibutton> on the current document. This is because
         while moving the mouse from the current document to the utility
-        window, the user could inadvertantly pass the pointer over a different
+        window, the user could inadvertently pass the pointer over a different
         document window, thus changing the focus and possibly saving the wrong
         document.</para>
       </note>
@@ -186,10 +186,10 @@
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Always show a window as soon as possible, but make sure your window is the correct size before displaying it. Resizing a window after it is visible is disorienting and gives an unpolished look to your application.</para></listitem>
 		<listitem><para>If a window contains information that takes a few seconds to compute or display, it is often better not to fill it in completely before displaying the window.  For example, a window containing a large text area can be shown
-quickly, and then the text can be filled in afterwards (provided this does not result in the window resizing).  This will make your application feel more responsive than if you had not shown the window until its content was complete.</para></listitem>
+quickly, and then the text can be filled in afterward (provided this does not result in the window resizing).  This will make your application feel more responsive than if you had not shown the window until its content was complete.</para></listitem>
 		<listitem><para>Hide a window as soon as possible after it is
 closed. Unless an alert might be shown, immediately hide a window that the user has closed by clicking the Close button in the window border--  
-your application can still perform any internal clean-up operations afterwards. Besides making the
+your application can still perform any internal clean-up operations afterward. Besides making the
 system appear slow, not doing this can cause the window manager to think the application is not responding, and display an unnecessary alert to the user.</para></listitem>
 	</itemizedlist> 
 
@@ -856,8 +856,8 @@ system appear slow, not doing this can cause the window manager to think the app
         <title>Toolbox Categories</title>
 
         <para>While categories may not be as visually appealing as a toolbox
-        homogenously filled with beautiful icons, they make an unwieldy large
-        toolbox more managable. Picking a small icon from more than fifteen
+        homogeneously filled with beautiful icons, they make an unwieldy large
+        toolbox more manageable. Picking a small icon from more than fifteen
         other items is a difficult task. Additionally, categories allow users
         to hide sets of tool items that are not relevant to their current
         task.</para>
@@ -1285,7 +1285,7 @@ system appear slow, not doing this can cause the window manager to think the app
               </row>
 
               <row>
-                <entry>Has Seperator</entry>
+                <entry>Has Separator</entry>
 
                 <entry>No</entry>
               </row>
@@ -1471,7 +1471,7 @@ system appear slow, not doing this can cause the window manager to think the app
       <title>Error Alerts</title>
 
       <para>Display an error alert when a user-requested operation cannot be
-      sucessfully completed. Present errors caused by operations not requested
+      successfully completed. Present errors caused by operations not requested
       by the user by another means, unless the error could result in data loss
       or other serious problems. For example, an error encountered during an
       email check initiated by the user clicking a toolbar button should
@@ -1558,9 +1558,9 @@ system appear slow, not doing this can cause the window manager to think the app
         </listitem>
 
         <listitem>
-          <para>presents a selectable message and a button labelled with 
+          <para>presents a selectable message and a button labeled with 
           a verb or verb phrase
-          describing the action to be confirmed, or labelled
+          describing the action to be confirmed, or labeled
           <guilabel>OK</guilabel> if such a phrase would be longer than three
           words. This button is placed in the bottom right corner of the
           alert.</para>
@@ -1647,7 +1647,7 @@ hide the alert and the document or application  window immediately,
 before doing any necessary internal clean-up.
 If the user chooses to save before
 closing, hide the alert immediately but show the document window until the document is
-saved, in case an error occurs.  Then hide the document window immediately after it has been saved successfuly.
+saved, in case an error occurs.  Then hide the document window immediately after it has been saved successfully.
 	</para>
       </sect3>
     </sect2>
@@ -1682,12 +1682,12 @@ saved, in case an error occurs.  Then hide the document window immediately after
 
       <para><itemizedlist><title>Guidelines</title><listitem><para>Use the
       stock authentication icon.</para></listitem><listitem><para>Show
-      a labelled field for each required item of information. Suggested fields
+      a labeled field for each required item of information. Suggested fields
       are <guilabel>Username</guilabel> and <guilabel>Password</guilabel> (in
       that order) where appropriate.</para></listitem><listitem><para>If it is
       secure to retain the username longer than the password, pre-fill the
       username field and give focus to the password field when the alert is
-      displayed.</para></listitem><listitem><para>Show a button labelled with
+      displayed.</para></listitem><listitem><para>Show a button labeled with
       a verb or verb phrase describing the authentication action, or
       <guilabel>OK</guilabel> if there is no appropriate phrase or such a
       phrase would be longer than three words. Place this button in the bottom
@@ -1780,7 +1780,7 @@ saved, in case an error occurs.  Then hide the document window immediately after
       <listitem>
         <para>The progress bar text should provide an idea of how much work
         has been completed. It is better to provide specific information
-        rather than a unitless percentage. For example, &#34;13 of 19 images
+        rather than a unit-less percentage. For example, &#34;13 of 19 images
         rotated&#34; or &#34;12.1 of 30 MB downloaded&#34; rather than
         &#34;13% complete&#34;.</para>
       </listitem>
@@ -1810,8 +1810,8 @@ saved, in case an error occurs.  Then hide the document window immediately after
         the <guibutton>Cancel</guibutton> button. When paused, the italicized
         current sub-operation text should have &#34; (Paused)&#34; appended.
         This will allow users to perform important tasks requiring that
-        resource, or give them time to think whether they want to procede with
-        a dangerous operation they inadvertantly triggered.</para>
+        resource, or give them time to think whether they want to proceed with
+        a dangerous operation they inadvertently triggered.</para>
       </listitem>
     </itemizedlist>
 
@@ -1849,7 +1849,7 @@ saved, in case an error occurs.  Then hide the document window immediately after
         internet super-daemon, and configure the user&#39;s web browser to
         operate through the firewall. It may be desirable that the user is
         exposed the series of actions involved in setting up the firewall to
-        increase the chances that they will be sucessful in making
+        increase the chances that they will be successful in making
         modifications later, if they so desire.</para>
       </example>
 
@@ -2105,7 +2105,7 @@ saved, in case an error occurs.  Then hide the document window immediately after
     into the assistant are stored. Often people will resort to re-running
     the assistant, re-entering many settings that they don't want to change.
     <remark>Why do they need to re-enter anything? The assistant should
-	be populated with the exisiting settings whenever it is run.</remark>
+	be populated with the existing settings whenever it is run.</remark>
     </para>
 
     <warning><para>Assistants are often used in situations where a better

@@ -109,7 +109,7 @@
 
       <para>Your application needs to decide every time these controls are
       displayed whether or not they are available for editing, depending on
-      the writeable state of the GConf key that holds its value. In the
+      the writable state of the GConf key that holds its value. In the
       simplest case, your code for each control could look like that in the
       example below.</para>
 
@@ -219,7 +219,7 @@
         place the text cursor at the end of the existing text and highlight
         its contents (but don&#39;t overwrite the existing PRIMARY clipboard
         selection<!-- FIXME: is this currently possible?-->). This makes it
-        easy to immediately overtype or append new text, the two most common
+        easy to immediately overwrite or append new text, the two most common
         operations performed on entry fields.</para>
       </listitem>
 
@@ -298,7 +298,7 @@
 
             <textobject>
               <phrase>A text entry field in which the user must input a date,
-              with a button labelled &#34;Choose&#34; beside it that opens a
+              with a button labeled &#34;Choose&#34; beside it that opens a
               GtkCalendar control to simplify the task</phrase>
             </textobject>
           </mediaobject>
@@ -627,7 +627,7 @@
         <para>Once a dialog is displayed, do not change its default button
         from one button to another. You may add or remove default status from
         the same button if it helps prevent user error, however. Changing the
-        default from one button to another can be confusing and inefficent,
+        default from one button to another can be confusing and inefficient,
         especially for users relying on assistive technologies.</para>
       </listitem>
 
@@ -680,7 +680,7 @@
 
     <para>Check boxes are used to show or change a setting. Its two states,
     set and unset, are shown by the presence or absence of a checkmark in the
-    labelled box.</para>
+    labeled box.</para>
 
     <figure>
       <title>A typical group of check boxes</title>
@@ -756,8 +756,8 @@
 
             <textobject>
               <phrase>Two images: one showing a single check box ambiguously
-              labelled &#34;Progress bar in left of statusbar&#34;, the other
-              making the choice explicit with radio buttons labelled
+              labeled &#34;Progress bar in left of statusbar&#34;, the other
+              making the choice explicit with radio buttons labeled
               &#34;Left&#34; and &#34;Right&#34; under the heading &#34;Status
               bar progress indicator position:&#34;</phrase>
             </textobject>
@@ -799,9 +799,9 @@
             </imageobject>
 
             <textobject>
-              <phrase>Check boxes showing the Hidden, Readable and Writeable
+              <phrase>Check boxes showing the Hidden, Readable and Writable
               states of two selected files in Nautilus. Both files are hidden,
-              neither are writeable, but one is readable. The Readable check
+              neither are writable, but one is readable. The Readable check
               box is therefore shown in its mixed state.</phrase>
             </textobject>
           </mediaobject>
@@ -809,7 +809,7 @@
 
         <para>In this example, both selected files are hidden (since their
         filenames start with &#34;.&#34;), and the emblems on their icons show
-        that neither file is writeable, but one is readable. The
+        that neither file is writable, but one is readable. The
         <guilabel>Readable</guilabel> check box is therefore shown in its
         mixed state. <remark>At time of writing, the exact visual appearance
         of a mixed state check box in gtk was undecided</remark>.</para>
@@ -978,7 +978,7 @@
         radio button to its mixed state by clicking on it. Provide a
         <guibutton>Reset</guibutton> button or equivalent in the window that
         allows the previous mixed settings to be restored without closing the
-        window or cancelling the dialog.</para>
+        window or canceling the dialog.</para>
       </listitem>
 
       <listitem>
@@ -1249,7 +1249,7 @@
       <listitem>
         <para>the contents of the hidden part of the menu are obvious from its
         label and the one selected item. For example, if you have an option
-        menu labelled &#34;Month:&#34; with the item &#34;January&#34;
+        menu labeled &#34;Month:&#34; with the item &#34;January&#34;
         selected, the user might reasonably infer that the menu contains the
         12 months of the year without having to look.</para>
       </listitem>
@@ -1267,7 +1267,7 @@
     <!-- How odd, the whole point of a combo box is that it's a combination of a text field and a list... as such, therefore there is no such thing as an 'uneditable combo box' :o)  -->
 
     <para>Drop-down combination boxes (called "combo box entries" in gtk+) combine a text entry field and a dropdown list of
-    pre-defined values. Selecting one of the pre-defined values sets the entry
+    predefined values. Selecting one of the predefined values sets the entry
     field to that value.</para>
 
     <figure>
@@ -1299,7 +1299,7 @@
       <listitem>
         <para>Only use a drop-down combination box instead of a list, drop-down list or radio
         button group when it is important that the user be able to enter a new
-        value that is not already amongst the list of pre-defined choices.</para>
+        value that is not already amongst the list of predefined choices.</para>
       </listitem>
 
       <listitem>
@@ -1593,7 +1593,7 @@
     <title>Trees</title>
 
     <para>A tree control allows the user to inspect, manipulate or select from
-    a hierarchichal list of items. Trees may have one or more columns, and
+    a hierarchical list of items. Trees may have one or more columns, and
     contain text, graphics, simple controls, or a combination of all three.</para>
 
     <tip>
@@ -1729,7 +1729,7 @@
 
     <para>A tabbed notebook control is a convenient way of presenting related
     information in the same window, without having to display it all at the
-    same time. It is analagous to the divider tabs in a ring binder or a file
+    same time. It is analogous to the divider tabs in a ring binder or a file
     cabinet.</para>
 
     <figure>
@@ -1876,7 +1876,7 @@
 	<sect2 id="controls-tab-status">
 	  <title>Status Indicators</title>
 	  <remark>This section needs more concrete recommendations, it's currently (almost) taken verbatim from Sebastian's patch in bug #72101.</remark>
-	  <para>In some tabbed windows, such as preference windows, it might be desirable to indicate the status of a particular tab. This can be used to notify the user that a web page that is still loading or has been loaded, a new message is waiting in a particular instant messasing conversation, or that a document has not been saved. Such a status indicator should be an icon that is placed directly to the left of the tab label. Additionally, the tab label's color might be changed to indicate a certain status. Do not simply rely on a different coloring scheme for status indication.</para>
+	  <para>In some tabbed windows, such as preference windows, it might be desirable to indicate the status of a particular tab. This can be used to notify the user that a web page that is still loading or has been loaded, a new message is waiting in a particular instant messaging conversation, or that a document has not been saved. Such a status indicator should be an icon that is placed directly to the left of the tab label. Additionally, the tab label's color might be changed to indicate a certain status. Do not simply rely on a different coloring scheme for status indication.</para>
 	</sect2>
   </sect1>
 
@@ -2165,7 +2165,7 @@
 
       <listitem>
         <para>Provide a drag handle in the bottom right corner of the status
-        bar of resizeable windows. Subclasses of GtkStatusbar should use the
+        bar of resizable windows. Subclasses of GtkStatusbar should use the
         drag handle provided by that class. A reimplementation of a status
         bar, which is discouraged, should also reimplement the GtkStatusbar
         drag handle in both appearance and function.</para>
@@ -2177,13 +2177,13 @@
     <title>Frames and Separators</title>
 
     <para>A frame is a box with a title that you can draw around controls to
-    organise them into functional groups. A separator is a single horizontal
+    organize them into functional groups. A separator is a single horizontal
     or vertical line that you can use to divide windows into functional
     groups.</para>
 
     <para>Frames with a border around their perimeter have traditionally been
     used for denoting groups of related controls. This is advantageous because
-    it physically seperates disimilar controls, and also avoids repitition of
+    it physically separates dissimilar controls, and also avoids repetition of
     the frame&#39;s label in individual member control labels. Unfortunately,
     they add visual noise that can both make a window appear more complex than
     it really is, and reduce the ability to quickly scan window elements.</para>
@@ -2240,7 +2240,7 @@
         window, consider carefully if you really need it. It is usually better
         to do without, if the groups can be separated by space alone. Do not
         use frames and separators to compensate for poor control layout or
-        alignnment.</para>
+        alignment.</para>
       </listitem>
 
       <listitem>

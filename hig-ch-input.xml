@@ -71,7 +71,7 @@
 
 	<listitem><para><keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel-up</mousebutton></keycombo> should zoom into the window or control under the mouse pointer, and <keycombo><keycap>Ctrl</keycap><mousebutton>scrollwheel-down</mousebutton></keycombo> should zoom out.  Zooming in this way should not move keyboard focus to the window or control being zoomed.</para></listitem>
 
-	<listitem><para>Do not depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
+	<listitem><para>Do not depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may not even emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
 	<listitem><para>Ensure that every operation in your application that can be done with the mouse can also be done with the keyboard.  The only exceptions to this are actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
 
@@ -81,7 +81,7 @@
 
 	<listitem><para>Do not require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
 
-	<listitem><para>Allow all mouse operations to be cancelled before their completion. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
+	<listitem><para>Allow all mouse operations to be canceled before their completion. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
 
 	<listitem><para>Do not assign any actions exclusively to the middle button of a three-button mouse, as not all mice have one.</para></listitem>
 
@@ -253,7 +253,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
 	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
 	
-	<listitem><para>Pop up a menu when the user attemps to drop multiple objects on a target that only accepts single objects.  On the menu, list all the objects being dragged, and a <guimenuitem>Cancel</guimenuitem> item.</para></listitem>
+	<listitem><para>Pop up a menu when the user attempts to drop multiple objects on a target that only accepts single objects.  On the menu, list all the objects being dragged, and a <guimenuitem>Cancel</guimenuitem> item.</para></listitem>
 
 	<!-- CFB commenting this one out for now because it doesn't mean much the way it's written, and we'd ideally like to aim for more consistency than this anyway
 	
@@ -352,7 +352,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	              <textobject><phrase>"Link" pointer</phrase></textobject>
 	             </mediaobject>
                   </entry>
-		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</entry>
+		  <entry>Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the original selection, for example.</entry>
 		</row>
 
 		<row>
@@ -463,7 +463,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
       <sect2 id="choosing-access-keys">
 	<title>Choosing Access Keys</title>
 
-	<para>Give all labelled components an access key (underlined letter), with the exception of toolbar controls which would use up too many access key combinations.</para>
+	<para>Give all labeled components an access key (underlined letter), with the exception of toolbar controls which would use up too many access key combinations.</para>
 
 <!-- Consensus was against giving OK and Cancel additional access keys, but they have them anyway and Owen refuses to remove them...
 
@@ -516,7 +516,7 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 	<note><title>Unicode entry shortcuts</title><para>Note that you cannot use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A-thru-F</keycap></keycombo> or <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>0-thru-9</keycap></keycombo> for your own purposes, as these combinations are used to enter unicode characters in text fields.</para></note>
 	</para></listitem>
 	  
-	  <listitem><para>Do not use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  <listitem><para>Do not use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcut keys for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modeling application.</para></listitem>
 	  	  
 	  <listitem><para>Do not use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcut keys, as these may conflict with window manager or menu access keys.</para></listitem>
 
@@ -1115,13 +1115,13 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
 	<para>Panels have been fully keyboard navigable since GNOME 2.0.  Since your panel application can gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
 
-	<para>The rules for panel application keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</para>
+	<para>The rules for panel application keyboard navigation are mostly the same as those for any other window.  However, there is one important difference:</para>
 
 	<itemizedlist>
 	  <listitem><para>Do <emphasis>not</emphasis> use the the <keycap>Tab</keycap> key as the means of moving focus between controls in a panel application.  Use the arrow keys for this purpose instead.</para></listitem>
 	</itemizedlist>
 
-	<para>When an object on a panel has focus, the <keycap>Tab</keycap> key normally moves focus to the next object on the panel.  If your panel application also used <keycap>Tab</keycap> for its own internal navigation, the user would have to press <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> to move focus out of your panel application instead.  This inconsistency would be detremental to the user experience.</para>
+	<para>When an object on a panel has focus, the <keycap>Tab</keycap> key normally moves focus to the next object on the panel.  If your panel application also used <keycap>Tab</keycap> for its own internal navigation, the user would have to press <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> to move focus out of your panel application instead.  This inconsistency would be detrimental to the user experience.</para>
 	
       </sect2>
       
