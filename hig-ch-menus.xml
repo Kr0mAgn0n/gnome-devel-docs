@@ -612,7 +612,8 @@ the application saves state as it should.</remark>
 	    <row>
 	      <entry><guimenuitem><accel>Q</accel>uit</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry>
-	      <entry>Closes the application. If there are unsaved changes in any open documents, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> for each affected document, giving the option to save the changes, discard them, or cancel. If there are no unsaved changes, close the application immediately without presenting any further messages or dialogs.  
+	      <entry><para>Closes the application. If there are unsaved changes in any open documents, present the user with a <link linkend="alerts-confirmation">confirmation alert</link> for each affected document, giving the option to save the changes, discard them, or cancel. If there are no unsaved changes, close the application immediately without presenting any further messages or dialogs.</para>
+		<!-- This para in response to bug #73618--><para>In particular, non-document based applications, for example a game or a calculator, should save their state and exit immediately.  This state should be restored the next time the application is started.</para> 
 		  <remark>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</remark>
 	      </entry>
 	    </row>
