@@ -5,18 +5,37 @@
   
   <para>There are two elements to basic integration with the user environment of the GNOME Desktop.
     <orderedlist>
-      <listitem><para>Applications should have an entry in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users discover and launch applications</para></listitem>
-      <listitem><para>Applications which handle files should have entries in the application database and the document type (MIME) database. This allows the desktop and other applications to automatically launch your application when they encounter a file it can handle.</para></listitem>
+      <listitem><para>Place an entry for yout application in the <guimenu>Applications</guimenu> menu. This is the primary mechanism by which users discover and run applications</para></listitem>
+      <listitem><para>If your application can open and save files, place entries for those file types in the application database and the document type (MIME) database. This allows the file manager and other applications to automatically launch your application when they encounter a file it can handle.</para></listitem>
     </orderedlist>
 
   </para>
   <sect1 id="application-menu-entries">
     <title>Placing Entries in the Applications Menu</title>
     
-    <para>Applications should place entries in the <guimenu>Applications</guimenu> menu by installing an appropriate ".desktop" file. The <guimenu>Applications</guimenu> menu provides a convenient way for users to survey the available applications and select one to perform their next task.</para>
+	<figure><title>The Applications menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/applications-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject><phrase>Screenshot of the open Applications menu on the GNOME menu panel</phrase>           
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	
+       <para>The <guimenu>Applications</guimenu> menu, which appears on the panel at the top of the screen by default, is the primary mechanism by which users discover and run applications.  You place entries in this menu by installing an appropriate <filename>.desktop</filename> file.</para>
 
+    <para>The menu is arranged into a set of categories, such as Accessories and Games. Applications are placed in particular categories by the set of keywords they include in their <filename>.desktop</filename> file. </para>
 
-    <para>The <guimenu>Applications</guimenu> menu is arranged into a set of categories. An application should have an entry in just one of these categories. In the case of application suites which wrap a number of smaller sub-applications into a single window, such as Evolution or OpenOffice, a menu item should be added for each sub-application. For example, the mail, calendar, and tasklist aspects of Evolution would each have their own menu item. Applications are placed in particular categories based on the set of keywords they include in their .desktop file. Technical details on this can be found in the <ulink url="http://www.freedesktop.org/standards/VFolderDesktops.txt">VFolder</ulink> and <ulink url="http://www.freedesktop.org/standards/desktop-entry-spec.html">Desktop file</ulink> specifications.</para>
+	<itemizedlist>
+		<listitem><para>Assign your application to only one category on the <guimenu>Applications</guimenu> menu</para></listitem>
+
+		<listitem><para>For application suites that wrap a number of smaller sub-applications into a single window, such as Evolution or OpenOffice.org, add a menu item for each sub-application. For example, the mail, calendar, and tasklist in Evolution should each have their own menu item.</para></listitem>
+
+	</itemizedlist>
+
+	<para>Technical details can be found in the <ulink url="http://www.freedesktop.org/standards/VFolderDesktops.txt">VFolder</ulink> and <ulink url="http://www.freedesktop.org/standards/desktop-entry-spec.html">Desktop file</ulink> specifications.</para>
+
 
     <sect2 id="menu-item-names">
       <title>Menu Item Names</title>
@@ -25,131 +44,201 @@
       <sect3 id="menu-item-functional-description">
 	<title>Include a functional description in the menu name</title>
 	<para>User testing of MIT's Athena system revealed that users had difficulty finding the file manager because they were unfamiliar with the name 'Nautilus'. Because users did not associate the word 'Nautilus' with the concept "file manager" the menu item did not help them. Using only the word 'Nautilus' in the menus was a failure to use the user's language. See <xref linkend="application-world-match"/> for more on speaking the user's language.</para>
-	<para>The menu item name should include a descriptor of functionality in addition to the proper name of the application. This will be especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
-	<itemizedlist>
-	  <listitem>
+	<para>In the menu item name, include a descriptor of functionality in addition to the proper name of the application. This is especially useful to users of systems where numerous applications are installed by default, and to novice users. Users are more likely to find your application if the name that appears in the menu includes a description of your application's functionality along with the application name.</para>
+
 	    <example>
-	      <title>Revised menu name for "Nautilus"</title>
-	      <para>Nautilus File Manager</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
+		<title>Including functional description in menu names</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Original menu item</entry>
+				      <entry>Revised menu item</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Nautilus</entry>
+					<entry>Nautilus File Manager</entry>
+				</row>
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+	</example>
+
       </sect3>
 
       <sect3>
 	<title>Only put useful information in the menu name</title>
 	<para>Don't include words like "GNOME", "X-Windows" or other platform details in <guimenu>Application</guimenu> menu names. The user probably already knows what platform they are using, and if they don't, application names are not the right place to inform them.</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>Revised menu name for "Same Gnome"</title>
-	      <para>Same</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>Revised menu name for "GNOME Search Tool"</title>
-	      <para>Search Tool</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	<para>Technical details should also be avoided when the user does not need to know them or can infer them from context. Avoid technical jargon. For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the menu name for the client.</para>
-	<itemizedlist>
-	  <listitem>
-	    <example>
-	      <title>Revised menu name for "Gnome Batalla Naval client"</title>
-	      <para>Batalla Naval</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>Revised menu name for "Gnome Batalla Naval server"</title>
-	      <para>Batalla Naval Multiplayer Server</para>
-	    </example>
-	  </listitem>
-	  <listitem>
-	    <example>
-	      <title>A caption for GNOME VideoLAN Client</title>
-	      <para>VideoLAN Movie Player</para>
-	    </example>
-	  </listitem>
-	</itemizedlist>
-	<tip><title>Providing the right information</title><para>Try imagining what words users will be looking for when they select your application from the <guimenu>Applications</guimenu> menu. That's the information that should be in the menu name. For example, a user wanting to play a movie will probably not be looking for the word "Client". On the other hand, a user wanting to transmit movies from their computer may well look for the word "Server".</para></tip>
+	<example>
+		<title>Removing non-essential information from menu names</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Original menu item</entry>
+				      <entry>Revised menu item</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Same</entry>
+					<entry>Same GNOME</entry>
+				</row>
+				<row>
+					<entry>GNOME Search Tool</entry>
+					<entry>Search Tool</entry>
+				</row>
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+	</example>
+
+	<para>Avoid technical details when the user does not need to know them or can infer them from context.  Avoid technical jargon unless the application is to be used only by a technical audience.</para>
+	<para>For example, when both a client and a server for something are listed in the menus, drop the word "Client" from the menu name for the client.</para>
+	
+	<example>
+		<title>Removing technical jargon from menu names</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Original menu item</entry>
+				      <entry>Revised menu item</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Gnome Batalla Naval Client</entry>
+					<entry>Batalla Naval</entry>
+				</row>
+				<row>
+					<entry>Gnome Batalla Naval Server</entry>
+					<entry>Batalla Naval Multiplayer Server</entry>
+				</row>
+				<row>
+					<entry>Gnome VideoLAN Client</entry>
+					<entry>VideoLAN Movie Player</entry>
+				</row>
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+	</example>
+
+	<tip><title>Providing the right information</title>
+        <para>Try to imagine what words users will be looking for when they select your application from the <guimenu>Applications</guimenu> menu. That's the information that should be in the menu name. For example, a user wanting to play a movie will probably not be looking for the word "Client". On the other hand, a user wanting to transmit movies from their computer may well look for the word "Server".</para></tip>
       </sect3>
 
       <sect3>
-	<title>Formats for the menu name</title>
+	<title>Menu name formats</title>
 	<orderedlist>
+	  
+         <listitem>
+	    <para>If your application's proper name is already descriptive (and not just suggestive) of its functionality, use the format: <replaceable>ApplicationName</replaceable></para>
+	<example>
+		<title>Using application's name as menu name</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Application name</entry>
+				      <entry>Menu name</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Dictionary</entry>
+					<entry>Dictionary</entry>
+				</row>
+				<row>
+					<entry>Search Tool</entry>
+					<entry>Search Tool</entry>
+				</row>
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+        	</example>
+          </listitem>
+
 	  <listitem>
-	    <para>If an application's proper name is already descriptive (and not just suggestive) of its functionality, it should use the format: <replaceable>ApplicationName</replaceable></para>
-	      <itemizedlist>
-		<listitem>
-		  <example>
-		    <title>Menu name for "Dictionary"</title>
-		    <para>Dictionary</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Menu name for "Search Tool"</title>
-		    <para>Search Tool</para>
-		  </example>
-		</listitem>
-	      </itemizedlist>
+	    <para>If there is a succinct functional description of your application, use the format: <replaceable>ApplicationName FunctionalDescription</replaceable></para>
+
+	<example>
+		<title>Using functional description in menu names</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Application name</entry>
+				      <entry>Menu item name</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>The GIMP</entry>
+					<entry>GIMP Image Editor</entry>
+				</row>
+				<row>
+					<entry>Evolution email sub-application</entry>
+					<entry>Evolution Email</entry>
+				</row>
+				<row>
+					<entry>AbiWord</entry>
+					<entry>AbiWord Word Processor</entry>
+				</row>
+				<row>
+					<entry>Galeon</entry>
+					<entry>Galeon Web Browser</entry>
+				</row>
+				<row>
+					<entry>Gramps</entry>
+					<entry>Gramps Genealogy</entry>
+				</row>
+				<row>
+					<entry>AisleRiot</entry>
+					<entry>AisleRiot Solitaire</entry>
+				</row>
+
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+	</example>
+
+
 	  </listitem>
+
 	  <listitem>
-	    <para>If there is a succinct functional description of an application, it should use the format: <replaceable>ApplicationName FunctionalDescription</replaceable></para>
-	      <itemizedlist>
-		<listitem>
-		  <example>
-		    <title>Revised menu name for "The GIMP"</title>
-		    <para>GIMP Image Editor</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Menu name for Evolution's mail sub-application</title>
-		    <para>Evolution Email</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Revised menu name for "AbiWord"</title>
-		    <para>AbiWord Word Processor</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Revised menu name for "Galeon"</title>
-		    <para>Galeon Web Browser</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Menu name for "Gramps"</title>
-		    <para>Gramps Geneology</para>
-		  </example>
-		</listitem>
-		<listitem>
-		  <example>
-		    <title>Revised menu name for "AisleRiot"</title>
-		    <para>AisleRiot Solitaire</para>
-		  </example>
-		</listitem>
-	      </itemizedlist>
+	    <para>A few applications, particularly games, do not have appropriate functional descriptions (but note that many games <emphasis>will</emphasis> have appropriate functional descriptions). In this case, use <replaceable>ApplicationName</replaceable> as the menu name.</para>
+
+	<example>
+		<title>Using applicaton's name as menu name where no functional description exists</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Application name</entry>
+				      <entry>Menu item name</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Bomber Maze</entry>
+					<entry>Bomber Maze</entry>
+				</row>
+	  		</tbody>
+         	</tgroup>
+		</informaltable>
+	</example>
+
 	  </listitem>
-	  <listitem>
-	    <para>A few applications, particularly games, will not have appropriate functional descriptions (note that many games <emphasis>will</emphasis> have appropriate functional descriptions). <replaceable>ApplicationName</replaceable> may be used in this case.
-	      <itemizedlist>
-		<listitem>
-		  <example>
-		    <title>Menu name for "BomberMaze"</title>
-		    <para>Bomber Maze</para>
-		  </example>
-		</listitem>
-	      </itemizedlist>
-	    </para>
-	  </listitem>
+
 	</orderedlist>
       </sect3>
     </sect2>
@@ -157,42 +246,53 @@
 
       <title>Menu Item Tooltips</title>
 
-      <para>Tooltips are important for providing users with enough information to make the correct decision. Many users use tooltips to explore a new environment. A tooltip should be provided for each <guimenu>Application</guimenu> menu item. The tooltip should be phrased in verb form, and should describe the most important tasks users can accomplish with that application. While tooltips should not be verbose, they should be longer and more descriptive than the item's name.</para>
+      <para>Tooltips are important for providing users with enough information to make the correct decision. Many users use tooltips to explore a new environment.</para>
+	<para>Provide a tooltip for each <guimenu>Application</guimenu> menu item you add. Phrase the tooltip in verb form, and describe the most important tasks users can accomplish with your application. While tooltips should not be verbose, they should be longer and more descriptive than the item's name.</para>
 
-      <itemizedlist>
-	<listitem>
-	  <example>
-	    <title>Tooltip for Character Map</title>
-	    <para>Insert special characters into documents</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>Tooltip for Memprof</title>
-	    <para>Check your application for memory leaks</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>Tooltip for Same Gnome</title>
-	    <para>Arrange long chains of similarly colored balls and eliminate them</para>
-	  </example>
-	</listitem>
-	<listitem>
-	  <example>
-	    <title>Tooltip for Gnome Batalla Naval client</title>
-	    <para>Find and sink enemy ships in this networked rendition of Battleship</para>
-	  </example>
-	</listitem>
-      </itemizedlist>
+	<example>
+		<title>Example tooltips for GNOME applications</title>
+		<informaltable frame='all'>
+			
+			<tgroup cols='2' align='left'>
+			  <thead>
+				<row>
+		      			<entry>Application</entry>
+				      <entry>Menu item tootlip</entry>
+	   			</row>
+			  </thead>
+			<tbody>
+	     			<row>
+					<entry>Character Map</entry>
+					<entry>Insert special characters into documents</entry>
+				</row>
+
+				<row>
+					<entry>Memprof</entry>
+					<entry>Check your applications for memory leaks</entry>
+				</row>
+				<row>
+					<entry>Same Gnome</entry>
+					<entry>Arrange long chains of similarly-colored balls to eliminate them</entry>
+				</row>
+				<row>
+					<entry>Gnome Batalla Naval Client</entry>
+					<entry>Find and sink enemy ships in this networked version of Battleship</entry>
+				</row>
+	  		</tbody>
+	         	</tgroup>
+		</informaltable>
+	</example>
+
     </sect2>
   </sect1>
   
   <sect1 id="mimedatabase">
     <title>Mapping Document Types to Applications</title>
     
-    <para>The document type registry allows users to specify their preferred applications for opening different types of document. This is the mechanism by which Nautilus, Evolution and other applications decide what to launch when they encounter a document they do not know how to open.</para>
-    <para>Because it is important for users to be able to double click on documents in the file manager, e-mail messages, etc, and have them launch in their favorite application, all GNOME applications should associate themselves with all document types they can handle at install time. Technical details on installing document type associations can be found in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+    <para>The document type (MIME) database allows users to specify their preferred applications for opening different types of document. This is the mechanism by which Nautilus, Evolution and other applications decide which application to run when they encounter a document they cannot open natively.</para>
+
+    <para>It is important for users to be able to double-click on documents they see on the desktop, such as files and email messages, and have them launch in their favorite application.  Therefore, all GNOME applications should associate themselves at install-time with all the document types they can handle. Technical details on doing this can be found in the <ulink url="http://developer.gnome.org/doc/API/gnome-vfs"><citetitle>GnomeVFS API reference</citetitle></ulink>.</para>
+
     <!-- FIXME: need to cover things like the preferred list and when an application should add itself to the preferred list -->
   </sect1>
 </chapter>
