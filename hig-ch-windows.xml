@@ -3,7 +3,7 @@
     <title>Windows</title>
     <para>Windows are an essential part of many graphical user interfaces. This section applies to top-level windows as they are the only windows apparent to the user.</para>
     
-    <sect1 id="window-names">
+    <sect1 id="window-titles">
       <title>Titles</title>
       <para>All top-level windows will have titles composed of the proper name of the application and an identification of the window's purpose or content. Windows which ordinarily do not stand alone, such as menus, must have titles when they do stand alone.</para>
     </sect1>
@@ -15,6 +15,7 @@
 
     <sect1 id="window-modality">
       <title>Modality</title>
+      <para>FIXME</para>
       <!-- Change this to a discussion of non-modal, application modal, and system modal windows. -->
       <para>A mode is a limitation of the actions a user may take. As such, modes should be avoided. When used, a mode should provide a clear means of escape, such as the <guibutton>Cancel</guibutton> button in some dialogs.</para>
       <para>A object mode will prevent the user from interacting with some of the controls in an application and might be entered when an error or exception has occured which could prevent the user from completing his task.</para>
@@ -55,11 +56,32 @@
 	</sect3>
       </sect2>
     </sect1>
-      
+
     <sect1 id="utility-windows">
       <title>Utility Windows</title>
       <para>Utility windows, such as palettes and toolboxes, are also normally framed. They should not contain a menu bar, a tool bar, or a status bar.</para>
-      <!-- property windows, instant-apply preference windows, toolboxes, palettes, . . . -->
+      <!-- I don't know where the push for instant-apply started, or maybe I do, but I don't see it working for many things. -->
+      <sect2 id="property-windows">
+	<title>Property Windows</title>
+	<para>FIXME</para>
+      </sect2>
+      <sect2 id="preference-windows">
+	<title>Preference Windows</title>
+	<para>FIXME - only for instant-apply prefs</para>
+      </sect2>
+      <sect2 id="toolbox-windows">
+	<title>Toolboxes</title>
+	<para>FIXME</para>
+      </sect2>
+      <sect2 id="palette-windows">
+	<title>Palettes</title>
+	<para>FIXME</para>
+      </sect2>
+      <sect2 id="other-windows">
+	<title>Other</title>
+	<para>FIXME</para>
+      </sect2>
+
     </sect1>
 
     <sect1 id="alert-windows">
@@ -68,68 +90,60 @@
 <!--
       <para>FIXME - reduced or no frame; one or two buttons: <guibutton>OK</guibutton> for informing alerts, and effectively <guibutton>Cancel</guibutton> and <guibutton>OK</guibutton> for confirmation. No other controls: especially not the "Do not show this again" checkbutton. Perhaps locally modal, rarely globally modal.</para>
 -->
-      <sect2 id="informational-alert">
+      <sect2 id="alerts-information">
 	<title>Information Alerts</title>
 	<para>An information alert should only be used when the user must know the information presented before continuing. Non-essential, auxilliary information should be presented by other means such as a status bar message.</para>
 	<para>An information alert:
 	  <itemizedlist>
-	    <listitem>
-	      <para>Will use the stock information icon.</para>
-	    </listitem>
-	    <listitem>
-	      <para>Will present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para>
-	    </listitem>
-	    <listitem>
-	      <para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword -->
-	    </listitem>
+	    <listitem><para>Will use the stock information icon.</para></listitem>
+	    <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> or <keysym>Escape</keysym> will dismiss the informational alert.</para></listitem>
+	    <listitem><para>May present a convenience button to allow ready access to a relevant object. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	  </itemizedlist>
 	</para>
       </sect2>
-      <sect2 id="error-alert">
+      <sect2 id="alerts-error">
 	<title>Error Alerts</title>
 	<para>FIXME - same as information alerts except for the icon.</para>
 	<para>An error alert:
 	  <itemizedlist>
-	    <listitem>
-	      <para>Will use the stock error icon.</para>
-	    </listitem>
-	    <listitem>
-	      <para>Will present a selectable message and an <guibutton>OK</guibutton> button. The button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> will dismiss the error alert.</para>
-	    </listitem>
-	    <listitem>
-	      <para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword -->
-	    </listitem>
+	    <listitem><para>Will use the stock error icon.</para></listitem>
+	    <listitem><para>Will present a selectable message and an <guibutton>OK</guibutton> button. This button will be placed in the bottom right corner of the alert. Pressing <keysym>Enter</keysym> may dismiss the error alert.</para></listitem>
+	    <listitem><para>May present a convenience button to allow immediate handling of the error. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --> </listitem>
 	  </itemizedlist>
 	</para>
       </sect2>
 
-      <sect2 id="confirmational-alert">
+      <sect2 id="alerts-confirmation">
 	<title>Confirmation Alerts</title>
 	<para>A confirmation alert should be presented when the user's command may irreversibly destroy user data or create a security risk.</para>
 	<para>A confirmation alert:
 	  <itemizedlist>
 	    <listitem><para>Will use the stock warning icon.</para></listitem>
-	    <listitem><para>Will present a button <!-- like OK --></para></listitem>
-	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command</para></listitem>
-	    <listitem><para>May present an alternative action button ...</para></listitem>
+	    <listitem><para>Will present a button labelled with a verb or verb phrase describing the action to be confirmed, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
+	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
+	    <listitem><para>May present an alternative action button or a convenience button. This button, when present, should be placed in the secondary area of the button box.</para> <!-- FIXME: Reword --></listitem>
 	  </itemizedlist>
 	</para>
       </sect2>
 
       <sect2 id="alerts-authentication">
 	<title>Authentication Alerts</title>
-	<para>FIXME - We need a Gtk+ stock icon for this. http://bugzilla.gnome.org/show_bug.cgi?id=65765</para>
+	<para>FIXME</para>
 	<para>An authentication alert:
 	  <itemizedlist>
-	    <listitem><para>Will use the stock authentication icon.</para></listitem>
+	    <listitem>
+	      <para>Will use the stock authentication icon.
+		<note><para><ulink url="http://bugzilla.gnome.org/show_bug.cgi?id=65765">http://bugzilla.gnome.org/show_bug.cgi?id=65765</ulink></para></note>
+	      </para>
+	    </listitem>
 	    <listitem><para>Will present labelled fields for the user to fill with the data needed for authentication.</para></listitem>
-	    <listitem><para>Will present a button <!-- like OK --></para></listitem>
-	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent execution of the user's command</para></listitem>
-	    <listitem><para>May present an alternative action button ...</para></listitem>
+	    <listitem><para>Will present a button labelled with a verb or verb phrase describing the action authenticated, or labeled <guilabel>OK</guilabel> if such a phrase would be longer than three words. This button will be placed in the bottom right corner of the alert.</para></listitem>
+	    <listitem><para>Will present a <guibutton>Cancel</guibutton> button which will prevent authentication. This button will be placed to the immediate left of the OK-equivalent button.</para></listitem>
+	    <listitem><para>May present an alternative action button or convenience button. This button, when present, should be placed in the secondary area of the button box.</para><!-- FIXME: Reword --></listitem>
 	  </itemizedlist>
 	</para>
-<!--	<para>Authentication alerts will have entries to meet authentication requirements, a <guibutton>Cancel</guibutton> button, and an <guibutton><replaceable>OK</replaceable></guibutton> equivalent such as <guibutton>Log In</guibutton>.</para> -->
       </sect2>
+<!--
       <sect2 id="button-order">
 	<title>Alert Buttons</title>
 	
@@ -140,10 +154,11 @@
 	<formalpara><title>Alternate Actions</title><para>Extra buttons may be used to provide alternates to the primary action proposed by the alert text. These buttons should be placed to the left of the negative button. An example of a common alternate action would be <guibutton>[Don't Quit]</guibutton> (<guibutton>[Cancel]</guibutton> in Windows and Macintosh parlance) in a save confirmation alert. This is an alternative to the primary suggested action <quote>Save</quote> or the negative <quote>Don't Save</quote>.</para></formalpara>
 	
 	<para>Buttons are best phrased in verb form, as users will be less liable to answer alert backwards, and will be able to select an action with less hesitation. For example <guibutton>[Save]</guibutton> and <guibutton>[Quit]</guibutton> are better button names than than <guibutton>[Yes]</guibutton> and <guibutton>[OK]</guibutton></para>
-	
+      -->
 	<!-- actually this is a trashy alert, somebody should make a good one with good phrasing -seth -->
-	<figure id="alert-buttons">
-	  <title>A save confirmation alert</title>
+<!--
+      <figure id="alert-buttons">
+	<title>A save confirmation alert</title>
 	  
 	  <mediaobject><imageobject>
 	      <imagedata fileref="images/save_alert.png" format="PNG"/>
@@ -154,7 +169,7 @@
 	  </mediaobject>
 	</figure>
       </sect2>
-
+-->
     </sect1>
       
     <sect1 id="dialog-windows">
@@ -168,6 +183,11 @@
 	<title>Property Dialogs</title>
 	<para>FIXME</para>
       </sect2>
+      <sect2 id="dialogs-preferences">
+	<title>Preferences Dialogs</title>
+	<para>FIXME</para>
+      </sect2>
+
     </sect1>
     
     <sect1 id="assistant-windows">
@@ -175,5 +195,4 @@
       <para>FIXME - frame type?; <guibutton>OK</guibutton> is either <guibutton>Next</guibutton> or, on the last page, <guibutton>Finish</guibutton>. <guibutton>Cancel</guibutton> is <guibutton>Back</guibutton> (or <guibutton>Previous</guibutton>?); there should never be a <guibutton>Help</guibutton>, the assistant is the help; modality?; escape path?</para>
       <para>An assistant is an application modal <!-- modal? --> secondary window to guide the user through a set of operations which either must be performed sequentially, or are best presented as such.</para>
     </sect1>
-    
   </chapter>
