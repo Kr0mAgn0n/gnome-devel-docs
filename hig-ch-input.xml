@@ -407,14 +407,21 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	</sect3>
 	
 	<sect3 id="mouse-interaction-applets">
+	  
 	  <title>Mouse Interaction with Applets</title>
-	  <para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
+
+	  <para>The panel is a microcosm of the whole GNOME desktop.  Accordingly, all objects on the panel should behave as consistently as possible with each other, and applets are no exception.</para>
+
+	  <para>Recommendations:</para>
+	  
 	  <itemizedlist>
-	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
+	    <listitem><para>Only the unmodified left button should be required to use the applet's controls. Applets should be simple enough not to require modified clicking, or clicking with other mouse buttons (except to pop up the applet's menu).</para>
+	      <para>Suggestion: Clicking and dragging anywhere within the applet window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the applet as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
 	    
-	    <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
+	    <listitem><para>Clicking the right button <emphasis>anywhere</emphasis> within the applet's enclosing window should pop-up either the contextual menu for the whole applet, or the contextual menu for the object within the applet's window that currently lies under the mouse pointer.</para></listitem>
 	    
-	    <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
+	    <listitem><para>The middle button should be used only for dragging the applet to a new location.  Clicking and dragging anywhere within the applet window should move the applet, a special drag bar area should not be required.  <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should copy the applet, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> should move the applet, if moving to another panel.  If moving within same panel, <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement, <keycap>Alt</keycap>=free movement.</para></listitem>
+
 	  </itemizedlist>
 	  
 	</sect3>
@@ -1021,78 +1028,92 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	     
       </sect3>
       
-      <sect3 id="additional-widget-navigation">
-	<title>Additional Widget Navigation Shortcut Keys</title>
+	<sect3 id="additional-widget-navigation">
+	  <title>Additional Widget Navigation Shortcut Keys</title>
+	  
+	  <para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
 
-	<para>The following emacs-style navigation shortcut keys may still be available in GNOME 2.0 text entry fields, but disabled by default.  Since some users may still wish to use them, you should not over-ride them for your own purposes in any situations where a text entry control has focus.</para>
-
-	<table frame='all' pgwide='1'>
-	  <title>Emacs-style navigation keys for widgets</title>
-	  <tgroup cols='2' align='left'>
-	    <thead>
-	      <row>
-		<entry>Key</entry>
-		<entry>Function</entry>
-	      </row>
-	    </thead>
-	    <tbody>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
-		<entry>Move cursor to beginning of line</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
-		<entry>Delete character following/under cursor</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
-		<entry>Move cursor to end of line</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo></entry>
-		<entry>Delete from cursor to end of line</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
-		<entry>Delete current line</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
-		<entry>Cut to clipboard</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>Y</keycap></keycombo></entry>
-		<entry>Paste from clipboard</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo></entry>
-		<entry>Set mark</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>Del</keycap></keycombo>, <keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo></entry>
-		<entry>Delete from cursor to end of word</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Ctrl</keycap><keysym>Backspace</keysym></keycombo></entry>
-		<entry>Delete from cursor to start of word</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Alt</keycap><keysym>Space</keysym></keycombo></entry>
-		<entry>Delete all whitespace around cursor, reinsert single space</entry>
-	      </row>
-	      <row>
-		<entry><keycombo><keycap>Alt</keycap><keycap>\</keycap></keycombo></entry>
-		<entry>Delete all whitespace around cursor</entry>
-	      </row>
+	  <table frame='all' pgwide='1'>
+	    <title>Emacs-style navigation keys for widgets</title>
+	    <tgroup cols='2' align='left'>
+	      <thead>
+		<row>
+		  <entry>Key</entry>
+		  <entry>Function</entry>
+		</row>
+	      </thead>
+	      <tbody>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+		  <entry>Move cursor to beginning of line</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
+		  <entry>Delete character following/under cursor</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
+		  <entry>Move cursor to end of line</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo></entry>
+		  <entry>Delete from cursor to end of line</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>U</keycap></keycombo></entry>
+		  <entry>Delete current line</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></entry>
+		  <entry>Cut to clipboard</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>Y</keycap></keycombo></entry>
+		  <entry>Paste from clipboard</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo></entry>
+		  <entry>Set mark</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keycap>Del</keycap></keycombo>, <keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo></entry>
+		  <entry>Delete from cursor to end of word</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Ctrl</keycap><keysym>Backspace</keysym></keycombo></entry>
+		  <entry>Delete from cursor to start of word</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Alt</keycap><keysym>Space</keysym></keycombo></entry>
+		  <entry>Delete all whitespace around cursor, reinsert single space</entry>
+		</row>
+		<row>
+		  <entry><keycombo><keycap>Alt</keycap><keycap>\</keycap></keycombo></entry>
+		  <entry>Delete all whitespace around cursor</entry>
+		</row>
 	      </tbody>
-	  </tgroup>
-	</table>
+	    </tgroup>
+	  </table>
+	  
+	</sect3>
 	
-      </sect3>
+      </sect2>
+      
+      <sect2 id="keynav-applets">
+	<title>Keyboard Navigation for Applets</title>
 
-    </sect2>
+	<para>Panels are fully keyboard navigable in GNOME 2.0.  Since your applet can now gain keyboard focus, you must ensure that it is also keyboard navigable.</para>
 
+	<para>The rules for applet keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</para>
 
+	<itemizedlist>
+	  <listitem><para>Do <emphasis>not</emphasis> use the the <keycap>Tab</keycap> key as the means of moving focus between controls in an applet.  Use the arrow keys for this purpose instead.</para></listitem>
+	</itemizedlist>
+
+	<para>This is because when a panel or any object on it has focus, the <keycap>Tab</keycap> key moves focus to the next object on the panel.  If your applet also uses <keycap>Tab</keycap>, the user will have to use <keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo> or some other means to move focus away from your applet instead, which is detremental to the user experience.</para>
+	
+      </sect2>
+      
   </sect1>
   </chapter>
 
