@@ -575,7 +575,7 @@ Doing this will help prevent the user from accidentally closing the window befor
 	<listitem><para>Do not use an option menu in a situation where it may have to show a property of a multiple selection, as option menus have no concept of mixed state.  Use a group of radio or toggle buttons instead, as these can show set, unset or mixed states.</para></listitem>
 	
 <!-- CB-Fig: The bullet points probably could be illustrated in a main option menus figure (17 would work) -->
-
+      <listitem><para>Do not use submenus on an option menu.</para></listitem>
       </itemizedlist>
       
       <para>You should normally use <link linkend="controls-radio-buttons">radio buttons</link> or a <link linkend="controls-lists">list</link> instead of option menus, as those controls present all the available options at once without any further interaction. However, option menus may be preferable in a window where:</para>
@@ -934,7 +934,7 @@ Doing this will help prevent the user from accidentally closing the window befor
       </mediaobject>
     </figure>
 
-    <para>See <xref linkend="window-layout-spacing"/> for technical details on implementing the preferred frame style in gtk.</para>
+<!--    <para>See <xref linkend="window-layout-spacing"/> for technical details on implementing the preferred frame style in gtk.</para> -->
 
       <itemizedlist><title>Guidelines</title>
 	<listitem><para>Before you add a frame with a visible border or separator to any window, consider carefully if you really need it.  It is usually better to do without, if the groups can be separated by space alone.  Do not use frames and separators to compensate for poor control layout or alignnment.</para>
