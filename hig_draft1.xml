@@ -2161,8 +2161,12 @@ right of small icons, and immediately above or to the left of other controls. Se
 	<title>Graphic Design</title>
 
 	<para>Blah blah, notes on graphic design of icons, blah blah, icons should be high contrast, distinct, etc etc</para>
-	<tip><title>Accessibility note</title><para>Try designing in monochrome, and adding color later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para></tip>
+
 	
+	<tip><title>Accessibility note</title><para>Try designing in monochrome, and adding color later. This way you can be sure your design doesn't rely on color, which is important for users running on displays with a limited depth, and for users with certain vision impairments.</para></tip>	
+	<!-- CFB note to seth: Actually this isn't so much an accessibility note as a general "good visual design note".  In general, I'd also rather not call out 'accessibility issues' separately, as it might tempt people just to ignore them because "it doesn't affect me"... a good UI design will be inherently accessible anyway -->
+
+
       </sect3>
 
       <sect3 id="right_kind">
@@ -2333,12 +2337,8 @@ right of small icons, and immediately above or to the left of other controls. Se
     
     <sect3 id="mouse-buttons">
       <title>Buttons</title>
-      
-      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
 
-      <para>&lt;pics&gt;</para>
-
-      <figure> <title>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</title>
+	<figure> <title>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</title>
 	  <mediaobject>
 	    <imageobject>
 	      <imagedata fileref="images/pointingdevices.png" format="PNG"/>
@@ -2347,13 +2347,16 @@ right of small icons, and immediately above or to the left of other controls. Se
 	      <phrase>Pictures of different types of pointing device, including mouse, trackball, foot-operated mouse and joystick.</phrase>
 	    </textobject>
 	  </mediaobject>
-      </figure>
+	</figure>
+      
+      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
+
 	
-      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as Button 1 or the Selection button.</para>
+      <para>For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the <mousebutton>left button</mousebutton> here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to in code or documentation as &quot;Button 1&quot; or the &quot;Selection Button&quot;.</para>
 
-      <para>Also for right-handed users, the right button on a conventional mouse is the one used for operations involving pop-up menus. We therefore call it the &quot;right button&quot; here, even though it may not always physically be so.  You may sometimes see this referred to in code or documentation as Button 3 or the Menu button.</para>
+      <para>Also for right-handed users, the right button on a conventional mouse is the one used for operations involving pop-up menus. We therefore call it the <mousebutton>right button</mousebutton> here, even though it may not always physically be so.  You may sometimes see this referred to in code or documentation as &quot;Button 3&quot; or the &quot;Menu Button&quot;.</para>
 
-      <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the &quot;middle button;&quot, but you may sometimes see this referred to in code or documentation as Button 2 or the Transfer button.</para>
+      <para>A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <mousebutton>middle button</mousebutton>, but you may sometimes see this referred to in code or documentation as &quot;Button 2&quot; or the &quot;Transfer Button&quot;.</para>
 
       <para>Recommendations:</para>
       <itemizedlist>
@@ -2393,7 +2396,7 @@ right of small icons, and immediately above or to the left of other controls. Se
     </sect3>
 
     <sect3 id="selection">
-      <title>Selection</title>
+      <title>Selecting Objects</title>
       <sect4>
 	<title>Mouse and keyboard equivalents</title>
 
@@ -2543,7 +2546,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	
 	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
 
-	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the UI (e.g. a top-level application window), or a UI representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
+	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the user interface (e.g. a top-level application window), or a user interface representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
 
 	<listitem><para>By default, dragging is non-destructive, i.e. dragging an object from one container to another drags a link or copy, leaving the original intact.</para></listitem>
 
@@ -2556,7 +2559,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para>
       </note>
       
-      <para>The default behaviour of a drag and drop operation may be modified by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout:</para>
+      <para>The default behaviour of a drag and drop operation may be modified by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout.  If the user changes the modifier keys during the drag, e.g. to change a move operation to a copy, change the mouse pointer shape immediately and perform the new action when the mouse button is released.</para>
 
 	<table frame='all'>
 	  <title>Effect of modifier keys during a drag and drop operation</title>
@@ -2590,92 +2593,203 @@ or by dropping the object on an invalid drop target.</para></listitem>
 
       <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this.  By only allowing objects to be copied between applications, rather than moved, confusion about which application's <guimenuitem>Undo</guimenuitem> function should reverse the action is avoided, as there is only a change in the contents of one window.</para>
 
-      <sect4>
-	<title>Mouse Interaction with Applets</title>
-	<para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
-	<itemizedlist>
-	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
-
-	  <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
-
-	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
-	</itemizedlist>
-
-      </sect4>
-
-    </sect3>
-  </sect2>
-
-
-  <sect2 id="keyboard">
-    <title>Keyboard Interaction</title>
-    <sect3 id="keyboard-navigation">
-      <title>Keyboard Navigation</title>
-      
-      <para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
-
-      <para>You should therefore make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides should be available using the keyboard alone. Hide your mouse while you're testing your application if you have to!</para>
-
-
-      <figure>
-	<title>Dialog box and menu, with some of their access keys (red) and shortcut keys (blue) highlighted</title>
-	<mediaobject><imageobject>
-	    <imagedata fileref="images/mnemonics_and_shortcuts.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Dialog box and menu with access keys and shortcut keys highlighted</phrase>
-	  </textobject>
-	</mediaobject>
-      </figure>
-	
-
-      <para>Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
-
-      <para>Recommendations:</para>
-
-      <itemizedlist>
-
-	<listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using access keys or shortcut keys.</para></listitem>
-
-	<listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
-
-	<listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
-<!-- See <link linkend="keynav-examples">Keyboard Navigation Examples</link>.--></para></listitem>
-
-
-	<listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
-
-       <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
-
-       <listitem><para>Ensure that objects that can be resized or moved by drag and drop can also be resized or moved with the keyboard. For example, icons and windows on the desktop. Where precision sizing and placement is potentially important, e.g. shapes in a diagram, also consider providing a dialog into which you can type co-ordinates, or a means of snapping objects to a user-definable grid.</para></listitem>
-
-       <listitem><para>Don't use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
-
-       <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
-
-	<listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
-	<listitem><para>Don't assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
-
-	<listitem><para>Don't require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
-      </itemizedlist>
-      
-      <note>
-	<title>For Discussion</title>
-	<para>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</para>
-      </note>
-
-
-
-<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
-    
-  <sect3 id="keynav-examples">
-	<title>Keyboard Navigation Examples</title>
-
-	<para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
-
-	<example><title>Correct tab order for group of radio buttons with dependent controls</title>
+	<sect4>
+	  <title>Mouse Pointers to Use for Drag and Drop</title>
 	  
-	  <informaltable frame='all'>
+	  <para>Use drag and drop mouse pointers consistently so that the user knows exactly what will happen when they release the mouse button.  If the user changes modifier keys after a drag has started, for example holding <keycap>Ctrl</keycap> to change the meaning from move to copy, change the mouse pointer shape immediately and respect the new action when the mouse button is released.</para> 
+	  <table frame='all'>
+	    <title>Mouse Pointers for Drag and Drop</title>
+	    <tgroup cols='2' align='left'>
+	      <thead>
+		<row>
+		  <entry>Pointer Shape</entry>
+		  <entry>Meaning</entry>
+		</row>
+	      </thead>
+	      
+	      <tbody>
+		<row>
+		  <entry>
+	            <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-move.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Move" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  
+		  <entry>Move selection. The dragged selection will be moved to the drop location, removing it from its previous location.</entry>
+		</row>
+		
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-copy.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Copy" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  <entry>Copy selection.  The dragged selection will be copied to the drop location, leaving the original intact.</entry>
+		</row>
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-link.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Link" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                  </entry>
+		  <entry>Link selection.  A link (for example a hyperlink, or an alias, depending on the application type) to the selection will be inserted at the drop location.</entry>
+		</row>
+
+<!-- This row omitted if we really don't want right mouse drags
+		<row>
+		  <entry>
+                    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-rmb.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		         <phrase>"Query drop" pointer</phrase>
+		       </textobject>
+	             </mediaobject>
+                   </entry>
+		   <entry>Right-mouse drag.  A pop-up menu will be posted at the drop location to ask whether the user wants to Move, Copy, or Link the selection, or Cancel the operation.</entry>
+		  </row>
+-->
+	
+		<row>
+		  <entry>
+                     <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/dragcursor-nodrop.png" format="PNG"/>
+	              </imageobject>
+	              <textobject>
+		      <phrase>"Can't drop here" pointer</phrase>
+		    </textobject>
+	             </mediaobject>
+</entry>
+		  <entry>Can't drop here.  Show this pointer while the mouse is over an area where the selection cannot be dropped.</entry>
+		</row>
+	      </tbody>
+	    </tgroup>
+	  </table>
+
+	  <para>Additionally, you should normally augment the mouse pointer shape with a representation of whatever is being dragged.  This representation should either be kept small or made translucent, so as not to obscure possible drop targets underneath it.</para>
+
+	  <figure>
+	    <title>Example of copy pointer augmented by an icon representing the file being copied</title>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="images/dragcursor-augmented.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Copy pointer superimposed on icon representing a file being copied, to form a "copy file" pointer</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	  <note>
+	    <title>For Discussion</title>
+	    <para>The pointer shapes shown here are lifted (badly!) from the GDP's GNOME User Guide, and are the ones Nautilus uses.  Are these acceptable, and if so, where are the originals so I can get some better pictures...?</para>
+	  </note>
+
+	</sect4>
+	
+	<sect4>
+	  <title>Mouse Interaction with Applets</title>
+	  <para>Sketchy proposal for mouse interaction with Panel Gadgets:</para>
+	  <itemizedlist>
+	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=copy, if moving to another panel; <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel).</para></listitem>
+	    
+	    <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
+	    
+	    <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo action="other" otheraction="drag"><keycap>Ctrl</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action> = copy, if moving to another panel; unmodified drag or <keycombo action="other" otheraction="drag"><keycap>Shift</keycap><mousebutton>left button</mousebutton></keycombo> <action>drag</action>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
+	  </itemizedlist>
+	  
+	</sect4>
+	
+      </sect3>
+    </sect2>
+    
+    
+    <sect2 id="keyboard">
+      <title>Keyboard Interaction</title>
+      <sect3 id="keyboard-navigation">
+	<title>Keyboard Navigation</title>
+	
+	<para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power-users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
+	
+	<para>You should therefore make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides should be available using the keyboard alone. Hide your mouse while you're testing your application if you have to!</para>
+	
+	
+	<figure>
+	  <title>Dialog box and menu, with some of their access keys (red) and shortcut keys (blue) highlighted</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/mnemonics_and_shortcuts.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Dialog box and menu with access keys and shortcut keys highlighted</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+	
+	
+	<para>Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</para>
+	
+	<para>Recommendations:</para>
+	
+	<itemizedlist>
+	  
+	  <listitem><para>Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialog boxes are directly focusable using access keys or shortcut keys.</para></listitem>
+	  
+	  <listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
+	  
+	  <listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
+<!-- See <link linkend="keynav-examples">Keyboard Navigation Examples</link>.--></para></listitem>
+	  
+	  
+	  <listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
+	  
+	  <listitem><para>Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</para></listitem>
+	  
+	  <listitem><para>Ensure that objects that can be resized or moved by drag and drop can also be resized or moved with the keyboard. For example, icons and windows on the desktop. Where precision sizing and placement is potentially important, e.g. shapes in a diagram, also consider providing a dialog into which you can type co-ordinates, or a means of snapping objects to a user-definable grid.</para></listitem>
+	  
+	  <listitem><para>Don't use general navigation functions to trigger operations. For example, do not use basic <keycap>Tab</keycap> keyboard navigation in a dialog to activate any actions associated with a control.</para></listitem>
+	  
+	  <listitem><para>Show keyboard-invoked menus, windows and tooltips near the object they relate to. In GNOME 2.0, users can call up popup menus with <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>, and tooltips with <keycombo><keycap>Ctrl</keycap><keycap>F1</keycap></keycombo>.  Do not completely hide or obscure the object to which the menu or tooltip refers, however.</para></listitem>
+	  
+	  <listitem><para>Provide more than one method to perform keyboard tasks where possible. Some users may find some keys and key combinations easier to use than others.</para></listitem>
+	  <listitem><para>Don't assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</para></listitem>
+	  
+	  <listitem><para>Don't require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as AccessX may allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</para></listitem>
+	</itemizedlist>
+	
+	<note>
+	  <title>For Discussion</title>
+	  <para>The point about not having Tab initiate any actions effectively rules out tab completion in dialogs, should we consider/recommend a "hands-free" auto-completion method instead, as offered by OpenOffice, Explorer etc.?  What does our new 2.0 file selection dialog do?</para>
+	</note>
+	
+	
+	
+	<!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
+	
+      <sect3 id="keynav-examples">
+      <title>Keyboard Navigation Examples</title>
+	
+      <para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
+	
+      <example><title>Correct tab order for group of radio buttons with dependent controls</title>
+	
+      <informaltable frame='all'>
 	    
 	    <tgroup cols='2'>
 	      <tbody>
@@ -2804,7 +2918,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 -->
 
       <sect4>
-	<title>Access Keys</title>
+	<title>Choosing Access Keys</title>
 
 	<para>All labelled components should have an access key (underlined letter), except toolbar controls, and the <keycap>OK</keycap> and <keycap>Cancel</keycap> buttons in dialogs.</para>
 
@@ -2837,7 +2951,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       </sect4>
       
       <sect4 id="shortcuts">
-	<title>Shortcut Keys</title>
+	<title>Choosing Shortcut Keys</title>
 
 	<para>The tables in this section summarize the standard shortcut keys you should use when your application supports those functions.  Your application won't necessarily support all of these functions&mdash; see <link linkend="standard-menus">Standard Menus</link> for more information.  However, you should use the recommended shortcut keys for those functions you do support.</para> 
 
@@ -3391,8 +3505,10 @@ or by dropping the object on an invalid drop target.</para></listitem>
 	<itemizedlist>
 	  <listitem><para>Kathy Fernandes</para></listitem>
 	  <listitem><para>John Fleck</para></listitem>
+	  <listitem><para>Andrea Mankoski</para></listitem>
 	  <listitem><para>Nils Pederson</para></listitem>
 	  <listitem><para>Christian Rose</para></listitem>
+	  <listitem><para>Sharon Snider</para></listitem>
 	  <listitem><para>Suzanna Smith</para></listitem>
 	  <listitem><para>Matthew Thomas</para></listitem>
 	</itemizedlist>
