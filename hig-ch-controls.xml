@@ -524,8 +524,8 @@
 		  <imagedata fileref="images/controls-toggle-button-mixed.png" format="PNG"/>
 	      </imageobject>
 	      <textobject>
-	      <phrase>Toggle buttons showing the Thick, Thin and Dashed drawing styles of two selected shapes in a drawing application.  One shape is drawn in the thick style, the other in the dashed style.  The Thick and Dashed toggle buttons are therefore shown in their mixed state, and the Thin toggle button is unset.</phrase>
-	    </textobject>
+		<phrase>Toggle buttons showing the Thick, Thin and Dashed drawing styles of two selected shapes in a drawing application.  One shape is drawn in the thick style, the other in the dashed style.  The Thick and Dashed toggle buttons are therefore shown in their mixed state, and the Thin toggle button is unset.</phrase>
+	      </textobject>
 	    </mediaobject>
 	    
 	  </figure>
@@ -567,7 +567,7 @@
 	
 	<listitem><para>Selecting an item from an option menu should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
 		
-	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (FIXME: pic required).  Provide an access key in the label that allows the user to give focus directly to the option menu.</para></listitem>
+	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the option menu.</para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for option menu items, for example <guilabel>Switched movement</guilabel></para></listitem>
 
@@ -754,12 +754,12 @@
       <para>A notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analagous to the divider tabs in a notebook or file cabinet.</para>
 
       <figure>
-	<title>A notebook control with five tabs</title>
+	<title>A typical notebook control with four tabs</title>
       	<mediaobject><imageobject>
 	    <imagedata fileref="images/controls-notebook.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Picture of notebook control with five tabs</phrase>
+	    <phrase>Picture of notebook control with four tabs</phrase>
 	  </textobject>
 	</mediaobject>
 	
@@ -768,23 +768,49 @@
       <para>Recommendations:</para>
       <itemizedlist>
 
-	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (FIXME: picture required)</para></listitem>
-
+	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many. See the <link linkend="controls-too-many-tabs">example below</link>.</para></listitem>
+	
 	<listitem><para>Label tabs with <link linkend="layout-capitalization">book title capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
 
 	<listitem><para>Do not assign access keys to tab labels.  Every other control on each page should be assigned an access key, however.</para></listitem>
 
-	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (FIXME: picture would be good here)</para></listitem>
-
 	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
 	
-	<listitem><para>If a button or other control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
+	<listitem><para>If a control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
+
+	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling.  For example:</para>
+<figure>
+	    <title>Fixed-width tabs (top), and the preferred proportional widthtabs (bottom)</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-notebook-tabs.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Side-by-side comparison of one notebook whose tabs are all the same width, and one whose tabs are only wide enough to accommodate the tab labels.  The latter takes up around 33% less screen space.</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	</listitem>
 
       <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, and do not center the controls on the page.</para></listitem>
 
       <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
 
       </itemizedlist>
+
+      <para>If you have more than about six tabs in a notebook, use a list control instead of tabs to switch between the pages of controls.  For example:</para>
+	  
+	  <figure id="controls-too-many-tabs">
+	    <title>Use of list control where there would be too many tabs to fit comfortably in a notebook</title>
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-notebook-list.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Part of a window including a list control with 7 items, each item representing a category of settings such as &quot;Appearance&quot; and &quot;Navigation&quot;.  The controls in the rest of the window change depending on which item is selected in the list.</phrase>
+	      </textobject>
+	    </mediaobject>
+	  </figure>
+	  
+	  <para>As in this example, place the list control on the left-hand side of the window, with the dynamic portion of the window immediately to its right.  (FIXME: Should this be reversed for right-to-left locales?)</para>
       
       <para>For future consideration: it would be good if the notebook control supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</para>
 
