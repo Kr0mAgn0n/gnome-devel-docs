@@ -1812,9 +1812,135 @@ your application respects the settings.</para></listitem>
     </sect2>
     
   </sect1>
-  
+  <sect1 id="icons">
+    <title>Designing Effective Icons</title>
+    <para>Icons assist the user in rapidly scanning a large number of entries to choose the desired item. Particularly after becoming accostumed to the icon's appearance, they are easier to identify rapidly than text labelling. Additionally, icons augment the text in communicating the purpose of the program by providing visual suggestions to accompany the descriptive text. Good icons suggest to the user the sort of application they are associated with. Icons are fundamentally about metaphor, presenting a visual image that the user associates with a particular aspect of functionality.</para>
+    <tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
+    <para><emphasis role="bold">Icons tend to fall into one of four categories</emphasis></para>
+    <itemizedlist>
+      <listitem><para><emphasis role="bold">Functionally Suggestive Icons</emphasis></para>
+	<para>Icons should be, if possible, suggestive of the functionality of the program. The best icon will suggest to the user the primary purpose of the program without having to read the accompanying caption.</para>
+	<figure>
+	  <title>A functionally suggestive icon for a word processor (AbiWord)</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/abiword-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The AbiWord icon</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+      <listitem><para><emphasis role="bold">Name Suggestive Icons</emphasis></para>
+	<para>Some icons, such as the Nautilus icon, do not suggest the program's purpose, but instead suggest the program's name. This is less desirable than a functionally suggestive icon, because an extra layer of abstraction is added (rather than associating file management with an icon representing files, they have to represent file management with nautilus with an image of a nautilus shell). Additionally it makes it difficult for new users because, for example, may not know what "Nautilus" is, and hence will not look for a shell when they want to manage files.</para>
+	<figure>
+	  <title>A name suggestive icon for Nautilus</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/nautilus-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>A picture of a nautilus shell</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+      <listitem><para><emphasis role="bold">"Text Icons"</emphasis></para>
+	<para>Icons which contain the text of the program name in the icon. They effectively contain no metaphor or picture for the user to identify with, and are probably harder to read than the accompanying caption. Since icons draw the eyes, an icon that is harder to identify than text is potentially worse than no icon at all. Hence "text icons" should not be used.</para>
+	<figure>
+	  <title>A "text icon" for GEdit</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/gedit-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The GEdit icon</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+      <listitem><para><emphasis role="bold">Random Icons</emphasis></para>
+	<para>Random icons appear to have no association with the program (except perhaps some odd connection in the mind of the developer). These icons should <emphasis>never</emphasis> be used and will likely serve to confuse the user more than help them. The icon's purpose should not be to "look pretty"; this is merely a very desirable side effect.</para>
+	<figure>
+	  <title>A seemingly random icon for SodiPodi</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/sodipodi-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The SodiPodi Icon (looks like a squirrel)</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+    </itemizedlist>
+    <para>If at all possible, a functionally suggestive icon should be used. Failing that a name suggestive icon is appropriate. <emphasis>"Text Icons" and other desperate substitutes should not be used</emphasis>.</para>
+    <para><emphasis role="bold">Icon Problems to Avoid</emphasis></para>
+    <itemizedlist>
+      <listitem><para><emphasis role="bold">Extraneous information</emphasis></para>
+	<para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were thrown off by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual element(s) necessary to express the purpose of the program.</para>
+	<figure>
+	  <title>The Evolution icon</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/evolution-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The Evolution icon</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+      <listitem><para><emphasis role="bold">Use of body parts</emphasis></para>
+	<para> Because GNOME aims to be an international desktop, it needs to avoid imagery that is potentially offensive or crass imagery to other cultures. A prime source of offensive imagery is various body parts in a number of different configurations. Aside from offensive gestures with the hands, arms or fingers; body parts that are considered "clean" in one culture (such as eyes), will be considered tasteless or gross to another (such as a nose). Based on a survey of icons in GNOME, body parts frequently appear in the least communicative icons (often "pointing" at some element in the icon); they are being used as a largely ineffective crutch for poor metaphor. In these situations body parts should certainely <emphasis>not</emphasis> be used. In situations where the metaphor is appropriate (for example an eye representing the sawfish appearance capplet) it is still best to avoid using a body part in order to avoid possible offense. Often body parts have been used in GNOME to suggest a human "choosing" or "using" something. This is usually an unnecessary point for the icon designer to make, since people will instinctively attempt understand objects with reference to themselves (show someone a bat and they will think of hitting something with the bat, show someone a tool and they will think of using it, etc). For example, the font selector shows a finger pointing to an "F" suggesting the user choosing between a series of fonts. A better icon would be the text "Aa" done in an ornate font (calling attention to the font rather than the text). The user doesn't need to be told that they are "choosing" the font, they can infer that easily.</para>
+	<figure>
+	  <title>The font selector icon and a simple potential replacement</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/fontsel-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>The Font Selector Icon</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>	    
+	<figure>
+	  <title>A very simple potential replacement icon</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/fontsel-suggestion.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>A Simple Replacement Icon showing an ornate "Aa"</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>
+      </listitem>
+      <listitem><para><emphasis role="bold">Icons based off word games</emphasis></para>
+	<para>This should be avoided for a couple reasons, the most obvious of which is that word games do not translate well. For example, representing the "system log monitor" as a log will likely be uncommunicative in languages other than English. Additionally, most users do not comprehend the word play until it is too late for the icon to assist them. Even after being familiar with the "system log monitor" being represented as a log, users do not form the association fast enough for the icon to assist through in scanning through menu entries. A popular instance of this problem was the proliferation of icons representing the "World Wide Web" as a spider web in the mid 1990s. Part of the value of icons is that they bypass linguistic comprehension and hence are complementary to captions, allowing users to utilize more areas of the mind than linguistic recognition (already used in scanning for captions) when they hunt for items.</para>
+	<figure>
+	  <title>System Log Monitor Icon</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/log-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>A tree log</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>	    
+      </listitem>
+      <listitem><para><emphasis role="bold">Violent Imagery</emphasis></para>
+	<para>Just as words like "kill" and "slay" are inappropriate in interfaces, violent or destructive icons should be avoided. The "shut down" icon uses the image of an explosive detonation switch, presumably trying to convey the idea of ending something abruptly. However, this icon is likely to intimidate many users of the computer who will not want to click on the icon for fear of breaking something.</para>
+	<figure>
+	  <title>Destructive looking Shutdown Icon</title>
+	  <mediaobject><imageobject>
+	      <imagedata fileref="images/shutdown-icon.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>An explosive detonation button</phrase>
+	    </textobject>
+	  </mediaobject>
+	</figure>	    
+      </listitem>
+    </itemizedlist>
+  </sect1>
   <sect1 id="desktop-integration">
-
+    
     <title>Integrating Applications with the Desktop</title>
     <para>There are two elements to basic integration with the user environment of the GNOME Desktop. First, applications should place an entry in the panel menu. This is the mechanism by which users discover your application in order to execute it. Secondly, your application should add itself to the application registry, and if it supports any documents add those to the document type (MIME) registry. This allows the desktop and other applications to automatically launch your application when they encounter a document it can display or edit. This is an important first step in evolving a document centered interface.</para>
     <sect2 id="menuentries">
@@ -1835,133 +1961,6 @@ your application respects the settings.</para></listitem>
 	</itemizedlist>
         <note><para><emphasis>WHAT OTHER CATEGORIES SHOULD WE HAVE BY DEFAULT? THESE ARE ONLY THE ONES FOR GNOME-CORE....</emphasis></para></note>
       </para>
-      <sect3 id="menu-entry-icons">
-        <title>Menu Entry Icons</title>
-	<para>Icons assist the user in rapidly scanning a large number of entries to choose the desired item. Particularly after becoming accostumed to the icon's appearance, they are easier to identify rapidly than text labelling. Additionally, icons augment the text in communicating the purpose of the program by providing visual suggestions to accompany the descriptive text. Good icons suggest to the user the sort of application they are associated with. Icons are fundamentally about metaphor, presenting a visual image that the user associates with a particular aspect of functionality.</para>
-	<tip><title>Rule of Thumb for Icon Metaphors</title><para>"If you have to think about an icon to 'get it', the metaphor is too complex"</para></tip>
-	<para><emphasis role="bold">Icons tend to fall into one of four categories</emphasis></para>
-	<itemizedlist>
-	    <listitem><para><emphasis role="bold">Functionally Suggestive Icons</emphasis></para>
-	    <para>Icons should be, if possible, suggestive of the functionality of the program. The best icon will suggest to the user the primary purpose of the program without having to read the accompanying caption.</para>
-	    <figure>
-	      <title>A functionally suggestive icon for a word processor (AbiWord)</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/abiword-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>The AbiWord icon</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </listitem>
-	  <listitem><para><emphasis role="bold">Name Suggestive Icons</emphasis></para>
-	    <para>Some icons, such as the Nautilus icon, do not suggest the program's purpose, but instead suggest the program's name. This is less desirable than a functionally suggestive icon, because an extra layer of abstraction is added (rather than associating file management with an icon representing files, they have to represent file management with nautilus with an image of a nautilus shell). Additionally it makes it difficult for new users because, for example, may not know what "Nautilus" is, and hence will not look for a shell when they want to manage files.</para>
-	    <figure>
-	      <title>A name suggestive icon for Nautilus</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/nautilus-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>A picture of a nautilus shell</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </listitem>
-	    <listitem><para><emphasis role="bold">"Text Icons"</emphasis></para>
-	    <para>Icons which contain the text of the program name in the icon. They effectively contain no metaphor or picture for the user to identify with, and are probably harder to read than the accompanying caption. Since icons draw the eyes, an icon that is harder to identify than text is potentially worse than no icon at all. Hence "text icons" should not be used.</para>
-	    <figure>
-	      <title>A "text icon" for GEdit</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/gedit-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>The GEdit icon</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </listitem>
-	    <listitem><para><emphasis role="bold">Random Icons</emphasis></para>
-	    <para>Random icons appear to have no association with the program (except perhaps some odd connection in the mind of the developer). These icons should <emphasis>never</emphasis> be used and will likely serve to confuse the user more than help them. The icon's purpose should not be to "look pretty"; this is merely a very desirable side effect.</para>
-	      <figure>
-		<title>A seemingly random icon for SodiPodi</title>
-		<mediaobject><imageobject>
-		    <imagedata fileref="images/sodipodi-icon.png" format="PNG"/>
-	    </imageobject>
-	      <textobject>
-		<phrase>The SodiPodi Icon (looks like a squirrel)</phrase>
-	      </textobject>
-	    </mediaobject>
-	    </figure>
-	  </listitem>
-	</itemizedlist>
-	<para>If at all possible, a functionally suggestive icon should be used. Failing that a name suggestive icon is appropriate. <emphasis>"Text Icons" and other desperate substitutes should not be used</emphasis>.</para>
-	<para><emphasis role="bold">Icon Problems to Avoid</emphasis></para>
-	<itemizedlist>
-	  <listitem><para><emphasis role="bold">Extraneous information</emphasis></para>
-	    <para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were thrown off by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual element(s) necessary to express the purpose of the program.</para>
-	    <figure>
-	      <title>The Evolution icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/evolution-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>The Evolution icon</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>
-	  </listitem>
-	  <listitem><para><emphasis role="bold">Use of body parts</emphasis></para>
-	    <para> Because GNOME aims to be an international desktop, it needs to avoid imagery that is potentially offensive or crass imagery to other cultures. A prime source of offensive imagery is various body parts in a number of different configurations. Aside from offensive gestures with the hands, arms or fingers; body parts that are considered "clean" in one culture (such as eyes), will be considered tasteless or gross to another (such as a nose). Based on a survey of icons in GNOME, body parts frequently appear in the least communicative icons (often "pointing" at some element in the icon); they are being used as a largely ineffective crutch for poor metaphor. In these situations body parts should certainely <emphasis>not</emphasis> be used. In situations where the metaphor is appropriate (for example an eye representing the sawfish appearance capplet) it is still best to avoid using a body part in order to avoid possible offense. Often body parts have been used in GNOME to suggest a human "choosing" or "using" something. This is usually an unnecessary point for the icon designer to make, since people will instinctively attempt understand objects with reference to themselves (show someone a bat and they will think of hitting something with the bat, show someone a tool and they will think of using it, etc). For example, the font selector shows a finger pointing to an "F" suggesting the user choosing between a series of fonts. A better icon would be the text "Aa" done in an ornate font (calling attention to the font rather than the text). The user doesn't need to be told that they are "choosing" the font, they can infer that easily.</para>
-	    <figure>
-	      <title>The font selector icon and a simple potential replacement</title>
-	      <mediaobject>
-                <imageobject>
-		  <imagedata fileref="images/fontsel-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>The Font Selector Icon</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>	    
-            <figure>
-              <title>A very simple potential replacement icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/fontsel-suggestion.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>A Simple Replacement Icon showing an ornate "Aa"</phrase>
-		</textobject>
-	      </mediaobject>
-            </figure>
-	  </listitem>
-	  <listitem><para><emphasis role="bold">Icons based off word games</emphasis></para>
-	    <para>This should be avoided for a couple reasons, the most obvious of which is that word games do not translate well. For example, representing the "system log monitor" as a log will likely be uncommunicative in languages other than English. Additionally, most users do not comprehend the word play until it is too late for the icon to assist them. Even after being familiar with the "system log monitor" being represented as a log, users do not form the association fast enough for the icon to assist through in scanning through menu entries. A popular instance of this problem was the proliferation of icons representing the "World Wide Web" as a spider web in the mid 1990s. Part of the value of icons is that they bypass linguistic comprehension and hence are complementary to captions, allowing users to utilize more areas of the mind than linguistic recognition (already used in scanning for captions) when they hunt for items.</para>
-	      <figure>
-	      <title>System Log Monitor Icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/log-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>A tree log</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>	    
-	  </listitem>
-	  <listitem><para><emphasis role="bold">Violent Imagery</emphasis></para>
-	    <para>Just as words like "kill" and "slay" are inappropriate in interfaces, violent or destructive icons should be avoided. The "shut down" icon uses the image of an explosive detonation switch, presumably trying to convey the idea of ending something abruptly. However, this icon is likely to intimidate many users of the computer who will not want to click on the icon for fear of breaking something.</para>
-	    <figure>
-	      <title>Destructive looking Shutdown Icon</title>
-	      <mediaobject><imageobject>
-		  <imagedata fileref="images/shutdown-icon.png" format="PNG"/>
-		</imageobject>
-		<textobject>
-		  <phrase>An explosive detonation button</phrase>
-		</textobject>
-	      </mediaobject>
-	    </figure>	    
-	  </listitem>
-	</itemizedlist>
-      </sect3>
       <sect3 id="menu-entry-captions">
         <title>Menu Entry Captions</title>
 	<para>Menu entries require captions (or "names" as the panel calls them) to textually describe the application. If an application falls into a general class of applications (for example, "Email Client" or "Word Processor") they should follow the format <emphasis>APPLICATION TYPE (APPLICATION NAME)</emphasis>. Rather than focusing on branding the menu system tries to encourage listing based on functionality. Users are more likely to be able to discover your application when they need it if it is listed by functionality rather than by name. This is particularly important on systems where numerous applications are installed by default, so the user is less aware of the mapping between names and functionality. Try to think of what information users will have when they look for your application when choosing a general class, and try to copy similar applications if they have already chosen a general class.</para>
