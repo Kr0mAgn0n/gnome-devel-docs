@@ -333,7 +333,7 @@
 	<listitem><para>Clicking a check box should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however. 
 </para></listitem>
 	
-	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls it affects to indicate that the controls are dependent on the state of the check box. (pic required)
+	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls it affects to indicate that the controls are dependent on the state of the check box. (FIXME: pic required)
 </para></listitem>
 	
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
@@ -430,7 +430,7 @@
 
 	  <listitem><para>Clicking a radio button should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
       
-      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls it affects to indicate that the controls are dependent on the state of the radio button. (pic required)
+      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls it affects to indicate that the controls are dependent on the state of the radio button. (FIXME: pic required)
 </para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
@@ -514,7 +514,24 @@
 	
 	<listitem><para>Use the same text or graphical label for a toggle button whether it is set or unset.</para></listitem>
 
-	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the Bold Text toolbar button for a selected paragraph), show the button in its mixed state. (FIXME: picture required)</para></listitem>
+	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the button in its mixed state.  For example:</para>
+	  
+	  <figure>
+	    
+	      <title>Toggle buttons (right) showing properties for a multiple selection of shapes in a drawing application (left)</title>
+	      
+	      <mediaobject><imageobject>
+		  <imagedata fileref="images/controls-toggle-button-mixed.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+	      <phrase>Toggle buttons showing the Thick, Thin and Dashed drawing styles of two selected shapes in a drawing application.  One shape is drawn in the thick style, the other in the dashed style.  The Thick and Dashed toggle buttons are therefore shown in their mixed state, and the Thin toggle button is unset.</phrase>
+	    </textobject>
+	    </mediaobject>
+	    
+	  </figure>
+	  <para>(N.B. At time of writing, the exact visual appearance of mixed state toggle buttons was undecided.)  A mixed state toggle button should behave exactly as a mixed state check box or radio button, depending on whether the toggle button choices are independent or mutually exclusive, respectively.</para>
+	  
+	</listitem>
 	
       </itemizedlist>
      
@@ -550,7 +567,7 @@
 	
 	<listitem><para>Selecting an item from an option menu should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
 		
-	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).  Provide an access key in the label that allows the user to give focus directly to the option menu.</para></listitem>
+	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (FIXME: pic required).  Provide an access key in the label that allows the user to give focus directly to the option menu.</para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for option menu items, for example <guilabel>Switched movement</guilabel></para></listitem>
 
@@ -607,7 +624,7 @@
 	
 	<listitem><para>Interpret user input into a combo box in a case-insensitive way.  For example, if the user types <userinput>blue</userinput>, <userinput>Blue</userinput> and <userinput>BLUE</userinput> into the same combo box on different occasions, only store one of these in the combo's dropdown list, unless your application makes a distinction between the different forms (which would not normally be a good idea).</para></listitem>
 
-	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required)  Provide an access key in the label that allows the user to give focus directly to the combo box.</para></listitem>
+	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  Provide an access key in the label that allows the user to give focus directly to the combo box.</para></listitem>
 	
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
 		
