@@ -1673,13 +1673,25 @@ Relationships between elements are usually indicated by their positions. Labels 
 <!-- CFB: I just copied in this figure from the accessibility guide... feel free to edit/delete as you see fit...-->
 
       <figure>
-	<title>Correct placement of labels for different GUI elements</title>
+	<title>Correct placement of labels for various GUI elements</title>
 	<informaltable frame="all">
 	  <tgroup cols="3" align="center">
 	    <tbody>
 	      <row>
 		<entry valign="middle">
-	  <mediaobject>
+	          <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="images/label_above.png" format="PNG"/>
+		    </imageobject>
+		    <textobject>
+		    <phrase>List control with label above</phrase>
+		  </textobject>
+		  </mediaobject>
+	  List control with label above
+	        </entry>
+		
+		<entry valign="middle">
+	          <mediaobject>
 		    <imageobject>
 		      <imagedata fileref="images/label_below.png" format="PNG"/>
 		    </imageobject>
@@ -1688,38 +1700,38 @@ Relationships between elements are usually indicated by their positions. Labels 
 		    </textobject>
 		  </mediaobject>
 	  Large file manager icon with label underneath
-	</entry>
+	        </entry>
 		
 		<entry valign="middle">
-	  <mediaobject>
+	          <mediaobject>
 		    <imageobject>
 		      <imagedata fileref="images/label_right.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		      <phrase>Small toolbar icon with label to its right</phrase>
-		    </textobject>
+		    <phrase>Small toolbar icon with label to its right</phrase>
+		  </textobject>
 		  </mediaobject>
 	  Small toolbar icon with label to its right
-	</entry>
+	        </entry>
 		
 		<entry valign="middle">
-	  <mediaobject>
+         	  <mediaobject>
 		    <imageobject>
 		      <imagedata fileref="images/label_left.png" format="PNG"/>
 		    </imageobject>
 		    <textobject>
-		      <phrase>Spinbox control with label to its left</phrase>
-		    </textobject>
+		    <phrase>Spinbox control with label to its left</phrase>
+		  </textobject>
 		  </mediaobject>
 	  Spinbox control with label to its left
-	</entry>
+        	</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
 	</informaltable>
       </figure>
-
-</sect2>
+      
+    </sect2>
 
 <sect2 id="layout-aesthetics">
 
@@ -1955,7 +1967,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 		</mediaobject>
 		</entry>
 		
-		<entry>This display could cause problems for a red-green color blind user (as many as 1 in 10 males suffer from some degree of color-blindness).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
+		<entry>This display could cause problems for a red-green colorblind user (which affects as many as 1 in 10 males in some parts of the world).  The lack of contrast between the red text and black background would also make it hard to read for a user with low vision, even with a screen magnifier.</entry>
 	      </row>
 	      
 	      <row>
@@ -1970,7 +1982,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 		</mediaobject>
 		</entry>
 		
-		<entry>This display reinforces the color coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.</entry>
+		<entry>This display reinforces the color coding with arrows to show the stock price movement, and uses darker shades of green and red on a lighter background to provide higher contrast.  This needn't be the default colour scheme if testing were to show it to be too distracting for the majority of users, but it should be possible to customize it in this way either by theming or via the application's <guilabel>Preferences</guilabel> dialog.</entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
@@ -3036,7 +3048,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
 <!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
 	      <row>
 		<entry><guimenuitem><accel>R</accel>eplace</guimenuitem></entry>
-		<entry><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></entry>
+		<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
 		<entry>Find and replace matches</entry>
 	      </row>
 
@@ -3346,19 +3358,27 @@ or by dropping the object on an invalid drop target.</para></listitem>
 -->
 
   <sect1 id="reality-checks">
-    <title>Simple Reality Checks</title>
+    <title>Checklists</title>
     <sect2>
       <title>Things You Can Do Yourself</title>
       <sect3>
 	<title>Before You Start</title>
 
-	<para>Write down the type of people you expect to use your application.  Then write some &quot;scenarios&quot; for each type of user&mdash; a little story that describes the typical tasks those users will use your application for.  These should be at the level of &quot;Fred needs to find an email about widgets that he received last week&quot;, rather than &quot;Fred clicks on the <guibutton>Find</guibutton> button and types <userinput>widgets</userinput> into the dialog&quot;.  This way, you can use the same scenarios to test and compare different GUI designs, and to spot any missing functionality.</para>
+	<para>Write down the type of people you expect to use your application.  Then write some &quot;scenarios&quot; for each type of user&mdash; a little story that describes the typical tasks those users will use your application for.  These tasks should be along the lines of:</para>
+
+	<blockquote><para>Fred needs to find an email about widgets that he received last week</para></blockquote>
+
+	<para>rather than </para>
+
+	<blockquote><para>Fred clicks on the <guibutton>Find</guibutton> button and types <userinput>widgets</userinput> into the dialog.</para></blockquote>
+
+	<para>This way, you can use the same scenarios to test and compare different GUI designs, and to spot any missing functionality.</para>
 
 	<para>Include these user descriptions and scenarios with the documentation you commit to CVS.  This way, other contributors will get to understand your users too, can help to develop the application with that knowledge, and can provide more scenarios of their own.</para>
       </sect3>
       
       <sect3>
-	<title>Keyboard Access and Focus</title>
+	<title> Keyboard Access and Focus</title>
 
 	<para>When you have started implementing your GUI, hide your mouse, and make sure you can still use it to do everything using only the keyboard. Implement keyboard functionality at the same time as mouse functionality&mdash; don't leave it until the end.</para>
 
@@ -3382,7 +3402,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       </sect3>
       
       <sect3>
-	<title>Themes/Color/Contrast</title>
+	<title>Theming, Colors and Contrast</title>
 
 	<para>Test various GNOME themes to ensure that your application respects all the available settings.</para>
 
@@ -3399,11 +3419,13 @@ or by dropping the object on an invalid drop target.</para></listitem>
     <sect2>
       <title>Things You Can Do With Other People</title>
       <sect3>
-	<title>Getting Early Feedback</title>
+	<title>Get Early Feedback</title>
 	
-	<para>It's always tempting, but don't start coding your GUI straight away.  Sketch out some ideas on paper first, or in Glade or HTML if you prefer (but don't be tempted add any functionality at this point if you do it this way!)</para>
+	<para>It's always tempting, but don't start coding your GUI straight away.  Sketch out some ideas on paper first, or in Glade or HTML if you prefer.  (But don't be tempted add any functionality at this point if you do it this way!)</para>
 
 	<para>Show these prototypes to other people&mdash; the GNOME mailing lists and IRC are ideal for finding likely candidates.  Ask them to use these prototype GUIs to run through some of the scenarios you came up with earlier.  You'll probably get questions like "how would I do X", "which menu is Y on"... these questions will help you think about the GUI from the user's viewpoint.  You'll probably also get a few suggestions about how to do things differently&mdash; these ideas may or may not turn out to better than yours, but any idea from a potential user is worth considering!</para>
+
+	<para>You should also consider seeking opinions from the <ulink url="http://developer.gnome.org/projects/gup/">GNOME Usability team</ulink>.  They have designed many user interfaces before and may be able to spot potential problems at this early stage, before you take your design too far to change things easily.</para>
 
 	<para>Once you've decided on the basic GUI design and have started coding parts of it, find somebody to try it out again&mdash; it doesn't have to be the same person.  You'll probably find some usability problems that were hard to spot on your paper prototype.  By finding them now, it's usually not too late to fix them quite easily.</para>
       </sect3>
@@ -3412,7 +3434,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
       <sect3>
 	<title>Internationalization and Localization</title>
 
-	<para>If you intend your application to be translated into different languages, send draft designs of your application to the <ulink url="http://developer.gnome.org/projects/gtp/contact.html">GNOME Translation Team</ulink>.  They'll help you find potential translation problems, such as not leaving enough space for translated labels, shortcut keys that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
+	<para>If you intend your application to be translated into different languages, show draft designs of your application to the <ulink url="http://developer.gnome.org/projects/gtp/contact.html">GNOME Translation Team</ulink>.  They'll help you find potential translation problems, such as not leaving enough space for translated labels, shortcut keys that cause problems on a different keyboard layout, or using new terms in your app that are hard to translate.</para>
 
 	<para>If possible, try out your application with users from the locales you are targeting.  This will help you determine whether users understand how to use the application, if they perceive the graphics and colors the way you intended, and if there are words or images in the application that may cause offence to users of that locale. </para>
       </sect3>
