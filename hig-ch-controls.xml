@@ -1,155 +1,428 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter id="controls">
+  <chapter id="controls">
+    
+    <title>Controls</title>
+    
+    <sect1 id="controls-usage">
 
-<title>Controls</title>
+      <title>Usage</title>
 
-<para>
-The GNOME environment provides a set of controls (also known as widgets<!-- FIXME: which should we use? -->) for use in your applications. It is important that controls are used appropriately and that they follow standard behaviours since this allows users to predict the effects of their actions. Controls which behave in non-standard ways dilute the meaning of the GUI's visual language.
-</para>
+      <para>GNOME provides a set of controls, also known as widgets, which allow users to interact with your applications. Using these controls appropriately and not altering their standard behavior is important.  This allows users to predict the effects of their actions, and thus learn to use your application more quickly and efficiently. Controls that behave in non-standard ways break the user's mental model of how your application works, and dilute the meaning of the GUI's visual language.</para>
+    </sect1>
+    
+    <sect1 id="controls-terminology">
+      <title>Terminology</title>
+      <para>Although they are known as &quot;widgets&quot; in the GNOME APIs and developer documentation, do not use this term in your user interface or user documentation. Refer to them by their specific names (for example, &quot;buttons&quot; or &quot;menus&quot;), or by the generic name &quot;controls&quot;.</para>
+    </sect1>
+    
+    <sect1 id="controls-sensitivity">
+      <title>Sensitivity</title>
+      <para>Sometimes it does not make sense to allow the user to interact with a control in the current context, for example, to press a <guilabel>Paste</guilabel> button when the clipboard is empty. At these times, make the control insensitive (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SET-SENSITIVE"><function>gtk_widget_set_sensitive()</function></ulink> function, for GTK widgets) to minimize the risk of user error.  While a control is insensitive, it will appear dimmed and will not be able to receive the focus (although assistive technologies will still be able to detect and report it).</para>
+      
+      <para>It is usually better to make a control insensitive than to hide it altogether.  This way, the user can learn about functionality they may be able to use later, even if it is not available right now.</para>
+      
+     <figure>
+	<title>Two check boxes: the top one is sensitive and will therefore respond to clicking, the lower is insensitive and will not respond</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-sensitivity.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Screenshot comparing the visual appearance of sensitive and insensitive check box controls</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Sometimes, however, a large group of controls always become insensitive or sensitive simultaneously as the direct result of user action, such as checking a box or pressing a button.  In this case it is sometimes better to hide or show the controls (for example, using the <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-SHOW"><function>gtk_widget_show()</function></ulink> and <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/gtkwidget.html#GTK-WIDGET-HIDE"><function> gtk_widget_hide()</function></ulink> functions, for GTK widgets) rather than making them sensitive or insensitive.  For example, if all the controls on a <link linkend="controls-notebooks">notebook tab</link> are insensitive, it is probably better to hide the tab altogether.</para>
+      
+    </sect1>
+    
+    <sect1 id="controls-entry">
+      <title>Text Entry Fields</title>
+      <para>For entering text.</para>
+    </sect1>
+    
+    <sect1 id="controls-buttons">
+      <title>Buttons</title>
+      
+      <para>A button initiates an action when the user clicks it.</para>
 
-<para>
-Under some circumstances the value that a control manipulates may not have an effect, or the action that a control activates may not be able to run. At these times the control should be made unavailable. While a control is unavailable it will appear dimmed and will not be able to receive the focus.
-</para>
+      <figure>
+	<title>Typical gtk buttons as found in a modal dialog</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-buttons.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>OK and Cancel buttons as found in a modal dialog</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	<listitem><para>Label your buttons with direct commands (imperative verbs), using <link linkend="layout-capitalization">book title capitalization</link>.  For example, <guilabel>Save</guilabel>, <guilabel>Sort</guilabel> or <guilabel>Update Now</guilabel>.</para></listitem>
+	
+	<listitem><para>After pressing a button, the user should expect to see the result of their action within 1 second, for example, closing the window or opening another.  See the <link linkend="feedback">Feedback</link> chapter for guidance on what to do if your application cannot respond this quickly.</para></listitem>
+	
+	<listitem><para>Use an ellipsis (...) at the end of the label if the action requires further input from the user before it can be carried out.  For example, <guilabel>Save As...</guilabel> or <guilabel>Find...</guilabel>.  Note that you should not add an ellipsis to commands like <guilabel>Properties</guilabel>, <guilabel>Preferences</guilabel>, or <guilabel>Settings</guilabel>, as these open windows that do not <emphasis>require</emphasis> further input.</para></listitem>
+	
+	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, however.</para></listitem>
+	
+	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
+	
+	<listitem><para>Do not use more than one or two different sizes of button in the same window.  This will help give a pleasing uniform visual appearance to your window that makes it easier to use.</para></listitem>
 
-<sect1 id="controls-buttons">
+	<listitem><para>Do not assign actions to double-clicking or right-clicking a button, as users are unlikely to discover them.</para></listitem>
 
-<title>Buttons</title>
+	<listitem><para>Make invalid buttons insensitive rather than popping up an error message when the user clicks them.</para></listitem>
 
-<para>
-Buttons should be used to initiate actions.
-</para>
+      </itemizedlist>
+      
+      <para>In a dialog, one button may be made the default button, which is shown with a different border and is activated by pressing <keycap>Return</keycap>. In general,  this will be the <guibutton>OK</guibutton> or equivalent button. However, if pressing this button by mistake could cause a loss of data, do not set a default button for the window. Do not make <guibutton>Cancel</guibutton> the default button instead.  See <link linkend="dialog-windows">Dialogs</link> for more information.</para>
 
-<para>
-Buttons should generally be labeled with verbs. Button labels should have the first letter of the first word and of any significant words capitalized. Where the action will require further input from the user before it can be carried out, the label should end with an ellipsis ("...").
-</para>
+      <para>Similarly, if it does not make sense to have a default button until several fields in the dialog have been correctly completed (for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog), do not set the default button until they have both been completed.</para>
+      
+      <para>Once it has been displayed, do not change a dialog's default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, but changing the default from one to another can be confusing and inefficent, especially for users relying on assistive technologies.</para>
+      
+      <para>A button may contain a text label, an icon, or both.  Normally, you should decide at runtime which label to display according to the user's desktop preferences.  However, there may be occasions when it is necessary to over-ride these, for example when there is no suitable icon to describe the button's action graphically.</para>
+      
+    </sect1>
+    
+    <sect1 id="controls-check-boxes">
+      
+      <title>Check Boxes</title>
+      
+      <para>Check boxes are used to show or change a setting.  Its two states, set and unset, are shown by the presence or absence of a checkmark in the labelled box.</para>
+      
+      <figure>
+	<title>A typical group of check boxes</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-check-boxes.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A typical group of five check boxes in a dialog</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
 
-<para>
-In a dialog, one button may be made the default button. The guidelines for doing this are in the section on dialogs.
-</para>
+      <para>Recommendations:</para>
 
-</sect1>
+      <itemizedlist>
 
-<sect1 id="controls-toggle-buttons">
+	<listitem><para>Do not initiate an action when the user clicks a check box.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the check box immediately.</para></listitem>
+	
+	<listitem><para>Clicking a check box should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however. 
+</para></listitem>
+	
+	<listitem><para>If toggling a check box affects the sensitivity of other controls, place the check box immediately above or to the left of the controls it affects to indicate that the controls are dependent on the state of the check box. (pic required)
+</para></listitem>
+	
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
+	
+	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example, rather than a checkbox labelled <guilabel>Status bar progress meter is on the right</guilabel>, use radio buttons labelled <guilabel>Right</guilabel> and <guilabel>Left</guilabel> under the label <guilabel>Status bar progress meter position:</guilabel> (FIXME: make this into a picture).</para></listitem>
+	
+	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the check box in its mixed state. (pic required)</para></listitem>
+	
+	<listitem><para>Do not use groups of more than about eight check boxes.  If you need more than this, consider using toggle buttons or a check box list instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
 
-<title>Toggle Buttons</title>
+	<listitem><para>Try to align groups of check boxes vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
-<para>
-Toggle buttons are buttons which remain depressed after they have been clicked on. They can be used to indicate a currently active mode, and should work in the same manner as either radio buttons or check boxes. They may be raised either by a second click, or by another toggle button in the same group being clicked on.
-</para>
+      </itemizedlist>
+      
+      <para>When a check box is showing the properties of a multiple selection, it may be in the mixed state.  In this situation:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>clicking the box once should check the box, applying that setting (when confirmed) to all the selected objects</para></listitem>
+	
+	<listitem><para>clicking the box a second time should uncheck the box, removing that setting (when confirmed) to all the selected objects</para></listitem>
+	
+	<listitem><para>clicking the box a third time should return the box to its mixed state, restoring each selected object's original value for that setting (when confirmed)</para></listitem>
+	
+      </itemizedlist>      
+      
+    </sect1>
+    
+    <sect1 id="controls-radio-buttons">
+      
+      <title>Radio Buttons</title>
+      
+      <para>Radio buttons are used in groups to select from a mutually exclusive set of options. Only one radio button within a group may be set at any one time. As with check boxes, do not use radio buttons to initiate actions.</para>
 
-<para>
-Toggle buttons should generally only be used where there is little available space, such as on toolbars or palettes. Otherwise check boxes or radio buttons will be more appropriate.
-</para>
+      <figure>
+	<title>A typical group of radio buttons</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-radio-buttons.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A typical group of three radio buttons in a dialog</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
 
-</sect1>
+      <para>Recommendations:</para>
+      <itemizedlist>
 
-<sect1 id="controls-check-boxes">
+	<listitem><para>Only use radio buttons in groups of at least two, never use a single radio button on its own.  To represent a single setting, use a check box or two radio button, one for each state.</para></listitem>
 
-<title>Check Boxes</title>
+	<listitem><para>Exactly one radio button should be set in the group at all times.  The only exception is when the group is showing the properties of a multiple selection, when one or more of the buttons may be in their mixed state.</para></listitem>
 
-<para>
-Check boxes are used to toggle an option on or off. Check box options should be independent of each other. Toggling a check box should not affect the values of other controls. 
-</para>
+	<listitem><para>Do not initiate an action when the user clicks a radio button.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the radio button immediately.</para></listitem>
 
-<para>
-Toggling a check box may affect the availability of other controls. Where this happens, the check box should ideally be placed immediately above or to the left of the controls it affects, in such a way as to indicate that the controls are dependent on the state of the check box.
-</para>
+	  <listitem><para>Clicking a radio button should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
+      
+      <listitem><para>If toggling a radio button affects the sensitivity of other controls, place the radio button immediately to the left of the controls it affects to indicate that the controls are dependent on the state of the radio button. (pic required)
+</para></listitem>
 
-<para>
-While a check box option may be applied instantaneously, changing it should not initiate an action.
-</para>
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel></para></listitem>
 
-<para>
-Check boxes should be labeled in a way that unambiguously indicates what the effects of both their checked and unchecked states will be. Where this cannot be done, it may be better to use two radio buttons so that both states can be given labels.
-</para>
+	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the radio button in its mixed state. (pic required)</para></listitem>
 
-</sect1>
+	<listitem><para>Do not use groups of more than about eight radio buttons.  If you need more than this, consider using a list or option menu instead &mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
 
-<sect1 id="controls-radio-buttons">
+	<listitem><para>Try to align groups of radio buttons vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
-<title>Radio Buttons</title>
+      
+      </itemizedlist>
 
-<para>
-Radio buttons are used in groups to select from a mutually exclusive set of options. Only one radio button within a group may be checked at any one time. As with check boxes, radio buttons should not be used to initiate actions.
-</para>
+      <para>When a radio button group is showing the properties of a multiple selection, one or more buttons may be in the mixed state.  In this situation, clicking any radio button in the group should set the clicked button, and unset all the others in the group.  Thereafter, the group should behave as a normal radio button group&mdash; there should be no way to reset a radio button to its mixed state by clicking on it.  Provide a <guibutton>Reset</guibutton> button or equivalent in the window that allows the previous mixed settings to be restored without closing the window or cancelling the dialog.</para>
+      
+      <note><title>For discussion</title>
+	<para>Can we suggest any better ways of manipulating radio button groups in mixed state that do not rely on having a Reset button? I can think of one that is more in line with the suggestion for checkboxes, but it would not be terribly intuitive to use and probably a hassle to implement as well.</para>
+      </note>
+      
+    </sect1>
+    
+    <sect1 id="controls-toggle-buttons">
+      
+      <title>Toggle Buttons</title>
+      
+      <para>Toggle buttons look similar to regular <link linkend="controls-buttons">Buttons</link>, but are used to show or change a state rather than initiate an action.  A toggle button's two states, set and unset, are shown by its appearing &quot;pushed in&quot; or &quot;popped out&quot; respectively.</para>
+      
+      <figure>
+	<title>A typical group of toggle buttons that you might find on a toolbar or in a properties dialog</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-toggle-buttons.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>A group of three toggle buttons showing the bold, italic and underline properties of selected text</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>Do not use groups of toggle buttons in dialogs unless space constraints force you to do so.  <link linkend="controls-check-boxes">Check boxes</link> or <link linkend="controls-radio-buttons">radio buttons</link> are usually preferable, as they allow more descriptive labels and are less easily-confused with other types of control.</para></listitem>
+	
+	<listitem><para>Only use toggle buttons in groups, so they are not mistaken for regular buttons.  The group should behave like either a group of check boxes where none, one or more of the buttons may be set at once, or a group of radio buttons, where exactly one button may be set at once, and setting one button unsets the others.</para></listitem>
 
-</sect1>
+	<listitem><para>Try to align groups of toggle buttons horizontally rather than vertically.  This is how toggle buttons normally appear on a toolbar, so the user will be more familiar with this arrangement.</para></listitem>
 
-<sect1 id="controls-option-menus">
+	<listitem><para>Do not leave any space between toggle buttons in a group, otherwise they may look unrelated or may be mistaken for regular buttons.</para></listitem>
 
-<title>Option Menus</title>
+	<listitem><para>Use <link linkend="layout-capitalization">book title capitalization</link> for toggle button labels, for example <guibutton>No Wallpaper</guibutton>, <guibutton>Embossed Logo</guibutton>.</para></listitem>
 
-<para>
-Option menus are used to select from a mutually exclusive set of options. They should not be used to initiate actions.
-</para>
+	<listitem><para>If your toggle button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
 
-<para>
-In general, radio buttons are preferable to option menus, since options menus only display the currently selected item. However, their use may be appropriate when there is little available space or where the list of options may change.
-</para>
+	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the button in its mixed state. (pic required)</para></listitem>
+	
+      </itemizedlist>
+     
+    </sect1>
 
-</sect1>
+    
+    <sect1 id="controls-combo-boxes">
+      
+      <title>Combo Boxes</title>
+      
+      <para>Combo boxes combine a text entry field and a dropdown list of pre-defined values. Selecting one of the pre-defined values updates the contents of the text field to that value.</para>
 
-<sect1 id="controls-combo-boxes">
+      
+      <para>pic of combo box</para>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
 
-<title>Combo Boxes</title>
+	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
+	
+	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
+	
+	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).</para></listitem>
+	
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for the dropdown list items, for example <guilabel>Switched movement</guilabel></para></listitem>
+		
+      </itemizedlist>
 
-<para>
-Combo boxes combine a text entry field and a menu of predefined values. Selecting one of the pre-defined values from the menu should update the contents of the text field to that value and may also perform the action that would be performed if the user pressed the Return key in that text field.
-</para>
+    </sect1>
 
-</sect1>
+    <sect1 id="controls-lists">
+      <title>Lists</title>
+      <para>A list is a list of things.</para>
+    </sect1>
+    
+    <sect1 id="controls-trees">
+      <title>Trees</title>
+      <para>The oak is resplendent in autumn.</para>
+      
+    </sect1>
+    
+    <sect1 id="controls-option-menus">
 
-<sect1 id="controls-progress-bars">
+      <title>Option Menus</title>
+      
+      <para>Option menus are used to select from a mutually exclusive set of options. They should not be used to initiate actions.</para>
 
-<title>Progress Bars</title>
+      <para>You should normally use <link linkend="controls-radio-buttons">radio buttons</link> or a <link linkend="controls-lists">list</link> in preference to option menus, as those controls present all the available options at once without any further interaction. However, option menus may be preferable on toolbars, in windows where there is little available space, or where the list of options may change.</para>
 
-<para>
-Progress bars are visual indicators of the progress of a task being carried out by the application. <!-- would it be good to have a section on feedback? -->
-</para>
+       <figure>
+	<title>An option menu showing current setting (left) and the list of available choices when clicked on (right)</title>
+	
+	<mediaobject><imageobject>
+	    <imagedata fileref="images/controls-option-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>One picture of an option menu displaying its current setting, and another showing its popup menu of available choices when it is clicked on</phrase>
+	  </textobject>
+	</mediaobject>
+	
+      </figure>
+      
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
 
-<para>
-There are two types of progress bar: Determinate progress bars, which indicate what proportion of the task has been completed, and indeterminate progress bars, which indicate only that the application is working on a task. Where the length of a task is known, a determinate progress bar should be used. Otherwise, an indeterminate progress bar should be used.
-</para>
+	<listitem><para>Do not use option menus with fewer than three items.  To offer a choice of two options, use <link linkend="controls-radio-buttons">radio buttons</link> or <link linkend="controls-toggle-buttons">toggle buttons</link>.</para></listitem>
+	
+	<listitem><para>Do not initiate an action when the user selects an item from an option menu.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting that the menu represents immediately.</para></listitem>
+	
+	<listitem><para>Selecting an item from an option menu should not affect the values of any other controls. It may sensitize, insensitize, hide or show other controls, however.</para></listitem>
+		
+	<listitem><para>Label the option menu with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).</para></listitem>
 
-</sect1>
+	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for option menu items, for example <guilabel>Switched movement</guilabel></para></listitem>
 
-<sect1 id="controls-status-bars">
+	<listitem><para>Assign an access key to every option menu item.  Ensure each access key is unique within the enclosing window or dialog, not just within the menu.</para></listitem>
 
-<title>Status Bars</title>
+	<listitem><para>Do not assign shortcut keys to option menu items by default.  The user may assign their own shortcut keys in the usual way if they wish, however.</para></listitem>
 
-<para>
-Status bars provide a small area which can be used to display one line of text describing the status of the application. Status bars should always be positioned at the bottom of a window.
-</para>
+	<listitem><para>Do not use an option menu in a situation where it may have to show a property of a multiple selection, as option menus have no concept of mixed state.  Use a group of radio or toggle buttons instead, as these can be show set, unset or mixed states.</para></listitem>
+	
+      </itemizedlist>
 
-<para>
-Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.
-</para>
+    </sect1>
+    
+    
+    <sect1 id="controls-progress-bars">
+      
+      <title>Progress Bars</title>
+      
+      <para>Progress bars are visual indicators of the progress of a task being carried out by the application.</para>
+      
+      <para>There are two types of progress indicator: &quot;measured&quot; progress, which shows what proportion of the task has been completed, and &quot;indeterminate&quot; progress, which only shows that the application is busy.  Normally, the progress bar control is used to show measured progress.</para>
 
-</sect1>
-<!-- CFB: Sliders/spinboxes
-Just had a chat with Stephen Browne, who's working on a GUI here and wondering when to use sliders rather than spinboxes - so it seemed like a useful topic to address :o).  I came up with a few guidelines off the top of my head, and have summarised them here, but it would be good to come up with some more formal ones and write them up -->
+      <figure><title>A measured (&quot;time remaining&quot;) progress dialog</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/progress-time.png" format="PNG"/>
+	  </imageobject>
+	  <textobject><phrase>A measured (&quot;time remaining&quot;) progress dialog</phrase></textobject>
+	</mediaobject>
+      </figure>
+            
+      <para>There are three styles of measured progress indicator in which you would typically use a progress bar control:</para>
+      <itemizedlist>
+	<listitem><para><link linkend="time-remaining">Time remaining</link></para></listitem>
+	<listitem><para><link linkend="proportion-completed">Proportion completed</link></para></listitem>
+	<listitem><para><link linkend="typical-time">Typical time</link></para></listitem>
+      </itemizedlist>
 
-<sect1 id="controls-range">
+      <para>Always use a measured progress bar when the length of a task can beprecisely or approximately predicted.  Otherwise, use an <link linkend="indeterminate-progress">indeterminate progress indicator</link> or a <link linkend="progress-checklists">progress checklist</link>.</para>
+      
+      <para>See the <link linkend="feedback">Feedback</link> chapter for full details on when and how to use progress bars appropriately.</para>
 
-<title>Sliders and Spinboxes</title>
+    </sect1>
+    
+    <sect1 id="controls-status-bars">
+      
+      <title>Status Bars</title>
+      
+      <para>Status bars provide a small area which can be used to display one line of text describing the status of the application. Status bars should always be positioned at the bottom of a window.</para>
+      
+      <para>Status bars should only contain information which it is not critical that the user sees. Important information should be presented to the user by other means.</para>
+      
+    </sect1>
 
-<para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
-<para>Recommendations:</para>
+    <sect1 id="controls-range">
+      
+      <title>Sliders and Spinboxes</title>
+      
+      <para>Both these controls allow the user to quickly increase or decrease a value, optionally (in the case of a spinbox) within a valid range of values.  When is it appropriate to use each type of control?</para>
+      <para>Recommendations:</para>
+      
+      <itemizedlist>
+	
+	<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it is always from "min" to "max"</para></listitem>
+	
+	<listitem><para>Use a slider if it is useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
+	
+	<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
+	
+	<listitem><para>Always give sliders and spinboxes a label, positioned above or to the left of the control and using sentence capitalization.</para></listitem>
+	
+      </itemizedlist>
+      
+      <para>Sometimes it is useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+      
+    </sect1>
 
-<itemizedlist>
+    
+    <sect1 id="controls-notebooks">
+      <title>Notebooks</title>
+      <para>A notebook control is a convenient way of presenting related information in the same window, without having to display it all at the same time.  It is analgous to the divider tabs in a notebook or file cabinet.</para>
 
-<listitem><para>Use a slider if the numerical range is aribitrary, e.g. a volume control could be from 0-10 or 0-100, but it's always from "min" to "max"</para></listitem>
+      <para>picture</para>
 
-<listitem><para>Use a slider if it's useful for the user to control the rate of increase/decrease of the value in realtime, e.g. to monitor the effects of a setting change in a live preview as you drag the slider.</para></listitem>
+      <para>Recommendations:</para>
+      <itemizedlist>
 
-<listitem><para>Spinboxes work better where the numerical value is meaningful or useful to know, or where there is no natural upper or lower limit (or neither).  E.g. a control for specifying the number of iterations of some event, or a timeout value.</para></listitem>
+	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (picture required)</para></listitem>
 
-</itemizedlist>
+	<listitem><para>Label tabs with <link linkend="layout-capitalization">book title capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
 
-<para>Sometimes it's useful to provide both a slider and a spinbox for the same value-- the slider can be used to set the approximate value, and the spinbox to finetune it.  Need some better guidelines/examples as to when this might be appropriate, though.</para>
+	<listitem><para>Do not assign accelerator keys to tab labels.  Every other control on each page should be assigned an accelerator, however.</para></listitem>
 
-</sect1>
+	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (picture would be good here)</para></listitem>
+
+	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
+	
+	<listitem><para>If a button or other control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
+
+      <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, or center the controls on the page.</para></listitem>
+
+      <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
+
+      </itemizedlist>
+      
+      <para>For future consideration: it would be good if the notebook widget supported a standard way of showing that a tab had pending changes, e.g. changing the font or label colour to some (themed) alternative.  Should we suggest a way of doing this now, which some app developers would probably implement badly (e.g. not using theming) or not at all, or should we just wait until GTK supports it...?</para>
+
+    </sect1>
+    
 
 </chapter>
 
