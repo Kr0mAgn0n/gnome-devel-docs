@@ -199,7 +199,7 @@
 
 	    <listitem><para>Order items within a group logically, numerically, in task order or by expected frequency of use, as appropriate.</para></listitem>
 
-	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">checkbox</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (such as <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (such as. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice>) in the same group.</para></listitem>
+	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">check box</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (such as <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (such as. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice>) in the same group.</para></listitem>
 
 	    </itemizedlist>	  
 	</sect2>
@@ -247,27 +247,27 @@
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>If your mutable menu items are <link linkend="menu-item-type-command">command items</link>, and you have sufficient space on your menu, consider providing two adjacent menu items for the commands instead.  Then make the items sensitive or insensitive as the situation demands.  This also makes it easier for the user to tell when different shortcuts are available for each of the commands, for example <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>, and <keycap>Esc</keycap> for <guimenuitem>Stop</guimenuitem>.</para></listitem>
 
-		<listitem><para>Do not use mutable menu items to toggle a two-state setting (for example, <guimenuitem>Show Toolbar</guimenuitem> and <guimenuitem>Hide Toolbar</guimenuitem>).  Present such items as a single <link linkend="menu-item-type-check">checkbox item</link> instead.</para></listitem>
+		<listitem><para>Do not use mutable menu items to toggle a two-state setting (for example, <guimenuitem>Show Toolbar</guimenuitem> and <guimenuitem>Hide Toolbar</guimenuitem>).  Present such items as a single <link linkend="menu-item-type-check">check box item</link> instead.</para></listitem>
 	</itemizedlist>
 
 	</sect3>
 	<sect3 id="menu-item-type-check">
 	  <title>Checkbox Items</title>
 
-	<figure id="checkbox-items-figure"><title>A group of checkbox items on a menu</title>
+	<figure id="checkbox-items-figure"><title>A group of check box items on a menu</title>
 	  <mediaobject>
 	    <imageobject><imagedata fileref="images/checkbox-menu.png" format="PNG"/></imageobject>
 	    <imageobject><imagedata fileref="images/checkbox-menu.eps" format="EPS"/></imageobject>
-	    <textobject><phrase>Screenshot of group on a View menu containing three checkbox items: toolbar, statusbar and fullscreen</phrase></textobject>
+	    <textobject><phrase>Screenshot of group on a View menu containing three check box items: toolbar, statusbar and fullscreen</phrase></textobject>
 	  </mediaobject>
 	</figure>
 
-	  <para>A checkbox menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
+	  <para>A check box menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
 
 	<itemizedlist><title>Guidelines</title>
 	  
-	  	<listitem><para>Use a checkbox menu item only when it is obvious from the label what the set and unset states mean.  This usually means that the two states are logical or natural opposites, such as &quot;on&quot; and &quot;off&quot;.  If this is not the case, use two <link linkend="menu-item-type-radio">radio button items</link> instead.</para></listitem>
-		  <listitem><para>Never change the label of a checkbox menu item in response to the user selecting the item.</para></listitem>
+	  	<listitem><para>Use a check box menu item only when it is obvious from the label what the set and unset states mean.  This usually means that the two states are logical or natural opposites, such as &quot;on&quot; and &quot;off&quot;.  If this is not the case, use two <link linkend="menu-item-type-radio">radio button items</link> instead.</para></listitem>
+		  <listitem><para>Never change the label of a check box menu item in response to the user selecting the item.</para></listitem>
 
 	</itemizedlist>
 
@@ -287,7 +287,7 @@
 
 	<itemizedlist>
 
-	  	<listitem><para>If you need to offer a choice of two mutually-exclusive settings to the user,  use a group of two radio button items instead of a single checkbox menu item if the settings are not clearly opposites.  For example, represent <guimenuitem>View as Icons</guimenuitem> and <guimenu>View as List</guimenu> as two radio button items.</para></listitem>
+	  	<listitem><para>If you need to offer a choice of two mutually-exclusive settings to the user,  use a group of two radio button items instead of a single check box menu item if the settings are not clearly opposites.  For example, represent <guimenuitem>View as Icons</guimenuitem> and <guimenu>View as List</guimenu> as two radio button items.</para></listitem>
 
 	  <listitem><para>Never change the label of a radio button menu item in response to the user selecting or deselecting the item.</para></listitem>
 
@@ -301,8 +301,8 @@
 	including:
 	
 	* Confusing menu items acting as radio buttons in a group with menu
-          items acting as checkboxes.
-	* Ambiguous names for checkbox/toggle menu items which make it
+          items acting as check boxes.
+	* Ambiguous names for check box/toggle menu items which make it
 	  difficult to establish the current system state by looking at
 	  the menu.
 </remark>
@@ -907,13 +907,13 @@ the application saves state as it should.</remark>
 	      <row>
 	 	      <entry><guimenuitem><accel>T</accel>oolbar</guimenuitem></entry>
 	      		<entry>None</entry>
-			<entry>Shows or hides the application's toolbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>. Include this item in every application that has a single toolbar.  See <xref linkend="toolbars-controlling-display"/> for information on how to deal with multiple toolbars.</entry>
+			<entry>Shows or hides the application's toolbar.  This is a <link linkend="menu-item-type-check">check box menu item</link>. Include this item in every application that has a single toolbar.  See <xref linkend="toolbars-controlling-display"/> for information on how to deal with multiple toolbars.</entry>
 		</row>
 
 		<row>
 			<entry><guimenuitem><accel>S</accel>tatusbar</guimenuitem></entry>
 			<entry>None</entry>
-			<entry>Shows or hides the application's statusbar.  This is a <link linkend="menu-item-type-check">checkbox menu item</link>.  Include this item in every application that has a statusbar.</entry>
+			<entry>Shows or hides the application's statusbar.  This is a <link linkend="menu-item-type-check">check box menu item</link>.  Include this item in every application that has a statusbar.</entry>
 		</row>
 		</tbody>
 		</tgroup>
