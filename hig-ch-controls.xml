@@ -338,33 +338,64 @@
 	
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for check box labels, for example <guilabel>Use custom font</guilabel></para></listitem>
 	
-	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example, rather than a checkbox labelled <guilabel>Status bar progress meter is on the right</guilabel>, use radio buttons labelled <guilabel>Right</guilabel> and <guilabel>Left</guilabel> under the label <guilabel>Status bar progress meter position:</guilabel> (FIXME: make this into a picture).</para></listitem>
-
+	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example:</para>
+	  
+	  <figure>
+	    <title>Ambiguous check box (top), radio buttons work better in this case (bottom)</title>
+	    
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-check-box-ambiguous.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Two images: one showing a single checkbox ambiguously labelled &quot;Progress bar in left of status bar&quot;, the other making the choice explicit with radio buttons labelled &quot;Left&quot; and &quot;Right&quot under the heading &quot;Status bar progress indicator position:&quot;</phrase>
+	      </textobject>
+	    </mediaobject>
+	    
+	  </figure>
+	  
+	  <para>The single checkbox in this example is ambiguous, as it is not clear where the &quot;progress indicator&quot; will go if the box is unchecked.  Two radio buttons are better in this case, as they make the options clear.</para></listitem>
+	
 	<listitem><para>Provide an access key in all check box labels that allows the user to set or unset the check box directly from the keyboard.</para></listitem>
 	
-	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the "read only" property of three selected files), show the check box in its mixed state. (picture required)</para></listitem>
+	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the check box in its mixed state. For example:</para>
+
+	  <figure>
+	    <title>Check boxes (right) showing properties for a multiple selection of files in Nautilus (left)</title>
+	    
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-check-boxes-mixed.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Check boxes showing the Hidden, Readable and Writeable states of two selected files in Nautilus.  Both files are hidden, neither are writeable, but one is readable.  The Readable check box is therefore shown in its mixed state.</phrase>
+	      </textobject>
+	    </mediaobject>
+	    
+	  </figure>
+
+	  <para>In this example, both selected files are hidden (since their filenames start with &quot;.&quot;), and the emblems on their icons show that neither file is writeable, but one is readable.  The <guilabel>Readable</guilabel> check box is therefore shown in its mixed state. (N.B. At time of writing, the exact visual appearance of a mixed state check box was undecided).</para>
+	  <para>When a check box is in its mixed state:</para>
+	  
+	  <itemizedlist>
+	    
+	    <listitem><para>clicking the box once should check the box, applying that setting (when confirmed) to all the selected objects</para></listitem>
+	    
+	    <listitem><para>clicking the box a second time should uncheck the box, removing that setting (when confirmed) to all the selected objects</para></listitem>
+	    
+	    <listitem><para>clicking the box a third time should return the box to its mixed state, restoring each selected object's original value for that setting (when confirmed)</para></listitem>
+	    
+	  </itemizedlist>      
+	  
+	</listitem>
 	
 	<listitem><para>Label a group of check boxes with a descriptive heading above or to the left of the group.</para></listitem>
 
 	<listitem><para>Use a frame around the group if necessary, but remember that blank space often works just as well and results in a less visually-cluttered dialog.</para></listitem>
 		
-	<listitem><para>Do not place more than about eight check boxes under the same heading.  If you need more than eight, try to use blank space, heading labels or frames to divide them into smaller groups.  Otherwise, consider using a check box list instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
+	<listitem><para>Do not place more than about eight check boxes under the same group heading.  If you need more than eight, try to use blank space, heading labels or frames to divide them into smaller groups.  Otherwise, consider using a check box list instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
 
 	<listitem><para>Try to align groups of check boxes vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
       </itemizedlist>
-      
-      <para>When a check box is showing the properties of a multiple selection, it may be in the mixed state.  In this situation:</para>
-      
-      <itemizedlist>
-	
-	<listitem><para>clicking the box once should check the box, applying that setting (when confirmed) to all the selected objects</para></listitem>
-	
-	<listitem><para>clicking the box a second time should uncheck the box, removing that setting (when confirmed) to all the selected objects</para></listitem>
-	
-	<listitem><para>clicking the box a third time should return the box to its mixed state, restoring each selected object's original value for that setting (when confirmed)</para></listitem>
-	
-      </itemizedlist>      
       
     </sect1>
     
@@ -403,21 +434,36 @@
 </para></listitem>
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel>.  Provide an access key in the label that allows the user to set the radio button directly from the keyboard.</para></listitem>
-
-	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the border style of a column of selected cells in a table), show the radio button in its mixed state. (picture required)</para></listitem>
-
+	
+	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the radio button in its mixed state. For example:</para>
+	  
+	  <figure>
+	    <title>Radio buttons (right) showing properties for a multiple selection of shapes in a drawing application (left)</title>
+	    
+	    <mediaobject><imageobject>
+		<imagedata fileref="images/controls-radio-button-mixed.png" format="PNG"/>
+	      </imageobject>
+	      <textobject>
+		<phrase>Radio buttons showing the Thick, Thin and Dashed drawing styles of two selected shapes in a drawing application.  One shape is drawn in the thick style, the other in the dashed style.  The Thick and Dashed radio buttons are therefore shown in their mixed state, and the Thin radio button is unset.</phrase>
+	      </textobject>
+	    </mediaobject>
+	    
+	  </figure>
+	  
+	  <para>(N.B. At time of writing, the exact visual appearance of a mixed state radio button was undecided).  In this situation, clicking any radio button in the group should set the clicked button, and unset all the others.  Thereafter, the group should behave like a normal radio button group&mdash; there should be no way to reset a radio button to its mixed state by clicking on it.  Provide a <guibutton>Reset</guibutton> button or equivalent in the window that allows the previous mixed settings to be restored without closing the window or cancelling the dialog.</para></listitem>
+	
 	<listitem><para>Label a group of radio buttons with a descriptive heading above or to the left of the group.</para></listitem>
 	
 	<listitem><para>Use a frame around the group if necessary, but remember that blank space often works just as well and results in a less visually-cluttered dialog.</para></listitem>
 	
-	<listitem><para>Do not place more than about eight radio buttons under the same heading.  If you need more than eight, consider using a single-selection <link linkend="controls-lists">list</link> instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
+	<listitem><para>Do not place more than about eight radio buttons under the same group heading.  If you need more than eight, consider using a single-selection <link linkend="controls-lists">list</link> instead&mdash; but you probably also need to think about how to simplify your user interface.</para></listitem>
 	
 	<listitem><para>Try to align groups of radio buttons vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
       
       </itemizedlist>
 
-      <para>When a radio button group is showing the properties of a multiple selection, one or more buttons may be in the mixed state.  In this situation, clicking any radio button in the group should set the clicked button, and unset all the others in the group.  Thereafter, the group should behave as a normal radio button group&mdash; there should be no way to reset a radio button to its mixed state by clicking on it.  Provide a <guibutton>Reset</guibutton> button or equivalent in the window that allows the previous mixed settings to be restored without closing the window or cancelling the dialog.</para>
+     
       
       <note><title>For discussion</title>
 	<para>Can we suggest any better ways of manipulating radio button groups in mixed state that do not rely on having a Reset button? I can think of one that is more in line with the suggestion for checkboxes, but it would not be terribly intuitive to use and probably a hassle to implement as well.</para>
@@ -468,7 +514,7 @@
 	
 	<listitem><para>Use the same text or graphical label for a toggle button whether it is set or unset.</para></listitem>
 
-	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the Bold Text toolbar button for a selected paragraph), show the button in its mixed state. (picture required)</para></listitem>
+	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the Bold Text toolbar button for a selected paragraph), show the button in its mixed state. (FIXME: picture required)</para></listitem>
 	
       </itemizedlist>
      
@@ -488,7 +534,7 @@
 	    <imagedata fileref="images/controls-option-menu.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>One picture of an option menu displaying its current setting, and another showing its popup menu of available choices when clicked on</phrase>
+	    <phrase>Two images, one of an option menu displaying its current setting, and the other showing its popup menu of available choices when clicked on</phrase>
 	  </textobject>
 	</mediaobject>
 	
@@ -542,7 +588,7 @@
 	    <imagedata fileref="images/controls-combo.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>One picture of a combo box entry field displaying its current selection, and another showing its dropdown list of available choices when clicked on</phrase>
+	    <phrase>Two images, one of a combo box entry field displaying its current selection, and the other showing its dropdown list of available choices when clicked on</phrase>
 	  </textobject>
 	    </mediaobject>
 	    
@@ -705,13 +751,13 @@
       <para>Recommendations:</para>
       <itemizedlist>
 
-	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (picture required)</para></listitem>
+	<listitem><para>Do not put too many pages in the same notebook.  If you cannot see all the tabs without scrolling or splitting them into multiple rows, you are probably using too many.  If you have more than about six tabs, consider using a list control to switch between pages of controls rather than tabs. (FIXME: picture required)</para></listitem>
 
 	<listitem><para>Label tabs with <link linkend="layout-capitalization">book title capitalization</link>, and use nouns rather than verbs, for example <guilabel>Font</guilabel> or <guilabel>Alignment</guilabel>.  Try to keep all labels in a notebook the same general length.</para></listitem>
 
 	<listitem><para>Do not assign access keys to tab labels.  Every other control on each page should be assigned an access key, however.</para></listitem>
 
-	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (picture would be good here)</para></listitem>
+	<listitem><para>Use tabs that are proportional to the width of their labels.  Don't just set all the tabs to the same width, as this makes them harder to scan visually, and limits the number of tabs you can fit into the notebook without scrolling. (FIXME: picture would be good here)</para></listitem>
 
 	<listitem><para>Do not design a notebook such that changing controls on one page affects the controls on any other page.  Users are unlikely to discover such dependencies.</para></listitem>
 	
@@ -785,7 +831,9 @@
 
 	  <itemizedlist>
 	    
-	    <listitem><para>information relating to the task the user is currently performing.  For example, while using the selection tool in a drawing application, &quot;Hold Shift to extend the selection&quot;</para></listitem>
+	    <listitem><para>general information about the document or application.  For example, current connection status in a network application, or the size of the current document in a text editor.</para></listitem>
+	    
+	    <listitem><para>information about the task the user is currently performing.  For example, while using the selection tool in a drawing application, &quot;Hold Shift to extend the selection&quot;</para></listitem>
 	    
 	    <listitem><para>progress of a background operation.  For example, &quot;Sending to printer&quot;, &quot;Printing page 10 of 20&quot;, &quot;Printing Complete&quot;.</para></listitem>
 	    
