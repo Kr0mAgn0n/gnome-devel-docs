@@ -10,7 +10,7 @@
   
     <para>In most applications, only primary windows should have a menu bar. <link linkend="utility-windows">Utility windows</link> and <link linkend="dialog-boxes">dialog boxes</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
 
-    <para>Occasionally, however, a utility window or dialog is so complex that there would be too many controls. In these case, you may use a menubar provided that:</para>
+    <para>Occasionally, however, a utility window or dialog is so complex that there would be too many such controls. In this case, you may use a menubar provided that:</para>
 
     <itemizedlist>
       <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
@@ -20,18 +20,17 @@
 	<itemizedlist><title>Guidelines</title>
       <listitem><para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para></listitem>
 
-    <listitem><para>Provide an access key for each menu item. Note that unlike other controls, once a menu is displayed, its access keys may be used by just typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
+	<listitem><para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para></listitem>
+
+    <listitem><para>Provide an access key for every menu item.  You may use the same access key on different menus in your application, but avoid duplicating access keys on the same menu.  Note that unlike other controls, once a menu is displayed, its access keys may be used by just typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
 
       <listitem><para>Design your menu structure to avoid more than one level of submenus.  Deep menu hierarchies are harder to memorize and physically difficult to navigate.</para></listitem>
 
 	</itemizedlist>
 
-    <sect1 id="menu-controlsparts">
-      <title>Controls Related to Menus</title>
-      <sect2 id="menu-types">
-	<title>Types of Menu</title>
-	<sect3 id="menu-type-menubar">
-	  <title>The Menu Bar</title>
+
+	<sect1 id="menu-type-menubar">
+	  <title>The Menubar</title>
 
 	<figure id="example-menu-bar">
 	<title>A typical menu bar</title>
@@ -45,12 +44,31 @@
 	</mediaobject>
       </figure>
 
-	  <para>Provide a menubar in each primary application window. The menubar provides a number of drop-down menus. It will be visible at all times and will always be accessible from the keyboard as well as the mouse, so use it to give access to all commands available in your application.</para>
+	  <para>The menubar provides a number of drop-down menus. It is visible at all times and is always accessible from the keyboard as well as the mouse, so use it to give access to all commands available in your application.</para>
 
-	<para>It is recommended that you do not provide a mechanism for hiding the menubar, as this can be activated accidentally, resulting in the application being "broken" for some users.  If your users do require this option, provide a button elsewhere in the window (on a toolbar or in a toolbox, for example) that opens the menubar again.</para>
+	  <para>Each item on the menu bar is a menu title. Menu titles also appear in drop-down menus with submenus.</para>
 
-	</sect3>
-	<sect3 id="menu-type-drop-down">
+	<itemizedlist><title>Guidelines</title>
+
+		<listitem><para>Provide a menubar in each primary application window, containing at least a <guimenu>File</guimenu> and a <guimenu>Help</guimenu> menu.</para></listitem>
+
+      		<listitem><para>Organize menu titles in the standard order&mdash; see <xref linkend="standard-menus" />.</para></listitem>
+
+		 <listitem><para>Do not disable menu titles. Allow the user to explore the menu, even though there might be no available items on it at that time.</para></listitem>
+
+		  <listitem><para>Menu titles on a menubar are single words with their first letter capitalized.  Do not use spaces in menu titles, as this makes them easily-mistaken for two separate menu titles.  Do not use compound words (such as <guimenu>WindowOptions</guimenu>) or hyphens (such as <guimenu>Window-Options</guimenu>) to circumvent this guideline.</para></listitem>
+
+		<listitem><para>Do not provide a mechanism for hiding the menubar, as this may be activated accidentally, resulting in the application being "broken" for some users.  If your users do require this option, provide a button elsewhere in the window (on a toolbar or in a toolbox, for example) that opens the menubar again.</para></listitem>
+	
+	</itemizedlist>
+
+	</sect1>
+
+   <sect1 id="menu-types">
+      <title>Types of Menu</title>
+
+
+	<sect2 id="menu-type-drop-down">
 	  <title>Drop-down Menus</title>
 	<figure id="drop-down-menu">
 	<title>A typical drop-down menu</title>
@@ -62,7 +80,7 @@
 	</mediaobject>
       </figure>
 
-	  <para>Drop-down menus post from the head items on the menu bar. . . .</para>
+	  <para>A drop-down menu appears when the user clicks on its title in a menubar, or focuses the title and presses <keycap>Return</keycap>.</para>
 
 <!-- CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menu bar, or "posted," makes sense.  -->
 
@@ -70,7 +88,7 @@
 
 	<listitem><para>Only place items on a menu that relate to that menu's title.</para></listitem>
 
-      <listitem><para>Organize menus according to the standard order when there is one&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> then <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
+      <listitem><para>Organize menu items in the standard order&mdash; see <xref linkend="standard-menus" />.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> then <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
 
       <listitem><para>Limit top-level menus to a maximum of about 15 items. <remark>This used to be 20 items, that seemed really high to me. 15 items is already a long menu. Since this is phrased as "about 15 items" applications that really need to fudge can -Seth</remark> If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
 
@@ -84,9 +102,9 @@
 
     </itemizedlist>
 
-	</sect3>
+	</sect2>
 
-	<sect3 id="menu-type-submenu">
+	<sect2 id="menu-type-submenu">
 	  <title>Submenus</title>
 
 	<figure id="submenu">
@@ -99,7 +117,7 @@
 	</mediaobject>
       </figure>
 
-	  <para>A submenu posts from an item in a drop-down menu or a popup menu.  Use submenus to save space on long menus by grouping related commands.</para>
+	  <para>A submenu appears when the user clicks its title, which is indicated by a small arrow symbol beside its label.  You can save space on long menus by grouping related commands onto a single submenu.</para>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -111,11 +129,11 @@
 		
 	</itemizedlist>
 
-	</sect3>
+	</sect2>
 
 <!-- CB-Ed/Fig: In JLFDG AT, p. 41, the Most Recently Used (MRU) list is recommended to contain no more than 10 items. Add a figure here, with callouts to point out this rule, among others, if any are developed.  --> 
 
-	<sect3 id="menu-type-popup">
+	<sect2 id="menu-type-popup">
 	  <title>Popup Menus</title>
 
 	<figure id="popup-menu">
@@ -128,54 +146,54 @@
 	</mediaobject>
       </figure>
 
-	<para>Popup menus provide shortcuts to those menu items that are applicable only to the currently selected object.  As such, they are sometimes known as &quot;context menus&quot; or &quot;shortcut menus&quot;.  A popup menu is shown when the user right-clicks on an object, or selects the object and presses <keycombo><keycap>Ctrl</keycap><keycap>F10</keycap></keycombo>.</para>
+	<para>Popup menus provide shortcuts to those menu items that are applicable only to the currently selected object.  As such, they are sometimes known as &quot;context menus&quot; or &quot;shortcut menus&quot;.  A popup menu is shown when the user right-clicks on an object, or selects the object and presses <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>.</para>
 
-	<para>Be aware that popup menus are used primarily by intermediate and advanced users.  Even users who have used graphical desktops for many years may not know about popup menus!  You should .</para>
+	<para>Be aware that popup menus are used primarily by intermediate and advanced users.  Even some users who have used graphical desktops for many years do not know about popup menus until somebody demonstrates them.</para>
 
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Provide a popup menu for every object, selectable part, and text input target such as entry fields.</para></listitem>
 		<listitem><para>Provide an access key for each item.  However, to enhance their spatial efficency and readability, do not show keyboard shortcuts in popup menus.</para></listitem>
 		
-	<listitem><para>Since the user may not be aware of their presence, do not provide functions that are only accessible from popup menus unless you are confident that your target users will know how to use them</para>
-	<remark>But see http://bugzilla.mozilla.org/show_bug.cgi?id=34357</remark>
-	</listitem>
+		<listitem><para>Since the user may not be aware of their presence, do not provide functions that are only accessible from popup menus unless you are confident that your target users will know how to use them</para>
+		<remark>But see http://bugzilla.mozilla.org/show_bug.cgi?id=34357</remark>
+		</listitem>
 
-	<listitem><para>Order items on a popup menu as follows:</para>
-	<itemizedlist>
-		<listitem><para>default action for object (same as double-clicking the object)</para></listitem>
-		<listitem><para>other commands in expected frequency-of-use order</para></listitem>
-		<listitem><para>transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command></para></listitem>
-		<listitem><para><guimenuitem>Input Methods</guimenuitem>, where applicable</para></listitem>
-	</itemizedlist>
-	</listitem>
+		<listitem><para>Order items on a popup menu as follows:</para>
+		<itemizedlist>
+			<listitem><para>default action for object (same as double-clicking the object)</para></listitem>
+			<listitem><para>other commands in expected frequency-of-use order</para></listitem>
+			<listitem><para>transfer commands such as <command>Cut</command>, <command>Copy</command>, and <command>Paste</command></para></listitem>
+			<listitem><para><guimenuitem>Input Methods</guimenuitem>, where applicable</para></listitem>
+		</itemizedlist>
+		</listitem>
 
-	 <listitem><para>Popup menus need to be as simple as possible to maximize their efficiency.  Do not place more than about ten items on a popup menu, and don't use submenus.</para></listitem>
+	 	<listitem><para>Popup menus need to be as simple as possible to maximize their efficiency.  Do not place more than about ten items on a popup menu, and don't use submenus.</para></listitem>
 
 	</itemizedlist>
 
 <!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
 <!-- SN-Ed: No, it should not be exposed to the user. I'm not really sure what possessed the GTK guys to put this in every right click menu for text boxes. I suppose in this case having it be a submenu is good (if they insist on it existing) because it makes it maximally invisible -->
 
-	</sect3>
-      </sect2>
+	</sect2>
+	</sect1>
 
-      <sect2 id="menu-item-types">
-	<title>Menu Item Types</title>
-	<para>Provide an access key for every menu item, except separators.</para>
+	<sect1 id="menu-design">
+	<title>Designing a Menu</title>
 
-	<sect3 id="menu-item-type-head">
-	  <title>Titles</title>
-	  <para>Each item on the menu bar is a menu title. Menu titles also appear in drop-down menus with submenus.</para>
+	<sect2 id="menu-grouping">
+	  <title>Grouping Menu Items</title>
 
-<!-- CB-Ed/Fig: Figures would be good here, especially for the second sentence of the previous para. -->
+	<figure id="menu-separators">
+	<title>Items grouped on a menu with separators</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/generic-view-menu.png" format="PNG"/>
+	  </imageobject>
+	  <textobject><phrase>Screenshot of a menu divided into five logical groups with menu separators</phrase></textobject>
+	</mediaobject>
+      </figure>
 
-	  <para>Do not disable menu titles. Allow the user to explore the menu, even though there might be no available items on it at that time.</para>
-	</sect3>
-	<sect3 id="menu-item-type-sep">
-	  <title>Separators</title>
-	  <para>A separator visually divides groups of related items on a drop-down menu, submenu, or popup menu.  Good use of separators helps to &quot;chunk&quot; the information on a menu and make it easier to scan and memorize.</para>
-
-<!-- CB-Fig: A main figure for this chapter would probably be great, something along the lines of a menu anatomy figure, calling out different parts and rules for using those parts, of a menu.  The Separators may need its own figure, pointing out the rules shown below. -->
+	  <para>Menu separators are horizontal dividing lines that visually separate groups of related items on a drop-down menu, submenu, or popup menu.  For example, the separators in <xref linkend="menu-separators"/> divide the menu into five functionally-related groups.  Good use of separators helps to &quot;chunk&quot; the information on a menu and make it easier to scan and memorize.</para>
 	  
 	  <itemizedlist><title>Guidelines</title>
 
@@ -183,27 +201,43 @@
 
 	    <listitem><para>Order items within a group logically, numerically, in task order or by expected frequency of use, as appropriate.</para></listitem>
 
-	    <listitem><para>Every menu item in any one group should be of the same type&mdash; command, mutable, checkbox or radio button.  For example, do not place commands (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> in the same group.</para></listitem>
+	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">checkbox</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem>)</menuchoice> in the same group.</para></listitem>
 
 	    </itemizedlist>	  
-	</sect3>
+	</sect2>
 
+	<sect2 id="menu-item-types">
+	<title>Types of menu item</title>
+	
 	<sect3 id="menu-item-type-command">
 	  <title>Command Items</title>
-	  <para>Command items are menu items that initiate a command or perform an action. They can act on the currently active document in a document based application, or on the application itself.</para>
-	  <para>Provide a keyboard shortcut for standard or frequently used command items.</para>
-	  <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
-	  <para>See <xref linkend="shortcuts"/> for more information.</para>
+
+<figure id="command-items-figure"><title>A menu on which every item is a command item</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/file-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+		<phrase>Screenshot of a menu containing only command items, such as New, Open and Save</phrase></textobject>
+	  </mediaobject>
+	</figure>
+
+	  <para>Command items are menu items that initiate a command or perform an action, such as <guimenuitem>Save</guimenuitem>, <guimenuitem>Print</guimenuitem> or <guimenuitem>Quit</guimenuitem>. They can act on the currently active document in a document based application, or on the application itself.</para>
+
+	<itemizedlist><title>Guidelines</title>
+
+		<listitem><para>Provide a keyboard shortcut for standard or frequently used command items.  See <xref linkend="shortcuts"/> for more information on choosing shortcut keys.</para></listitem>
 	  <remark>
 	    Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?
 	  </remark>
+
 	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"/> for more information.</para> -->
-	  <para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
-	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
+	  
+	<listitem><para>Do not remove command items from the menu when they are unavailable, make them insensitive instead.  This allows the user to infer what functionality the application provides even if it is not currently available, and keeping the menu structure static makes it easier to mememorize.</para></listitem>
 
-<!-- CB-Ed: The previous para is badly written, especially the last clause; it's grammatically incorrect, to begin with. -->
-	  <para>Where a command requires further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
+	  <listitem><para>Mark the menu item with a trailing ellipsis ("...")  only if the command requires further input from the user before it can be performed. Do not add an ellipsis to items that only present a confirmation dialog (such as <guimenuitem>Delete</guimenuitem>), or that do not <emphasis>require</emphasis> further input (such as <guimenuitem>Properties</guimenuitem> or <guimenuitem>About</guimenuitem>).</para></listitem>
 
+	</itemizedlist>
 
 <!-- CB-Ed/Fig: Figure would be nice here. -->
 	</sect3>
@@ -212,8 +246,14 @@
 	  <title>Mutable Command Items</title>
 	  <para>A mutable command item changes its label when selected.  For example, <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> in a browser may change to <guimenuitem>Stop</guimenuitem> to allow the user to interrupt the operation if it is taking a long time.</para>
 
-	  <para>Mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a new or different function has become available.  It is therefore often better to provide separate menu items for the available functions and make them available or unavailable as the situation demands.</para>
-	<para>Where mutable menu items affect a two-state setting they should be presented as a checkbox item instead. For example, items such as <guimenuitem>Show Toolbar</guimenuitem> (which changes to <guimenuitem>Hide Toolbar</guimenuitem> when the Toolbar is visible) should instead be presented as a checkbox menu item titled <guimenuitem>Toolbar</guimenuitem>.</para>
+	  <para>Note that mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a new or different function has become available. </para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>If your mutable menu items are <link linkend="menu-item-type-command">command items</link>, and you have sufficient space on your menu, consider providing two adjacent menu items for the commands instead.  Then make the items sensitive or insensitive as the situation demands.  This also makes it easier to provide different shortcuts for each command, for example <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>, and <keycap>Esc</keycap> for <guimenuitem>Stop</guimenuitem>.</para></listitem>
+
+		<listitem><para>Do not use mutable menu items to toggle a two-state setting (for example, <guimenuitem>Show Toolbar</guimenuitem> and <guimenuitem>Hide Toolbar</guimenuitem>.  Present such items as a single <link linkend="menu-item-type-check">checkbox item</link> instead.</para></listitem>
+	</itemizedlist>
+
 	</sect3>
 	<sect3 id="menu-item-type-check">
 	  <title>Checkbox Items</title>
@@ -252,8 +292,8 @@
 	
       </sect2>
 
-
     </sect1>
+
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
       <para>The primary application window has some standard menus and a standard menu bar order. Not every menu is required, but the order of the menu bar and of the individual menus should be preserved. Place application-specific menus after the <guimenu>Format</guimenu> menu and before the <guimenu>Go</guimenu> menu; {modify them this way, etc. ...}</para>
