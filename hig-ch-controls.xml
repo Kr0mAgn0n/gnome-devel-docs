@@ -73,7 +73,7 @@
 	
 	<listitem><para>Once a dialog is displayed, do not change its default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, however.</para></listitem>
 	
-	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
+	<listitem><para>If your button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.  However, you may over-ride these preferences when there is no suitable icon to describe the button's action graphically, for example.</para></listitem>
 	
 	<listitem><para>Do not use more than one or two different sizes of button in the same window.  This will help give a pleasing uniform visual appearance to your window that makes it easier to use.</para></listitem>
 
@@ -88,8 +88,6 @@
       <para>Similarly, if it does not make sense to have a default button until several fields in the dialog have been correctly completed (for example, both the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> fields in a login dialog), do not set the default button until they have both been completed.</para>
       
       <para>Once it has been displayed, do not change a dialog's default button from one button to another.  You may dynamically add or remove default status from the same button if it helps prevent user error, but changing the default from one to another can be confusing and inefficent, especially for users relying on assistive technologies.</para>
-      
-      <para>A button may contain a text label, an icon, or both.  Normally, you should decide at runtime which label to display according to the user's desktop preferences.  However, there may be occasions when it is necessary to over-ride these, for example when there is no suitable icon to describe the button's action graphically.</para>
       
     </sect1>
     
@@ -129,9 +127,9 @@
 	
 	<listitem><para>Label check boxes to clearly indicate the effects of both their checked and unchecked states, for example, <guilabel>Show icons in menus</guilabel>.  Where this proves difficult, consider using two radio buttons instead so both states can be given labels.  For example, rather than a checkbox labelled <guilabel>Status bar progress meter is on the right</guilabel>, use radio buttons labelled <guilabel>Right</guilabel> and <guilabel>Left</guilabel> under the label <guilabel>Status bar progress meter position:</guilabel> (FIXME: make this into a picture).</para></listitem>
 	
-	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the check box in its mixed state. (pic required)</para></listitem>
+	<listitem><para>If the check box represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the "read only" property of three selected files), show the check box in its mixed state. (picture required)</para></listitem>
 	
-	<listitem><para>Do not use groups of more than about eight check boxes.  If you need more than this, consider using toggle buttons or a check box list instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
+	<listitem><para>Do not place more than about eight check boxes in the same visual or functional group in a window.  If you are using more than this, try to use blank space, heading labels or frames to divide them into smaller groups.  Otherwise, you should consider using a check box list instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
 
 	<listitem><para>Try to align groups of check boxes vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
@@ -187,9 +185,9 @@
 
 	<listitem><para>Use <link linkend="layout-capitalization">sentence capitalization</link> for radio button labels, for example <guilabel>Switched movement</guilabel></para></listitem>
 
-	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the radio button in its mixed state. (pic required)</para></listitem>
-
-	<listitem><para>Do not use groups of more than about eight radio buttons.  If you need more than this, consider using a list or option menu instead &mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
+	<listitem><para>If the radio button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the border style of a column of selected cells in a table), show the radio button in its mixed state. (picture required)</para></listitem>
+	
+	<listitem><para>Do not place more than about eight radio buttons in the same visual or functional group in a window.  If you are using more than this, consider using a single-selection list or an option menu instead&mdash; but it is more likely you need to think about how to simplify your interface.</para></listitem>
 
 	<listitem><para>Try to align groups of radio buttons vertically rather than horizontally, as this makes them easier to scan visually.  Use horizontal or rectangular alignments only if they greatly improve the layout of the window.</para></listitem>
 
@@ -239,7 +237,7 @@
 
 	<listitem><para>If your toggle button can display text, an icon, or both, choose which label to display at runtime according to the user's desktop preferences.</para></listitem>
 
-	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others, show the button in its mixed state. (pic required)</para></listitem>
+	<listitem><para>If the toggle button represents a setting in a multiple selection that is set for some objects in the selection and unset for others (for example, the Bold Text toolbar button for a selected paragraph), show the button in its mixed state. (picture required)</para></listitem>
 	
       </itemizedlist>
      
@@ -261,6 +259,9 @@
 
 	<listitem><para>Only use a combo box instead of a list, option menu or radio button group when it is important that the user be able to enter a new value that is not already amongst the list of pre-defined choices.</para></listitem>
 	
+	<listitem><para>Do not initiate an action when the user selects an item from the list in a combo box.  If used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting represented by the combo box immediately if possible.  If this isn't possible due to the contents of the entry field being invalid while the user is still typing into it, update the related setting when the combo box loses focus instead.</para></listitem>
+
+
 	<listitem><para>If the user types a value into the combo box that is not already in the drop-down list, add it to the list when the combo box loses focus so they can select it next time.</para></listitem>
 	
 	<listitem><para>Label the combo box with a text label above it or to its left, using <link linkend="layout-capitalization">sentence capitalization</link>.  (pic required).</para></listitem>
@@ -286,10 +287,8 @@
 
       <title>Option Menus</title>
       
-      <para>Option menus are used to select from a mutually exclusive set of options. They should not be used to initiate actions.</para>
-
-      <para>You should normally use <link linkend="controls-radio-buttons">radio buttons</link> or a <link linkend="controls-lists">list</link> in preference to option menus, as those controls present all the available options at once without any further interaction. However, option menus may be preferable on toolbars, in windows where there is little available space, or where the list of options may change.</para>
-
+      <para>Option menus are used to select from a mutually exclusive set of options. They can be useful when there is insufficient space in a window to use a group of radio buttons or a single-selection list, with which they are functionally equivalent.</para>
+      
        <figure>
 	<title>An option menu showing current setting (left) and the list of available choices when clicked on (right)</title>
 	
@@ -307,7 +306,7 @@
       
       <itemizedlist>
 
-	<listitem><para>Do not use option menus with fewer than three items.  To offer a choice of two options, use <link linkend="controls-radio-buttons">radio buttons</link> or <link linkend="controls-toggle-buttons">toggle buttons</link>.</para></listitem>
+	<listitem><para>Do not use option menus with fewer than three items, or more than about ten.  To offer a choice of two options, use <link linkend="controls-radio-buttons">radio buttons</link> or <link linkend="controls-toggle-buttons">toggle buttons</link>.  To offer a choice of more than ten options, use a <link linkend="controls-lists">list</link>.</para></listitem>
 	
 	<listitem><para>Do not initiate an action when the user selects an item from an option menu.  However, if used in an instant-apply <link linkend="utility-windows">property or preference window</link>, update the setting that the menu represents immediately.</para></listitem>
 	
@@ -324,7 +323,18 @@
 	<listitem><para>Do not use an option menu in a situation where it may have to show a property of a multiple selection, as option menus have no concept of mixed state.  Use a group of radio or toggle buttons instead, as these can be show set, unset or mixed states.</para></listitem>
 	
       </itemizedlist>
-
+      
+      <para>You should normally use <link linkend="controls-radio-buttons">radio buttons</link> or a <link linkend="controls-lists">list</link> instead of option menus, as those controls present all the available options at once without any further interaction. However, option menus may be preferable in a window where:</para>
+      
+      <itemizedlist>
+	<listitem><para>there is little available space</para></listitem>
+	<listitem><para>the list of options may change over time</para></listitem>
+	<listitem><para>the contents of the hidden part of the menu are obvious from its label and the one selected item.  For example, if you have an option menu labelled &quot;Month:&quot; with the item &quot;January&quot; selected, the user might reasonably infer that the menu contains the 12 months of the year without having to look.</para></listitem>
+	
+      </itemizedlist>
+      
+      <para>Option menus can also be useful on toolbars, to replace a group of several mutually-exclusive toggle buttons.</para>
+      
     </sect1>
     
     
@@ -352,7 +362,7 @@
 	<listitem><para><link linkend="typical-time">Typical time</link></para></listitem>
       </itemizedlist>
 
-      <para>Always use a measured progress bar when the length of a task can beprecisely or approximately predicted.  Otherwise, use an <link linkend="indeterminate-progress">indeterminate progress indicator</link> or a <link linkend="progress-checklists">progress checklist</link>.</para>
+      <para>Always use a measured progress bar when the length of a task can be precisely or approximately predicted.  Otherwise, use an <link linkend="indeterminate-progress">indeterminate progress indicator</link> or a <link linkend="progress-checklists">progress checklist</link>.</para>
       
       <para>See the <link linkend="feedback">Feedback</link> chapter for full details on when and how to use progress bars appropriately.</para>
 
@@ -413,7 +423,7 @@
 	
 	<listitem><para>If a button or other control affects only one notebook page, place it on that notebook page.  If it affects every page in the notebook, place it outside the notebook control, for example beside the window's <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para></listitem>
 
-      <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, or center the controls on the page.</para></listitem>
+      <listitem><para>Although the contents of each page in a notebook will take up a different amount of space, do not use larger than normal spacing around the controls in the &quot;emptier&quot; pages, and do not center the controls on the page.</para></listitem>
 
       <listitem><para>If your tab labels include icons, choose whether or not to show the icons at runtime based on the user's preferences.  Always show the text part of the label, however.</para></listitem>
 
