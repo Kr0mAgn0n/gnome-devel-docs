@@ -56,8 +56,15 @@
 
       <revhistory>
          <revision>
+            <revnumber>0.3</revnumber>
+            <date>19 July 2003</date>
+            <revremark>Emphasising the need to carefully choose which strings
+            to mark for translation.</revremark>
+         </revision>
+
+         <revision>
             <revnumber>0.2</revnumber>
-            <date>7 Novermber 2002</date>
+            <date>7 November 2002</date>
             <revremark>Small fixes. See ChangeLog appendix for details.
             </revremark>
          </revision>
@@ -106,7 +113,7 @@
       different languages. </para>
 
       <para>In this document, we will cover the process of
-      <firstterm>internationlisation</firstterm> (usually abbreviated as
+      <firstterm>internationalisation</firstterm> (commonly abbreviated as
       <abbrev>i18n</abbrev>). This is the phase in an application's development
       where the developers incorporate the pieces needed to assist the
       translators and to subsequently display any message using the translated
@@ -316,14 +323,14 @@ textdomain (GETTEXT_PACKAGE);
 
             <para>I should explain what is happening here: The
             <literal>GETTEXT_PACKAGE</literal> variable is defined by your
-            build process (usually in <filename>configure.in</filename>) and is
-            the name of the message domain for this application. So its value
-            can be set to the name of your program. The
-            <literal>SLICELOCALEDIR</literal> variable (the name is usually
-            based on the application name, but that is entirely arbitrary and
-            up to you) is defined at build time and is the root of the
-            directory hierarchy that will store the message catalogs. The
-            compiled message catalogs will be installed into the directory
+            build process (usually in <filename>configure.in</filename> or
+            <filename>configure.ac</filename>) and is the name of the message
+            domain for this application. So its value can be set to the name of
+            your program. The <literal>SLICELOCALEDIR</literal> variable (the
+            name is usually based on the application name, but that is entirely
+            arbitrary and up to you) is defined at build time and is the root
+            of the directory hierarchy that will store the message catalogs.
+            The compiled message catalogs will be installed into the directory
             <filename><replaceable>SLICELOCALEDIR</replaceable>/<replaceable>locale</replaceable>/LC_MESSAGES/<replaceable>GETTEXT_PACKAGE</replaceable>.mo</filename>.
             </para>
 
@@ -389,12 +396,25 @@ textdomain (GETTEXT_PACKAGE);
          string needs to be so marked. Strings that are not visible to the user
          should usually be left alone (since that way all your configuration
          files and so on are going to be locale independent). You may wish for
-         some portions of error messages to not be translated (so that the user
+         some portions of error messages to not be translated. The user
          can cut and paste those messages into an email to you and you will be
-         able to understand them and grep them out of the code). Usually, it is
+         able to understand them and grep them out of the code. Usually, it is
          not necessary to translate names, although see <xref linkend="tips"/>
          for what happens in the <emphasis>about</emphasis> box of an
-         application. </para>
+         application.</para>
+
+         <para>As a general rule, strings which will be seen by a user in the
+         normal operation of your application should be translated. Strings
+         which are only relevant to the developer &mdash; debugging output and
+         internal error messages, for example &mdash; should
+         <emphasis>not</emphasis> be translated.</para>
+
+         <para>Care should be taken when deciding which messages to mark for
+         translation. Leaving important visible strings untranslated looks
+         unprofessional and inconveniences users. Marking extraneous strings
+         for translation serves no effective purpose and only abuses the
+         service provided by the many volunteer translators working on
+         GNOME.</para>
 
          <sect3 id="source-code">
             <title>Source code files</title>
@@ -1440,6 +1460,15 @@ about_box = gnome_about_new(...
 
    <appendix id="changelog">
       <title>ChangeLog</title>
+
+      <itemizedlist>
+         <title>Changes between version 0.2 and 0.3</title>
+         <listitem>
+            <para>Clarified that marking debugging strings for translation is
+            an abuse of the privilege (obviously not wishing to mince
+            words).</para>
+         </listitem>
+      </itemizedlist>
 
       <itemizedlist>
          <title>Changes between version 0.1 and 0.2</title>
