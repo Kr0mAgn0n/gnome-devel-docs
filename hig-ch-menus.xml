@@ -3,19 +3,49 @@
     <title>Menus</title>
 
 <!-- TODO:
-- Tear-off menus?
+- Tear-off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)
 - Menu bar position
 - Menu bar hiding
-- When should there be a menu bar?
 -->
-    <para>Use menus to reveal commands and options to the user.</para>
-    <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
-    <para>Organize menus according to the standard order, logical order, or freqency of use.</para>
+    <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, placing common menu items in the same menus as they appear in other applications makes it much easier for the user to learn.</para>
+  
+    <para>In most applications, only the top level window should have a menu bar.  Secondary windows, and dialog boxes in particular, should be simple enough that their functions can be carried out by controls such as buttons placed within the window.</para>
+
+    <para>Occasionally, however, a secondary window is so complex that there would be too many controls.  In these cases you may use a menubar provided that:</para>
+
+    <itemizedlist>
+      <listitem><para>the menus follow the same standard layout as described in <xref linkend="standard-menus" /></para></listitem>
+      <listitem><para>you do not include any dialog-style buttons to dismiss the window, such as <guibutton>OK</guibutton>, <guibutton>Close</guibutton> or <guibutton>Cancel</guibutton>, but place these commands on the <guimenu>File</guimenu> menu or equivalent instead.</para></listitem>
+    </itemizedlist>
+
   <!-- CB-Ed: Clearly define "standard" and "logical" order, or give a succinct example, probably later on in the section where details are called for.-->
-    <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
-    <para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para>
-    <para>Provide an access key for each menu item. Unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para>
+
+    <para>Guidelines:</para>
+
+    <itemizedlist>
+
+	<listitem><para>Only place items on a menu that relate to that menu's title.</para></listitem>
+
+      <listitem><para>Organize menus according to the standard order when there is one&mdash; see <xref linkend="standard-menus" /> for the standard order for many common menu items.  For application-specific items where there is no standard order, arrange in numerical or other logical order (for example, <guimenuitem>50%</guimenuitem>, <guimenuitem>100%</guimenuitem>, <guimenuitem>200%</guimenuitem>), task order (for example, <guimenuitem>Compile</guimenuitem> then <guimenuitem>Debug</guimenuitem>) or by expected frequency of use.</para></listitem>
+
+      <listitem><para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para></listitem>
+
+
+    <listitem><para>Provide an access key for each menu item. Note that unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para></listitem>
+
+      <listitem><para>Design your menu structure to avoid more than one level of submenus.  Deep menu hierarchies are physically difficult to navigate, which has accessibility implications.  They are also harder to memorize.</para></listitem>
+
+      <listitem><para>Limit top level menus to a maximum of about 20 items.  If you have any more items than this, consider moving a functionally-related subset of the items into a submenu or a new top-level menu.</para></listitem>
+
+      <listitem><para>Do not add or remove menu items while the application is running, make them insensitive instead. Entire menus may be added or removed from the menu bar at runtime, however, for example in component-based applications.</para></listitem>
+
+      <listitem><para>Change menu items that have been edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, consequent to the appropriate user action.</para></listitem>
+
+
   <!-- CB-Ed: As in JLFDG AT p. 33, perhaps provide a table of common access keys, or "mnemonics." -->
+
+    </itemizedlist>
+
     <sect1 id="menu-controlsparts">
       <title>Menu Controls</title>
       <para>FIXME</para>
@@ -66,35 +96,54 @@
 	  </note>
 
 <!-- CB-Ed: In the previous note, define the Input Methods menu and why it is an exception, for scalability reasons (other items may fall into the same category).  It also sounds like a pretty low-level command; should this be exposed to the user? -->
+
+
+<!--
+
+CFB: Making this note a comment... actually all I really suggested was that the structure ought to be consistent, whether or not 'Properties' is always the last item is kind of incidental.
+
 	  <note>
 	    <title>For Discussion</title>
 	    <para>Calum recommends the last item should be <guimenuitem>Properties</guimenuitem>. For an OOUI, the properties of an object are considered just another view of the object and the item to access them should be placed after the other opening options. It would look rather odd to have <guimenuitem>Properties</guimenuitem> after <guimenuitem>Input Methods</guimenuitem></para>
 	  </note>
+
+
+-->
+
 	</sect3>
       </sect2>
       <sect2 id="menu-item-types">
 	<title>Menu Item Types</title>
-	<para>Provide an access key for kind every menu item, except separators.</para>
+	<para>Provide an access key for every menu item, except separators.</para>
 
 <!-- CB-Ed: typo in previous para, correct to "Provide an access key for every kind of menu item... -->
 
 	<sect3 id="menu-item-type-head">
-	  <title>Heads</title>
-	  <para>Each item on the menu bar is a head item. Head items also appear in drop-down menus which have submenus.</para>
+	  <title>Titles</title>
+	  <para>Each item on the menu bar is a menu title. Menu titles also appear in drop-down menus with submenus.</para>
 
-<!-- CB-Ed/Fig: Again, lots of new terminology (it seems to me, anyway) is being introduced where familiar nomenclature exists.  Items on the menu bar are typically called "Menu Titles."  "Head item" just sounds goofy.  Figures would be good here, especially for the second sentence of the previous para. -->
+<!-- CB-Ed/Fig: Figures would be good here, especially for the second sentence of the previous para. -->
 
-	  <para>Do not disable head items. Allow the user to explore the interface, even though there might be no item on the submenu which may be used.</para>
+	  <para>Do not disable menu titles. Allow the user to explore the menu, even though there might be no available items on it at that time.</para>
 	</sect3>
 	<sect3 id="menu-item-type-sep">
 	  <title>Separators</title>
-	  <para>A separator indicates the end of a group of related items on a drop-down menu, a submenu, or a popup menu.</para>
-
+	  <para>A separator visually divides groups of related items on a drop-down menu, submenu, or popup menu.  Good use of separators helps to &quot;chunk&quot the information on a menu and make it easier to scan and memorize.</para>
 
 <!-- CB-Fig: A main figure for this chapter would probably be great, something along the lines of a menu anatomy figure, calling out different parts and rules for using those parts, of a menu.  The Separators may need its own figure, pointing out the rules shown below. -->
+	  
+	  <para>Guidelines:</para>
+	  <itemizedlist>
 
-	  <para>Groups of two to about five related items should be separated from other groups using separators. A single item at the top or bottom of a menu may appear before or after a group. As with menus generally, the items within a group should be ordered sequentially or by expected frequency of use.</para>
+	    <listitem><para>The best size for a group is around 2-5 items.  Single items should only appear at the top or bottom of a menu, otherwise try to group them with other single items on the same menu.</para></listitem>
+
+	    <listitem><para>Order items within a group logically, numerically, in task order or by expected frequency of use, as appropriate.</para></listitem>
+
+	    <listitem><para>Every menu item in any one group should be of the same type&mdash; command, mutable, checkbox or radio button.  For example, do not place commands (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> in the same group.</para></listitem>
+
+	    </itemizedlist>	  
 	</sect3>
+
 	<sect3 id="menu-item-type-command">
 	  <title>Command Items</title>
 	  <para>Command items . . .</para>
@@ -115,18 +164,32 @@
 
 <!-- CB-Ed/Fig: "requires" in the previous para probably doesn't require emphasis. Figure would be nice here. -->
 	</sect3>
+
 	<sect3 id="menu-item-type-mutable">
 	  <title>Mutable Command Items</title>
-	  <para>A mutable command item changes its label when activated.</para>
+	  <para>A mutable command item changes its label when selected.  For example, <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> in a browser may change to <guimenuitem>Stop</guimenuitem> to allow the user to interrupt the operation if it is taking a long time.</para>
+
+	  <para>Mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a new or different function has become available.  It is therefore often better to provide separate menu items for the available functions and make them available or unavailable as the situation demands.</para>
+
+	  <note><title>Mutable items for settings</title>
+	    <para>What's our position on mutable items for settings, e.g. Show Toolbar/Hide Toolbar in Nautilus?</para>
+	  </note>
+
 	</sect3>
 	<sect3 id="menu-item-type-check">
-	  <title>Check Items</title>
-	  <para>A check item . . .</para>
+	  <title>Checkbox Items</title>
+
+	  <para>A checkbox menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
+	  
+	  <para>Use a checkbox menu item only when it is obvious from the label what the two states are.  For example, it is reasonably obvious that <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> checkbox menu item will toggle the visibility of the application's toolbar on or off.  However, <menuchoice><guimenu>View</guimenu><guimenuitem>View as Icons</guimenuitem></menuchoice> would be a bad setting to control with a checkbox menu item, since it is not clear what type of view would be used if you unchecked the menu item.  Using two radio button menu items would be more appropriate in this case, to make the two choices explicit.</para>
+
+	  <para>Never change the label of a checkbox menu item in response to the user checking or unchecking the item.</para>
+
 	</sect3>
 	<sect3 id="menu-item-type-radio">
-	  <title>Radio Group Items</title>
-	  <para>Radio group items . . .</para>
-	</sect3>
+	  <title>Radio Button Items</title>
+
+
 	<!--
 	Adam notes that this whole section can be a significant source of
 	nastiness in a UI. We need explicit recommendations here on how to
@@ -145,7 +208,18 @@
 	(or a dynamic menu name). This is generally important when the two 
 	states are not naturally opposites.
 	-->
+
+	  <para>Radio button menu items show which of two or more mutually-exclusive settings are currently selected, and allows the user to choose a different setting by selecting its menu item.</para>
+
+	  <para>Even if there are only two possible settings, use a group of two radio button items instead of a checkbox menu item if the two settings are not clearly opposites.  For example, <guimenuitem>View as Icons</guimenuitem> and <guimenu>View as List</guimenu> should be represented as two radio button items rather than a single checbox item.</para>
+
+	  <para>Never change the label of a radio button menu item in response to the user selecting or deselecting the item.</para>
+
+	</sect3>
+	
       </sect2>
+
+
     </sect1>
     <sect1 id="standard-menus">
       <title>Standard Menus</title>
@@ -345,7 +419,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <varlistentry>
 	      <term>Close</term>
 	      <listitem>
-		<para>Close the current document. If the document in the current window has unsaved changes then the user should be presented with an alert giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application then the application should, in the case of an SDI interface, leave the user with a blank document, or, in the case of a controlled SDI interface, the control window should be left open.</para>
+		<para>Close the current document. If the document in the current window has unsaved changes, present the user with an alert giving the option to save changes (which should function like the <menuchoice><guimenu>File</guimenu> <guimenuitem>Save</guimenuitem></menuchoice> command), discard the changes or cancel the action. If the window being closed is the last open document of that application, then either leave the with a blank document if your application is MDI, or leave only the control window open if your application is CSD).</para>
 		<note>
 		  <title>For Discussion</title>
 		  <para>As mentioned on the usability list, Control+W is an Emacs shortcut for Cut. This has already proven deleterious for some users so we should consider dropping the shortcut (at least). The graphic shows Alt+F4 which is a used in Windows, CDE, and OS/2 for closing windows.</para>
@@ -355,7 +429,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <varlistentry>
 	      <term>Quit</term>
 	      <listitem>
-		<para>Quit the application. If there are unsaved changes in any of the currently open documents then the user should be presented with an alert listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes then the application should quit with no further interaction with the user.</para>
+		<para>Quit the application. If there are unsaved changes in any open documents, present the user with an alert listing those documents and giving the option to save all, discard all, or cancel. If there are no unsaved changes then close the application immediately without presenting any further messages or dialogs.</para>
 		<note>
 		  <title>For Discussion</title>
 		  <para>Kathy had suggested not providing a shortcut key to Quit. I can find no discussion of this. (And I think it should go away.)</para>
@@ -397,22 +471,22 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<para>The <guimenu>Edit</guimenu> menu should contain items relating to editing the document, clipboard handling, selection and searching and replacing. {. . . and the application Preferences item}</para>
+	<para>The <guimenu>Edit</guimenu> menu contains items relating to editing the document, clipboard handling, selection and searching and replacing. {. . . and the application Preferences item}</para>
 
 	<sect3>
 	  <title>Modification History</title>
-	  <para>Document-editing applications are recommended to maintain a history of modifications to a document and the state of the document between each action. The Undo and Redo commands are used to move through this history. The <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> items on the menu should preferably include the name of the action they will undo or redo. They should always be separate menu items with separate keyboard shortcuts, even if the application is capable of only one undo level.</para>
+	  <para>Document-editing applications are recommended to maintain a history of modifications to a document and the state of the document between each action. The Undo and Redo commands are used to move through this history. The <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem> items on the menu include the name of the action they will undo or redo (NB: not currently easy to do in gtk). They are always be separate menu items with separate keyboard shortcuts, even if the application is capable of only one undo level.</para>
 	  <variablelist>
 	    <varlistentry>
 	      <term>Undo <replaceable>action</replaceable></term>
 	      <listitem>
-		<para>Undoes the previous action in the history. The document should be changed to the state it was in before the previous action was performed.</para>
+		<para>Undoes the previous action in the history. The document reverts to the state it was in before the previous action was performed.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
 	      <term>Redo <replaceable>action</replaceable></term>
 	      <listitem>
-		<para>Redoes the following action in the history. After the user has travelled back through the modification history with the <guimenuitem>Undo</guimenuitem> command, the <guimenuitem>Redo</guimenuitem> command should move the user forwards through that history and change the document state to the state it was in after that action had been performed.</para>
+		<para>Repeats the following action in the history list. After the user has travelled back through the modification history with the <guimenuitem>Undo</guimenuitem> command, the <guimenuitem>Redo</guimenuitem> command moves the user forwards through that history and changes the document back to the state it was in after that action had been performed.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -422,12 +496,12 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	  <variablelist>
 	    <varlistentry><term>Cut</term>
 	      <listitem>
-		<para>Removes the selected content and places it onto the clipboard. The content should be removed in the same manner as <guimenuitem><accel>D</accel>elete</guimenuitem>. This command should only be available when a section of the document is selected.</para>
+		<para>Removes the selected content and places it onto the clipboard. Remove the content in the same manner as <guimenuitem><accel>D</accel>elete</guimenuitem>. Only make this command available when a section of the document is selected.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry><term>Copy</term>
 	      <listitem>
-		<para>Copies the selected content onto the clipboard. This command should only be available when a section of the document is selected.</para>
+		<para>Copies the selected content onto the clipboard. Only make this command available when a section of the document is selected.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry><term>Paste</term>
@@ -453,7 +527,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <varlistentry>
 	      <term>Deselect All</term>
 	      <listitem>
-		<para>Deselects all selected parts of the document. Only provide this when no other method of undoing selection may be apparent. It is expected that this item will be very rare, but when needed it should be placed after Select All</para>
+		<para>Deselects all selected parts of the document. Only provide this when no other method of undoing selection may be apparent. It is expected that this item will be very rare, but place it after <guimenuitem>Select All</guimenuitem> when required.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -470,7 +544,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    <varlistentry>
 	      <term>Find Next</term>
 	      <listitem>
-		<para>Finds the next instance of the last Find term. This item should be insensitive if there is no next instance and the find does not wrap around to the beginning of the document.</para>
+		<para>Finds the next instance of the last Find term. Make this item insensitive if there is no next instance and the find does not wrap around to the beginning of the document.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -497,7 +571,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	</sect3>
 	<sect3>
 	  <title>User Preferences</title>
-	  <para>User preferences pertaining to the entire application (in all its instances) should be editable from a preferences dialog. <!-- or utility window? --></para>
+	  <para>A user preferences dialog allows the user to change preferences for the whole application (in all its instances). <!-- or utility window? --></para>
 	</sect3>
       </sect2>
       <sect2 id="menu-standard-view">
@@ -699,7 +773,7 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	  <varlistentry>
 	    <term>About <replaceable>appname</replaceable></term>
 	    <listitem>
-	      <para>Brings up the About dialog for the application. The dialog should contain the name and version number of the application, a short description of what the application does, contact details of the authors, a copyright notice, and a pointer to the license under which the application is made available.</para>
+	      <para>Brings up the About dialog for the application. This dialog contains the name and version number of the application, a short description of what the application does, contact details of the authors, a copyright notice, and a pointer to the license under which the application is made available.</para>
 	    </listitem>
 	  </varlistentry>
 	</variablelist>
