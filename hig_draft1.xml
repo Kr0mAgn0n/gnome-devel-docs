@@ -378,8 +378,8 @@
     
   </sect1>
 
-<sect1 id="menus-toolbars">
-    <title>Menus and Toolbars</title>
+<sect1 id="menus">
+    <title>Menus</title>
 
 
 <sect2 id="menu-principles">
@@ -859,6 +859,13 @@ Brings up a Replace dialog.
 
 </variablelist>
 
+<!-- Note moved here by CB from the middle of his stuff... --> 
+<note>
+<title>Search and Find</title>
+<para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
+<para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para> 
+</note>
+	  
 </sect4>
 
 </sect3>
@@ -933,14 +940,19 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 </sect2>
 
+</sect1>
+ 
     <!-- Toolbars (subsection of menus+toolbars) -->
-    <sect2 id="hig-toolbars">
-      <title>Toolbars and Palettes</title>
+<sect1 id ="toolbars-palettes">
+    <title>Toolbars and Palettes</title>
+    
+    <sect2 id="toolbars">
+      <title>Toolbars</title>
       
-      <para>A toolbar is a strip of controls that allows rapid access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
-
+      <para>A toolbar is a strip of controls that allows convenient access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
+      
       <para>A palette is essentially a floating toolbar.  However, its size and shape is more customizable, and it typically has a titlebar of its own and appears in the GNOME task list. <emphasis>Although the latter is more a side-effect of the fact that palettes can't be created with the standard toolbar widgets-- it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</emphasis></para>
-
+      
       <figure>
 	<title>Different types of toolbar from GNOME 1.4 applications (TODO: these don't comply to the recommendations given here!)</title>
 	
@@ -971,7 +983,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       </figure>
 
 
-      <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however, as too many toolbar controls will reduce their efficiency by making them harder to find, and too many toolbars will reduce the amount of screen space available to the rest of the application.</para>
+      <para>Careful and consistent toolbar design speeds up the user's task by giving direct access to functions that would otherwise be hidden on a menu.  Use them only for the most important functions, however.  Too many toolbar controls will reduce their efficiency by making them harder to find, and too many rows of toolbars will reduce the amount of screen space available to the rest of the application.</para>
 
       <para>Recommendations:</para>
 
@@ -1099,7 +1111,6 @@ Brings up the About dialog for the application. The dialog should contain the na
 		  <entry>Four or more toolbars
 	</entry>
 	</row>
-		
 	  
 	      </tbody>
 	    </tgroup>
@@ -1109,7 +1120,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       </sect3>
       
       <sect3>
-	<title>Default Toolbar Layout - Office Applications</title>
+	<title>Default Toolbar Layout&mdash; Office Application</title>
 
 	<para>However many toolbars or palette windows your application provides, by default there should be one main toolbar that provides a subset of the application's overall functionality.  Many of the buttons on this toolbar will be the same regardless of the type of application.</para>
 
@@ -1131,13 +1142,13 @@ Brings up the About dialog for the application. The dialog should contain the na
 	<para>If you wish to add a <guibutton>Help</guibutton> toolbar button, it should be placed last (rightmost, in western locales) on the main toolbar.  However, adding a <guibutton>Help</guibutton> button to the toolbar is not generally recommended, as usability studies suggest that it will be rarely used.  (N.B. This finding applies only to toolbars, not <guibutton>Help</guibutton> buttons in dialogs).</para>
 	
 	<note><title>For Discussion</title>
-	  <para>Is the stock "delete" icon suitable for things like "delete selected text" in a word processor, or is that more of a "clear" function (which has a different stock icon)?  The trashcan metaphor seems a bit odd for deleting text.</para>
+	  <para>Consensus was that neither the current "delete" nor "clear" stock icons were particularly good, but the preferred "red X" is already in use for Close and Cancel.  How can we reolve this?</para>
 	</note>
 
       </sect3>
       
       <sect3>
-	<title>Default Toolbar Layout - Browser Applications</title>
+	<title>Default Toolbar Layout&mdash; Browser Applications</title>
 
 	<para>Applications for browsing documents or other objects, such as web, file, help or documentation browsers, should use the following layout for their main toolbar:</para>
 
@@ -1214,12 +1225,11 @@ Brings up the About dialog for the application. The dialog should contain the na
 
 
       </sect3>
+    </sect2>
 
-      <sect3>
-	<title>Palettes</title>
-	<para>TODO</para>
-      </sect3>
-
+    <sect2>
+      <title>Palettes</title>
+      <para>TODO</para>
     </sect2>
 </sect1>
 
@@ -1657,7 +1667,7 @@ It is essential that the extent of option groups such as radio buttons be made c
 
 
     <!-- Colors, Fonts and Accessibility -->
-    <sect2 id="hig-colors-fonts">
+    <sect2 id="colors-fonts">
       <title>Fonts and Text</title>
       
       <para>To a user with normal vision, textual output provides the majority of the information and feedback in most applications.  To a visually-impaired user who may not be able to see or understand any additional graphical output, clear textual output is critical.  It is therefore essential that you choose and position text carefully on the screen, and leave the choice of fonts and sizes to the user, to ensure that all users are able to use your application effectively.</para>
@@ -2254,13 +2264,13 @@ text/mathml
       <para>Recommendations:</para>
       <itemizedlist>
 	 
-	<listitem><para>The left button is used for selection, activation of components, dragging, and the display of drop-down menus.</para></listitem>
+	<listitem><para>The left button should be used for selection, activation of components, dragging, and the display of drop-down menus.</para></listitem>
 
-	<listitem><para>The right button is used to display and select actions from a popup menu.</para></listitem>  
+	<listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
 
-	<listitem><para>The middle mouse button is used only as a shortcut for very experienced users, and for operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
+	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere in your application, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
 
-	<listitem><para>The scrollwheel, if present, should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and Shift+scrollwheel (or Ctrl+scrollwheel?) should scroll horizontally.</para></listitem>
+	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><keycap>scrollwheel</keycap></keycombo> <emphasis>(or <keycombo><keycap>Ctrl</keycap><keycap>scrollwheel</keycap></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
 
 	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
@@ -2268,15 +2278,15 @@ text/mathml
 
 	<listitem><para>Don't warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who don't rely on assistive technologies.</para></listitem>
 
-	<listitem><para>Don't require the use of chording (pressing multiple mouse buttons simultaneously) for any purpose.</para></listitem>
+	<listitem><para>Don't require the use of chording (pressing multiple mouse buttons simultaneously) for any operations.</para></listitem>
 
-	<listitem><para>Don't require the use of multiple (triple- or quadruple-) clicking actions for any purpose, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
+	<listitem><para>Don't require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
 
 	<listitem><para>Allow all mouse operations to be cancelled. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
 
 	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
 
-	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. (Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme).</para></listitem>
+	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</para></listitem>
       </itemizedlist>
       
     </sect2>
@@ -2346,20 +2356,44 @@ user can select, either singly or multiply, ensure the following mechanisms are 
       </sect3>
       
       <sect3>
-	<title>Rubber-band selection</title>
+	<title>Bounding Box Selection</title>
 
-	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  Shift+drag should add all the objects within the bounding box to the existing selection.  Ctrl+Drag should toggle the selection state of all the objects within the bounding box.  Dynamic highlighting should be used to show which objects are currently selected while the box is being dragged out, rather than waiting until the mouse button is released.</para>
+	<para>For a container whose objects may be arranged in two dimensions (e.g. Nautilus "View as Icons"), multiple selection should be possible by dragging a bounding box around one or more objects.  <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo> should add all the objects within the bounding box to the existing selection.  <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> should toggle the selection state of all the objects within the bounding box.</para>
+	<para>Recommendations:</para>
+	<itemizedlist>
 
+	  <listitem><para>By default, only objects that are completely enclosed by the bounding box when the mouse button is released should be selected.  However, it is sometimes useful to allow selection when any part of an object is enclosed, for example, when zoomed in to a high magnification in a drawing application.  If both these options prove useful within the same application, allow the user to choose which method they prefer in the <guilabel>Preferences</guilabel> dialog.</para></listitem>
+
+	<listitem><para>Always use dynamic highlighting to show which objects are currently selected while the box is being dragged out.  Don't wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</para></listitem>
+
+	<listitem><para>When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</para></listitem>
+
+	</itemizedlist>
+
+	<note>
+	  <title>For discussion</title>
+	  <para>In practice, if you want to switch between "select completely enclosed objects" and "select partially enclosed objects" mode for bounding box selection in apps where it's useful to do so, you're probably not going to want to do it via the <guilabel>Preferences</guilabel> dialog.  A keyboard modifier while dragging the box, or a GtkCheckMenuItem are more likely to be useful.  Can we think of a standard for either that's worth documenting?</para>
+	</note>
 	
-	<figure> <title>Example illustrating dynamic selection during rubber-banding</title>
+	<figure> <title>Examples illustrating dynamic selection highlighting during bounding box selection</title>
 	  <mediaobject>
 	    <imageobject>
 	      <imagedata fileref="images/rubberband.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>Example illustrating dynamic selection during rubber-banding</phrase>
+	      <phrase>Example illustrating dynamic selection highlighting during bounding box selection</phrase>
 	    </textobject>
 	  </mediaobject>
+
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/rubberband_dia.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+	      <phrase>Example illustrating dynamic selection highlighting during bounding box selection</phrase>
+	    </textobject>
+	  </mediaobject>
+	  
 	</figure>
 
       </sect3>
@@ -2372,7 +2406,12 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
       <para>&lt;pics&gt;</para>
 
-      <para>An object is normally dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed. The object is dropped there by releasing the mouse button.  Dragging with the right button instead of the left pops up a menu when the button is released, allowing you to choose which action (normally one of Copy, Move, Link or Cancel) to perform.</para>
+      <para>An object is normally dragged by clicking it with the left mouse button, then moving the pointer to the object's target location while the button is still pressed. The object is dropped there by releasing the mouse button.  
+<!-- Consensus was not to recommend right-button dragging
+Dragging with the right button instead of the left pops up a menu when the button is released, allowing you to choose which action (normally one of Copy, Move, Link or Cancel) to perform.
+-->
+</para>
+
       <para>Multiple objects may be dragged by Shift or Ctrl selecting them, then dragging any one of the selected objects.</para>
       
       <para>Recommendations:</para>
@@ -2382,8 +2421,11 @@ user can select, either singly or multiply, ensure the following mechanisms are 
 
 	<listitem><para>Dragging with the right mouse button pops up a menu when the mouse button is released, offering the choice of Copy, Move, Link, and Cancel (or whichever subset of those actions is available).  Cancel should always be available.</para></listitem>
 
-	<listitem><para>A drag and drop operation can be cancelled by: pressing Esc before
-releasing the mouse button, by dropping the object back on its original source, by dragging withe right mouse button and selecting <guimenu>Cancel</guimenu> on the pop-up menu that appears, or by dropping the object on an invalid drop target.</para></listitem>
+	<listitem><para>A drag and drop operation can be cancelled by: pressing Esc before releasing the mouse button, by dropping the object back on its original source,
+
+<!-- by dragging withe right mouse button and selecting <guimenu>Cancel</guimenu> on the pop-up menu that appears,--> 
+
+or by dropping the object on an invalid drop target.</para></listitem>
 
 	<listitem><para>Keyboard users can replicate all drag and drop actions using keyboard shortcuts, such as Copy (Ctrl+C) and Paste (Ctrl+V).</para></listitem>
 
@@ -2391,19 +2433,27 @@ releasing the mouse button, by dropping the object back on its original source, 
 	
 	<listitem><para>Valid targets are highlighted as the pointer passes over them.</para></listitem>
 	<listitem><para>When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</para></listitem>
+
+	<!-- Not considered a terribly useful suggestion...
 	<listitem><para>A tooltip is provided when the pointer is paused over a valid drop target. It describes what will happen if the object is dropped there.  <emphasis>Is this feasible in GNOME?</emphasis></para></listitem>
+	-->
 	
 	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
 
-	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the UI (e.g. a top-level application window), or a UI representation of a physical container (e.g. a disk or disk partition).<emphasis>This is perhaps too simplistic and almost certainly not terribly obvious to users, which is why the right mouse drag menu came into existence in the first place!  E.g. one immediately obvious exception is that dragging anything into Trash should move it rather than copy it.</emphasis></para></listitem>
+	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the UI (e.g. a top-level application window), or a UI representation of a physical container (e.g. a mail server or disk partition).</para></listitem>
 
 	<listitem><para>By default, dragging is non-destructive, i.e. dragging an object from one container to another drags a link or copy, leaving the original intact.</para></listitem>
 
 	<listitem><para>By default, dropping an object into a different window adds it to the existing contents of that window rather than overwriting them (if both options are available).</para></listitem>
 	
       </itemizedlist>
+
+      <note>
+	<title>For discussion</title>
+	<para>The whole "dragging between containers" thing concerns me, as it's not always obvious to users what constitues a "container", especially when it gets down to physical details that the user may not even know or care about (e.g. different disk partitions). This is why the right mouse drag menu we're now discrediting came into existence in the first place.  There are also exceptions to the rule, e.g. dragging anything into Trash should presumably move it rather than copy it.</para>
+      </note>
       
-      <para>The default behaviour of a drag and drop operation may be modified by holding the Ctrl and/or Shift key throughout:</para>
+      <para>The default behaviour of a drag and drop operation may be modified by holding the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> key throughout:</para>
 
 	<table frame='all'>
 	  <title>Effect of modifier keys during a drag and drop operation</title>
@@ -2431,19 +2481,19 @@ releasing the mouse button, by dropping the object back on its original source, 
 	</tgroup>
       </table>
 
-      <para>Holding Ctrl, Shift or Ctrl+Shift during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
+      <para>Holding <keycap>Ctrl</keycap>, <keycap>Shift</keycap> or <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap></keycombo> during a right-button drag has no effect; the same pop-up menu still appears at the drop position.</para>
 
-      <para>Always make drag and drop actions reversible. The application's normal Undo function (on the Edit menu) should provide for this. By only allowing objects to be copied between applications, not moved, possible confusion about which application's Undo should reverse the action is avoided.</para>
+      <para>Always make drag and drop actions reversible. The application's normal <guimenuitem>Undo</guimenuitem> function (on the <guimenu>Edit</guimenu> menu) should provide for this. By only allowing objects to be copied between applications, not moved, possible confusion about which application's <guimenuitem>Undo</guimenuitem> should reverse the action is avoided.</para>
 
       <sect3>
-	<title>Mouse Interaction with Panel Gadgets (Applets)</title>
+	<title>Mouse Interaction with Applets</title>
 	<para>Proposal for mouse interaction with Panel Gadgets:</para>
 	<itemizedlist>
-	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the Ctrl and/or Shift keys could reposition the gadget as if dragging with the middle mouse button (Ctrl+drag=copy, if moving to another panel; Shift+Drag=move, if moving to another panel).</para></listitem>
+	    <listitem><para>Left button: <emphasis>Only</emphasis> the unmodified left button should be used to interact with the gadget's controls. Gadgets should be simple enough not to require modified clicking or clicking with other mouse buttons. (Current offender=deskguide).  Suggestion: Clicking and dragging anywhere within the gadget window whilst holding down the <keycap>Ctrl</keycap> and/or <keycap>Shift</keycap> keys could reposition the gadget as if dragging with the middle mouse button (<keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo>=copy, if moving to another panel; <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel).</para></listitem>
 
 	  <listitem><para>Right button: Clicking the right button <emphasis>anywhere</emphasis> within the gadget's enclosing window should pop-up either the contextual menu for the whole gadget, or the contextual menu for the object within the gadget's window that currently lies under the mouse cursor.</para></listitem>
 
-	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; Ctrl+drag = copy, if moving to another panel; unmodified drag or Shift+drag=move, if moving to another panel.  (If moving within same panel, I assume we're retaining Ctrl=switched movement, Shift=push movement as in 1.4).</para></listitem>
+	  <listitem><para>Middle button: The middle button should be used <emphasis>only</emphasis> for dragging the gadget to a new location.  Clicking and dragging <emphasis>anywhere</emphasis> within the gadget's window should move the gadget; <keycombo><keycap>Ctrl</keycap><keycap>drag</keycap></keycombo> = copy, if moving to another panel; unmodified drag or <keycombo><keycap>Shift</keycap><keycap>drag</keycap></keycombo>=move, if moving to another panel.  (If moving within same panel, I assume we're retaining <keycap>Ctrl</keycap>=switched movement, <keycap>Shift</keycap>=push movement as in 1.4).</para></listitem>
 	</itemizedlist>
 
       </sect3>
@@ -2486,8 +2536,7 @@ fine motor control skills required.</para>
 	<listitem><para>Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</para></listitem>
 
 	<listitem><para>Ensure correct tab order for controls whose enabled state is dependent on checkbox, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a checkbox, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
-
-<!-- See <link linkend="hig-keynav-examples">Keyboard Navigation Examples</link>.</para>--></listitem>
+<!-- See <link linkend="keynav-examples">Keyboard Navigation Examples</link>.--></para></listitem>
 
 
 	<listitem><para>Don't over-ride existing system-level accessibility features. For example, <ulink url="http://www.rehab.uiuc.edu/accessx/overview.html">AccessX</ulink> is an X server extension that has been supported since X11R6. The "MouseKeys" feature of this extension allows mouse movement and button clicks to be simulated using the keypad. Therefore you should not add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</para></listitem>
@@ -2515,7 +2564,7 @@ fine motor control skills required.</para>
 
 <!-- The following example should "just work" with Owen's patch for radio button keynav, so I'm leaving it out for now.  Are there any other examples we could/should illustrate instead? 
     
-  <sect3 id="hig-keynav-examples">
+  <sect3 id="keynav-examples">
 	<title>Keyboard Navigation Examples</title>
 
 	<para>The figure below depicts correct <keycap>Tab</keycap> navigation order for a group of three radio buttons, two of which have dependent controls.  (Remember that when the control immediately before the radio button group in this window has focus, pressing Tab will move the  focus either to state 1, 3 or 5 depending on which radio button is already selected).</para>
@@ -2722,14 +2771,11 @@ fine motor control skills required.</para>
 		<entry>Ctrl+W</entry>
 		<entry>Close the current document</entry>
 	      </row>
-
-<!-- Consensus was to not have a shortcut for Quit
 	      <row>
 		<entry>_Quit</entry>
 		<entry>Ctrl+Q</entry>
 		<entry>Quit the application</entry>
 	      </row>
--->
 	    </tbody>
 	  </tgroup>
 	</table>
@@ -2775,10 +2821,11 @@ fine motor control skills required.</para>
 		<entry>Ctrl+A</entry>
 		<entry>Select everything in focused control or window</entry>
 	      </row>
+
 	      <row>
-		<entry>Select _None</entry>
+		<entry>Deselect All</entry>
 		<entry>Shift+Ctrl+A</entry>
-		<entry>Deselect everything in focused control or lwindow</entry>
+		<entry>Deselect everything in focused control or window</entry>
 	      </row>
 	      <row>
 		<entry>_Delete</entry>
@@ -2792,7 +2839,7 @@ fine motor control skills required.</para>
 	      </row>
 	      <row>
 		<entry>Find Ne_xt</entry>
-		<entry>Ctrl+G (or F3?)</entry>
+		<entry>Ctrl+G</entry>
 		<entry>Find the next match</entry>
 	      </row>
 	      <row>
@@ -2811,6 +2858,8 @@ fine motor control skills required.</para>
 <!-- Consensus was for "Deselect All"
 	  <para>czr currently proposing "Select None" rather than "Deselect All", which is better?  I prefer the latter because it's more visually distinct on a menu, in English at least.</para>
 -->
+	  <para>Should we call it "Find Next" or "Find Again"?</para>
+
 	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser apps&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
 
 <!-- Consensus is to keep Letter-based accelerators
@@ -2819,11 +2868,7 @@ fine motor control skills required.</para>
 
 	</note>
 
-	<note><title>Search and Find</title>
-	  <para>Not really the right section for it, but I'll add it here so we don't forget it...</para>
-	  <para><guimenuitem>Find</guimenuitem> should be used for functions that locate text etc. in the currently loaded/focused document, with results highlighted in-place.</para>
-	  <para><guimenuitem>Search</guimenuitem> should be used for functions that locate text etc. in locations (potentially) other than the current document, e.g. mail folders, website, disk partition etc., with results generally shown in a separate window.</para>
-	</note>
+	
 	
 
 	<table frame='all' pgwide='1'>
@@ -2858,7 +2903,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<note><title>Reload/Refresh</title>
-	  <para>Some apps need both reload and refresh, should we specify shortcuts for both? (E.g. Ctrl+R = refresh, Shift+Ctrl+R = reload, or vice versa?)</para>
+	  <para>Some apps need both reload and refresh, should we specify shortcuts for both? (E.g. <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = refresh, <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> = reload, or vice versa?)</para>
 	</note>
 	
 	<table frame='all' pgwide='1'>
@@ -3103,7 +3148,7 @@ fine motor control skills required.</para>
 	<para>Using only keyboard commands, move the focus through all menu bars and toolbars in the application. Also confirm that:</para>
 	
 	<itemizedlist>
-	  <listitem><para>Context sensitive menus display correctly (Shift+F10).</para></listitem>
+	  <listitem><para>Context sensitive menus display correctly (<keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>).</para></listitem>
 	  <listitem><para>Tooltips can be popped up and down for all controls that have them (Ctrl+F1, Esc).</para></listitem>
 
 	  <listitem><para>All functions listed on the toolbar can be performed using the keyboard.</para></listitem>
