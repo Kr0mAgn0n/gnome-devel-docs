@@ -942,7 +942,7 @@ Brings up the About dialog for the application. The dialog should contain the na
       <para>A palette is essentially a floating toolbar.  However, its size and shape is more customizable, and it typically has a titlebar of its own and appears in the GNOME task list. <emphasis>Although the latter is more a side-effect of the fact that palettes can't be created with the standard toolbar widgets-- it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</emphasis></para>
 
       <figure>
-	<title>Different types of toolbar from GNOME 1.4 applications (NB these don't comply to the recommendations given here!)</title>
+	<title>Different types of toolbar from GNOME 1.4 applications (TODO: these don't comply to the recommendations given here!)</title>
 	
 	<mediaobject><imageobject>
 	    <imagedata fileref="images/GtkToolbar.png" format="PNG"/>
@@ -1031,47 +1031,83 @@ Brings up the About dialog for the application. The dialog should contain the na
       <sect3>
 	<title>Controlling Display and Appearance of Toolbars</title>
 
-	<para><emphasis>This whole section for discussion...</emphasis></para>
+	<para>For each toolbar in your application, the user should be able to choose whether to show that toolbar or not, and whether to show its contents as icons only, text only or both.  (Ideally, default settings for icons/text/both should be set in the control center, but over-ridable in each individual application&mdash; is this the current plan for 2.0?).</para>
 
-	<para>The control center should allow the setting of the default toolbar display mode for all applications&mdash; show/hide all toolbars by default, and show them as text only, icons only, or both.  However, if your application uses toolbars, allow the user to over-ride these defaults for your particular application by adding the following functions to the <guimenu>View</guimenu> menu.</para>
+	<para>Recommendations:</para>
+	<itemizedlist>
 
+	  <listitem><para>Allow the user to over-ride the control center toolbar defaults for your particular application in the application's <guilabel>Preferences</guilabel> dialog.  In particular, ensure that the user can separately choose to show each toolbar in your application as icons only, text only, or both.</para></listitem>
 
-	<para>For an application with a single toolbar:</para>
+	  <listitem><para>If your application has a single toolbar, allow the user to turn it on or off by placing a <guimenuitem>Toolbar</guimenuitem> menu item on the application's <guimenu>View</guimenu> menu that can be checked or unchecked.</para></listitem>
 
-	<literallayout class="monospaced">	
-_View
-...
-...
-_Toolbar >  _Show/_Hide Toolbar (see below)
-            ---
-            [x] Te_xt Only
-            [x] _Icons Only
-            [x] _Both Text and Icons
-            ---
-            _Customize... (if supported)</literallayout>
+	  <listitem><para>If your application has two or three toolbars, allow the user to turn them on or off individually by placing a menu item for each one on the application's <guimenu>View</guimenu> menu.  For example, <guimenuitem>Main Toolbar</guimenuitem>, <guimenuitem>Drawing Toolbar</guimenuitem>, <guimenuitem>Formatting Toolbar</guimenuitem>. Place the items together in a single group on the menu, with <guimenuitem>Main Toolbar</guimenuitem> first (if your application has one), followed by the others in alphabetical order.</para></listitem>
 
-	<para>While the toolbar is displayed, the first item in the submenu should be labelled <guimenuitem>_Hide Toolbar</guimenuitem>.  While the toolbar is hidden, the first item in the submenu should be labelled <guimenuitem>_Show Toolbar</guimenuitem>.</para>
+	  <listitem><para>If your application has more than three toolbars, allow the user to turn them on or off individually by placing a menu item for each one in a <guisubmenu>Toolbars</guisubmenu> sub-menu on the application's <guimenu>View</guimenu> menu.  Place the <guimenuitem>Main Toolbar</guimenuitem> item first (if your application has one), followed by the others in alphabetical order.</para></listitem>
 
-	<para>For an application with multiple toolbars:</para>
+	</itemizedlist>
+	
+	<example><title>Example View menus for applications with one or more toolbars</title>
+	  
+	  <informaltable frame='all'>
+	    
+	    <tgroup cols='2'>
+	      <tbody>
+		<row>
+		  <entry>
+		    <mediaobject><imageobject>
+			<imagedata fileref="images/view-toolbar1.png" format="PNG"/>
+		  </imageobject>
+		    <textobject>
+		      <phrase>Example View menu for application with single toolbar</phrase>
+		    </textobject>
+		  </mediaobject>
+		  </entry>
+		  
+		  <entry>Single toolbar
+		  </entry>
+		</row>
+		
+		<row>
+		  <entry>
+		    <mediaobject>
+		      <imageobject>
+			<imagedata fileref="images/view-toolbar2.png" format="PNG"/>
+		  </imageobject>
+		    <textobject>
+		      <phrase>Example View menu for application with two or three toolbars</phrase>
+		    </textobject>
+		  </mediaobject>
+		  </entry>
+		  
+		  <entry>Two or three toolbars
+	</entry>	
+		</row>
+		
+		<row>
+		  <entry>
 
-	<literallayout class="monospaced">
-_View
-...
-...
-_Toolbars > [x] {Toolbar1 name}
-            [x] {Toolbar2 name}
-             .
-             .
-            [x] {ToolbarN name}
-            ---
-            [x] Te_xt Only
-            [x] _Icons Only
-            [x] _Both Text and Icons	
-            ---
-            _Customize... (if supported)</literallayout>
+	  <mediaobject><imageobject>
+			<imagedata fileref="images/view-toolbar3.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+		      <phrase>Example View menu with Toolbars submenu, for application with four or more toolbars</phrase>
+		    </textobject>
+	  </mediaobject>
+
+	</entry>
+		  
+		  <entry>Four or more toolbars
+	</entry>
+	</row>
+		
+	  
+	      </tbody>
+	    </tgroup>
+	  </informaltable>
+	</example>
+	
       </sect3>
-
-
+      
       <sect3>
 	<title>Default Toolbar Layout - Office Applications</title>
 
@@ -1105,9 +1141,9 @@ _Toolbars > [x] {Toolbar1 name}
 
 	<para>Applications for browsing documents or other objects, such as web, file, help or documentation browsers, should use the following layout for their main toolbar:</para>
 
-	<para>[Back][Forward][Other Navigation][Stop][Reload]-[Home]-[Other AppSpecific]</para>
+	<para>Back Forward [Other Navigation] Stop Reload | Home | [Other App-Specific]</para>
 	
-	<para>Application specific buttons should be placed between <guibutton>Reload</guibutton> and <guibutton>Stop</guibutton>, following the order they appear on the main menu bar.</para>
+	<para>Application-specific buttons (other than navigation buttons) should be placed in the button group following <guibutton>Home</guibutton>, in the order that they appear on the main menu bar.</para>
 	
 	<para>Following this model, some current GNOME browser apps would have their toolbars re-ordered as follows:</para>
 
@@ -1134,7 +1170,7 @@ _Toolbars > [x] {Toolbar1 name}
 	      </row>
 	      <row>
 		<entry>Nautilus (proposed)</entry>
-		<entry>Back Forward up Stop Reload | Home | WebSearch Services </entry>
+		<entry>Back Forward Up Stop Reload | Home | WebSearch Services </entry>
 	      </row>
 	    </tbody>
 	  </tgroup>
