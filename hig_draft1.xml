@@ -1602,7 +1602,7 @@ right of small icons, and immediately above or to the left of other controls. Se
      
 	<listitem><para>Label objects with names that make sense when taken out of context. Users relying on screenreaders or similar assistive technologies will not necessarily be able to immediately understand the relationship between a control and those surrounding it.</para></listitem>
 	
-	<listitem><para>When you use static text to label a control, end the label with a colon. For example, Username: to label a text field into which the user should type their username. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
+	<listitem><para>When you use static text to label a control, end the label with a colon. For example, <guilabel>Email:</guilabel> to label a text field into which the user should type their email address. This helps identify it as a control's label rather than an independent item of text.</para></listitem>
 
 	<listitem><para>Don't use the same label more than once in the same window. If you use the same label in different windows, it will help if it means the same thing in both windows. Also, don't use labels that are spelled differently but sound the same, e.g. &quot;Read&quot; and &quot;Red&quot;, as this could be confusing for users relying on screenreaders.</para></listitem>
 
@@ -1713,7 +1713,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 	      <row>
 		<entry>Text box labels</entry>
 		<entry>Sentence</entry>
-		<entry>First name</entry>
+		<entry>First name:</entry>
 	      </row>
 	      <row>
 		<entry>Titlebar text</entry>
@@ -2159,49 +2159,44 @@ text/mathml
     <title>Mouse Interaction Basics</title>
     
     <sect2 id="mouse-buttons">
-      <title>Mouse Buttons</title>
+      <title>Buttons</title>
       
-      <para>The mouse provides the main way of interacting with graphical user
-interfaces. (The term &quot;mouse&quot; is used here to include other
-devices, such as trackballs, graphics tablets, or assistive
-technology devices that emulate a mouse.)</para>
+      <para>For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term &quot;mouse&quot; is used here to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</para>
 
       <para>&lt;pics&gt;</para>
 
-      <para>For right-handed users, the left button on a mouse is normally the
-one used for the majority of mouse actions. It is therefore referred
-to as the &quot;left button&quot; here, even though it may not always
-physically be so.</para>
+      <para>For right-handed users, the left button on a mouse is normally the one used for the majority of mouse actions. It is therefore referred to as the &quot;left button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to as Button 1 or the Selection button.</para>
 
-      <para>For right-handed users, the right button on a mouse is normally
-the one used for operations involving pop-up menus. It is therefore
-referred to as the &quot;right button&quot; here, even though it may
-not always physically be so.</para>
+      <para>For right-handed users, the right button on a mouse is normally the one used for operations involving pop-up menus. It is therefore referred to as the &quot;right button&quot; here, even though it may not always physically be so.  For this reason, you may sometimes see this referred to as Button 3 or the Menu button.</para>
 
+      <para>Pointing devices with three buttons normally have a middle button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  You may sometimes see this referred to as Button 2 or the Transfer button.</para>
 
       <para>Recommendations:</para>
       <itemizedlist>
 	 
 	<listitem><para>The left button is used for selection, activation of components, dragging, and the display of drop-down menus.</para></listitem>
 
-	<listitem><para>The right mouse button is used for actions that involve popping up a contextual menu.  (NB: This probably belongs in the menus section, but no functions should be available only on a pop-up menu, they must also be available on the main menu or by some other means.)</para></listitem>  
+	<listitem><para>The right button is used to display and select actions from a popup menu.</para></listitem>  
 
 	<listitem><para>The middle mouse button is used only as a shortcut for very experienced users, and for operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
 
+	<listitem><para>The scrollwheel, if present, should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and Shift+scrollwheel (or Ctrl+scrollwheel?) should scroll horizontally.</para></listitem>
+
 	<listitem><para>Don't depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</para></listitem>
 
-	<listitem><para>Every operation that can be done with the mouse can also be done with the keyboard.</para></listitem>
+	<listitem><para>Every operation that can be done with the mouse can also be done with the keyboard, where it makes sense to do so.  The only exceptions to this are for actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</para></listitem>
 
 	<listitem><para>Don't warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who don't rely on ATs.</para></listitem>
 
-	<listitem><para>Chording (pressing multiple mouse buttons simultaneously) and multiple (triple- or quadruple-) clicking actions are not used, unless an accessible alternative method of performing the same action is provided.</para></listitem>
+	<listitem><para>Don't require the use of chording (pressing multiple mouse buttons simultaneously) for any purpose.</para></listitem>
+
+	<listitem><para>Don't require the use of multiple (triple- or quadruple-) clicking actions for any purpose, unless you also provide an accessible alternative method of performing the same action.</para></listitem>
 
 	<listitem><para>Allow all mouse operations to be cancelled. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</para></listitem>
-	
 
 	<listitem><para>Actions are not assigned exclusively to the middle button of a three-button mouse: not all mice have one.</para></listitem>
 
-	<listitem><para>Don't make mouse targets too small. In general, mouse targets should be at least the size of the "hot area" around the resizable window border in the current window manager/theme&mdash; bearing in mind that a user with impaired dexterity or vision may be using a window manager with larger areas than the default.</para></listitem>
+	<listitem><para>Don't make mouse targets too small. In general, any mouse targets you define yourself should be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. (Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme).</para></listitem>
       </itemizedlist>
       
     </sect2>
@@ -2320,7 +2315,7 @@ releasing the mouse button, by dropping the object back on its original source, 
 	
 	<listitem><para>Attempting to drop multiple objects on a target which can only accept a single object brings up a pop-up menu. From this menu, one of the objects can be selected, or the operation can be cancelled.</para></listitem>
 
-	<listitem><para>Objects may be copied between applications, but not moved.</para></listitem>
+	<listitem><para>In general, dragging a selection within a container should move the selection to the new location, and dragging a selection between containers should copy the selection to the new location.  A "container" may be a boundary imposed by the UI (e.g. a top-level application window), or a UI representation of a physical container (e.g. a disk or disk partition).<emphasis>This is perhaps too simplistic and almost certainly not terribly obvious to users, which is why the right mouse drag menu came into existence in the first place!  E.g. one immediately obvious exception is that dragging anything into Trash should move it rather than copy it.</emphasis></para></listitem>
 
 	<listitem><para>By default, dragging is non-destructive, i.e. dragging an object from one container to another drags a link or copy, leaving the original intact.</para></listitem>
 
@@ -2328,8 +2323,7 @@ releasing the mouse button, by dropping the object back on its original source, 
 	
       </itemizedlist>
       
-      <para>The default behaviour of a drag and drop operation may be modified
-by holding the Ctrl and/or Shift key throughout:</para>
+      <para>The default behaviour of a drag and drop operation may be modified by holding the Ctrl and/or Shift key throughout:</para>
 
 	<table frame='all'>
 	  <title>Effect of modifier keys during a drag and drop operation</title>
