@@ -935,10 +935,11 @@ Brings up the About dialog for the application. The dialog should contain the na
 
     <!-- Toolbars (subsection of menus+toolbars) -->
     <sect2 id="hig-toolbars">
-      <title>Toolbars</title>
+      <title>Toolbars and Palettes</title>
       
       <para>A toolbar is a strip of controls that allows rapid access to commonly-used functions. Most toolbars only contain graphical buttons, but in more complex applications, other types of controls such as dropdown lists, can also be useful.</para>
 
+      <para>A palette is essentially a floating toolbar.  However, its size and shape is more customizable, and it typically has a titlebar of its own and appears in the GNOME task list. <emphasis>Although the latter is more a side-effect of the fact that palettes can't be created with the standard toolbar widgets-- it would be rather nice if they could, especially as they would then automatically feature in the toolbar keyboard navigation order.</emphasis></para>
 
       <figure>
 	<title>Different types of toolbar from GNOME 1.4 applications (NB these don't comply to the recommendations given here!)</title>
@@ -1084,12 +1085,14 @@ _Toolbars > [x] {Toolbar1 name}
 	      <imagedata fileref="images/GtkToolbar_productivitydefault.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>New-Open-Save|Print|Undo-Redo|Find-Replace|Cut-Copy-Paste-Delete|Help</phrase>
+	      <phrase>New-Open-Save|Print|Undo-Redo|Find-Replace|Cut-Copy-Paste-Delete</phrase>
 	    </textobject>
 	  </mediaobject>
 	</figure>
 
 	<para>If your application supports all of these functions and you want to simplify your toolbar, consider leaving off the <guibutton>Undo</guibutton> and <guibutton>Redo</guibutton> buttons, or the <guibutton>Cut</guibutton>, <guibutton>Copy</guibutton>, <guibutton>Paste</guibutton> and <guibutton>Delete</guibutton> buttons, as most users prefer to use keyboard or menu for these functions.  However, you should include an option to re-add these buttons in your <guimenu>Toolbars</guimenu>-&gt;<guimenuitem>Customize</guimenuitem>... menu.</para>
+
+	<para>If you wish to add a <guibutton>Help</guibutton> toolbar button, it should be placed last (rightmost, in western locales) on the main toolbar.  However, adding a <guibutton>Help</guibutton> button to the toolbar is not generally recommended, as usability studies suggest that it will be rarely used.  (N.B. This finding applies only to toolbars, not <guibutton>Help</guibutton> buttons in dialogs).</para>
 	
 	<note><title>For Discussion</title>
 	  <para>Is the stock "delete" icon suitable for things like "delete selected text" in a word processor, or is that more of a "clear" function (which has a different stock icon)?  The trashcan metaphor seems a bit odd for deleting text.</para>
@@ -1102,7 +1105,7 @@ _Toolbars > [x] {Toolbar1 name}
 
 	<para>Applications for browsing documents or other objects, such as web, file, help or documentation browsers, should use the following layout for their main toolbar:</para>
 
-	<para>[Back][Forward][Other Navigation][Home]-[Reload]-[Other AppSpecific]-[Stop][Help]</para>
+	<para>[Back][Forward][Other Navigation][Stop][Reload]-[Home]-[Other AppSpecific]</para>
 	
 	<para>Application specific buttons should be placed between <guibutton>Reload</guibutton> and <guibutton>Stop</guibutton>, following the order they appear on the main menu bar.</para>
 	
@@ -1110,35 +1113,40 @@ _Toolbars > [x] {Toolbar1 name}
 
 <literallayout>
 Nautilus current: [Back][Forward][Up][Refresh][Home][WebSearch][Stop]
-Nautilus proposed: [Back][Forward][Up][Home]-[Reload]-[WebSearch]-[Stop][Help]
+Nautilus proposed: [Back][Forward][Up][Stop][Reload]-[Home]-[WebSearch]
 </literallayout>
  
 	<para>(Note: We prefer "Reload" to "Refresh" where the data is actually re-read from its original source, rather than just redrawn)</para>
 
 <literallayout>
 Galeon current: [Back][Forward][Reload][Home][Stop][Zoom][URL][Go]
-Galeon proposed: [Back][Forward][Home]-[Reload]-[Zoom]-[URL][Go]-[Stop][Help]
+Galeon proposed: [Back][Forward][Stop][Reload]-[Home]-[Zoom]-[URL][Go]
 
 </literallayout>
 
 <literallayout>
 GNOME Help current: [Back][Forward][Refresh][Index][History][Bookmarks][Help]
-GNOME Help proposed: [Back][Forward]-[Reload]-[Index][History][Bookmarks][Help]-[Stop]
+GNOME Help proposed: [Back][Forward][Stop][Reload]-[Index][History][Bookmarks][Help]
 
 </literallayout>
 
 	<figure>
-	  <title>Nautilus 1.0 toolbar rearranged to follow recommended standard toolbar layout for browser applications (need to add help button at the end)</title>
+	  <title>Nautilus 1.0 toolbar rearranged to follow recommended standard toolbar layout for browser applications (TODO: redo to match revised proposal)</title>
 	  <mediaobject><imageobject>
 	      
 	      <imagedata fileref="images/GtkToolbar_browserdefault.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-	      <phrase>Back-Forward-Up-Home|Reload|Search|Stop</phrase>
+	      <phrase>Back-Forward-Up-Stop-Reload|Home|WebSearch</phrase>
 	    </textobject>
 	  </mediaobject>
 	</figure>
 
+      </sect3>
+
+      <sect3>
+	<title>Palettes</title>
+	<para>TODO</para>
       </sect3>
 
     </sect2>
