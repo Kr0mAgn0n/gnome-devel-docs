@@ -900,10 +900,9 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 		<row>
 			<entry><accel>R</accel>efresh</entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></entry>
-			<entry>Redraws the current view of the document, without checking if the content has changed since the last refresh.
-			<para>If you want to check if the actual content has changed before refreshing, for example, checking a web page on a remote web server, label this item <guimenuitem>Reload</guimenuitem> rather than <guimenuitem>Refresh</guimenuitem>.  If your application requires both <guimenuitem>Reload</guimenuitem> and <guimenuitem>Refresh</guimenuitem>, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>.</para></entry>
+			<entry>Redraws the current view of the document from local storage.  For example, in a web browser application, this would redraw the page from the browser page cache.
+			<para>If you want to check if the actual content has changed before refreshing the view, for example, checking a web page on a remote web server, label this item <guimenuitem>Reload</guimenuitem> rather than <guimenuitem>Refresh</guimenuitem>.  If your application requires both <guimenuitem>Reload</guimenuitem> and <guimenuitem>Refresh</guimenuitem>, use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>.</para></entry>
 		</row>
-
 
 		</tbody>
 		</tgroup>
@@ -970,6 +969,34 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	  </mediaobject>
 	</figure>
 	<para>Provide a <guimenu>Bookmarks</guimenu> menu for browsers.</para>
+
+	<table>
+	<title>Bookmark menu items</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>A</accel>dd Bookmark</entry>
+			<entry>None</entry>
+			<entry>Adds a bookmark for the current document to the default bookmark list.  Do not pop up a dialog asking for a title or location for the bookmark, instead choose sensible defaults (such as the document's title or filename as the bookmark name) and allow the user to change them later using the <guimenuitem>Edit Bookmarks</guimenuitem> feature.</entry>
+		</row>
+
+		<row>
+			<entry><accel>E</accel>dit Bookmarks</entry>
+			<entry>None</entry>
+			<entry>Allows the user to edit the application's bookmark list.  Open a window in which the user can arrange bookmarks into a hierarchy, move, copy, and delete bookmarks, and change their properties.</entry>
+		</row>
+		</tbody>
+		</tgroup>
+	</table>
+
       </sect2>
       <sect2 id="menu-standard-go">
 	<title>Go</title>
@@ -993,6 +1020,56 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
+
+	<table>
+	<title>Go menu items for a browser application</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>B</accel>ack</entry>
+			<entry><keycombo><keycap>Alt</keycap><keycap>Left</keycap></keycombo></entry>
+			<entry>Navigates to the previous document in the browser's history list.</entry>
+		</row>
+
+		<row>
+			<entry><accel>F</accel>orward</entry>
+			<entry><keycombo><keycap>Alt</keycap><keycap>Right</keycap></keycombo></entry>
+			<entry>Navigates to the next document in the browser's history list.</entry>		
+		</row>
+
+		<row>
+			<entry><accel>U</accel>p</entry>
+			<entry><keycombo><keycap>Alt</keycap><keycap>Up</keycap></keycombo></entry>
+			<entry>Navigates to the current folder or document's parent folder or document.  For a document browser, such as an online help viewer, this usually means navigating to the enclosing sub-section, section, chapter or contents page.</entry>		
+		</row>
+	
+		<row>
+			<entry><accel>H</accel>ome</entry>
+			<entry><keycombo><keycap>Alt</keycap><keycap>Home</keycap></keycombo></entry>
+			<entry>Navigates to a starting page defined by the user or the application.</entry>
+		</row>
+
+
+		<row>
+			<entry><accel>L</accel>ocation...</entry>
+			<entry>None</entry>
+			<entry>Navigates to a user-specified URI.  Open a dialog into which the user can type a suitable URI, or select one from a list where applicable (for example, a file selection dialog for applications that can handle file:// URIs).</entry>		
+		</row>
+
+			</tbody>
+		</tgroup>
+	</table>
+
+	<remark>FIXME: Reload and Stop should be on the View menu</remark>
+
 	<figure id="generic-document-go-menu">
 	  <title>A generic document Go menu</title>
 	  <mediaobject>
@@ -1012,7 +1089,55 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<remark>FIXME</remark>
+
+	<table>
+	<title>Go menu items for a document-based application</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>P</accel>revious Page</entry>
+			<entry><keycap>PageUp</keycap></entry>
+			<entry>Navigates to the previous page in the document.</entry>
+		</row>
+
+		<row>
+			<entry><accel>N</accel>ext Page</entry>
+			<entry><keycap>PageDown</keycap></entry>
+			<entry>Navigates to the next page in the document.</entry>		
+		</row>
+
+		<row>
+			<entry><accel>G</accel>o to Page...</entry>
+			<entry>None</entry>
+			<entry>Navigates to a user-specified page number.  Open a dialog into which the user can type a page number.
+			<para>Text-based applications may also benefit from a <guimenuitem>Go  to Line...</guimenuitem> menu item, which allows the user to jump to a specified line number.</para></entry>		
+		</row>
+	
+		<row>
+			<entry><accel>F</accel>irst Page</entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>Home</keycap></keycombo></entry>
+			<entry>Navigates to the first page in the document.</entry>
+		</row>
+
+
+		<row>
+			<entry><accel>L</accel>ast Page</entry>
+			<entry><keycombo><keycap>Ctrl</keycap><keycap>End</keycap></keycombo></entry>
+			<entry>Navigates to the last page in the document.</entry>		
+		</row>
+
+			</tbody>
+		</tgroup>
+	</table>
+
       </sect2>
 
 <!-- CFB Commenting out until we have anything to go on it :/
@@ -1075,27 +1200,37 @@ menu would have items such as (modulo phraeseology) Open New Game, Open Game Set
 	    </textobject>
 	  </mediaobject>
 	</figure>
-	<variablelist>
-	  <varlistentry>
-	    <term>Search</term>
-	    <listitem>
-	      <para>Brings up a dialog allowing the user to search the application's documentation.</para>
-	    </listitem>
-	  </varlistentry>
-	  <varlistentry>
-	    <term>Help Contents</term>
-	    <listitem>
-	      <para>Brings up the default gnome help browser with the contents page of the application's documentation.</para>
-	    </listitem>
-	  </varlistentry>
-	  <!-- What about context-sensitive help? How will that work? Do we want to give it the F1 shortcut? -->
-	  <varlistentry>
-	    <term>About <replaceable>appname</replaceable></term>
-	    <listitem>
-	      <para>Brings up the About dialog for the application. This dialog contains the name and version number of the application, a short description of what the application does, contact details of the authors, a copyright notice, and a pointer to the license under which the application is made available.</para>
-	    </listitem>
-	  </varlistentry>
-	</variablelist>
+
+	<table>
+	<title>Help menu items</title>
+	 <tgroup cols="3" align="left">
+	    <thead> 
+	      <row> 
+		<entry>Label</entry> 
+		<entry>Shortcut</entry>
+		<entry>Description</entry>
+		</row>
+	      </thead>
+	    <tbody valign="top">
+
+		<row>
+			<entry><accel>C</accel>ontents</entry>
+			<entry><keycap>F1</keycap></entry>
+			<entry>Opens the default help browser on the contents page for the application.</entry>
+		</row>
+
+		<row>
+			<entry><accel>A</accel>bout</entry>
+			<entry>None</entry>
+			<entry>Opens the About dialog for the application.  Use the standard dialog provided by the GNOME libraries, which contains the name and version number of the application, a short description of the application's functionality, author contact details, copyright message and a pointer to the licence under which the application is made available.</entry>		
+		</row>
+
+			</tbody>
+		</tgroup>
+	</table>
+
+	<remark>We originally wanted a Search item on here too, but it's not technically possible to implement it right now.</remark>
+
       </sect2>
     </sect1>
   </chapter>
