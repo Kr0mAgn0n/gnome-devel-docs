@@ -430,8 +430,8 @@
     <para>Utility windows, such as palettes and toolboxes, normally have
     borders. They do not contain a menu bar, a toolbar, or a statusbar.</para>
 
-    <sect2 id="instant-apply">
-      <title>Instant apply and explicit apply</title>
+    <sect2 id="windows-instant-apply">
+      <title>Instant apply windows</title>
 
       <para>For windows that allow the user to change values or settings, such
       as property and preference windows, update those values or settings
@@ -462,15 +462,20 @@
 
       <remark>FIXME: screenshot of such a window here</remark>
 
-      <note>
-        <title>Applying changes in text fields</title>
-
-        <para>Do not attempt to validate or apply changes caused by editing a
+	<itemizedlist>
+		<title>Guidelines</title>
+		
+        	<listitem><para>Do not attempt to validate or apply changes caused by editing a
         text field control until the user has moved focus to a different
         control in the window. Validating after each keypress is usually
-        annoying and unnecessary.</para>
-      </note>
+        annoying and unnecessary.</para></listitem>
+		<listitem><para>When the user moves focus to a different control, do not indicate an invalid entry by displaying an alert or undoing the change the user made. Both of these methods are particularly disruptive for focus-follows-mouse users, for whom focus may leave the control more often than it does for a click-to-focus user.</para></listitem>
+	</itemizedlist>
+	<remark>We need to suggest what to do here, instead of just saying what not to do.</remark>
+      </sect2>
 
+	<sect2 id="windows-explicit-apply">
+		<title>Explicit apply windows</title>
       <para>If most of the controls in your window are not suitable for
       instant apply, consider making the whole window &#34;explicit
       apply&#34;. An explicit apply window has these three buttons in its
@@ -492,7 +497,7 @@
 
             <para>Resets all settings in the window to those that were in
             force when the window was opened. Note: this must undo the effects
-            of all applications of the <guibutton>Try</guibutton> since the
+            of all applications of the <guibutton>Apply</guibutton> since the
             window was opened, not just the most recent one.</para>
           </formalpara>
         </listitem>
@@ -547,7 +552,7 @@
 
       <para>In particular, it is currently <emphasis>not</emphasis>
       recommended to make the <guibutton>Close</guibutton> button the default
-      in an <link linkend="instant-apply">instant apply</link> window, as this
+      in an <link linkend="windows-instant-apply">instant apply</link> window, as this
       can lead to users closing the window accidentally before they have
       finished using it.</para>
     </sect2>
