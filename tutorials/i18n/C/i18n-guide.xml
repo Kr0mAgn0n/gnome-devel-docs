@@ -56,6 +56,13 @@
 
       <revhistory>
          <revision>
+            <revnumber>0.2</revnumber>
+            <date>7 Novermber 2002</date>
+            <revremark>Small fixes. See ChangeLog appendix for details.
+            </revremark>
+         </revision>
+
+         <revision>
             <revnumber>0.1</revnumber>
             <date>3 November 2002</date>
             <revdescription>
@@ -110,15 +117,15 @@
       <abbrev>l10n</abbrev>) and is covered elsewhere, such as in <xref
       linkend="bib-kmaraas"/>. </para>
 
-      <para>Internationalising your application consists of two phases. In the
-      <xref linkend="preparing-source"/> section, we work through the process
-      of marking up strings for translation throughout the source code. I will
+      <para>Internationalising your application consists of two phases. In
+      <xref linkend="preparing-source"/>, we work through the process of
+      marking up strings for translation throughout the source code. I will
       also mention any changes that have to be made to the source code to keep
-      it buildable. In the next section, <xref linkend="build-changes"/>, I
+      it buildable. In the next part, <xref linkend="build-changes"/>, I
       will talk about changes to the applications build process, such as
       makefiles and <filename>configure.in</filename> changes. </para>
 
-      <sect2 id="feedback" xreflabel="feedback">
+      <sect2 id="feedback">
          <title>Feedback</title>
 
          <para>If you use this tutorial to internationalise an application and
@@ -130,7 +137,7 @@
 
    </sect1>
 
-   <sect1 id="preparing-source" xreflabel="preparing the source">
+   <sect1 id="preparing-source">
       <title>Preparing the source code for translation</title>
 
       <para>At the heart of the i18n process lies the fact that you have to
@@ -164,7 +171,7 @@
          </itemizedlist>
       </para>
 
-      <sect2 id="i18n-header" xreflabel="i18n header file">
+      <sect2 id="i18n-header">
          <title>The i18n header file</title>
 
          <para>Throughout this tutorial, the goal is always to keep your
@@ -224,8 +231,8 @@
             <para>Naturally, you may want to call your file something other
             than <filename>slice-i18n.h</filename>. You should not change the
             <literal>ENABLE_NLS</literal> variable's name, though, since that
-            has special meaning when we come to the <xref
-            linkend="build-changes"/> section. </para>
+            has special meaning when we come to <xref
+            linkend="build-changes"/>. </para>
 
             <para>If your application has &libgnome; as a dependency, then you
             can avoid creating your own i18n support file by just including the
@@ -237,9 +244,8 @@
 
             <para>For library developers, some modifications to the above file
             may be necessary. The following sections still apply, but you may
-            wish to skip ahead to the section about <xref
-            linkend="special-for-libraries"/> to find out the couple of lines
-            that need to be changed here. </para>
+            wish to skip ahead to <xref linkend="special-for-libraries"/> to
+            find out the couple of lines that need to be changed here. </para>
 
             <para>In a moment, I will describe the purpose of each of those
             functions, but the important point from a developer point of view
@@ -375,7 +381,7 @@ textdomain (GETTEXT_PACKAGE);
 
       </sect2>
 
-      <sect2 id="marking-strings" xreflabel="marking strings">
+      <sect2 id="marking-strings">
          <title>Marking translatable strings</title>
 
          <para>You are now at the point where you can begin the task of marking
@@ -386,11 +392,11 @@ textdomain (GETTEXT_PACKAGE);
          some portions of error messages to not be translated (so that the user
          can cut and paste those messages into an email to you and you will be
          able to understand them and grep them out of the code). Usually, it is
-         not necessary to translate names, although see the <xref
-         linkend="tips"/> section for what happens in the
-         <emphasis>about</emphasis> box of an application. </para>
+         not necessary to translate names, although see <xref linkend="tips"/>
+         for what happens in the <emphasis>about</emphasis> box of an
+         application. </para>
 
-         <sect3>
+         <sect3 id="source-code">
             <title>Source code files</title>
 
             <para>As an initial attempt to ferret out all the likely strings
@@ -477,8 +483,7 @@ for (i = 0; shapes[i] != NULL; ++i)
             as no-ops since <literal>ENABLE_NLS</literal> is undefined). It is
             worth testing this as you go along to avoid problems later.</para>
 
-            <sect4 id="special-for-libraries" xreflabel="library markup
-            requirements">
+            <sect4 id="special-for-libraries">
                <title>Special requirement for libraries</title>
 
                <para>If you are writing a library, almost everything written
@@ -540,7 +545,7 @@ gnome_app_helper_gettext (const gchar *str)
 
          </sect3>
 
-         <sect3>
+         <sect3 id="desktop">
             <title>Desktop files</title>
 
             <para>Desktop files are used in GNOME as a means to determine which
@@ -600,7 +605,7 @@ Categories=GNOME;Application;
 
          </sect3>
 
-         <sect3>
+         <sect3 id="server">
             <title>Server files</title>
 
             <para>Applications that are called by the &bas; to activate
@@ -641,7 +646,7 @@ Categories=GNOME;Application;
 
          </sect3>
 
-         <sect3>
+         <sect3 id="glade">
             <title>&glade; files</title>
 
             <para>If you are using &glade; to construct your user interface,
@@ -660,7 +665,7 @@ Categories=GNOME;Application;
 
          </sect3>
 
-         <sect3>
+         <sect3 id="xml">
             <title>XML files</title>
 
             <para>If your application comes with arbitrary format XML files,
@@ -707,7 +712,7 @@ Categories=GNOME;Application;
 
          </sect3>
 
-         <sect3>
+         <sect3 id="gconf">
             <title>&gconf; schema files</title>
 
             <para>The schema files used by &gconf; may contain short and long
@@ -768,7 +773,7 @@ Categories=GNOME;Application;
    
    </sect1>
 
-   <sect1 id="build-changes" xreflabel="build changes">
+   <sect1 id="build-changes">
       <title>Incorporating i18n into the package's build infrastructure</title>
 
       <para>So, after all the work in the previous section, you should now be
@@ -831,8 +836,25 @@ Categories=GNOME;Application;
          <para>If you are not using the standard GNOME &autogen.sh; script, you
          will need to add a check for the appropriate scripts and then run
          whatever you found.  Here is some sample code that does this (checking
-         for both a form of <application>gettextize</application> and for
+         for both a form of <filename>gettextize</filename> and for
          &intltool;.  </para>
+
+         <note>
+            <para>You may not be able to use this code directly &mdash; it
+            depends upon how you have structured your &autogen.sh; script.
+            These examples assume an &autogen.sh; of a form used commonly in
+            gnome (such as in the <application>gnome-common</application>
+            module and some standalone scripts like those in &gconf; and
+            <application>metacity</application>. </para>
+
+            <para>You may also wish to look at the &autogen.sh; (and
+            corresponding <filename>acinclude.m4</filename> files) from
+            <application>glib</application> or <application>gtk+</application>.
+            Those packages are much more self-contained and force the use of
+            <filename>glib-gettextize</filename>. However, they are vastly
+            different from the standard scripts used in other parts of GNOME.
+            </para>
+         </note>
 
          <example>
             <title>Additions to &autogen.sh;</title>
@@ -910,6 +932,12 @@ fi
             and just to generate them at autogen time. The two ways of working
             cannot be met by a single script, so the GNOME project uses a
             slightly changed version of the original &gettext; script. </para>
+
+            <para>In version 0.11 of &gettext; a script called
+            <filename>autopoint</filename> has been introduced, which plays a
+            similar role to <filename>glib-gettextize</filename>. However,
+            GNOME does not currently require &gettext; version 0.11, so it
+            would be premature to rely on that script. </para>
          </note>
 
       </sect2>
@@ -934,8 +962,8 @@ GETTEXT_PACKAGE=slice-n-dice
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE")
 
-ALL_LINGUAS=
-# AM_GLIB_GNU_GETTEXT
+ALL_LINGUAS=""
+AM_GLIB_GNU_GETTEXT
 
 slicelocaledir='${prefix}/${DATADIRNAME}/locale'
 AC_SUBST(slicelocaledir)
@@ -952,19 +980,14 @@ AC_SUBST(slicelocaledir)
          <literal>bindtextdomain()</literal> using
          <literal>GETTEXT_PACKAGE</literal> as the name. </para>
 
-         <para>Secondly, I have commented out the
-         <literal>AM_GLIB_GNU_GETTEXT</literal> macro because there are
-         currently no translations available. Things tend to go wrong when
-         <literal>ALL_LINGUAS</literal> is empty, so for now, we do not
-         initialise the translations. One you have some translations available,
-         you would add their language codes to <literal>ALL_LINGUAS</literal>
-         and uncomment the <literal>AM_GLIB_GNU_GETTEXT</literal> macro. That
-         would, in turn, cause <literal>ENABLE_NLS</literal> to be defined,
-         which enables the i18n code, due to the way our header file was set up
-         earlier (in the <xref linkend="i18n-header"/> section). The
-         <literal>ALL_LINGUAS</literal> variable is a string of space separated
-         language codes, so after adding a few languages, it might look like
-         this <programlisting> ALL_LINGUAS="de en_AU no sv" </programlisting>
+         <para>Secondly, I have created an empty ALL_LINGUAS string, since no
+         translations yet exist. One you have some translations available, you
+         would add their language codes to <literal>ALL_LINGUAS</literal>. This
+         variable is a string of space separated language codes, so after
+         adding a few languages, it might look like this
+<programlisting>
+ALL_LINGUAS="de en_AU no sv"
+</programlisting>
          </para>
 
          <para>Thirdly, the <literal>AC_PROG_INTLTOOL</literal> macro takes an
@@ -1041,12 +1064,11 @@ INCLUDES =                      \
 
          <para>The final piece of makefile editing required is to allow
          intltool to build fully translated versions of your desktop, schema,
-         server and XML files. Back in the section about <xref
-         linkend="marking-strings"/>, you created a number of new files with
-         <literal>.in</literal> extensions and special markup to indicate
-         fields that are to be translated. Every one of those files (without
-         the <literal>.in</literal> extension) currently appears in some
-         &Makefile.am;. It will appear in a line like
+         server and XML files. Back in <xref linkend="marking-strings"/>, you
+         created a number of new files with <literal>.in</literal> extensions
+         and special markup to indicate fields that are to be translated. Every
+         one of those files (without the <literal>.in</literal> extension)
+         currently appears in some &Makefile.am;. It will appear in a line like
 <programlisting>
 desktop_DATA = slice-n-dice.desktop
 </programlisting>
@@ -1155,11 +1177,6 @@ stamp-cat-id
 
       </sect2>
 
-<!--
-   The build process...
-      - 'LANG=C msgfmt -Ccv /dev/null <lang>.po' can be used to check a po file
-        for errors.
--->
    </sect1>
 
    <sect1 id="what-next">
@@ -1221,13 +1238,22 @@ stamp-cat-id
 
    </sect1>
 
-   <sect1 id="tips" xreflabel="tips and tricks">
+   <sect1 id="tips">
       <title>Tips and Tricks</title>
 
       <para>There are a number of little tricks about the i18n process that
-      have accumulated on various mailing lists and other places. I will list
-      the more significant ones here (and add any extras that people send to me
-      &mdash; see the <xref linkend="feedback"/> section). </para>
+      have accumulated on various mailing lists and other places. A couple of
+      the less obvious traps are listed here. </para>
+
+      <para>In addition to this list, you should also carefully read the
+      document <xref linkend="bib-menthos"/> by Christian Rose, one of the
+      GNOME Translation Project's coordinators. That document contains a number
+      of sample situations and advice about writing easily translatable text
+      (not just the obvious stuff, such as avoiding idioms, but also more
+      subtle issues such as not translating text markup). In fact, I am making
+      Christian's effort required reading for people reading this tutorial
+      &mdash; that way I can avoid duplicating any of his excellent work.
+      </para>
 
       <itemizedlist>
          <listitem>
@@ -1284,9 +1310,150 @@ about_box = gnome_about_new(...
    <appendix id="checklist">
       <title>Checklist for internationalising an application</title>
 
-      <para><emphasis>[TODO: Distill the previous sections into a simple list
-      for developers who mostly know what they are doing, but wish to check
-      that nothing has been missed.]</emphasis></para>
+      <para>The following list summarise all of the previous pages. It may be
+      useful when you believe you have done everything, just as a final check.
+      </para>
+
+      <itemizedlist>
+         <listitem>
+            <para>Create, if necessary, and include an i18n header file that
+            defines the <literal>_()</literal>, <literal>N_()</literal> and
+            other supporting functions (<xref linkend="i18n-header"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>As early as possible in your code (in
+            <literal>main()</literal> for applications and initialisation
+            functions for libraries), call <literal>bindtextdomain()</literal>
+            and friends (<xref linkend="initialising-i18n-support"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Mark all strings in your source code that should be
+            translated. Use <literal>_()</literal> where a function call is
+            permitted and <literal>N_()</literal> otherwise. In the latter
+            case, wrap the place where the string is used in a
+            <literal>_()</literal> call (<xref linkend="source-code"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Mark up "special" files
+               <itemizedlist>
+                  <listitem>
+                     <para>desktop files (<xref linkend="desktop"/>) </para>
+                  </listitem>
+                  <listitem>
+                     <para>server files for
+                     <application>bonobo-activation-server</application> (<xref
+                     linkend="server"/>) </para>
+                  </listitem>
+                  <listitem>
+                     <para>&glade; files (<xref linkend="glade"/>) </para>
+                  </listitem>
+                  <listitem>
+                     <para>arbitrary XML files (<xref linkend="xml"/>) </para>
+                  </listitem>
+                  <listitem>
+                     <para>&gconf; schema files (<xref linkend="gconf"/>)
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </listitem>
+
+         <listitem>
+            <para>Add code to &autogen.sh; to detect and run
+            <filename>glib-gettextize</filename> and detect &intltool;, if
+            required (<xref linkend="autogen-changes"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Edit &configure.in; to call
+            <literal>AC_PROG_INTLTOOL</literal>, set up
+            <literal>GETTEXT_PACKAGE</literal>, define
+            <literal>ALL_LINGUAS</literal>, call
+            <literal>AM_GLIB_GNU_GETTEXT</literal> and substitue in the
+            location of the locale files using the
+            <literal>foolocaledir</literal> variable (<xref
+            linkend="configure-changes"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Edit the top-level &Makefile.am; to include
+            <filename>po</filename> in the <literal>SUBDIRS</literal> line.
+            Also add <filename>intltool-extract.in</filename>,
+            <filename>intltool-merge.in</filename> and
+            <filename>intltool-update.in</filename> to
+            <literal>EXTRA_DIST</literal> in this makefile if you are using
+            &intltool; (<xref linkend="makefile-changes"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Adjust <filename>.cvsignore</filename> in the top-level
+            directory to ignore the <filename>intltool-*</filename> files
+            <xref linkend="makefile-changes"/>).
+            </para>
+         </listitem>
+
+         <listitem>
+            <para>Edit the &Makefile.am; in the directory containing your
+            <literal>main()</literal> function or library initialisation code
+            and define the locale location. That is, set up
+            <literal>-DFOOLOCALEDIR</literal> (<xref
+            linkend="makefile-changes"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>In every directory where you marked up a special file for
+            processing by &intltool;, change the appropriate rules in
+            &Makefile.am; and add one or more of the
+            <literal>@INTLTOOL_XXX_RULE@</literal> templates. Also, adjust the
+            <filename>.cvsignore</filename> files in these directories to
+            ignore the generated versions of these files (<xref
+            linkend="makefile-changes"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>In the <filename>po</filename> directory, create
+            <filename>POTFILES.in</filename> and, if required,
+            <filename>POTFILES.skip</filename>. Add the appropriate files to
+            <filename>.cvsignore</filename> (<xref linkend="po-changes"/>).
+            </para>
+         </listitem>
+
+         <listitem>
+            <para>Do not commit any modified <filename>*.po</filename> files
+            when you are working on the package in the normal course of events.
+            However, right before a release you should commit these files so
+            that everybody is synchronised with the release (<xref
+            linkend="what-next"/>). </para>
+         </listitem>
+
+         <listitem>
+            <para>Read Christian Rose's document to make your strings more
+            translator-friendly (<xref linkend="bib-menthos"/>). </para>
+         </listitem>
+
+      </itemizedlist>
+
+   </appendix>
+
+   <appendix id="changelog">
+      <title>ChangeLog</title>
+
+      <itemizedlist>
+         <title>Changes between version 0.1 and 0.2</title>
+         <listitem>
+            <para>Added in a reference to Christian Rose's document. </para>
+         </listitem>
+         <listitem>
+            <para>Incorporated a bunch of clarifications and fixes pointed out
+            by Padraig O'Briain. </para>
+         </listitem>
+         <listitem>
+            <para>Put some content into <xref linkend="checklist"/>. </para>
+         </listitem>
+      </itemizedlist>
 
    </appendix>
 
@@ -1306,6 +1473,13 @@ about_box = gnome_about_new(...
             <title>Gettext manual</title>
             <subtitle>(<ulink
             url="http://www.gnu.org/manual/gettext/html_chapter/gettext_toc.html"/>)</subtitle>
+         </biblioentry>
+
+         <biblioentry id="bib-menthos">
+            <abbrev>menthos</abbrev>
+            <title>L10N Guidelines for Developers</title>
+            <subtitle>(<ulink
+            url="http://www.menthos.com/l10n/developer/"/>)</subtitle>
          </biblioentry>
 
       </bibliodiv>
