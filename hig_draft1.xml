@@ -2660,15 +2660,15 @@ fine motor control skills required.</para>
 
 	  <listitem><para>Use <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>letter</keycap></keycombo> for functions that reverse or extend another function.  For example, <keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo> for <guimenuitem>Select All</guimenuitem> and <guimenuitem>Deselect All</guimenuitem>, and <keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> and <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo> for <guimenuitem>Undo</guimenuitem> and <guimenuitem>Redo</guimenuitem>.</para></listitem>
 	  
-	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcuts unless the number has some significant relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcuts for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
+	  <listitem><para>Don't use <keycombo><keycap>Ctrl</keycap><keycap>number</keycap></keycombo> or numbered function keys as shortcuts, unless the number has some obvious relevance to the action.  For example, <keycombo><keycap>Ctrl</keycap><keycap>2</keycap></keycombo> and <keycombo><keycap>Ctrl</keycap><keycap>3</keycap></keycombo> may be acceptable shortcuts for <menuchoice><guimenu>View</guimenu><guimenuitem>2D View</guimenuitem></menuchoice> and <menuchoice><guimenu>View</guimenu><guimenuitem>3D View</guimenuitem></menuchoice> in a 3D modelling application.</para></listitem>
 	  	  
 	  <listitem><para>Don't use <keycombo><keycap>Alt</keycap><keycap>key</keycap></keycombo> combinations for shortcuts, as these may conflict with menu accelerators.</para></listitem>
 
 	  <listitem><para>Don't use symbols that require <keycap>Shift</keycap> or other modifiers as part of a shortcut, for example <keycombo><keycap>Ctrl</keycap><keycap>%</keycap></keycombo>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</para></listitem>
 	  
-	  <listitem><para>Don't assign shortcuts to menu items that change over time, for example a list of open windows in the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
+	  <listitem><para>Don't assign shortcuts to menu items that change over time, for example a list of open windows on the <guimenu>Window</guimenu> menu, or a recently-used file list on the <guimenu>File</guimenu> menu.</para></listitem>
 	  
-	  <listitem><para>Don't use any of the shortcuts for the standard functions listed here for your own purposes,  even if your application doesn't support that function.  This will help further reinforce consistency between GNOME applications.</para></listitem>
+	  <listitem><para>Don't use any of the standard shortcuts listed here for your own purposes,  even if your application doesn't support those functions.  This will help reinforce consistency between GNOME applications.</para></listitem>
 
 	</itemizedlist>
 
@@ -2735,7 +2735,7 @@ fine motor control skills required.</para>
 	      </row>
 	      <row>
 		<entry>_Redo</entry>
-		<entry>Shift+Ctrl+Z (or Ctrl+Y?)</entry>
+		<entry>Shift+Ctrl+Z</entry>
 		<entry>Redo the last operation</entry>
 	      </row>
 	      <row>
@@ -2784,6 +2784,7 @@ fine motor control skills required.</para>
 		<entry>Ctrl+G</entry>
 		<entry>Find the next match</entry>
 	      </row>
+<!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
 	      <row>
 		<entry>_Replace</entry>
 		<entry>Ctrl+H (or Ctrl+R?)</entry>
@@ -2803,6 +2804,8 @@ fine motor control skills required.</para>
 	  <para>Should we call it "Find Next" or "Find Again"?</para>
 
 	  <para>czr currently proposing Ctrl+R for "Replace", but this clashes with "Reload" in most browser apps&mdash; not a problem until somebody writes a graphical HTML editor that you can also do search/replace in :o)  Ctrl+H is another common shortcut for "Replace", should we use this instead?  (It's not as easy to access with one hand, though, so maybe not).</para>
+
+	  <para>mpt suggesting that Replace should be part of Find dialog, so shortcut for Replace may not be required at all.</para>
 
 <!-- Consensus is to keep Letter-based shortcuts
 	  <para>Kenneth suggests a more F-key-based system, e.g. F5 for Refresh rather than Ctrl+R, as "Ctrl+R" is only memorable if you happen to speak English... what's our view on this?</para>
@@ -2904,7 +2907,7 @@ fine motor control skills required.</para>
 	</table>
 
 	<note><title>For discussion</title>
-	  <para>Is it acceptable to specify the same shortcut for <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Add Bookmark</guimenuitem></menuchoice>, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
+	  <para>Is it acceptable to specify the same shortcut for <menuchoice><guimenu>Format</guimenu><guimenuitem>Bold</guimenuitem></menuchoice> and <menuchoice><guimenu>Bookmarks</guimenu><guimenuitem>Edit Bookmarks</guimenuitem></menuchoice>, given that the two aren't likely to occur in the same application?  Or could/should we provide a second choice for one of them on the off-chance that they do coincide?</para>
 	</note>
 
 	<table frame='all' pgwide='1'>
