@@ -193,15 +193,15 @@
 	</mediaobject>
       </figure>
 
-	  <para>Menu separators are horizontal dividing lines that visually separate groups of related items on a drop-down menu, submenu, or popup menu.  For example, the separators in <xref linkend="menu-separators"/> divide the menu into five functionally-related groups.  Good use of separators helps to &quot;chunk&quot; the information on a menu and make it easier to scan and memorize.</para>
+	  <para>Menu separators are the horizontal dividing lines that visually separate groups of related items on a drop-down menu, submenu, or popup menu.  For example, the separators in <xref linkend="menu-separators"/> divide the menu into five functionally-related groups.  Good use of separators helps to &quot;chunk&quot; the information on a menu and make it easier to scan and memorize.</para>
 	  
 	  <itemizedlist><title>Guidelines</title>
 
-	    <listitem><para>The best size for a group is around 2-5 items.  Single items should only appear at the top or bottom of a menu, otherwise try to group them with other single items on the same menu.</para></listitem>
+	    <listitem><para>The best size for a group is around 2-5 items.  Single-item groups are best placed at the top or bottom of a menu, otherwise try to group them with other single items on the same menu of the same type.</para></listitem>
 
 	    <listitem><para>Order items within a group logically, numerically, in task order or by expected frequency of use, as appropriate.</para></listitem>
 
-	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">checkbox</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem>)</menuchoice> in the same group.</para></listitem>
+	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">checkbox</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (e.g. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice>) in the same group.</para></listitem>
 
 	    </itemizedlist>	  
 	</sect2>
@@ -212,17 +212,17 @@
 	<sect3 id="menu-item-type-command">
 	  <title>Command Items</title>
 
-<figure id="command-items-figure"><title>A menu on which every item is a command item</title>
+	<figure id="command-items-figure"><title>A group of command items on a menu</title>
 	  <mediaobject>
 	    <imageobject>
-	      <imagedata fileref="images/file-menu.png" format="PNG"/>
+	      <imagedata fileref="images/command-menu.png" format="PNG"/>
 	    </imageobject>
 	    <textobject>
-		<phrase>Screenshot of a menu containing only command items, such as New, Open and Save</phrase></textobject>
+		<phrase>Screenshot of a group on a menu containing only command items: Save, Save As, Save All, and Revert</phrase></textobject>
 	  </mediaobject>
 	</figure>
 
-	  <para>Command items are menu items that initiate a command or perform an action, such as <guimenuitem>Save</guimenuitem>, <guimenuitem>Print</guimenuitem> or <guimenuitem>Quit</guimenuitem>. They can act on the currently active document in a document based application, or on the application itself.</para>
+	  <para>Command items are menu items that initiate a command or perform an action, such as <guimenuitem>Save</guimenuitem>, <guimenuitem>Print</guimenuitem> or <guimenuitem>Quit</guimenuitem>. They may act on the currently active document in a document based application, or on the application itself.</para>
 
 	<itemizedlist><title>Guidelines</title>
 
@@ -235,7 +235,7 @@
 	  
 	<listitem><para>Do not remove command items from the menu when they are unavailable, make them insensitive instead.  This allows the user to infer what functionality the application provides even if it is not currently available, and keeping the menu structure static makes it easier to mememorize.</para></listitem>
 
-	  <listitem><para>Mark the menu item with a trailing ellipsis ("...")  only if the command requires further input from the user before it can be performed. Do not add an ellipsis to items that only present a confirmation dialog (such as <guimenuitem>Delete</guimenuitem>), or that do not <emphasis>require</emphasis> further input (such as <guimenuitem>Properties</guimenuitem> or <guimenuitem>About</guimenuitem>).</para></listitem>
+	  <listitem><para>Label the menu item with a trailing ellipsis ("...")  only if the command requires further input from the user before it can be performed. Do not add an ellipsis to items that only present a confirmation dialog (such as <guimenuitem>Delete</guimenuitem>), or that do not <emphasis>require</emphasis> further input (such as <guimenuitem>Properties</guimenuitem> or <guimenuitem>About</guimenuitem>).</para></listitem>
 
 	</itemizedlist>
 
@@ -246,10 +246,10 @@
 	  <title>Mutable Command Items</title>
 	  <para>A mutable command item changes its label when selected.  For example, <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> in a browser may change to <guimenuitem>Stop</guimenuitem> to allow the user to interrupt the operation if it is taking a long time.</para>
 
-	  <para>Note that mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a new or different function has become available. </para>
+	  <para>Note that mutable menu items can be problematic because the user never sees the menu item changing, so it is not obvious that a different function has become available. </para>
 
 	<itemizedlist><title>Guidelines</title>
-		<listitem><para>If your mutable menu items are <link linkend="menu-item-type-command">command items</link>, and you have sufficient space on your menu, consider providing two adjacent menu items for the commands instead.  Then make the items sensitive or insensitive as the situation demands.  This also makes it easier to provide different shortcuts for each command, for example <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>, and <keycap>Esc</keycap> for <guimenuitem>Stop</guimenuitem>.</para></listitem>
+		<listitem><para>If your mutable menu items are <link linkend="menu-item-type-command">command items</link>, and you have sufficient space on your menu, consider providing two adjacent menu items for the commands instead.  Then make the items sensitive or insensitive as the situation demands.  This also makes it easier for the user to tell when different shortcuts are available for each of the commands, for example <keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo> for <guimenuitem>Reload</guimenuitem>, and <keycap>Esc</keycap> for <guimenuitem>Stop</guimenuitem>.</para></listitem>
 
 		<listitem><para>Do not use mutable menu items to toggle a two-state setting (for example, <guimenuitem>Show Toolbar</guimenuitem> and <guimenuitem>Hide Toolbar</guimenuitem>.  Present such items as a single <link linkend="menu-item-type-check">checkbox item</link> instead.</para></listitem>
 	</itemizedlist>
@@ -258,17 +258,50 @@
 	<sect3 id="menu-item-type-check">
 	  <title>Checkbox Items</title>
 
-	  <para>A checkbox menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
-	  
-	  <para>Use a checkbox menu item only when it is obvious from the label what the two states are, for example if the two states are not natural opposites.  For example, it is reasonably obvious that <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice> checkbox menu item will toggle the visibility of the application's toolbar on or off.  However, <menuchoice><guimenu>View</guimenu><guimenuitem>View as Icons</guimenuitem></menuchoice> would be a bad setting to control with a checkbox menu item, since it is not clear what type of view would be used if you unchecked the menu item.  Using two radio button menu items would be more appropriate in this case, to make the two choices explicit.</para>
+	<figure id="checkbox-items-figure"><title>A group of checkbox items on a menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/checkbox-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+		<phrase>Screenshot of group on a View menu containing three checkbox items: toolbar, statusbar and fullscreen</phrase></textobject>
+	  </mediaobject>
+	</figure>
 
-	  <para>Never change the label of a checkbox menu item in response to the user checking or unchecking the item.</para>
+	  <para>A checkbox menu item shows the current state of a two-state setting, and allows the user to toggle it by selecting the menu item.</para>
+
+	<itemizedlist><title>Guidelines</title>
+	  
+	  	<listitem><para>Use a checkbox menu item only when it is obvious from the label what the set and unset states mean.  This usually means that the two states are logical or natural opposites, such as &quot;on&quot; and &quot;off&quot;.  If this is not the case, use two radio button items instead.</para></listitem>
+		  <listitem><para>Never change the label of a checkbox menu item in response to the user selecting the item.</para></listitem>
+
+	</itemizedlist>
+
 	</sect3>
 	<sect3 id="menu-item-type-radio">
 	  <title>Radio Button Items</title>
 
+	<figure id="radiobutton-items-figure"><title>A group of radiobutton items on a menu</title>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="images/radiobutton-menu.png" format="PNG"/>
+	    </imageobject>
+	    <textobject>
+		<phrase>Screenshot of group on a menu containing two radiobutton items: view as icons, and view as list</phrase></textobject>
+	  </mediaobject>
+	</figure>
 
-	<remark>
+	  <para>Radio button menu items show which of two or more mutually-exclusive settings are currently selected, and allows the user to choose a different setting by selecting its menu item.</para>
+
+	<itemizedlist>
+
+	  	<listitem><para>If you need to offer a choice of two mutually-exclusive settings to the user,  use a group of two radio button items instead of a single checkbox menu item if the settings are not clearly opposites.  For example, represent <guimenuitem>View as Icons</guimenuitem> and <guimenu>View as List</guimenu> as two radio button items.</para></listitem>
+
+	  <listitem><para>Never change the label of a radio button menu item in response to the user selecting or deselecting the item.</para></listitem>
+
+	</itemizedlist>
+
+<remark>
 	Adam notes that this whole section can be a significant source of
 	nastiness in a UI. We need explicit recommendations here on how to
 	represent different states of a toggled menu item via icons in the UI.
@@ -280,13 +313,7 @@
 	* Ambiguous names for checkbox/toggle menu items which make it
 	  difficult to establish the current system state by looking at
 	  the menu.
-	</remark>
-
-	  <para>Radio button menu items show which of two or more mutually-exclusive settings are currently selected, and allows the user to choose a different setting by selecting its menu item.</para>
-
-	  <para>Even if there are only two possible settings, use a group of two radio button items instead of a checkbox menu item if the two settings are not clearly opposites.  For example, <guimenuitem>View as Icons</guimenuitem> and <guimenu>View as List</guimenu> should be represented as two radio button items rather than a single checbox item.</para>
-
-	  <para>Never change the label of a radio button menu item in response to the user selecting or deselecting the item.</para>
+</remark>
 
 	</sect3>
 	
