@@ -309,6 +309,16 @@
 
 	<para>Following the guidelines in this section will help to clarify the difference in the user's mind between information presented in the notification area, and controls and information presented on other parts of the panel.</para>
 
+	<sect2 id="desktop-notification-or-applet"><title>Notification Area or Panel Applet?</title>
+	<para>
+	Possible rule of thumb: you should probably write an applet instead of using the notification area if:</para>
+	<itemizedlist>
+		<listitem><para>clicking your notification area icon does anything other than opening a window directly associated with the icon (e.g. a mail folder window for a new mail icon, or a print queue window for printer notification icon), or </para></listitem>
+		<listitem><para>there are icon-specific options on its context menu for doing anything other than that</para></listitem> 
+		<listitem><para>your application would ever need to display more than one notification icon at the same time</para></listitem>
+	</itemizedlist>
+	</sect2>
+
 	<sect2><title>Icon Appearance</title>
 	<itemizedlist><title>Guidelines</title>
 		<listitem><para>Use table perspective for icons representing physical devices, with the light source above and to the left of the represented object.  For example, a printer icon during printing. See <xref linkend="icon_style_perspective"/> for more about table perspective.</para></listitem>
