@@ -9,30 +9,30 @@
 
       <para>Although highly responsive applications can differ widely from one another, they share the following characteristics:</para>
       <itemizedlist>
-	<listitem><para>They keep up with users, even when they cannot fulfill users' requests immediately</para></listitem>
+	<listitem><para>They keep up with users, even when they cannot fulfill users' requests immediately.</para></listitem>
 
 	<listitem><para>They handle queued requests as users would expect, discarding requests that are no longer relevant and reordering requests according to users' probable priorities.</para></listitem>
 
-	<listitem><para>They let users do other work while long operations proceed to completion, especially operations not requested by users, such as reclaiming unused memory or other &quot;housekeeping&quot; operations.</para></listitem>
+	<listitem><para>They let users do other work while long operations proceed to completion&mdash; especially operations not requested by users&mdash; such as reclaiming unused memory or other &quot;housekeeping&quot; operations.</para></listitem>
 
-	<listitem><para>They provide enough feedback for users to understand what they are doing, and they organize feedback according to users' abilities to comprehend and react to it.</para></listitem>
+	<listitem><para>They provide enough feedback for users to understand what they are doing, and organize feedback according to users' abilities to comprehend and react to it.</para></listitem>
 
 	<listitem><para>They let users know when processing is in progress.</para></listitem>
 	
 	<listitem><para>They let users know or estimate how long lengthy operations will take.</para></listitem>
 
-	<listitem><para>They let users set the pace of work, when possible, and they let users stop requested tasks that have begun but not finished.</para></listitem>
+	<listitem><para>They let users set the pace of work, when possible, and they let users stop requested tasks that have started but not finished.</para></listitem>
       </itemizedlist>
 
       <para>Highly responsive applications put users in control by quickly acknowledging each user request, by providing continuous feedback about progress toward fulfilling each request, and by letting users complete tasks without unacceptable delays.</para>
 
-      <para>applications with attractive, intuitive user interfaces can lack responsiveness. Typically, unresponsive applications have at least one the following problems:</para>
+      <para>Even applications with attractive, intuitive user interfaces can lack responsiveness. Typically, unresponsive applications have at least one of the following problems:</para>
 
       <itemizedlist>
 
-	<listitem><para>They provide late feedback&mdash; or no feedback&mdash; for users' requests, leaving users puzzled about what the application has done or is doing.</para></listitem>
+	<listitem><para>They provide late feedback&mdash; or no feedback&mdash; for users' requests, leaving users wondering what the application has done or is doing.</para></listitem>
 
-	<listitem><para>When performing extended operations, they prevent users from doing other work or canceling the extended operation.</para></listitem>
+	<listitem><para>When performing extended operations, they prevent users from doing other work or cancelling the extended operation.</para></listitem>
 
 	<listitem><para>They fail to display estimates of how long extended operations will last, forcing users to wait for unpredictable periods.</para></listitem>
 
@@ -40,7 +40,7 @@
 
       </itemizedlist>
       
-      <para>It is sometimes possible to improve an application's responsiveness without speeding up the application's code. For tips on how to make such improvements, see <link linkend="responding-to-user-requests">Responding to User Requests</link>.</para>
+      <para>You can sometimes possible to improve an application's responsiveness without speeding up the application's code. For tips on how to make such improvements, see <link linkend="responding-to-user-requests">Responding to User Requests</link>.</para>
       
     </sect1>
 
@@ -81,7 +81,8 @@
 	</tgroup>
       </table>
 
-      <para>Make each response delay in your application as short as possible, unless users need time to see the displayed information before it is erased. The acceptable response delay for each event is based on a typical user's sense that the event is a logical point at which to stop or pause. The greater that sense is, the more willingly the user will wait for a response. Verify that your application responds to users' requests within the limits listed in the table above. If the application cannot respond within those limits, it probably has one or more general problems caused by a particular algorithm or module.</para>
+      <para>Make each response delay in your application as short as possible, unless users need time to see the displayed information before it is erased. The acceptable response delay for each event is based on a typical user's sense that the event is a logical point at which to stop or pause. The greater that sense is, the more willingly the user will wait for a response. Verify that your application responds to users' requests within the limits listed in the table above. If your application cannot respond within those limits, it probably has one or more general problems caused by a particular algorithm or module.</para>
+
       <para>Recommendations:</para>
       
       <itemizedlist>
@@ -102,7 +103,7 @@
       
       <title>Responding to User Requests</title>
 
-      <para>If an application takes too long to respond, users become frustrated. Use these techniques to improve the responsiveness of your application.</para>
+      <para>If your application takes too long to respond, users will become frustrated. Use these techniques to improve the responsiveness of your application.</para>
 
       <para>Recommendations:</para>
 
@@ -128,9 +129,9 @@
 	<listitem><para>In your application, display an estimate of how long each lengthy operation will take.</para>
 	  <itemizedlist>
 
-	    <listitem><para>If a command might take longer than 5 seconds to complete its work on an object, enable users to interact with any parts of the object and parts of the application that are not directly affected by the command.</para></listitem>
+	    <listitem><para>If a command might take longer than 5 seconds to complete its work on an object, allow users to interact with any parts of the object and parts of the application that are not directly affected by the command.</para></listitem>
 
-	    <listitem><para>If a command provides lengthy output, show partial results as they become available. Scroll the results (if necessary) until the user moves input focus to a component (such as a scrollbar or text area) involved in the scrolling.</para></listitem>
+	    <listitem><para>If a command provides lengthy output, show partial results as they become available. Scroll the results (if necessary) until the user moves input focus to a component (e.g. a scrollbar or text area) involved in the scrolling.</para></listitem>
 
 	  </itemizedlist>
 	  
@@ -148,15 +149,17 @@
       <sect2 id="pointer-feedback">
 	<title>Pointer Feedback</title>
 	
-	<para>Pointer feedback changes the shape of the pointer. (The pointer tracks movements of the user's mouse or other pointing device). For example, a wait pointer indicates that an operation is in progress and that the user cannot do other tasks.</para>
-	
+	<para>Pointer feedback changes the shape of the pointer.  For example, a wait pointer indicates that an operation is in progress and that the user cannot do other tasks.</para>
+
+	<para>(picture of wait pointer required)</para>
+
       </sect2>
       
       
       <sect2 id="progress-animations">
 	<title>Progress Animations</title>
 	
-	<para>Progress animations show either how much of an operation is complete, or only that an operation is ongoing (such animations are also known as &quot;status animations&quot;).  Normally, progress animations will take the form of either a progress bar or a progress checklist.</para>
+	<para>Progress animations show either how much of an operation is complete, or only that an operation is ongoing.  Normally, these take the form of either a progress bar or a progress checklist.</para>
 	
 	<para>Recommendations:</para>
 	
@@ -169,81 +172,99 @@
 	    </itemizedlist>
 	  </listitem>
 	  
-	  <listitem><para>If your application can make neither estimate, use an indeterminate-progress bar for operations with only one step. For operations with two or more steps, use a progress checklist that dynamically displays a check mark for each completed step.</para></listitem>
+	  <listitem><para>If your application can make neither estimate, use an indeterminate-progress bar for operations with only one step. For operations with two or more steps, use a progress checklist that dynamically displays a check mark for each completed step.</para>
+
+	    <para>(Picture of each required)</para>
+	    
+	  </listitem>
 	  
 	</itemizedlist>
 	
 	<sect3 id="progress-bars">	  
 	  <title>Progress Bars</title>
 	  
-	  <para>You can use two main types of progress bars in your application&mdash; measured-progress bars and indeterminate-progress bars. Measured-progress bars can be classified into the following types:</para>
-	  
-	  <orderedlist>
-	    <listitem><para>Time-remaining bars</para></listitem>
-	    <listitem><para>Proportion-completed bars</para></listitem>
-	    <listitem><para>Typical-time bars</para></listitem>
-	  </orderedlist>
-	  
-	  <para>There is only one type of indeterminate-progress bar.</para>
-	  
-	  <table frame='all'>
-	    <title>Types of measured and indeterminate progress bars</title>
-	    <tgroup cols='2' align='left'>
-	      <thead>
-		<row>
-		  <entry>Type</entry>
-		  <entry>Description</entry>
-		</row>
-	      </thead>
-	      <tbody>
-		<row>
-		  <entry>Time-remaining</entry>
-		  <entry>An animation consisting of a bar whose changing length indicates how much time remains in an operation, and text stating how much time remains before the operation will be complete. Time-remaining bars are the most useful type of progress bar.</entry>
-		</row>
-		<row>
-		  <entry>Proportion-completed</entry>
-		  <entry>A bar whose changing length represents the completed proportion&mdash; typically a percentage&mdash; of an operation's total units of work.  Proportion-completed bars are less useful than time-remaining bars but more useful than typical-time bars.</entry>
-		</row>
-		<row>
-		  <entry>Typical-time</entry>
-		  <entry>A bar whose changing length indicates how much time remains if an operation takes as long as it typically does. Typical-time bars are the least precise type of measured-progress bar, but they are more useful than indeterminate-progress bars.</entry>
-		</row>
-		<row>
-		  <entry>Indeterminate-progress</entry>
-		  <entry>An animated bar indicating only that an operation is ongoing. Indeterminate-progress bars are the least precise type of progress bar.</entry>
-		</row>
-		
-	      </tbody>
-	    </tgroup>
-	  </table>
+	  <para>You can use two main types of progress bars in your application&mdash; measured-progress bars and indeterminate-progress bars. There are three types of measured progress bars, but only one type of indeterminate progress bar, which are described in the following sections.</para>
 
 	  <para>Ensure that a measured-progress bar measures an operation's total time or total work, not just that of a single step. An exception is a progress bar that measures the total time or work of the current step in a progress checklist.</para>
-	  
-	  <sect4 id="predictable-duration">
-	    <title>Predictable Durations</title>
+
+	  <sect4 id="time-remaining">
 	    
-	    <para>If your application can estimate how long a particular instance of an operation will take, you can provide feedback with either a time-remaining bar or a proportion-completed bar:</para>
+	    <title>Time-remaining Progress Indicator</title>
 	    
-	    <itemizedlist>
+	    <para>An animation consisting of a bar whose changing length indicates how much time remains in an operation, and text stating how much time remains before the operation will be complete. Time-remaining bars are the most useful type of progress bar.</para>
 	    
-	      <listitem><para>Use a time-remaining bar if your application will display an initial estimate of an operation's remaining time and then periodically display updated estimates. Each updated estimate should be based on changes that have occurred and that will cause the operation to finish more quickly or more slowly. If the operation will finish more slowly, your application can display an updated estimate that is greater than the estimate previously displayed.</para></listitem>
-	    
-	      <listitem><para>Use a proportion-completed bar if your application will estimate an operation's duration by counting the units of work completed so far, without regard for changes that might affect how quickly the remaining units will be completed. If the operation will process a known number of objects or a set of objects whose total size is known, equate the length of the bar to the total number of units of work that the operation will perform. At least every four seconds, update the bar to show how much of the operation is complete.</para></listitem>
-	  
-	    </itemizedlist>
+	    <figure><title>A simple 'time remaining' progress dialog</title>
+	      <mediaobject>
+		<imageobject>
+		  <imagedata fileref="images/progress-time.png" format="PNG"/>
+		</imageobject>
+		<textobject><phrase>A simple time-remaining progress dialog</phrase>           </textobject>
+	      </mediaobject>
+	    </figure>
+
+	    <para>Use a time-remaining bar if your application will display an initial estimate of an operation's remaining time and then periodically display updated estimates. Each updated estimate should be based on changes that have occurred and that will cause the operation to finish more quickly or more slowly. If the operation will finish more slowly, your application can display an updated estimate that is greater than the estimate previously displayed.</para>
 	    
 	  </sect4>
-	  
-	  <sect4 id="unpredictable-durations">
-	    <title>Unpredictable Durations</title>
+	   
+	  <sect4 id="proportion-completed">
+	    <title>Proportion-completed Progress Indicator</title>
+
+	    <para>A bar whose changing length represents the completed proportion&mdash; typically a percentage&mdash; of an operation's total units of work.  Proportion-completed bars are less useful than time-remaining bars but more useful than typical-time bars.</para>
+	    <figure>
+	      <title>A simple 'proportion completed' progress dialog</title>
+	      <mediaobject>
+		<imageobject>
+		  <imagedata fileref="images/progress-proportion.png" format="PNG"/>
+		</imageobject>
+		<textobject><phrase>A simple proportion-completed progress dialog</phrase>           
+		</textobject>
+	      </mediaobject>
+	    </figure>
+
+	    <para>Use a proportion-completed bar if your application will estimate an operation's duration by counting the units of work completed so far, without regard for changes that might affect how quickly the remaining units will be completed. If the operation will process a known number of objects or a set of objects whose total size is known, equate the length of the bar to the total number of units of work that the operation will perform. At least every four seconds, update the bar to show how much of the operation is complete.</para>
+
+	  </sect4>
+
+	  <sect4 id="typical-time">
+	    <title>Typical-time Progress Indicator</title>
 	    
+	    <para>A bar whose changing length indicates how much time remains if an operation takes as long as it typically does. Typical-time bars are the least precise type of measured-progress bar, but they are more useful than indeterminate-progress bars.</para>
+	    <figure>
+	      <title>A simple 'typical time remaining' progress dialog</title>
+	      
+	      <mediaobject>
+		<imageobject>
+		  <imagedata fileref="images/progress-proportion.png" format="PNG"/>
+		</imageobject>
+		<textobject><phrase>A simple 'typical time remaining' progress dialog</phrase>           </textobject>
+	      </mediaobject>
+	    </figure>
+
 	    <para>For some operations, you cannot estimate the time remaining or the proportion of work completed. However, if you can estimate the typical time for that operation, you can provide feedback with a typical-time bar.</para>
 	    
 	    <para>If your application overestimates the completed amount of work, the length of the bar can indicate &quot;almost complete&quot; until the operation is complete. If your application underestimates how much work is complete, the application can fill the remaining portion of the bar when the operation is complete.</para>
-	    <para>You can use an indeterminate-progress bar to provide feedback on an operation whose duration you cannot estimate at all.</para>
-	   
+
 	  </sect4>
 	  
+
+	  <sect4 id="indeterminate-progress">
+	    <title>Indeterminate-progress indicator</title>
+	    
+	    <para>An animated bar indicating only that an operation is ongoing. Indeterminate-progress bars are the least precise type of progress bar.</para>
+	    
+	    <figure>
+	      <title>A simple 'indeterminate time' progress dialog</title>
+	      <mediaobject>
+		<imageobject>
+		  <imagedata fileref="images/progress-indeterminate.png" format="PNG"/>
+		</imageobject>
+		<textobject><phrase>A simple indeterminate time progress dialog</phrase>           </textobject>
+	      </mediaobject>
+	    </figure>
+
+	    <para>Use an indeterminate-progress bar to provide feedback only for operations whose duration you cannot estimate at all.</para>
+	    
+	  </sect4>
 	  
 	</sect3>
 	
