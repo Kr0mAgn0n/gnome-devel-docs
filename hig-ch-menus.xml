@@ -12,7 +12,7 @@
     <para>Menus are the means by which the application commands and some options should be made available to the user.</para>
     <para>Organize menus according to the standard order, logical order, or freqency of use.</para>
     <para>It should be easy for a user to find the command they need in the menu hierarchy. Menus should contain only items which are related to the title of the menu. Menu items should not appear or disappear while the application is running. An entire menu from the menu bar and it's head item may do so. Menu items edited directly or indirectly by the user, such as those on the <guisubmenu>Open Recent</guisubmenu> submenu and the <guimenu>Bookmarks</guimenu> menu, should change consequent to the appropriate user action.</para>
-    <para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization">.</para>
+    <para>Label menu items with verbs or adjectives, describing commands or properties respectively, according to the rules in <xref linkend="layout-capitalization"/>.</para>
     <para>Provide an access key for each menu item. Unlike other controls, once a menu is posted, its access keys are accessible just by typing the letter; it is not necessary to press the <keysym>Alt</keysym> key at the same time.</para>
     <sect1 id="menu-controlsparts">
       <title>Menu Controls</title>
@@ -72,12 +72,12 @@
 	  <para>Command items . . .</para>
 	  <para>Provide a keyboard shortcut for standard or frequently used command items.</para>
 	  <para>Use <keysym>Control</keysym> as the modifier key in the most frequently used shortcut combination for a regular key. If there is a similar command which would be frequently used, use <keysym>Shift</keysym> as an additional modifier key. If other modifier keys are needed, consider redesigning the interface.</para>
-	  <para>See <xref linkend="shortcuts"> for more information.</para>
+	  <para>See <xref linkend="shortcuts"/> for more information.</para>
 	  <note>
 	    <title>For Discussion</title>
 	    <para>Should we reserve <keysym>Alt</keysym> as a modifier for window manager operations? Should we state this here?</para>
 	  </note>
-	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"> for more information.</para> -->
+	  <!-- <para>Shortcuts consist of the <keysym>Control</keysym> key and an alphanumeric key, or of one of the keys <keysym>F1</keysym>-<keysym>F12</keysym>, <keysym>Insert</keysym>, <keysym>Delete</keysym>, <keysym>Home</keysym>, <keysym>End</keysym>, <keysym>Page Up</keysym> or <keysym>Page Down</keysym>. The <keysym>Shift</keysym> key may be used as an additional modifier for commands which are related to or the opposite of the command accessed without the <keysym>Shift</keysym> key.  See <xref linkend="shortcuts"/> for more information.</para> -->
 	  <para>Make a menu item insensitive when its command is unavailable. For example, the <menuchoice><guimenu>Edit</guimenu> <guimenuitem>Copy</guimenuitem></menuchoice> item, which issues the command to copy selected data to the clipboard, should not be activatable when there is no data selected.</para>
 	  <para>Do not remove a command item from the menu, the toolkit will handle changing its appearance according to input-sensitivity. The user should be able to see commands which might be available at other times and keeps the item in a memorable place.</para>
 	  <para>Where a command <emphasis>requires</emphasis> further input from the user before it can be performed, it should be marked with an ellipsis ("..."). However, items should not be given an ellipsis to indicate only that a confirmation dialog will be presented or that the result of a command will be that a dialog is presented to the user.</para>
