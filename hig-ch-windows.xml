@@ -179,6 +179,22 @@
         document.</para>
       </note>
     </sect2>
+
+    <sect2 id="windows-show-hide">
+	<title>Showing and Hiding Windows</title>
+	<para>How your application shows and hides windows can greatly affect the user's perception of your application, particularly its performance.</para>
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Always show a window as soon as possible, but make sure your window is the correct size before displaying it. Resizing a window after it is visible is disorienting and gives an unpolished look to your application.</para></listitem>
+		<listitem><para>If a window contains information that takes a few seconds to compute or display, it is often better not to fill it in completely before displaying the window.  For example, a window containing a large text area can be shown
+quickly, and then the text can be filled in afterwards (provided this does not result in the window resizing).  This will make your application feel more responsive than if you had not shown the window until its content was complete.</para></listitem>
+		<listitem><para>Hide a window as soon as possible after it is
+closed. Unless an alert might be shown, immediately hide a window that the user has closed by clicking the Close button in the window border--  
+your application can still perform any internal clean-up operations afterwards. Besides making the
+system appear slow, not doing this can cause the window manager to think the application is not responding, and display an unnecessary alert to the user.</para></listitem>
+	</itemizedlist> 
+
+    </sect2>
+
   </sect1>
 
   <sect1 id="windows-primary">
@@ -1475,6 +1491,7 @@
         </listitem>
       </itemizedlist>
 
+
       <formalpara>
         <title>Window Commands:</title>
 
@@ -1534,6 +1551,15 @@
           <para><guibutton>Close without Saving</guibutton>,
           <guibutton>Cancel</guibutton>, <guibutton>Save</guibutton></para>
         </formalpara>
+      <para>
+When a confirmation alert is needed,
+present it immediately. If the user confirms closing without saving,
+hide the alert and the document or application  window immediately, 
+before doing any necessary internal clean-up.
+If the user chooses to save before
+closing, hide the alert immediately but show the document window until the document is
+saved, in case an error occurs.  Then hide the document window immediately after it has been saved successfuly.
+	</para>
       </sect3>
     </sect2>
 
