@@ -199,7 +199,7 @@
 
 	    <listitem><para>Order items within a group logically, numerically, in task order or by expected frequency of use, as appropriate.</para></listitem>
 
-	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">check box</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (such as <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (such as. <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice>) in the same group.</para></listitem>
+	    <listitem><para>Only place one type of menu item in each group&mdash; <link linkend="menu-item-type-command">command</link>, <link linkend="menu-item-type-mutable">mutable</link>, <link linkend="menu-item-type-check">check box</link> or <link linkend="menu-item-type-radio">radio button</link>.  For example, do not place commands (such as <menuchoice><guimenu>View</guimenu><guimenuitem>Reload</guimenuitem></menuchoice>) and settings (such as <menuchoice><guimenu>View</guimenu><guimenuitem>Toolbar</guimenuitem></menuchoice>) in the same group.</para></listitem>
 
 	    </itemizedlist>	  
 	</sect2>
@@ -426,7 +426,7 @@ the application saves state as it should.</remark>
 		      <entry><guimenuitem><accel>O</accel>pen...</guimenuitem></entry>
 	      		<entry><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></entry>
 			<entry>Opens an existing document in a new window. Present the user with a standard Open File dialog <!-- Ref this elsewhere --> from which they can choose an existing file. If the chosen file is already open in the application, raise that window instead of opening a new one. <!-- If the current window contains a blank untitled document then replace it with the selected file. Otherwise open the file in a new window. -->
-		<remark>If your application provides more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better inteface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and online presentations of speculative menus, do not want or do not even notice when the New... items are absent.</remark>
+		<remark>If your application provides more than two ways to open an object, place all the Open ... items in a submenu, including Recent Files. This keeps the menu less cluttered and in some ways presents a better interface as the list of recent files is presented in the same menu, and near, the regular open commands. Users hate having to go to the bottom of the file menu to open recent files; the cause of this is that, in the workplace, it is far more common to sort out other peoples already written and saved crap than it is to have to write your own. Most of the users of office application, surveyed in both card sorts and on-line presentations of speculative menus, do not want or do not even notice when the New... items are absent.</remark>
 		  <remark>>Problem to be solved. It may be desirable to open a second read-only view of the same document. How should this be provided? Non-OOUI are particularly nasty in this regard, as in many others. A "Clone Window" command seems quite nasty.</remark>
 		  <remark>>As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</remark>
 			</entry>
@@ -486,7 +486,7 @@ the application saves state as it should.</remark>
 	    <row>
 	      	<entry><guimenuitem><accel>R</accel>evert</guimenuitem></entry>
 	      <entry>None</entry>
-		<entry>Reverts the document to the last saved state. Present the user with a warning that all changes will be lost, and offer the option of cancelling before reloading the file.</entry>
+		<entry>Reverts the document to the last saved state. Present the user with a warning that all changes will be lost, and offer the option of canceling before reloading the file.</entry>
 
 		</row>
 
@@ -537,13 +537,13 @@ the application saves state as it should.</remark>
 		<row>
 		      <entry><guimenuitem>Print Previe<accel>w</accel></guimenuitem></entry>
 	      		<entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
-			<entry>Shows the user what the printed document will look like. Present a new window containing an accruate represenation of the appearance of the document as it would be printed.  The libgnomeprintui library provides a standard Print Preview window that you should use if possible.</entry>
+			<entry>Shows the user what the printed document will look like. Present a new window containing an accurate representation of the appearance of the document as it would be printed.  The libgnomeprintui library provides a standard Print Preview window that you should use if possible.</entry>
 		</row>
 
 	    <row>
 	    	<entry><guimenuitem><accel>P</accel>rint...</guimenuitem></entry>
 		<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
-	        <entry>Prints the current document. Present the user with a dialog allowing them to set options like the page range to be printed, the printer to be used, and so on. The dialog must contain a button labelled <guibutton>Print</guibutton> that starts printing and closes the dialog.  The <filename>libgnomeprintui</filename> library provides a standard Print dialog that you should use if possible.</entry>
+	        <entry>Prints the current document. Present the user with a dialog allowing them to set options like the page range to be printed, the printer to be used, and so on. The dialog must contain a button labeled <guibutton>Print</guibutton> that starts printing and closes the dialog.  The <filename>libgnomeprintui</filename> library provides a standard Print dialog that you should use if possible.</entry>
 	    </row>
 
 	    <row>
@@ -629,7 +629,7 @@ the application saves state as it should.</remark>
 	<para>The <guimenu>Edit</guimenu> menu contains items relating to editing both the document (clipboard handling, search and replace, and inserting special objects) and the user's preferences.  Preferences are edited here rather than on a <guimenu>Settings</guimenu> menu, because:</para>
 
 	<itemizedlist>
-		<listitem><para>most applications' preferences windows are accessed via a single menu tem, and single-item menus offer poor usability</para></listitem>
+		<listitem><para>most applications' preferences windows are accessed via a single menu item, and single-item menus offer poor usability</para></listitem>
 		<listitem><para>most applications already contain a suitable <guimenu>Edit</guimenu> menu.</para></listitem>
 	</itemizedlist>
 
@@ -767,7 +767,7 @@ the application saves state as it should.</remark>
 		  <entry><guimenuitem><accel>D</accel>eselect All</guimenuitem></entry>
 	      	  <entry><keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
 		<entry>Deselects all content in the current document. Only provide this item in situations when no other method of undoing selection is possible or apparent to the user.  For example, in complex graphics applications where selection and deselection is not usually possible simply by using the cursor keys.
-		<para>Note: Do not provide <guimenuitem>Deselect All</guimenuitem> in text entry fields, as <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keysym>hex digit</keysym></keycombo> is used to enter unicode characters so its shortcut will not work.</para></entry>
+		<para>Note: Do not provide <guimenuitem>Deselect All</guimenuitem> in text entry fields, as <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keysym>hex digit</keysym></keycombo> is used to enter Unicode characters so its shortcut will not work.</para></entry>
 	      </row>
 
 	    </tbody>
@@ -826,7 +826,7 @@ the application saves state as it should.</remark>
 	  <title>Inserting Special Objects</title>
 	  <para>Where applicable, provide items on the <guimenu>Edit</guimenu> menu that insert special objects such as images, links, GUI controls or the current date and time. </para>
 
-	<para>If you have up to three types of object that can be inserted, add them as individual items to this menu, for example <guimenuitem>Insert Image</guimenuitem>, or <guimenuitem>Insert External Link</guimenuitem>.  If you have between three and six types, place them on an <menuchoice><guimenu>Edit</guimenu><guimenuitem>Insert</guimenuitem></menuchoice> submenu.  If you have more than six, add a separate <link linkend="menu-standard-insert"><guimenu>Insert</guimenu> menu</link> to the menubar.</para>
+	<para>If you have two or less types of object that can be inserted, add them as individual items to this menu, for example <guimenuitem>Insert Image</guimenuitem>, or <guimenuitem>Insert External Link</guimenuitem>.  If you have between three and six types, place them on an <menuchoice><guimenu>Edit</guimenu><guimenuitem>Insert</guimenuitem></menuchoice> submenu.  If you have more than six, add a separate <link linkend="menu-standard-insert"><guimenu>Insert</guimenu> menu</link> to the menubar.</para>
 
 	</sect3>
 
@@ -959,7 +959,7 @@ the application saves state as it should.</remark>
 		<row>
 			<entry><guimenuitem>S<accel>o</accel>rt By...</guimenuitem></entry>
 			<entry>None</entry>
-			<entry>Sorts the contents of an container by user-specified criteria.  Open a dialog allowing the user to choose from pre-defined sort keys (for example, Name, Size, or Modification Date in a file manager), or to specify their own if applicable.</entry>
+			<entry>Sorts the contents of an container by user-specified criteria.  Open a dialog allowing the user to choose from predefined sort keys (for example, Name, Size, or Modification Date in a file manager), or to specify their own if applicable.</entry>
 		</row>
 
 		<row>
@@ -1201,7 +1201,7 @@ the application saves state as it should.</remark>
 		<row>
 			<entry><guimenuitem><accel>I</accel>talic</guimenuitem></entry>
 			<entry><keycombo><keycap>Ctrl</keycap><keycap>I</keycap></keycombo></entry>
-			<entry>Toggles the italicisation of the current text selection on or off.  If some of the selection is currently italicised and some is not, this command should italicise the selected text.</entry>
+			<entry>Toggles the italicization of the current text selection on or off.  If some of the selection is currently italicized and some is not, this command should italicize the selected text.</entry>
 
 		</row>
 
@@ -1354,7 +1354,7 @@ the application saves state as it should.</remark>
 		<row>
 			<entry><guimenuitem><accel>U</accel>p</guimenuitem></entry>
 			<entry><keycombo><keycap>Alt</keycap><keycap>Up</keycap></keycombo></entry>
-			<entry>Navigates to the current document's (or folder's) parent document (or folder).  For a document browser, such as an online help viewer, this usually means navigating to the enclosing sub-section, section, chapter or contents page.</entry>		
+			<entry>Navigates to the current document's (or folder's) parent document (or folder).  For a document browser, such as an on-line help viewer, this usually means navigating to the enclosing sub-section, section, chapter or contents page.</entry>		
 		</row>
 	
 		<row>
@@ -1526,7 +1526,7 @@ the application saves state as it should.</remark>
       </sect2>
       <sect2 id="menu-standard-help">
 	<title>Help</title>
-	<para>The <guimenu>Help</guimenu> menu provides access to all online documentation for your application.  This includes both the user guide, and the <guimenuitem>About</guimenuitem> window which includes a brief description of your application's functionality.</para>
+	<para>The <guimenu>Help</guimenu> menu provides access to all on-line documentation for your application.  This includes both the user guide, and the <guimenuitem>About</guimenuitem> window which includes a brief description of your application's functionality.</para>
 
 	<figure id="generic-help-menu">
 	  <title>A generic Help menu</title>
@@ -1565,7 +1565,7 @@ the application saves state as it should.</remark>
 		<row>
 			<entry><guimenuitem><accel>A</accel>bout</guimenuitem></entry>
 			<entry>None</entry>
-			<entry>Opens the About dialog for the application.  Use the standard dialog provided by the GNOME libraries, which contains the name and version number of the application, a short description of the application's functionality, author contact details, copyright message and a pointer to the licence under which the application is made available.</entry>		
+			<entry>Opens the About dialog for the application.  Use the standard dialog provided by the GNOME libraries, which contains the name and version number of the application, a short description of the application's functionality, author contact details, copyright message and a pointer to the license under which the application is made available.</entry>		
 		</row>
 
 			</tbody>
