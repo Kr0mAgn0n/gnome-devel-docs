@@ -216,7 +216,7 @@ Menus are a means by which a set of commands can be made available to the user, 
 <title>Drop-Down Menus</title> <!-- "Pull-down" menus? -->
 
 <para>
-Applications may possess a menubar providing a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.
+The primary application window should possess a menubar providing a number of drop-down menus. This menubar will be visible at all times and will always be accessible via the keyboard as well as the mouse, and for this reason it should give access to all commands available in the application.
 </para>
 
 </sect3>
@@ -226,7 +226,8 @@ Applications may possess a menubar providing a number of drop-down menus. This m
 <title>Popup menus</title>
 
 <para>
-Clicking on an object with the right mouse button may display a popup menu which should contain commands which can be applied to the selected object. (The act of clicking may change the selection.) Since popup menus are not accessible via the keyboard and since the user may not be aware of their presence, any items they contain should also be available via the application's menubar.
+Clicking on an object with the right mouse button may display a popup menu which should contain commands which can be applied to the selected object. (The act of clicking may change the selection.) Popup menus are accessible via the keyboard shortcut <keycombo action="simul"><keycap>Shift</keycap><keycap>F10</keycap></keycombo>. Since the user may not be aware of their presence, any items they contain should also be available via the application's menubar.
+<!-- http://bugzilla.mozilla.org/show_bug.cgi?id=34357 -->
 </para>
 
 </sect3>
@@ -254,7 +255,7 @@ Submenus may be used to add a further level of hierarchy to a menu and to save s
 <title>Separators</title>
 
 <para>
-Related items should be grouped together on a menu and should be separated from other groups using separators. This creates a set of visual <quote>landmarks</quote> and makes it easier for the user to quickly scan a menu for the item they are interested in.
+Related items should be grouped together on a menu and should be separated from other groups using separators. This creates a set of visual landmarks and makes it easier for the user to quickly scan a menu for the item they are interested in.
 </para>
 
 </sect4>
@@ -338,22 +339,27 @@ There are a number of standard drop-down menus for common operations. The menus 
 <title>File</title>
 
 <para>
-<literallayout class="monospaced">_File
-    _New                Ctrl-N
-    _Open...            Ctrl-O
-    Open _Recent        >
-    ---
-    _Save               Ctrl-S
-    Save _As...
-    Re_vert to Saved
-    _Close              Ctrl-W
-    ---
-    _Print              Ctrl-P
-    Print Preview...
-    Page Setup...
-    ---
-    Close All
-    _Quit               Ctrl-Q</literallayout>
+<!-- Note from GJM: I'm updating this to use markup rather than semi-literal symbols.
+	  The HTML version will be not show underlines until we get that fixed,
+	  but in the meanwhile we'll have nice printed versions.
+          We might want to use graphics instead.
+  -->
+<literallayout class="monospaced"><guimenu><accel>F</accel>ile</guimenu>
+<guimenuitem><accel>N</accel>ew                Ctrl-N</guimenuitem>
+<guimenuitem><accel>O</accel>pen...            Ctrl-O</guimenuitem>
+<guimenuitem>Open <accel>R</accel>ecent        ></guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem><accel>S</accel>ave               Ctrl-S</guimenuitem>
+<guimenuitem>Save <accel>A</accel>s...</guimenuitem>
+<guimenuitem>Re<accel>v</accel>ert to Saved</guimenuitem>
+<guimenuitem><accel>C</accel>lose              Ctrl-W</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem><accel>P</accel>rint              Ctrl-P</guimenuitem>
+<guimenuitem>Print Preview...</guimenuitem>
+<guimenuitem>Page Setup...</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem>Close All</guimenuitem>
+<guimenuitem><accel>Q</accel>uit               Ctrl-Q</guimenuitem></literallayout>
 </para>
 
 <para>
@@ -369,7 +375,7 @@ All applications should have a <guimenu>File</guimenu> menu which should contain
 	   reasonable distinguishable types.
   -->
 <para>
-Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <quote>Game</quote> menu instead of a <quote>File</quote> menu.
+Applications which do not obviously operate on files may rename this menu to something more appropriate. For example, games may have a <guimenu>Game</guimenu> menu instead of a <guiemenu>File</guimenu> menu.
 </para>
 
 <sect4>
@@ -386,11 +392,11 @@ On document-editing applications, the items <guimenuitem>New</guimenuitem>, <gui
 <term>New</term>
 <listitem>
 <para>
-Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <!-- FIXME: titling, -->
+Creates a new document. The <guimenuitem><accel>N</accel>ew</guimenuitem> command should create a new window or tab (depending on the users MDI settings) with a blank document in it. <!-- FIXME: titling of new documents -->
 </para>
 
 <para>
-Where the application may create a number of different types of document, the <guimenuitem>New</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <quote>New <replaceable>document type</replaceable></quote> and the most commonly used item should be the first entry in the submenu and should be given the Ctrl-N shortcut.
+Where the application may create a number of different types of document, the <guimenuitem>New</guimenuitem> item may be a submenu containing entries for these various types. These entries should be labelled <guimenuitem>New <replaceable>document type</replaceable></guimenuitem> and the most commonly used item should be the first entry in the submenu and should be given the <shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut> shortcut.
 </para>
 <para>
 A blank document will not necessarily be truly blank. For example, a document created from a template may already contain some data.<!-- FIXME: More on templates -->
@@ -466,7 +472,7 @@ Close the current document. If the document in the current window has unsaved ch
 <term>Print</term>
 <listitem>
 <para>
-Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <quote>Print</quote> which should start the actual printing and close the dialog.
+Prints the current document. The <guimenuitem>Print</guimenuitem> command should brings up a print dialog allowing the user to set such options as the page range to be printed, the printer to be used, and so on. The dialog should contain a button marked <guibutton>Print</guibutton> which should start the actual printing and close the dialog.
 </para>
 </listitem>
 </varlistentry>
@@ -532,21 +538,21 @@ Close all open documents. If there are unsaved changes in any of the currently o
 <title>Edit</title>
 
 <para>
-<literallayout class="monospaced">_Edit
-    _Undo <replaceable>action</replaceable>        Ctrl-Z
-    _Redo <replaceable>action</replaceable>        Ctrl-Shift-Z
-    ---
-    Cu_t                Ctrl-X
-    _Copy               Ctrl-C
-    _Paste              Ctrl-V
-    _Delete             Del
-    ---
-    Select _All         Ctrl-A
-    ---
-    Find                Ctrl-F
-    Replace             Ctrl-R
-    ---
-    Preferences...</literallayout>
+<literallayout class="monospaced"><guimenu><accel>E</accel>dit</guimenu>
+<guimenuitem><accel>U</accel>ndo <replaceable>action</replaceable>        Ctrl-Z</guimenuitem>
+<guimenuitem><accel>R</accel>edo <replaceable>action</replaceable>        Ctrl-Shift-Z</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem>Cu<accel>t</accel>                Ctrl-X</guimenuitem>
+<guimenuitem><accel>C</accel>opy               Ctrl-C</guimenuitem>
+<guimenuitem><accel>P</accel>aste              Ctrl-V</guimenuitem>
+<guimenuitem><accel>D</accel>elete             Del</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem>Select <accel>A</accel>ll         Ctrl-A</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem>Find               Ctrl-F</guimenuitem>
+<guimenuitem>Replace            Ctrl-R</guimenuitem>
+<guimenuitem>---</guimenuitem>
+<guimenuitem>Preferences...</guimenuitem></literallayout>
 </para>
 
 <para>
@@ -757,10 +763,10 @@ _Options
 <title>Help</title>
 
 <para>
-<literallayout class="monospaced">_Help
-    _Search Help
-    Help _Contents      F1
-    _About <replaceable>appname</replaceable></literallayout>
+<literallayout class="monospaced"><guimenu><accel>H</accel>elp</guimenu>
+<guimenuitem><accel>S</accel>earch Help</guimenuitem>
+<guimenuitem>Help <accel>C</accel>ontents      F1</guimenuitem>
+<guimenuitem><accel>A</accel>bout <replaceable>appname</replaceable></guimenuitem></literallayout>
 </para>
 
 <variablelist>
@@ -1195,7 +1201,7 @@ Druids are dialog boxes which lead the user through a sequence of steps. They ar
 </para>
 
 <para>
-Druids are best suited to situations in which the user requires some sort of <quote>hand-holding</quote>, due to the way in which they can combine documentation and functionality. Experienced users tend to find them inefficient and patronising.
+Druids are best suited to situations in which the user requires some sort of hand-holding, due to the way in which they can combine documentation and functionality. Experienced users tend to find them inefficient and patronising.
 </para>
 
 <para>
@@ -1237,7 +1243,7 @@ Dialogs should reflect the current state of the application. If changes are made
 </para>
 
 <para>
-Care should be taken to ensure that it is obvious to the user whether changes made within the main area will immediately affect objects external to the dialog or whether the user will have to perform another action to apply those changes. For example, the presence of a button labeled <quote>Apply</quote> would imply that any changes would only be applied once that button had been pressed, while the presence of only a button marked <quote>Close</quote> would imply that changes were applied immediately.
+Care should be taken to ensure that it is obvious to the user whether changes made within the main area will immediately affect objects external to the dialog or whether the user will have to perform another action to apply those changes. For example, the presence of a button labeled <guibutton>Apply</guibutton> would imply that any changes would only be applied once that button had been pressed, while the presence of only a button marked <guibutton>Close</guibutton> would imply that changes were applied immediately.
 </para>
 
 <para>
@@ -1259,7 +1265,7 @@ These dialogs should be positioned on the bottom row of the dialog according to 
 <title>Action buttons</title>
 
 <para>
-Most dialogs will have buttons to perform some kind of action. These should be labelled with a verb to describe the action. (Labels such as <quote>OK</quote>, <quote>Yes</quote> and <quote>No</quote> are discouraged since they are difficult for the user to quickly scan for the desired action.) The leftmost action button should be the default button, and so be activated by the Enter key in addition to any other accelerators it may possess.
+Most dialogs will have buttons to perform some kind of action. These should be labelled with a verb to describe the action. (Labels such as <guibutton>OK</guibutton>, <guibutton>Yes</guibutton> and <guibutton>No</guibutton> are discouraged since they are difficult for the user to quickly scan for the desired action.) The leftmost action button should be the default button, and so be activated by the Enter key in addition to any other accelerators it may possess.
 </para>
 
 <para>
@@ -1281,7 +1287,7 @@ On dialogs which are not closed by their action button there should be a Close b
 </para>
 
 <para>
-The situation is slightly different again for informational dialogs. As always, the closing button should close the dialog, but the labelling of the button is a decision for the developer and is dependent upon the context in which it appears. As a rough guide, <quote>Close</quote> will generally be an appropriate label for dialogs appearing in response to a user's request for information, while <quote>OK</quote> will often be more appropriate for unrequested alerts.
+The situation is slightly different again for informational dialogs. As always, the closing button should close the dialog, but the labelling of the button is a decision for the developer and is dependent upon the context in which it appears. As a rough guide, <guibutton>Close</guibutton> will generally be an appropriate label for dialogs appearing in response to a user's request for information, while <guibutton>OK</guibutton> will often be more appropriate for unrequested alerts.
 </para>
 
 <para>
@@ -1295,7 +1301,7 @@ In all of these cases the closing button should be activated by the escape key. 
 <title>Navigation buttons</title>
 
 <para>
-If the dialog contains a sequence of steps (as in a druid, for example), they should be navigable with Next and Previous buttons.
+If the dialog contains a sequence of steps (as in a druid, for example), they should be navigable with <guibutton>Next</guibutton> and <guibutton>Previous</guibutton> buttons.
 </para>
 
 </sect4>
@@ -1305,7 +1311,7 @@ If the dialog contains a sequence of steps (as in a druid, for example), they sh
 <title>Help buttons</title>
 
 <para>
-Developers are encouraged to give their dialogs a Help button. This should launch the default help browser with the section of the application's help document relevant to the current dialog.
+Developers are encouraged to give their dialogs a <guibutton>Help</guibutton> button. This should launch the default help browser with the section of the application's help document relevant to the current dialog.
 </para>
 
 </sect4>
@@ -1316,7 +1322,7 @@ Developers are encouraged to give their dialogs a Help button. This should launc
 <title>Dialog Window Titles</title>
 
 <para>
-Dialog windows should be given titles that enable the user to determine from the title alone both the task that the dialog is intended to carry out and the parent window (if any) that the task applies to. So, for example, the title for a search and replace dialog in a text editor should look something like: <quote>Replace in document.txt</quote>.
+Dialog windows should be given titles that enable the user to determine from the title alone both the task that the dialog is intended to carry out and the parent window (if any) that the task applies to. So, for example, the title for a search and replace dialog in a text editor should look something like: <guilabel>Replace in document.txt</guilabel>.
 </para>
 
 </sect3>
@@ -1340,7 +1346,7 @@ The file selector should be used whenever the user is required to select one fil
 </para>
 
 <para>
-If the file selector is being used to select a file that is to be opened in the application then its title should be <quote>Open File</quote>. If it is being used to choose a filename to save a file to then its title should be <quote>Save File</quote>.
+If the file selector is being used to select a file that is to be opened in the application then its title should be <guilabel>Open File</guilabel>. If it is being used to choose a filename to save a file to then its title should be <guilabel>Save File</guilabel>.
 </para>
 
 <para>
@@ -1354,7 +1360,7 @@ Sometimes it may be appriate to extend the file selector to include new features
 <title>Font Selector</title>
 
 <para>
-The font selector should be used wherever the user has to select a font. If the font is being selected for a particular document then the dialog should be titled <quote><replaceable>docname</replaceable>: Pick a Font</quote>, otherwise it should be titled <quote><replaceable>appname</replaceable>: Pick a Font</quote>.
+The font selector should be used wherever the user has to select a font. If the font is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Font</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Font</guilabel>.
 </para>
 
 </sect3>
@@ -1364,7 +1370,7 @@ The font selector should be used wherever the user has to select a font. If the 
 <title>Color Selector</title>
 
 <para>
-The color selector should be used wherever the user has to select a color. If the color is being selected for a particular document then the dialog should be titled <quote><replaceable>docname</replaceable>: Pick a Color</quote>, otherwise it should be titled <quote><replaceable>appname</replaceable>: Pick a Color</quote>.
+The color selector should be used wherever the user has to select a color. If the color is being selected for a particular document then the dialog should be titled <guilabel><replaceable>docname</replaceable>: Pick a Color</guilabel>, otherwise it should be titled <guilabel><replaceable>appname</replaceable>: Pick a Color</guilabel>.
 </para>
 
 </sect3>
@@ -1592,7 +1598,7 @@ Simply making a GUI look tidier can make it seem less intimidating. This can be 
 </para>
 
 <para>
-GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <quote>white space</quote>.
+GUI's are rarely pleasant to look at when the elements are densely packed onto the screen, and for this reason the elements in a GUI should be given adequate space between each other. The space between elements is frequently referred to as <wordasword>white space</wordasword>.
 </para>
 
 </sect2>
@@ -2000,6 +2006,7 @@ right of small icons, and immediately above or to the left of other controls. Se
 
     </sect2>
     <sect2>
+<!-- Note from GJM: Seth, could this be redone as something like "Things to Avoid"? The problems we have now should one day go away and I'd like to see this document become timeless rather than historical. -->
       <title>Common problems with GNOME icons</title>
       <formalpara><title>Extraneous information</title>
 	<para>Remember that icons will often be viewed in a smaller form. Too much information may render the icon unintelligable when it is shrunk in size (e.g. to be placed on a panel, or in the tasklist). Too much information also makes it easier for users confuse the purpose of the application. For example, in user testing many users thought the Evolution icon would launch a word processor. They were thrown off by the pencil and the paper, which could be seen as extraneous information: it is implicit that the mail program will allow you to write messages as well as receive them. A better icon might have been a simple envelope. Foremost in the icon designer's mind should be a consideration of the minimal visual element(s) necessary to express the purpose of the program.
@@ -2298,8 +2305,12 @@ text/mathml
 	<listitem><para>The left button should be used for selecting, activating components, dragging, and the display of drop-down menus.</para></listitem>
 
 	<listitem><para>The right button should be used to display and select actions from a popup menu.</para></listitem>  
-
-	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  <keycombo><keycap>Ctrl</keycap><keycap>click</keycap></keycombo> (or unmodified click) should perform a copy, <keycombo><keycap>Shift</keycap><keycap>click<keycap></keycombo> should perform a move, and <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>click<keycap></keycombo> should insert a link to the primary selection, where supported.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
+<!-- Note from GJM: Calum, I'm not sure what you mean here and don't forget to close your tags. I think this needs to be done as:
+	<keycombo action="click"><keycap>Shift</keycap><mousebutton>middle</mousebutton></keycombo>
+     rather than marking as <keycap>click</keycap>, which is misuse of the tags.
+     (When you close your tags, I don't see errors and so don't take the opportunity to be pedantic. ;-)
+ -->
+	<listitem><para>The middle mouse button should be used to paste the primary selection at the pointer position.  <keycombo><keycap>Ctrl</keycap><keycap>click</keycap></keycombo> (or unmodified click) should perform a copy, <keycombo><keycap>Shift</keycap><keycap>click</keycap></keycombo> should perform a move, and <keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>click</keycap></keycombo> should insert a link to the primary selection, where supported.  Don't over-ride this functionality in any part of your user interface where the paste action is likely to be useful.  If you do use the middle button for a different purpose anywhere, it should only be considered a shortcut for experienced users, and only assigned to operations that can also be performed without using the right or middle mouse buttons.</para></listitem>
 
 	<listitem><para>If present, the scrollwheel should scroll the currently focused window or control, if it supports scrolling.  Suggestion for discussion: If it supports both horizontal and vertical scrolling, unmodified scrollwheel should scroll vertically, and <keycombo><keycap>Shift</keycap><keycap>scrollwheel</keycap></keycombo> <emphasis>(or <keycombo><keycap>Ctrl</keycap><keycap>scrollwheel</keycap></keycombo>?)</emphasis> should scroll horizontally.</para></listitem>
 
@@ -2545,8 +2556,7 @@ or by dropping the object on an invalid drop target.</para></listitem>
     <sect2 id="keyboard-navigation">
       <title>Keyboard Navigation</title>
       
-      <para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the
-fine motor control skills required.</para>
+      <para>A well-designed keyboard user interface plays a key role when you are designing applications. Many power users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</para>
 
       <para>You should therefore make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides should be available using the keyboard alone. Hide your mouse while you're testing your application if you have to!</para>
 
@@ -2815,32 +2825,32 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>_New</entry>
+		<entry><guimenuitem><accel>N</accel>ew</guimenuitem></entry>
 		<entry>Ctrl+N</entry>
 		<entry>Create a new document</entry>
 	      </row>
 	      <row>
-		<entry>_Open</entry>
+		<entry><guimenuitem><accel>O</accel>pen</guimenuitem></entry>
 		<entry>Ctrl+O</entry>
 		<entry>Open a document</entry>
 	      </row>
 	      <row>
-		<entry>_Save</entry>
+		<entry><guimenuitem><accel>S</accel>ave</guimenuitem></entry>
 		<entry>Ctrl+S</entry>
 		<entry>Save the current document</entry>
 	      </row>
 	      <row>
-		<entry>_Print</entry>
+		<entry><guimenuitem><accel>P</accel>rint</guimenuitem></entry>
 		<entry>Ctrl+P</entry>
 		<entry>Print the current document</entry>
 	      </row>
 	      <row>
-		<entry>_Close</entry>
+		<entry><guimenuitem><accel>C</accel>lose</guimenuitem></entry>
 		<entry>Ctrl+W</entry>
 		<entry>Close the current document</entry>
 	      </row>
 	      <row>
-		<entry>_Quit</entry>
+		<entry><guimenuitem><accel>Q</accel>uit</guimenuitem></entry>
 		<entry>Ctrl+Q</entry>
 		<entry>Quit the application</entry>
 	      </row>
@@ -2860,64 +2870,64 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>_Undo</entry>
+		<entry><guimenuitem><accel>U</accel>ndo</guimenuitem></entry>
 		<entry>Ctrl+Z</entry>
 		<entry>Undo the last operation</entry>
 	      </row>
 	      <row>
-		<entry>_Redo</entry>
+		<entry><guimenuitem><accel>R</accel>edo</guimenuitem></entry>
 		<entry>Shift+Ctrl+Z</entry>
 		<entry>Redo the last operation</entry>
 	      </row>
 	      <row>
-		<entry>Cu_t</entry>
+		<entry><guimenuitem>Cu<accel>t</accel></guimenuitem></entry>
 		<entry>Ctrl+X</entry>
 		<entry>Cut the selected area and store it in the clipboard</entry>
 	      </row>
 	      <row>
-		<entry>_Copy</entry>
+		<entry><guimenuitem><accel>C</accel>opy</guimenuitem></entry>
 		<entry>Ctrl+C</entry>
 		<entry>Copy the selected area into the clipboard</entry>
 	      </row>
 	      <row>
-		<entry>_Paste</entry>
+		<entry><guimenuitem><accel>P</accel>aste</guimenuitem></entry>
 		<entry>Ctrl+V</entry>
 		<entry>Paste contents of clipboard at mouse/cursor position</entry>
 	      </row>
 	      <row>
-		<entry>Select _All</entry>
+		<entry><guimenuitem>Select <accel>A</accel>ll</guimenuitem></entry>
 		<entry>Ctrl+A</entry>
 		<entry>Select everything in focused control or window</entry>
 	      </row>
 
 	      <row>
-		<entry>Deselect All</entry>
+		<entry><guimenuitem>Deselect All</guimenuitem></entry>
 		<entry>Shift+Ctrl+A</entry>
 		<entry>Deselect everything in focused control or window</entry>
 	      </row>
 	      <row>
-		<entry>In_vert Selection</entry>
+		<entry><guimenuitem>In<accel>v</accel>ert Selection</guimenuitem></entry>
 		<entry>Ctrl+I</entry>
 		<entry>Select everything in focused control or window that was previously unselected, and deselect everything that was previously selected</entry>
 	      </row>
 	      <row>
-		<entry>_Delete</entry>
+		<entry><guimenuitem><accel>D</accel>elete</guimenuitem></entry>
 		<entry>Del</entry>
 		<entry>Delete selection</entry>
 	      </row>
 	      <row>
-		<entry>_Find</entry>
+		<entry><guimenuitem><accel>F</accel>ind</guimenuitem></entry>
 		<entry>Ctrl+F</entry>
 		<entry>Find</entry>
 	      </row>
 	      <row>
-		<entry>Find Ne_xt</entry>
+		<entry><guimenuitem>Find Ne<accel>x</accel>t</guimenuitem></entry>
 		<entry>Ctrl+G</entry>
 		<entry>Find the next match</entry>
 	      </row>
 <!-- Replace may go depending on response to mpt's comment that Replace should be part of standard Find dialog functionality-->
 	      <row>
-		<entry>_Replace</entry>
+		<entry><guimenuitem><accel>R</accel>eplace</guimenuitem></entry>
 		<entry>Ctrl+H (or Ctrl+R?)</entry>
 		<entry>Find and replace matches</entry>
 	      </row>
@@ -2959,17 +2969,17 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>Zoom _In</entry>
+		<entry><guimenuitem>Zoom <accel>I</accel>n</guimenuitem></entry>
 		<entry>Ctrl+Plus</entry>
 		<entry>Zoom in on the document</entry>
 	      </row>
 	      <row>
-		<entry>Zoom _Out</entry>
+		<entry><guimenuitem>Zoom <accel>O</accel>ut</guimenuitem></entry>
 		<entry>Ctrl+Minus</entry>
 		<entry>Zoom out of the document</entry>
 	      </row>
 	      <row>
-		<entry>_Reload</entry>
+		<entry><guimenuitem><accel>R</accel>eload</guimenuitem></entry>
 		<entry>Ctrl+R</entry>
 		<entry>Redraw/reload the current document</entry>
 	      </row>
@@ -2994,12 +3004,12 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>Add _Bookmark</entry>
+		<entry><guimenuitem>Add <accel>B</accel>ookmark</guimenuitem></entry>
 		<entry>Ctrl+D</entry>
 		<entry>Add a bookmark for the current location</entry>
 	      </row>
 	      <row>
-		<entry>_Edit Bookmarks...</entry>
+		<entry><guimenuitem><accel>E</accel>dit Bookmarks...</guimenuitem></entry>
 		<entry>Ctrl+B</entry>
 		<entry>Open a window in which the user can edit and organise saved bookmarks</entry>
 	      </row>
@@ -3019,17 +3029,17 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>_Bold</entry>
+		<entry><guimenuitem><accel>B</accel>old</guimenuitem></entry>
 		<entry>Ctrl+B</entry>
 		<entry>Make selected text bold/regular</entry>
 		</row>
 	      <row>
-		<entry>_Underline</entry>
+		<entry><guimenuitem><accel>U</accel>nderline</guimenuitem></entry>
 		<entry>Ctrl+U</entry>
 		<entry>Underline/remove underline from selected text</entry>
 	      </row>
 	      <row>
-		<entry>_Italic</entry>
+		<entry><guimenuitem><accel>I</accel>talic</guimenuitem></entry>
 		<entry>Ctrl+I</entry>
 		<entry>Make selected text italic/regular</entry>
 	      </row>  
@@ -3053,12 +3063,12 @@ fine motor control skills required.</para>
 	    </thead>
 	    <tbody>
 	      <row>
-		<entry>Help</entry>
+		<entry><guimenuitem>Help</guimenuitem></entry>
 		<entry>F1</entry>
 		<entry>Obtain help and documentation for the application</entry>
 	      </row>
 	      <row>
-		<entry>Context Help</entry>
+		<entry><guimenuitem>Context Help</guimenuitem></entry>
 		<entry>Shift+F1</entry>
 		<entry>Obtain help and documentation for the currently focused control or window</entry>
 	      </row>
