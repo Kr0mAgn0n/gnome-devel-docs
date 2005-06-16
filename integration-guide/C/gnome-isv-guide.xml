@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+]>
+
+<book id="index">
+  <bookinfo>
+    <title>Integrating existing software with GNOME</title>
+    <subtitle>Guide for Independent Software Vendors</subtitle>
+
+    <authorgroup>
+      <author>
+	<firstname>Federico</firstname>
+	<surname>Mena-Quintero</surname>
+	<affiliation>
+	  <address>
+	    <email>federico@gnu.org</email>
+	  </address>
+	</affiliation>
+      </author>
+    </authorgroup>
+
+    <copyright>
+      <year>2005</year>
+      <holder>Federico Mena-Quintero</holder>
+    </copyright>
+
+    <revhistory>
+      <revision>
+	<revnumber>0.0</revnumber>
+	<date>June 2005</date>
+	<revdescription>
+	  <para>
+	    Initial version of this document.
+	  </para>
+	</revdescription>
+      </revision>
+    </revhistory>
+  </bookinfo>
+
+  <preface id="preface">
+    <title>Preface</title>
+
+    <para>
+      GNOME is a project to build a complete desktop and development
+      platform based entirely on free software.  Many companies,
+      governments, schools, institutions, and individuals have
+      deployed the GNOME desktop on their systems.  If you are a
+      developer of third-party software ("Independent Software Vendor"
+      or <acronym>ISV</acronym>), you may want to ensure that your
+      existing software runs properly under GNOME.  This guide
+      explains how to integrate existing software with GNOME, without
+      actually rewriting that software to explicitly use the GNOME
+      platform libraries and development tools.
+    </para>
+
+    <para>
+      This guide will be useful in the following situations:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+	<para>
+	  You are a software developer or distributor who has an
+	  application that is not explicitly designed to work with
+	  GNOME, but you want to ensure that it runs comfortably
+	  within a GNOME desktop.
+	</para>
+      </listitem>
+
+      <listitem>
+	<para>
+	  You are a system administrator for an institution that has
+	  deployed GNOME desktops to its users.  You also have legacy
+	  or in-house applications, and you want your users of GNOME
+	  to be able to access those applications comfortably.
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      In general, this guide is about integrating existing software
+      into a GNOME desktop.  On the other hand, if you are considering
+      writing new software, we encourage you to develop it completely
+      with GNOME as your target platform; please refer to the <ulink
+      url="http://developer.gnome.org">GNOME Developer's Site</ulink>
+      for more information.
+    </para>
+
+    <para>
+      One of the main concerns of GNOME is the user experience.  Users
+      should have a comfortable computing environment:  this means
+      having a complete desktop and a set of applications which
+      operate together in a consistent way.  With relatively little
+      work, applications which are not written explicitly with GNOME
+      in mind can be made to run comfortably within a GNOME desktop.
+    </para>
+
+    <section id="structure">
+      <title>Structure of this guide</title>
+
+      <para>
+	This guide is structured as a list of tasks that you need to
+	perform to integrate existing software with GNOME.  The guide
+	presents these tasks roughly in order of importance.  For
+	example, the task of adding your application to the GNOME
+	desktop's menus appears before the task for adding
+	drag-and-drop support.  Also, this guide has an <link
+	linkend="apx-integration-checklist">appendix with an
+	integration checklist</link> to aid you in evaluating your
+	integration work.
+      </para>
+    </section>
+
+    <section id="standards">
+      <title>Standards</title>
+
+      <para>
+	Many of the integration tasks in this guide rely on standards
+	which are relevant to more than GNOME.  Other desktop projects
+	like the <ulink url="http://www.kde.org">K Desktop
+	Environment</ulink> also use these standards:  if you
+	integrate your applications with GNOME, you should have to do
+	little or no extra work to make them run in those other
+	environments as well.
+      </para>
+
+      <!-- Do we need to mention KDE at all in the paragraph above?
+      Can we eliminate "Other desktop projects..." and just say, "If
+      you integrate ... no extra work to make them run in other
+      environments which follow the same standards." -->
+
+    </section>
+  </preface>
+
+  <chapter id="panel-menus">
+    <title>Putting your application in the desktop menus</title>
+
+    <para>
+      To run applications from GNOME, users click on icons on their
+      desktops or they select the applications which they want to run
+      from a menu.  Therefore, the first step in integrating an
+      existing program with GNOME is to
+      <firstterm>register</firstterm> it with the set of applications
+      that users can run.
+    </para>
+  </chapter>
+
+  <appendix id="apx-integration-checklist">
+    <title>Integration Checklist</title>
+
+    <para>
+      This appendix provides a checklist of the various tasks
+      presented through this guide.  You can use the checklist to
+      ensure that your software is integrated into GNOME in at least
+      the most basic ways, and also as a resource to plan for further
+      integration work.
+    </para>
+
+    <orderedlist>
+      <listitem>
+	<para>
+	  Does your application appear in the <link
+	  linkend="panel-menus">GNOME panel's menus</link>?
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Does your application have an icon for the panel menus or
+	  the desktop?
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  If your application can load or save files, does it register
+	  the MIME types that it can handle?
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Does your application provide MIME icons for the file
+	  manager?
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  If your application creates "printable" documents, does it
+	  install a thumbnailer for use by the file manager?
+	</para>
+      </listitem>
+    </orderedlist>
+  </appendix>
+
+</book>
