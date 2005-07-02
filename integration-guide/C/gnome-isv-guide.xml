@@ -144,6 +144,108 @@
       <firstterm>register</firstterm> it with the set of applications
       that users can run.
     </para>
+
+    <para>
+      Unlike in Windows or MacOS, in GNOME the users menus are
+      automatically constructed from the list of registered
+      applications. Each published application specifies a set of
+      categories to which it belongs, and the systems menu
+      configuration sorts and arranges them. This mechanism follows
+      the freedesktop.org desktop entry and menu standards.
+    </para>
+
+    <note>
+      Though common in other desktops, creating your own
+      application-specific submenu is not recommended. Instead,
+      provide one menu item for each application you ship. Extra items
+      such as help files, READMEs or links to your web site should be
+      embedded into the application itself.
+    </note>
+
+    <para>
+      To add a menu entry for your application, create
+      a <firstterm>.desktop file</firstterm>. It should have a unique
+      filename, and there are no length limits so avoid abbreviations
+      and feel free to include brand names. However, don't put spaces
+      or international characters in the file name. For instance,
+      "foocorp-painter-pro.desktop" would be a good filename to
+      choose but "fcpp.desktop" would be a bad name, as would
+      "FooCorp Painter Pro.desktop". The file should be UTF-8
+      encoded, and should resemble the following template:
+    </para>
+
+    <programlisting><![CDATA[
+      [Desktop Entry]
+      Encoding=UTF-8
+      Name=FooCorp Painter Pro
+      Exec=foocorp-painter-pro
+      Icon=foocorp-painter-pro
+      Type=Application
+      Categories=Application;
+    ]]></programlisting>
+
+    <!-- MH: should we have a section on file names and naming? One of
+         the more stupid parts of how UNIX works is the filing system
+         heirarchy standard: it means every app must have a unique
+         name and there is no widely accepted registry.
+      -->
+
+    <para>
+      These .desktop files contain metadata about your application,
+      and play a central role in integrating the program with the
+      GNOME and other standards compliant desktops. The template
+      presented here is the most basic possible. The file can be
+      linguistically translated so your applications name can appear
+      in the users native language.
+    </para>
+    
+    <para>
+      This file can be put into
+      the <literal>/usr/share/applications</literal> directory, or for
+      the users personal menu
+      into <literal>~/.local/share/applications</literal>. Which is
+      used should depend on whether your application is installed
+      systemwide or into a users home directory. GNOME monitors these
+      directories for changes, simply copying the file to the right
+      location is enough to register it with the desktop.
+    </para>
+
+    <para>
+      Note that the <literal>~/.local/share/applications</literal>
+      location is not monitored by versions of GNOME prior to version
+      2.10 or on Fedora Core Linux, prior to version 2.8. These
+      versions of GNOME follow the now deprecated vfolder standard,
+      and so .desktop files must be installed
+      to <literal>~/.gnome2/vfolders/applications</literal>. This
+      location is not supported by GNOME 2.8 on Fedora Core nor on
+      upstream GNOME 2.10 so for maximum compatibility with deployed
+      desktops, put the file in both locations.
+
+      <!-- MH: Actually I think some distros merge the old vfolders
+           directory in so placing items in both locations will cause
+           duplicate menu entries. Autopackage seems to have a program
+           called "vfolder-magic" which modifies the vfolder
+           definition in the users home directory. The comment at the
+           top says:
+
+           *  Program that adds or removes a desktop entry in
+           *  ~/.gnome2/vfolders/applications.vfolder-info. This seems to be
+           *  necessary with gnome 2.8, at least.
+
+        -->
+
+      <!-- MH: Though this is a GNOME ISV guide, as so much of the
+           basic integration work is also compatible with KDE it would
+           be wise in my opinion to mention KDE and observe any quirks
+           that are necessary to integrate correctly with that
+           too. There's no real reason not to, ISVs want the maximum
+           userbase possible (indeed, is this not what separates ISVs
+           from your average open source project?).
+
+           In this case, when installing menu entries for KDE you must
+           run kbuildsycocoa to force a refresh of the menus.
+        -->
+    </para>
   </chapter>
 
   <appendix id="apx-integration-checklist">
@@ -167,7 +269,8 @@
       <listitem>
 	<para>
 	  Does your application have an icon for the panel menus or
-	  the desktop?
+	  the desktop? If so, does it have multiple pre-rendered sizes
+	  and a scalable SVG version?
 	</para>
       </listitem>
       <listitem>

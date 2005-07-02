@@ -5,7 +5,8 @@ IMAGES=					\
 
 SOURCE_MAIN=gnome-isv-guide.xml
 
-STYLESHEET=/usr/share/xml/docbook/stylesheet/nwalsh/current/html/onechunk.xsl
+#STYLESHEET=/usr/share/xml/docbook/stylesheet/nwalsh/current/html/onechunk.xsl
+STYLESHEET=/usr/share/sgml/docbook/xsl-stylesheets-1.65.1-2/xhtml/onechunk.xsl
 
 OUTPUTDIR=html
 
