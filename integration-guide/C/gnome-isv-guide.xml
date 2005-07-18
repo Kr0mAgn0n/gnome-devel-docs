@@ -38,6 +38,10 @@
     </revhistory>
   </bookinfo>
 
+  <!-- FIXME!!! This document doesn't have a license yet.  I
+  (Federico) would like to use the GFDL, but some people don't like
+  that.  Is there a good license for documentation that we can use? -->
+
   <preface id="preface">
     <title>Preface</title>
 
@@ -124,14 +128,17 @@
 	little or no extra work to make them run in those other
 	environments as well.
       </para>
-
-      <!-- Do we need to mention KDE at all in the paragraph above?
-      Can we eliminate "Other desktop projects..." and just say, "If
-      you integrate ... no extra work to make them run in other
-      environments which follow the same standards." -->
-
     </section>
   </preface>
+
+  <chapter id="basic-integration">
+    <title>Basic Integration</title>
+
+    <para>
+      This chapter teaches you about the very basic steps you should
+      take to integrate a program into the GNOME desktop.
+    </para>
+  </chapter>
 
   <chapter id="panel-menus">
     <title>Putting your application in the desktop menus</title>
@@ -246,6 +253,155 @@
            run kbuildsycocoa to force a refresh of the menus.
         -->
     </para>
+  </chapter>
+
+  <chapter id="deeper-integration">
+    <title>Deeper Integration with the Desktop</title>
+
+    <para>
+      FIXME: this chapter bla bla bla...
+    </para>
+
+    <section id="thumbnailer">
+      <title>Installing a Thumbnailer Program</title>
+
+      <para>
+	The GNOME file manager, Nautilus, can display little
+	thumbnails tailored for each file instead of generic icons in
+	its file lists.  For example, a word processor document can be
+	made to appear as a little version of the first page in the
+	document.  This is useful because users can see a small
+	representation of the visible data in their files, which may
+	aid in recalling what file they are looking for.  You can make
+	your application create these thumbnails with a few simple
+	steps.
+      </para>
+
+      <!-- FIXME: screenshot of Nautilus showing thumbnails -->
+
+      <para>
+	A <firstterm>thumbnailer</firstterm> is a program with no user
+	interface that takes a file and a pixel size as inputs, and it
+	writes a thumbnail for that file.  GNOME determines which
+	thumbnailer program to use based on the MIME type of the file
+	for which a thumbnail is to be generated.  The mapping between
+	MIME types and thumbnailer programs is stored as a series of
+	GConf keys.
+      </para>
+
+      <para>
+	For each MIME type which you want to handle, you have to
+	create a pair of GConf keys:
+      </para>
+
+      <variablelist>
+	<varlistentry>
+	  <term><literal>/desktop/gnome/thumbnailers/<replaceable>application@x-foo</replaceable>/enable</literal></term>
+	  <listitem>
+	    <para>
+	      Type: boolean.  Determines whether this thumbnailer will
+	      be run.  You can enable or disable each individual
+	      thumbnailer.  When you install a new thumbnailer, you
+	      should of course make this key's value be
+	      <symbol>true</symbol>.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><literal>/desktop/gnome/thumbnailers/<replaceable>application@x-foo</replaceable>/command</literal></term>
+	  <listitem>
+	    <para>
+	      Type: string.  The command which GNOME will use when it
+	      needs to generate a thumbnail for a file of type
+	      <replaceable>application@x-foo</replaceable>.  For
+	      example, the value could be
+	      "<literal>application-x-foo-thumbnailer %i %o
+	      %s</literal>".  See below for an explanation of the
+	      percent signs.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para>
+	That is, each MIME type requires two GConf keys
+	(<literal>enable</literal> and <literal>command</literal>)
+	under the same path.  The path name can be derived from the
+	MIME type name by substituting a "<literal>/</literal>" with
+	"<literal>@</literal>".  For example, a thumbnailer for
+	<literal>image/x-my-format</literal> would need two keys:
+	<literal>/desktop/gnome/thumbnailers/image@x-my-format/enable</literal>
+	and
+	<literal>/desktop/gnome/thumbnailers/image@x-my-format/command</literal>.
+      </para>
+
+      <para>
+	Within the <literal>command</literal> key, GNOME will
+	look for percent sequences and substitute them with actual values:
+      </para>
+
+      <informaltable frame="none">
+	<tgroup cols="2">
+	  <tbody valign="top">
+	    <row>
+	      <entry><literal>%i</literal></entry>
+	      <entry>
+		Input file name.  This is the file that your
+		thumbnailer needs to read.
+	      </entry>
+	    </row>
+	    <row>
+	      <entry><literal>%u</literal></entry>
+	      <entry>
+		Input URI.  If your thumbnailer can handle URIs
+		instead of plain file names, use <literal>%u</literal>
+		instead of <literal>%i</literal>.
+	      </entry>
+	    </row>
+	    <row>
+	      <entry><literal>%o</literal></entry>
+	      <entry>
+		Output file name.  This is where your thumbnailer
+		should write the thumbnail image in PNG format.
+	      </entry>
+	    </row>
+	    <row>
+	      <entry><literal>%s</literal></entry>
+	      <entry>
+		Size of the thumbnail as a single integer.  For
+		example, if this gets substituted with
+		<literal>128</literal>, it means that your thumbnailer
+		should output an image no bigger than 128&times;128
+		pixels.
+	      </entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </informaltable>
+
+      <para>
+	Either of <literal>%i</literal> and <literal>%u</literal> must
+	appear in your command, and <literal>%o</literal> is also
+	mandatory.  The <literal>%s</literal> substitution is
+	optional, but we recommend that your thumbnailer pay attention
+	to it.
+      </para>
+
+      <section>
+	<title>Additional information</title>
+
+	<para>
+	  As an additional configuration parameter, you can turn on
+	  the boolean key
+	  <literal>/desktop/gnome/thumbnailers/disable_all</literal>
+	  to disable the generation of all thumbnails.
+	</para>
+      </section>
+
+      <!-- FIXME: we mentioned the GConf keys, but not how to set them
+      globally.  Do we need to describe how to install
+      schemas/defaults? -->
+    </section>
   </chapter>
 
   <appendix id="apx-integration-checklist">
