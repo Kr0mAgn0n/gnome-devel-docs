@@ -473,22 +473,18 @@ image.</para></listitem>
 		<para>Icons should respond to the these user actions.
 (Keypresses apply only when the icon has focus, of course)</para>
 		<itemizedlist><title>Guidelines</title>
-  			<listitem><para>Click or <keysym>Space</keysym> key
-     should perform the icon&apos;s default action.  Normally this should open a window with relevant data, for example:
+  			<listitem><para>Perform the icon's default action when the user clicks the icon, or presses the <keysym>Space</keysym> key when it is focused.  In general, an icon's default action should be to open a relevant window or dialog box, or to raise and focus that window or dialog box if it is already open but not focused.  Examples of such windows and dialogs include:
 			<itemizedlist>
-     				<listitem><para>the printer queue for a printing-in-progress icon.</para></listitem>
-     				<listitem><para>the inbox for an incoming email icon</para></listitem>
-     				<listitem><para>the message for an incoming message</para></listitem>
-			</itemizedlist></para></listitem>
-  		<listitem><para>Right-click or <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo>
-     should present a menu for the icon containing at least
-     the icon&apos;s default action.</para></listitem>
+     				<listitem><para>the printer queue window, for a &quot;printing in progress&quot; icon</para></listitem>
+     				<listitem><para>the default mail application's Inbox window, for an incoming email icon</para></listitem>
+     				<listitem><para>the message window, for an incoming instant message icon</para></listitem>
+			</itemizedlist></para>
+			<para>If the icon's associated window or dialog box is already raised and focused, close it when the user clicks the icon, or presses the <keysym>Space</keysym> key when the icon is focused.  All windows associated with notification icons should be dismissable in this way, except for explicit apply dialog boxes. Those should always be dismissed by clicking their action or cancel buttons.</para></listitem> 
+  		<listitem><para>Present a context menu, containing at least the icon&apos;s default action, when the user right clicks the icon or presses <keycombo><keycap>Shift</keycap><keycap>F10</keycap></keycombo> when the icon is focused.</para></listitem>
 
-		<listitem><para>If the icon&apos;s properties may be altered, it should
-  have a menu item <guimenuitem>Properties</guimenuitem> in its menu,
- and show its property panel in response to Alt+Enter.</para></listitem>
+		<listitem><para>If the icon&apos;s properties, or the properties of its associated application or document may be altered, include a <guimenuitem>Properties</guimenuitem> menu item in its context menu, and show its property panel in response to <keycombo><keycap>Alt</keycap><keycap>Enter</keycap></keycombo> when the icon is focused.</para></listitem>
 
-		<listitem><para>Icons should obey normal tooltip conventions.</para></listitem>
+		<listitem><para>Follow normal tooltip conventions for notification icons.</para></listitem>
 		</itemizedlist>
 	</sect2>
  </sect1>
