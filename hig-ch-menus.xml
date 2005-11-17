@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- :xml.root=hig-book.xml: -->
+
 <chapter id="menus">
   <title>Menus</title>
-  <remark> Tear| off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)</remark>
+  
+  <remark> Tear-off menus? (These are controlled by gconf in 2.0, so nothing app developer needs to do?)</remark>
   <remark> Menu bar position </remark>
   <remark> Menu bar hiding </remark>
+  
   <para>Menus present the whole range of an application's commands to the user, and often a subset of its preferences.  When designing a new application, place common menu items in the same locations as they appear in other applications, as this makes it much easier for the user to learn.</para>
+  
   <para>In most applications, only primary windows should have a menubar. <link linkend="windows-utility">Utility windows</link> and <link linkend="windows-dialog">dialogs</link> should be simple enough that their functions can be provided by controls such as buttons placed within the window.</para>
+  
   <para>Occasionally, however, a utility window or dialog is so complex that there would be too many such controls. In this case, you may use a menubar provided that:</para>
   <itemizedlist>
     <listitem>
@@ -33,6 +40,7 @@
       <para>Do not have menus with less than three items on them (except the standard <guimenu>Help</guimenu> menu, which has only two items by default).  If you have a submenu with fewer than three items on it, move them into their parent menu.  If you have a top-level menu with fewer than three items on it, find another suitable menu to add them to, or find suitable items from other menus to add to it.</para>
     </listitem>
   </itemizedlist>
+  
   <sect1 id="menus-menubar">
     <title>The Menubar</title>
     <figure id="example-menu-bar">
@@ -49,12 +57,15 @@
         </textobject>
       </mediaobject>
     </figure>
+  
     <para>The menubar provides a number of drop-down menus.  Only the menu titles are displayed, until the user clicks on one of them.</para>
     <para>The menubar is normally visible at all times and is always accessible from the keyboard, so make all the commands available in your application available on the menubar.</para>
+    
     <note>
       <title>Full screen mode</title>
       <para>When your application is running in full screen mode, hide the menubar by default.  However, make its menus and items accessible from the keyboard as usual. Pressing <keycap>ESC</keycap> should cause the application to leave full screen mode. A <guibutton>Leave Fullscreen</guibutton> button should be placed in the upper right hand corner of the window. The button should disappear after the mouse is unused for 5 seconds, and should appear again when the moused is moved. Alternately, in applications where the mouse is used frequently in full screen mode, all but a two pixel row of the button may be slid off the top of the screen. The button should slide back on the screen when the mouse moves near it.</para>
     </note>
+    
     <itemizedlist>
       <title>Guidelines</title>
       <listitem>
@@ -93,8 +104,6 @@
         </mediaobject>
       </figure>
       <para>A drop-down menu appears when the user clicks on its title in a menubar, or focuses the title and presses <keycap>Return</keycap>.</para>
-      <remark> CB-Ed/Fig: Define "post," as no-brainer-ish as it may seem, and also add a figure to show what it means.  A simple menu being shown at the user clicking on a menu title on a menubar, or "posted," makes sense.  </remark>
-      <remark> CFB: I've just reworded everything to avoid the use of "post" </remark>
       <itemizedlist>
         <title>Guidelines</title>
         <listitem>
@@ -417,11 +426,13 @@
     <sect2 id="the-file-menu">
       <title>File</title>
       <para>The <guimenu>File</guimenu> menu contains commands that operate on the current document. It is the left-most item in the menubar because of its importance and frequency of use, and because it is a relevant menu in many applications. Historically, because most applications already had this menu, and because the distinction between closing documents and closing windows became blurred over time, the <guimenu>File</guimenu> menu has also become the standard location for <guimenuitem>Quit</guimenuitem>.</para>
+      
       <para>The items on the <guimenu>File</guimenu> menu are generally ordered by locality, closest first.  That is, items to save or load from file, followed by printing, followed by sending to a remote user.  Try to maintain this ordering if you have to add new items to the menu.</para>
+      
       <para>If your application does not operate on documents, name this item for the type of object it displays.  For example, many games should have a <guimenu>Game</guimenu> instead of a <guimenu>File</guimenu> menu.  However, place the <guimenuitem>Quit</guimenuitem> menu item last on this menu nonetheless.</para>
-      <remark>GJM: Quit should be deprecated. Close is often sufficient; especially when
-the application saves state as it should.</remark>
-      <figure id="generic-file-menu">
+      <remark>GJM: Quit should be deprecated. Close is often sufficient; especially when the application saves state as it should.</remark>
+      
+<figure id="generic-file-menu">
         <title>A generic File menu</title>
         <mediaobject>
           <imageobject>
@@ -492,15 +503,15 @@ the application saves state as it should.</remark>
 		  <remark>&gt;As I noted in the first review, the blank window should be kept available; in an OOUI this is a more obvious a way of working.</remark>
 			</entry>
               </row>
-<!-- I think this is totally broken, I'm moving back to having recent files on the main menu itself. -Seth
-		<row>
+	      <!-- I think this is totally broken, I'm moving back to having recent files on the main menu itself. -Seth
+	      <row>
 			<entry>Recent Files</entry>
 			<entry>none</entry>	
 			<entry>Allows the user to open a recently used file. The application should maintain a history of recently opened documents and these should be accessible via a submenu. Selecting one of these files should open that file in the same way that <guimenuitem><accel>O</accel>pen</guimenuitem> does.
 			<para>Provide at least ten of the most recent files in the menu; fewer only according to user preferences or absence of recent files.</para>
 			</entry>
 		</row>
-	  -->
+		-->
             </tbody>
           </tgroup>
         </table>
