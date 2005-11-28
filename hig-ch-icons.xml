@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- :xml.root=hig-book.xml: -->
 
 <chapter id="icons">
   <title>Icons</title>
@@ -490,23 +491,23 @@
 	       <listitem><para>a high contrast large print theme</para></listitem>
 	       <listitem><para>an inverse high contrast large print theme</para></listitem>
 	       <listitem><para>a low contrast theme</para></listitem>
-	       <listitem><para>a low contrast,large print theme</para></listitem>
+	       <listitem><para>a low contrast, large print theme</para></listitem>
        </itemizedlist>
        <para>To be considered fully accessible, all icons in your application
 	       must be replaced by a suitable alternative when one of these
-	       themes is used.</para>
+	       themes is used.<remark>The HighContrastLargePrint, HighContrastLargePrintInverse and LowContrastLargePrint <emphasis>icon</emphasis> themes are deprecated as of GNOME 2.12.  New icons need only be added to the HighContrast, HighContrastInverse and LowContrast themes.</remark></para>
 
 	<tip><title>Adding icons to accessible themes</title>
 	<para>When you have designed high and low contrast versions of all
 	your icons, submit them to the gnome-themes module maintainers for
-	inclusion in the appropriate themes.</para></tip>
+	inclusion in the appropriate themes.<remark>Pending discussion on XDG about possibility of applications being able to install HighContrast and HighContrastInverse icons themselves.</remark></para></tip>
 
        <sect2 id="icons-design-highcontrast">
 	<title>High Contrast Icons</title>
 	<para>
 		High contrast icons, in conjunction with a high contrast theme, benefit users with reduced visual acuity.  A high contrast icon has these characteristics:</para>
 	<itemizedlist>
-		<listitem><para>Drawn only in black and white, with an external white border (black for inverse high contrast icons)</para></listitem>
+		<listitem><para>Drawn only in black and white, with an external white border (black for inverse high contrast icons).  One additional color may be used, but only if it is essential to the meaning of the icon.</para></listitem>
 		<listitem><para>Simple visual style, typically comprising only a single symbol</para></listitem>
 		<listitem><para>All lines and borders at least 4 pixels wide (at 48x48 pixels)</para></listitem>
 	</itemizedlist>
