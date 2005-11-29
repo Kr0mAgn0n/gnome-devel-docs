@@ -10,19 +10,19 @@
     appropriately and not altering their standard behavior is important. This
     allows users to predict the effects of their actions, and thus learn to
     use your application more quickly and efficiently. Controls that behave in
-    non-standard ways break the user&#39;s mental model of how your
-    application works, and dilute the meaning of the interface&#39;s visual
+    non-standard ways break the user&apos;s mental model of how your
+    application works, and dilute the meaning of the interface&apos;s visual
     language.</para>
   </sect1>
 
   <sect1 id="controls-terminology">
     <title>Terminology</title>
 
-    <para>Although they are known as &#34;widgets&#34; in the GNOME APIs and
+    <para>Although they are known as &quot;widgets&quot; in the GNOME APIs and
     developer documentation, do not use this term in your user interface or
     user documentation. Refer to them by their specific names (for example,
-    &#34;buttons&#34; or &#34;menus&#34;), or by the generic name
-    &#34;controls&#34;.</para>
+    &quot;buttons&quot; or &quot;menus&quot;), or by the generic name
+    &quot;controls&quot;.</para>
   </sect1>
 
   <sect1 id="controls-sensitivity">
@@ -76,7 +76,7 @@
       <title>Locked Controls</title>
 
       <para>In a network-managed environment, like a computer lab, system
-      administrators usually want to &#34;lock down&#34; the values of certain
+      administrators usually want to &quot;lock down&quot; the values of certain
       settings, or remove them from the user interface altogether. This makes
       it easier for them to troubleshoot any problems that their users may
       encounter. In GNOME, the correct way for the system administrator to do
@@ -146,8 +146,8 @@
 
           <textobject>
             <phrase>Screenshot showing disabled proxy controls in a web
-            browser&#39;s property dialog, under the caption &#34;Only the
-            system administrator can change these settings&#34;</phrase>
+            browser&apos;s property dialog, under the caption &quot;Only the
+            system administrator can change these settings&quot;</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -207,7 +207,7 @@
 
       <listitem>
         <para>Right-justify the contents of entry fields that are used only
-        for numeric entry, unless the convention in the user&#39;s locale
+        for numeric entry, unless the convention in the user&apos;s locale
         demands otherwise. This is useful in windows where the user might want
         to compare two numerical values in the same column of controls. In
         this case, ensure the right edges of the relevant controls are also
@@ -217,7 +217,7 @@
       <listitem>
         <para>When the user gives focus to an entry field using the keyboard,
         place the text cursor at the end of the existing text and highlight
-        its contents (but don&#39;t overwrite the existing PRIMARY clipboard
+        its contents (but don&apos;t overwrite the existing PRIMARY clipboard
         selection<!-- FIXME: is this currently possible?-->). This makes it
         easy to immediately overtype or append new text, the two most common
         operations performed on entry fields.</para>
@@ -226,7 +226,7 @@
       <listitem>
         <para>Size text entry fields according to the likely size of the
         input. This gives a useful visual cue to the amount of input expected,
-        and breaks up the dialog making it easier to scan. Don&#39;t make all
+        and breaks up the dialog making it easier to scan. Don&apos;t make all
         the fields in the dialog the same width just to make everything line
         up nicely.</para>
       </listitem>
@@ -263,7 +263,7 @@
 
             <textobject>
               <phrase>A text entry field in which the user must input a time,
-              with the label &#34;hh:mm&#34; beside it to indicate the
+              with the label &quot;hh:mm&quot; beside it to indicate the
               required format</phrase>
             </textobject>
           </mediaobject>
@@ -298,7 +298,7 @@
 
             <textobject>
               <phrase>A text entry field in which the user must input a date,
-              with a button labelled &#34;Choose&#34; beside it that opens a
+              with a button labelled &quot;Choose&quot; beside it that opens a
               GtkCalendar control to simplify the task</phrase>
             </textobject>
           </mediaobject>
@@ -323,7 +323,7 @@
 
       <listitem>
         <para>The cursor blink rate is globally defined by the XSettings
-        &#34;gtk-cursor-blink&#34; and &#34;gtk-cursor-blink-time&#34;.
+        &quot;gtk-cursor-blink&quot; and &quot;gtk-cursor-blink-time&quot;.
         Standard toolkit controls use these and they must <!-- a11y, right? -->
         not be altered in applications by any means. New controls with text
         cursors must respect these global values.</para>
@@ -334,7 +334,7 @@
       <title>Behavior of Return key</title>
 
       <para>Normally, pressing <keycap>Return</keycap> in a dialog should
-      activate the dialog&#39;s default button, unless the focused control
+      activate the dialog&apos;s default button, unless the focused control
       uses <keycap>Return</keycap> for its own purposes. You should therefore
       set the <ulink
       url="http://developer.gnome.org/doc/API/2.0/gtk/gtkentry.html#GTK-ENTRY-SET-ACTIVATES-DEFAULT"><function>activates-default</function></ulink>
@@ -452,7 +452,7 @@
 
       <listitem>
         <para>Right-justify the contents of spin boxes, unless the convention
-        in the user&#39;s locale demands otherwise. This is useful in windows
+        in the user&apos;s locale demands otherwise. This is useful in windows
         where the user might want to compare two numerical values in the same
         column of controls. In this case, ensure the right edges of the
         relevant controls are also aligned.</para>
@@ -466,7 +466,7 @@
     <para>A slider allows the user to quickly select a value from a fixed,
     ordered range, or to increase or decrease the current value. The control
     looks like the type of slider that you might find on an audio mixing desk
-    or a hi-fi&#39;s graphic equalizer. In gtk, you implement a slider using
+    or a hi-fi&apos;s graphic equalizer. In gtk, you implement a slider using
     the GtkHScale or GtkVScale controls, for horizontal or vertical sliders
     respectively.</para>
 
@@ -530,7 +530,7 @@
       <listitem>
         <para>For large ranges of integers (more than about 20), and for
         ranges of floating point numbers, consider providing a text box or
-        spin box that is linked to the slider&#39;s value. This allows the
+        spin box that is linked to the slider&apos;s value. This allows the
         user to quickly set or fine-tune the setting more easily than they
         could with the slider control alone.</para>
 
@@ -625,10 +625,10 @@
 
       <listitem>
         <para>If your button can display text, an icon, or both, choose which
-        label to display at runtime according to the user&#39;s preference in
+        label to display at runtime according to the user&apos;s preference in
         the GNOME Menus and Toolbars Preferences dialog. However, you may
         over-ride this preference when there is no suitable icon to describe
-        the button&#39;s action graphically, for example.</para>
+        the button&apos;s action graphically, for example.</para>
       </listitem>
 
       <listitem>
@@ -748,16 +748,16 @@
 
             <textobject>
               <phrase>Two images: one showing a single check box ambiguously
-              labelled &#34;Progress bar in left of statusbar&#34;, the other
+              labelled &quot;Progress bar in left of statusbar&quot;, the other
               making the choice explicit with radio buttons labelled
-              &#34;Left&#34; and &#34;Right&#34; under the heading &#34;Status
-              bar progress indicator position:&#34;</phrase>
+              &quot;Left&quot; and &quot;Right&quot; under the heading &quot;Status
+              bar progress indicator position:&quot;</phrase>
             </textobject>
           </mediaobject>
         </figure>
 
         <para>The single check box in this example is ambiguous, as it is not
-        clear where the &#34;progress indicator&#34; will go if the box is
+        clear where the &quot;progress indicator&quot; will go if the box is
         unchecked. Two radio buttons are better in this case, as they make the
         options clear.</para>
       </listitem>
@@ -800,7 +800,7 @@
         </figure>
 
         <para>In this example, both selected files are hidden (since their
-        filenames start with &#34;.&#34;), and the emblems on their icons show
+        filenames start with &quot;.&quot;), and the emblems on their icons show
         that neither file is writeable, but one is readable. The
         <guilabel>Readable</guilabel> check box is therefore shown in its
         mixed state. <remark>At time of writing, the exact visual appearance
@@ -821,7 +821,7 @@
 
           <listitem>
             <para>clicking the box a third time should return the box to its
-            mixed state, restoring each selected object&#39;s original value
+            mixed state, restoring each selected object&apos;s original value
             for that setting (when confirmed)</para>
           </listitem>
         </itemizedlist>
@@ -1006,9 +1006,9 @@
 
     <para>Toggle buttons look similar to regular <link
     linkend="controls-buttons">Buttons</link>, but are used to show or change
-    a state rather than initiate an action. A toggle button&#39;s two states,
-    set and unset, are shown by its appearing &#34;pushed in&#34; or
-    &#34;popped out&#34; respectively.</para>
+    a state rather than initiate an action. A toggle button&apos;s two states,
+    set and unset, are shown by its appearing &quot;pushed in&quot; or
+    &quot;popped out&quot; respectively.</para>
 
     <figure>
       <title>A typical group of toggle buttons</title>
@@ -1088,7 +1088,7 @@
 
       <listitem>
         <para>If your toggle button can display text, an icon, or both, choose
-        which to display at runtime according to the user&#39;s setting in the
+        which to display at runtime according to the user&apos;s setting in the
         GNOME Menus and Toolbars preference dialog.</para>
       </listitem>
 
@@ -1254,7 +1254,7 @@
       <listitem>
         <para>the contents of the hidden part of the menu are obvious from its
         label and the one selected item. For example, if you have an option
-        menu labelled &#34;Month:&#34; with the item &#34;January&#34;
+        menu labelled &quot;Month:&quot; with the item &quot;January&quot;
         selected, the user might reasonably infer that the menu contains the
         12 months of the year without having to look.</para>
       </listitem>
@@ -1312,7 +1312,7 @@
         list in a drop-down combination box. If used in an instant-apply <link
         linkend="windows-utility">property or preference window</link>, update
         the setting represented by the drop-down combination box immediately if possible. If
-        this isn&#39;t possible due to the contents of the entry field being
+        this isn&apos;t possible due to the contents of the entry field being
         invalid while the user is still typing into it, update the related
         setting when the drop-down combination box loses focus instead.</para>
       </listitem>
@@ -1328,7 +1328,7 @@
         For example, if the user types <userinput>blue</userinput>,
         <userinput>Blue</userinput> and <userinput>BLUE</userinput> into the
         same drop-down combination box on different occasions, only store one of these in the
-        combo&#39;s dropdown list, unless your application makes a distinction
+        combo&apos;s dropdown list, unless your application makes a distinction
         between the different forms (which is usually a bad idea).</para>
       </listitem>
 
@@ -1625,7 +1625,7 @@
       might want to consider alternative ways of presenting the information,
       such as the Nautilus list or icon view, or the hierarchical browser
       lists found in <ulink
-      url="http://www.gnustep.it/enrico/gworkspace/viewer.html">GNUstep&#39;s
+      url="http://www.gnustep.it/enrico/gworkspace/viewer.html">GNUstep&apos;s
       File Viewer</ulink>.</para>
     </tip>
 
@@ -1809,13 +1809,13 @@
       <listitem>
         <para>If a control affects only one notebook page, place it on that
         notebook page. If it affects every page in the notebook, place it
-        outside the notebook control, for example beside the window&#39;s
+        outside the notebook control, for example beside the window&apos;s
         <guibutton>OK</guibutton> and <guibutton>Cancel</guibutton> buttons.</para>
       </listitem>
 
       <listitem>
         <para>Use tabs that are proportional to the width of their labels.
-        Don&#39;t just set all the tabs to the same width, as this makes them
+        Don&apos;t just set all the tabs to the same width, as this makes them
         harder to scan visually, and limits the number of tabs you can fit
         into the notebook without scrolling. For example:</para>
 
@@ -1849,13 +1849,13 @@
       <listitem>
         <para>Although the contents of each page in a notebook will take up a
         different amount of space, do not use larger than normal spacing
-        around the controls in the &#34;emptier&#34; pages, and do not center
+        around the controls in the &quot;emptier&quot; pages, and do not center
         the controls on the page.</para>
       </listitem>
 
       <listitem>
         <para>If your tab labels include icons, choose whether or not to show
-        the icons at runtime based on the user&#39;s preference in the GNOME
+        the icons at runtime based on the user&apos;s preference in the GNOME
         Menus and Toolbars desktop preferences dialog. Always show the text
         part of the label, however.</para>
       </listitem>
@@ -1882,7 +1882,7 @@
         <textobject>
           <phrase>Part of a window including a list control with 7 items, each
           item representing a category of settings such as
-          &#34;Appearance&#34; and &#34;Navigation&#34;. The controls in the
+          &quot;Appearance&quot; and &quot;Navigation&quot;. The controls in the
           rest of the window change depending on which item is selected in the
           list.</phrase>
         </textobject>
@@ -1925,7 +1925,7 @@
       </listitem>
 
       <listitem>
-        <para>Ensure that a measured-progress bar measures an operation&#39;s
+        <para>Ensure that a measured-progress bar measures an operation&apos;s
         total time or total work, not just that of a single step. An exception
         is a progress bar that measures the total time or work of the current
         step in a progress checklist.</para>
@@ -1941,7 +1941,7 @@
       the most useful type of progress bar.</para>
 
       <figure>
-        <title>A simple &#39;time remaining&#39; progress bar</title>
+        <title>A simple &apos;time remaining&apos; progress bar</title>
 
         <mediaobject>
           <imageobject>
@@ -1959,7 +1959,7 @@
       </figure>
 
       <para>Use a time-remaining bar if your application will display an
-      initial estimate of an operation&#39;s remaining time and then
+      initial estimate of an operation&apos;s remaining time and then
       periodically display updated estimates. Each updated estimate should be
       based on changes that have occurred and that will cause the operation to
       finish more quickly or more slowly. If the operation will finish more
@@ -1976,7 +1976,7 @@
       than indeterminate-progress bars.</para>
 
       <figure>
-        <title>A simple &#39;typical time remaining&#39; progress bar</title>
+        <title>A simple &apos;typical time remaining&apos; progress bar</title>
 
         <mediaobject>
           <imageobject>
@@ -1988,7 +1988,7 @@
           </imageobject>
 
           <textobject>
-            <phrase>A simple &#39;typical time remaining&#39; progress dialog</phrase>
+            <phrase>A simple &apos;typical time remaining&apos; progress dialog</phrase>
           </textobject>
         </mediaobject>
       </figure>
@@ -1999,7 +1999,7 @@
       bar.</para>
 
       <para>If your application overestimates the completed amount of work,
-      the length of the bar can indicate &#34;almost complete&#34; until the
+      the length of the bar can indicate &quot;almost complete&quot; until the
       operation is complete. If your application underestimates how much work
       is complete, the application can fill the remaining portion of the bar
       when the operation is complete.</para>
@@ -2009,12 +2009,12 @@
       <title>Indeterminate-progress indicator</title>
 
       <para>An animated bar indicating only that an operation is ongoing, not
-      how long it will take. One example is the &#34;throbber&#34; in a web
+      how long it will take. One example is the &quot;throbber&quot; in a web
       browser. Indeterminate-progress bars are the least precise type of
       progress bar.</para>
 
       <figure>
-        <title>A simple &#39;indeterminate time&#39; progress bar; the slider
+        <title>A simple &apos;indeterminate time&apos; progress bar; the slider
         moves from left-to-right and back again until the operation is
         complete</title>
 
@@ -2030,7 +2030,7 @@
           </imageobject>
 
           <textobject>
-            <phrase>A simple &#39;indeterminate time&#39; progress dialog,
+            <phrase>A simple &apos;indeterminate time&apos; progress dialog,
             showing a slider moving back and forth until the operation is
             complete</phrase>
           </textobject>
@@ -2099,25 +2099,25 @@
           <listitem>
             <para>information about the task the user is currently performing.
             For example, while using the selection tool in a drawing
-            application, &#34;Hold Shift to extend the selection&#34;</para>
+            application, &quot;Hold Shift to extend the selection&quot;</para>
           </listitem>
 
           <listitem>
             <para>progress of a background operation. For example,
-            &#34;Sending to printer&#34;, &#34;Printing page 10 of 20&#34;,
-            &#34;Printing Complete&#34;.</para>
+            &quot;Sending to printer&quot;, &quot;Printing page 10 of 20&quot;,
+            &quot;Printing Complete&quot;.</para>
           </listitem>
 
           <listitem>
             <para>a description of the control or area of the window under the
-            mouse pointer. For example, &#34;Drop files here to upload
-            them&#34;</para>
+            mouse pointer. For example, &quot;Drop files here to upload
+            them&quot;</para>
           </listitem>
         </itemizedlist>
 
-        <para>Remember that statusbars are normally in the user&#39;s
+        <para>Remember that statusbars are normally in the user&apos;s
         peripheral vision, and can even be turned off altogether using the
-        application&#39;s <menuchoice><guimenu>View</guimenu><guimenuitem>Status
+        application&apos;s <menuchoice><guimenu>View</guimenu><guimenuitem>Status
         Bar</guimenuitem></menuchoice> menu item. The user may therefore never
         see anything you display there, unless they know when and where to
         look for it.</para>
@@ -2126,7 +2126,7 @@
       <listitem>
         <para>When there is no interesting status to report, leave a status
         bar panel blank rather than displaying something uninformative like
-        &#34;Ready&#34;. This way, when something interesting does appear in
+        &quot;Ready&quot;. This way, when something interesting does appear in
         the statusbar, the user is more likely to notice it.</para>
       </listitem>
 
@@ -2204,7 +2204,7 @@
     <para>Frames with a border around their perimeter have traditionally been
     used for denoting groups of related controls. This is advantageous because
     it physically seperates disimilar controls, and also avoids repitition of
-    the frame&#39;s label in individual member control labels. Unfortunately,
+    the frame&apos;s label in individual member control labels. Unfortunately,
     they add visual noise that can both make a window appear more complex than
     it really is, and reduce the ability to quickly scan window elements.</para>
 

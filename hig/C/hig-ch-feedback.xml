@@ -17,18 +17,18 @@
       <listitem>
         <para>They handle queued requests as users would expect, discarding
         requests that are no longer relevant and reordering requests according
-        to users&#39; probable priorities.</para>
+        to users&apos; probable priorities.</para>
       </listitem>
 
       <listitem>
         <para>They let users do other work while long operations proceed to
         completion— especially operations not requested by users— such as
-        reclaiming unused memory or other &#34;housekeeping&#34; operations.</para>
+        reclaiming unused memory or other &quot;housekeeping&quot; operations.</para>
       </listitem>
 
       <listitem>
         <para>They provide enough feedback for users to understand what they
-        are doing, and organize feedback according to users&#39; abilities to
+        are doing, and organize feedback according to users&apos; abilities to
         comprehend and react to it.</para>
       </listitem>
 
@@ -60,7 +60,7 @@
 
     <itemizedlist>
       <listitem>
-        <para>They provide late feedback— or no feedback— for users&#39;
+        <para>They provide late feedback— or no feedback— for users&apos;
         requests, leaving users wondering what the application has done or is
         doing.</para>
       </listitem>
@@ -76,14 +76,14 @@
       </listitem>
 
       <listitem>
-        <para>They ignore users&#39; requests while doing unrequested
-        &#34;housekeeping&#34;, forcing users to wait at unpredictable times—
+        <para>They ignore users&apos; requests while doing unrequested
+        &quot;housekeeping&quot;, forcing users to wait at unpredictable times—
         often without feedback.</para>
       </listitem>
     </itemizedlist>
 
-    <para>You can sometimes possible to improve an application&#39;s
-    responsiveness without speeding up the application&#39;s code. For tips on
+    <para>You can sometimes possible to improve an application&apos;s
+    responsiveness without speeding up the application&apos;s code. For tips on
     how to make such improvements, see <xref
     linkend="feedback-responding-to-user" />.</para>
   </sect1>
@@ -92,7 +92,7 @@
     <title>Acceptable Response Times</title>
 
     <para>Some user interface events require shorter response delays than
-    others. For example, an application&#39;s response to a user&#39;s mouse
+    others. For example, an application&apos;s response to a user&apos;s mouse
     click or key press needs to be much faster than its response to a request
     to save a file. The table below shows the maximum acceptable response
     delay for typical interface events.</para>
@@ -129,7 +129,7 @@
           <row>
             <entry>Displaying a graph or anything else a typical user would
             expect to take time (e.g. displaying a new list of all a
-            company&#39;s financial transactions for an accounting period)</entry>
+            company&apos;s financial transactions for an accounting period)</entry>
 
             <entry>10.0 seconds</entry>
           </row>
@@ -146,9 +146,9 @@
     <para>Make each response delay in your application as short as possible,
     unless users need time to see the displayed information before it is
     erased. The acceptable response delay for each event is based on a typical
-    user&#39;s sense that the event is a logical point at which to stop or
+    user&apos;s sense that the event is a logical point at which to stop or
     pause. The greater that sense is, the more willingly the user will wait
-    for a response. Verify that your application responds to users&#39;
+    for a response. Verify that your application responds to users&apos;
     requests within the limits listed in the table above. If your application
     cannot respond within those limits, it probably has one or more general
     problems caused by a particular algorithm or module.</para>
@@ -209,7 +209,7 @@
 
       <listitem>
         <para>If users are likely to repeat a time-consuming command in rapid
-        succession, save time by faking the command&#39;s effects instead of
+        succession, save time by faking the command&apos;s effects instead of
         repeatedly processing the command. For example, if a user adds several
         rows to a table stored in a database, you might display each new row
         immediately but delay actually creating each new row in the database
@@ -219,7 +219,7 @@
       <listitem>
         <para>Work ahead. Prepare to perform the command that is most likely
         to follow the current command. That is, use idle time to anticipate
-        users&#39; probable next requests. For example, as the user of an
+        users&apos; probable next requests. For example, as the user of an
         email application reads the currently displayed new message, the
         application might prepare to display the next new message.</para>
       </listitem>
@@ -236,7 +236,7 @@
 
       <listitem>
         <para>Discard unnecessary operations. For example, to move back
-        several pages in a web browser, a user might click the browser&#39;s
+        several pages in a web browser, a user might click the browser&apos;s
         <guibutton>Back</guibutton> button several times in rapid succession.
         To display the final requested page more quickly, the browser might
         not display the pages visited between the current page and that final
@@ -246,7 +246,7 @@
       <listitem>
         <para>Use dynamic time management. At run time, change how your
         application prioritizes user input and other processing, based on the
-        application&#39;s current state. For example, if a user is typing text
+        application&apos;s current state. For example, if a user is typing text
         in one word-processing document while printing another, the
         word-processing application might delay the printing task if the user
         shifts to an editing task (such as cutting and pasting text) that
@@ -356,7 +356,7 @@
           <para>In an application where the <link linkend="windows-primary">primary
           windows</link> contain a <link linkend="controls-status-bars">status
           bar</link> (which in turn contains a progress bar), it will often be
-          the case that an operation&#39;s feedback could be presented in
+          the case that an operation&apos;s feedback could be presented in
           either the statusbar or a <link linkend="windows-progress">progress
           window</link>. A rule of thumb is to use the statusbar when an
           operation is expected to take fewer than ten seconds, otherwise use
@@ -366,7 +366,7 @@
           <itemizedlist>
             <listitem>
               <para>Opening a new window, particularly when an operation is
-              short, can needlessly disrupt the user&#39;s workflow.</para>
+              short, can needlessly disrupt the user&apos;s workflow.</para>
             </listitem>
 
             <listitem>
@@ -407,7 +407,7 @@
     <itemizedlist>
       <listitem>
         <para>Whether your application can provide an estimate of the
-        operation&#39;s progress.</para>
+        operation&apos;s progress.</para>
       </listitem>
 
       <listitem>
@@ -423,10 +423,10 @@
 
     <para>The table below shows which type of feedback to provide for
     operations that usually take at least 1 second to finish. In the
-    &#34;Appropriate Feedback&#34; column, &#34;Internal progress
-    animations&#34; means progress animations displayed in an
-    application&#39;s dedicated status area, and &#34;External progress
-    animations&#34; means progress animations displayed somewhere other than
+    &quot;Appropriate Feedback&quot; column, &quot;Internal progress
+    animations&quot; means progress animations displayed in an
+    application&apos;s dedicated status area, and &quot;External progress
+    animations&quot; means progress animations displayed somewhere other than
     in a dedicated status area— typically, in an alert box.</para>
 
     <table frame="all">
@@ -435,7 +435,7 @@
       <tgroup align="left" cols="4">
         <thead>
           <row>
-            <entry>Typical Duration &#62; 5 seconds?</entry>
+            <entry>Typical Duration &gt; 5 seconds?</entry>
 
             <entry>User blocked from issuing further commands?</entry>
 
@@ -532,8 +532,8 @@
         <para>If a command will likely take 10 seconds or longer to finish,
         provide a <guibutton>Stop</guibutton> or <guibutton>Cancel</guibutton>
         button, which can also be activated by pressing <keycap>Esc</keycap>,
-        that lets users terminate the command&#39;s processing even if your
-        application cannot undo the command&#39;s effects. See <xref
+        that lets users terminate the command&apos;s processing even if your
+        application cannot undo the command&apos;s effects. See <xref
         linkend="feedback-interrupting" />.</para>
       </listitem>
 
@@ -553,8 +553,8 @@
 
     <para>Users sometimes need to stop a command— for example, because it is
     taking too long. Your application should let users stop commands in
-    progress, even if stopping a command cannot undo or &#34;roll back&#34;
-    all the command&#39;s effects.</para>
+    progress, even if stopping a command cannot undo or &quot;roll back&quot;
+    all the command&apos;s effects.</para>
 
     <itemizedlist>
       <title>Guidelines</title>
@@ -578,7 +578,7 @@
         not) be reversed. When the user presses this button, open an alert box
         that warns of the potential side effects of stopping the command. The
         alert box should have only two buttons: one for continuing the
-        command&#39;s processing, and one for immediately terminating it.</para>
+        command&apos;s processing, and one for immediately terminating it.</para>
       </listitem>
 
       <!-- CB-Fig: Figure here showing example alertbox in context (overlaying the progress animation in a dialog, etc.) with sample alerbox text. JLFDG AT p. 107 shows this. (Fig 66) -->
@@ -595,7 +595,7 @@
       </listitem>
 
       <listitem>
-        <para>The progress animation is in a window&#39;s status area or in
+        <para>The progress animation is in a window&apos;s status area or in
         another location that lacks space for a <guibutton>Stop</guibutton> or
         <guibutton>Cancel</guibutton> button.</para>
       </listitem>
