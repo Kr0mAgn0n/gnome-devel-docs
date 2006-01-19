@@ -401,6 +401,16 @@
 
   </sect1>
 
+  <sect1 id="desktop-application-startup">
+  	<title>Application Startup</title>
+	<para><remark>Basically need to make these points in this section: If an application is going to take a few seconds to start up, chances are you want to get on with something else while it's starting.  Even if it's a well-behaved splash screen, that usually still means having to move or dismiss a window that's popped up in the way of what you were doing, which is always annoying. And of course, if the app isn't going to take a few seconds to start up, you don't need a splash screen anyway :)  Also, splash screens are usually quite colourful, which is poor for accessibility.</remark></para>
+
+	<itemizedlist><title>Guidelines</title>
+		<listitem><para>Do not show a splash screen, but instead make proper use of the GNOME startup notification library to provide startup feedback.</para></listitem>
+		<listitem><para>Show the main window of your application as early as possible, even if all its controls are disabled until the application is fully initialized.  If further initialization is likely to take several seconds, consider showing some kind of progress indicator within the application window.</para></listitem>
+	</itemizedlist>
+  </sect1>
+  
   <sect1 id="desktop-notification-area">
 	<title>Using the Status Notification Area</title>
 	
