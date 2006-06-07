@@ -1,6 +1,6 @@
-SUBDIRS = \
-	projects		\
-	omf-install
+SUBDIRS =			\
+	platform-overview
 
-EXTRA_DIST = gnome-devel-docs.spec COPYING-DOCS sgmldocs.make
-
+EXTRA_DIST = gnome-doc-utils.make
+DISTCLEANFILE = gnome-doc-utils.make
+DISTCHECK_CONFIGURE_FLAGS = --disable-scrollkeeper
