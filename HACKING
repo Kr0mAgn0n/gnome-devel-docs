@@ -1,35 +1,19 @@
-This module is for developer documents which are to be shipped in the
-gnome-devel-docs package, typically with the Fifth Toe packages.
+This module contains high-level developer documentation that cannot
+reasonably be shipped with any other module.  Developers are taken
+in the broadest sense to mean anybody involved in the production
+of software, including programmers, technical writers, translators,
+quality assurance professionals, and project managers.
 
+All of the documents in this module should be long-term maintainable.
+This is not the place for technology previews, product reviews, or
+calls to action.  Consider publishing such documents in the excellent
+GNOME Journal.
 
-Please respect the directory structure:
-  gnome-devel-docs/<group>/<docname>/<locale>/<docname>.sgml
-  gnome-devel-docs/<group>/<docname>/<locale>/figures/
+Each document may be maintained by somebody other than the module
+maintainers.  Document maintainers should make a commitment to have
+their documents finalized in time for each stable GNOME release.
+Document maintainers may create branches for longer-term document
+development or restructuring.
 
-For <group>, we want to group documents into a standard group, such as:
-  * articles     (article-style discussion of a topic)
-  * books        (books which were printed)
-  * faqs         (FAQ-style documents)
-  * projects     (organizational documents for particular GNOME projects, 
-                  such as the GAP, GDP, GTP, GUP, etc. 
-                  for these, nest one level deeper:
-                  eg: gnome-devel-docs/projects/gdp/gdp-handbook/C/... 
-                  For general GNOME organizational documents, use
-                  "GNOME" as the project.)
-  * tutorials    (step-by-step tutorials)
-  * white-papers (in-depth discussion of a particular technical part of GNOME)
-
-In some cases, it may make sense to nest things one level deeper.  However,
-do not nest things less deep.  If you have questions, please email me.
-
-****
-Please do not put unmaintained documents or documents which are not
-likely to be finished and shippable soon in this module.  Please use
-gnome-docu or another module for such documents.
-****
-
-This module is for Free documentation.  Please contact the maintainer
+This module is for Free documentation.  Please contact the maintainers
 before committing any documentation which is not under the GNU FDL.
-
-Dan Mueth <d-mueth@uchicago.edu>
-
