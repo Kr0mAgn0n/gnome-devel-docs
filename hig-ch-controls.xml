@@ -667,8 +667,9 @@
   <sect1 id="controls-check-boxes">
     <title>Check Boxes</title>
 
-    <para>Check boxes are used to show or change a setting. Its two states,
-    set and unset, are shown by the presence or absence of a checkmark in the
+    <para>
+        A check box is a control used to turn something on and off.
+        Its state is shown by the presence or absence of a checkmark in the
     labeled box.</para>
 
     <figure>
@@ -721,6 +722,23 @@
         <guilabel>Use custom font</guilabel>.</para>
       </listitem>
 
+      <listitem>
+        <para>
+            A check box should express a positive and useful state or action.
+            For example, a checked check box
+            <guilabel>Warn me whenever a disk is nearly full</guilabel>
+            is more obviously useful than an unchecked check box
+            <guilabel>Ignore disk-full warnings</guilabel>.
+            Don&#8217;t implement a check box with a label beginning with
+            <guilabel>Don&#8217;t</guilabel>, <guilabel>Do not</guilabel>,
+            <guilabel>Hide</guilabel>, or similar;
+            instead, reverse its function so that the label can be positive.
+            And avoid beginning check box labels with words like
+            <guilabel>Enable</guilabel> or <guilabel>Use</guilabel>;
+            instead, reword them to express their usefulness.
+        </para>
+      </listitem>
+      
       <listitem>
         <para>Label check boxes to clearly indicate the effects of both their
         checked and unchecked states, for example, <guilabel>Show icons in
