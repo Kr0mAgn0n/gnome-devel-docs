@@ -1,7 +1,16 @@
 body {
    font-family: "Bitstream Vera Sans", Sans-Serif;
    font-size: 10pt;
-   max-width: 64em;
+   max-width: 54em;
+	 margin: auto;
+}
+
+a {
+	color: #204a87
+}
+
+a:hover {
+	color: #729fcf;
 }
 
 p {
@@ -9,10 +18,29 @@ p {
    text-align: justify;
 }
 
+table {
+	border-collapse: collapse;
+	margin: 0 auto 1em;
+	width: 50em;
+	border-spacing: 20px;
+	border: 1px solid #babdb6;
+}
+
+th {
+	text-align: left;
+	color: white;
+	background-color: #babdb6;
+}
+
+td {
+	padding: 6px;
+}
+
 div.revhistory table {
+	border-collapse: separate;
    font-size: 9pt;
    border: 1px solid #bbbbbb;
-   -moz-border-radius: 16px;
+   -moz-border-radius: 16px !important;
    padding: 1em;
    margin: 1em;
    max-width: 64em;
@@ -29,6 +57,21 @@ div.revhistory table td {
    border: 0px;
 }
 
+div.toc {
+	margin: 2em 25em 0px 0px;
+}
+
+.toc>dl, .list-of-tables>dl, .list-of-examples>dl {
+	/* border: 1px solid #d3d7cf; */
+	margin-left: 4em;
+	margin-bottom: 4em;
+}
+
+.toc a, .list-of-tables a, .list-of-examples a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
 div.figure * {
    text-align: center;
 }
@@ -42,14 +85,18 @@ li * {
 }
 
 hr {
-   border: 2px solid gray;
+   border: 1px dotted #d3d7cf;
+	 width: 400px;
+	 margin: 4em auto;
 }
 
 .note {
-   border: 1px dotted #707070;
-   background-color: #eeeeee;
+   border: 1px dotted #d3d7cf;
+   background-color: #efefef;
    padding: 0px 1em 1em 1em;
    font-size: 8pt;
+   -moz-border-radius: 8px;
+	 margin: 1em;
 }
 
 .tip {
@@ -57,6 +104,7 @@ hr {
    padding: 0px 1em 1em 1em;
    font-size: 8pt;
    -moz-border-radius: 16px;
+	 margin: 1em;
 }
 
 .command,.interface {
@@ -93,16 +141,21 @@ hr {
 }
 
 .example {
+	 max-width: 48em;
    background-color: #eeeeee;
    border: 1px solid #a0a0a0;
-   -moz-border-radius: 6px;
-   margin-left: 2em;
-   margin-right: 4em;
+   -moz-border-radius: 8px;
+	 margin: 2em ;
 }
 
 .example .title {
    color: #707070;
    font-weight: bold;
+}
+
+.example .screen {
+	padding-left: 3em;
+	font-size: small;
 }
 
 .programlisting {
@@ -137,3 +190,5 @@ hr {
 img {
    border: 0px;
 }
+
+
