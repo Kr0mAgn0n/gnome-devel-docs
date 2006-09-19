@@ -45,6 +45,15 @@
 
     <revhistory>
       <revision>
+	<revnumber>0.6</revnumber>
+	<date>2006/September/19</date>
+	<revdescription>
+	  <para>
+	    Extended the icon guidelines.
+	  </para>
+	</revdescription>
+      </revision>
+ <revision>
 	<revnumber>0.5</revnumber>
 	<date>2006/September/18</date>
 	<revdescription>
@@ -596,22 +605,24 @@ Terminal=false
 
       <para>
 	The desktop looks for icons in the selected theme directory of
-	<filename>/usr/share/icons/</filename>.  If you have only one
-	icon, place it in
-	<filename>/usr/share/icons/hicolor/48x48/apps/</filename>.  This
-	is the directory the desktop looks in if there is no icon for your
-	application in the selected theme.  If you have themed icons, put
-	them in the appropriate directories.
+	<filename>/usr/share/icons/</filename>.  Application icons should be
+	available at least at a resolution of 48x48 pixels. Place the icon in
+	<filename>/usr/share/icons/hicolor/48x48/apps/</filename>.  This is the
+	directory the desktop looks in if there is no icon for your application in
+	the selected theme.  If you have themed icons, put them in the appropriate
+	directories.
       </para>
 
-      <tip>
-	<para>
-	  Icons placed in the
-	  <filename>/usr/share/icons/hicolor/</filename> directory should
-	  consist of neutral colors so as to not clash with any other
-	  theme.
-	</para>
-      </tip>
+      <para>
+	To better visually integrate with the GNOME desktop, while keeping your
+	application look native when run under KDE, Windows XP or Mac OS X,
+	follow the <ulink
+	http="http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines">Tango
+	Style guidelines</ulink> when creating your artwork. The document
+	explains various aspects of icon design, including colors, lighting and
+	sizes. Some typical workflow and video tutorials are also provided.
+      </para>
+
 
       <section id="icons-references">
 	<title>References</title>
@@ -619,8 +630,8 @@ Terminal=false
 	<para>
 	  <ulink
 	  url="http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html">Icon
-	  Theme Specification</ulink> &mdash; Describes how to create
-	  icons and where they go.
+	  Theme Specification</ulink> &mdash; Describes how to install and look up
+	  icons in a themeable way.
 	</para>
 
 	<para>
@@ -628,6 +639,12 @@ Terminal=false
 	  url="http://standards.freedesktop.org/icon-naming-spec/latest/">Icon
 	  Naming Specification</ulink> &mdash; Provides a canonical
 	  naming scheme for icon files.
+	</para>
+
+	<para>
+	  <ulink
+	  url="http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines">Tango Style Guidelines</ulink> 
+	  &mdash; Provides description on how to design clean and 'multiplatform' icon artwork.
 	</para>
       </section>
     </section>
