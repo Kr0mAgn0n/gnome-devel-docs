@@ -2,6 +2,7 @@ SOURCES=			\
 	gnome-isv-guide.xml
 
 IMAGES=					\
+	bullet.png
 
 SOURCE_MAIN=gnome-isv-guide.xml
 
@@ -18,7 +19,7 @@ all: html.stamp
 
 html.stamp: $(SOURCES) $(IMAGES)
 	mkdir -p $(OUTPUTDIR)
-	#cp $(IMAGES) $(OUTPUTDIR)
+	cp $(IMAGES) $(OUTPUTDIR)/
 	xsltproc -o $(OUTPUTDIR)/ --stringparam html.stylesheet $(CSS) $(STYLESHEET) \
 		$(SOURCE_MAIN)
 	cp $(CSS) $(OUTPUTDIR)/

@@ -22,7 +22,6 @@ table {
 	border-collapse: collapse;
 	margin: 0 auto 1em;
 	width: 50em;
-	border-spacing: 20px;
 	border: 1px solid #babdb6;
 }
 
@@ -36,10 +35,54 @@ td {
 	padding: 6px;
 }
 
+ul {
+	margin-left: 3em;
+}
+
+ul li {
+	list-style-image: url('bullet.png');
+	margin-left: 0em;
+	padding-left: 0px;
+	max-width: 44em;
+}
+
+li p {
+	padding: 0px 0px 1em 0px;
+	margin: 0px;
+}
+
+div.authorgroup {
+	padding: 2em;
+	margin: 2em;
+  border: 1px solid #eee;
+  -moz-border-radius: 16px !important;
+	width: 40em;
+}
+
+.author, div.affiliation, div.address {
+	margin: 0px;
+}
+
+.address code {
+	margin: 0px;
+	padding: 0px;
+}
+
+/* get rid of the line break in address */
+.address br {
+	display: none;
+}
+
+.address p {
+	padding: 0px;
+	margin: 0px 0px 1em 0px;
+}
+
+
 div.revhistory table {
 	border-collapse: separate;
    font-size: 9pt;
-   border: 1px solid #bbbbbb;
+   border: 1px solid #eee;
    -moz-border-radius: 16px !important;
    padding: 1em;
    margin: 1em;
@@ -49,8 +92,13 @@ div.revhistory table {
 div.revhistory table th {
    margin: 4px;
    background-color: #f6f6f6;
+	 color: black;
    padding: 2px;
    border: 0px;
+}
+
+.revhistory p {
+	display: inline;
 }
 
 div.revhistory table td {
@@ -70,6 +118,10 @@ div.toc {
 .toc a, .list-of-tables a, .list-of-examples a {
 	text-decoration: none;
 	font-weight: bold;
+}
+
+.section, .chapter, .appendix {
+	margin-top: 3em;
 }
 
 div.figure * {
