@@ -1,4 +1,4 @@
-#
+# Spanish translation for platform-overview
 #
 # Mario Carrión <mario@monouml.org>, 2006.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006.
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: platform-overview.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-10 21:15+0100\n"
-"PO-Revision-Date: 2007-07-23 10:20+0200\n"
+"PO-Revision-Date: 2007-07-26 13:43+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -659,6 +659,11 @@ msgid ""
 "protocols like SOAP and Jabber. XML provides a clean and simple base syntax, "
 "allowing applications to focus on their particular needs."
 msgstr ""
+"Desde su introducción formal en 1998, XML (eXtensible Markup Language) cada "
+"vez se ha usado en más aplicaciones. Se usa para una gran variedad de propósitos, "
+"desde formatos de documentación como XHTML y DocBook a protocolos de internet "
+"como SOAP y Jabber. XML proporciona una sintaxis de base limpia y simple, "
+"permitiendo a las aplicaciones centrarse en sus necesidades particulares."
 
 #: C/ipc-network.xml:227(para)
 msgid ""
@@ -667,6 +672,10 @@ msgid ""
 "processing library, providing everything you need to use XML in your "
 "application."
 msgstr ""
+"GNOME posee la biblioteca libxml2 y la usa extensivamente en todo el "
+"escritorio. La biblioteca libxml2 es una biblioteca de procesado XML rápida "
+"y que cumple con los estándares, proporcionando todo lo que puede necesitar "
+"para usar XML en su aplicación."
 
 #: C/ipc-network.xml:232(para)
 msgid ""
@@ -676,6 +685,12 @@ msgid ""
 "SAX2 API, streaming XML reader and writer interfaces, and complete support "
 "for XPath."
 msgstr ""
+"La biblioteca libxml2 proporciona un número variado de diferentes API para "
+"trabajar con XML de tal forma que puede usar la que mejor se ajuste "
+"a las necesidades de desarrollo de su aplicación. Además del árbol "
+"API nativo, libxml2 también proporciona el API SAX2 basado en retro llamadas , "
+"lector de contenido XML transmisible y escritor de interfaces además de soporte "
+"completo para XPath."
 
 #: C/ipc-network.xml:238(para)
 msgid ""
@@ -684,6 +699,10 @@ msgid ""
 "while remaining simple to use. There is also partial support for XML Schema, "
 "the new schema language produced by W3C."
 msgstr ""
+"Además del soporte DTD, libxml2 también proporciona soporte completo para validar "
+"documentos usando RELAX NG, que permite un modelo de validación más flexible "
+"mientras que mantiene una facilidad de uso. También existe soporte parcial para XML Schema, "
+"el nuevo lenguaje de esquemas producido por el W3C."
 
 #: C/ipc-network.xml:243(para)
 msgid ""
@@ -692,6 +711,10 @@ msgid ""
 "parsing, processing, and XML output. This means developers can stop worrying "
 "about incompatibilities between applications."
 msgstr ""
+"Debería usar libxml2 siempre que necesite trabajar directamente con XML en su "
+"aplicación. Usar libxml2 asegura que tendrá análisis, procesado y salida XML "
+"que cumple completamente con los estándares. Para los desarrolladores significa "
+"que no deben preocuparse sobre incompatibilidades entre aplicaciones."
 
 #: C/ipc-network.xml:249(para)
 msgid ""
@@ -712,6 +735,11 @@ msgid ""
 "developers to create clean and modularized templates to convert an XML "
 "dialect into another format more suitable for the application."
 msgstr ""
+"XSLT es un lenguaje basado en XML para transformar XML en otros formatos. XSLT "
+"es un lenguaje basado en plantillas que le permite coincidir con particulares tipos de "
+"elementos XML y crear una salida acorde con ello. Basado en XML y XPath, XSLT permite "
+"a los desarrolladores crear plantillas limpias y modulares para convertir un «dialecto» XML "
+"en otro formato más adecuado para la aplicación."
 
 #: C/ipc-network.xml:265(para)
 msgid ""
@@ -719,6 +747,9 @@ msgid ""
 "libxslt library is built on top of the XML and XPath support in libxml2, "
 "allowing it to be fast and fully standards-compliant."
 msgstr ""
+"GNOME posee la biblioteca libxslt, una implementación completa de XSLT. La "
+"biblioteca libxslt está construida encima del soporte XML y XPath  en libxml2, "
+"permitiendo que sea rápida y cumpla con los estándares."
 
 #: C/ipc-network.xml:269(para)
 msgid ""
@@ -727,6 +758,10 @@ msgid ""
 "development. Since libxslt allows you to add extension elements and "
 "extension functions, you can customize it to fit your application."
 msgstr ""
+"Debería usar libxslt si necesita transformar documentos XML. Aunque XSLT "
+"no siempre es la solución correcta para procesar XML, a menudo puede simplificar "
+"el desarrollo. Ya que libxslt le permite añadir elementos y funciones de extensión, "
+"puede personalizarlas para que se ajusten a su aplicación."
 
 #: C/ipc-network.xml:275(para)
 msgid ""
@@ -1117,6 +1152,14 @@ msgid ""
 "same data will allow your application to function in other desktop "
 "environments."
 msgstr ""
+"Para que las aplicaciones sean útiles, los usuarios deben ser capaces de encontrarlas "
+"y ejecutarlas. Los usuarios del Escritorio GNOME pueden ejecutar aplicaciones usando "
+"el menú de aplicaciones o pueden ejecutarlas accediendo a los archivos en el gestor "
+"de archivos. El Escritorio GNOME le permite añadir aplicaciones y tipos de archivo "
+"al instalar su aplicación. El mecanismo para ello está especificado por "
+"<ulink url=\"http://www.freedesktop.org/\">freedesktop.org</ulink>, de tal forma que "
+"los mismos datos permitirán que su aplicación funcione en otros entornos de "
+"escritorio."
 
 #: C/desktop-tech.xml:17(para)
 msgid ""
@@ -1126,6 +1169,11 @@ msgid ""
 "values. Your application's desktop entry file will contain the following "
 "information:"
 msgstr ""
+"Añadir su aplicación es tan simple como proporcionar un archivo de entrada "
+"de escritorio con la información necesaria. Los archivos de entrada de escritorio "
+"usan una sintaxis de clave-valor simple, con elementos adicionales para proporcionar "
+"un contenido traducido para valores particulares. El archivo de entrada de escritorio "
+"de su aplicación deberá contener la siguiente información:"
 
 #: C/desktop-tech.xml:24(para)
 msgid ""
@@ -1166,6 +1214,14 @@ msgid ""
 "information on how to determine which files are of the type, either by "
 "matching the file name or by inspecting the contents of the file."
 msgstr ""
+"Si su aplicación maneja tipos de archivo personalizados que el sistema no conoce, "
+"deberá añadir ese tipo de archivos al registro de tipos de archivo. A todos los "
+"tipos de archivo se accede a través de los tipos MIME. Por ejemplo, los archivos de sonido Ogg Vorbis "
+"tienen un tipo MIME <literal>application/ogg</literal>. Para añadir un tipo MIME "
+"debe proporcionar una descripción del tipo usando un archivo XML de información "
+"MIME. Estos archivos proporcionan un nombre traducido para el tipo así como "
+"información sobre cómo determinar qué archivos son de ese tipo, ya sea "
+"coincidiendo con el nombre de archivo o inspeccionando el contendio del archivo."
 
 #: C/desktop-tech.xml:45(para)
 msgid ""
@@ -2085,13 +2141,15 @@ msgstr ""
 
 #: C/core-tech.xml:355(title)
 msgid "<application>Gnumeric</application> in Multiple Languages"
-msgstr ""
+msgstr "<application>Gnumeric</application> en varios idiomas"
 
 #: C/core-tech.xml:361(para)
 msgid ""
 "Screenshots of the <application>Gnumeric</application> spreadsheet "
 "application running in Hebrew, Japanese, and Serbian."
 msgstr ""
+"Capturas de pantalla de la aplicación de hoja de cálculo <application>Gnumeric</application> "
+"ejecutándose en hebreo, japonés y serbio."
 
 #: C/core-tech.xml:368(para)
 msgid ""
@@ -2100,6 +2158,11 @@ msgid ""
 "for any language, programmers must ensure the application is properly "
 "internationalized before it can be fully localized."
 msgstr ""
+"Internacionalizar su aplicación ayuda a hacerla disponible a más usuarios a "
+"través del mundo. Mientras que los traductores experimentados deben proporcionar "
+"las traducciones para cualquier idioma, los programadores deben asegurarse de que "
+"la aplicación está adecuadamente internacionalizada antes de que se pueda localizar "
+"completamente."
 
 #. FIXME: where is danilo's awesome guide?
 #: C/core-tech.xml:375(para)
@@ -2108,6 +2171,8 @@ msgid ""
 "\"http://www.gnome.org/~malcolm/i18n/\">Internationalizing GNOME "
 "Applications</ulink>."
 msgstr ""
+"Para obtener más información acerca de la internacionalización en GNOME, consulte "
+"<ulink url=\"http://www.gnome.org/~malcolm/i18n/\">Internacionalizar las aplicaciones de GNOME</ulink>."
 
 #: C/core-tech.xml:381(title)
 msgid "Accessibility"
