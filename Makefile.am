@@ -1,6 +1,7 @@
 SUBDIRS =			\
 	gdp-handbook		\
 	gdp-style-guide		\
+	hig			\
 	integration-guide	\
 	platform-overview
 
