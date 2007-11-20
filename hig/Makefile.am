@@ -19,7 +19,8 @@ DOC_ENTITIES =			\
 	hig-ch-menus.xml	\
 	hig-ch-principles.xml	\
 	hig-ch-toolbars.xml	\
-	hig-ch-windows.xml
+	hig-ch-windows.xml      \
+	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
 	images/EvoToolbar.png				\
 	images/GtkToolbar.png				\
