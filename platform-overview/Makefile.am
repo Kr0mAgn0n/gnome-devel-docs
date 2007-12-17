@@ -15,4 +15,4 @@ DOC_FIGURES =			\
 	figures/graphics.png	\
 	figures/i18n.png	\
 	figures/pango.png
-DOC_LINGUAS = es it oc
+DOC_LINGUAS = es it oc ru
