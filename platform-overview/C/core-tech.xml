@@ -59,9 +59,9 @@
     will interact properly with accessibility technologies, and will behave
     as users expect.</para>
 
-    <para>For more information on GTK+, see 
-    <ulink url="http://developer.gnome.org/doc/API/2.0/gtk/index.html">The
-    GTK+ Reference Manual</ulink> or visit 
+    <para>For more information on GTK+, see the
+    <ulink url="http://library.gnome.org/devel/gtk/stable/">GTK+ Reference
+    Manual</ulink> or visit
     <ulink url="http://gtk.org/">the GTK+ web site</ulink>.</para>
   </section> <!-- gtk -->
 
@@ -79,9 +79,9 @@
     dedicated interface designers to construct the interfaces without having
     to know how to program.</para>
 
-    <para>For more information on Libglade, see <ulink
-    url="http://developer.gnome.org/doc/API/2.0/libglade/index.html">The
-    Libglade Reference Manual</ulink>.</para>
+    <para>For more information on Libglade, see the <ulink
+    url="http://library.gnome.org/devel/libglade/stable/">Libglade
+    Reference Manual</ulink>.</para>
   </section>
 
   <section id="pango">
@@ -137,9 +137,9 @@
     application can render text correctly in hundreds of different
     languages.</para>
 
-    <para>For more information on Pango, see
-    <ulink url="http://developer.gnome.org/doc/API/2.0/pango/index.html">The
-    Pango Reference Manual</ulink>.</para>
+    <para>For more information on Pango, see the
+    <ulink url="http://library.gnome.org/devel/pango/stable/">Pango
+    Reference Manual</ulink>.</para>
   </section> <!-- pango -->
 
   <section id="gdk">
@@ -182,9 +182,9 @@
     Instead, you should use the extensive functionality provide by
     Cairo.</para>
 
-    <para>For more information on GDK, see
-    <ulink url="http://developer.gnome.org/doc/API/2.0/gdk/index.html">The
-    GDK Reference Manual</ulink>.</para>
+    <para>For more information on GDK, see the
+    <ulink url="http://library.gnome.org/devel/gdk/stable/">GDK Reference
+    Manual</ulink>.</para>
   </section> <!-- gdk -->
 
   <section id="cairo">
@@ -220,44 +220,46 @@
   </section> <!-- cairo -->
 </section> <!-- graphics -->
 
-<section id="gnome-vfs">
+<section id="gio">
   <title>Virtual File System</title>
 
-  <para>GnomeVFS is the core library used for all file and folder operations
-  in GNOME applications.  GnomeVFS provides a file system abstraction with
-  pluggable backends, allowing you to use a single consistent API to access
-  files on the local file system, on FTP servers, on WebDAV servers, and over
-  various other protocols and transports.</para>
-
-  <para>All resources, including local files, are accessed in GnomeVFS using
-  Uniform Resource Identifiers (URIs).  An extension to the now-commonplace
-  URL, this standard identification scheme allows all resources to be addressed
-  with a simple and consistent syntax.</para>
-
-  <para>GnomeVFS can provide extensive information about files and folders,
-  including the MIME type of the file and which applications can be used
-  to open the file.  Since GnomeVFS uses the standard from <ulink
+  <para>GIO, a part of GLib, is the core library used for file and folder
+  operations in GNOME applications.  GIO provides a unified file system
+  abstraction layer with pluggable backends.  In GNOME, the GVFS library
+  provides a GIO backend implementing multiple network and local protocols.
+  Using GIO with GVFS allows your application to work with files on remote
+  machines as easily as local files.</para>
+  
+  <para>GIO can provide extensive information about files and folders, including
+  the MIME type and icon of a file and which applications can be used to open
+  a file.  Since the GVFS uses the standard from <ulink
   url="http://www.freedesktop.org/">freedesktop.org</ulink> to determine
-  file types and file associations, it works correctly on different free
-  desktop environments, helping independent software developers create
+  file types and associations, it works correctly on different free desktop
+  environments, helping independent software developers create
   software that can be run in different environments.</para>
 
-  <para>GnomeVFS also provides basic networking support, including
-  routines for network I/O, secure transfers with SSL, and DNS Service
-  Discovery.</para>
+  <para>GIO is used throughout the GNOME desktop.  The file manager,
+  <application>Nautilus</application>, uses GIO to display folders on local
+  and remote systems.  For the user, this means that network servers act just
+  like local folders: They can drag and drop files between them, view the files'
+  properties, and open the file with an application.  Using GIO will allow your
+  application to open all the files that users can access on their desktop.</para>
 
-  <para>GnomeVFS is used extensively throughout the GNOME desktop.  The
-  file manager, Nautilus, uses GnomeVFS to display folders on local and
-  remote systems.  For the user, this means that network servers act just
-  like local folders: They can drag and drop files between them, view
-  the files' properties, and open the files with an application.  Using
-  GnomeVFS will allow your application to open all the files that users
-  can access on their desktops.</para>
+  <para>For more information on GIO, see the <ulink
+  url="http://library.gnome.org/devel/gio/stable/">GIO Reference Manual</ulink>.</para>
 
-  <para>For more information on GnomeVFS, see <ulink
-  url="http://developer.gnome.org/doc/API/2.0/gnome-vfs-2.0/index.html">GnomeVFS
-  - File system Abstraction Library</ulink>.</para>
-</section> <!-- gnome-vfs -->
+  <anchor id="gnome-vfs"/>
+
+  <para>In previous versions of GNOME, the GnomeVFS library was used for
+  access to files and folders.  While GnomeVFS provided many of the same
+  features, including transparent access to remote folders, it had a number
+  of limitations which have been addressed in GIO.  GnomeVFS is deprecated
+  and should not be used in newly written code, although it will continue
+  to be supported throughout the GNOME 2 lifetime.  For information on
+  GnomeVFS, see <ulink
+  url="http://library.gnome.org/devel/gnome-vfs-2.0/stable/">GnomeVFS -
+  Filesystem Abstraction Library</ulink>.</para>
+</section> <!-- gio -->
 
 <section id="gconf">
   <title>Configuration and Lockdown</title>
@@ -304,9 +306,9 @@
   preferences, and it will make your settings accessible to systems
   administrators and configuration and backup tools.</para>
 
-  <para>For more information on GConf, see <ulink
-  url="http://developer.gnome.org/doc/API/2.0/gconf/index.html">The
-  GConf Reference Manual</ulink>.</para>
+  <para>For more information on GConf, see the <ulink
+  url="http://library.gnome.org/devel/gconf/stable/">GConf
+  Reference Manual</ulink>.</para>
 </section> <!-- gconf -->
 
 <section id="i18n">
@@ -415,9 +417,9 @@
   <para>For extensive recommendations on accessibility, see <ulink
   url="http://developer.gnome.org/projects/gap/guide/gad/index.html">GNOME
   Accessibility for Developers</ulink>.  See also <ulink
-  url="http://developer.gnome.org/doc/API/2.0/atk/index.html">ATK -
-  Accessibility Toolkit</ulink> and <ulink
-  url="http://developer.gnome.org/doc/API/2.0/gail/index.html">The GAIL
+  url="http://library.gnome.org/devel/atk/stable/">ATK -
+  Accessibility Toolkit</ulink> and the <ulink
+  url="http://library.gnome.org/devel/gail-libgail-util/stable/">GAIL
   Reference Manual</ulink>.</para>
 </section> <!-- a11y -->
 

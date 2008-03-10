@@ -45,6 +45,14 @@
       in <xref linkend="a11y"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
+      <term>gio</term>
+      <listitem><para>A part of GLib, the GIO library provides a high-level
+      API for accessing files and folders.  Together with the GVFS library,
+      it provides a file system abstraction that allows transparent access
+      to local and remote files.  GIO is discussed in
+      <xref linkend="gio"/>.</para></listitem>
+    </varlistentry>
+    <varlistentry>
       <term>glib</term>
       <listitem><para>GLib provides the core application building blocks for
       libraries and applications written in C.  It provides the core object
@@ -53,11 +61,9 @@
     </varlistentry>
     <varlistentry>
       <term>gnome-vfs</term>
-      <listitem><para>GnomeVFS is the core library used to access files and
-      folders in GNOME applications.  It provides a file system abstraction
-      which allows applications to access local and remote files with a single
-      consistent API.  GnomeVFS is discussed in <xref linkend="gnome-vfs"/>.</para>
-      </listitem>
+      <listitem><para>GnomeVFS is a deprecated library for accessing files and
+      folders.  It is superseded by GIO and GVFS.  Newly written code should
+      use GIO instead.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>gtk+</term>
@@ -65,6 +71,13 @@
       interfaces in GNOME applications.  It provides user interface controls
       and signal callbacks to control user interfaces.  GTK+ is discussed in
       <xref linkend="gtk"/>.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>gvfs</term>
+      <listitem><para>GVFS provides a backend implementation for GIO, allowing
+      access to numerous protocols with the GIO API.  Developers do not access
+      GVFS directly.  Instead, applications written with GIO will automatically
+      use GVFS on systems where it is enabled.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libIDL</term>
