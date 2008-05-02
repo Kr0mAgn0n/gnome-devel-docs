@@ -30,11 +30,9 @@ DOC_FIGURES =						\
 	images/browser-toolbar.png \
 	images/busy-pointers.png \
 	images/caution.png \
-	images/checkbox-menu.png \
 	images/checkbox_label.png \
 	images/colour_and_arrows.png \
 	images/colour_only.png \
-	images/command-menu.png \
 	images/controls-buttons.png \
 	images/controls-check-box-ambiguous.png \
 	images/controls-check-boxes-mixed.png \
@@ -147,7 +145,13 @@ DOC_FIGURES =						\
 	images/log-icon.png \
 	images/manual-alert-spacing.png \
 	images/manual-button-ordering.png \
+	images/menus-command-group.png \
+	images/menus-checkbox-group.png \
 	images/menu-icons.png \
+	images/menus-dropdown.png \
+	images/menus-popup.png \
+	images/menus-radiobutton-group.png \
+	images/menus-submenu.png \
 	images/mnemonics_and_shortcuts.png \
 	images/nautilus-icon.png \
 	images/note.png \
@@ -189,7 +193,6 @@ DOC_FIGURES =						\
 	images/palette-8.png \
 	images/palette-9.png \
 	images/pointingdevices.png \
-	images/popup-menu.png \
 	images/progress-checklist-with-bar.png \
 	images/progress-checklist.png \
 	images/progress-indeterminate.png \
@@ -199,7 +202,6 @@ DOC_FIGURES =						\
 	images/quit1.png \
 	images/quit2.png \
 	images/radio_button_label.png \
-	images/radiobutton-menu.png \
 	images/rubberband.png \
 	images/rubberband_dia.png \
 	images/save1.png \
@@ -210,11 +212,11 @@ DOC_FIGURES =						\
 	images/sodipodi-icon.png \
 	images/softwareupdateicon.png \
 	images/stock_save.png \
-	images/submenu.png \
 	images/textbox_label.png \
 	images/tip.png \
 	images/toolbar-icons.png \
 	images/toolbar-silhouette.png \
+	images/toolbars-mail.png \
 	images/underline-icon.png \
 	images/view-toolbar.png \
 	images/warning.png \
