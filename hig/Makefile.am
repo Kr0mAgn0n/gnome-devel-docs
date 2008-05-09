@@ -24,9 +24,7 @@ DOC_ENTITIES =			\
 DOC_FIGURES =						\
 	images/abiword-icon.png \
 	images/action-icon.png \
-	images/application-edit-menu.png \
 	images/application-icons.png \
-	images/application-menubar.png \
 	images/browser-toolbar.png \
 	images/busy-pointers.png \
 	images/caution.png \
@@ -80,21 +78,12 @@ DOC_FIGURES =						\
 	images/earthTritan.png \
 	images/evolution-icon.png \
 	images/EvoToolbar.png \
-	images/file-menu.png \
 	images/floppy-dissected.png \
 	images/fontsel-icon.png \
 	images/fontsel-suggestion.png \
 	images/gdiskfree-menu.png \
 	images/gdiskfree.png \
 	images/gedit-icon.png \
-	images/generic-bookmarks-menu.png \
-	images/generic-browser-go-menu.png \
-	images/generic-document-go-menu.png \
-	images/generic-format-menu.png \
-	images/generic-help-menu.png \
-	images/generic-insert-menu.png \
-	images/generic-view-menu.png \
-	images/generic-windows-menu.png \
 	images/gide-icon.png \
 	images/glyph-icon.png \
 	images/gnome-http-url.png \
@@ -145,13 +134,24 @@ DOC_FIGURES =						\
 	images/log-icon.png \
 	images/manual-alert-spacing.png \
 	images/manual-button-ordering.png \
+	images/menu-icons.png \
+	images/menus-application.png \
+	images/menus-bookmarks.png \
 	images/menus-command-group.png \
 	images/menus-checkbox-group.png \
-	images/menu-icons.png \
 	images/menus-dropdown.png \
+	images/menus-edit.png \
+	images/menus-file.png \
+	images/menus-format.png \
+	images/menus-go-browser.png \
+	images/menus-go-document.png \
+	images/menus-help.png \
+	images/menus-insert.png \
 	images/menus-popup.png \
 	images/menus-radiobutton-group.png \
 	images/menus-submenu.png \
+	images/menus-view.png \
+	images/menus-windows.png \
 	images/mnemonics_and_shortcuts.png \
 	images/nautilus-icon.png \
 	images/note.png \
