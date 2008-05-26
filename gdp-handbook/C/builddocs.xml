@@ -13,14 +13,14 @@
     <sect2 id="applicationfiles">
       <title>Documentation Files</title>
       <para>
-        Documentation in GNOME application cvs and packages should be
+        Documentation in GNOME application repository and packages should be
         kept under <filename 
         class="directory">help/<replaceable>locale</replaceable>/</filename>, 
         where <filename><replaceable>locale</replaceable></filename>
         is typically replaced with <quote>C</quote> for the default (English)
         documents or the locale for other documents.  In some cases, 
         <quote>doc</quote> is used in place of <quote>help</quote> however
-        it is preferrable to use <quote>help</quote> to remain consistant
+        it is preferrable to use <quote>help</quote> to remain consistent
         with the path under which these documents are installed.
       </para>
       <para>
@@ -33,7 +33,7 @@
         <filename class="directory">images</filename>
         since most figures consist of images (well, screenshots 
         really), it is preferable to use <filename 
-        class="directory">figures</filename> for consistancy and to 
+        class="directory">figures</filename> for consistency and to 
         allow for figures which contain things other than images.
       </para>
 	  <para>
@@ -41,7 +41,7 @@
 		rules or the license used to be able to copy any parts of the 
 		package.  There should also be a COPYING-DOCS file which will 
 		contain the FDL or other licenses the documenter and maintainer 
-		agrees on.  An example file is found in CVS in the module 
+		agrees on.  An example file is found in Subversion in the module 
 		<filename class="directory">gnome-docu/gdp/</filename>
 		<filename>COPYING-DOCS</filename> which contains the GNU Free 
 		Documentation License.  The <filename>COPYING-DOCS</filename> file 
@@ -62,7 +62,7 @@ Help Menu ############# -->
       <filename>xmldocs.make</filename> and
       <filename>omf.make</filename>. Instead, the files are pulled from
       <application>gnome-common</application> whenever the package is built from
-      <acronym>CVS</acronym>.</para>
+      Subversion.</para>
 
     <para>To use the new system, in <filename>autogen.sh</filename> change the
       line that invokes <filename>gnome-autogen.sh</filename> from:
@@ -83,13 +83,13 @@ USE_GNOME2_MACROS=1 USE_COMMON_DOC_BUILD=yes . gnome-autogen.sh
     <para>For programs that do not use <application>gnome-common</application>,
       the files <filename>xmldocs.make</filename> and
       <filename>omf.make</filename> need to be manually installed. They can be
-      found in <application>gnome-common </application> cvs in <filename
+      found in <application>gnome-common</application> Subversion in <filename
 	class="directory">doc-build</filename>. They should be
 	installed in the package's root directory.
 	  </para>
     </note>
       <para>
-	In the docs directorory, a <filename>Makefile.am</filename> then is
+	In the docs directory, a <filename>Makefile.am</filename> then is
 	required that calls them:
 	<programlisting>
 figdir = figures

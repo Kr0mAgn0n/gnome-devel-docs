@@ -273,10 +273,11 @@
 	  <para>
 		If you do not wish to use <application>Yelp</application> to view 
 		your completed documentation, the specific GDP stylesheets can 
-		be obtained through CVS.  The GDP stylesheets are in the 
-		module gnome-docu/gdp/xsl of the GNOME CVS.  The top level 
+		be obtained through Subversion.  The GDP stylesheets are in the 
+		module <filename class="directory">gnome-doc-utils/trunk/xslt/</filename>
+		of the GNOME Subversion.  <!-- The top level 
 		stylesheet and the one you run through the XSL processor is 
-		<filename>general-customizations.xsl</filename>.
+		<filename>general-customizations.xsl</filename>. -->
 	  </para>
 <!--
           The GDP uses its own DocBook stylesheets.  To use the GDP
@@ -483,7 +484,7 @@ V1.1//EN"[]>]]>
           Guide</citetitle>.
 	  </para>
 	</sect3>
-<!--
+
 	<sect3 id="developerdocs">
 	  <title>Developer Documents</title>
 	  <para>
@@ -494,12 +495,13 @@ V1.1//EN"[]>]]>
 	  <para>
 		API documentation is also available for the GNOME libraries. This is
 		detailed documentation of the code that is used to build GNOME
-		apps. You can keep up with the GNOME API docs on the <ulink
-          url="http://developer.gnome.org/doc/API/" type="http">GNOME API
-          Reference</ulink> page.
+		apps.</para>
+	  <para>You can find general developer documentation on the <ulink
+          url="http://library.gnome.org/devel/" type="http">Developer 
+          section of the GNOME Documentation Library</ulink>.
 	  </para>
 	</sect3>
--->	
+	
 	<sect3 id="projectdocs">
 	  <title>Project Documents</title>
 	  <para>
@@ -510,100 +512,83 @@ V1.1//EN"[]>]]>
 	  </para>
 	</sect3>
   </sect2>
-  <!-- ####### GNOME Documentation System | Using CVS  ####### -->
+  <!-- ####### GNOME Documentation System | Using Subversion  ####### -->
   
-  <sect2 id="cvs">
-	<title>Using CVS</title>
+  <sect2 id="svn">
+	<title>Using Subversion</title>
 	<para>
-	  CVS (Concurrent Versions System) is a tool that allows multiple
-	  developers to concurrently work on a set of documents, keeping
-	  track of the modifications made by each person.  The files are
-	  stored on a server and each developer checks files out, modifies
-	  them, and then checks in their modified version of the files.
-	  Many GNOME programs and documents are stored in CVS.  The GNOME
-	  CVS server allows users to anonymously check out CVS files. Most
-	  GDP members will need to use anonymous CVS to download the most
-	  up-to-date version of documentation or programs.  Modified
-	  documents will typically be emailed to the the application
-	  developer. Core GDP members may also be granted login CVS
-	  privileges so they may commit modified files directly to CVS.
-	  Below is a simple tutorial which will take you through the
-	  basics of using CVS.  A more complete guide is <ulink
-	  url="http://cvsbook.red-bean.com/"> <citetitle>Open Source
-	  Development with CVS</citetitle></ulink>.  The free chapters are
-	  a good guide to using CVS and can be found at <ulink
-	  url="http://cvsbook.red-bean.com/cvsbook.html">http://cvsbook.red-bean.com/cvsbook.html</ulink>.
+		Subversion (SVN) is a tool that allows multiple developers to
+		concurrently work on a set of documents, keeping track of the
+		modifications made by each person.  The files are stored on a
+		server and each developer checks files out, modifies them,
+		and then checks in their modified version of the files. Many
+		GNOME programs and documents are stored in the Subversion
+		repository. The GNOME Subversion server allows users to
+		anonymously check out files. Most GDP members will access the
+		repository without a login to download the most up-to-date
+		version of documentation or programs.  Modified documents
+		will typically be emailed to the the application developer.
+		Core GDP members may also be granted login privileges so they
+		may commit modified files directly to the Subversion
+		repositories. Below is a simple tutorial which will take you
+		through the basics of using Subversion. A more complete guide
+		is <ulink url="http://svnbook.red-bean.com/"><citetitle>
+		Version Control with Subversion</citetitle></ulink>.
 	</para>
 	
-	<sect3 id="anonymouscvs">
-	  <title>Anonymous CVS</title>
+	<sect3 id="initialcheckout">
+	  <title>Initial Checkout</title>
 	  <para>
-		To anonymously check out documents from CVS, you must first
-		log in.  From the bash shell, you should set your CVSROOT
-		shell variable with <command>  export
-          CVSROOT=':pserver:anonymous@anoncvs.gnome.org:/cvs/gnome'</command>
-		and then login with <command>cvs login</command>(there is no
-		password, just hit return). As an example, we will use the
-		"gnome-docu/gdp" module which contains this and several
-		other documents. To check these documents out for the first
-		time, type <command>cvs -z3 checkout
-          gnome-docu/gdp</command>. After you have this document
-		checked out and you would like to download any updates on
-		the CVS server, use <command>cvs -z3 update -Pd</command>.
+		You can download files anonymously from the server to create
+		a local working copy. As an example, we will check out the
+		files for this handbook. To check out for the first time,
+		type <command>
+		svn checkout http://svn.gnome.org/svn/gnome-devel-docs/trunk/gdp-handbook/
+		</command>. After you have this document checked out and you
+		would like to download any updates from the Subversion
+		repository, use <command>svn update</command>.
 	  </para>
 	</sect3>
 	
-	<sect3 id="logincvs">
-	  <title>Login CVS</title>  
+	<sect3 id="committingchanges">
+	  <title>Committing Changes</title>  
 	  <para>  
-		If you have been given a login for the GNOME CVS server,  you may 
-		commit your file modifications to CVS.  Be sure to read the following 
-		section on CVS etiquette before making any commits to CVS.  To log in
-        to the CVS server as user
-        <command><replaceable>username</replaceable></command> with a
-        password, you must first set your CVSROOT shell variable with
-        <command> export
-		  CVSROOT=':pserver:<replaceable>username</replaceable>@cvs.gnome.org:/cvs/gnome'</command>.
-        Log in with <command>cvs login</command> and enter your
-        password. You may check out and update modules as described
-        above for anonymous CVS access.  As a login CVS user, you may
-        also check modified versions of a file into the CVS server.
-        To check
-        <command><replaceable>filename</replaceable></command> into
-        the CVS server, type <command>cvs -z3 commit
-		  <replaceable>filename</replaceable></command>. You will be
-        given a vi editor window to type in a brief log entry,
-        summarizing your changes.  Note the default editor can be changed
-        using the <varname>EDITOR</varname> environment variable or
-        with the <command><option>-e</option></command> option. You
-        may also check in any modifications to files in the working
-        directory and subdirectories using <command>cvs -z3
-		  commit</command>.  To
-        add a new file to the CVS server, use <command>cvs -z3 add
-		  <replaceable>filename</replaceable></command>, followed by the
-        commit command.
+		If you are a registered GNOME developer, you may use your SSH
+		key to authenticate yourself so you can commit changes back
+		to the Subversion repositories. Be sure to read the following
+		section on Subversion etiquette before making any commits. To
+		authenticate to the Subversion server as user <command>
+		<replaceable>username</replaceable></command>, you will use a
+		slightly different URL. To commit <command><replaceable>
+		filename</replaceable></command> to the Subversion server,
+		type <command> svn commit
+		svn+ssh://<replaceable>username@</replaceable>svn.gnome.org/svn/gnome-devel-docs/trunk/gdp-handbook/<replaceable>filename</replaceable>
+		</command>. You will be given an editor window to type in a
+		brief log entry, summarizing your changes. Note the default
+		editor can be changed using the <varname>EDITOR</varname>
+		environment variable or with the
+		<command><option>--editor-cmd</option></command> option.
 	  </para>
 	</sect3>
 	
-	<sect3 id="cvsetiquette">
-	  <title>CVS Etiquette</title>
+	<sect3 id="svnetiquette">
+	  <title>SVN Etiquette</title>
 	  <para>
-		Because files in CVS are typically used and modified by
-		multiple developers and documentation authors, users should
+		Because files in Subversion are typically used and modified
+		by multiple developers and documentation authors, users should
 		exercise a few simple practices out of courtesy towards the
-		other CVS users and the project leader.  First, you should
-		not make CVS commits to a package without first discussing
-		your plans with the project leader.  This way, the project
-		leader knows who is modifying the files and generally, what
-		sort of changes/development is being done.  Also, whenever a
-		CVS user commits a file to CVS, they should make an entry in
-		the CVS log and in the <filename>ChangeLog</filename> so
-		that other users know who is making modifications and what
-		is being modified.  When modifying files created by others,
-		you should follow the indentation scheme used by the initial
-		author.
+		other Subversion users and the project leader. First, you
+		should not commit changes back to the Subversion repositories
+		without first discussing your plans with the project leader.
+		This way, the project leader knows who is modifying the files
+		and generally, what sort of changes/development is being done.
+		Also, whenever a Subversion user commits a file, they should
+		make an entry in the Subversion log and in the <filename>
+		ChangeLog</filename> so that other users know who is making
+		modifications and what is being modified. When modifying files
+		created by others, you should follow the indentation scheme
+		used by the initial author.
 	  </para>
 	</sect3>
   </sect2>
 </sect1>
-
