@@ -22,11 +22,14 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
+	images/EvoToolbar.png \
+	images/GtkToolbar.png \
+	images/GtkToolbar_browserdefault.png \
+	images/GtkToolbar_gedit.png \
+	images/GtkToolbar_productivitydefault.png \
 	images/abiword-icon.png \
 	images/action-icon.png \
 	images/application-icons.png \
-	images/browser-toolbar.png \
-	images/busy-pointers.png \
 	images/caution.png \
 	images/checkbox_label.png \
 	images/colour_and_arrows.png \
@@ -45,6 +48,9 @@ DOC_FIGURES =						\
 	images/controls-notebook.png \
 	images/controls-old-frames.png \
 	images/controls-option-menu.png \
+	images/controls-progress-indeterminate.png \
+	images/controls-progress-time.png \
+	images/controls-progress-typical.png \
 	images/controls-radio-button-mixed.png \
 	images/controls-radio-buttons.png \
 	images/controls-sensitivity.png \
@@ -77,7 +83,8 @@ DOC_FIGURES =						\
 	images/earthNorm.png \
 	images/earthTritan.png \
 	images/evolution-icon.png \
-	images/EvoToolbar.png \
+	images/feedback-checklist-running.png \
+	images/feedback-pointers-busy.png \
 	images/floppy-dissected.png \
 	images/fontsel-icon.png \
 	images/fontsel-suggestion.png \
@@ -90,10 +97,6 @@ DOC_FIGURES =						\
 	images/gnome-package.png \
 	images/gnome-text-x-readme.png \
 	images/gnumeric-icon.png \
-	images/GtkToolbar.png \
-	images/GtkToolbar_browserdefault.png \
-	images/GtkToolbar_gedit.png \
-	images/GtkToolbar_productivitydefault.png \
 	images/highcontrast-book-blur.png \
 	images/highcontrast-book.png \
 	images/highcontrast-cdrom-blur.png \
@@ -137,8 +140,8 @@ DOC_FIGURES =						\
 	images/menu-icons.png \
 	images/menus-application.png \
 	images/menus-bookmarks.png \
-	images/menus-command-group.png \
 	images/menus-checkbox-group.png \
+	images/menus-command-group.png \
 	images/menus-dropdown.png \
 	images/menus-edit.png \
 	images/menus-file.png \
@@ -195,10 +198,7 @@ DOC_FIGURES =						\
 	images/pointingdevices.png \
 	images/progress-checklist-with-bar.png \
 	images/progress-checklist.png \
-	images/progress-indeterminate.png \
 	images/progress-proportion.png \
-	images/progress-time.png \
-	images/progress-typical-time.png \
 	images/quit1.png \
 	images/quit2.png \
 	images/radio_button_label.png \
@@ -246,4 +246,5 @@ DOC_FIGURES =						\
 	images/windows-toolbox-large.png \
 	images/windows-toolbox-small.png \
 	images/ximian-palette.png
+
 
