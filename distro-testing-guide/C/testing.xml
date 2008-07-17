@@ -1,15 +1,227 @@
 <chapter id="testing-accessibility" status="writing">
 <title>Pre-Distribution: Testing Accessibility Tools</title>
 <para>
-This chapter is for OS distribution testers and outlines how to verify the functionality of GNOME accessibility tools prior to releasing new or revised OS distributions.
+This chapter is for OS distribution testers and outlines how to verify the functionality of GNOME accessibility tools prior to releasing new OS distributions.
 </para>
 <para>
 Thank you for taking the time and care to better understand what you need to do to help ensure accessibility works on your distribution. This chapter provides some very high level things you can do to quickly verify that various aspects of GNOME accessibility work on your operating system distribution.
 </para>
+
 <section>
-<title>Testing Orca</title>
+<title>Test Speech</title>
 <para>
-xxx
+Orca uses GNOME Speech for speech synthesis.
 </para>
+<procedure>
+<step>
+<para>
+Run the <application>test-speech</application> application by opening a terminal window (Alt-F1 - Applications - Accessories - Terminal) and typing <userinput>test-speech</userinput>  <keycap>Enter</keycap>.
+</para>
+</step>
+<step>
+<para>
+A list of speech synthesis engines should be displayed. These may include <application>eSpeak</application>, <application>Festival</application> and others. Enter the number corresponding to the speech synthesizer engines you need to test. Ideally, no errors will be encountered. If you have no  servers listed or errors are being listed, confirm you have included all the required  packages for your OS build.
+</para>
+</step>
+<step>
+<para>
+Use the various tests listed by the speech engine to confirm speech and audio output.
+</para>
+</step>
+<step>
+<para>
+Verify that speech works in conjunction with other audio output applications like <application>Movie Player</application> or <application>Rhythmbox Music Player</application>. If the two audio sources can't be heard simultaneously, consider the following:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Shipping a speech synthesis engine with your operating system, such as eSpeak
+</para>
+</listitem>
+<listitem>
+<para>
+Including <application>gnome-speech</application> and the GNOME Speech driver for the speech synthesis engine(s) you choose to ship
+</para>
+</listitem>
+<listitem>
+<para>
+Exploring how to make audio work better on your distribution, especially audio mixing 
+</para>
+</listitem>
+</itemizedlist>
+</step>
+</procedure>
 </section>
+
+<section>
+<title>Test Braille</title>
+<para>
+Orca uses <application>BrlTTY</application> and <application>liblouis</application> for Braille output. 
+</para>
+<procedure>
+<step>
+<para>
+Verify <application>BrlTTY</application> by opening a new terminal window and typing <userinput>brltty -d /dev/term/0 -bxw -xno -p none -A auth=none -n</userinput>. A little <application>BrlTTY</application> window should appear. If the BrlTTY window doesn't appear, or any errors are shown, then you have some work to do.
+</para>
+</step>
+<step>
+<para>
+Ensure the Python bindings for <application>BrlTTY</application> are installed by typing <userinput>python -c "import brlapi"</userinput> - if it produces errors, you probably don't have the Python bindings installed.
+</para>
+</step>
+<step>
+<para>
+Ensure <application>liblouis</application> is  installed by typing <userinput>[ TBD ]</userinput> in a terminal window.
+</para>
+</step>
+<step>
+<para>
+Test if <application>BrlTTY</application> automatically starts when a USB Braille device is plugged in. 
+</para>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Test Magnification</title>
+<para>
+Orca uses <application>GNOME Mag</application> for magnification. For a compelling magnification experience, <application>GNOME Mag</application> uses various X Windows System server extensions: COMPOSITE, FIXES, DAMAGE, RANDR, and RENDER.
+</para>
+<procedure>
+<step>
+<para>
+Verify <application>GNOME Mag</application> works by opening a terminal window and typing <userinput>magnifier -h</userinput>. The magnifier should come up in split-screen mode.
+</para>
+</step>
+<step>
+<para>
+Run <application>Orca</application> and open the <guilabel>Magnifier</guilabel> preferences tab in the Preferences GUI. Enable magnification by selecting the checkbox at the top of the magnifier preferences tab. The magnifier should come up in full-screen mode by default. If it doesn't, you might not have the appropriate X Windows System server extensions installed/enabled, or you might be running into some odd conflict with a compositing manager, such as <application>Compiz</application>. If you're using <application>Compiz</application>, try going back to Metacity and starting over. 
+</para>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Test AT-SPI</title>
+<para>
+Orca uses the AT-SPI to communicate with applications on the desktop.
+</para>
+<procedure>
+<step>
+<para>
+Enable assistive technologies for your login session. You should be able to do this by checking the "Enable assistive technologies" checkbox in the "Assistive Technologies" preferences dialog and then logging out and back in again. If you're bold and really want to do the right thing, you can ship with accessibility enabled by default for your distribution. This can be done by modifying the default gconf values: 
+</para>
+<para>
+<userinput>gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type bool --set /desktop/gnome/interface/accessibility true</userinput>
+</para>
+</step>
+<step>
+<para>
+Login with accessibility enabled. You should not get any errors. Check xprop -root | grep AT_SPI_IOR. If you don't see an AT_SPI_IOR property on your root window, then something is wrong with your infrastructure. The usual cause of this is not setting the --libexecdir properly when building AT-SPI. Search the Orca WIKI Download/Install page for libexecdir for more information.
+</para>
+</step>
+<step>
+<para>
+See if <application>Orca</application> can find all applications running on the desktop: <userinput>orca -l</userinput>. The output should include a large number of applications, such as the following:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+gnome-settings-daemon
+</para>
+</listitem>
+<listitem>
+<para>
+iiim-panel
+</para>
+</listitem>
+<listitem>
+<para>
+gnome-session
+</para>
+</listitem>
+<listitem>
+<para>
+gnome-panel
+</para>
+</listitem>
+<listitem>
+<para>
+gnome-power-manager
+</para>
+</listitem>
+<listitem>
+<para>
+nautilus
+</para>
+</listitem>
+<listitem>
+<para>
+gnome-volume-manager
+</para>
+</listitem>
+<listitem>
+<para>
+ospm-applet
+</para>
+</listitem>
+<listitem>
+<para>
+Thunderbird
+</para>
+</listitem>
+<listitem>
+<para>
+Minefield
+</para>
+</listitem>
+<listitem>
+<para>
+pidgin
+</para>
+</listitem>
+<listitem>
+<para>
+gtk-window-decorator
+</para>
+</listitem>
+<listitem>
+<para>
+orca
+</para>
+</listitem>
+</itemizedlist>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Test Orca</title>
+<para>
+Do a quick test of <application>Orca</application> to ensure things are not seriously broken.
+</para>
+<procedure>
+<step>
+<para>
+Run <userinput>orca -no-setup</userinput>.  <application>Orca</application> should come up speaking and the main window should appear.
+</para>
+</step>
+<step>
+<para>
+Tab across the buttons in the <application>Orca</application> main window. They should speak as you tab between them.
+</para>
+</step>
+<step>
+<para>
+Press <keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo> to make the GNOME "Start" menu appear. Arrow up and down in the menu items. <application>Orca</application> should speak them as you move between them.
+</para>
+</step>
+<step>
+<para>
+Press <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo> to switch between windows. <application>Orca</application> should speak the window titles. 
+</para>
+</step>
+</procedure>
+</section>
+
 </chapter>
