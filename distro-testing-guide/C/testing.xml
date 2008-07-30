@@ -1,10 +1,10 @@
 <chapter id="testing-accessibility" status="writing">
-<title>Pre-Distribution: Testing Accessibility Tools</title>
+<title>GNOME Accessibility - Pre-Distribution OS Testing for Accessibility Tools</title>
 <para>
 This chapter is for OS distribution testers and outlines how to verify the functionality of GNOME accessibility tools prior to releasing new OS distributions.
 </para>
 <para>
-Thank you for taking the time and care to better understand what you need to do to help ensure accessibility works on your distribution. This chapter provides some very high level things you can do to quickly verify that various aspects of GNOME accessibility work on your operating system distribution.
+Thank you for taking the time and care to better understand what you need to do to help ensure accessibility works on your distribution. This chapter provides methods to quickly verify that GNOME accessibility is functioning properly on your operating system distribution.
 </para>
 
 <section>
@@ -15,7 +15,7 @@ Orca uses GNOME Speech for speech synthesis.
 <procedure>
 <step>
 <para>
-Run the <application>test-speech</application> application by opening a terminal window (Alt-F1 - Applications - Accessories - Terminal) and typing <userinput>test-speech</userinput>  <keycap>Enter</keycap>.
+Run the <application>test-speech</application> application by opening a terminal window (<keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo> and then <guilabel>Applications - Accessories - Terminal</guilabel>) and typing <userinput>test-speech</userinput> <keycap>Enter</keycap>.
 </para>
 </step>
 <step>
@@ -56,7 +56,7 @@ Exploring how to make audio work better on your distribution, especially audio m
 <section>
 <title>Test Braille</title>
 <para>
-Orca uses <application>BrlTTY</application> and <application>liblouis</application> for Braille output. 
+Orca uses <application>BrlTTY</application> and <application>liblouis</application> for braille output. 
 </para>
 <procedure>
 <step>
@@ -76,7 +76,7 @@ Ensure <application>liblouis</application> is  installed by typing <userinput>[ 
 </step>
 <step>
 <para>
-Test if <application>BrlTTY</application> automatically starts when a USB Braille device is plugged in. 
+Test if <application>BrlTTY</application> automatically starts when a USB braille device is plugged in. 
 </para>
 </step>
 </procedure>
@@ -196,32 +196,62 @@ orca
 </section>
 
 <section>
-<title>Test Orca</title>
+<title>Test Accessibility-Related Themes</title>
 <para>
-Do a quick test of <application>Orca</application> to ensure things are not seriously broken.
+The GNOME Desktop provides some themes which have been designed with low vision and other disabilities in mind.
 </para>
 <procedure>
 <step>
 <para>
-Run <userinput>orca -no-setup</userinput>.  <application>Orca</application> should come up speaking and the main window should appear.
+Press <keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo> and select <guilabel>System - Preferences - Appearance</guilabel>. The <guilabel>Appearance</guilabel> preference tool is displayed with multiple tabs along the top.
 </para>
 </step>
 <step>
 <para>
-Tab across the buttons in the <application>Orca</application> main window. They should speak as you tab between them.
+Select the <guilabel>Theme</guilabel> tab and verify the accessibility themes are installed; these include High Contrast, High Contrast Inverse, High Contrast Large Print Inverse, etc.
 </para>
 </step>
 <step>
 <para>
-Press <keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo> to make the GNOME "Start" menu appear. Arrow up and down in the menu items. <application>Orca</application> should speak them as you move between them.
-</para>
-</step>
-<step>
-<para>
-Press <keycombo><keycap>Alt</keycap><keycap>Tab</keycap></keycombo> to switch between windows. <application>Orca</application> should speak the window titles. 
+Select the various themes and verify they are working; apply any suggested fonts as you test the themes. 
 </para>
 </step>
 </procedure>
 </section>
 
+<section>
+<title>Test Keyboard Accessibility (AccessX)</title>
+<procedure>
+<step>
+<para>
+Press <keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo> and select <guilabel>System - Preferences - Keyboard</guilabel>. The <guilabel>Keyboard</guilabel> preference tool is displayed with multiple tabs along the top.
+</para>
+</step>
+<step>
+<para>
+Select the <guilabel>Accessibility</guilabel> tab and enable <guilabel>Sticky Keys</guilabel>, <guilabel>Slow Keys</guilabel> and <guilabel>Bounce Keys</guilabel>.
+</para>
+</step>
+<step>
+<para>
+Verify the functionality of the features just enabled by interacting with the operating system and various applications. 
+</para>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Test Accessible Login</title>
+<para>
+The GNOME Desktop provides a login procedure which supports accessibility tools. If not properly functioning, many disabled users will not even make it to the desktop.
+</para>
+<note>
+<para>
+Accessible login features are presently 100% functioning for Solaris only.
+</para>
+</note>
+<para>
+First, verify all required components are installed by referring to <link linkend="sysadmin-34">these steps</link>. Once these components are properly installed and configured, you can expand the test by following <link linkend="sysadmin-29">these steps</link>.
+</para>
+</section>
 </chapter>
