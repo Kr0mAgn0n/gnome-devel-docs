@@ -213,7 +213,7 @@ Select the <guilabel>Theme</guilabel> tab and verify the accessibility themes ar
 </step>
 <step>
 <para>
-Select the various themes and verify they are working; apply any suggested fonts as you test the themes. 
+Select the various themes and verify they are working; apply any suggested fonts as you test the themes. Confirm that applications to be used comply with accessibility; eg, any custom visible widgets should be compliant with the selected theme and auto-adjust for color, widget size, and font size.
 </para>
 </step>
 </procedure>
@@ -221,6 +221,28 @@ Select the various themes and verify they are working; apply any suggested fonts
 
 <section>
 <title>Test Keyboard Accessibility (AccessX)</title>
+<para>
+<application>AccessX</application> delivers extended keyboard features for users with physical impairments. Toggle keys, sticky keys, bounce keys, mouse keys and other features are included with customization of each feature available through a single interface. 
+</para>
+<para>
+<emphasis>StickyKeys</emphasis> - provides locking or latching of modifier keys (eg, <keycap>Shift</keycap>, <keycap>Ctrl</keycap>) so that they can be used without simultaneously pressing the keys being modified. This allows single finger operation of multiple key combinations.
+</para>
+<para>
+<emphasis>MouseKeys</emphasis> - an alternative to the mouse which provides keyboard-based explicit control of cursor movement and all mouse button press/release events.
+</para>
+<para>
+<emphasis>RepeatKeys</emphasis> - delays the onset of key repeat, allowing users with limited coordination time to release keys before multiple characters are sent.
+</para>
+<para>
+<emphasis>SlowKeys</emphasis> - requires a key to be held down for a set period before the key is accepted. This allows users with limited
+coordination to accidentally press keys without sending inadvertant key events.
+</para>
+<para>
+<emphasis>ToggleKeys</emphasis> - indicates locking key state with a tone when pressed; eg, <keycap>Caps Lock</keycap>.
+</para>
+<para>
+<emphasis>BounceKeys</emphasis> - requires a delay between keystrokes before accepting the next key press so users with tremors can prevent the system from accepting inadvertent key presses.
+</para>
 <procedure>
 <step>
 <para>
@@ -250,8 +272,319 @@ The GNOME Desktop provides a login procedure which supports accessibility tools.
 Accessible login features are presently 100% functioning for Solaris only.
 </para>
 </note>
+<procedure>
+<step>
 <para>
-First, verify all required components are installed by referring to <link linkend="sysadmin-34">these steps</link>. Once these components are properly installed and configured, you can expand the test by following <link linkend="sysadmin-29">these steps</link>.
+Open the configuration file <userinput>/usr/share/gdm/default.conf</userinput>
+</para>
+</step>
+<step>
+<para>
+Search for "Greeter" and replace <userinput>Greeter=/usr/lib/gdmgreeter</userinput> to <userinput>Greeter=/usr/lib/gdmlogin</userinput>
+</para>
+</step>
+<step>
+<para>
+Arrow down to the line <userinput>#AddGtkModules=false</userinput> and change "false" to "true"; also, un-comment this line by removing the pound symbol (#) from the start of the line.
+</para>
+</step>
+<step>
+<para>
+Arrow down to the line <userinput>#GtkModulesList=gail:atk-bridge:/usr/lib/gtk-2.0/modules/libdwellmouselistener:/usr/lib/gtk-2.0/modules/libkeymouselistener</userinput> and un-comment it.
+</para>
+</step>
+<step>
+<para>
+Search for <userinput>Definition</userinput> and add the two parameters <userinput>+kb +accessx</userinput> at the end of the <userinput>command=...</userinput> line if these two parameters are absent.
+</para>
+</step>
+<step>
+<para>
+Save your changes and close the file.
+</para>
+</step>
+<step>
+<para>
+Bring <application>gdm</application> online with the following commands: <userinput>/usr/dt/bin/dtconfig -d</userinput> and <userinput>/svcadm enable svc:application/graphical-login/gdm:default</userinput>
+</para>
+</step>
+<step>
+<para>
+Add user "gdm": open and edit the file <userinput>/etc/passwd</userinput>, search for
+<userinput>gdm</userinput>, change this line to <userinput>gdm:x:50:50:GDM Reserved 
+UID:/etc/X11/gdm/home:</userinput>, then save your changes and close the file.
+</para>
+</step>
+<step>
+<para>
+Go to the directory /etc/X11/gdm and enter the commands <userinput>mkdir home</userinput> and <userinput>chown gdm:gdm home</userinput>
+</para>
+</step>
+<step>
+<para>
+Reboot the machine. All the mouse/key gestures are recorded in the /etc/X11/gdm/modules
+directory.
+</para>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Test Switch Devices</title>
+<para>
+GNOME supports all device connection types; these connections can be tested by using the  <application>gok</application> application, which can be driven by switch or other devices, like a second mouse or eye-tracker.
+</para>
+<para>
+***WIP***
+How to configure the second mouse:
+
+A. For Solaris10
+
+For sparc:
+1. Enable the XKB extension of xsun server
+<!-->
+1a. Log in as root.
+1b. Check if the path and file /etc/dt/config/Xservers exists on your systems.
+1c. If the /etc/dt/config directory does not exist, enter the following command:
+
+#mkdir -p /etc/dt/config
+
+1d. If the Xservers file is not present, enter the following command:
+
+#cp /usr/dt/config/Xservers /etc/dt/config/Xservers
+
+1e. Open the Xservers file in a text editor and scroll to the end of the file.
+6. Append the following to the command line at the end of the file:
+
++kb
+
+1f. Save and close the file.
+1g. Enter the following command at a command line:
+
+#pkill -HUP dtlogin
+
+1h. Log out of your GNOME session and log in again.
+1i. To verify if XKB is running, enter xdpyinfo and search for XKEYBOARD in the extensions list.
+
+<-->
+2. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
+3. Attach the additional input device(the second mouse, usb physical interface) to the machine.
+4. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
+5. Backup the original file /usr/openwin/server/etc/OWconfig.
+6. Edit the file /usr/openwin/server/etc/OWconfig, add lines of the following form to OWconfig, one for each device, and each with aunique name beginning with "IMOUSE" or "IKBD":
+
+    For Keyboard:
+    # sun Keyboard module
+    class="XINPUT" name="IKBD2"
+                dev="/dev/usb/hid3" strmod="usbkbm"            #"hid*" here is as same as which you got from step3.
+                ddxHandler="ddxSUNWkbd.so.1"
+                ddxInitFunc="ddxSUNWkbdProc";
+
+    For Mouse:
+    # sun Mouse module
+    class="XINPUT" name="IMOUSE2"                                 #"IMOUSE*" is determined by the amount of mice which have been attached to your machine.
+                dev="/dev/usb/hid3" strmod="usbms"               #"hid*" here is as same as which you got from step3.
+                ddxHandler="ddxSUNWmouse.so.1"
+                ddxInitFunc="ddxSUNWmouseProc";
+
+6. Add "#" before each line of "Null Mouse module" section.
+
+    # Null Mouse module
+    #class="XINPUT" name="NMOUSE"
+    #       ddxHandler="ddxSUNWmouse.so.1"
+    #       ddxInitFunc="ddxnullmouseProc";
+
+7. Save changes and restart Xsession.
+
+
+
+
+For X86:
+
+A: usb: core pointer, ps2: other input device
+
+1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
+2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
+3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
+4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
+5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
+6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is ps2.
+
+    Section "ServerLayout"
+                Identifier               "X.org Configured"
+                Screen               0   "Screen0" 0 0
+                InputDevice            "usb" "CorePointer"
+                InputDevice            "Keyboard0" "CoreKeyboard"
+                InputDevice            "ps2"
+
+7. Add the following lines into input devices section.
+
+For the usb mouse, the section below should be fine.
+
+    Section "InputDevice"
+            Identifier  "usb"
+            Driver      "mouse"
+            Option      "Protocol" "VUID"
+            Option      "Device" "/dev/usb/hid0"                           #"hid*" here is as same as which you got from step3.
+            Option      "SteamsModule" "usbms"
+            Option      "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+If you are setting up a ps2 mouse, you need to include the lines Protocol and StreamsModule. See below.
+
+    Section "InputDevice"
+                Identifier               "ps2"
+                Driver                    "mouse"
+                Option                   "Protocol" "VUID"
+                Option                   "StreamsModule" "vuid3ps2"
+                Option                   "Device" "/dev/kdmouse"
+                Option                   "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+8. Save changes and restart Xsession.
+
+
+B: ps2: core pointer, usb: other input device
+
+
+1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
+2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
+3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
+4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
+5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
+6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is ps2.
+
+    Section "ServerLayout"
+                Identifier               "X.org Configured"
+                Screen               0   "Screen0" 0 0
+                InputDevice            "ps2" "CorePointer"
+                InputDevice            "Keyboard0" "CoreKeyboard"
+                InputDevice            "usb"
+
+7. Add the following lines into input devices section.
+
+For the ps2 mouse, the section below should be fine.
+
+    Section             "InputDevice"
+            Identifier  "ps2"
+            Driver      "mouse"
+            Option      "Protocol" "VUID"
+            Option      "Device" "/dev/kdmouse"
+            Option      "StreamsModule" "vuid3ps2"
+            Option      "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+If you are setting up a usb mouse, you need to include the lines Protocol. See below.
+
+    Section             "InputDevice"
+        Identifier     "usb"
+        Driver         "mouse"
+        Option         "Protocol" "VUID"
+        Option         "Device" "/dev/usb/hid0"
+        Option         "StreamsModule" "usbms"
+        Option         "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+
+8. Save changes and restart Xsession.
+
+C: usb: core pointer, usb: other input device
+
+1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
+2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
+3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
+4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
+5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
+6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is other.
+
+    Section "ServerLayout"
+                Identifier               "X.org Configured"
+                Screen               0   "Screen0" 0 0
+                InputDevice            "Mouse0" "CorePointer"
+                InputDevice            "Keyboard0" "CoreKeyboard"
+                InputDevice            "Mouse1"
+    EndSection
+
+7. Add or modify the following lines into input devices section.
+
+For the usb core pointer mouse, you can modify the section as below:
+
+    Section             "InputDevice"
+        Identifier     "Mouse0"
+        Driver         "mouse"
+        Option         "Protocol" "VUID"
+        Option         "Device" "/dev/usb/hid0" #"hid*" here is as same as which you got from step1.
+        Option         "StreamsModule" "usbms"
+        Option         "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+
+For other input device, you need to include following section:
+
+    Section             "InputDevice"
+        Identifier      "Mouse1"
+        Driver           "mouse"
+        Option           "Protocol" "VUID"
+        Option           "Device" "/dev/usb/hid2"
+        Option           "StreamsModule" "usbms"
+        Option           "ZAxisMapping" "4 5 6 7"
+    EndSection
+
+
+
+8. Save changes and restart Xsession.
+
+
+
+
+B. For Linux:
+
+1. Attach the second usb mouse to the machine.
+2. Backup the original file /etc/X11/XF86Config .
+3. Edit the file /etc/X11/XF86Config according to following comments.
+
+    Section "InputDevice"
+        Driver       "mouse"
+        Identifier   "Mouse[1]"
+#     Option        "Device" "/dev/psaux"
+        Option       "Device" "/dev/input/mouse1"
+#     Option       "Name" "Autodetection"
+        Option       "Emulate3Buttons" "on"
+        Option       "Name" "Autodetection"
+#      Option       "Protocol" "explorerps/2"
+        Option       "Vendor" "Sysp"
+        Option        "ZAxisMapping" "4 5"
+    EndSection
+
+
+    Section "InputDevice"
+        Driver       "mouse"
+        Identifier   "Mouse[3]"
+        Option       "Device" "/dev/input/mouse0"
+        Option       "Emulate3Buttons" "on"
+        Option       "Name" "Autodetection"
+#      Option       "Protocol" "explorerps/2"
+        Option       "Vendor" "Sysp"
+        Option        "ZAxisMapping" "4 5"
+    EndSection
+
+............................................................................................................
+
+    Section "ServerLayout"
+         Identifier   "Layout[all]"
+         InputDevice   "Keyboard[0]" "CoreKeyboard"
+         InputDevice   "Mouse[1]"   "CorePointer"
+         InputDevice   "Mouse[3]"
+         Option            "Clone" "off"
+         Option            "Xinerama" "off"
+         Screen            "Screen[0]"
+    EndSection
+
+
+4. Save changes and restart Xsession.
+
+All settings are passed on two machines. 
 </para>
 </section>
+
 </chapter>
