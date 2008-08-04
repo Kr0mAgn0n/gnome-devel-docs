@@ -332,259 +332,611 @@ directory.
 <section>
 <title>Test Switch Devices</title>
 <para>
-GNOME supports all device connection types; these connections can be tested by using the  <application>gok</application> application, which can be driven by switch or other devices, like a second mouse or eye-tracker.
+GNOME supports all device connection types; these connections can be tested by using the  <application>gok</application> application, which can be driven by switch or other devices (a second mouse, eye-tracker, etc.).
 </para>
 <para>
-***WIP***
-How to configure the second mouse:
-
-A. For Solaris10
-
-For sparc:
-1. Enable the XKB extension of xsun server
-<!-->
-1a. Log in as root.
-1b. Check if the path and file /etc/dt/config/Xservers exists on your systems.
-1c. If the /etc/dt/config directory does not exist, enter the following command:
-
-#mkdir -p /etc/dt/config
-
-1d. If the Xservers file is not present, enter the following command:
-
-#cp /usr/dt/config/Xservers /etc/dt/config/Xservers
-
-1e. Open the Xservers file in a text editor and scroll to the end of the file.
-6. Append the following to the command line at the end of the file:
-
-+kb
-
-1f. Save and close the file.
-1g. Enter the following command at a command line:
-
-#pkill -HUP dtlogin
-
-1h. Log out of your GNOME session and log in again.
-1i. To verify if XKB is running, enter xdpyinfo and search for XKEYBOARD in the extensions list.
-
-<-->
-2. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
-3. Attach the additional input device(the second mouse, usb physical interface) to the machine.
-4. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
-5. Backup the original file /usr/openwin/server/etc/OWconfig.
-6. Edit the file /usr/openwin/server/etc/OWconfig, add lines of the following form to OWconfig, one for each device, and each with aunique name beginning with "IMOUSE" or "IKBD":
-
-    For Keyboard:
-    # sun Keyboard module
-    class="XINPUT" name="IKBD2"
-                dev="/dev/usb/hid3" strmod="usbkbm"            #"hid*" here is as same as which you got from step3.
-                ddxHandler="ddxSUNWkbd.so.1"
-                ddxInitFunc="ddxSUNWkbdProc";
-
-    For Mouse:
-    # sun Mouse module
-    class="XINPUT" name="IMOUSE2"                                 #"IMOUSE*" is determined by the amount of mice which have been attached to your machine.
-                dev="/dev/usb/hid3" strmod="usbms"               #"hid*" here is as same as which you got from step3.
-                ddxHandler="ddxSUNWmouse.so.1"
-                ddxInitFunc="ddxSUNWmouseProc";
-
-6. Add "#" before each line of "Null Mouse module" section.
-
-    # Null Mouse module
-    #class="XINPUT" name="NMOUSE"
-    #       ddxHandler="ddxSUNWmouse.so.1"
-    #       ddxInitFunc="ddxnullmouseProc";
-
-7. Save changes and restart Xsession.
-
-
-
-
-For X86:
-
-A: usb: core pointer, ps2: other input device
-
-1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
-2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
-3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
-4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
-5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
-6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is ps2.
-
-    Section "ServerLayout"
-                Identifier               "X.org Configured"
-                Screen               0   "Screen0" 0 0
-                InputDevice            "usb" "CorePointer"
-                InputDevice            "Keyboard0" "CoreKeyboard"
-                InputDevice            "ps2"
-
-7. Add the following lines into input devices section.
-
-For the usb mouse, the section below should be fine.
-
-    Section "InputDevice"
-            Identifier  "usb"
-            Driver      "mouse"
-            Option      "Protocol" "VUID"
-            Option      "Device" "/dev/usb/hid0"                           #"hid*" here is as same as which you got from step3.
-            Option      "SteamsModule" "usbms"
-            Option      "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-If you are setting up a ps2 mouse, you need to include the lines Protocol and StreamsModule. See below.
-
-    Section "InputDevice"
-                Identifier               "ps2"
-                Driver                    "mouse"
-                Option                   "Protocol" "VUID"
-                Option                   "StreamsModule" "vuid3ps2"
-                Option                   "Device" "/dev/kdmouse"
-                Option                   "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-8. Save changes and restart Xsession.
-
-
-B: ps2: core pointer, usb: other input device
-
-
-1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
-2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
-3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
-4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
-5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
-6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is ps2.
-
-    Section "ServerLayout"
-                Identifier               "X.org Configured"
-                Screen               0   "Screen0" 0 0
-                InputDevice            "ps2" "CorePointer"
-                InputDevice            "Keyboard0" "CoreKeyboard"
-                InputDevice            "usb"
-
-7. Add the following lines into input devices section.
-
-For the ps2 mouse, the section below should be fine.
-
-    Section             "InputDevice"
-            Identifier  "ps2"
-            Driver      "mouse"
-            Option      "Protocol" "VUID"
-            Option      "Device" "/dev/kdmouse"
-            Option      "StreamsModule" "vuid3ps2"
-            Option      "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-If you are setting up a usb mouse, you need to include the lines Protocol. See below.
-
-    Section             "InputDevice"
-        Identifier     "usb"
-        Driver         "mouse"
-        Option         "Protocol" "VUID"
-        Option         "Device" "/dev/usb/hid0"
-        Option         "StreamsModule" "usbms"
-        Option         "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-
-8. Save changes and restart Xsession.
-
-C: usb: core pointer, usb: other input device
-
-1. Run "ls -l /dev/usb/hid*" to see what the existing device names are.
-2. Attach the additional input device(the second mouse, usb physical interface) to the machine.
-3. Run "ls -l /dev/usb/hid*" to see what the newly attached device names are. Note at the end of each symlink line it will list whetherit is a keyboard or a mouse(here we attached the mouse).
-4. Backup the original file /etc/X11/xorg.conf ( If this file doesn't exist, please run /usr/X11/bin/xorgconfig or /usr/X11/bin/xorgcfg to create it manually).
-5. Edit the file /etc/X11/xorg.conf, add lines of the following form to xorg.conf, one for each device.
-6. At the top of the xorg.conf file, you need to add in the name of the second input device which you are configuring e.g. in this case it is other.
-
-    Section "ServerLayout"
-                Identifier               "X.org Configured"
-                Screen               0   "Screen0" 0 0
-                InputDevice            "Mouse0" "CorePointer"
-                InputDevice            "Keyboard0" "CoreKeyboard"
-                InputDevice            "Mouse1"
-    EndSection
-
-7. Add or modify the following lines into input devices section.
-
-For the usb core pointer mouse, you can modify the section as below:
-
-    Section             "InputDevice"
-        Identifier     "Mouse0"
-        Driver         "mouse"
-        Option         "Protocol" "VUID"
-        Option         "Device" "/dev/usb/hid0" #"hid*" here is as same as which you got from step1.
-        Option         "StreamsModule" "usbms"
-        Option         "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-
-For other input device, you need to include following section:
-
-    Section             "InputDevice"
-        Identifier      "Mouse1"
-        Driver           "mouse"
-        Option           "Protocol" "VUID"
-        Option           "Device" "/dev/usb/hid2"
-        Option           "StreamsModule" "usbms"
-        Option           "ZAxisMapping" "4 5 6 7"
-    EndSection
-
-
-
-8. Save changes and restart Xsession.
-
-
-
-
-B. For Linux:
-
-1. Attach the second usb mouse to the machine.
-2. Backup the original file /etc/X11/XF86Config .
-3. Edit the file /etc/X11/XF86Config according to following comments.
-
-    Section "InputDevice"
-        Driver       "mouse"
-        Identifier   "Mouse[1]"
-#     Option        "Device" "/dev/psaux"
-        Option       "Device" "/dev/input/mouse1"
-#     Option       "Name" "Autodetection"
-        Option       "Emulate3Buttons" "on"
-        Option       "Name" "Autodetection"
-#      Option       "Protocol" "explorerps/2"
-        Option       "Vendor" "Sysp"
-        Option        "ZAxisMapping" "4 5"
-    EndSection
-
-
-    Section "InputDevice"
-        Driver       "mouse"
-        Identifier   "Mouse[3]"
-        Option       "Device" "/dev/input/mouse0"
-        Option       "Emulate3Buttons" "on"
-        Option       "Name" "Autodetection"
-#      Option       "Protocol" "explorerps/2"
-        Option       "Vendor" "Sysp"
-        Option        "ZAxisMapping" "4 5"
-    EndSection
-
-............................................................................................................
-
-    Section "ServerLayout"
-         Identifier   "Layout[all]"
-         InputDevice   "Keyboard[0]" "CoreKeyboard"
-         InputDevice   "Mouse[1]"   "CorePointer"
-         InputDevice   "Mouse[3]"
-         Option            "Clone" "off"
-         Option            "Xinerama" "off"
-         Screen            "Screen[0]"
-    EndSection
-
-
-4. Save changes and restart Xsession.
-
-All settings are passed on two machines. 
+To configure a second mouse for Solaris10/sparc:
 </para>
+<procedure>
+<step>
+<para>
+Enable the XKB extension of xsun server; refer to <link linkend="enable-xkb">these steps</link> if needed.
+</para>
+</step>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the existing device names are.
+</para>
+</step>
+<step>
+<para>
+Attach the additional USB input device to the machine.
+</para>
+</step>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the newly attached device names are. At the end of each symlink line the device is listed as either a keyboard or mouse.
+</para>
+</step>
+<step>
+<para>
+Backup the original file <userinput>/usr/openwin/server/etc/OWconfig</userinput>.
+</para>
+</step>
+<step>
+<para>
+Edit the file <userinput>/usr/openwin/server/etc/OWconfig</userinput> and add lines of the following form to OWconfig, one for each device, and each with a unique name beginning with "IMOUSE" or "IKBD":
+</para>
+<para>
+For Keyboard:
+</para>
+<para>
+# sun Keyboard module
+</para>
+<para>
+class="XINPUT"
+</para>
+<para>
+name="IKBD2"
+</para>
+<para>
+dev="/dev/usb/hid3"
+</para>
+<para>
+strmod="usbkbm"
+</para>
+<para>
+# "hid*" here is the same as what was returned from the earlier <userinput>ls</userinput> command.
+</para>
+<para>
+ddxHandler="ddxSUNWkbd.so.1"
+</para>
+<para>
+ddxInitFunc="ddxSUNWkbdProc";
+</para>
+<para>
+For Mouse:
+</para>
+<para>
+# sun Mouse module
+</para>
+<para>
+class="XINPUT"
+</para>
+<para>
+name="IMOUSE2"
+</para>
+<para>
+#"IMOUSE*" is determined by the amount of mice which have been attached to your machine.
+</para>
+<para>
+dev="/dev/usb/hid3" strmod="usbms"
+</para>
+<para>
+# "hid*" here is the same as what was returned from the earlier <userinput>ls</userinput> command.
+</para>
+<para>
+ddxHandler="ddxSUNWmouse.so.1"
+</para>
+<para>
+ddxInitFunc="ddxSUNWmouseProc";
+</para>
+</step>
+<step>
+<para>
+Add "#" before each line of the "Null Mouse module" section:
+</para>
+<para>
+# Null Mouse module
+</para>
+<para>
+#class="XINPUT" name="NMOUSE"
+</para>
+<para>
+#ddxHandler="ddxSUNWmouse.so.1"
+</para>
+<para>
+#ddxInitFunc="ddxnullmouseProc";
+</para>
+</step>
+<step>
+<para>
+Save changes and restart Xsession.
+</para>
+</step>
+</procedure>
+<para>
+For X86:
+</para>
+<procedure>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the existing device names are.
+</para>
+</step>
+<step>
+<para>
+Attach the additional USB input device to the machine.
+</para>
+</step>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see the newly attached device name. The new device will be listed as either a keyboard or mouse.
+</para>
+</step>
+<step>
+<para>
+Backup the original file <userinput>/etc/X11/xorg.conf</userinput> - if this file doesn't exist, run <userinput>/usr/X11/bin/xorgconfig</userinput> or <userinput>/usr/X11/bin/xorgcfg</userinput> to create it.
+</para>
+</step>
+<step>
+<para>
+Edit the file <userinput>/etc/X11/xorg.conf</userinput> and add lines of the following form  for each device:
+</para>
+<para>
+Section "ServerLayout"
+</para>
+<para>
+Identifier "X.org Configured"
+</para>
+<para>
+Screen 0 "Screen0" 0 0
+</para>
+<para>
+InputDevice "usb" "CorePointer"
+</para>
+<para>
+InputDevice "Keyboard0" "CoreKeyboard"
+</para>
+<para>
+InputDevice "ps2"
+</para>
+</step>
+<step>
+<para>
+Add the following lines to the input devices section:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "usb"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "Device" "/dev/usb/hid0"
+</para>
+<para>
+Option "SteamsModule" "usbms"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+<para>
+If you are setting up a PS2 mouse, you need to include the lines Protocol and StreamsModule:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "ps2"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "StreamsModule" "vuid3ps2"
+</para>
+<para>
+Option "Device" "/dev/kdmouse"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+</step>
+<step>
+<para>
+Save changes and restart Xsession.
+</para>
+</step>
+</procedure>
+<para>
+In the next scenario, the core pointer is a PS2 device and the secondary input device connects via USB.
+</para>
+<procedure>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the existing device names are.
+</para>
+</step>
+<step>
+<para>
+Attach the additional input device to the machine.
+</para>
+</step>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the newly attached device names are.
+</para>
+</step>
+<step>
+<para>
+Backup the original file <userinput>/etc/X11/xorg.conf</userinput> - if this file doesn't exist, run <userinput>/usr/X11/bin/xorgconfig</userinput> or <userinput>/usr/X11/bin/xorgcfg</userinput> to create it.
+</para>
+</step>
+<step>
+<para>
+Edit the file <userinput>/etc/X11/xorg.conf</userinput> and add lines of the following form to xorg.conf, one for each device:
+</para>
+<para>
+Section "ServerLayout"
+</para>
+<para>
+Identifier "X.org Configured"
+</para>
+<para>
+Screen 0 "Screen0" 0 0
+</para>
+<para>
+InputDevice "ps2" "CorePointer"
+</para>
+<para>
+InputDevice "Keyboard0" "CoreKeyboard"
+</para>
+<para>
+InputDevice "usb"
+</para>
+</step>
+<step>
+<para>
+Add the following lines to the input devices section:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "ps2"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "Device" "/dev/kdmouse"
+</para>
+<para>
+Option "StreamsModule" "vuid3ps2"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+<para>
+If you are setting up a USB mouse, include the line for Protocol:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "usb"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "Device" "/dev/usb/hid0"
+</para>
+<para>
+Option "StreamsModule" "usbms"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+</step>
+<step>
+<para>
+Save changes and restart Xsession.
+</para>
+</step>
+</procedure>
+<para>
+In the next scenario, USB is used for both input devices:
+</para>
+<procedure>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the existing device names are.
+</para>
+</step>
+<step>
+<para>
+Attach the input devices to the machine.
+</para>
+</step>
+<step>
+<para>
+Run <userinput>ls -l /dev/usb/hid*</userinput> to see what the newly attached device names are.
+</para>
+</step>
+<step>
+<para>
+Backup the original file <userinput>/etc/X11/xorg.conf</userinput> - if this file doesn't exist, run <userinput>/usr/X11/bin/xorgconfig</userinput> or <userinput>/usr/X11/bin/xorgcfg</userinput> to create it.
+</para>
+</step>
+<step>
+<para>
+Edit the file <userinput>/etc/X11/xorg.conf</userinput> and add lines of the following form to xorg.conf, one for each device:
+</para>
+<para>
+Section "ServerLayout"
+</para>
+<para>
+Identifier "X.org Configured"
+</para>
+<para>
+Screen 0 "Screen0" 0 0
+</para>
+<para>
+InputDevice "Mouse0" "CorePointer"
+</para>
+<para>
+InputDevice "Keyboard0" "CoreKeyboard"
+</para>
+<para>
+InputDevice "Mouse1"
+</para>
+<para>
+EndSection
+</para>
+</step>
+<step>
+<para>
+Add or modify the following lines to the input devices section (for the USB core pointer mouse, you can modify the section as below):
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "Mouse0"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "Device" "/dev/usb/hid0" 
+</para>
+<para>
+Option "StreamsModule" "usbms"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+<para>
+For the additional input device, you need to include following section:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Identifier "Mouse1"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Option "Protocol" "VUID"
+</para>
+<para>
+Option "Device" "/dev/usb/hid2"
+</para>
+<para>
+Option "StreamsModule" "usbms"
+</para>
+<para>
+Option "ZAxisMapping" "4 5 6 7"
+</para>
+<para>
+EndSection
+</para>
+</step>
+<step>
+<para>
+Save changes and restart Xsession.
+</para>
+</step>
+</procedure>
+<para>
+The next steps apply to Linux:
+</para>
+<procedure>
+<step>
+<para>
+Attach the second USB mouse to the machine.
+</para>
+</step>
+<step>
+<para>
+Backup the original file <userinput>/etc/X11/XF86Config</userinput>.
+</para>
+</step>
+<step>
+<para>
+Edit the file <userinput>/etc/X11/XF86Config</userinput> according to the following form:
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Identifier "Mouse[1]"
+</para>
+<para>
+#Option "Device" "/dev/psaux"
+</para>
+<para>
+Option "Device" "/dev/input/mouse1"
+</para>
+<para>
+#Option "Name" "Autodetection"
+</para>
+<para>
+Option "Emulate3Buttons" "on"
+</para>
+<para>
+Option "Name" "Autodetection"
+</para>
+<para>
+#Option "Protocol" "explorerps/2"
+</para>
+<para>
+Option "Vendor" "Sysp"
+</para>
+<para>
+Option "ZAxisMapping" "4 5"
+</para>
+<para>
+EndSection
+</para>
+<para>
+Section "InputDevice"
+</para>
+<para>
+Driver "mouse"
+</para>
+<para>
+Identifier "Mouse[3]"
+</para>
+<para>
+Option "Device" "/dev/input/mouse0"
+</para>
+<para>
+Option "Emulate3Buttons" "on"
+</para>
+<para>
+Option "Name" "Autodetection"
+</para>
+<para>
+#Option "Protocol" "explorerps/2"
+</para>
+<para>
+Option "Vendor" "Sysp"
+</para>
+<para>
+Option "ZAxisMapping" "4 5"
+</para>
+<para>
+EndSection
+</para>
+<para>
+Section "ServerLayout"
+</para>
+<para>
+Identifier "Layout[all]"
+</para>
+<para>
+InputDevice "Keyboard[0]" "CoreKeyboard"
+</para>
+<para>
+InputDevice "Mouse[1]" "CorePointer"
+</para>
+<para>
+InputDevice "Mouse[3]"
+</para>
+<para>
+Option "Clone" "off"
+</para>
+<para>
+Option "Xinerama" "off"
+</para>
+<para>
+Screen "Screen[0]"
+</para>
+<para>
+EndSection
+</para>
+</step>
+<step>
+<para>
+Save changes and restart Xsession; all settings are passed on two machines. 
+</para>
+</step>
+</procedure>
+</section>
+
+<section id="enable-xkb">
+<title>Enabling XKB on Solaris</title>
+<para>
+The XKB extension is a required component for supporting additional input devices.
+</para>
+<procedure>
+<step>
+<para>
+Log in as root.
+</para>
+</step>
+<step>
+<para>
+Check if the path and file <userinput>/etc/dt/config/Xservers</userinput> exists on your systems; if not, enter the commands: <userinput>mkdir -p /etc/dt/config</userinput> and <userinput>cp /usr/dt/config/Xservers /etc/dt/config/Xservers</userinput>
+</para>
+</step>
+<step>
+<para>
+Open the Xservers file in a text editor and scroll to the end of the file and append the following to the command line at the end of the file: <userinput>+kb</userinput>
+</para>
+</step>
+<step>
+<para>
+Save and close the file.
+</para>
+</step>
+<step>
+<para>
+Enter the following command: <userinput>pkill -HUP dtlogin</userinput>
+</para>
+</step>
+<step>
+<para>
+Log out of your GNOME session and log in again.
+</para>
+</step>
+<step>
+<para>
+To verify if XKB is running, enter <userinput>xdpyinfo</userinput> and search for XKEYBOARD in the extensions list.
+</para>
+</step>
+</procedure>
 </section>
 
 </chapter>
