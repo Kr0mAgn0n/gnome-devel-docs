@@ -272,6 +272,10 @@ The GNOME Desktop provides a login procedure which supports accessibility tools.
 Accessible login features are presently 100% functioning for Solaris only.
 </para>
 </note>
+<para>
+Run <userinput>at-spi-registryd</userinput> within a terminal to judge whether assistive
+technology support has been enabled. You may want to additionally perform these steps:
+</para>
 <procedure>
 <step>
 <para>
@@ -305,7 +309,7 @@ Save your changes and close the file.
 </step>
 <step>
 <para>
-Bring <application>gdm</application> online with the following commands: <userinput>/usr/dt/bin/dtconfig -d</userinput> and <userinput>/svcadm enable svc:application/graphical-login/gdm:default</userinput>
+Bring <application>gdm</application> online with the following commands: <userinput>/usr/dt/bin/dtconfig -d</userinput> and <userinput>svcadm enable svc:application/graphical-login/gdm:default</userinput>
 </para>
 </step>
 <step>
