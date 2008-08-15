@@ -8,6 +8,26 @@ Thank you for taking the time and care to better understand what you need to do 
 </para>
 
 <section>
+<title>Test Xserver</title>
+<para>
+<application>Xserver</application> is required for all distributions; for Linux and OpenSolaris, it should be <application>Xorg</application>. You can find them in both <userinput>/etc/X11</userinput> and <userinput>/usr/bin</userinput>. Generally for Linux there will be a symbol link in <userinput>/etc/X11/X</userinput> and it is always linked to the binary <userinput>Xorg</userinput> in <userinput>/usr/bin/Xorg</userinput>. For OpenSolaris, you can find this process with the command <userinput>ps -ef | grep X</userinput>.
+</para>
+<para>
+To enable or disable <application>Xorg</application> extensions, you can edit the file
+<userinput>/etc/X11/xorg.conf</userinput> and add the following parameters to enable different
+extensions:
+</para>
+<programlisting>
+<computeroutput>
+Section "Extensions"
+  Option "Composite"         "Enable"
+  Option "other extensions"  "Enable/Disable"
+EndSection
+</computeroutput>
+</programlisting>
+</section>
+
+<section>
 <title>Test Speech</title>
 <para>
 Orca uses GNOME Speech for speech synthesis.
