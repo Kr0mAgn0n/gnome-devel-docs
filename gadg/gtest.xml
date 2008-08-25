@@ -1,98 +1,8 @@
 <chapter id="gtest" status="draft">
-<title>Testing with Accessibility Tools</title>
+<title>Testing</title>
 <para>
-There are several tools useful in determining how compliant an application is.
+Thre are several points of review to conduct before declaring an application accessible. Over the course of development you may want to consider automated testing techniques. There are many tools available to complement an automated testing plan.
 </para>
-
-<section>
-<title>GOK (GNOME Onscreen Keyboard)</title>
-<para>
-Your application should be usable via <application>gok</application>; key input should be generated entirely by <application>gok</application>, not the keyboard. The aim here would be to work with your application and the desktop in general, ensuring any type of character input can be performed with the on-screen keyboard.
-</para>
-<para>
-The <application>gok</application> application ships with the GNOME Desktop so should already be present. For full documentation, refer to <ulink url="http://www.gok.ca">the official gok site</ulink>.
-</para>
-<para>
-Follow these steps to verify the correct operation of <application>gok</application> with your application:
-</para>
-<procedure>
-<step>
-<para>
-Login into the GNOME desktop
-</para>
-</step>
-<step>
-<para>
-Run <application>gok</application>
-</para>
-</step>
-<step>
-<para>
-Start your application
-</para>
-</step>
-<step>
-<para>
-Provide input to your application with a pointing device (e.g., mouse or head-tracker) and <application>gok</application>.
-</para>
-</step>
-<step>
-<para>
-Work using the auto-completion and word prediction features of <application>gok</application>.
-</para>
-</step>
-<step>
-<para>
-Verify that <application>gok</application> enables and disables the <guibutton>Menus</guibutton> and <guibutton>Toolbars</guibutton> buttons based on the kind of application invoked; for example, the <guibutton>Menus</guibutton> and <guibutton>Toolbars</guibutton> buttons are disabled for the 'Font properties' capplet, but the same buttons are enabled for the <application>Gedit</application> application.
-</para>
-</step>
-<step>
-<para>
-Verify that the <application>gok</application> on-screen keyboard provided by the <guibutton>Compose</guibutton> button can be used to type in any text for the selected application; run <application>Gedit</application>, click on the text area, and then click on the <guibutton>Compose</guibutton> button in <application>gok</application>. Select the required keys from the on-screen keyboard. The characters should appear in the <application>Gedit</application> text area.
-</para>
-</step>
-<step>
-<para>
-Verify that the <guibutton>Launcher</guibutton> button allows the user to launch any of the <application>Terminal</application>, <application>Web Browser</application> or <application>Text Editor</application> applications.
-</para>
-</step>
-<step>
-<para>
-Verify that the <guibutton>Activate</guibutton> button allows the user to activate any of the currently running application windows on the user's desktop, including GNOME panels and the GNOME desktop.
-</para>
-</step>
-<step>
-<para>
-Verify that the <guibutton>Menus</guibutton> button lists all the available menus in the current application. Verify that clicking on a menu button displays the sub-menu and menu items contained within the sub-menu. Finally, verify that clicking on a menu item activates the menu item. For example, click on the <application>Help Browser</application> application and click on the <guibutton>Menus</guibutton> button. The <application>GOK</application> window now displays the <guibutton>File</guibutton>, <guibutton>Go</guibutton> and <guibutton>Help</guibutton> buttons (the <application>Help Browser</application> menus). Click on the <guibutton>File</guibutton> button and it displays the <guibutton>New Window</guibutton> and <guibutton>Close Window</guibutton> buttons (menu items).
-</para>
-</step>
-<step>
-<para>
-Verify that the <guibutton>Toolbars</guibutton> button lists all the available buttons in the application toolbar. For example, click on the <application>Help Browser</application> application and then click on the <guibutton>Toolbars</guibutton> button. The <application>GOK</application> window now displays the <guibutton>Back</guibutton>, <guibutton>Forward</guibutton> and <guibutton>Home</guibutton> buttons.
-</para>
-</step>
-<step>
-<para>
-Verify that the <guibutton>UI Grab</guibutton> button displays all the button objects for the selected application window. For example, open the 'Font Properties' capplet and click on the <guibutton>UI Grab</guibutton> button in the <application>GOK</application> window. The <application>GOK</application> window should now display the names of the buttons in the capplet - <guibutton>Sans</guibutton>, <guibutton>Sans-serif</guibutton>, <guibutton>Close</guibutton> and <guibutton>Help</guibutton>.
-</para>
-</step>
-</procedure>
-</section>
-
-<section>
-<title>Accerciser</title>
-<para>
-<application>Accerciser</application> is an interactive Python accessibility explorer for the GNOME Desktop. It uses AT-SPI to inspect and control widgets, allowing you to check if an application is providing correct     information to assistive technologies and automated test frameworks. <application>Accerciser</application> has a simple plugin framework which you can use     to create custom views of accessibility information.
-</para>
-<note>
-<para>
-<application>Accerciser</application> has effectively replaced the older <application>at-poke</application> tool.
-</para>
-</note>
-</section>
-
-<section>
-<title>Miscellaneous Testing</title>
 <para>
 This section describes a number of tests you can perform manually on an application to test its accessibility. Passing all the tests does not necessarily imply that the application is fully accessible, but if the application fails any of these tests, then further work may need to be done to improve that aspect of its accessibility.
 </para>
@@ -327,7 +237,6 @@ If an action is documented for the mouse, make sure there is an alternative for 
 </para>
 </listitem>
 </itemizedlist>
-</section>
 </section>
 
 <section id="gad-checklist">
@@ -786,6 +695,93 @@ The documentation includes a section that covers all the application's accessibi
 </tbody>
 </tgroup>
 </table>
+</section>
+
+<section>
+<title>GOK (GNOME Onscreen Keyboard)</title>
+<para>
+Your application should be usable via <application>gok</application>; key input should be generated entirely by <application>gok</application>, not the keyboard. The aim here would be to work with your application and the desktop in general, ensuring any type of character input can be performed with the on-screen keyboard.
+</para>
+<para>
+The <application>gok</application> application ships with the GNOME Desktop so should already be present. For full documentation, refer to <ulink url="http://www.gok.ca">the official gok site</ulink>.
+</para>
+<para>
+Follow these steps to verify the correct operation of <application>gok</application> with your application:
+</para>
+<procedure>
+<step>
+<para>
+Login into the GNOME desktop
+</para>
+</step>
+<step>
+<para>
+Run <application>gok</application>
+</para>
+</step>
+<step>
+<para>
+Start your application
+</para>
+</step>
+<step>
+<para>
+Provide input to your application with a pointing device (e.g., mouse or head-tracker) and <application>gok</application>.
+</para>
+</step>
+<step>
+<para>
+Work using the auto-completion and word prediction features of <application>gok</application>.
+</para>
+</step>
+<step>
+<para>
+Verify that <application>gok</application> enables and disables the <guibutton>Menus</guibutton> and <guibutton>Toolbars</guibutton> buttons based on the kind of application invoked; for example, the <guibutton>Menus</guibutton> and <guibutton>Toolbars</guibutton> buttons are disabled for the 'Font properties' capplet, but the same buttons are enabled for the <application>Gedit</application> application.
+</para>
+</step>
+<step>
+<para>
+Verify that the <application>gok</application> on-screen keyboard provided by the <guibutton>Compose</guibutton> button can be used to type in any text for the selected application; run <application>Gedit</application>, click on the text area, and then click on the <guibutton>Compose</guibutton> button in <application>gok</application>. Select the required keys from the on-screen keyboard. The characters should appear in the <application>Gedit</application> text area.
+</para>
+</step>
+<step>
+<para>
+Verify that the <guibutton>Launcher</guibutton> button allows the user to launch any of the <application>Terminal</application>, <application>Web Browser</application> or <application>Text Editor</application> applications.
+</para>
+</step>
+<step>
+<para>
+Verify that the <guibutton>Activate</guibutton> button allows the user to activate any of the currently running application windows on the user's desktop, including GNOME panels and the GNOME desktop.
+</para>
+</step>
+<step>
+<para>
+Verify that the <guibutton>Menus</guibutton> button lists all the available menus in the current application. Verify that clicking on a menu button displays the sub-menu and menu items contained within the sub-menu. Finally, verify that clicking on a menu item activates the menu item. For example, click on the <application>Help Browser</application> application and click on the <guibutton>Menus</guibutton> button. The <application>GOK</application> window now displays the <guibutton>File</guibutton>, <guibutton>Go</guibutton> and <guibutton>Help</guibutton> buttons (the <application>Help Browser</application> menus). Click on the <guibutton>File</guibutton> button and it displays the <guibutton>New Window</guibutton> and <guibutton>Close Window</guibutton> buttons (menu items).
+</para>
+</step>
+<step>
+<para>
+Verify that the <guibutton>Toolbars</guibutton> button lists all the available buttons in the application toolbar. For example, click on the <application>Help Browser</application> application and then click on the <guibutton>Toolbars</guibutton> button. The <application>GOK</application> window now displays the <guibutton>Back</guibutton>, <guibutton>Forward</guibutton> and <guibutton>Home</guibutton> buttons.
+</para>
+</step>
+<step>
+<para>
+Verify that the <guibutton>UI Grab</guibutton> button displays all the button objects for the selected application window. For example, open the 'Font Properties' capplet and click on the <guibutton>UI Grab</guibutton> button in the <application>GOK</application> window. The <application>GOK</application> window should now display the names of the buttons in the capplet - <guibutton>Sans</guibutton>, <guibutton>Sans-serif</guibutton>, <guibutton>Close</guibutton> and <guibutton>Help</guibutton>.
+</para>
+</step>
+</procedure>
+</section>
+
+<section>
+<title>Accerciser</title>
+<para>
+<application>Accerciser</application> is an interactive Python accessibility explorer for the GNOME Desktop. It uses AT-SPI to inspect and control widgets, allowing you to check if an application is providing correct     information to assistive technologies and automated test frameworks. <application>Accerciser</application> has a simple plugin framework which you can use     to create custom views of accessibility information.
+</para>
+<note>
+<para>
+<application>Accerciser</application> has effectively replaced the older <application>at-poke</application> tool.
+</para>
+</note>
 </section>
 
 </chapter>
