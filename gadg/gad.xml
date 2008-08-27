@@ -785,22 +785,22 @@ myatkimp_mytype_finalize (GObject *object)
 <section id="gad-custom">
 <title>Making Custom Components Accessible</title>
 <para>
-[ToDo: describes how to ... ]
+Adding ATK support to your custom widget will assure its cooperation with the accessibility infrastructure. These are the general steps that are required:
 </para>
 <itemizedlist>
 <listitem>
 <para>
-assess a custom widget according to the applicable User Interface Guidelines, below;
+assess a custom widget according to the applicable <link linkend="gad-ui-guidelines">User Interface Guidelines</link>;
 </para>
 </listitem>
 <listitem>
 <para>
-determine which ATK interfaces a custom widget should implement, according to the widget's featureset and function;
+determine which <ulink url="http://library.gnome.org/devel/atk/stable/atk.html">ATK interfaces</ulink> a custom widget should implement, according to the widget's feature set and function;
 </para>
 </listitem>
 <listitem>
 <para>
-assess which ATK interfaces can be inherited from the parent widget class;
+assess which <ulink url="http://library.gnome.org/devel/atk/stable/atk.html">ATK interfaces</ulink> can be inherited from the parent widget class;
 </para>
 </listitem>
 <listitem>
@@ -815,7 +815,7 @@ directly by the custom widget, or
 </listitem>
 <listitem>
 <para>
-in an <type>AtkObject</type> subtype created by a new <type>AtkObjectFactory</type> subclass
+in an <ulink url="http://library.gnome.org/devel/atk/stable/AtkObject.html"><type>AtkObject</type></ulink> subtype created by a new <ulink url="http://library.gnome.org/devel/atk/stable/AtkObjectFactory.html"><type>AtkObjectFactory</type></ulink> subclass
 </para>
 </listitem>
 </itemizedlist>
