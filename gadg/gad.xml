@@ -58,12 +58,12 @@ The Accessibility Toolkit (ATK) describes a set of interfaces that need to be im
 The implementation for the GTK widgets is in a module called	GAIL (GNOME Accessbility Implementation Library), which is dynamically loadable at runtime by a GTK application. Once
 loaded, those parts of your application that use standard GTK widgets will have a basic level of accessibility, without you having to modify your application at all. If GAIL is not
 loaded, GTK widgets will have a default accessibility implementation that essentially returns no information, though it nominally conforms to the ATK API. Applications which use
-Bonobo controls, particularly out-of-process ones, also load accessibility support code from module libgail-gnome. Whether or not applications on the GNOME desktop automatically load these accessibility support libraries depends on the value of a gconf key, "/desktop/gnome/interface/accessibility"; a boolean value of "true" enables support for assistive technologies and applications which call gnome_program_init will automatically load the appropriate accessibility libraries at runtime. "Pure GTK+ applications", e.g. those that use gtk+ but do not link to libgnome, rely on the value of the GTK_MODULES environment variable, which must be set to "gail:atk-bridge" in order to enable assistive technology support.
+Bonobo controls, particularly out-of-process ones, also load accessibility support code from module libgail-gnome. Whether or not applications on the GNOME desktop automatically load these accessibility support libraries depends on the value of a <application>gconf</application> key, "/desktop/gnome/interface/accessibility"; a boolean value of "true" enables support for assistive technologies and applications which call gnome_program_init will automatically load the appropriate accessibility libraries at runtime. "Pure GTK+ applications", e.g. those that use gtk+ but do not link to libgnome, rely on the value of the GTK_MODULES environment variable, which must be set to "gail:atk-bridge" in order to enable assistive technology support.
 </para>
 <para>
 Most assistive technologies running on other desktops have historically found it necessary to maintain a complex off-screen model of
 the desktop applications, based on snooping of OS events, use of unsupported OS and application features and API, and other highly
-nonportable techniques. This has made assistive technology support somewhat "brittle" and highly OS- and application-specific, even
+non-portable techniques. This has made assistive technology support somewhat "brittle" and highly OS- and application-specific, even
 application-version specific. In contrast, on the GNOME Desktop, all the information required by the ATs is provided by the running applications, via the GNOME Accessibility Framework, to a toolkit-independent Service Provider Interface (SPI). The SPI provides a means for UNIX-based ATs, such as screen readers and screen magnifiers, to obtain accessibility information from running applications via a consistent, stable API, and can eliminate the need for an off-screen model in many cases. Accessibility support for applications is "built in" to application toolkits via toolkit-appropriate APIs (for instance, ATK for most native C applications and the Java Accessibility API for Java apps), and exported to the common "AT-SPI" interface via the relevant "bridge" (see diagram below).
 </para>
 <figure id="gad-architecture">
@@ -95,7 +95,9 @@ If your application uses custom widgets, you may have to do some work to expose 
 
 <section id="dev-start">
 <title>Developer Quick Start</title>
-<para>Here are some common starting points:</para>
+<para>
+Here are some common starting points:
+</para>
 
 <section id="dev-start-1">
 <title>How do I check to see if my application is accessible or not?</title>
