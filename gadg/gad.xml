@@ -128,23 +128,15 @@ See <link linkend="gad-custom">Making Custom Components Accessible</link> and <l
 </section>
 
 <section id="dev-start-5">
-<title>Introducing the AT-SPI infrastructure</title>
-<para>
-AT-SPI is the primary service interface by which assistive technologies query and receive notifications from running applications. The full API can be explored <ulink url="http://library.gnome.org/devel/at-spi-cspi/unstable">here</ulink> and <ulink url="http://library.gnome.org/devel/at-spi-cspi/stable/">here</ulink>.
-</para>
-</section>
-
-<section id="dev-start-6">
-<title>Introducing ATK</title>
+<title>Introducing ATK, AT-SPI and GAIL</title>
 <para>
 ATK is the toolkit that GNOME uses to enable accessibility for users needing extra support to make the most of their computers. ATK is used by tools such as screen readers, magnifiers, and input devices to permit a rich interaction with the desktop through alternative means. See <ulink url="http://java-gnome.sourceforge.net/4.0/doc/api/org/gnome/atk/package-summary.html">the ATK SourceForge Project</ulink> and <ulink url="http://library.gnome.org/devel/atk/stable/atk.html">the ATK Library</ulink> for more information.
 </para>
-</section>
-
-<section id="dev-start-7">
-<title>Introducing GAIL</title>
 <para>
-GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module.
+AT-SPI is the primary service interface by which assistive technologies query and receive notifications from running applications. The full API can be explored <ulink url="http://library.gnome.org/devel/at-spi-cspi/stable/">here</ulink>. Additional material is available from <ulink url="http://accessibility.kde.org/developer/atk.php#coreclasses">the KDE Accessibility Development Community</ulink>.
+</para>
+<para>
+GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module. License, download and other information can be found <ulink url="http://www.t2-project.org/packages/gail.html">here</ulink>.
 </para>
 </section>
 </section>
@@ -1079,7 +1071,7 @@ When you use static text to label a control, ensure that the label immediately p
 </listitem>
 <listitem>
 <para>
-Provide alternatives to WYSIWYG. Some users may need to print text in a small font but edit in a larger screen font, for example. Possible alternatives include displaying all text in the same font and size (both of which are chosen by the user); a "wrap-to-window" option that allows you to read all the text in a window without scrolling horizontally; a single column view that shows the window's contents in a single column even if they will be printed in multiple columns; and a text-only view, where graphics are shown as placeholders or text descriptions.
+Provide alternatives to WYSIWYG. Some users may need to print text in a small font but edit in a larger screen font, for example. Possible alternatives include displaying all text in the same font and size (both of which are chosen by the user); a "wrap-to-window" option that allows you to read all the text in a window without scrolling horizontally; a single column view that shows the window's contents in a single column even if they will be printed in multiple columns; and a text-only view, where graphics are shown as placeholders or text descriptions. If the application has panels with child controls, consider allowing the panels to resize along with the parent window.
 </para>
 </listitem>
 </itemizedlist>
