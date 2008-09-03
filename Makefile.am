@@ -3,6 +3,7 @@ SUBDIRS =			\
 	gdp-style-guide		\
 	hig			\
 	integration-guide	\
+	optimization-guide	\
 	platform-overview
 
 EXTRA_DIST = gnome-doc-utils.make
