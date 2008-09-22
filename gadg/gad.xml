@@ -136,7 +136,7 @@ ATK is the toolkit that GNOME uses to enable accessibility for users needing ext
 AT-SPI is the primary service interface by which assistive technologies query and receive notifications from running applications. The full API can be explored <ulink url="http://library.gnome.org/devel/at-spi-cspi/stable/">here</ulink>. Additional material is available from <ulink url="http://accessibility.kde.org/developer/atk.php#coreclasses">the KDE Accessibility Development Community</ulink>.
 </para>
 <para>
-GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module. License, download and other information can be found <ulink url="http://www.t2-project.org/packages/gail.html">here</ulink>.
+GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module. License, download and other information can be found <ulink url="http://www.t2-project.org/packages/gail.html">here</ulink>. The <ulink url="ftp://ftp.gnome.org/pub/GNOME/sources/gail/">GAIL source code</ulink> also serves as an excellent tutorial for advanced ATK usage. 
 </para>
 </section>
 </section>
@@ -366,13 +366,13 @@ Specify relationships between any unusual groupings of widgets using <function>a
 </listitem>
 </itemizedlist>
 <para>
-The examples in the rest of this section are mostly to give you a flavor of the scope of the ATK. They cover techniques that you may never need to use as an application developer, although they may be of interest if you are writing your own custom widgets (see <link linkend="gad-custom">Making Custom Components Accessible</link>) or if you want to write an assistive technology application.
+The examples in the rest of this section are mostly to give you a flavor of the scope of the ATK. They cover techniques that you may never need to use as an application developer, although they may be of interest if you are writing your own custom widgets (see <link linkend="gad-custom">Making Custom Components Accessible</link>) or if you want to write an assistive technology application. Whatever the purpose, the <ulink url="ftp://ftp.gnome.org/pub/GNOME/sources/gail/">GAIL source code</ulink> serves as an excellent tutorial for advanced ATK usage. 
 </para>
 
 <section>
 <title>Gtk Modules</title>
 <para>
-Programs that make use of GAIL (the accessibility implementation library for GTK widgets) are written as GTK modules. GTK modules are loaded into the program space if the <varname>GTK_MODULES</varname> environment variable specifies the module library name(s).  If there are multiple module libraries, separate them with colons. For example:
+Programs that make use of GAIL (the accessibility implementation library for GTK widgets) are written as GTK modules. GTK modules are loaded into the program space if the <varname>GTK_MODULES</varname> environment variable specifies the module library name(s). If there are multiple module libraries, separate them with colons. For example:
 </para>
 <para>
 <userinput>setenv GTK_MODULES "libgail:libtestprops"</userinput>
@@ -818,6 +818,9 @@ If the second method is used, the appropriate factory type must be registered wi
 </para>
 </listitem>
 </itemizedlist>
+<para>
+The <ulink url="ftp://ftp.gnome.org/pub/GNOME/sources/gail/">GAIL source code</ulink> serves as an excellent tutorial for advanced ATK usage. 
+</para>
 </section>
 
 <section id="gad-ui-guidelines">
