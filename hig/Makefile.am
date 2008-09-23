@@ -22,9 +22,7 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
-	images/abiword-icon.png \
 	images/action-icon.png \
-	images/application-icons.png \
 	images/caution.png \
 	images/checkbox_label.png \
 	images/colour_and_arrows.png \
@@ -113,11 +111,17 @@ DOC_FIGURES =						\
 	images/icon-design-process-7.png \
 	images/icon-design-process-8.png \
 	images/icon-design-process-9.png \
-	images/icon-style-aqua.png \
-	images/icon-style-gnome.png \
-	images/icon-style-java.png \
-	images/icon_perspective_shelf.png \
-	images/icon_perspective_table.png \
+	images/icons-applications.png \
+	images/icons-menu.png \
+	images/icons-objects.png \
+	images/icons-perspective-shelf.png \
+	images/icons-perspective-table.png \
+	images/icons-style-aqua.png \
+	images/icons-style-gnome.png \
+	images/icons-style-java.png \
+	images/icons-toolbar.png \
+	images/icons-underline-text.png \
+	images/icons-word-processor.png \
 	images/icons_labels.png \
 	images/important.png \
 	images/installer-icon.png \
@@ -129,7 +133,6 @@ DOC_FIGURES =						\
 	images/log-icon.png \
 	images/manual-alert-spacing.png \
 	images/manual-button-ordering.png \
-	images/menu-icons.png \
 	images/menus-application.png \
 	images/menus-bookmarks.png \
 	images/menus-checkbox-group.png \
@@ -151,7 +154,6 @@ DOC_FIGURES =						\
 	images/nautilus-icon.png \
 	images/note.png \
 	images/object-icon.png \
-	images/object-icons.png \
 	images/object-menu.png \
 	images/object-menubar.png \
 	images/pointingdevices.png \
@@ -170,10 +172,8 @@ DOC_FIGURES =						\
 	images/softwareupdateicon.png \
 	images/stock_save.png \
 	images/tip.png \
-	images/toolbar-icons.png \
 	images/toolbar-silhouette.png \
 	images/toolbars-mail.png \
-	images/underline-icon.png \
 	images/view-toolbar.png \
 	images/visdes-button-label.png \
 	images/visdes-colorblind-deutan.png \
@@ -247,5 +247,3 @@ DOC_FIGURES =						\
 	images/windows-titlebar.png \
 	images/windows-toolbox-large.png \
 	images/windows-toolbox-small.png
-
-
