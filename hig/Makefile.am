@@ -22,16 +22,12 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
-	images/EvoToolbar.png \
-	images/GtkToolbar.png \
-	images/GtkToolbar_browserdefault.png \
-	images/GtkToolbar_gedit.png \
-	images/GtkToolbar_productivitydefault.png \
 	images/abiword-icon.png \
 	images/action-icon.png \
 	images/application-icons.png \
 	images/caution.png \
 	images/checkbox_label.png \
+	images/chg.sh
 	images/colour_and_arrows.png \
 	images/colour_only.png \
 	images/controls-buttons.png \
@@ -79,10 +75,8 @@ DOC_FIGURES =						\
 	images/dragcursor-move.png \
 	images/dragcursor-nodrop.png \
 	images/dragcursor-rmb.png \
-	images/earthDeutan.png \
-	images/earthNorm.png \
-	images/earthTritan.png \
 	images/evolution-icon.png \
+	images/EvoToolbar.png \
 	images/feedback-checklist-running.png \
 	images/feedback-pointers-busy.png \
 	images/floppy-dissected.png \
@@ -97,6 +91,10 @@ DOC_FIGURES =						\
 	images/gnome-package.png \
 	images/gnome-text-x-readme.png \
 	images/gnumeric-icon.png \
+	images/GtkToolbar.png \
+	images/GtkToolbar_browserdefault.png \
+	images/GtkToolbar_gedit.png \
+	images/GtkToolbar_productivitydefault.png \
 	images/highcontrast-book-blur.png \
 	images/highcontrast-book.png \
 	images/highcontrast-cdrom-blur.png \
@@ -128,12 +126,7 @@ DOC_FIGURES =						\
 	images/label_below.png \
 	images/label_left.png \
 	images/label_right.png \
-	images/large_icon_label.png \
-	images/layout1.png \
-	images/layout2.png \
-	images/layout_callouts.png \
 	images/levels-lowcontrast.png \
-	images/list_control_label.png \
 	images/log-icon.png \
 	images/manual-alert-spacing.png \
 	images/manual-button-ordering.png \
@@ -162,63 +155,73 @@ DOC_FIGURES =						\
 	images/object-icons.png \
 	images/object-menu.png \
 	images/object-menubar.png \
-	images/other_labels.png \
-	images/palette-1.png \
-	images/palette-10.png \
-	images/palette-11.png \
-	images/palette-12.png \
-	images/palette-13.png \
-	images/palette-14.png \
-	images/palette-15.png \
-	images/palette-16.png \
-	images/palette-17.png \
-	images/palette-18.png \
-	images/palette-19.png \
-	images/palette-2.png \
-	images/palette-20.png \
-	images/palette-21.png \
-	images/palette-22.png \
-	images/palette-23.png \
-	images/palette-24.png \
-	images/palette-25.png \
-	images/palette-26.png \
-	images/palette-27.png \
-	images/palette-28.png \
-	images/palette-29.png \
-	images/palette-3.png \
-	images/palette-30.png \
-	images/palette-31.png \
-	images/palette-32.png \
-	images/palette-4.png \
-	images/palette-5.png \
-	images/palette-6.png \
-	images/palette-7.png \
-	images/palette-8.png \
-	images/palette-9.png \
 	images/pointingdevices.png \
 	images/progress-checklist-with-bar.png \
 	images/progress-checklist.png \
 	images/progress-proportion.png \
 	images/quit1.png \
 	images/quit2.png \
-	images/radio_button_label.png \
 	images/rubberband.png \
 	images/rubberband_dia.png \
 	images/save1.png \
 	images/save2.png \
 	images/shutdown-icon.png \
 	images/size-48x48.png \
-	images/small_icon_label.png \
 	images/sodipodi-icon.png \
 	images/softwareupdateicon.png \
 	images/stock_save.png \
-	images/textbox_label.png \
 	images/tip.png \
 	images/toolbar-icons.png \
 	images/toolbar-silhouette.png \
 	images/toolbars-mail.png \
 	images/underline-icon.png \
 	images/view-toolbar.png \
+	images/visdes-button-label.png \
+	images/visdes-colorblind-deutan.png \
+	images/visdes-colorblind-normal.png \
+	images/visdes-colorblind-tritan.png \
+	images/visdes-large-icon-label.png \
+	images/visdes-layout-annotated.png \
+	images/visdes-layout-good.png \
+	images/visdes-layout-poor.png \
+	images/visdes-list-label.png \
+	images/visdes-other-labels.png \
+	images/visdes-palette-1.png \
+	images/visdes-palette-10.png \
+	images/visdes-palette-11.png \
+	images/visdes-palette-12.png \
+	images/visdes-palette-13.png \
+	images/visdes-palette-14.png \
+	images/visdes-palette-15.png \
+	images/visdes-palette-16.png \
+	images/visdes-palette-17.png \
+	images/visdes-palette-18.png \
+	images/visdes-palette-19.png \
+	images/visdes-palette-2.png \
+	images/visdes-palette-20.png \
+	images/visdes-palette-21.png \
+	images/visdes-palette-22.png \
+	images/visdes-palette-23.png \
+	images/visdes-palette-24.png \
+	images/visdes-palette-25.png \
+	images/visdes-palette-26.png \
+	images/visdes-palette-27.png \
+	images/visdes-palette-28.png \
+	images/visdes-palette-29.png \
+	images/visdes-palette-3.png \
+	images/visdes-palette-30.png \
+	images/visdes-palette-31.png \
+	images/visdes-palette-32.png \
+	images/visdes-palette-4.png \
+	images/visdes-palette-5.png \
+	images/visdes-palette-6.png \
+	images/visdes-palette-7.png \
+	images/visdes-palette-8.png \
+	images/visdes-palette-9.png \
+	images/visdes-palette.png \
+	images/visdes-radiobutton-label.png \
+	images/visdes-small-icon-label.png \
+	images/visdes-textbox-label.png \
 	images/warning.png \
 	images/windows-alert-authentication.png \
 	images/windows-alert-buttons.png \
@@ -244,7 +247,6 @@ DOC_FIGURES =						\
 	images/windows-sdi.png \
 	images/windows-titlebar.png \
 	images/windows-toolbox-large.png \
-	images/windows-toolbox-small.png \
-	images/ximian-palette.png
+	images/windows-toolbox-small.png
 
 
