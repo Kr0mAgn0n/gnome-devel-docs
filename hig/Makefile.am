@@ -27,7 +27,6 @@ DOC_FIGURES =						\
 	images/application-icons.png \
 	images/caution.png \
 	images/checkbox_label.png \
-	images/chg.sh
 	images/colour_and_arrows.png \
 	images/colour_only.png \
 	images/controls-buttons.png \
