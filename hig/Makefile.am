@@ -71,6 +71,7 @@ DOC_FIGURES =						\
 	images/icon-design-process-9.png \
 	images/icons-applications.png \
 	images/icons-evolution.png \
+	images/icons-gedit.png \
 	images/icons-floppy-dissected.png \
 	images/icons-font-selection-good.png \
 	images/icons-font-selection-poor.png \
