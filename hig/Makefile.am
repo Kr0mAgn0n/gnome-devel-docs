@@ -22,11 +22,6 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
-	images/EvoToolbar.png \
-	images/GtkToolbar.png \
-	images/GtkToolbar_browserdefault.png \
-	images/GtkToolbar_gedit.png \
-	images/GtkToolbar_productivitydefault.png \
 	images/action-icon.png \
 	images/caution.png \
 	images/checkbox_label.png \
@@ -71,12 +66,7 @@ DOC_FIGURES =						\
 	images/depend3.png \
 	images/desktop-applications-menu.png \
 	images/df.png \
-	images/dragcursor-augmented.png \
-	images/dragcursor-copy.png \
-	images/dragcursor-link.png \
-	images/dragcursor-move.png \
-	images/dragcursor-nodrop.png \
-	images/dragcursor-rmb.png \
+	images/EvoToolbar.png \
 	images/feedback-checklist-running.png \
 	images/feedback-pointers-busy.png \
 	images/floppy-dissected.png \
@@ -88,6 +78,10 @@ DOC_FIGURES =						\
 	images/gnome-http-url.png \
 	images/gnome-package.png \
 	images/gnome-text-x-readme.png \
+	images/GtkToolbar.png \
+	images/GtkToolbar_browserdefault.png \
+	images/GtkToolbar_gedit.png \
+	images/GtkToolbar_productivitydefault.png \
 	images/highcontrast-book-blur.png \
 	images/highcontrast-book.png \
 	images/highcontrast-cdrom-blur.png \
@@ -129,6 +123,16 @@ DOC_FIGURES =						\
 	images/icons-word-processor.png \
 	images/icons_labels.png \
 	images/important.png \
+	images/input-accesskeys-shortcuts.png \
+	images/input-drag-cursor-copy.png \
+	images/input-drag-cursor-link.png \
+	images/input-drag-cursor-move.png \
+	images/input-drag-cursor-nodrop.png \
+	images/input-drag-cursor-query.png \
+	images/input-drag-cursor.png \
+	images/input-drag-select-graphics.png \
+	images/input-drag-select-nautilus.png \
+	images/input-pointing-devices.png \
 	images/installer-icon.png \
 	images/label_above.png \
 	images/label_below.png \
@@ -154,19 +158,15 @@ DOC_FIGURES =						\
 	images/menus-submenu.png \
 	images/menus-view.png \
 	images/menus-windows.png \
-	images/mnemonics_and_shortcuts.png \
 	images/note.png \
 	images/object-icon.png \
 	images/object-menu.png \
 	images/object-menubar.png \
-	images/pointingdevices.png \
 	images/progress-checklist-with-bar.png \
 	images/progress-checklist.png \
 	images/progress-proportion.png \
 	images/quit1.png \
 	images/quit2.png \
-	images/rubberband.png \
-	images/rubberband_dia.png \
 	images/save1.png \
 	images/save2.png \
 	images/size-48x48.png \
@@ -247,5 +247,7 @@ DOC_FIGURES =						\
 	images/windows-titlebar.png \
 	images/windows-toolbox-large.png \
 	images/windows-toolbox-small.png
+	
+
 
 
