@@ -22,6 +22,11 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
+	images/EvoToolbar.png \
+	images/GtkToolbar.png \
+	images/GtkToolbar_browserdefault.png \
+	images/GtkToolbar_gedit.png \
+	images/GtkToolbar_productivitydefault.png \
 	images/action-icon.png \
 	images/caution.png \
 	images/checkbox_label.png \
@@ -72,13 +77,9 @@ DOC_FIGURES =						\
 	images/dragcursor-move.png \
 	images/dragcursor-nodrop.png \
 	images/dragcursor-rmb.png \
-	images/evolution-icon.png \
-	images/EvoToolbar.png \
 	images/feedback-checklist-running.png \
 	images/feedback-pointers-busy.png \
 	images/floppy-dissected.png \
-	images/fontsel-icon.png \
-	images/fontsel-suggestion.png \
 	images/gdiskfree-menu.png \
 	images/gdiskfree.png \
 	images/gedit-icon.png \
@@ -87,11 +88,6 @@ DOC_FIGURES =						\
 	images/gnome-http-url.png \
 	images/gnome-package.png \
 	images/gnome-text-x-readme.png \
-	images/gnumeric-icon.png \
-	images/GtkToolbar.png \
-	images/GtkToolbar_browserdefault.png \
-	images/GtkToolbar_gedit.png \
-	images/GtkToolbar_productivitydefault.png \
 	images/highcontrast-book-blur.png \
 	images/highcontrast-book.png \
 	images/highcontrast-cdrom-blur.png \
@@ -112,13 +108,22 @@ DOC_FIGURES =						\
 	images/icon-design-process-8.png \
 	images/icon-design-process-9.png \
 	images/icons-applications.png \
+	images/icons-evolution.png \
+	images/icons-font-selection-good.png \
+	images/icons-font-selection-poor.png \
+	images/icons-gnumeric.png \
 	images/icons-menu.png \
+	images/icons-nautilus.png \
 	images/icons-objects.png \
 	images/icons-perspective-shelf.png \
 	images/icons-perspective-table.png \
+	images/icons-shut-down.png \
+	images/icons-silhouette.png \
+	images/icons-sodipodi.png \
 	images/icons-style-aqua.png \
 	images/icons-style-gnome.png \
 	images/icons-style-java.png \
+	images/icons-system-log.png \
 	images/icons-toolbar.png \
 	images/icons-underline-text.png \
 	images/icons-word-processor.png \
@@ -130,7 +135,6 @@ DOC_FIGURES =						\
 	images/label_left.png \
 	images/label_right.png \
 	images/levels-lowcontrast.png \
-	images/log-icon.png \
 	images/manual-alert-spacing.png \
 	images/manual-button-ordering.png \
 	images/menus-application.png \
@@ -151,7 +155,6 @@ DOC_FIGURES =						\
 	images/menus-view.png \
 	images/menus-windows.png \
 	images/mnemonics_and_shortcuts.png \
-	images/nautilus-icon.png \
 	images/note.png \
 	images/object-icon.png \
 	images/object-menu.png \
@@ -166,13 +169,10 @@ DOC_FIGURES =						\
 	images/rubberband_dia.png \
 	images/save1.png \
 	images/save2.png \
-	images/shutdown-icon.png \
 	images/size-48x48.png \
-	images/sodipodi-icon.png \
 	images/softwareupdateicon.png \
 	images/stock_save.png \
 	images/tip.png \
-	images/toolbar-silhouette.png \
 	images/toolbars-mail.png \
 	images/view-toolbar.png \
 	images/visdes-button-label.png \
@@ -247,3 +247,5 @@ DOC_FIGURES =						\
 	images/windows-titlebar.png \
 	images/windows-toolbox-large.png \
 	images/windows-toolbox-small.png
+
+
