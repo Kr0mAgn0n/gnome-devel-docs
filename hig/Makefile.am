@@ -131,7 +131,7 @@ DOC_FIGURES =						\
 	images/input-drag-cursor-query.png \
 	images/input-drag-cursor.png \
 	images/input-drag-select-graphics.png \
-	images/input-drag-select-nautilus.png \
+	images/input-drag-select-files.png \
 	images/input-pointing-devices.png \
 	images/installer-icon.png \
 	images/label_above.png \
