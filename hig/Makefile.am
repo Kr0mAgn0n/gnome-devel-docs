@@ -126,6 +126,8 @@ DOC_FIGURES =						\
 	images/menus-view.png \
 	images/menus-windows.png \
 	images/toolbars-mail.png \
+	images/toolbars-labels-below.png \
+	images/toolbars-labels-beside.png \
 	images/view-toolbar.png \
 	images/visdes-button-label.png \
 	images/visdes-colorblind-deutan.png \
