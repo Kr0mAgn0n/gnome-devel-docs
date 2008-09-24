@@ -22,11 +22,6 @@ DOC_ENTITIES =			\
 	hig-ch-windows.xml      \
 	hig-ch-whatsnew.xml
 DOC_FIGURES =						\
-	images/action-icon.png \
-	images/caution.png \
-	images/checkbox_label.png \
-	images/colour_and_arrows.png \
-	images/colour_only.png \
 	images/controls-buttons.png \
 	images/controls-check-box-ambiguous.png \
 	images/controls-check-boxes-mixed.png \
@@ -59,36 +54,9 @@ DOC_FIGURES =						\
 	images/controls-toggle-buttons.png \
 	images/controls-tree-checkbox.png \
 	images/controls-tree.png \
-	images/depend1.png \
-	images/depend1a.png \
-	images/depend2.png \
-	images/depend2a.png \
-	images/depend3.png \
 	images/desktop-applications-menu.png \
-	images/df.png \
-	images/EvoToolbar.png \
 	images/feedback-checklist-running.png \
 	images/feedback-pointers-busy.png \
-	images/floppy-dissected.png \
-	images/gdiskfree-menu.png \
-	images/gdiskfree.png \
-	images/gedit-icon.png \
-	images/gide-icon.png \
-	images/glyph-icon.png \
-	images/gnome-http-url.png \
-	images/gnome-package.png \
-	images/gnome-text-x-readme.png \
-	images/GtkToolbar.png \
-	images/GtkToolbar_browserdefault.png \
-	images/GtkToolbar_gedit.png \
-	images/GtkToolbar_productivitydefault.png \
-	images/highcontrast-book-blur.png \
-	images/highcontrast-book.png \
-	images/highcontrast-cdrom-blur.png \
-	images/highcontrast-cdrom.png \
-	images/highcontrast-copy-blur.png \
-	images/highcontrast-copy.png \
-	images/highcontrast-metaphors.png \
 	images/icon-design-process-1.png \
 	images/icon-design-process-10.png \
 	images/icon-design-process-11.png \
@@ -103,9 +71,18 @@ DOC_FIGURES =						\
 	images/icon-design-process-9.png \
 	images/icons-applications.png \
 	images/icons-evolution.png \
+	images/icons-floppy-dissected.png \
 	images/icons-font-selection-good.png \
 	images/icons-font-selection-poor.png \
 	images/icons-gnumeric.png \
+	images/icons-hc-book-blur.png \
+	images/icons-hc-book.png \
+	images/icons-hc-cdrom-blur.png \
+	images/icons-hc-cdrom.png \
+	images/icons-hc-copy-blur.png \
+	images/icons-hc-copy.png \
+	images/icons-hc-metaphors.png \
+	images/icons-lowcontrast-levels.png \
 	images/icons-menu.png \
 	images/icons-nautilus.png \
 	images/icons-objects.png \
@@ -121,8 +98,6 @@ DOC_FIGURES =						\
 	images/icons-toolbar.png \
 	images/icons-underline-text.png \
 	images/icons-word-processor.png \
-	images/icons_labels.png \
-	images/important.png \
 	images/input-accesskeys-shortcuts.png \
 	images/input-drag-cursor-copy.png \
 	images/input-drag-cursor-link.png \
@@ -130,17 +105,9 @@ DOC_FIGURES =						\
 	images/input-drag-cursor-nodrop.png \
 	images/input-drag-cursor-query.png \
 	images/input-drag-cursor.png \
-	images/input-drag-select-graphics.png \
 	images/input-drag-select-files.png \
+	images/input-drag-select-graphics.png \
 	images/input-pointing-devices.png \
-	images/installer-icon.png \
-	images/label_above.png \
-	images/label_below.png \
-	images/label_left.png \
-	images/label_right.png \
-	images/levels-lowcontrast.png \
-	images/manual-alert-spacing.png \
-	images/manual-button-ordering.png \
 	images/menus-application.png \
 	images/menus-bookmarks.png \
 	images/menus-checkbox-group.png \
@@ -158,21 +125,6 @@ DOC_FIGURES =						\
 	images/menus-submenu.png \
 	images/menus-view.png \
 	images/menus-windows.png \
-	images/note.png \
-	images/object-icon.png \
-	images/object-menu.png \
-	images/object-menubar.png \
-	images/progress-checklist-with-bar.png \
-	images/progress-checklist.png \
-	images/progress-proportion.png \
-	images/quit1.png \
-	images/quit2.png \
-	images/save1.png \
-	images/save2.png \
-	images/size-48x48.png \
-	images/softwareupdateicon.png \
-	images/stock_save.png \
-	images/tip.png \
 	images/toolbars-mail.png \
 	images/view-toolbar.png \
 	images/visdes-button-label.png \
@@ -221,7 +173,6 @@ DOC_FIGURES =						\
 	images/visdes-radiobutton-label.png \
 	images/visdes-small-icon-label.png \
 	images/visdes-textbox-label.png \
-	images/warning.png \
 	images/windows-alert-authentication.png \
 	images/windows-alert-buttons.png \
 	images/windows-alert-confirmation.png \
@@ -247,7 +198,6 @@ DOC_FIGURES =						\
 	images/windows-titlebar.png \
 	images/windows-toolbox-large.png \
 	images/windows-toolbox-small.png
-	
 
 
 
