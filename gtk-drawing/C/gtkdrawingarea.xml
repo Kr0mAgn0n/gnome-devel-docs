@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+]>
+
+<chapter id="chapter.gtkdrawingarea">
+ <title>Drawing into a GtkDrawingArea</title>
+
+ <para>
+  A <classname>GtkDrawingArea</classname> is a
+  <classname>GtkWidget</classname> that provides a single, empty
+  <classname>GdkWindow</classname> that can be drawn into by a program by
+  connecting the widget's <function>expose-event</function> signal.
+ </para>
+
+ <para>
+  When drawing in this way, all drawing should be done in the
+  <function>expose-event</function> handler. This includes animation and
+  updates triggered by events other than expose event.
+ </para>
+
+ <sect1 id="sect.gtkdrawingarea.setup">
+  <title>Setting up a GtkDrawingArea</title>
+
+  <para>
+   Setting up a <classname>GtkDrawingArea</classname> is straightforward.
+   You can create the widget with <function>gtk_drawing_area_new</function>
+   or via Glade. Simply connect <function>expose-event</function>
+   (<xref linkend="example.gtkdrawingarea.setup"/>).
+  </para>
+
+  <example id="example.gtkdrawingarea.setup">
+   <title>A short GTK+ program that creates a GtkDrawingArea and hooks up expose-event</title>
+   <programlisting>
+<![CDATA[#include <gtk/gtk.h>
+
+static gboolean
+expose_callback (GtkWidget *da, GdkEventExpose *event, gpointer user_data)
+{
+        g_print ("Expose\n");
+
+        return TRUE;
+}
+
+int
+main (int argc, char **argv)
+{
+        gtk_init (&argc, &argv);
+
+        GtkWidget *window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+        GtkWidget *da = gtk_drawing_area_new ();
+
+        gtk_container_add (GTK_CONTAINER (window), da);
+
+        g_signal_connect_swapped (window, "delete-event",
+                        G_CALLBACK (gtk_main_quit), NULL);
+        g_signal_connect (da, "expose-event",
+                        G_CALLBACK (expose_callback), NULL);
+
+        gtk_widget_show_all (window);
+
+        gtk_main ();
+}]]></programlisting>
+  </example>
+  <para>
+   Running this program will cause the word
+   <computeroutput>Expose</computeroutput> to be printed on the screen.
+  </para>
+
+ </sect1>
+
+ <sect1 id="sect.gtkdrawingarea.expose">
+  <title>Expose</title>
+
+  <para>
+   As covered in <xref linkend="sect.introduction.how-it-works"/>, the
+   <function>expose-event</function> is sent to a
+   <classname>GtkWidget</classname> when one of its associated
+   <classname>GdkWindow</classname>s needs something drawn into it.
+  </para>
+
+  <para>
+   We receive the <function>expose-event</function> as a regular
+   <classname>GSignal</classname> callback with the prototype:
+  </para>
+
+  <funcsynopsis>
+   <funcprototype>
+    <funcdef>gboolean <function>expose_event</function></funcdef>
+    <paramdef>GtkWidget *<parameter>widget</parameter></paramdef>
+    <paramdef>GdkEventExpose *<parameter>event</parameter></paramdef>
+    <paramdef>gpointer <parameter>user_data</parameter></paramdef>
+   </funcprototype>
+  </funcsynopsis>
+
+  <para>
+   The <structname>GdkEventExpose</structname> structure contains two
+   important pieces of data:
+  </para>
+  <itemizedlist>
+   <listitem><para>
+    <structfield>window</structfield>, the <classname>GdkWindow</classname>
+    that requires exposing; and
+   </para></listitem>
+   <listitem><para>
+    <structfield>region</structfield>, the <classname>GdkRegion</classname>
+    that requires exposing (also available as
+    <structfield>area</structfield>, the bounding box of the region).
+   </para></listitem>
+  </itemizedlist>
+
+  <para>
+   Like with all GTK+ events, the callback also has a return type: boolean
+   true or false. Your expose handler should return either true or false.
+   Returning <returnvalue>TRUE</returnvalue> stops any other expose handlers
+   from being called to handle this event; this is normally what you will
+   want to do. Returning <returnvalue>FALSE</returnvalue> will propagate the
+   event further to find another handler.
+  </para>
+
+  <warning id="warning.gtkdrawingarea.expose">
+   <title>Make Sure Your Callback Returns Something</title>
+   <para>
+    If your callback fails to return either <returnvalue>TRUE</returnvalue>
+    or <returnvalue>FALSE</returnvalue>, you are going to get a strange,
+    undefined behaviour. If you're getting strange bugs, check your
+    event callbacks all return the correct value.
+   </para>
+  </warning>
+
+  <sect2 id="sect.gtkdrawingarea.expose.cairo">
+   <title>Drawing with Cairo</title>
+
+   <para>
+    To draw with Cairo, we need to create a Cairo context
+    (<classname>cairo_t</classname>) for the
+    <classname>GdkWindow</classname>. Once the Cairo context has been
+    created, it can be used for as much drawing as desired
+    (<xref linkend="example.gtkdrawingarea.cairo"/>). Remember to free the
+    context before leaving the callback.
+   </para>
+
+   <example id="example.gtkdrawingarea.cairo">
+    <title>Creating a Cairo context, drawing and then destroying the context</title>
+    <programlisting>
+<![CDATA[cairo_t *cr = gdk_cairo_create (event->window);
+
+/* draw a circle */
+cairo_arc (cr, 50., 50., 25, -M_PI, M_PI);
+cairo_stroke (cr);
+
+cairo_destroy (cr);]]></programlisting>
+   </example>
+
+  </sect2>
+
+ </sect1>
+
+</chapter>
