@@ -8,6 +8,158 @@
 
  <sect1 id="sect.cairo">
   <title>Cairo</title>
+
+  <sect2 id="sect.cairo.masks">
+   <title>Speeding Up Drawing Using Masks</title>
+
+   <para>
+    Masks are used when drawing the same shape repeatedly. Rather than
+    recalculating a path and stroking or filling it every time, a mask can
+    be thought of like cutting one copy out of a piece of card and then
+    using it to spray paint the result onto the target surface. A Cairo mask
+    is a surface of the same type as the target surface but with only an
+    alpha channel.
+   </para>
+   <para>
+    Any sort of source may be used with a mask (e.g. a solid colour,
+    gradient or image). If you want something that uses two colours (e.g. a
+    marker with a border), you should use two marks (one for the marker and
+    one for the border).
+   </para>
+
+   <para>
+    To enable the graphics layer to accellerate the drawing of masks on your
+    target surface, the target surface should be untransformed and the mask
+    and target surface should be pixel aligned. If this isn't the case,
+    using masks may be slower than restroking the path. See <xref
+    linkend="note.cairo.masks.subpixel"/> below for more details.
+   </para>
+
+   <para>
+    Create a new mask with
+    <function>cairo_surface_create_similar</function>. Then draw your path
+    into that mask (<xref linkend="example.cairo.masks.ex1"/>). You can use
+    <function>cairo_surface_set_device_offset</function> to set the middle
+    of your mask.
+   </para>
+   <para>
+    Remember that only the alpha channel is available, so
+    use <function>cairo_set_source_rgba (cr, 0., 0., 0., a)</function>. The
+    amount of alpha in the mask is the amount of alpha that will be used
+    with the source colour when that mask is applied.
+   </para>
+   <example id="example.cairo.masks.ex1">
+    <title>Creating a Mask</title>
+    <programlisting>
+<![CDATA[#define MASK_SIZE 16
+
+cairo_surface_t *mask = cairo_surface_create_similar (
+		target_surface, CAIRO_CONTENT_ALPHA,
+		MASK_SIZE, MASK_SIZE);
+
+/* set the middle of our mask as the offset for cairo_mask_surface() */
+cairo_surface_set_device_offset (mask, MASK_SIZE / 2, MASK_SIZE / 2);
+
+cairo_t *cr = cairo_create (mask);
+/* draw into mask - remember to fill/stroke */
+cairo_destroy (cr);]]></programlisting>
+   </example>
+
+   <para>
+    To apply your mask use <function>cairo_mask_surface</function>
+    (<xref linkend="example.cairo.masks.ex2"/>). This
+    will apply the mask using your current source at the position (x, y) as
+    the top left corner of the mask (unless you offset it with
+    <function>cairo_surface_set_device_offset</function>). You do not need
+    to stroke, fill or paint the mask.
+   </para>
+
+   <example id="example.cairo.masks.ex2">
+    <title>Applying a Mask</title>
+    <programlisting>
+<![CDATA[/* cr is a cairo_t on our target surface */
+cairo_set_source_rgb (cr, 1., 0., 0.); /* mask in red */
+cairo_mask_surface (cr, mask, x, y);]]></programlisting>
+   </example>
+
+   <caution id="caution.cairo.masks.cleanup">
+    <para>
+     Remember to clean up masks you create with
+     <function>cairo_surface_destroy</function>. Otherwise they will leak.
+    </para>
+   </caution>
+
+   <note id="note.cairo.masks.subpixel">
+    <title>Sub-pixel Alignment Using Pixel Aligned Masks</title>
+
+    <para>
+     Masks must be pixel aligned with the target surface for speed, but this
+     can cause undesirable aliasing issues when drawing objects that require
+     sub-pixel alignment.
+    </para>
+    <para>
+     The trick is to create a set of masking surfaces with variously aligned
+     masking functions and then to choose the appropriate masking surface to
+     create the effect of anti-aliased drawing.
+    </para>
+    <example id="example.cairo.masks.subpixel.ex1">
+     <title>Creating and Applying Sub-pixel Aligned Masks</title>
+     <programlisting>
+<![CDATA[cairo_surface_t *mask[NSUBPX][NSUBPX];
+
+int i;
+for (i = 0; i < NSUBPX; i++)
+{
+	int j;
+	for (j = 0; j < NSUBPX; j++)
+	{
+		cairo_t *cr;
+
+		mask[i][j] = cairo_surface_create_similar (
+				target_surface,
+				CAIRO_CONTENT_ALPHA,
+				MASK_SIZE, MASK_SIZE);
+		cairo_surface_set_device_offset (mask[i][j],
+				MASK_SIZE / 2, MASK_SIZE / 2);
+
+		cr = cairo_create (mask[i][j]);
+
+		/* add a certain amount of subpixel
+		 * offset for this mask */
+		cairo_translate (cr, 1. / NSUBPX * i,
+				     1. / NSUBPX * j);
+			
+		draw_func (cr) /* draw onto the mask */;
+		cairo_destroy (cr);
+	}
+}
+
+double x, y;
+int xi, yi;
+
+for (...)
+{
+	x = ...; y = ...;
+
+	xi = CLAMP (((int) (x * NSUBPX + 0.5)) % NSUBPX,
+			0, NSUBPX-1);
+	yi = CLAMP (((int) (y * NSUBPX + 0.5)) % NSUBPX,
+			0, NSUBPX-1);
+
+	x = ((int) (x * NSUBPX + 0.5)) / NSUBPX;
+	y = ((int) (y * NSUBPX + 0.5)) / NSUBPX;
+
+	cairo_mask_surface (cr, mask[xi][yi], x, y);
+}
+]]></programlisting>
+    </example>
+    <para>
+     Remember to destroy the masks afterwards with
+     <function>cairo_surface_destroy</function>.
+    </para>
+   </note>
+
+  </sect2>
  </sect1>
 
  <sect1 id="sect.pango">
