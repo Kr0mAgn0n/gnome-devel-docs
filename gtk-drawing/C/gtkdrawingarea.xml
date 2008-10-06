@@ -183,6 +183,44 @@ cairo_destroy (cr);]]></programlisting>
 
  <sect1 id="sect.gtkdrawingarea.updating">
   <title>Updating and Animating the Area</title>
+
+  <para>
+   Updates of the drawing area should always be done via the
+   <function>expose-event</function> handler.
+  </para>
+  <para>
+   To re-expose a rectangular area
+   use <function>gdk_window_invalidate_rect</function>
+   (<xref linkend="example.gtkdrawingarea.update"/>).
+   These functions don't trigger
+   an expose immediately, but queue the redraw for when your program
+   returns to the main loop (i.e. is idle). To process all pending redraw
+   operations for a <classname>GdkWindow</classname> use
+   <function>gdk_window_process_updates</function>.
+  </para>
+
+  <example id="example.gtkdrawingarea.update">
+   <title>Updating a GtkDrawingArea</title>
+   <programlisting>
+<![CDATA[/* queue update for the whole window */
+gdk_window_invalidate_rect (da->window, NULL, FALSE);
+
+/* update just a rectangle */
+GdkRectangle rect;
+rect.x = ...;
+rect.y = ...;
+rect.width = ...;
+rect.height = ...;
+gdk_window_invalidate_rect (da->window, &rect, FALSE);]]></programlisting>
+  </example>
+
+  <sect2 id="sect.gtkdrawingarea.animation">
+   <title>Animation</title>
+   <para>
+    Simple animation can be achieved by repeatedly requeuing the window for
+    redraw on every screen refresh using <function>g_timeout_add</function>.
+   </para>
+  </sect2>
  </sect1>
 
  <sect1 id="sect.gtkdrawingarea.caching">
