@@ -63,8 +63,7 @@ Bonobo controls, particularly out-of-process ones, also load accessibility suppo
 <para>
 Most assistive technologies running on other desktops have historically found it necessary to maintain a complex off-screen model of
 the desktop applications, based on snooping of OS events, use of unsupported OS and application features and API, and other highly
-non-portable techniques. This has made assistive technology support somewhat "brittle" and highly OS- and application-specific, even
-application-version specific. In contrast, on the GNOME Desktop, all the information required by the ATs is provided by the running applications, via the GNOME Accessibility Framework, to a toolkit-independent Service Provider Interface (SPI). The SPI provides a means for UNIX-based ATs, such as screen readers and screen magnifiers, to obtain accessibility information from running applications via a consistent, stable API, and can eliminate the need for an off-screen model in many cases. Accessibility support for applications is "built in" to application toolkits via toolkit-appropriate APIs (for instance, ATK for most native C applications and the Java Accessibility API for Java apps), and exported to the common "AT-SPI" interface via the relevant "bridge" (see diagram below).
+non-portable techniques. This has made assistive technology support somewhat "brittle" and highly OS- and application-specific, even application-version specific. In contrast, on the GNOME Desktop, all the information required by the ATs is provided by the running applications, via the GNOME Accessibility Framework, to a toolkit-independent Service Provider Interface (SPI). The SPI provides a means for UNIX-based ATs, such as screen readers and screen magnifiers, to obtain accessibility information from running applications via a consistent, stable API, and can eliminate the need for an off-screen model in many cases. Accessibility support for applications is "built in" to application toolkits via toolkit-appropriate APIs (for instance, ATK for most native C applications and the Java Accessibility API for Java apps), and exported to the common "AT-SPI" interface via the relevant "bridge" (see diagram below).
 </para>
 <figure id="gad-architecture">
 <title>GNOME Accessibility Architecture</title>
@@ -85,11 +84,13 @@ A gtk+/GNOME widget is accessible if its use follows the general accessibility g
 trivially from existing GTK+ or GNOME widgets will also inherit suitable accessibility support.
 </para>
 <para>
-Though GNOME's built-in accessibility support provides significant functionality without any accessibility-specific code changes on the part of the application, applications can often improve on the default descriptions provided for some of the widgets, and tailor them to that
-widget's specific purpose in your application, via straightforward calls to ATK methods in the application. For instance, in most cases applications should add or change the textual descriptions for these widgets with the appropriate ATK function call, so that an assisitive technology can describe their purpose or state to the user. See <link linkend="gad-coding-guidelines">Coding Guidelines for Supporting Accessibility</link> for more information.
+Though GNOME's built-in accessibility support provides significant functionality without any accessibility-specific code changes on the part of the application, applications can often improve on the default descriptions provided for some of the widgets, and tailor them to that widget's specific purpose in your application, via straightforward calls to ATK methods in the application. For instance, in most cases applications should add or change the textual descriptions for these widgets with the appropriate ATK function call, so that an assisitive technology can describe their purpose or state to the user. See <link linkend="gad-coding-guidelines">Coding Guidelines for Supporting Accessibility</link> for more information.
 </para>
 <para>
 If your application uses custom widgets, you may have to do some work to expose those widgets' properties to assistive technologies. See <link linkend="gad-custom">Making Custom Components Accessible</link> and <link linkend="gad-api-examples">Examples that Use the Accessibility API</link> for more information.
+</para>
+<para>
+For additional, in-depth information regarding GTK/GTK+, see the <ulink url="http://library.gnome.org/devel/gtk">GTK+ Reference Manual</ulink>, <ulink url="http://live.gnome.org/GAP/AtkGuide/Gtk">the GTK section of the ATK Guide</ulink>, the GNOME-hosted <ulink url="http://library.gnome.org/devel/gtk-tutorial/stable/">GTK+ 2.0 Tutorial</ulink> and the official <ulink url="http://library.gnome.org/devel/gtk-faq/stable/">GTK+ FAQ</ulink>.
 </para>
 </section>
 
@@ -128,7 +129,7 @@ See <link linkend="gad-custom">Making Custom Components Accessible</link> and <l
 </section>
 
 <section id="dev-start-5">
-<title>Introducing ATK, AT-SPI and GAIL</title>
+<title>Introducing ATK, AT-SPI, GAIL and GTK+</title>
 <screenshot>
 <mediaobject>
 <imageobject>
@@ -148,7 +149,13 @@ ATK is the toolkit that GNOME uses to enable accessibility for users needing ext
 AT-SPI is the primary service interface by which assistive technologies query and receive notifications from running applications. The full API can be explored <ulink url="http://library.gnome.org/devel/at-spi-cspi/stable/">here</ulink>. Additional material is available from <ulink url="http://accessibility.kde.org/developer/atk.php#coreclasses">the KDE Accessibility Development Community</ulink>.
 </para>
 <para>
-GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module. License, download and other information can be found <ulink url="http://www.t2-project.org/packages/gail.html">here</ulink>. The <ulink url="ftp://ftp.gnome.org/pub/GNOME/sources/gail/">GAIL source code</ulink> also serves as an excellent tutorial for advanced ATK usage. 
+GAIL (GNOME Accessibility Implementation Library) is an implementation of the accessibility interfaces defined by ATK. GTK is a toolkit which is already mapped to ATK by the GAIL module. License, download and other information can be found <ulink url="http://www.t2-project.org/packages/gail.html">here</ulink>. The <ulink url="ftp://ftp.gnome.org/pub/GNOME/sources/gail/">GAIL source code</ulink> also serves as an excellent tutorial for advanced ATK usage. In addition, you may be interested in the <ulink url="http://library.gnome.org/devel/gail-libgail-util/stable/">GAIL Reference Manual</ulink>.
+</para>
+<para>
+GTK+ is a library for creating graphical user interfaces. It works on many UNIX-like platforms, Windows, and on framebuffer devices. GTK+ is released under the GNU Library General Public License (GNU LGPL), which allows for flexible licensing of client applications. GTK+ has a C-based object-oriented architecture that allows for maximum flexibility. Bindings for other languages have been written, including C++, Objective-C, Guile/Scheme, Perl, Python, TOM, Ada95, Free Pascal, and Eiffel.
+</para>
+<para>
+For additional, in-depth information regarding GTK/GTK+, see the <ulink url="http://library.gnome.org/devel/gtk">GTK+ Reference Manual</ulink>, <ulink url="http://live.gnome.org/GAP/AtkGuide/Gtk">the GTK section of the ATK Guide</ulink>, the GNOME-hosted <ulink url="http://library.gnome.org/devel/gtk-tutorial/stable/">GTK+ 2.0 Tutorial</ulink> and the official <ulink url="http://library.gnome.org/devel/gtk-faq/stable/">GTK+ FAQ</ulink>.
 </para>
 </section>
 </section>
