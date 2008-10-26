@@ -1,13 +1,21 @@
+# Russian translation for platform overview.
+# Copyright (C) 2008 Free Software Foundation.
+#
+# Yura Penkin <yura.penkin@gmail.ru>, 2007
+# Nikita Belobrov <qvzqvz@gmail.com>, 2008
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-devel-docs/platform-overview trunk\n"
-"POT-Creation-Date: 2007-11-07 03:44+0000\n"
-"PO-Revision-Date: 2007-12-09 01:06+0300\n"
-"Last-Translator: Yura Penkin <yura.penkin@gmail.ru>\n"
+"Project-Id-Version: platform-overview trunk\n"
+"POT-Creation-Date: 2008-06-27 15:36+0000\n"
+"PO-Revision-Date: 2008-10-18 04:58+0400\n"
+"Last-Translator: Nikita Belobrov <qvzqvz@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: C/platform.xml:4(title)
 msgid "Platform Overview"
@@ -21,16 +29,15 @@ msgid ""
 "expectations. This chapter provides a very brief overview of the components "
 "that are discussed in this document."
 msgstr ""
-"Платформа GNOME предоставляет всестороннее окружение для разработки "
-"графических приложений и другого программного обеспечения. Используя "
-"технологии GNOME, вы можете создавать высококачественное программное "
-"обеспечение которое удовлетворяют и даже превосходит ожидания пользователей. "
-"Эта глава представляет собой короткий обзор компонентов, обсуждаемых в этом "
-"документе."
+"Платформа GNOME предоставляет собой комплексную среду разработки графических "
+"приложений и другого программного обеспечения. Используя технологии GNOME, "
+"вы можете создавать высококачественное программное обеспечение, которое "
+"удовлетворяет и даже превосходит ожидания пользователей. Эта глава "
+"представляет собой короткий обзор компонентов, обсуждаемых в документе."
 
 #: C/platform.xml:13(title) C/core-tech.xml:4(title)
 msgid "Core Technologies"
-msgstr ""
+msgstr "Основные технологии"
 
 #: C/platform.xml:15(para)
 msgid ""
@@ -41,29 +48,30 @@ msgid ""
 "the screen. The graphical technologies in GNOME are outlined in <xref "
 "linkend=\"graphics\"/>."
 msgstr ""
-"GNOME предоставляет набор библиотек для конструирования привлекательного "
-"пользовательского интерфейса. Он предоставляет библиотеки для отображения и "
-"манипулирования элементами управления пользовательского интерфейса. Для "
-"расположения и отрисовки текста большинства мировых систем письма и "
-"отображения сложной векторной графики на экране. Графические технологии "
-"GNOME рассматриваются в <xref linkend=\"graphics\"/>."
+"GNOME предоставляет набор библиотек для создания привлекательного "
+"пользовательского интерфейса: для отображения и манипулирования элементами "
+"управления, для расположения и отрисовки текста большинства мировых систем "
+"письма и отображения сложной векторной графики на экране. Графические "
+"технологии GNOME рассматриваются в разделе <xref linkend=\"graphics\"/>."
 
 #: C/platform.xml:22(para)
 msgid ""
-"The GnomeVFS library provides a file system abstraction that allows users to "
-"work with files on remote servers as well as the local file system. Using "
-"GnomeVFS for file and folder operations allows your application to support "
-"remote folders automatically. GnomeVFS is discussed in <xref linkend=\"gnome-"
-"vfs\"/>."
+"The GIO library in GLib, together with the GVFS backend, provides a file "
+"system abstraction that allows users to work with files on remote servers as "
+"well as the local file systems. GIO provides a high-level API for file "
+"operations, making development fast and easy. Using GIO will allow your "
+"application to support remote files and folders automatically. GIO and GVFS "
+"are discussed in <xref linkend=\"gio\"/>."
 msgstr ""
-"Библиотека GnomeVFS предоставляет абстрактную файловую систему, которая "
-"позволяет пользователям работать с файлами на удаленных серверах так, как "
-"если бы эти файлы находились в локальной файловой системе. Использование "
-"GnomeVFS для операций с файлами и каталогами позволяет вашему приложению "
-"поддерживать удаленные каталоги автоматически. GnomeVFS рассматривается в "
-"<xref linkend=\"gnome-vfs\"/>."
+"Библиотека GIO в GLib совместно с GVFS обеспечивают уровень абстракции "
+"файловой системы, который позволяет работать с файлами на удалённых серверах "
+"так же, как с локальными. Высокоуровневый программный интерфейс GIO для "
+"работы с файлами позволяет легко и быстро разрабатывать приложения. "
+"Использование GIO в приложениях позволяет им автоматически поддерживать "
+"работу с удалёнными файлами и каталогами. GIO и GVFS описаны в разделе <xref "
+"linkend=\"gio\"/>"
 
-#: C/platform.xml:28(para)
+#: C/platform.xml:29(para)
 msgid ""
 "GNOME provides the GConf library and daemon for storing and retrieving user "
 "preferences. GConf has a simple API that makes it easy to provide instant-"
@@ -71,8 +79,14 @@ msgid ""
 "administrators to provide default and mandatory application settings for "
 "their users. GConf is discussed in <xref linkend=\"gconf\"/>."
 msgstr ""
+"Для хранения настроек пользователя GNOME предоставляет библиотеку GConf, "
+"имеющую простой программный интерфейс, с помощью которого легко обеспечить "
+"настройки приложения, мгновенно вступающие в силу при изменении. С помощью "
+"GConf системные администраторы могут установить настройки по умолчанию и "
+"принудительные настройки для пользователей. GConf описан в разделе  <xref "
+"linkend=\"gconf\"/>."
 
-#: C/platform.xml:34(para)
+#: C/platform.xml:35(para)
 msgid ""
 "GNOME provides facilities for internationalization and accessibility, "
 "helping you reach the largest possible number of potential users. Much of "
@@ -81,52 +95,65 @@ msgid ""
 "Internationalization is discussed in <xref linkend=\"i18n\"/>. Accessibility "
 "is discussed in <xref linkend=\"a11y\"/>."
 msgstr ""
+"GNOME предоставляет инструменты для интернационализации и поддержки "
+"специальных возможностей, что позволяет охватить большее количество "
+"потенциальных пользователей. Многое из этого уже встроено в систему, но при "
+"разработке приложений следует обращать внимание на многие моменты. "
+"Интернационализация описана в разделе <xref linkend=\"i18n\"/>. Специальные "
+"возможности описаны в разделе <xref linkend=\"a11y\"/>"
 
-#: C/platform.xml:41(para)
+#: C/platform.xml:42(para)
 msgid ""
 "GNOME ships with GStreamer, an extremely powerful multimedia framework for "
 "creating, editing, and playing audio and video content. GStreamer is "
 "discussed in <xref linkend=\"multimedia\"/>."
 msgstr ""
+"GNOME поставляется вместе с GStreamer — весьма мощной мультимедийной "
+"платформой для создания, редактирования и воспроизведения аудио и видео "
+"содержимого. GStreamer описан в разделе <xref linkend=\"multimedia\"/>."
 
-#: C/platform.xml:45(para)
+#: C/platform.xml:46(para)
 msgid ""
 "GNOME also provides a complete print framework which leverages CUPS whenever "
 "possible. The print framework in GNOME allows you to provide a consistent "
 "interface to high-quality printing. The print framework is discussed in "
 "<xref linkend=\"printing\"/>."
 msgstr ""
+"GNOME также предоставляет полноценную подсистему печати, которая улучшает "
+"возможности CUPS когда это допустимо. Подсистема печати GNOME позволяет "
+"обеспечить приложение полноценным интерфейсом для печати высокого качества. "
+"Подсистема печати описана в разделе <xref linkend=\"printing\"/>."
 
-#: C/platform.xml:52(title) C/ipc-network.xml:4(title)
+#: C/platform.xml:53(title) C/ipc-network.xml:4(title)
 msgid "IPC and Networking"
-msgstr ""
+msgstr "Межпроцессное взаимодействие и работа с сетью"
 
-#: C/platform.xml:54(para)
+#: C/platform.xml:55(para)
 msgid ""
 "The GNOME desktop has full support for transferring data using the clipboard "
 "or with drag and drop. The APIs in GTK+ can help you create applications "
 "that interoperate well with the rest of the desktop. Clipboard and drag and "
 "drop functionality are discussed in <xref linkend=\"clipboard\"/>."
 msgstr ""
-"Рабочий стол GNOME имеет полную поддержку передачи данных с использованием "
-"буфера обмена или перетаскивания. Програмный интерфейс GTK+ могут помочь вам создавать "
-"приложения, которые взаимодействуют с оставшейся частью рабочего стола. "
-"Функции буфер обмена и перетаскивание рассматривается в <xref linkend="
-"\"clipboard\"/>."
+"Рабочий стол GNOME полностью поддерживает передачу данных с использованием "
+"буфера обмена или перетаскивания. Программный интерфейс GTK+ позволяет "
+"создавать приложения, которые взаимодействуют со всеми другими приложениями "
+"рабочего стола. Функциональность буфера обмена и перетаскивания описана в "
+"разделе <xref linkend=\"clipboard\"/>."
 
-#: C/platform.xml:60(para)
+#: C/platform.xml:61(para)
 msgid ""
 "With <ulink url=\"http://www.freedesktop.org/\">freedesktop.org</ulink>, "
 "GNOME provides the D-Bus messaging system. D-Bus is a cross-desktop message "
 "bus which allows all types of applications to communicate with one another. "
 "D-Bus is discussed in <xref linkend=\"dbus\"/>."
 msgstr ""
-"С <ulink url=\"http://www.freedesktop.org/\">freedesktop.org</ulink>, GNOME "
-"предоставляет систему сообщений D-Bus. D-Bus - это шина, которая не зависит "
-"от рабочей среды, позволяющая всем типам приложений взаимодействовать друг с "
-"другом. D-Bus рассматривается в <xref linkend=\"dbus\"/>."
+"Вместе с <ulink url=\"http://www.freedesktop.org/\">freedesktop.org</ulink>, "
+"GNOME предоставляет систему сообщений D-Bus — шину, которая не зависит от "
+"рабочей среды и позволяет всем типам приложений взаимодействовать друг с "
+"другом. D-Bus описана в разделе <xref linkend=\"dbus\"/>."
 
-#: C/platform.xml:65(para)
+#: C/platform.xml:66(para)
 msgid ""
 "GNOME features the Bonobo component system, built on top of CORBA. Bonobo "
 "allows programmers to create complex embeddable components which can be "
@@ -134,11 +161,11 @@ msgid ""
 "corba\"/>."
 msgstr ""
 "GNOME содержит системный компонент Bonobo, являющийся надстройкой над CORBA. "
-"Bonobo позволяет создавать программистам комплексные встраиваемые "
-"компоненты, которые могут быть использованы в других программах. Bonobo "
-"рассматривается <xref linkend=\"bonobo-corba\"/>."
+"Bonobo позволяет создавать сложные встраиваемые компоненты, которые могут "
+"быть использованы в других программах. Bonobo описан в разделе <xref linkend="
+"\"bonobo-corba\"/>."
 
-#: C/platform.xml:70(para)
+#: C/platform.xml:71(para)
 msgid ""
 "To make networks more manageable for users, GNOME supports DNS Service "
 "Discovery. DNS Service Discovery enables applications to find services "
@@ -146,13 +173,13 @@ msgid ""
 "network addresses. DNS Service Discovery is discussed in <xref linkend=\"dns-"
 "sd\"/>."
 msgstr ""
-"Для того, чтобы сделать сети более управляемыми для пользователей, GNOME "
-"поддерживает Обзор служб DNS. Обзор служб DNS позволяет приложениям находить "
-"службы автоматически в локальной сети, что предпочтительней, чем требовать "
-"от пользователя предоставлять сетевые адреса вручную. Обзор служб DNS "
-"рассматривается в <xref linkend=\"dns-sd\"/>."
+"Чтобы облегчить пользователю управление сетью, GNOME поддерживает сервис "
+"обнаружения служб, что позволяет приложениям находить службы в локальной "
+"сети автоматически, а не требовать от пользователя вводить сетевые адреса "
+"вручную. Сервис обнаружения служб описан в разделе <xref linkend=\"dns-sd\"/"
+">."
 
-#: C/platform.xml:76(para)
+#: C/platform.xml:77(para)
 msgid ""
 "Finally, GNOME provides a number of libraries for working with XML and web "
 "services. These technologies are becoming increasingly important to "
@@ -160,23 +187,26 @@ msgid ""
 "\"xml-web-services\"/>."
 msgstr ""
 "Наконец, GNOME предоставляет набор библиотек для работы с XML и веб-"
-"службами. Эти технологии становятся всё более  важными для разработчиков "
-"приложений. XML и веб-службы рассматриваются в <xref linkend=\"xml-web-"
-"services\"/>."
+"службами, которые становятся всё более важными для разработчиков приложений. "
+"XML и веб-службы описаны в разделе <xref linkend=\"xml-web-services\"/>."
 
-#: C/platform.xml:83(title) C/desktop-tech.xml:4(title)
+#: C/platform.xml:84(title) C/desktop-tech.xml:4(title)
 msgid "Desktop Technologies"
 msgstr "Технологии рабочего стола"
 
-#: C/platform.xml:85(para)
+#: C/platform.xml:86(para)
 msgid ""
 "The GNOME desktop features numerous places where applications can provide "
 "better integration, such as providing panel applets or plugins for the file "
 "manager. Many of these features are discussed in <xref linkend=\"desktop-tech"
 "\"/>."
 msgstr ""
+"Рабочий стол GNOME сопровождает множество способов, которыми приложения "
+"могут лучше интегрироваться, например можно совместно использовать панель "
+"для апплетов или подключаемые модули файлового менеджера. Множество этих "
+"особенностей описано в разделе <xref linkend=\"desktop-tech\"/>."
 
-#: C/platform.xml:90(para)
+#: C/platform.xml:91(para)
 msgid ""
 "GNOME provides comprehensive Human Interface Guidelines to help you create "
 "more usable applications. GNOME's usability standards were a first among "
@@ -184,14 +214,24 @@ msgid ""
 "commitment to a better user experience. Usability is discussed in <xref "
 "linkend=\"usability\"/>."
 msgstr ""
+"GNOME имеет всеобъемлющее руководство по созданию интерфейсов человеко-"
+"машинного взаимодействия, чтобы помочь разработчикам создать более удобные "
+"приложения. Эргономические стандарты GNOME были первыми среди свободных сред "
+"рабочего стола и продолжают развиваться, утверждаясь в GNOME в целях "
+"улучшения работы пользователя. Эргономичность рассматривается в разделе "
+"<xref linkend=\"usability\"/>."
 
-#: C/platform.xml:96(para)
+#: C/platform.xml:97(para)
 msgid ""
 "GNOME also provides a complete help system, as well as style guidelines for "
 "writing documentation. Though often under-appreciated, good user help can "
 "significantly improve your software. Documentation is discussed in <xref "
 "linkend=\"documentation\"/>."
 msgstr ""
+"GNOME обеспечивает полноценную систему помощи и руководства по написанию "
+"документации. Часто неощутимая, но хорошая справка может значительно "
+"улучшить программное обеспечение. Документирование рассмотрено в разделе "
+"<xref linkend=\"documentation\"/>"
 
 #: C/legal-fdl.xml:2(para)
 msgid ""
@@ -202,6 +242,13 @@ msgid ""
 "of the GFDL at this <ulink url=\"ghelp:fdl\">link</ulink> or in the file "
 "COPYING-DOCS distributed with this manual."
 msgstr ""
+"Разрешается копировать, распространять и/или изменять этот документ на "
+"условиях лицензии GNU Free Documentation License (GFDL), версии 1.1 или "
+"любой более поздней версии, опубликованной Фондом свободного программного "
+"обеспечения (Free Software Foundation), без неизменяемых частей и без "
+"текстов на обложках. Вы можете найти копию лицензии GFDL по  <ulink type="
+"\"help\" url=\"ghelp:fdl\">этой ссылке</ulink> или в файле COPYING-DOCS, "
+"распространяемом с этим документом."
 
 #: C/legal-fdl.xml:11(para)
 msgid ""
@@ -210,6 +257,10 @@ msgid ""
 "you can do so by adding a copy of the license to the manual, as described in "
 "section 6 of the license."
 msgstr ""
+"Это руководство — часть документации GNOME, которая распространяется на "
+"условиях лицензии GNU FDL. Если вы хотите распространять это руководство "
+"отдельно от остальной документации, вам следует приложить к руководству "
+"копию лицензии, как описано в разделе 6 лицензии."
 
 #: C/legal-fdl.xml:17(para)
 msgid ""
@@ -219,6 +270,10 @@ msgid ""
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
+"Некоторые имена и марки используются компаниями для обозначения их продуктов "
+"и услуг и являются торговыми марками. Там, где эти имена присутствуют в "
+"документации и там, где участники проекта документирования GNOME знают об "
+"этом, имена выделяются заглавными буквами или начальной заглавной буквой."
 
 #: C/legal-fdl.xml:30(para)
 msgid ""
@@ -234,6 +289,16 @@ msgid ""
 "ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
 "OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
 msgstr ""
+"ДОКУМЕНТ РАСПРОСТРАНЯЕТСЯ «КАК ЕСТЬ», БЕЗ ВСЯКИХ ГАРАНТИЙ, ЯВНЫХ ИЛИ НЕЯВНЫХ, "
+"ВКЛЮЧАЯ, БЕЗ ОГРАНИЧЕНИЙ, ГАРАНТИИ ТОГО, ЧТО ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ "
+"ДОКУМЕНТА СВОБОДНА ОТ ДЕФЕКТОВ, ПРИГОДНА К ПРОДАЖЕ, ПРИГОДНА К ИСПОЛЬЗОВАНИЮ "
+"В ОПРЕДЕЛЁННЫХ ЦЕЛЯХ ИЛИ НЕ НАРУШАЕТ ЗАКОНЫ. ВЕСЬ РИСК, КАСАЮЩИЙСЯ КАЧЕСТВА, "
+"ТОЧНОСТИ ИЛИ ПРАВИЛЬНОСТИ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ЛЕЖИТ "
+"НА ВАС. ЕСЛИ ДОКУМЕНТ ИЛИ ИЗМЕНЁННАЯ ВЕРСИЯ ДОКУМЕНТА ИМЕЕТ НЕДОСТАТКИ, ВЫ "
+"(А НЕ АВТОР ДОКУМЕНТА ИЛИ ЕГО ПОМОЩНИК) БЕРЁТЕ НА СЕБЯ СТОИМОСТЬ ЛЮБОЙ "
+"НЕОБХОДИМОЙ ДОРАБОТКИ, КОРРЕКЦИИ ИЛИ ВОССТАНОВЛЕНИЯ. ЭТОТ ОТКАЗ ОТ ГАРАНТИЙ "
+"СОСТАВЛЯЕТ ВАЖНУЮ ЧАСТЬ ЛИЦЕНЗИИ. НИКАКОЕ ИСПОЛЬЗОВАНИЕ ДОКУМЕНТА ИЛИ "
+"ИЗМЕНЁННОЙ ВЕРСИИ ДОКУМЕНТА НЕ ДОПУСКАЕТСЯ БЕЗ ДАННОГО ПРЕДУПРЕЖДЕНИЯ И"
 
 #: C/legal-fdl.xml:47(para)
 msgid ""
@@ -248,6 +313,14 @@ msgid ""
 "VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
 "POSSIBILITY OF SUCH DAMAGES."
 msgstr ""
+"НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ И НИ ПРИ КАКОМ ЗАКОННОМ СПОСОБЕ, НИ ПО КАКОМУ "
+"СОГЛАШЕНИЮ ИЛИ ДРУГОЙ ПРИЧИНЕ, АВТОР, СОЗДАТЕЛЬ, ПОМОЩНИКИ ИЛИ "
+"РАСПРОСТРАНИТЕЛИ ДОКУМЕНТА НЕ НЕСУТ ОТВЕТСТВЕННОСТЬ ЗА ПРЯМОЙ, КОСВЕННЫЙ, "
+"СПЕЦИАЛЬНЫЙ, СЛУЧАЙНЫЙ ИЛИ ПРЕДНАМЕРЕННЫЙ УЩЕРБ ЛЮБОГО СВОЙСТВА, ВКЛЮЧАЯ, "
+"БЕЗ ОГРАНИЧЕНИЯ, ПОТЕРЮ РЕПУТАЦИИ, РАБОТОСПОСОБНОСТИ, КОМПЬЮТЕРНЫЕ СБОИ ИЛИ "
+"ПОЛОМКИ, ИЛИ ЛЮБОЙ ДРУГОЙ УЩЕРБ ИЛИ ПОТЕРИ, ВОЗНИКАЮЩИЕ ВСЛЕДСТВИЕ ИЛИ "
+"СВЯЗАННЫЕ С ИСПОЛЬЗОВАНИЕМ ДОКУМЕНТА ИЛИ ИЗМЕНЁННЫХ ВЕРСИЙ ДОКУМЕНТА, ДАЖЕ "
+"ЕСЛИ СТОРОНА БЫЛА УВЕДОМЛЕНА О ВОЗМОЖНОСТИ ТАКОГО УЩЕРБА."
 
 #: C/legal-fdl.xml:24(para)
 msgid ""
@@ -255,10 +328,13 @@ msgid ""
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
 "<placeholder-1/>"
 msgstr ""
+"ДОКУМЕНТ И ИЗМЕНЁННЫЕ ВЕРСИИ ДОКУМЕНТА ПРЕДОСТАВЛЯЮТСЯ ПОЛЬЗОВАТЕЛЮ НА "
+"УСЛОВИЯХ ЛИЦЕНЗИИ GNU FREE DOCUMENTATION LICENSE С УВЕДОМЛЕНИЕМ О ТОМ, ЧТО: "
+"<placeholder-1/>"
 
 #: C/ipc-network.xml:7(title)
 msgid "Clipboards and Drag and Drop"
-msgstr ""
+msgstr "Буфер обмена и перетаскивание"
 
 #: C/ipc-network.xml:9(para)
 msgid ""
@@ -269,6 +345,13 @@ msgid ""
 "pasting from a system-wide clipboard. Both the clipboard and drag and drop "
 "work across multiple applications, including those not developed with GNOME."
 msgstr ""
+"Так как пользователи работают с всё большим количеством типов данных в "
+"различных приложения, то возрастает необходимость в обмене объектами и "
+"данными между приложениями. GNOME поддерживает два связанных метода обмена "
+"данными между приложениями: операция перетаскивания и копирование в "
+"общесистемный буфер обмена и вставка из него. Оба эти механизма работают "
+"между различными приложениями, включая те, что были разработаны без помощи "
+"GNOME. "
 
 #: C/ipc-network.xml:17(para)
 msgid ""
@@ -278,6 +361,11 @@ msgid ""
 "data from the first application. Clipboard operations are fully supported in "
 "GTK+."
 msgstr ""
+"Буфер обмена используется, когда пользователь явно копирует данные в "
+"приложении. В этом случае приложение захватывает буфер обмена. Когда "
+"пользователь вставляет данные в другое приложение, то это приложение "
+"запрашивает буфер обмена из первого приложения. Операции с буфером обмена "
+"полностью поддерживаются в GTK+."
 
 #: C/ipc-network.xml:23(para)
 msgid ""
@@ -288,6 +376,12 @@ msgid ""
 "GTK+ provides drag and drop support with a sophisticated API that makes it "
 "easy to manage drop targets in your applications."
 msgstr ""
+"Операции перетаскивания похожи, но требуют отслеживания курсора и его "
+"обновления при движении над потенциальными целями. Когда приложение "
+"уведомляется о движении курсора над ним во время перетаскивания, оно должно "
+"изменить курсор таким образом, чтобы показать может ли оно принять "
+"перетаскивание. GTK+ поддерживает перетаскивание с помощью сложного API, "
+"позволяющего легко управлять целями перетаскивания в приложениях."
 
 #: C/ipc-network.xml:30(para)
 msgid ""
@@ -298,6 +392,12 @@ msgid ""
 "word processor can maintain formatting by requesting the data in HTML, while "
 "a plain text editor can receive the text without formatting."
 msgstr ""
+"Оба механизма — перетаскивание и буфер обмена, поддерживают обмен не только "
+"текстом, но и произвольными данными. Когда у приложения есть данные для "
+"обмена оно объявляет доступные форматы этих данных. Например, при "
+"копировании текста в веб-браузере, текстовый процессор может обработать "
+"данные в формате HTML, в то время как обычный текстовый редактор может "
+"принять только обычный текст без форматирования."
 
 #: C/ipc-network.xml:38(para)
 msgid ""
@@ -310,6 +410,14 @@ msgid ""
 "should use the APIs in GTK+ to provide support for any other data in your "
 "application."
 msgstr ""
+"Необходимо обеспечить поддержку работы с буфером обмена и перетаскивания для "
+"всех данных, с которыми работает приложение. Буфер обмена и перетаскивание "
+"полезно не только для обработки текста, но и переноса между приложениями "
+"фрагментов файлов, изображений, звука. При использовании GTK+ приложения "
+"автоматически поддерживают работу с буфером обмена и перетаскивание для "
+"текстовых полей, цветовых кнопок, диалогов выбора файлов и других встроенных "
+"элементов управления. Для поддержки любого другого типа данных необходимо "
+"использовать API GTK+."
 
 #: C/ipc-network.xml:47(para)
 msgid ""
@@ -320,6 +428,12 @@ msgid ""
 "Standards/clipboard_2dmanager_2dspec\">The Clipboard Manager Specification</"
 "ulink>."
 msgstr ""
+"За дальнейшей информацией обратитесь к описаниями протоколов <ulink url="
+"\"http://www.newplanetsoftware.com/xdnd/\">Drag-and-Drop Protocol for the X "
+"Window System</ulink>, <ulink url=\"http://www.freedesktop.org/wiki/"
+"Standards/clipboards_2dspec\">X Clipboard Explanation</ulink>, и <ulink url="
+"\"http://www.freedesktop.org/wiki/Standards/clipboard_2dmanager_2dspec\">The "
+"Clipboard Manager Specification</ulink>."
 
 #: C/ipc-network.xml:57(title)
 msgid "D-BUS Messaging"
@@ -335,13 +449,13 @@ msgid ""
 "the desktop, providing better interaction and a richer experience for the "
 "user."
 msgstr ""
-"D-Bus - это шина сообщений, которая не зависит от рабочей среды, позволяющая "
-"обмениваться сообщениями между различными приложениями, средой и "
-"низкоуровневыми компонентами системы. D-Bus предоставляет простой программный интерфейс для "
+"D-Bus — шина сообщений, которая не зависит от рабочей среды и позволяет "
+"обмениваться сообщениями различным приложениям, средой и низкоуровневыми "
+"компонентами системы. D-Bus предоставляет простой программный интерфейс для "
 "отправки сообщений отдельным службам или широковещательных сообщений всем "
-"службам, которым требуется. D-Bus позволяет различным типам приложений "
-"обмениваться информацией и интегрироваться друг с другом и со средой, "
-"обеспечивая лучшее взаимодействие и "
+"службам. D-Bus позволяет различным типам приложений обмениваться информацией "
+"и интегрироваться друг с другом и со средой, обеспечивая лучшую "
+"функциональность и взаимодействие с пользователем."
 
 #: C/ipc-network.xml:67(para)
 msgid ""
@@ -351,6 +465,11 @@ msgid ""
 "players can send a D-Bus message to prevent the screensaver from activating "
 "when the user is watching a movie."
 msgstr ""
+"D-Bus предоставляет шину сеанса и системную шину. Шина сеанса используется "
+"приложениями, работающими в одном сеансе пользователя, для обмена данными и "
+"уведомлении о событиях, а также интеграции с рабочим столом пользователя. "
+"Например, видеопроигрыватель может послать сообщение D-Bus, чтобы "
+"предотвратить активацию хранителя экрана во время просмотра фильма."
 
 #: C/ipc-network.xml:73(para)
 msgid ""
@@ -362,6 +481,14 @@ msgid ""
 "system bus is used to monitor when network interfaces go up or down, when "
 "external drives get plugged in, and when laptop batteries are low."
 msgstr ""
+"Системная шина единственная в системе и работает независимо от сеансов "
+"пользователей. Она может взаимодействовать с приложениями в любом сеансе, "
+"позволяя приложениям взаимодействовать с системными компонентами без работы "
+"на низком уровне. Системная шина используется для обеспечения важной "
+"функциональности, которую пользователи ожидают от системы. Например, "
+"системная шина используется для слежением за включением и выключением "
+"сетевых интерфейсов, за подключением сетевых кабелей, а также состоянием "
+"батарей ноутбука."
 
 #: C/ipc-network.xml:82(para)
 msgid ""
@@ -371,6 +498,13 @@ msgid ""
 "use it to create portable and versatile software that seamlessly integrates "
 "with the user's desktop, regardless of which desktop it is."
 msgstr ""
+"D-Bus разработан совместно с <ulink url=\"http://www.freedesktop.org/"
+"\">freedesktop.org</ulink>, поэтому его можно использовать с различными "
+"приложениями и средами рабочего стола. Проект D-Bus используется во многих "
+"средах рабочего стола, поэтому с его использованием можно создавать "
+"универсальные приложения, которые идеально интегрируются со средой рабочего "
+"стола пользователя независимо от того какая именно среда рабочего стола "
+"используется."
 
 #: C/ipc-network.xml:89(para)
 msgid ""
@@ -379,6 +513,10 @@ msgid ""
 "dbus.freedesktop.org/doc/dbus-specification.html\">The D-BUS Specification</"
 "ulink>."
 msgstr ""
+"Для получения дополнительной информации по D-Bus обратитесь к <ulink url="
+"\"http://dbus.freedesktop.org/doc/dbus-tutorial.html\">The D-BUS Tutorial</"
+"ulink> and <ulink url=\"http://dbus.freedesktop.org/doc/dbus-specification."
+"html\">The D-BUS Specification</ulink>."
 
 #: C/ipc-network.xml:97(title)
 msgid "Bonobo and CORBA"
@@ -391,6 +529,11 @@ msgid ""
 "Broker Architecture (CORBA), Bonobo provides all the common interfaces "
 "needed to create and use well-behaved components in GNOME applications."
 msgstr ""
+"Bonobo — это платформа для создания повторно используемых в приложениях "
+"компонентов. Будучи построенной на основе индустриального стандарта Общей "
+"архитектуры брокера объектных запросов (COBRA) Bonobo предоставляет "
+"интерфейсы, необходимые для создания компонентов с хорошим поведением в "
+"приложениях GNOME."
 
 #: C/ipc-network.xml:105(para)
 msgid ""
@@ -402,14 +545,25 @@ msgid ""
 "applets in the GNOME panel. Using Bonobo enables the applets to communicate "
 "effectively with the panel, affording users a consistent interface."
 msgstr ""
+"Компоненты Bonobo можно использовать в различных ситуациях для созданиям "
+"гибкого и расширяемого программного обеспечения. Например, компонент показа "
+"мультимедиа-содержимого можно внедрить в текстовый процессор, таким образом "
+"эффективно обеспечить поддержку мультимедиа без непосредственной её "
+"обработки. Компоненты Bonobo также используются для вставки апплетов в "
+"панель GNOME. С помощью Bonobo апплеты эффективно взаимодействуют с панелью, "
+"предоставляя пользователю целостный интерфейс."
 
-#: C/ipc-network.xml:114(para)
+#: C/ipc-network.xml:114(para)ны
 msgid ""
 "Bonobo components are not limited to graphical controls. Bonobo is used by "
 "Evolution, GNOME's email and groupware suite, to provide access to users' "
 "addressbook and calendar. This allows users to keep all their information in "
 "one place, where all applications can access it."
 msgstr ""
+"Компоненты Bonono не ограничены графическими элементами управления. Bonobo "
+"используется Evolution — почтовым клиентом и средством групповой работы — "
+"для доступа к адресной книге и календарю, что позволяет хранить информацию в "
+"одном месте, откуда её могут получить все приложения."
 
 #: C/ipc-network.xml:119(para)
 msgid ""
@@ -419,6 +573,12 @@ msgid ""
 "the Interface Definition Language (IDL). CORBA's flexible design even allows "
 "components to run on seperate machines over a network."
 msgstr ""
+"Bonobo — реализация COBRA, позволяющая выполнять компоненты в раздельных "
+"процессах. Компоненты могут быть написаны на различных языках и выполняться "
+"в различных средах выполнения, необходимо лишь, чтобы их интерфейсы "
+"соответствовали синтаксису языка определения интерфейсов (IDL). Гибкий "
+"дизайн COBRA позволяет компонентам выполняться даже на различных машинах в "
+"сети."
 
 #: C/ipc-network.xml:125(para)
 msgid ""
@@ -427,6 +587,11 @@ msgid ""
 "written effectively in C, a language often excluded by other CORBA "
 "implementations. ORBit is an incredibly fast CORBA implementation."
 msgstr ""
+"GNOME предоставляет собственную быструю и легкую реализацию CORBA — ORBit. "
+"Инструменты и библиотеки, поставляемые с GNOME позволяют написание "
+"компонентов на языке C, в то время как другие реализации COBRA исключают "
+"такую возможность.ORBit является невероятно быстродейственной реализацией "
+"CORBA."
 
 #: C/ipc-network.xml:130(para)
 msgid ""
@@ -438,10 +603,11 @@ msgid ""
 msgstr ""
 "Bonobo помогает заполнить пробелы в CORBA, предоставляя дополнительные "
 "интерфейсы и спецификации, необходимые для поддержки совместимых "
-"компонентов. Если же всё-таки вам необходимо использовать CORBA без Bonobo, "
-"вы может использовать его напрямую. Например, инфраструктура доступности "
-"GNOME использует CORBA для того, чтобы позволить инструментам помощи "
-"наблюдать и взаимодействовать с запущенными приложениями."
+"компонентов. Если же всё-таки необходимо использовать CORBA без Bonobo,  "
+"можно использовать его напрямую. Например, подсистема специальных "
+"возможностей GNOME использует CORBA для того, чтобы позволить "
+"вспомогательным инструментам наблюдать и взаимодействовать с запущенными "
+"приложениями."
 
 #: C/ipc-network.xml:137(para)
 msgid ""
@@ -449,20 +615,30 @@ msgid ""
 "be embedded into applications. For most IPC needs, however, GNOME is moving "
 "towards D-Bus, as integrating D-Bus into applications is considerably easier."
 msgstr ""
+"Bonobo можно использовать для реализации сложных графических компонентов, "
+"которые могут быть внедрены в приложение. Тем не менее, для большинства "
+"задач межпроцессного взаимодействия GNOME всё больше использует подсистему D-"
+"Bus, так как интегрирование D-Bus в приложения значительно проще."
 
 #: C/ipc-network.xml:142(para)
 msgid ""
-"For more information on Bonobo, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/libbonobo/index.html\">The Libbonobo Reference Manual</ulink> "
-"and <ulink url=\"http://developer.gnome.org/doc/API/2.0/libbonoboui/index."
-"html\">The LibbonoboUI Reference Manual</ulink>. For information on ORBit, "
-"GNOME's CORBA implementation, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/ORBit/index.html\">The ORBit2 Reference Manual</ulink>."
+"For more information on Bonobo, see the <ulink url=\"http://library.gnome."
+"org/devel/libbonobo/stable/\">Libbonobo Reference Manual</ulink> and the "
+"<ulink url=\"http://library.gnome.org/devel/libbonoboui/stable/"
+"\">LibbonoboUI Reference Manual</ulink>. For information on ORBit, GNOME's "
+"CORBA implementation, see the <ulink url=\"http://library.gnome.org/devel/"
+"ORBit2/stable/\">ORBit2 Reference Manual</ulink>."
 msgstr ""
+"За дополнительной информацией о Bonobo обратитесь к <ulink url=\"http://"
+"library.gnome.org/devel/libbonobo/stable/\">Справочнику по Libbonobo</ulink> "
+"и<ulink url=\"http://library.gnome.org/devel/libbonoboui/stable/"
+"\">Справочнику по LibbonoboUI</ulink>. За информацией об ORBit — GNOME "
+"реализацией CORBA обратитесь к <ulink url=\"http://library.gnome.org/devel/"
+"ORBit2/stable/\">Справочнику по ORBit2</ulink>."
 
 #: C/ipc-network.xml:153(title)
 msgid "Service Discovery"
-msgstr ""
+msgstr "Обнаружение служб"
 
 #: C/ipc-network.xml:155(para)
 msgid ""
@@ -471,6 +647,10 @@ msgid ""
 "network resources without having to provide explicit addresses or configure "
 "their applications manually."
 msgstr ""
+"Обнаружение служб DNS или Zeroconf — это технология автоматического "
+"определения расположения доступных служб в сети. Zeroconf позволяет "
+"использовать ресурсы сети без необходимости явного указания адреса ресурса "
+"или ручной настройки соответствующих приложений."
 
 #: C/ipc-network.xml:160(para)
 msgid ""
@@ -482,22 +662,29 @@ msgid ""
 "application in GNOME, can locate and publish the user's presence and locate "
 "other users on a local network using DNS Service Discovery."
 msgstr ""
+"Обнаружение служб DNS используется во многих компонентах GNOME и его "
+"использование далее будет расширяться. Например, <application>Nautilus</"
+"application> — файловый менеджер GNOME — обнаруживает службы для определения "
+"расположения различных серверов в сети. <application>Ekiga</application> — "
+"приложение для организации видеоконференций и телефонии в GNOME — может "
+"определять и публиковать предпочтения пользователя и находить других "
+"пользователей в локальной сети с помощью обнаружения служб."
 
 #: C/ipc-network.xml:168(para)
 msgid ""
 "Full DNS Service Discovery support is provided by the Avahi library. For "
 "more information on Avahi, visit <ulink url=\"http://avahi.org/\">the Avahi "
-"web site</ulink>. GNOME also provides limited support for locating services "
-"in GnomeVFS. For more information, see <ulink url=\"http://developer.gnome."
-"org/doc/API/2.0/gnome-vfs-2.0/gnome-vfs-20-gnome-vfs-dns-sd.html\">Zeroconf "
-"networking support</ulink>."
+"web site</ulink>."
 msgstr ""
+"Библиотека Avahi обеспечивает полную поддержку обнаружения служб DNS. За "
+"дополнительной информацией по Avahi обратитесь к <ulink url=\"http://avahi."
+"org/\">веб-сайту Avahi</ulink>."
 
-#: C/ipc-network.xml:177(title)
+#: C/ipc-network.xml:174(title)
 msgid "XML and Web Services"
 msgstr "XML и веб-службы"
 
-#: C/ipc-network.xml:179(para)
+#: C/ipc-network.xml:176(para)
 msgid ""
 "In our increasingly inter-connected world, more and more applications need "
 "to provide support for various web services. Sometimes web services simply "
@@ -505,28 +692,28 @@ msgid ""
 "the application. Even applications that have been providing a standalone "
 "user experience for years have found innovative new uses for web services."
 msgstr ""
-"В нашем мире, где постоянно усиливается взаимодействие, все большему "
+"В нашем мире, где постоянно усиливается взаимодействие, всё большему "
 "количеству приложений необходимо обеспечивать поддержку различных веб-служб. "
-"Иногда веб-службы просто обеспечивают дополнительную функциональность, в то "
-"время как в других они составляют главное назначение приложения. Даже "
-"приложения, которые долгое время были автономными, нашли рациональным "
+"Иногда веб-службы просто обеспечивают дополнительную функциональность, "
+"иногда они составляют главное назначение приложения. Даже для приложений, "
+"которые долгое время были автономными, сейчас считается рациональным "
 "использование веб-служб."
 
-#: C/ipc-network.xml:186(para)
+#: C/ipc-network.xml:183(para)
 msgid ""
 "The GNOME Platform provides support for using web services from within your "
 "application, as well as comprehensive libraries for consuming, managing, and "
 "transforming XML, the language of the web."
 msgstr ""
-"Платформа GNOME поддерживает использование веб-служб вашим приложением и "
-"предоставляет полный набор библиотек для использования, управления и "
-"преобразования XML - языка веб."
+"Платформа GNOME предоставляет поддержку веб-служб приложениями и "
+"обеспечивает полным набором библиотек для использования, управления и "
+"преобразования XML — языка веб."
 
-#: C/ipc-network.xml:191(title)
+#: C/ipc-network.xml:188(title)
 msgid "SOAP"
 msgstr "SOAP"
 
-#: C/ipc-network.xml:193(para)
+#: C/ipc-network.xml:190(para)
 msgid ""
 "With the libsoup library, GNOME provides support for the SOAP, a widely-used "
 "protocol for passing XML messages over HTTP. SOAP allows developers to "
@@ -534,8 +721,13 @@ msgid ""
 "retrieve information, send data, make transactions, or use any number of "
 "other services provided."
 msgstr ""
+"GNOME при помощи библиотеки libsoup обеспечивает поддержку SOAP — широко "
+"используемого протокола передачи XML сообщений через HTTP. SOAP позволяет "
+"разработчику опубликовать программные интерфейсы через веб, которые "
+"приложения могут использовать для обмена информацией, выполнения транзакций "
+"и выполнения любых других возможных действий."
 
-#: C/ipc-network.xml:199(para)
+#: C/ipc-network.xml:196(para)
 msgid ""
 "SOAP can be used to search and retrieve information, to interact with an "
 "online store, to manage users' accounts on other systems, or for many other "
@@ -543,8 +735,14 @@ msgid ""
 "functionality for users, and applications using SOAP can provide a more "
 "integrated and featureful user experience."
 msgstr ""
+"SOAP может быть использован для поиска и получения информации, "
+"взаимодействия с интернет-магазином, для управления учётными записями "
+"пользователей на других системах и множества других целей. Веб сервисы "
+"используются всё больше и больше для предоставления важной функциональности, "
+"и приложения, использующие SOAP, могут обеспечить пользователю более "
+"целостную функциональность."
 
-#: C/ipc-network.xml:205(para)
+#: C/ipc-network.xml:202(para)
 msgid ""
 "The libsoup library contains an HTTP implementation and a set of API for "
 "constructing and consuming SOAP messages. It also allows for secure "
@@ -552,18 +750,26 @@ msgid ""
 "a secure connection. Using libsoup makes it easy to use web services without "
 "manually parsing and interpreting the messages sent through SOAP."
 msgstr ""
+"Библиотека libsoup содержит реализацию HTTP и набор API необходимый для "
+"создания и обработки сообщений SOAP. Она также поддерживает безопасную "
+"аутентификацию, поэтому Веб-сервисы можно использовать для доступа к "
+"секретным данным через безопасное соединение. С помощью библиотеки libsoup "
+"легко использовать веб-сервисы без необходимости вручную разбирать и "
+"интерпретировать сообщения, посылаемые по SOAP."
 
-#: C/ipc-network.xml:212(para)
+#: C/ipc-network.xml:209(para)
 msgid ""
-"For more information on libsoup, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/libsoup/index.html\">The libsoup Reference Manual</ulink>."
+"For more information on libsoup, see the <ulink url=\"http://library.gnome."
+"org/devel/libsoup/stable/\">libsoup Reference Manual</ulink>."
 msgstr ""
+"За дополнительной информацией обратитесь к <ulink url=\"http://library.gnome."
+"org/devel/libsoup/stable/\">Справочнику по libsoup</ulink>."
 
-#: C/ipc-network.xml:218(title)
+#: C/ipc-network.xml:215(title)
 msgid "XML Processing"
 msgstr "Обработка XML"
 
-#: C/ipc-network.xml:220(para)
+#: C/ipc-network.xml:217(para)
 msgid ""
 "Since its formal introduction in 1998, XML (eXtensible Markup Langauge) has "
 "been used in increasingly more applications. It is used for a wide variety "
@@ -571,16 +777,26 @@ msgid ""
 "protocols like SOAP and Jabber. XML provides a clean and simple base syntax, "
 "allowing applications to focus on their particular needs."
 msgstr ""
+"Со дня официального представления в 1998 г. XML (eXtensible Markup Langauge) "
+"используется во всё большем количестве приложений. Он используется для "
+"широкого круга целей: от форматов документирования, например XHMTL и "
+"DocBook, до протоколов интернета, например SOAP и Jabber. XML имеет простой "
+"и чёткий базовый синтаксис, что позволяет сконцентрироваться на конкретных "
+"нуждах приложения."
 
-#: C/ipc-network.xml:227(para)
+#: C/ipc-network.xml:224(para)
 msgid ""
 "GNOME ships with the libxml2 library, and uses it extensively throughout the "
 "desktop. The libxml2 library is a fast and fully standards-compliant XML "
 "processing library, providing everything you need to use XML in your "
 "application."
 msgstr ""
+"GNOME поставляется с библиотекой libxml2, которая широко используется в "
+"рабочем окружении. Библиотека libxml2 обладает хорошим быстродействием и "
+"полностью совместима со стандартами XML, обеспечивая всё необходимое для "
+"работы приложений с XML."
 
-#: C/ipc-network.xml:232(para)
+#: C/ipc-network.xml:229(para)
 msgid ""
 "The libxml2 library provides a number of different APIs for working with "
 "XML, so you can use whatever best suits your application development needs. "
@@ -588,35 +804,50 @@ msgid ""
 "SAX2 API, streaming XML reader and writer interfaces, and complete support "
 "for XPath."
 msgstr ""
+"Библиотека libxml2 предоставляет различные API для работы с XML, поэтому в "
+"приложениях можно использовать наиболее подходящий API. Кроме оригинального "
+"API, libxml2 также предоставляет основанный на обратных вызовах SAX2 API, "
+"интерфейсы потокового чтения и записи XML, и полную поддержку XPath."
 
-#: C/ipc-network.xml:238(para)
+#: C/ipc-network.xml:235(para)
 msgid ""
 "In addition to DTD support, libxml2 also provides full support for validing "
 "documents using RELAX NG, which allows a more flexible validation model "
 "while remaining simple to use. There is also partial support for XML Schema, "
 "the new schema language produced by W3C."
 msgstr ""
+"Кроме поддержки механизма DTD, библиотека libxml2 полностью поддерживает "
+"верификацию документов с помощью RELAX NG, который предоставляет более "
+"гибкую модель верификации, оставаясь легким в использовании. Также частично "
+"поддерживается XML Schema — новый язык схем, представленный консорциумом W3C."
 
-#: C/ipc-network.xml:243(para)
+#: C/ipc-network.xml:240(para)
 msgid ""
 "You should use libxml2 whenever you need to work directly with XML in your "
 "application. Using libxml2 ensures that you have fully standards-compliant "
 "parsing, processing, and XML output. This means developers can stop worrying "
 "about incompatibilities between applications."
 msgstr ""
+"Для непосредственной работы с XML в приложении следует использовать "
+"библиотеку libxml2, что обеспечит полностью совместимую со стандартами "
+"обработку и вывод XML. Что позволит разработчикам не беспокоиться о "
+"совместимости приложений."
 
-#: C/ipc-network.xml:249(para)
+#: C/ipc-network.xml:246(para)
 msgid ""
 "For more information on libxml2, see <ulink url=\"http://xmlsoft.org/"
 "tutorial/index.html\">The Libxml Tutorial</ulink> and <ulink url=\"http://"
 "xmlsoft.org/html/libxml-lib.html\">The Reference Manual for libxml2</ulink>."
 msgstr ""
+"За подробной информацией о libxml2 обратитесь к <ulink url=\"http://xmlsoft."
+"org/tutorial/index.html\">Руководству по Libxml</ulink> и <ulink url="
+"\"http://xmlsoft.org/html/libxml-lib.html\">Справочнику по libxml2</ulink>."
 
-#: C/ipc-network.xml:256(title)
+#: C/ipc-network.xml:253(title)
 msgid "Transforming XML with XSLT"
 msgstr "Преобразование XML с помощью XSLT"
 
-#: C/ipc-network.xml:258(para)
+#: C/ipc-network.xml:255(para)
 msgid ""
 "XSLT is an XML-based language for transforming XML into other formats. XSLT "
 "is a template-based language, allowing you to match particular types of XML "
@@ -624,33 +855,44 @@ msgid ""
 "developers to create clean and modularized templates to convert an XML "
 "dialect into another format more suitable for the application."
 msgstr ""
-"XSLT - это язык, базирующийся на XML, который предназначенен для "
-"преобразования XML в другие форматы. XSLT - это язык, основанный на "
-"шаблонах, позволяющих вам соотносить определённые типы элементов XML и "
-"создавать выходные элементы. Основанный на XML и XPath, XSLT позволяет "
-"разработчикам преобразовывать одно представление на основе XML в другое, более подходящий для данного "
-"приложения."
+"XSLT — это язык,основанный на XML, который предназначен для преобразования "
+"XML в другие форматы. XSLT основан на шаблонах, позволяющих соотносить "
+"определённые типы элементов XML и создавать соответствующие выходные "
+"элементы. Основанный на XML и XPath, XSLT позволяет разработчикам "
+"преобразовывать одно представление на основе XML в другое, более подходящее "
+"для данного приложения."
 
-#: C/ipc-network.xml:265(para)
+#: C/ipc-network.xml:262(para)
 msgid ""
 "GNOME ships with the libxslt library, a complete implementation of XSLT. The "
 "libxslt library is built on top of the XML and XPath support in libxml2, "
 "allowing it to be fast and fully standards-compliant."
 msgstr ""
+"Библиотека libxslt, поставляемая с GNOME, полностью реализует XSLT и создана "
+"на базе XML и поддержки XPath в библиотеке libxml2, что обеспечивает "
+"быстродействие и полную совместимость со стандартами."
 
-#: C/ipc-network.xml:269(para)
+#: C/ipc-network.xml:266(para)
 msgid ""
 "You should use libxslt if you need to transform XML documents. Although XSLT "
 "is not always the right solution for XML processing, it can often simplify "
 "development. Since libxslt allows you to add extension elements and "
 "extension functions, you can customize it to fit your application."
 msgstr ""
+"Для трансформации документов необходимо использовать библиотеку libxslt, что "
+"может существенно упростить разработку, хотя выбор XSLT для обработки XML "
+"оправдан не всегда. Библиотека libxslt позволяет добавлять расширенные "
+"элементы и функции, что может обеспечить всё необходимое для использования в "
+"конкретном приложении."
 
-#: C/ipc-network.xml:275(para)
+#: C/ipc-network.xml:272(para)
 msgid ""
 "For more information on libxslt, see <ulink url=\"http://xmlsoft.org/XSLT/"
 "html/index.html\">The XSLT C library for Gnome</ulink>."
 msgstr ""
+"За дополнительной информацией о libxslt обратитесь к <ulink url=\"http://"
+"xmlsoft.org/XSLT/html/index.html\">Библиотеке XSLT для языка C для Gnome</"
+"ulink>."
 
 #: C/intro.xml:4(title)
 msgid "Introduction"
@@ -663,6 +905,11 @@ msgid ""
 "usable by everybody, regardless of technical expertise, disabilitites, or "
 "native language. GNOME makes it easy for people to use their computers."
 msgstr ""
+"GNOME — мощное и простое рабочее окружение, фокусирующееся на легкости "
+"использования, обеспечении специальных возможностей и интернационализации. "
+"GNOME создан быть удобным для всех независимо от технической подкованности, "
+"ограничений или языка пользователя. GNOME призван помочь пользователям легко "
+"использовать компьютер."
 
 #: C/intro.xml:11(para)
 msgid ""
@@ -671,6 +918,10 @@ msgid ""
 "This document provides a high-level overview of the GNOME platform along "
 "with links to detailed documentation on each part of the platform."
 msgstr ""
+"GNOME предоставляет разработчику исчерпывающую платформу для разработки "
+"профессионального программного обеспечения, легкого в использовании и "
+"приятного на вид. Этот документ представляет обзор платформы GNOME общего "
+"уровня со ссылками на детальные документы по каждой подсистеме платформы."
 
 #: C/intro.xml:17(title)
 msgid "Who Should Read This Document"
@@ -686,15 +937,14 @@ msgid ""
 "detailed documentation, so you can explore each component of the platform in "
 "more depth."
 msgstr ""
-"Вам следует прочитать этот документ, если хотите создавать программное "
+"Этот документ следует прочесть тем, кто собирается создавать программное "
 "обеспечение, использующее платформу GNOME. Разработка приложений с "
-"использованием возможностей, предоставляемых платформой GNOME, позволяет вам "
+"использованием предоставляемых платформой GNOME возможностей позволяет "
 "создавать приложения, которые хорошо интегрируются в рабочую среду "
 "пользователя. Это руководство кратко описывает различные компоненты "
-"платформы для того, чтобы вы могли знать, какие библиотеки могут выполнять "
-"нужные вам функции. Руководство ссылается на дополнительную более детальную "
-"документацию, так что вы можете рассмотреть каждый компонент платформы более "
-"подробно."
+"платформы для разъяснения того, какие библиотеки выполняют нужные функции. "
+"Руководство ссылается на более детальную документацию, чтобы можно было "
+"рассмотреть каждый компонент платформы более подробно."
 
 #: C/intro.xml:27(para)
 msgid ""
@@ -702,6 +952,9 @@ msgid ""
 "your software project. It will provide an overview how you can use the GNOME "
 "platform to build useful software."
 msgstr ""
+"Это руководство полезно для выбора платформы разработки программного "
+"продукта. Здесь представлен обзор возможностей GNOME для разработки "
+"программного обеспечения."
 
 #: C/intro.xml:31(para)
 msgid ""
@@ -710,6 +963,11 @@ msgid ""
 "functionality to plug into the GNOME desktop, you should read this guide, "
 "particularly <xref linkend=\"desktop-tech\"/>."
 msgstr ""
+"Это руководство также описывает способы расширения рабочего стола GNOME с "
+"помощью подключаемых модулей, апплеты панели GNOME и других полезных "
+"инструментов. Для получения дополнительной информации по разработке "
+"дополнительной функциональности GNOME желательно прочесть <xref linkend="
+"\"desktop-tech\"/>."
 
 #: C/intro.xml:36(para)
 msgid ""
@@ -717,10 +975,13 @@ msgid ""
 "you should see the online <ulink url=\"http://live.gnome.org/GuideForISVs"
 "\">Guide For ISVs</ulink> in addition to this guide."
 msgstr ""
+"Чтобы узнать, как перенести существующее программное обеспечение на "
+"платформу GNOME в дополнение следует прочесть <ulink url=\"http://live.gnome."
+"org/GuideForISVs\">Руководство по ISV</ulink>."
 
 #: C/intro.xml:43(title)
 msgid "The GNOME Family"
-msgstr ""
+msgstr "Сообщество GNOME"
 
 #: C/intro.xml:45(para)
 msgid ""
@@ -729,10 +990,14 @@ msgid ""
 "web sites and conferences where you can learn more about GNOME, as well as "
 "other organizations that work with GNOME."
 msgstr ""
+"GNOME — это глобальная инициатива, реализуемая силами участников по всему "
+"миру. GNOME успешен благодаря усилиям участников проекта и пользователям. "
+"Этот раздел содержит список веб-сайтов и форумов, где можно узнать больше о "
+"GNOME и других организациях, работающих с GNOME."
 
 #: C/intro.xml:51(title)
 msgid "Web Sites"
-msgstr ""
+msgstr "Веб-сайты"
 
 #: C/intro.xml:53(ulink)
 msgid "www.gnome.org"
@@ -743,219 +1008,278 @@ msgid ""
 "The primary web site for GNOME users. It contains release information, "
 "downloads, and documentation."
 msgstr ""
+"Основной веб-сайт для пользователей GNOME. Содержит информацию по выпускам, "
+"файлы для загрузки и документацию."
 
 #: C/intro.xml:58(ulink)
-msgid "developer.gnome.org"
-msgstr "developer.gnome.org"
+msgid "library.gnome.org"
+msgstr "library.gnome.org"
 
 #: C/intro.xml:59(para)
 msgid ""
-"The primary web site for people developing using the GNOME platform, as well "
-"as core GNOME developers. It contains all the developer documentation, as "
-"well as further information on the usability, documentation, and "
-"translations teams."
+"The complete source for all GNOME documentation. It contains all of the user "
+"and developer documentation produced by GNOME, automatically built and "
+"updated for each release."
 msgstr ""
+"Полный источник всей документации GNOME. Содержит всю документацию для "
+"пользователей и разработчиков, созданную GNOME, которая автоматически "
+"создаётся и обновляется с каждым выпуском."
 
-#: C/intro.xml:65(ulink)
+#: C/intro.xml:64(ulink)
 msgid "foundation.gnome.org"
 msgstr "foundation.gnome.org"
 
-#: C/intro.xml:66(para)
+#: C/intro.xml:65(para)
 msgid ""
 "The web site for the GNOME Foundation, the not-for-profit foundation that "
 "oversees the development of GNOME."
 msgstr ""
+"Веб-сайт организации GNOME Foundation — некоммерческой организации, "
+"наблюдающей за разработкой GNOME."
 
-#: C/intro.xml:70(ulink)
+#: C/intro.xml:69(ulink)
 msgid "bugzilla.gnome.org"
 msgstr "bugzilla.gnome.org"
 
-#: C/intro.xml:71(para)
+#: C/intro.xml:70(para)
 msgid ""
 "The GNOME bug trackers. Use this site to submit a bug report or feature "
 "request, or to track the status of a report."
 msgstr ""
+"Система отслеживания ошибок GNOME. Этот ресурс используется для сообщении об "
+"ошибках и запроса новых возможностей, а также для отслеживания состяния "
+"сообщений об ошибках."
 
-#: C/intro.xml:75(ulink)
+#: C/intro.xml:74(ulink)
 msgid "live.gnome.org"
 msgstr "live.gnome.org"
 
-#: C/intro.xml:76(para)
+#: C/intro.xml:75(para)
 msgid ""
 "The GNOME wiki. Many projects within GNOME now use the wiki as their primary "
 "web space. In additional, the wiki is often used to sketch out future "
 "development."
 msgstr ""
+"Вики GNOME. Множество проектов внутри GNOME используют вики как основную веб-"
+"платформу. Кроме того, вики часто используется для создания набросков по "
+"будущей разработке."
 
-#: C/intro.xml:81(ulink)
+#: C/intro.xml:80(ulink)
+msgid "developer.gnome.org"
+msgstr "developer.gnome.org"
+
+#: C/intro.xml:81(para)
+msgid ""
+"The old website for developer information. This once contained developer "
+"documentation and information about the usability, documentation, and "
+"translation teams. The content on this site has since been largely "
+"superseded by <ulink url=\"http://library.gnome.org/\">library.gnome.org</"
+"ulink> and <ulink url=\"http://live.gnome.org/\">live.gnome.org</ulink>. "
+"There may still be some information on this site that is not found elsewhere."
+msgstr ""
+"Старый веб-сайт с информацией для разработчиков. Содержит информацию для "
+"разработчиков, по эргономике, документацию и разделы групп перевода. Многие "
+"разделы этого сайта были заменены <ulink url=\"http://library.gnome.org/"
+"\">library.gnome.org</ulink> и <ulink url=\"http://live.gnome.org/\">live."
+"gnome.org</ulink>. Тем не менее на этой сайте всё еще может находиться "
+"информация, которой больше нигде нет."
+
+#: C/intro.xml:90(ulink)
 msgid "mail.gnome.org"
 msgstr "mail.gnome.org"
 
-#: C/intro.xml:82(para)
+#: C/intro.xml:91(para)
 msgid ""
 "Information on GNOME mailing lists. This site contains full archives of all "
 "GNOME mailing lists."
 msgstr ""
+"Информация по спискам рассылки GNOME. Этот сайт содержит полный архив всех "
+"список рассылки GNOME."
 
-#: C/intro.xml:86(ulink)
+#: C/intro.xml:95(ulink)
 msgid "cvs.gnome.org"
 msgstr "cvs.gnome.org"
 
-#: C/intro.xml:87(para)
+#: C/intro.xml:96(para)
 msgid ""
 "The GNOME CVS repository, tracking all GNOME source code back to the "
 "inception of the project."
 msgstr ""
+"Хранилище CVS GNOME, в котором отслеживаются все исходные коды с начала "
+"проекта."
 
-#: C/intro.xml:93(title)
+#: C/intro.xml:102(title)
 msgid "Mailing Lists"
 msgstr "Списки рассылки"
 
-#: C/intro.xml:96(ulink)
+#: C/intro.xml:105(ulink)
 msgid "gnome-list"
-msgstr ""
+msgstr "gnome-list"
 
-#: C/intro.xml:97(para)
+#: C/intro.xml:106(para)
 msgid "The primary mailing list for GNOME users."
 msgstr "Основной список рассылки для пользователей GNOME."
 
-#: C/intro.xml:101(ulink)
+#: C/intro.xml:110(ulink)
 msgid "gnome-devel-list"
-msgstr ""
+msgstr "gnome-devel-list"
 
-#: C/intro.xml:102(para)
+#: C/intro.xml:111(para)
 msgid "Information and questions about development using the GNOME platform."
 msgstr "Информация и вопросы о разработке с использованием платформы GNOME."
 
-#: C/intro.xml:107(ulink)
+#: C/intro.xml:116(ulink)
 msgid "gnome-love"
-msgstr ""
+msgstr "gnome-love"
 
-#: C/intro.xml:108(para)
+#: C/intro.xml:117(para)
 msgid "The first place to go to get involved with GNOME."
 msgstr ""
+"Первый список рассылки, который стоит посетить, чтобы войти в команду GNOME."
 
-#: C/intro.xml:112(ulink)
+#: C/intro.xml:121(ulink)
 msgid "gnome-accessibility-list"
-msgstr ""
+msgstr "gnome-accessibility-list"
 
-#: C/intro.xml:113(para)
+#: C/intro.xml:122(para)
 msgid "Information on accessibility in GNOME applications."
-msgstr "Информация о доступности приложений GNOME."
+msgstr "Информация о специальных возможностях в приложениях GNOME."
 
-#: C/intro.xml:117(ulink)
+#: C/intro.xml:126(ulink)
 msgid "gnome-doc-list"
-msgstr ""
+msgstr "gnome-doc-list"
 
-#: C/intro.xml:118(para)
+#: C/intro.xml:127(para)
 msgid "Information on writing documentation for GNOME applications."
 msgstr "Информация о том, как писать документацию для приложений GNOME."
 
-#: C/intro.xml:123(ulink)
+#: C/intro.xml:132(ulink)
 msgid "gnome-i18n"
-msgstr ""
+msgstr "gnome-i18n"
 
-#: C/intro.xml:124(para)
+#: C/intro.xml:133(para)
 msgid ""
 "Information about internationalization and localization of GNOME "
 "applications."
-msgstr "Информация о интернационализации и локализации приложений GNOME."
+msgstr "Информация об интернационализации и локализации приложений GNOME."
 
-#: C/intro.xml:129(ulink)
+#: C/intro.xml:138(ulink)
 msgid "usability"
 msgstr "Удобство использования"
 
-#: C/intro.xml:130(para)
+#: C/intro.xml:139(para)
 msgid "Information on usability for GNOME applications."
-msgstr "Информация о удобстве использования приложений GNOME."
+msgstr "Информация об эргономике приложений GNOME."
 
-#: C/intro.xml:135(title)
+#: C/intro.xml:144(title)
 msgid "Conferences"
-msgstr ""
+msgstr "Конференции"
 
-#: C/intro.xml:137(ulink)
+#: C/intro.xml:146(ulink)
 msgid "GUADEC"
-msgstr ""
+msgstr "GUADEC"
 
-#: C/intro.xml:138(para)
+#: C/intro.xml:147(para)
 msgid ""
 "The primary conference for GNOME users and developers. GUADEC is hosted "
 "annually in May or June. Each year, it is hosted in a different European "
 "city, making it an excellent excuse to see more of Europe. GUADEC features "
 "talks aimed at users, developers, and vendors."
 msgstr ""
+"Основная конференция пользователей и разработчиков GNOME. GUADEC проходит в "
+"мае или июне ежегодно. Каждый год она проходит в разных городах Европы. "
+"Основные темы GUADEC нацелены на пользователей, разработчиков и поставщиков "
+"программного обеспечения."
 
-#: C/intro.xml:145(term)
+#: C/intro.xml:154(term)
 msgid "The GNOME Summit"
-msgstr ""
+msgstr "Саммит GNOME"
 
-#: C/intro.xml:146(para)
+#: C/intro.xml:155(para)
 msgid ""
 "The hacker get-together. The Summit is geared primarily at existing GNOME "
 "developers, although there is often useful information for new developers. "
 "The Summit is hosted annually in Boston."
 msgstr ""
+"Место, где разработчики собираются вместе. Саммит в основном поддерживается "
+"существующими разработчиками GNOME, хотя может быть полезен для начинающих. "
+"Ежегодно саммит проходит в Бостоне, США."
 
-#: C/intro.xml:152(term)
+#: C/intro.xml:161(term)
 msgid "GNOME.conf.au"
-msgstr ""
+msgstr "GNOME.conf.au"
 
-#: C/intro.xml:153(para)
+#: C/intro.xml:162(para)
 msgid "A casual get-together hosted annually at linux.conf.au."
-msgstr ""
+msgstr "Ежегодное собрание, проходящее в рамках конференции linux.conf.au."
 
-#: C/intro.xml:160(title)
+#: C/intro.xml:169(title)
 msgid "Other Organizations"
 msgstr "Другие организации"
 
-#: C/intro.xml:162(ulink)
+#: C/intro.xml:171(ulink)
 msgid "freedesktop.org"
 msgstr "freedesktop.org"
 
-#: C/intro.xml:163(para)
+#: C/intro.xml:172(para)
 msgid ""
 "The collaborative effort for interoperability and shared technology among "
 "desktop environments. Through freedesktop.org, GNOME works with projects "
 "such as KDE and XFCE to make it easier for application developers to provide "
 "better experiences for their users."
 msgstr ""
+"Совместная инициатива, направленная на развитие взаимодействия и общих "
+"технологий для разных рабочих сред. Несмотря на freedesktop.org, GNOME "
+"сотрудничает с другими проектами, такими как KDE и XFCE для облегчения "
+"разработчикам программного обеспечения создания удобных для пользователя "
+"приложений."
 
-#: C/intro.xml:169(ulink)
+#: C/intro.xml:178(ulink)
 msgid "Mozilla"
 msgstr "Mozilla"
 
-#: C/intro.xml:170(para)
+#: C/intro.xml:179(para)
 msgid ""
 "The free web engine, and a whole lot more. GNOME maintains close ties to the "
 "Mozilla development team to provide an overall better user interface."
 msgstr ""
+"Свободное веб-ядро, и даже намного больше. GNOME работает бок о бок с "
+"группой разработчиков Mozilla, помогая разрабатывать удобный интерфейс."
 
-#: C/intro.xml:175(ulink)
+#: C/intro.xml:184(ulink)
 msgid "OpenOffice.org"
 msgstr "OpenOffice.org"
 
-#: C/intro.xml:176(para)
+#: C/intro.xml:185(para)
 msgid ""
 "The free office suite. GNOME works with the OpenOffice.org development team "
 "to help provide a more unified interface when using the free office suite on "
 "GNOME."
 msgstr ""
+"Свободный офисный пакет. GNOME сотрудничает с группой разработчиков "
+"OpenOffice.org, помогая создать более унифицированный интерфейс при "
+"использовании свободного офисного пакета в GNOME."
 
-#: C/intro.xml:181(ulink)
+#: C/intro.xml:190(ulink)
 msgid "Free Software Foundation"
-msgstr ""
+msgstr "Free Software Foundation"
 
-#: C/intro.xml:182(para)
+#: C/intro.xml:191(para)
 msgid ""
 "Freedom. Established in 1985, the Free Software Foundation has worked to "
 "create a complete free operating systems, giving its users the freedom to "
 "use, modify, and redistribute their software. As part of the GNU project, "
 "GNOME aims to provide a fully free desktop environment."
 msgstr ""
+"Свобода. Основана в 1985 г. Free Software Foundation (Организация свободного "
+"программного обеспечения) работает над созданием полностью свободной "
+"операционной системы, дающих пользователю свободу использования, изменения и "
+"распространения программного обеспечения. Будучи частью проекта GNU, GNOME "
+"нацелен на создание полностью свободного программного обеспечения."
 
 #: C/desktop-tech.xml:7(title)
 msgid "Application and File Type Registries"
-msgstr ""
+msgstr "Регистрация приложений и типов файлов"
 
 #: C/desktop-tech.xml:8(para)
 msgid ""
@@ -968,6 +1292,13 @@ msgid ""
 "same data will allow your application to function in other desktop "
 "environments."
 msgstr ""
+"Приложение полезно, если пользователь может его найти и запустить. "
+"Пользователи GNOME могут запускать приложения с помощью главного меню или "
+"запускать их непосредственно указывая файлы в файловом менеджере. Рабочее "
+"окружение GNOME позволяет добавлять приложения и типы файлов при установке "
+"приложения. Этот механизм описан на <ulink url=\"http://www.freedesktop.org/"
+"\">freedesktop.org</ulink>, поэтому одни и те же данные позволяют "
+"приложениям функционировать в различных средах рабочего стола."
 
 #: C/desktop-tech.xml:17(para)
 msgid ""
@@ -977,32 +1308,43 @@ msgid ""
 "values. Your application's desktop entry file will contain the following "
 "information:"
 msgstr ""
+"Добавить приложения также просто, как предоставить файл содержимого рабочего "
+"стола с необходимой информацией. Файлы содержимого рабочего стола используют "
+"простой синтаксис ключ-значение с дополнительными данными, необходимыми для "
+"перевода конкретных значений. Файл содержимого рабочего стола для данного "
+"приложения содержит следующую информацию:"
 
 #: C/desktop-tech.xml:24(para)
 msgid ""
 "A name and a comment, each translated into as many languages as your "
 "application supports,"
 msgstr ""
+"Название приложение и примечание, переведённые на все языки, поддерживаемые "
+"данным приложением."
 
 #: C/desktop-tech.xml:26(para)
 msgid ""
 "A list of categories from a fixed list, which are used to place your "
 "application in the applications menu,"
 msgstr ""
+"Список категорий из фиксированного набора, которые используются для выбора "
+"положения приложения в главном меню приложений."
 
 #: C/desktop-tech.xml:28(para)
 msgid ""
 "An icon, either as a full file path or as a simple name for the icon theme "
 "system,"
 msgstr ""
+"Изображение, либо как полный путь к файлу, либо как имя значка в системе тем "
+"значков рабочего стола."
 
 #: C/desktop-tech.xml:30(para)
 msgid "A list of file types that your application supports, and"
-msgstr ""
+msgstr "Список типов файлов, поддерживаемых приложением и"
 
 #: C/desktop-tech.xml:32(para)
 msgid "The command to run your application."
-msgstr ""
+msgstr "Команда запуска данного приложения."
 
 #: C/desktop-tech.xml:35(para)
 msgid ""
@@ -1015,6 +1357,13 @@ msgid ""
 "information on how to determine which files are of the type, either by "
 "matching the file name or by inspecting the contents of the file."
 msgstr ""
+"Если приложение обрабатывает тип файлов, который еще не зарегистрирован в "
+"системе, необходимо добавить этот тип файлов в реестр. Все типы файлов "
+"связаны с типами MIME. Например, звуковые файлы Ogg Vorbis имеют тип MIME "
+"<literal>application/ogg</literal>. Чтобы добавить тип MIME необходимо "
+"предоставить описание типа, с помощью XML-файла c информацией о MIME. Эти "
+"файлы содержат переведённое имя типа, а также информацию о том, как "
+"определить тип файла либо по имени файла, либо по его содержимому."
 
 #: C/desktop-tech.xml:45(para)
 msgid ""
@@ -1026,10 +1375,17 @@ msgid ""
 "Standards/shared_2dmime_2dinfo_2dspec\">The Shared MIME Info Specification</"
 "ulink>."
 msgstr ""
+"За дополнительной информацией обратитесь к <ulink url=\"http://www."
+"freedesktop.org/wiki/Standards/desktop_2dentry_2dspec\">The Desktop Entry "
+"Specification</ulink> и <ulink url=\"http://www.freedesktop.org/wiki/"
+"Standards/menu_2dspec\">The Desktop Menu Specification</ulink>. За "
+"дополнительной информацией о типах файлов обратитесь к <ulink url=\"http://"
+"www.freedesktop.org/wiki/Standards/shared_2dmime_2dinfo_2dspec\">The Shared "
+"MIME Info Specification</ulink>."
 
 #: C/desktop-tech.xml:56(title)
 msgid "Panel Applets"
-msgstr ""
+msgstr "Апплеты панели GNOME."
 
 #: C/desktop-tech.xml:57(para)
 msgid ""
@@ -1040,6 +1396,12 @@ msgid ""
 "switch between windows and workspaces, display the current weather "
 "conditions, and display network activity, among many others."
 msgstr ""
+"GNOME содержит гибкий и мощный механизм панелей, на которые пользователь "
+"может добавить любое количество апплетов, обеспечивающих быстрый доступ к "
+"ресурсам, информации и функциональность любого вида. Например, рабочий стол "
+"GNOME поставляется с апплетами для переключения между окнами и рабочими "
+"местами, апплетами для отображения текущей погоды, сетевой активности и "
+"другими."
 
 #: C/desktop-tech.xml:64(para)
 msgid ""
@@ -1050,6 +1412,12 @@ msgid ""
 "Panel applets should be used when you need to provide more functionality "
 "than that provided by notification icons."
 msgstr ""
+"Апплеты панели могут расширять функционал основного приложения, а могут быть "
+"независимыми приложениями. Для отображения мгновенных уведомлений приложения "
+"желательно использовать область уведомлений, которая также находится на "
+"панели пользователя. Апплеты следует использовать, когда необходимо "
+"обеспечить большую функциональность, чем могут предоставить значки области "
+"уведомлений."
 
 #: C/desktop-tech.xml:71(para)
 msgid ""
@@ -1062,17 +1430,28 @@ msgid ""
 "example, has context menu items to display a detailed report and to update "
 "the displayed information."
 msgstr ""
+"Апплеты панели — независимые процессы, использующие Bonobo для "
+"взаимодействия с панелью. С помощью Bonobo апплеты интегрируются в панель, "
+"что обеспечивает целостность пользовательского интерфейса. Например, "
+"контекстное меню для каждого апплета панели содержит стандартные пункты его "
+"перемещения, удаления и блокирования. Кроме того, каждый апплет может "
+"добавить другие пункты в контекстное меню для выполнения нужных действий. "
+"Например, апплет <application>Сводка погоды</application> содержит в "
+"контекстном меню пункты для открытия детального отчета о погоде и обновления "
+"текущей информации."
 
 #: C/desktop-tech.xml:80(para)
 msgid ""
-"For more information on panel applets, see <ulink url=\"http://developer."
-"gnome.org/doc/API/2.0/panel-applet/index.html\">The Panel Applet Library</"
-"ulink>."
+"For more information on panel applets, see the <ulink url=\"http://library."
+"gnome.org/devel/panel-applet/stable/\">Panel Applet Library</ulink>."
 msgstr ""
+"За дополнительной информацией об апплетах панели обратитесь к <ulink url="
+"\"http://library.gnome.org/devel/panel-applet/stable/\">Panel Applet "
+"Library</ulink>."
 
 #: C/desktop-tech.xml:86(title)
 msgid "Notification Area"
-msgstr ""
+msgstr "Область уведомлений"
 
 #: C/desktop-tech.xml:87(para)
 msgid ""
@@ -1081,6 +1460,10 @@ msgid ""
 "Notifications can be used to alert the user of new emails, available "
 "updates, upcoming meetings, or any number of other events."
 msgstr ""
+"Кроме кнопок запуска приложений и апплетов панель GNOME содержит область "
+"уведомлений, с помощью которой приложения могут уведомлять пользователя о "
+"произошедших событиях. Например, для уведомления о получении новых писем, "
+"доступных обновлениях, запланированных встречах и других событиях."
 
 #: C/desktop-tech.xml:92(para)
 msgid ""
@@ -1090,6 +1473,11 @@ msgid ""
 "system is implemented in the experimental Egg library; however, the next "
 "version of GTK+ will have support for notification icons."
 msgstr ""
+"Уведомления — это значки, которые приложения могут поместить в область "
+"уведомлений на панели пользователя. Приложение может обработать события "
+"щелчков мышы на значке. В настоящее время система уведомлений реализована в "
+"экспериментальной библиотеке Egg, однако следующая версия GTK+ будет "
+"поддерживать значки уведомлений."
 
 #: C/desktop-tech.xml:99(para)
 msgid ""
@@ -1099,6 +1487,12 @@ msgid ""
 "notification area, see <ulink url=\"http://freedesktop.org/wiki/Standards/"
 "systemtray_2dspec\">The System Tray Protocol Specification</ulink>."
 msgstr ""
+"Область уведомлений описана в спецификациях <ulink url=\"http://www."
+"freedesktop.org/\">freedesktop.org</ulink>, поэтому значки уведомлений "
+"должны появится и в других окружениях рабочего стола. За дополнительной "
+"информацией об области уведомлений обратитесь к <ulink url=\"http://"
+"freedesktop.org/wiki/Standards/systemtray_2dspec\">Спецификации протокола "
+"системного лотка</ulink>."
 
 #: C/desktop-tech.xml:108(title)
 msgid "File Manager"
@@ -1107,15 +1501,16 @@ msgstr "Менеджер файлов"
 #: C/desktop-tech.xml:110(para)
 msgid ""
 "GNOME ships with <application>Nautilus</application>, an intuitive and "
-"powerful file manager. Using the advanced GnomeVFS technology, "
+"powerful file manager. Using the advanced GVFS technology, "
 "<application>Nautilus</application> is able to display remote folders just "
 "like folders on the local file system, giving users access to all their "
 "files everywhere with a single consistent interface."
 msgstr ""
-"GNOME поставляется с <application>Nautilus</application>, интуитивным и "
-"мощным менеджером файлов. Используя технологию GnomeVFS "
-"<application>Nautilus</application> может отображать удаленные каталоги так, "
-"как если бы они находились в локальной файловой системе."
+"GNOME поставляется с <application>Nautilus</application> — интуитивным и "
+"мощным менеджером файлов. Используя технологию GnomeVFS, "
+"<application>Nautilus</application> может отображать удалённые каталоги "
+"также как локальные, что обеспечивает целостный интерфейс доступа к "
+"пользовательским данным."
 
 #: C/desktop-tech.xml:116(para)
 msgid ""
@@ -1124,11 +1519,11 @@ msgid ""
 "users' files. This provides a richer and more coherant experience for users, "
 "removing the need for seperate applications to manage various types of files."
 msgstr ""
-"<application>Nautilus</application> предоставляет интерфейс подключаемых "
-"модулей, который позволяет разработчикам расширять его функциональность и "
-"предоставлять пользователям больше информации о их файлах. Это обеспечивает "
-"большую понятность для пользователей, извлекая необходимое для отдельных "
-"приложений, для того управлять различными типами файлов."
+"<application>Nautilus</application> поддерживает подключаемые модули, что "
+"позволяет разработчикам расширять его функциональность и предоставить "
+"пользователям больше информации о файлах. Это обеспечивает более понятное "
+"взаимодействие с пользователем, избегая необходимости использовать другие "
+"приложения управления файлами различных типов."
 
 #: C/desktop-tech.xml:122(para)
 msgid ""
@@ -1139,13 +1534,13 @@ msgid ""
 "about audio and video files, such as the codec used, the dimensions of the "
 "video, and artist and album of music files extracted from a CD."
 msgstr ""
-"Подключаемые модули <application>Nautilus</application> могут расширять "
-"функциональность менеджера файлов несколькими путями. Они могут добавлять "
-"дополнительную информацию в диалоги свойств файлов, предоставляя "
-"пользователю всю информацию, какую ему необходимо знать о них. Например, "
-"GNOME поставляется с подключаемым модулем, который отображает дополнительную "
-"информацию о аудио и видео файлах, такую как: используемый кодек, размеры "
-"видео, имя артиста и группы аудио файлов, извлеченных с компакт-диска."
+"Подключаемые модули <application>Nautilus</application> расширяют "
+"функциональность менеджера файлов разными способами. Они могут отразить "
+"дополнительную информацию в диалог свойств файлов, предоставляя пользователю "
+"всю необходимую информацию. Например, GNOME поставляется с подключаемым "
+"модулем, который отображает дополнительную информацию о аудио и видео "
+"файлах: используемый кодек, размеры кадра видео, имя артиста и группы аудио "
+"файлов, полученных с компакт-диска."
 
 #: C/desktop-tech.xml:130(para)
 msgid ""
@@ -1156,14 +1551,14 @@ msgid ""
 "version control system. Users could see directly in the file manager if a "
 "file is up to date, or if changes have been made locally."
 msgstr ""
-"Подключаемые модули могут также добавлять колонки в список просмотра и "
-"автоматически отображать эмблемы на файлах. Это может быть использовано для "
-"предоставление пользователю подходящей информации, которою он может охватить "
-"одним взглядом. Например, подключаемый модуль <application>Nautilus</"
-"application> может предоставлять информацию о версии в свойствах каталога, "
-"который был получен с помощью системы контроля версий. Пользователи могут "
-"посмотреть напрямую в менеджере файлов был ли файл обновлен на сервере или "
-"были ли сделаны изменения этого файла на данном компьютере."
+"Подключаемые модули могут добавлять колонки в список просмотра и "
+"автоматически отображать эмблемы на файлах, что может быть использовано для "
+"предоставления пользователю информации, которою он может охватить одним "
+"взглядом. Например, подключаемый модуль <application>Nautilus</application> "
+"может предоставлять информацию о версии в свойствах каталога, который был "
+"получен с помощью системы контроля версий. Пользователи могут посмотреть "
+"напрямую в менеджере файлов был ли файл обновлен на сервере или были ли "
+"изменён файл на данном компьютере."
 
 #: C/desktop-tech.xml:137(para)
 msgid ""
@@ -1176,14 +1571,14 @@ msgid ""
 "menu items provide easy access to common operations on different types of "
 "files."
 msgstr ""
-"<application>Nautilus</application> также позволяет разработчикам добавлять "
-"пункты контекстного меню для файлов и каталогов. Также можно определить для "
-"каких типов файлов следует отображать данные пункты. Таким образом, "
-"контекстное меню предоставляет только те действия, которые важны именно для "
-"выделенных файлов. Например, архиватор для GNOME <application>File Roller</"
-"application> добавляет в контекстное меню пункт для извлечения файлов. "
-"Дополнительные пункты контекстного меню обеспечивают простой доступ к общим "
-"операциям для разных типов файлов."
+"<application>Nautilus</application> позволяет разработчикам добавлять пункты "
+"контекстного меню для файлов и каталогов. Также можно определить для каких "
+"типов файлов следует отображать данные пункты. Таким образом, контекстное "
+"меню предоставляет только те действия, которые важны именно для выделенных "
+"файлов. Например, архиватор для GNOME <application>File Roller</application> "
+"добавляет в контекстное меню пункт извлечения файлов. Дополнительные пункты "
+"контекстного меню обеспечивают простой доступ к общим операциям для разных "
+"типов файлов."
 
 #: C/desktop-tech.xml:146(para)
 msgid ""
@@ -1201,13 +1596,12 @@ msgstr ""
 "<application>Nautilus</application> может отображать миниатюры для тех типов "
 "файлов, которые обрабатывает программа создания миниатюр. Миниатюры "
 "показываются при предварительном просмотре файла, помогая пользователям "
-"найти те файлы, которые им нужны. GNOME может автоматически создавать "
-"миниатюры для большинства видео файлов и изображений и позволяет приложениям "
-"устанавливать дополнительные программы для создания миниатюр файлов, "
-"связанных с данным приложением. Управление миниатюрами полностью определено "
-"<ulink url=\"http://www.freedesktop.org/\">freedesktop.org</ulink>, так что "
-"любые программы для создания миниатюр, которые вы предоставляйте, могут быть "
-"использованы всеми приложениями."
+"найти нужные файлы. GNOME может автоматически создавать миниатюры для "
+"большинства видео файлов и изображений и позволяет приложениям устанавливать "
+"дополнительные программы для создания миниатюр файлов, связанных с данным "
+"приложением. Управление миниатюрами полностью определено <ulink url=\"http://"
+"www.freedesktop.org/\">freedesktop.org</ulink>, так что любые программы для "
+"создания миниатюр будут использоваться всеми приложениями."
 
 #: C/desktop-tech.xml:158(title)
 msgid "Window Manager"
@@ -1223,13 +1617,13 @@ msgid ""
 "to influence the window manager, they can provide hints on their windows "
 "using function calls in GTK+."
 msgstr ""
-"Менеджер окно - это специальная программа, ответственная за рисование рамок "
-"и заголовков окна. Менеджер окон отвечает за обработку всех операций, "
-"связанных с окнами, такими как: перемещение, изменение размера, сворачивание "
+"Менеджер окон — специальная программа, ответственная за отображение рамок и "
+"заголовков окна. Менеджер окон отвечает за обработку всех операций, "
+"связанных с окнами, таких как: перемещение, изменение размера, сворачивание "
 "и перемещение между рабочими областями. Окна управляются с минимальным "
 "участием или практически без участия разработчиков приложения. Когда "
-"приложениям необходимо повлиять на менеджер окон, они могут предоставлять "
-"подсказки на их окнах, вызывая функции GTK+."
+"приложениям необходимо повлиять на менеджер окон, они могут добавлять "
+"дополнительные сведения к своим окнам, вызывая функции GTK+."
 
 #: C/desktop-tech.xml:168(para)
 msgid ""
@@ -1238,10 +1632,10 @@ msgid ""
 "can get information about the placement and state of all the windows and "
 "instruct the window manager to perform various actions on those windows."
 msgstr ""
-"Внешние программы могут, однако, взаимодействовать напрямую с менеджером "
-"окон и даже контролировать его поведение. Используя библиотеку GNOME "
-"libwnck, приложения могут получить информацию о всех окнах и дать команды "
-"менеджеру окон на выполнение различных действий с этими окнами."
+"В то же время внешние программы могут взаимодействовать напрямую с "
+"менеджером окон и даже контролировать его поведение. Используя библиотеку "
+"GNOME libwnck, приложения могут получить информацию о всех окнах и дать "
+"команды менеджеру окон на выполнение различных действий с этими окнами."
 
 #: C/desktop-tech.xml:174(para)
 msgid ""
@@ -1251,6 +1645,11 @@ msgid ""
 "org</ulink> to provide unified window manager interaction across multiple "
 "desktops."
 msgstr ""
+"Библиотека libwnck не специфична для менеджера окон GNOME. Вся её "
+"функциональность использует Расширенные сообщения менеджера окон (Extended "
+"Window Manager Hints) или EWMH. EWMH разработан совместно с <ulink url="
+"\"http://www.freedesktop.org\">freedesktop.org</ulink> для унификации "
+"взаимодействия с оконным менеджером в различных окружениях рабочего стола."
 
 #: C/desktop-tech.xml:180(para)
 msgid ""
@@ -1259,6 +1658,11 @@ msgid ""
 "as for complex applications, such as performing automatic actions on new "
 "windows based on certain window properties."
 msgstr ""
+"Взаимодействия с оконным менеджером с помощью libwnck используются как в "
+"простых задачах, например отображения рабочего пространства и апплета, "
+"показывающего список открытых окон, так и сложных, например выполнение "
+"автоматических действий при создании нового окна на основе некоторых свойств "
+"окна."
 
 #: C/desktop-tech.xml:187(title)
 msgid "Control Center"
@@ -1274,6 +1678,13 @@ msgid ""
 "administraion menu using both the <literal>Settings</literal> and "
 "<literal>System</literal> categories."
 msgstr ""
+"Рабочий стол GNOME предоставляет простое меню для всех системных настроек "
+"рабочего стола и административных настроек. Диалоги настроек и свойств, "
+"помещённые в это меню, становятся легко доступными. Диалоги могут быть "
+"помещены в меню свойств путем их добавления в реестр приложений с категорией "
+"<literal>Setting</literal>. Для помещения диалогов в меню административных "
+"настроек необходимо указать две категории: <literal>Settings</literal> и "
+"<literal>System</literal>."
 
 #: C/desktop-tech.xml:196(para)
 msgid ""
@@ -1284,6 +1695,10 @@ msgid ""
 "menu. You should not use these global menus for individual application "
 "preferences."
 msgstr ""
+"Диалог настройки системы рабочего стола следует помещать в административное "
+"меню, а диалоги, изменяющие настройки лишь нескольких приложений, следует "
+"помещать в меню предпочтений. Для настроек конкретных приложений "
+"использовать эти глобальные меню нежелательно."
 
 #: C/desktop-tech.xml:205(title)
 msgid "Storing Passwords"
@@ -1300,7 +1715,7 @@ msgstr ""
 "паролей пользователя и другой конфиденциальной информации. Приложения могут "
 "использовать библиотеку менеджера брелоков для хранения паролей и доступа к "
 "ним. Пользователи также могут управлять своими паролями, используя "
-"приложение <application>Keyring Manager</application>."
+"приложение <application>Менеджер брелоков</application>."
 
 #: C/desktop-tech.xml:213(para)
 msgid ""
@@ -1310,6 +1725,11 @@ msgid ""
 "provide a password to unlock the keyring. Once a keyring has been unlocked, "
 "the user has access to all of the items in that keyring."
 msgstr ""
+"Менеджер брелоков предоставляет несколько брелоков, каждый из которых может "
+"содержать любое количество элементов. Элементы брелока содержат какую-либо "
+"информацию, чаще всего пароли. Каждый брелок блокируется индивидуально, и "
+"для разблокирования необходимо указать пароль для каждого брелока. После "
+"разблокирования брелока пользователю становятся доступны все его элементы."
 
 #: C/desktop-tech.xml:220(para)
 msgid ""
@@ -1320,6 +1740,12 @@ msgid ""
 "malicious or poorly-written programs from accessing the user's sensitive "
 "data."
 msgstr ""
+"Менеджер брелоков поддерживает список контроля доступа для каждого брелока, "
+"проверяя, доступно ли данное содержимое приложению. Если неизвестное "
+"приложение пытается получить доступ к элементы брелока, менеджер брелоков "
+"запросит у пользователя разрешить или запретить доступ для данного "
+"приложения. Этот механизм предотвращает доступ к важным данным пользователя "
+"вредоносных или плохо написанных программ."
 
 #: C/desktop-tech.xml:227(para)
 msgid ""
@@ -1329,6 +1755,11 @@ msgid ""
 "applications without ever unlocking the keyring. The keyring has to be "
 "unlocked when a matching item is found and accessed."
 msgstr ""
+"Данные брелока хранятся в файловой системе и шифруются с помощью блочного "
+"алгоритма шифрования AES, а хэш атрибутов содержимого шифруется с помощью "
+"SHA1. Хэш атрибутов используется для поиска элементов, запрошенных "
+"приложением без разблокировки брелока. Брелок необходимо будет "
+"разблокировать, когда нужный элемент найден и к нему будет разрешён доступ."
 
 #: C/desktop-tech.xml:234(para)
 msgid ""
@@ -1337,14 +1768,22 @@ msgid ""
 "ends. The session keyring can be used to store passwords to be used in the "
 "current session only."
 msgstr ""
+"Менеджер брелоков содержит брелок сеанса, содержимое которого никогда не "
+"записывается на диск и теряется при окончании сеанса пользователя. Обычно он "
+"используется для хранения паролей, которые могут использоваться только в "
+"текущем сеансе."
 
 #: C/desktop-tech.xml:239(para)
 msgid ""
-"If you use GnomeVFS to access remote servers, you automatically get the "
-"benefits of the keyring manager. Whenever GnomeVFS needs to authenticate the "
-"user, it provides the option to store the password, either in the default "
-"keyring or in the session keyring."
+"If you use GIO to access remote servers, you automatically get the benefits "
+"of the keyring manager. Whenever GVFS needs to authenticate the user, it "
+"provides the option to store the password, either in the default keyring or "
+"in the session keyring."
 msgstr ""
+"При использовании GIO для доступа к удалённым серверам автоматически "
+"используются преимущества менеджера брелоков. Когда GVFS необходимо "
+"аутентифицировать пользователя он пытается сохранить пароль либо в брелоке "
+"по умолчанию, либо в брелоке сеанса."
 
 #: C/desktop-tech.xml:244(para)
 msgid ""
@@ -1353,10 +1792,14 @@ msgid ""
 "provides a better user experience while still keeping user data safe and "
 "secure."
 msgstr ""
+"Менеджер брелоков необходимо использовать в приложении, если требуется "
+"сохранять пароли или другую важную информацию. Использование менеджера "
+"брелоков обеспечит удобный интерфейс пользователя и безопасное хранение "
+"данных."
 
 #: C/desktop-tech.xml:251(title)
 msgid "Session Management"
-msgstr ""
+msgstr "Управление сеансами"
 
 #: C/desktop-tech.xml:252(para)
 msgid ""
@@ -1366,20 +1809,32 @@ msgid ""
 "functionality, your application must connect to the session manager and save "
 "its state when the user logs out."
 msgstr ""
+"GNOME обеспечивает механизм, позволяющий приложениям восстанавливаться и "
+"завершаться от сеанса к сеансу. Пользователь может завершить сеанс с "
+"запущенным приложением, а при следующем входе это приложение полностью "
+"восстановится. Для обеспечения такой функциональности приложение должно "
+"уметь работать с менеджером сеансов и сохранять свое состояние при "
+"завершении сеанса."
 
 #: C/desktop-tech.xml:258(para)
 msgid ""
 "GNOME provides a simple API for session management in the GNOME User "
-"Interface Library. See the section <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/libgnomeui/GnomeClient.html\">GnomeClient</ulink> of <ulink url="
-"\"http://developer.gnome.org/doc/API/2.0/libgnomeui/index.html\">The GNOME "
-"UI Library Reference Manual</ulink> for more information on working with the "
-"GNOME session manager."
+"Interface Library. See the section <ulink url=\"http://library.gnome.org/"
+"devel/libgnomeui/stable/GnomeClient.html\">GnomeClient</ulink> of the <ulink "
+"url=\"http://library.gnome.org/devel/libgnomeui/stable/\">GNOME UI Library "
+"Reference Manual</ulink> for more information on working with the GNOME "
+"session manager."
 msgstr ""
+"GNOME предоставляет простой API для управления сеансами в библиотеке "
+"пользовательского интерфейса GNOME. Обратитесь к разделу <ulink url=\"http://"
+"library.gnome.org/devel/libgnomeui/stable/GnomeClient.html\">GnomeClient</"
+"ulink> в документе <ulink url=\"http://library.gnome.org/devel/libgnomeui/"
+"stable/\">GNOME UI Library Reference Manual</ulink> за дополнительной "
+"информацией о работе с менеджером сеансов GNOME."
 
 #: C/desktop-tech.xml:268(title)
 msgid "Address Book and Calendar"
-msgstr ""
+msgstr "Адресная книга и календарь"
 
 #: C/desktop-tech.xml:269(para)
 msgid ""
@@ -1389,6 +1844,11 @@ msgid ""
 "separate lists of contacts in each application, or manually copy events to "
 "their calendar."
 msgstr ""
+"С помощью сервера данных Evolution GNOME предоставляет единую адресную книгу "
+"и календарь, которые могут использовать любые приложения для сохранения и "
+"получения информации, что позволяет пользователю больше не поддерживать "
+"списки контактов в каждом приложении отдельно и вручную копировать события в "
+"календарь."
 
 #: C/desktop-tech.xml:275(para)
 msgid ""
@@ -1400,6 +1860,13 @@ msgid ""
 "single location, allowing all applications to see all the pertinent data "
 "about users' contacts."
 msgstr ""
+"Компьютеры всё чаще используются для общения с друзьями и коллегами. "
+"Почтовые программы, программы мгновенных сообщений, телефонии и видео-"
+"конференций используются для общения с другими людьми. Все эти программы "
+"используют списки контактов для удобства пользователей, а с помощью сервера "
+"данных Evolution они могут хранить всю контактную информацию в едином "
+"хранилище, что позволяет всем приложениям получать доступ к требуемой "
+"информации о контактах пользователя."
 
 #: C/desktop-tech.xml:283(para)
 msgid ""
@@ -1409,6 +1876,12 @@ msgid ""
 "scheduled, they are shown alongside the calendar. This makes it easy to see "
 "upcoming appointments without opening a full calendar application."
 msgstr ""
+"Кроме того, приложения могут использовать сервер приложений Evolution для "
+"хранения и получения информации о назначенных встречах и событиях в "
+"календаре пользователя. Например, часы на панели при щелчке мыши на них "
+"показывают простой календарь, в котором отмечаются все запланированные "
+"пользователем встречи, что позволяет быстро просмотреть намечающиеся встречи "
+"без запуска приложения Календарь."
 
 #: C/desktop-tech.xml:289(para)
 msgid ""
@@ -1418,10 +1891,15 @@ msgid ""
 "<ulink url=\"http://gnome.org/projects/evolution/developer-doc/libecal/index."
 "html\"> Evolution API Reference: libecal</ulink>."
 msgstr ""
+"За дополнительной информацией об адресной книге обратитесь к <ulink url="
+"\"http://gnome.org/projects/evolution/developer-doc/libebook/ch01.html\"> "
+"Evolution API Reference: libebook</ulink>. За дополлнительной информацией о "
+"календаре обратитесь к<ulink url=\"http://gnome.org/projects/evolution/"
+"developer-doc/libecal/index.html\"> Evolution API Reference: libecal</ulink>."
 
 #: C/desktop-tech.xml:298(title)
 msgid "Usability"
-msgstr "Удобство использования"
+msgstr "Эргономика"
 
 #: C/desktop-tech.xml:299(para)
 msgid ""
@@ -1433,6 +1911,13 @@ msgid ""
 "that are unique to your application, and how efficiently they can execute "
 "tasks once they've learned them."
 msgstr ""
+"Рабочий стол GNOME нацелен на удобство использования и обеспечение "
+"целостного и простого интерфейса пользователя. Компьютеры используются для "
+"выполнения работы (или игры), но не для решения сложных интерфейсных "
+"головоломок. При проектировании приложений необходимо рассмотреть то, как "
+"хорошо пользователи узнают общие парадигмы интерфейса, как быстро они изучат "
+"элементы интерфейса, которые уникальны для приложения и как эффективно они "
+"смогут выполнять задачи после изучения интерфейса."
 
 #: C/desktop-tech.xml:307(para)
 msgid ""
@@ -1440,9 +1925,16 @@ msgid ""
 "applications that are attractive and usable. While no guidelines can provide "
 "a single answer for all usability concerns, understanding the GNOME Human "
 "Interface Guidelines can make it easier to create a usable application. For "
-"more information, please see <ulink url=\"http://developer.gnome.org/"
-"projects/gup/hig/2.0/\">The GNOME Human Interface Guidelines</ulink>."
+"more information, please see the <ulink url=\"http://library.gnome.org/devel/"
+"hig-book/stable/\">GNOME Human Interface Guidelines</ulink>."
 msgstr ""
+"GNOME предлагает исчерпывающее руководство по созданию пользовательских "
+"интерфейсов, которое помогает создать привлекательные и удобные приложения. "
+"Хотя ни одно руководство не может дать единого ответа на все вопросы "
+"эргономики, но понимание рассмотренного руководства облегчит создание "
+"эргономичных приложений. За дополнительной информацией обратитесь к <ulink "
+"url=\"http://library.gnome.org/devel/hig-book/stable/\">Руководству GNOME по "
+"созданию пользовательских интерфейсов</ulink>."
 
 #: C/desktop-tech.xml:317(title)
 msgid "Documentation"
@@ -1456,6 +1948,11 @@ msgid ""
 "use, documentation can nonetheless be an important tool for users, "
 "particularly for complex applications."
 msgstr ""
+"Все приложения необходимо сопровождать документацией, помогающей "
+"пользователям понять суть приложения и решать возникающие проблемы. Хотя "
+"хорошо спроектированное приложение не требует прочтения документации перед "
+"использованием, тем не менее документация может быть важным инструментом "
+"пользователя, особенно для сложных приложений."
 
 #: C/desktop-tech.xml:324(para)
 msgid ""
@@ -1465,6 +1962,12 @@ msgid ""
 "documentation will be automatically formatted with the same consistent "
 "conventions as the rest of the system documentation."
 msgstr ""
+"GNOME содержит единую платформу обеспечения пользователя документацией. "
+"Документацию можно поставлять в формате DocBook, на настоящий момент "
+"признаваемом индустриальным стандартом. При использовании формата DocBook не "
+"нужно беспокоиться о деталях форматирования, так как документация будет "
+"автоматически отформатирована в соответствии с едиными соглашениями, "
+"принятыми для всей системной документации."
 
 #: C/desktop-tech.xml:330(para)
 msgid ""
@@ -1473,34 +1976,45 @@ msgid ""
 "allows the user to search the full text of all documentation. Using the "
 "GNOME help system gives you all these features for free."
 msgstr ""
+"Приложение просмотра помощи GNOME <application>Yelp</application> показывает "
+"на экране и позволяет распечатать документацию, содержит список всей "
+"документации в системе и содержит механизмы полнотекстового поиска по всей "
+"документации. Используя систему помощи GNOME, вы получаете все эти "
+"преимущества бесплатно."
 
 #: C/desktop-tech.xml:335(para)
 msgid ""
-"For more information on writing documentation for your application, see "
-"<ulink url=\"http://developer.gnome.org/projects/gdp/handbook/gdp-handbook/"
-"\">The GNOME Handbook of Writing Software Documentation</ulink>, <ulink url="
-"\"http://www.docbook.org/tdg/en/html/docbook.html\">DocBook: The Definitive "
-"Guide</ulink>, and <ulink url=\"http://developer.gnome.org/documents/style-"
-"guide/\">The GNOME Documentation Style Guide</ulink>."
+"For more information on writing documentation for your application, see the "
+"<ulink url=\"http://library.gnome.org/devel/gdp-handbook/stable/\">GNOME "
+"Handbook of Writing Software Documentation</ulink>, <ulink url=\"http://www."
+"docbook.org/tdg/en/html/docbook.html\">DocBook: The Definitive Guide</"
+"ulink>, and the <ulink url=\"http://library.gnome.org/devel/gdp-style-guide/"
+"stable/\">GNOME Documentation Style Guide</ulink>."
 msgstr ""
+"За подробной информацией о написании документации к приложению обратитесь "
+"к<ulink url=\"http://library.gnome.org/devel/gdp-handbook/stable/\">GNOME "
+"Handbook of Writing Software Documentation</ulink>, <ulink url=\"http://www."
+"docbook.org/tdg/en/html/docbook.html\">DocBook: The Definitive Guide</ulink> "
+"и <ulink url=\"http://library.gnome.org/devel/gdp-style-guide/stable/"
+"\">GNOME Documentation Style Guide</ulink>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/core-tech.xml:24(None)
-msgid "@@image: 'figures/graphics.png'; md5=15da13eed39abd52d7cf7e56d01154ba"
-msgstr ""
+msgid "@@image: 'figures/graphics.png'; md5=d7ab482cbaaf268b4c439c57b2624826"
+msgstr "@@image: 'figures/graphics.png'; md5=d7ab482cbaaf268b4c439c57b2624826"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/core-tech.xml:114(None)
 msgid "@@image: 'figures/pango.png'; md5=e308eb839e5e70aea097a4cfe744e44c"
-msgstr ""
+msgstr "@@image: 'figures/pango.png'; md5=e308eb839e5e70aea097a4cfe744e44c"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/core-tech.xml:359(None)
+#: C/core-tech.xml:361(None)
 msgid "@@image: 'figures/i18n.png'; md5=75f5d47d566817d32f1ed76e4c761ffb"
-msgstr ""
+msgstr "@@image: 'figures/i18n.png'; md5=75f5d47d566817d32f1ed76e4c761ffb"
 
 #: C/core-tech.xml:7(title)
 msgid "Graphical Interfaces"
@@ -1513,11 +2027,11 @@ msgid ""
 "medium for people to interact with software, and users expect applications "
 "to provide usable and attractive user interfaces."
 msgstr ""
-"Большинству приложений необходимо предоставлять графический интерфейс для "
-"для взаимодействия с пользователями. Графические интерфейсы могут создавать "
-"интуитивное и воспринимаемое окружения для взаимодействия с программным "
-"обеспечением  и пользователи ожидают, что приложения будут обеспечивать "
-"удобный и привлекательный интерфейс."
+"Большинству приложений необходимо иметь графический интерфейс для "
+"взаимодействия с пользователями. Графические интерфейсы могут создать "
+"интуитивное и легко воспринимаемое окружение для взаимодействия пользователя "
+"с программным обеспечением, и пользователи ожидают от приложения удобного и "
+"привлекательного интерфейса."
 
 #: C/core-tech.xml:14(para)
 msgid ""
@@ -1527,10 +2041,15 @@ msgid ""
 "allows you to create applications that are consistent, intuitive, and "
 "aesthetically pleasing."
 msgstr ""
+"Платформа GNOME использует разветвлённую графическую технологию "
+"пользовательского интерфейса: начиная от стандартных элементах управления до "
+"API для рисования высококачественной графики. Использование графических "
+"технологий в GNOME позволяет создавать целостные, интуитивно понятные и "
+"эстетически приятные приложения."
 
 #: C/core-tech.xml:21(title)
 msgid "Layered Look at Graphics Libraries"
-msgstr ""
+msgstr "Поуровневый обзор графических библиотек"
 
 #: C/core-tech.xml:30(title)
 msgid "GTK+"
@@ -1544,13 +2063,13 @@ msgid ""
 "construct attractive and sophisticated user interfaces without dealing with "
 "the low-level details of drawing and device interaction."
 msgstr ""
-"GTK+ - это основная библиотека, используемая для построения интерфейсов "
+"GTK+ — это основная библиотека, используемая для построения интерфейсов "
 "пользователя. Она предоставляет все графические элементы управления "
 "пользователя или виджеты, используемые в графических приложениях. "
-"Современнные объектно-ориентированные программные интерфейсы позволяют конструировать "
-"привлекательные и естественные интерфейсы для пользователя без необходимости "
-"иметь дело с тем, как этот интерфейс рисуется на низком уровне и какие при "
-"этом взаимодействуют устройства."
+"Современные объектно-ориентированные программные интерфейсы позволяют "
+"конструировать привлекательные и естественные интерфейсы для пользователя "
+"без необходимости иметь дело с низкоуровневым программированием и "
+"взаимодействия устройств."
 
 #: C/core-tech.xml:39(para)
 msgid ""
@@ -1558,6 +2077,9 @@ msgid ""
 "entries, GTK+ also provides powerful Model-View-Controller (MVC) APIs for "
 "tree views, multi-line text fields, and menu and toolbar actions."
 msgstr ""
+"В дополнение к стандартным элементам управления: кнопок, флажков, текстовых "
+"полей, GTK+ также содержит мощный API «Модель-Внешний вид-Контроллер» (MVC) "
+"для древовидных полей, многострочных редакторов, действий меню и панелей."
 
 #: C/core-tech.xml:44(para)
 msgid ""
@@ -1567,6 +2089,11 @@ msgid ""
 "are sized correctly to fit their contents, and it automatically handles "
 "window resizing."
 msgstr ""
+"Элементы управления в GTK+ располагаются в окне в соответствии с моделью "
+"упаковки в коробку. Программист указывает только то, как упаковать виджеты "
+"относительно друг друга в рамках контейнера, а не абсолютные координаты. GTK"
+"+ гарантирует, что размер окна будет соответствовать его содержимому и при "
+"необходимости будет автоматически изменён."
 
 #: C/core-tech.xml:50(para)
 msgid ""
@@ -1575,6 +2102,10 @@ msgid ""
 "provide additional widgets, and many developers have created custom, special-"
 "purpose widgets for their applications."
 msgstr ""
+"Так как GTK+ предлагает гибкий API, то разработать новые виджеты достаточно "
+"легко. Большое количество библиотек третьих сторон обеспечивает "
+"дополнительные элементы управления, и многие разработчики создают свои "
+"виджеты для конкретных целей."
 
 #: C/core-tech.xml:55(para)
 msgid ""
@@ -1584,13 +2115,22 @@ msgid ""
 "automatically follow the user's theme and font settings, will interact "
 "properly with accessibility technologies, and will behave as users expect."
 msgstr ""
+"GTK+ обрабатывает множество сложных деталей пользовательского интерфейса и "
+"взаимодействия с пользователем и предоставляет простой и мощный API, "
+"позволяющий сосредоточится на основных задачах приложения. Приложения, "
+"использующие GTK+ автоматически наследуют установленные пользователем тему и "
+"шрифты, а также будет корректно работать с технологиями специальных "
+"возможностей, их поведение будет привычным для пользователей."
 
 #: C/core-tech.xml:62(para)
 msgid ""
-"For more information on GTK+, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/gtk/index.html\">The GTK+ Reference Manual</ulink> or visit "
-"<ulink url=\"http://gtk.org/\">the GTK+ web site</ulink>."
+"For more information on GTK+, see the <ulink url=\"http://library.gnome.org/"
+"devel/gtk/stable/\">GTK+ Reference Manual</ulink> or visit <ulink url="
+"\"http://gtk.org/\">the GTK+ web site</ulink>."
 msgstr ""
+"Для получения более полной информации о GTK+ обратитесь к <ulink url="
+"\"http://library.gnome.org/devel/gtk/stable/\">GTK+ Reference Manual</ulink> "
+"или посетите <ulink url=\"http://gtk.org/\">веб-сайт GTK+</ulink>."
 
 #: C/core-tech.xml:69(title)
 msgid "Libglade"
@@ -1604,12 +2144,12 @@ msgid ""
 "import the interface description into your application. This makes it easy "
 "to construct complex layouts and adjust layout details."
 msgstr ""
-"Libglade - это библиотека для построения интерфейса пользователя динамически "
-"из описаний на языке XML. Вы можете использовать дизайнер интерфейсов, "
-"например <application>Glade</application>, для конструирования вашего "
-"интерфейса пользователя и затем импортировать описание интерфейса в ваше "
-"приложение. Это делает простым конструирование сложных разметок и "
-"выравнивания элементов разметок."
+"Libglade — это библиотека для динамического построения интерфейса "
+"пользователя из описаний на языке XML. Для конструирования интерфейса "
+"пользователя можно использовать дизайнер интерфейсов, например "
+"<application>Glade</application>, и затем импортировать описание интерфейса "
+"в приложение. Что позволяет легко конструировать сложное взаимное "
+"расположение элементов и подгонять детали расположения."
 
 #: C/core-tech.xml:76(para)
 msgid ""
@@ -1619,12 +2159,18 @@ msgid ""
 "interface designers to construct the interfaces without having to know how "
 "to program."
 msgstr ""
+"Libglade позволяет программисту сконцентрироваться на логике приложения, "
+"оставляя полноценное построение интерфейса. Дизайнеры графического "
+"интерфейса также могут легко создавать интерфейсы без знаний того, как "
+"работает программа."
 
 #: C/core-tech.xml:82(para)
 msgid ""
-"For more information on Libglade, see <ulink url=\"http://developer.gnome."
-"org/doc/API/2.0/libglade/index.html\">The Libglade Reference Manual</ulink>."
+"For more information on Libglade, see the <ulink url=\"http://library.gnome."
+"org/devel/libglade/stable/\">Libglade Reference Manual</ulink>."
 msgstr ""
+"За дополнительной информацией о Libglade обратитесь к <ulink url=\"http://"
+"library.gnome.org/devel/libglade/stable/\">Libglade Reference Manual</ulink>."
 
 #: C/core-tech.xml:88(title)
 msgid "Pango"
@@ -1638,6 +2184,11 @@ msgid ""
 "native font systems, such as Uniscribe on Microsoft Windows and ATSUI on "
 "MacOS"
 msgstr ""
+"Pango используется для решения различных задач работы со шрифтами и "
+"прорисовки. На большинстве систем GNOME Pango использует библиотеки "
+"FreeType, fontconfig и Cairo для доступа к шрифтам и прорисовки текста. На "
+"других системах Pango использует специфичные шрифтовые механизмы: Uniscribe "
+"на Microsoft Windows и ATSUI на MacOS."
 
 #: C/core-tech.xml:90(para)
 msgid ""
@@ -1645,6 +2196,9 @@ msgid ""
 "is responsible for laying out and rendering text, and is used throughout GTK"
 "+.<placeholder-1/>"
 msgstr ""
+"Pango — ключевая библиотека обработки текста и шрифтов в платформе GNOME. "
+"Она отвечает за расположение и прорисовку текста и используется в GTK+. "
+"<placeholder-1/>"
 
 #: C/core-tech.xml:100(para)
 msgid ""
@@ -1656,16 +2210,25 @@ msgid ""
 "systems is automatic; application developers do not have to write any "
 "special code to support other languages."
 msgstr ""
+"Pango широко поддерживает различные системы письменности, используемые во "
+"всем мире. Многие системы письменности имеют сложные правила расположения "
+"символов и составления знаков. С помощью Pango можно писать и корректно "
+"отображать почти все языки, что позволяет пользователю в любом месте "
+"просматривать текст на родном языке. Поддержка различных систем письменности "
+"осуществляется автоматически и разработчику не нужно писать специальный код "
+"для поддержки разных языков."
 
 #: C/core-tech.xml:110(title)
 msgid "Displaying Multiple Languages With Pango"
-msgstr ""
+msgstr "Многоязыковой вывод с помощью Pango"
 
 #: C/core-tech.xml:116(para)
 msgid ""
 "Screenshot of the <application>gedit</application> text editor displaying "
 "phrases from multiple languages and writing systems."
 msgstr ""
+"Снимок экрана текстового редактора <application>gedit</application>, который "
+"отражает фразы на разных языках и системах письменности."
 
 #: C/core-tech.xml:123(para)
 msgid ""
@@ -1677,6 +2240,13 @@ msgid ""
 "be used directly from GTK+, enabling you to style text in your graphical "
 "interfaces easily."
 msgstr ""
+"Pango поддерживает стилизацию текста, обычно используемую в документах и "
+"интерфейсах, включая курсив, высоту шрифта и подчёркивание. Pango использует "
+"простой XML-подобный словарь, называемый PangoMarkup, который позволяет "
+"устанавливать размер шрифта, цвет, стиль и другие атрибуты текста. С помощью "
+"PangoMarkup можно описать внутренние стили без ручного редактирования блоков "
+"текста. PangoMarkup можно использовать напрямую из GTK+, благодаря чему "
+"легко стилизовать текст в графических интерфейсах."
 
 #: C/core-tech.xml:132(para)
 msgid ""
@@ -1686,12 +2256,21 @@ msgid ""
 "you create portable code, and most importantly, it will ensure that your "
 "application can render text correctly in hundreds of different languages."
 msgstr ""
+"При необходимости расположить текст непосредственно на экране или другом "
+"устройстве вывода следует использовать библиотеку Pango напрямую, при этом "
+"текст будет выводиться согласованно с библиотекой GTK+ и остальной частью "
+"платформы GNOME. Что поможет создать переносимый код и, что ещё более важно, "
+"гарантирует, что приложение сможет корректно отобразить текст на сотнях "
+"различных языков."
 
 #: C/core-tech.xml:140(para)
 msgid ""
-"For more information on Pango, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/pango/index.html\">The Pango Reference Manual</ulink>."
+"For more information on Pango, see the <ulink url=\"http://library.gnome.org/"
+"devel/pango/stable/\">Pango Reference Manual</ulink>."
 msgstr ""
+"За дополнительной информации о Pango обратитесь к <ulink url=\"http://"
+"library.gnome.org/devel/pango/stable/\">Справочному руководству Pango</"
+"ulink>."
 
 #: C/core-tech.xml:146(title)
 msgid "GDK"
@@ -1704,9 +2283,9 @@ msgid ""
 "same consistent API, allowing GTK+ and GTK+ applications to run unmodified."
 msgstr ""
 "GDK работает на разных платформах, включая the X Window System, Microsoft "
-"Windows, DirectFB и Quartz. Независимо от того, на какой платформе работает "
-"GDK, он имеет стабильный программный интерфейс, позволяя  GTK+ и приложениям, "
-"написанным с использованием GTK+ запускаться без модификации на разных "
+"Windows, DirectFB и Quartz. Независимо от того на какой платформе работает "
+"GDK, он имеет стабильный программный интерфейс, позволяя GTK+ и приложениям, "
+"написанным с использованием GTK+, без модификации работать на разных "
 "платформах."
 
 #: C/core-tech.xml:148(para)
@@ -1717,6 +2296,11 @@ msgid ""
 "objects and text to the screen and to interact with the user with various "
 "input devices.<placeholder-1/>"
 msgstr ""
+"GDK — это низкоуровневая библиотека, используемая GTK+ для работы с графикой "
+"и устройствами ввода. Хотя непосредственное использование библиотеки GDK в "
+"коде довольно редко, она содержит весь функционал необходимый для прорисовки "
+"объектов и текста на экране, а также взаимодействия с пользователем с "
+"помощью различных устройств ввода.<placeholder-1/>"
 
 #: C/core-tech.xml:158(para)
 msgid ""
@@ -1725,6 +2309,10 @@ msgid ""
 "extensive drawing system is provided by Cairo, GDK provides hooks to use "
 "Cairo contexts within GDK."
 msgstr ""
+"GDK предоставляет графический контекст и графические примитивы, удобные для "
+"прорисовки простых объектов и вывода изображений на экран. Так как Cairo "
+"предоставляет  систему отрисовки с большими возможностями, GDK содержит "
+"перехватчики для использования контекста Cairo внутри GDK."
 
 #: C/core-tech.xml:163(para)
 msgid ""
@@ -1734,6 +2322,12 @@ msgid ""
 "from the system. When implementing custom controls, you may need to access "
 "these features to implement proper user interaction behavior."
 msgstr ""
+"GDK позволяет использовать события клавиатуры, мыши и других устройств "
+"ввода, вместо использования высокоуровневых сигналов GTK+. Также GDK "
+"предоставляет доступ к низкоуровневым процедурам перетаскивания и работы с "
+"данными системного буфера обмена. При реализации собственных элементов "
+"управления, возможно, понадобится этот функционал для реализации корректного "
+"взаимодействия с элементами интерфейса."
 
 #: C/core-tech.xml:170(para)
 msgid ""
@@ -1743,6 +2337,12 @@ msgid ""
 "of the system functionality needed by GTK+. This includes information about "
 "multi-head displays, resolution and color depth, colormaps, and cursors."
 msgstr ""
+"GDK содержит и другой функционал, необходимый для реализации полноценного "
+"графического пакета, например GTK+. Так как GDK выступает в роли уровня "
+"абстракции платформы, позволяя GTK+ работать в различных средах, он "
+"обеспечивает API для всего системного функционала, необходимого GTK+, "
+"например получение информации о множественных дисплеях, разрешении экрана и "
+"глубине цвета, цветовых картах и курсорах."
 
 #: C/core-tech.xml:177(para)
 msgid ""
@@ -1753,12 +2353,21 @@ msgid ""
 "GDK should generally not be used. Instead, you should use the extensive "
 "functionality provide by Cairo."
 msgstr ""
+"Необходимость в использовании GDK возникает, если есть потребность в "
+"низкоуровневом доступе к слою, находящемуся под оконной системой, включая "
+"низкоуровневый доступ к событиям, окнам и буферу обмена. Использование GDK "
+"для таких задач гарантирует переносимость кода и интеграцию с остальной "
+"частью кода, использующего GTK+. В основном, не следует использовать "
+"примитивные процедуры отрисовки из GDK, вместо этого следует использовать "
+"расширенный функционал Cairo."
 
 #: C/core-tech.xml:185(para)
 msgid ""
-"For more information on GDK, see <ulink url=\"http://developer.gnome.org/doc/"
-"API/2.0/gdk/index.html\">The GDK Reference Manual</ulink>."
+"For more information on GDK, see the <ulink url=\"http://library.gnome.org/"
+"devel/gdk/stable/\">GDK Reference Manual</ulink>."
 msgstr ""
+"Для получения более полной информации посетите <ulink url=\"http://www.gtkmm."
+"org/\">веб-сайт gtkmm</ulink>."
 
 #: C/core-tech.xml:191(title)
 msgid "Cairo"
@@ -1772,6 +2381,11 @@ msgid ""
 "Microsoft Windows, and image buffers, allowing you to write platform-"
 "independent code to draw graphics on different media."
 msgstr ""
+"Cairo — это библиотека двумерной графики с разветвлённым API для отрисовки "
+"векторной графики, составления изображений и отображения сглаженного текста. "
+"Cairo поддерживает множество систем вывода, включая X Window System, "
+"Microsoft Windows и буферы изображений, позволяя составлять переносимый  код "
+"для отрисовки графики на различных устройствах вывода."
 
 #: C/core-tech.xml:199(para)
 msgid ""
@@ -1781,6 +2395,11 @@ msgid ""
 "These vector operations allow for rich, anti-aliased graphics without using "
 "expensive pixel-based drawing in your application code."
 msgstr ""
+"Модель прорисовки Cairo похожа на модели PostScript и PDF. API Cairo "
+"работает с такими графическими операциями, как создание и заполнение "
+"кубических кривых Безье, создание изображений и афинные преобразования. Эти "
+"векторные операция позволяют выводить качественную сглаженную графику без "
+"работы с графикой на уровне пикселов в коде приложения."
 
 #: C/core-tech.xml:206(para)
 msgid ""
@@ -1788,6 +2407,10 @@ msgid ""
 "media. The same API can be used to create stunning on-screen graphics and "
 "text, to render images, or create crisp output suitable for printing."
 msgstr ""
+"Богатая модель отрисокви Cairo позволяет выводить качественную графику на "
+"разные устройства вывода. Можно использовать одинаковый API как для вывода "
+"прекрасной графики и текста на экран, так и для создания изображений или "
+"создания вывода, пригодного для печати."
 
 #: C/core-tech.xml:211(para)
 msgid ""
@@ -1796,73 +2419,111 @@ msgid ""
 "using Cairo. Using Cairo for your custom drawing will allow your application "
 "to have high-quality, anti-aliased, and resolution-independent graphics."
 msgstr ""
+"Cairo необходимо использовать в приложении при отрисовке графики помимо "
+"виджетов, предоставляемых GTK+. Большая часть механизмов отрисовки внутри GTK"
+"+ реализована с помощью Cairo. Использование Cairo для пользовательской "
+"графики позволит приложениям выводить высококачественную, сглаженную и "
+"независимую от разрешения графику."
 
 #: C/core-tech.xml:217(para)
 msgid ""
 "For more information on Cairo, see <ulink url=\"http://www.cairographics.org/"
 "manual/\">Cairo: A Vector Graphics Library</ulink>."
 msgstr ""
+"За дополнительной информацией о Cairo обратитесь к руководству <ulink url="
+"\"http://www.cairographics.org/manual/\">Cairo: A Vector Graphics Library</"
+"ulink>."
 
 #: C/core-tech.xml:224(title)
 msgid "Virtual File System"
-msgstr ""
+msgstr "Виртуальная файловая система"
 
 #: C/core-tech.xml:226(para)
 msgid ""
-"GnomeVFS is the core library used for all file and folder operations in "
-"GNOME applications. GnomeVFS provides a file system abstraction with "
-"pluggable backends, allowing you to use a single consistent API to access "
-"files on the local file system, on FTP servers, on WebDAV servers, and over "
-"various other protocols and transports."
+"GIO, a part of GLib, is the core library used for file and folder operations "
+"in GNOME applications. GIO provides a unified file system abstraction layer "
+"with pluggable backends. In GNOME, the GVFS library provides a GIO backend "
+"implementing multiple network and local protocols. Using GIO with GVFS "
+"allows your application to work with files on remote machines as easily as "
+"local files."
 msgstr ""
+"GIO — часть библиотеки GLib, ключевая библиотека, используемая для операций "
+"с файлами и каталогами в приложениях GNOME. GIO реализует уровень абстракции "
+"унифицированной файловой системы с возможностью подключения дополнительных "
+"модулей. В GNOME библиотека GVFS является внутренним компонентом GIO, "
+"реализующим работу с различными сетевыми и локальными протоколами. С помощью "
+"GIO и GVFS приложения могут работать с файлами на удалённых машинах так же "
+"легко, как с локальными."
 
-#: C/core-tech.xml:232(para)
+#: C/core-tech.xml:233(para)
 msgid ""
-"All resources, including local files, are accessed in GnomeVFS using Uniform "
-"Resource Identifiers (URIs). An extension to the now-commonplace URL, this "
-"standard identification scheme allows all resources to be addressed with a "
-"simple and consistent syntax."
-msgstr ""
-
-#: C/core-tech.xml:237(para)
-msgid ""
-"GnomeVFS can provide extensive information about files and folders, "
-"including the MIME type of the file and which applications can be used to "
-"open the file. Since GnomeVFS uses the standard from <ulink url=\"http://www."
-"freedesktop.org/\">freedesktop.org</ulink> to determine file types and file "
+"GIO can provide extensive information about files and folders, including the "
+"MIME type and icon of a file and which applications can be used to open a "
+"file. Since the GVFS uses the standard from <ulink url=\"http://www."
+"freedesktop.org/\">freedesktop.org</ulink> to determine file types and "
 "associations, it works correctly on different free desktop environments, "
 "helping independent software developers create software that can be run in "
 "different environments."
 msgstr ""
+"GIO может предоставить расширенную информацию о файлах и каталогах, включая "
+"тип MIME, значок файла и какое приложение можно использовать для открытия "
+"файла. Так как библиотека GVFS использует стандарты <ulink url=\"http://www."
+"freedesktop.org/\">freedesktop.org</ulink> для определения типов файлов и их "
+"связей, то она работает корректно в различных свободных средах рабочего "
+"стола, помогая разработчикам создавать приложения, работающие в различных "
+"средах."
 
-#: C/core-tech.xml:245(para)
+#: C/core-tech.xml:241(para)
 msgid ""
-"GnomeVFS also provides basic networking support, including routines for "
-"network I/O, secure transfers with SSL, and DNS Service Discovery."
+"GIO is used throughout the GNOME desktop. The file manager, "
+"<application>Nautilus</application>, uses GIO to display folders on local "
+"and remote systems. For the user, this means that network servers act just "
+"like local folders: They can drag and drop files between them, view the "
+"files' properties, and open the file with an application. Using GIO will "
+"allow your application to open all the files that users can access on their "
+"desktop."
 msgstr ""
+"GIO используется повсюду в среде рабочего стола GNOME. Файловый менеджер "
+"<application>Nautilus</application> использует GIO для отображения файлов и "
+"каталогов на локальных и удалённых системах. С точки зрения пользователя "
+"сетевые серверы выглядят как локальные папки, и он может перетаскивать файлы "
+"между ними, просматривать свойства файлов и открывать их с помощью "
+"приложений. Использование GIO позволяет приложению открывать все файлы, к "
+"которым пользователь может получить доступ на своём рабочем столе."
 
-#: C/core-tech.xml:249(para)
+#: C/core-tech.xml:248(para)
 msgid ""
-"GnomeVFS is used extensively throughout the GNOME desktop. The file manager, "
-"Nautilus, uses GnomeVFS to display folders on local and remote systems. For "
-"the user, this means that network servers act just like local folders: They "
-"can drag and drop files between them, view the files' properties, and open "
-"the files with an application. Using GnomeVFS will allow your application to "
-"open all the files that users can access on their desktops."
+"For more information on GIO, see the <ulink url=\"http://library.gnome.org/"
+"devel/gio/stable/\">GIO Reference Manual</ulink>."
 msgstr ""
+"Для получения более полной информации посетите <ulink url=\"http://www.gtkmm."
+"org/\">веб-сайт gtkmm</ulink>."
 
-#: C/core-tech.xml:257(para)
+#: C/core-tech.xml:253(para)
 msgid ""
-"For more information on GnomeVFS, see <ulink url=\"http://developer.gnome."
-"org/doc/API/2.0/gnome-vfs-2.0/index.html\">GnomeVFS - File system "
-"Abstraction Library</ulink>."
+"In previous versions of GNOME, the GnomeVFS library was used for access to "
+"files and folders. While GnomeVFS provided many of the same features, "
+"including transparent access to remote folders, it had a number of "
+"limitations which have been addressed in GIO. GnomeVFS is deprecated and "
+"should not be used in newly written code, although it will continue to be "
+"supported throughout the GNOME 2 lifetime. For information on GnomeVFS, see "
+"<ulink url=\"http://library.gnome.org/devel/gnome-vfs-2.0/stable/\">GnomeVFS "
+"- Filesystem Abstraction Library</ulink>."
 msgstr ""
+"В предыдущих версиях GNOME для доступа к фалам и папкам использовалась "
+"библиотека GnomeVFS, которая обеспечивает похожий функционал, включая "
+"прозрачный доступ к удалённым папкам, но имеет множество ограничений, "
+"которые были устранены в GIO. Библиотека GnomeVFS устарела и не должна "
+"использовать в новом коде, хотя она и будет поддерживаться на протяжении "
+"всего жизненного цикла GNOME 2. За дополнительной информацией обратитесь к "
+"<ulink url=\"http://library.gnome.org/devel/gnome-vfs-2.0/stable/\">GnomeVFS "
+"- Filesystem Abstraction Library</ulink>."
 
-#: C/core-tech.xml:263(title)
+#: C/core-tech.xml:265(title)
 msgid "Configuration and Lockdown"
-msgstr ""
+msgstr "Конфигурирование и блокирование настроек"
 
-#: C/core-tech.xml:265(para)
+#: C/core-tech.xml:267(para)
 msgid ""
 "GConf is the system for storing and retrieving configuration settings in "
 "GNOME. GConf consists of two parts: a client library for accessing settings, "
@@ -1871,14 +2532,14 @@ msgid ""
 "storage backends, validate input, and provide simultaneous access to "
 "different applications."
 msgstr ""
-"GConf - это система для хранения и получения данных о конфигурации GNOME. "
+"GConf — это система для хранения и получения данных о конфигурации GNOME. "
 "GConf состоит из двух частей: клиентской библиотеки для доступа к установкам "
 "и службы, которая отвечает за хранение и предоставление этих параметров. "
 "Использование службы позволяет GConf использовать различные внутренние "
 "интерфейсы для хранение параметров, проверки ввода и обеспечивать "
 "одновременный доступ разных приложений."
 
-#: C/core-tech.xml:272(para)
+#: C/core-tech.xml:274(para)
 msgid ""
 "Settings stored in GConf are stored and retrieved using a unique key, or "
 "identifier string. Keys use a simple hierarchical namespace to avoid "
@@ -1889,7 +2550,7 @@ msgid ""
 "without having to navigate preference dialogs."
 msgstr ""
 "Параметры, находящиеся в GConf, сохраняются и возвращаются с использованием "
-"уникального ключа или строки-идентификатора. Ключи использует простое "
+"уникального ключа или строки-идентификатора. Ключи используют простое "
 "иерархическое пространство имен для избежания конфликта между приложениями и "
 "средой. Вы можете предоставить файл схемы с описанием ваших ключей "
 "конфигурации. Это позволяет GConf проверять правильность ввода "
@@ -1898,7 +2559,7 @@ msgstr ""
 "устанавливать несколько параметров за раз, без необходимости перемещаться "
 "между диалоговыми окнами."
 
-#: C/core-tech.xml:280(para)
+#: C/core-tech.xml:282(para)
 msgid ""
 "GConf can look up settings from different settings at once, typically from "
 "different locations on the file system. By having appropriate system sources "
@@ -1907,8 +2568,15 @@ msgid ""
 "<application>Configuration Editor</application> and <application>Sabayon</"
 "application> make it easy to deploy fully configured systems using GConf."
 msgstr ""
+"GConf может искать настройки из различных каталогов настроек, обычно, из "
+"различных мест в файловой системе. При корректно настроенных системных "
+"источниках, GConf позволяет системным администраторам устанавливать "
+"настройки по умолчанию и принудительные настройки. Такие инструменты, как "
+"<application>Редактор конфигурации</application> GNOME и "
+"<application>Sabayon</application> позволяют легко развернуть полностью "
+"настроенную систему с помощью GConf."
 
-#: C/core-tech.xml:288(para)
+#: C/core-tech.xml:290(para)
 msgid ""
 "The GConf client library provides notifications of changes to settings, "
 "making it easy to provide instant-apply settings in your application, "
@@ -1917,8 +2585,14 @@ msgid ""
 "applications, allowing desktop-wide and other cross-application settings to "
 "work instantly and effortlessly."
 msgstr ""
+"Пользовательская библиотека GConf поддерживает уведомления об изменениях "
+"настроек, что позволяет легко обеспечить мгновенную реакцию приложения, "
+"независимо от того сделаны ли изменения внутри приложения или с помощью "
+"другого инструмента. Установка значения ключа уведомит все заинтересованные "
+"приложения, что позволяет без особых усилий работать с настройками всего "
+"окружения рабочего стола или нескольких приложений одновременно."
 
-#: C/core-tech.xml:295(para)
+#: C/core-tech.xml:297(para)
 msgid ""
 "GConf makes it easy to lock down systems by setting particular keys read-"
 "only, preventing users from changing their values. In addition, GNOME "
@@ -1927,8 +2601,14 @@ msgid ""
 "<application>Pessulus</application> make it easy for administrators to find "
 "and lock down important keys."
 msgstr ""
+"GConf позволяет легко заблокировать системные настройки для предотвращения "
+"их изменения пользователями путем указания ключей только для чтения. "
+"Дополнительно GNOME поддерживает ряд высокоуровневых ключей, позволяющих "
+"заблокировать такие действия как сохранение на диск и изменение расположения "
+"панели.Такие инструменты как<application>Pessulus</application> позволяют "
+"администраторам легко находить и блокировать важные ключи."
 
-#: C/core-tech.xml:302(para)
+#: C/core-tech.xml:304(para)
 msgid ""
 "You should use GConf to store all user preferences in your application. "
 "Using GConf will make it easy to provide instant-apply preferences, and it "
@@ -1936,21 +2616,23 @@ msgid ""
 "configuration and backup tools."
 msgstr ""
 "Вам следует использовать GConf для хранения всех параметров приложения "
-"пользователя. Используя GConf вы делайте простым одновременный доступ к "
-"параметрами и делайте ваши параметры доступными для системных "
-"администраторов, а также для инструментов конфигурирования и резервирования."
+"пользователя. Использование GConf упрощает одновременный доступ к "
+"параметрами и даёт доступ к параметрам для системных администраторов, а "
+"также для инструментов конфигурирования и резервирования."
 
-#: C/core-tech.xml:307(para)
+#: C/core-tech.xml:309(para)
 msgid ""
-"For more information on GConf, see <ulink url=\"http://developer.gnome.org/"
-"doc/API/2.0/gconf/index.html\">The GConf Reference Manual</ulink>."
+"For more information on GConf, see the <ulink url=\"http://library.gnome.org/"
+"devel/gconf/stable/\">GConf Reference Manual</ulink>."
 msgstr ""
+"Для получения более полной информации прочтите <ulink url=\"http://library."
+"gnome.org/devel/gconf/stable/\">Справочное руководство по GConf</ulink>."
 
-#: C/core-tech.xml:313(title)
+#: C/core-tech.xml:315(title)
 msgid "Internationalization"
 msgstr "Интернационализация"
 
-#: C/core-tech.xml:314(para)
+#: C/core-tech.xml:316(para)
 msgid ""
 "The GNOME Desktop and Developer Platform provides full support for "
 "internationalizing and localizing applications. Internationalization is the "
@@ -1959,8 +2641,14 @@ msgid ""
 "making adjustments for variations in conventions for times and dates, units, "
 "and formatting."
 msgstr ""
+"Платформа разработки и рабочий стол GNOME полностью поддерживают "
+"интернационализацию и локализацию приложений. Интернационализация — это "
+"гарантия того, что приложение может быть локализовано, включая возможность "
+"перевода всех литералов, корректно используя числовые и форматные строки и "
+"выполнения всех подстроек для различных особенностей представления времени, "
+"даты, единиц измерения и форматирования."
 
-#: C/core-tech.xml:321(para)
+#: C/core-tech.xml:323(para)
 msgid ""
 "GNOME uses the standard gettext and related routines for accessing "
 "localizations. Support for localization using gettext is built into every "
@@ -1971,8 +2659,17 @@ msgid ""
 "visible strings in your application from translation domains installed along "
 "with your application."
 msgstr ""
+"GNOME использует стандартный механизм gettext и связанные с ним инструменты "
+"для выполнения локализации. Поддержка локализации с помощью gettext встроена "
+"в каждый компонент платформы GNOME. Любой исходный код можно просканировать "
+"на наличие специально помеченных литералов с помощью автоматизированных "
+"инструментов. Эти строки затем помещаются в файлы PO, что позволяет "
+"переводчикам отслеживать свои переводы. С помощью gettext можно легко и "
+"эффективно получить доступ из каталогов переводов, установленных с "
+"приложением, к переведённым версиям всех видимых пользователем строк текста "
+"в приложении."
 
-#: C/core-tech.xml:330(para)
+#: C/core-tech.xml:332(para)
 msgid ""
 "These translation domains can be created using PO files, which can be used "
 "by translators to track string changes and update their translations "
@@ -1981,15 +2678,26 @@ msgid ""
 "the strings in your application, but also other types of files that you use, "
 "such as GConf schema files, desktop entry files, and XML files."
 msgstr ""
+"Такие домены каталоги могут быть созданы с помощью файлов PO, которые "
+"используются переводчиками для отслеживания изменения строк и обновления их "
+"перевода. GNOME поставляется с intltool — инструментом управления переводами "
+"в фалах PO. С его помощью переводчики могут использовать файлы PO для "
+"перевода не только строк текста в приложениях, но и других используемых "
+"типов файлов, например файлов схем GConf, файлов содержимого рабочего стола "
+"и XML файлов."
 
-#: C/core-tech.xml:338(para)
+#: C/core-tech.xml:340(para)
 msgid ""
 "GNOME also provides the xml2po tool as part of the gnome-doc-utils package. "
 "This tool allows translators to use PO files to create translated versions "
 "of documentation written in various XML formats, including XHTML and DocBook."
 msgstr ""
+"GNOME также предоставляет утилиту xml2po, которая является частью пакета "
+"gnome-doc-utils package. С её помощью переводчики могут использовать файлы "
+"PO для перевода документации, составленной в различных форматах XML, включая "
+"XHTML и DocBook."
 
-#: C/core-tech.xml:343(para)
+#: C/core-tech.xml:345(para)
 msgid ""
 "Internationalization involves more than just allowing strings to be "
 "translated, and GNOME supports your application development at every step of "
@@ -2001,38 +2709,56 @@ msgid ""
 "UTF-8 encoding of Unicode natively, providing access to the characters and "
 "writing systems of the entire world."
 msgstr ""
+"Интернационализация включает в себя не только возможность перевода текстовых "
+"строк, GNOME поддерживает разработку приложений на каждом этапе. GTK+ "
+"автоматически подстраивает свое представление для языков, читаемых справа "
+"налево, а Pango полностью поддерживает двунаправленный текст и различные "
+"системы письменности. GTK+ поддерживает разные методы ввода, позволяя "
+"эффективно использовать клавиатуры для различных языков. Вся платформа GNOME "
+"использует кодировку Unicode UTF-8, обеспечивая доступ к символам и системам "
+"письменности всего мира."
 
-#: C/core-tech.xml:355(title)
+#: C/core-tech.xml:357(title)
 msgid "<application>Gnumeric</application> in Multiple Languages"
-msgstr ""
+msgstr "<application>Gnumeric</application> на разных языках"
 
-#: C/core-tech.xml:361(para)
+#: C/core-tech.xml:363(para)
 msgid ""
 "Screenshots of the <application>Gnumeric</application> spreadsheet "
 "application running in Hebrew, Japanese, and Serbian."
 msgstr ""
+"Снимок экрана приложения <application>Gnumeric</application>, запущенного на "
+"иврите, японском и сербском языках."
 
-#: C/core-tech.xml:368(para)
+#: C/core-tech.xml:370(para)
 msgid ""
 "Internationalizing your application helps make it available to many more "
 "users across the world. While skilled translators must provide translations "
 "for any language, programmers must ensure the application is properly "
 "internationalized before it can be fully localized."
 msgstr ""
+"Интернационализация приложения упрощает его доступность для многих "
+"пользователей во всём мире. Программисты должны обеспечить корректную "
+"интернационализацию приложения перед тем, как оно может быть полностью "
+"локализовано, в то время как профессиональные переводчики обеспечат перевод "
+"на все языки."
 
 #. FIXME: where is danilo's awesome guide?
-#: C/core-tech.xml:375(para)
+#: C/core-tech.xml:377(para)
 msgid ""
 "For more information on internationalization in GNOME, see <ulink url="
 "\"http://www.gnome.org/~malcolm/i18n/\">Internationalizing GNOME "
 "Applications</ulink>."
 msgstr ""
+"Дополнительную информацию о интернационализации в GNOME обратитесь к <ulink "
+"url=\"http://www.gnome.org/~malcolm/i18n/\">Руководству по локализации "
+"приложений GNOME</ulink>."
 
-#: C/core-tech.xml:381(title)
+#: C/core-tech.xml:383(title)
 msgid "Accessibility"
-msgstr "Доступность"
+msgstr "Специальные возможности"
 
-#: C/core-tech.xml:383(para)
+#: C/core-tech.xml:385(para)
 msgid ""
 "Accessibility is the process of ensuring your application can be used by "
 "people with various disabilities. Disabilities come in many forms: visual "
@@ -2041,15 +2767,14 @@ msgid ""
 "disability, and making your application accessibility will allow more people "
 "to use your application effectively."
 msgstr ""
-"Доступность - это уверенность в том, что ваше приложение может "
-"использоваться людьми с ограниченными возможностями. Ограниченные "
-"возможности проявляются во многих формах: ограничения зрения, двигательные "
-"ограничения, ограничения слуха и языковые ограничения и другие. Существует "
-"много людей, у которых есть какие-либо ограничения и делая ваше приложение "
-"доступным, вы позволяйте большему количеству людей использовать ваше "
-"приложение более эффективно."
+"Специальные возможности — это возможность использования приложения людьми с "
+"ограниченными возможностями. Ограниченные возможности проявляются во многих "
+"формах: зрительные, двигательные, слуховые и языковые и другие ограничения. "
+"Существует множество людей с какими-либо ограничениями и разработка "
+"приложения доступного для них позволяет большему количеству людей "
+"использовать приложения более эффективно."
 
-#: C/core-tech.xml:390(para)
+#: C/core-tech.xml:392(para)
 msgid ""
 "GNOME provides support for accessibility devices using the ATK framework. "
 "This framework defines a set of interfaces to which graphical interface "
@@ -2058,8 +2783,15 @@ msgid ""
 "into GTK+ and the rest of the GNOME platform using the GAIL library, so any "
 "application using GTK+ will have reasonable accessibility support for free."
 msgstr ""
+"GNOME поддерживает специальные возможности с помощью платформы ATK, которая "
+"определяет набор интерфейсов, к которым привязываются графические компоненты. "
+"Что позволяет, например, программам синтеза речи читать вслух текст "
+"интерфейса пользователя и взаимодействовать с его элементами управления. "
+"Поддержка ATK встроена в GTK+ и остальную часть платформы GNOME с "
+"использованием библиотеки GAIL, поэтому любые приложения, использующие GTK+ "
+"бесплатно получают достаточную поддержку."
 
-#: C/core-tech.xml:398(para)
+#: C/core-tech.xml:400(para)
 msgid ""
 "Nonetheless, you should be aware of accessibility issues when when "
 "developing your applications. Although GTK+ interfaces provide reasonable "
@@ -2069,8 +2801,15 @@ msgid ""
 "properties to ATK. You should also avoid using sound, graphics, or color as "
 "the sole means of conveying information to the user."
 msgstr ""
+"Тем не менее, следует помнить о специальных возможностях при разработке "
+"приложения. Хотя интерфейсы GTK+ по умолчанию обеспечивают достаточную поддержку "
+"специальных возможносей, часто можно улучшить работу приложения с "
+"инструментами специальных возможностей, снабдив ATK дополнительной "
+"информацией. При разработке пользовательского виджета следует убедиться, что "
+"его свойства доступны ATK. Следует избегать использования звука, графики и "
+"цвета как единственных методов представления информации пользователю."
 
-#: C/core-tech.xml:407(para)
+#: C/core-tech.xml:409(para)
 msgid ""
 "The GNOME desktop ships with a number of accessibility tools which enable "
 "users with disabilities to take full advantage of their desktop and "
@@ -2079,22 +2818,35 @@ msgid ""
 "reader, a screen magnifier, an on-screen keyboard, and <application>Dasher</"
 "application>, an innovative predictive text entry tool."
 msgstr ""
+"Рабочий стол GNOME поставляется с множеством инструментов специальных "
+"возможностей, помогающих пользователям с ограничениями полноценно "
+"использовать рабочий стол и приложения. Приложения, полностью реализующие "
+"ATK, будут в состоянии работать с этими инструментами, которые включают в "
+"себя: чтение текста с экрана вслух, увеличительное стекло, экранную "
+"клавиатуру и <application>Dasher</application> — инновационное средство "
+"ввода текста с предсказанием."
 
-#: C/core-tech.xml:415(para)
+#: C/core-tech.xml:417(para)
 msgid ""
 "For extensive recommendations on accessibility, see <ulink url=\"http://"
 "developer.gnome.org/projects/gap/guide/gad/index.html\">GNOME Accessibility "
-"for Developers</ulink>. See also <ulink url=\"http://developer.gnome.org/doc/"
-"API/2.0/atk/index.html\">ATK - Accessibility Toolkit</ulink> and <ulink url="
-"\"http://developer.gnome.org/doc/API/2.0/gail/index.html\">The GAIL "
-"Reference Manual</ulink>."
+"for Developers</ulink>. See also <ulink url=\"http://library.gnome.org/devel/"
+"atk/stable/\">ATK - Accessibility Toolkit</ulink> and the <ulink url="
+"\"http://library.gnome.org/devel/gail-libgail-util/stable/\">GAIL Reference "
+"Manual</ulink>."
 msgstr ""
+"Для получения полных рекомендаций по поддержке специальных возможностей обратитесь к <ulink "
+"url=\"http://developer.gnome.org/projects/gap/guide/gad/index.html\">GNOME "
+"Accessibility for Developers</ulink>. А также к <ulink url=\"http://library."
+"gnome.org/devel/atk/stable/\">ATK - Accessibility Toolkit</ulink> и <ulink "
+"url=\"http://library.gnome.org/devel/gail-libgail-util/stable/\">"
+"Справке по библиотеке GAIL</ulink>."
 
-#: C/core-tech.xml:425(title)
+#: C/core-tech.xml:427(title)
 msgid "Multimedia"
 msgstr "Аудио и видео"
 
-#: C/core-tech.xml:427(para)
+#: C/core-tech.xml:429(para)
 msgid ""
 "GStreamer is a powerful multimedia library for playing, creating, and "
 "manipulating sound, video, and other media. You can use GStreamer to provide "
@@ -2103,8 +2855,14 @@ msgid ""
 "formats by default, and support for additional formats can be added with "
 "plug-ins."
 msgstr ""
+"GStreamer — мощная мультимедийная библиотека для воспроизведения, "
+"создания и манипулирования звуком и видео. С "
+"помощью GStreamer можно проигрывать звук и видео, записывать их из различных "
+"источников, а также редактирование содержимое. GStreamer по умолчанию "
+"поддерживает кодирование и декодирование во множестве форматов, а поддержка "
+"дополнительных форматов может быть добавлена с помощью подключаемых модулей."
 
-#: C/core-tech.xml:434(para)
+#: C/core-tech.xml:436(para)
 msgid ""
 "GStreamer provides a flexible architecture wherein media is processed "
 "through a pipeline of elements. Each element may apply filters to the "
@@ -2114,8 +2872,15 @@ msgid ""
 "effect using GStreamer. Furthermore, GStreamer is designed to have low "
 "overhead, so it can be used in applications with high demands on latency."
 msgstr ""
+"GStreamer имеет гибкую архитектуру в которой данные обрабатываются как поток "
+"через элементы системы. Каждый элемент может наложить фильтры на содержимое, "
+"например кодировать или декодировать его, наложить несколько источников или "
+"трансформировать содержимое мультимедиа. Подобная архитектура допускает "
+"разнообразное сочетание элементов, реализующее практически любой эффект. "
+"Более того, GStreamer спроектирован таким образом, чтобы иметь низкие накладные расходы, поэтому "
+"может быть использован в приложениях с высокими требованиями к задержкам."
 
-#: C/core-tech.xml:443(para)
+#: C/core-tech.xml:445(para)
 msgid ""
 "While GStreamer provides a powerful API for manipulating multimedia, it also "
 "provides convenient routines for simple playback. GStreamer can "
@@ -2123,8 +2888,13 @@ msgid ""
 "supported format, allowing you to use sound and video in your application "
 "easily."
 msgstr ""
+"Кроме мощного API для манипулирования медиа-содержимым, GStreamer также "
+"предоставляет удобные инструменты для простого воспроизведения. GStreamer "
+"может автоматически создавать потоки для чтения и воспроизведения файлов "
+"любых поддерживаемых форматов, что позволяет легко использовать звук и видео "
+"в приложениях."
 
-#: C/core-tech.xml:449(para)
+#: C/core-tech.xml:451(para)
 msgid ""
 "The GStreamer architecture allows plugins to add encoders, decoders, and all "
 "sorts of content filters. Third-party developers can provide GStreamer "
@@ -2132,16 +2902,26 @@ msgid ""
 "GStreamer. Plugins can provide support for other multimedia formats or "
 "provide additional functionality and effects."
 msgstr ""
+"Архитектура GStreamer позволяет с помощью подключаемых модулей добавлять "
+"кодеки, декодеры и фильтры содержимого любых типов. Сторонние разработчики "
+"могут создавать подключаемые модули GStreamer, которые автоматически станут "
+"доступными другим приложениям, использующим GStreamer. Подключаемые модули "
+"могут обеспечивать поддержку дополнительных форматов или добавлять новую "
+"функциональность и эффекты."
 
-#: C/core-tech.xml:456(para)
+#: C/core-tech.xml:458(para)
 msgid ""
 "You should use GStreamer whenever you need to read or play multimedia "
 "content in your application, or if your application needs to manipulate "
 "sound or video. Using GStreamer makes your application development easy, and "
 "it provides you well-tested elements for many of your needs."
 msgstr ""
+"В приложении следует использовать GStreamer если необходимо прочитать или "
+"воспроизвести мультимедиа содержимое, а также для манипуляций со звуком и "
+"видео. Использование GStreamer облегчает разработку приложений и "
+"обеспечивает хорошо протестированными элементами для множества целей."
 
-#: C/core-tech.xml:462(para)
+#: C/core-tech.xml:464(para)
 msgid ""
 "For comprehensive information on GStreamer, see <ulink url=\"http://"
 "gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/index.html"
@@ -2151,24 +2931,35 @@ msgid ""
 "gstreamer.freedesktop.org/documentation/\">the GStreamer documentation page</"
 "ulink>."
 msgstr ""
+"Исчерпывающая информация по GStreamer находится по адресам: <ulink url="
+"\"http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/index."
+"html\">The GStreamer Application Development Manual</ulink>, <ulink url="
+"\"http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html/"
+"\">The GStreamer 0.10 Core Reference Manual</ulink>, и <ulink url=\"http://"
+"gstreamer.freedesktop.org/documentation/\">the GStreamer documentation page</"
+"ulink>."
 
-#: C/core-tech.xml:472(title)
+#: C/core-tech.xml:474(title)
 msgid "Printing"
 msgstr "Печать"
 
-#: C/core-tech.xml:474(para)
+#: C/core-tech.xml:476(para)
 msgid ""
 "Most applications need to provide support for printing. Users expect to be "
 "able to print the contents they can view on-screen. The GNOME platform "
 "provides libraries to help you add support for high-quality printing to your "
 "application."
 msgstr ""
+"Большинству приложений требуется поддержка печати. Пользователи ожидают, что "
+"можно распечатать любое содержимое, видимое на экране. Платформа GNOME "
+"содержит библиотеки, помогающие обеспечить приложению возможность "
+"высококачественной печати."
 
-#: C/core-tech.xml:480(title)
+#: C/core-tech.xml:482(title)
 msgid "GNOME Print"
-msgstr ""
+msgstr "Печать GNOME"
 
-#: C/core-tech.xml:482(para)
+#: C/core-tech.xml:484(para)
 msgid ""
 "The GNOME print framework consists of two libraries which help you provide "
 "high-quality printing with a consistent interface in your application. At "
@@ -2176,8 +2967,14 @@ msgid ""
 "PostScript output to send to printers. On top of that is libgnomeprintui, "
 "which provides standard print controls for your user interface."
 msgstr ""
+"Подсистема печати GNOME состоит из двух библиотек, помогающих обеспечить "
+"высококачественную печать и целостный интерфейс приложения. В основе "
+"подсистемы печати находится библиотека libgnomeprint — библиотеки для "
+"создания данных в формате PostScript для отправки на принтер. Над ней "
+"находится библиотека libgnomeprintui, которая обеспечивает стандартные "
+"элементы управления печатью для пользовательского интерфейса."
 
-#: C/core-tech.xml:489(para)
+#: C/core-tech.xml:491(para)
 msgid ""
 "Work is currently underway to integrate printing directly into GTK+, "
 "provding a cross-platform print API that all applications can use. While the "
@@ -2185,8 +2982,14 @@ msgid ""
 "printing, API and ABI stability guarantees ensures that it will continue to "
 "be functional and supported throughout the GNOME 2 lifecycle."
 msgstr ""
+"В настоящее время ведутся работы по интеграции функций печати "
+"непосредственно в GTK+, для обеспечения межплатформенного API печати, "
+"который смогут использовать все приложения. Как только текущая подсистема "
+"печати GNOME устареет, после того как GTK+ начнет поддерживать печать, "
+"гарантируется поддержка и функциональность текущих стабильных интерфейсов "
+"API и ABI в течение всего жизненного цикла GNOME 2."
 
-#: C/core-tech.xml:496(para)
+#: C/core-tech.xml:498(para)
 msgid ""
 "The libgnomeprint library implements the PostScript imaging model, which is "
 "used by most printers. Printers which do not support PostScript can still be "
@@ -2194,8 +2997,13 @@ msgid ""
 "PostScript imaging, libgnomeprint also features alpha channel support and "
 "anti-aliasing."
 msgstr ""
+"Библиотека libgnomeprint реализует графическую модель PostScript, "
+"используемую большинством принтеров. Принтеры, не поддерживающие PostScript, "
+"используются с помощью CUPS, описанного ниже. Кроме стандартной графической "
+"модели PostScript libgnomeprint также поддерживает альфа-каналы и "
+"сглаживание."
 
-#: C/core-tech.xml:502(para)
+#: C/core-tech.xml:504(para)
 msgid ""
 "The libgnomeprintui library provides a standard print dialog, a print "
 "preview dialog, and various other controls and functionality required to "
@@ -2203,8 +3011,14 @@ msgid ""
 "handles the details of locating printers and spooling print jobs, and also "
 "provides PostScript and PDF export directly in the print dialog."
 msgstr ""
+"Библиотека libgnomeprintui предоставляет стандартный диалог печати, диалог "
+"просмотра печати и множество других элементов управления и функциональность, "
+"необходимые для создания интуитивного пользовательского интерфейса печати. "
+"Подсистема печати GNOME берет на себя детали поиска принтеров, постановки в "
+"очередь задач печати, а также обеспечивает экспорт в форматах PostScript и "
+"PDF непосредственно в диалоге печати."
 
-#: C/core-tech.xml:508(para)
+#: C/core-tech.xml:510(para)
 msgid ""
 "You should use libgnomeprint whenever you need to render content to "
 "PostScript for printing. You should use libgnomeprintui to construct your "
@@ -2212,28 +3026,42 @@ msgid ""
 "source. Using the GNOME print framework provides your users a consistent "
 "user interface with the features they expect of printing appliations."
 msgstr ""
+"Библиотека libgnomeprint используется для формирования данных в формате "
+"PostScript для печати. А библиотека libgnomeprintui используется для "
+"построения пользовательского интерфейса печати, даже если готовые для печати "
+"данные получаются из другого источника. Использование подсистемы печати "
+"GNOME обеспечивает целостность пользовательского интерфейса и возможностей, "
+"которые пользователи ожидают от печатающих приложений."
 
-#: C/core-tech.xml:516(title)
+#: C/core-tech.xml:518(title)
 msgid "CUPS"
-msgstr ""
+msgstr "CUPS"
 
-#: C/core-tech.xml:518(para)
+#: C/core-tech.xml:520(para)
 msgid ""
 "On most GNOME systems, CUPS (Common UNIX Printing System) acts as the low-"
 "level printing system. CUPS provides a modern, feature-rich architecture for "
 "printer discovery, printer option access, and spooling print jobs to "
 "different types of printers."
 msgstr ""
+"На большинстве систем GNOME CUPS (Common UNIX Printing System — общая "
+"система печати UNIX) выступает в роли низкоуровневой подсистемы печати. CUPS "
+"предоставляет современную, богатую возможностями архитектуру для поиска "
+"принтеров, доступа к параметрам принтеров, а также управление очередью "
+"заданий на печать для различных типов принтеров."
 
-#: C/core-tech.xml:523(para)
+#: C/core-tech.xml:525(para)
 msgid ""
 "CUPS provides a set of utilities for automatically discovering printers "
 "locally and on the network. This allows users not only to see all available "
 "printers, but to use different types of printers without manual "
 "configuration."
 msgstr ""
+"CUPS содержит набор утилит для автоматического поиска принтеров локально и в "
+"сети, что позволяет пользователям не только видеть все доступные принтеры, "
+"но и использовать различные типы принтеров без ручной настройки."
 
-#: C/core-tech.xml:528(para)
+#: C/core-tech.xml:530(para)
 msgid ""
 "CUPS provides a unified interface for printing, regardless of the location "
 "or type of the printer. Multiple print protocols are handled seamlessly by "
@@ -2242,8 +3070,14 @@ msgid ""
 "automatically convert it for printers that do not support PostScript "
 "natively."
 msgstr ""
+"CUPS обеспечивает унифицированный интерфейс печати, независимо от "
+"расположения и типа принтера. Различные протоколы печати обрабатываются CUPS "
+"однообразно путём автоматического применения фильтров к содержимому, "
+"отправляемому на принтеры. Приложениям достаточно предоставить данные в "
+"формате PostScript, а CUPS автоматически конвертирует их для принтеров, не "
+"поддерживающих PostScript."
 
-#: C/core-tech.xml:535(para)
+#: C/core-tech.xml:537(para)
 msgid ""
 "CUPS also provides printer configuration options in the form of PostScript "
 "Printer Description (PPD) files. PPD configurations allow applications to "
@@ -2252,18 +3086,28 @@ msgid ""
 "printer can collate and staple print jobs, and to provide an option in your "
 "user interface."
 msgstr ""
+"CUPS также предоставляет параметры в виде файлов описания принтера "
+"PostScript (PPD). Параметры PPD позволяют приложениям отражать в "
+"пользовательском интерфейсе возможности конкретного принтера целостно. "
+"Например, PPD позволяет определить и отразить в пользовательском интерфейсе "
+"поддерживает ли принтер брошюрование и прошивку результатов печати задания."
 
-#: C/core-tech.xml:542(para)
+#: C/core-tech.xml:544(para)
 msgid ""
 "In most cases, you will not need to interface directly with CUPS in your "
 "applications. By using the GNOME print framework, you have access to the "
 "power and flexibility of CUPS automatically. Having CUPS underneath means a "
 "better user experience with less programming."
 msgstr ""
+"В большинстве случаев в приложении нет необходимости напрямую "
+"взаимодействовать с CUPS, так как с помощью подсистемы печати GNOME можно "
+"получить доступ к мощности и гибкости CUPS автоматически. Основа CUPS "
+"помогает создать больше удобств для пользователя с меньшим объемом "
+"программирования."
 
 #: C/bindings.xml:4(title)
 msgid "Language Bindings"
-msgstr ""
+msgstr "Привязки для языков программирования"
 
 #: C/bindings.xml:6(para)
 msgid ""
@@ -2272,12 +3116,19 @@ msgid ""
 "language bindings, you can develop with the GNOME platform natively in your "
 "programming language of choice."
 msgstr ""
+"Платформа GNOME в основном написана на языке C, но таким образом, чтобы "
+"легко можно было привязывать другие языки программирования. С помощью "
+"языковых привязок можно вести разработку в GNOME с помощью другого языка "
+"программирования."
 
 #: C/bindings.xml:11(para)
 msgid ""
 "Language bindings exist for many programming languages, and the GNOME "
 "platform officially supports bindings for C++, Java, Perl, and Python."
 msgstr ""
+"Существует множество привязок к языкам программирования, и платформа GNOME "
+"официально поддерживается привязки к таким языкам как C++, Java, Perl и "
+"Python."
 
 #: C/bindings.xml:15(title)
 msgid "C++"
@@ -2292,6 +3143,12 @@ msgid ""
 "handlers, full use of the standard C++ library, and complete C++ memory "
 "management."
 msgstr ""
+"Привязки C++ обеспечивают полное покрытие всей платформы GNOME, включая GTK"
+"+, Glade и GConf. Привязки C++ предоставляют обёртки в виде классов C++ для "
+"всех объектов платформы и позволяют программисту создавать пользовательские "
+"виджеты с использованием обычного наследования C++. Они предоставляют API c "
+"типо-безопасными обработчиками сигналов, с полноценным использованием "
+"стандартной библиотеки C++ и полностью используют управление памятью C++."
 
 #: C/bindings.xml:23(para)
 msgid ""
@@ -2299,7 +3156,7 @@ msgid ""
 "www.gtkmm.org/\">the gtkmm web site</ulink>."
 msgstr ""
 "Для получения более полной информации посетите <ulink url=\"http://www.gtkmm."
-"org/\">the gtkmm web site</ulink>."
+"org/\">веб-сайт gtkmm</ulink>."
 
 #: C/bindings.xml:28(title)
 msgid "Java"
@@ -2313,12 +3170,19 @@ msgid ""
 "inheritence. They provide a fully native API, using Java's class libraries "
 "and interfaces wherever appropriate."
 msgstr ""
+"Привязки Java обеспечивают полное покрытие платформы GNOME, включая GTK+, "
+"Cairo и GConf. Привязки Java оборачивают все объекты платформы с помощью "
+"объектов Java и позволяют разработчикам создавать пользовательские виджеты с "
+"помощью обычного наследования Java. Они обеспечивают API на Java, "
+"использующий библиотеку классов Java и по необходимости наследование."
 
 #: C/bindings.xml:35(para)
 msgid ""
 "For more information on the GNOME Java bindings, visit <ulink url=\"http://"
 "java-gnome.sourceforge.net/\">the Java-GNOME web site</ulink>."
 msgstr ""
+"За дополнительной информацией о привязках GNOME Java обратитесь к <ulink url="
+"\"http://java-gnome.sourceforge.net/\">веб-сайту Java-GNOME</ulink>."
 
 #: C/bindings.xml:40(title)
 msgid "Perl"
@@ -2332,12 +3196,19 @@ msgid ""
 "manipulate them. They provide a fully native API, using Perl's native data "
 "types wherever appropriate."
 msgstr ""
+"Привязки Perl обеспечивают интерфейсы Perl для платформы GNOME, включая GTK"
+"+, GnomeVFS и GConf. Привязки Perl — это обёртки всех объектов платформы с "
+"помощью объектов Perl для использования стандартных методов Perl для "
+"манипулирования ими. Они обеспечивают полностью совместимый API с "
+"использованием оригинальных типов данных по необходимости."
 
 #: C/bindings.xml:47(para)
 msgid ""
 "For more information on the GNOME Perl bindings, visit <ulink url=\"http://"
 "gtk2-perl.sourceforge.net/\">the gtk2-perl web site</ulink>."
 msgstr ""
+"За дополнительной информацией обращайтесь к <ulink url=\"http://gtk2-perl."
+"sourceforge.net/\">веб-сайту gtk2-perl</ulink>."
 
 #: C/bindings.xml:52(title)
 msgid "Python"
@@ -2351,16 +3222,24 @@ msgid ""
 "with normal Python inheritence. They provide a fully native Python API which "
 "automatically handles details like type casting and memory management."
 msgstr ""
+"Привязки Python предоставляют интерфейсы Python для платформы GNOME, включая "
+"GTK+, GnomeVFS и GConf. Привязки Python — это обёртки всех объектов "
+"платформы с помощью объектов Python, которые позволяют создавать "
+"пользовательские виджеты, используя наследование Python. они обеспечивают "
+"Python API, который автоматически обрабатывает приведение типов и управление "
+"памятью."
 
 #: C/bindings.xml:60(para)
 msgid ""
 "For more information on the GNOME Python bindings, visit <ulink url=\"http://"
 "www.pygtk.org/\">the PyGTK web site</ulink>."
 msgstr ""
+"За дополнительной информацией о привязках GNOME Python посетите <ulink url="
+"\"http://www.pygtk.org/\">веб-сайт PyGTK</ulink>."
 
 #: C/bindings.xml:65(title)
 msgid "Other Languages"
-msgstr "Другие языки"
+msgstr "Другие языки программирования"
 
 #: C/bindings.xml:66(para)
 msgid ""
@@ -2370,16 +3249,23 @@ msgid ""
 "high quality as the official GNOME bindings, and some of them may be "
 "included as official GNOME bindings in future releases."
 msgstr ""
+"Для других языков программирования существуют полные или частичные привязки, "
+"например для C#, Eiffel, JavaScript, Ruby и Scheme. Не смотря на то, что они "
+"в настоящее время официально не поддерживаются GNOME, многие из них такого "
+"же высокого качества, как официальные привязки GNOME, а многие из них, "
+"возможно, будут включены как официальные в будущих выпусках."
 
 #: C/bindings.xml:72(para)
 msgid ""
 "For a list of language bindings, visit <ulink url=\"http://gtk.org/bindings."
 "html\">the GTK+ bindings page</ulink>."
 msgstr ""
+"Список всех языковых привязок находится на <ulink url=\"http://gtk.org/"
+"bindings.html\">странице привязок GTK+</ulink>."
 
 #: C/apx-modules.xml:4(title)
 msgid "Quick Module Overview"
-msgstr ""
+msgstr "Краткий обзор модулей"
 
 #: C/apx-modules.xml:6(para)
 msgid ""
@@ -2388,6 +3274,9 @@ msgid ""
 "brief description and a link for more information in this document, where "
 "possible."
 msgstr ""
+"Это приложение кратко описывает библиотеки, включённые в рабочий стол GNOME "
+"и платформу разработки. Библиотеки сгруппированы по модулям с кратким "
+"описанием и по возможности ссылками на подробную информацию в этом документе."
 
 #: C/apx-modules.xml:12(title)
 msgid "Platform Modules"
@@ -2399,6 +3288,10 @@ msgid ""
 "ABI stability. Applications developed against platform modules can be "
 "assured of running unmodified for the duration of the GNOME 2 lifecycle."
 msgstr ""
+"Модули платформы разработки GNOME жестко гарантируют стабильность API и ABI. "
+"Гарантируется, что приложения, разработанные с использованием модулей "
+"платформы будут работать без изменений в течение всего жизненного цикла "
+"GNOME 2."
 
 #: C/apx-modules.xml:21(term)
 msgid "GConf"
@@ -2409,6 +3302,8 @@ msgid ""
 "GConf provides the daemon and libraries for storing and retrieving "
 "configuration data. GConf is discussed in <xref linkend=\"gconf\"/>."
 msgstr ""
+"GConf предоставляет службу и библиотеку для хранения и получения "
+"конфигурационной информации. Описывается в <xref linkend=\"gconf\"/>."
 
 #: C/apx-modules.xml:27(term)
 msgid "ORBit"
@@ -2420,8 +3315,8 @@ msgid ""
 "architecture, Bonobo, is built on top of CORBA. CORBA is discussed in <xref "
 "linkend=\"bonobo-corba\"/>."
 msgstr ""
-"ORBit - это быстрый и легковесный сервер CORBA. Компонент архитектуры GNOME "
-"- Bonobo, основан на CORBA. CORBA рассматривается в <xref linkend=\"bonobo-"
+"ORBit — это быстрый и легковесный сервер CORBA. Компонент архитектуры GNOME "
+"— Bonobo, основан на CORBA. CORBA рассматривается в <xref linkend=\"bonobo-"
 "corba\"/>."
 
 #: C/apx-modules.xml:33(term)
@@ -2435,204 +3330,276 @@ msgid ""
 "tools have full access to view and control running applications. ATK is "
 "discussed in <xref linkend=\"a11y\"/>."
 msgstr ""
+"ATK обеспечивает набор интерфейсов специальных возможностей, которые "
+"реализованы другими инструментами и приложениями. С помощью интерфейсов ATK "
+"инструменты специальных возможностей могут получить полный доступ к "
+"просмотру и управлению запущенных приложений. ATK рассматривается в <xref "
+"linkend=\"a11y\"/>."
 
 #: C/apx-modules.xml:41(term)
 msgid "gail"
 msgstr "gail"
 
-#: C/apx-modules.xml:42(para) C/apx-modules.xml:200(para)
+#: C/apx-modules.xml:42(para) C/apx-modules.xml:213(para)
 msgid ""
 "GAIL provides an implementation of the ATK interfaces for GTK+ and GNOME "
 "libraries, allowing accessibility tools to interact with applications "
 "written using these libraries. Accessibility is discussed in <xref linkend="
 "\"a11y\"/>."
 msgstr ""
+"GAIL предоставляет реализацию инетерфейсов ATK для GTK+ и библиотек GNOME, "
+"позволяя инструментам специальных возможностей взаимодействовать с "
+"приложениями, написанными с использованием этих библиотек. Специальные "
+"возможности рассматриваются в <xref linkend=\"a11y\"/>."
 
 #: C/apx-modules.xml:48(term)
+msgid "gio"
+msgstr "gio"
+
+#: C/apx-modules.xml:49(para)
+msgid ""
+"A part of GLib, the GIO library provides a high-level API for accessing "
+"files and folders. Together with the GVFS library, it provides a file system "
+"abstraction that allows transparent access to local and remote files. GIO is "
+"discussed in <xref linkend=\"gio\"/>."
+msgstr ""
+"GIO — часть GLib, обеспечивающая высокоуровневый API для доступа к каталогам и "
+"файлам. Совместно с библиотекой GVFS, она обеспечивает уровень абстракции "
+"файловой системы, дающий прозрачный доступ к локальным и удалённым "
+"файлам. GIO рассматривается в <xref linkend=\"gio\"/>."
+
+#: C/apx-modules.xml:56(term)
 msgid "glib"
 msgstr "glib"
 
-#: C/apx-modules.xml:49(para)
+#: C/apx-modules.xml:57(para)
 msgid ""
 "GLib provides the core application building blocks for libraries and "
 "applications written in C. It provides the core object system used in GNOME, "
 "the main loop implementation, and a large set of utility functions for "
 "strings and common data structures."
 msgstr ""
+"GLib является базовой библиотекой для написания программ и библиотек на "
+"языке C. Она обеспечивает основные объекты, используемые системой в GNOME, "
+"реализацию главного цикла приложения и большой набор функций для манипуляций "
+"со строками и общими структурами данных."
 
-#: C/apx-modules.xml:55(term)
+#: C/apx-modules.xml:63(term)
 msgid "gnome-vfs"
 msgstr "gnome-vfs"
 
-#: C/apx-modules.xml:56(para)
+#: C/apx-modules.xml:64(para)
 msgid ""
-"GnomeVFS is the core library used to access files and folders in GNOME "
-"applications. It provides a file system abstraction which allows "
-"applications to access local and remote files with a single consistent API. "
-"GnomeVFS is discussed in <xref linkend=\"gnome-vfs\"/>."
+"GnomeVFS is a deprecated library for accessing files and folders. It is "
+"superseded by GIO and GVFS. Newly written code should use GIO instead."
 msgstr ""
+"GnomeVFS — устаревшая библиотека для доступа к файлам и папкам. Она заменена "
+"GIO и GVFS. Вновь написанный код должен использовать вместо нее GIO."
 
-#: C/apx-modules.xml:63(term)
+#: C/apx-modules.xml:69(term)
 msgid "gtk+"
 msgstr "gtk+"
 
-#: C/apx-modules.xml:64(para)
+#: C/apx-modules.xml:70(para)
 msgid ""
 "GTK+ is the primary library used to construct user interfaces in GNOME "
 "applications. It provides user interface controls and signal callbacks to "
 "control user interfaces. GTK+ is discussed in <xref linkend=\"gtk\"/>."
 msgstr ""
+"GTK+ — основная библиотека, используемая для построения интерфейсов в "
+"приложениях GNOME. Она предоставляет элементы управления пользовательского "
+"интерфейса и обработчики сигналов для управления пользовательским "
+"интерфейсом. GTK+ рассмотрена в <xref linkend=\"gtk\"/>."
 
-#: C/apx-modules.xml:70(term)
+#: C/apx-modules.xml:76(term)
+msgid "gvfs"
+msgstr "gvfs"
+
+#: C/apx-modules.xml:77(para)
+msgid ""
+"GVFS provides a backend implementation for GIO, allowing access to numerous "
+"protocols with the GIO API. Developers do not access GVFS directly. Instead, "
+"applications written with GIO will automatically use GVFS on systems where "
+"it is enabled."
+msgstr ""
+"GVFS является подсистемой GIO, обеспечивая доступ ко множеству протоколов с "
+"помощью API GIO. Разработчикам не нужно напрямую обращаться к GVFS, так как "
+"приложения, использующие GIO будут автоматически использовать GVFS, если она "
+"доступна в системе."
+
+#: C/apx-modules.xml:83(term)
 msgid "libIDL"
 msgstr "libIDL"
 
-#: C/apx-modules.xml:71(para)
+#: C/apx-modules.xml:84(para)
 msgid ""
 "libIDL is a library for parsing Interface Definition Language (IDL) files, "
 "which are necessary for CORBA interfaces. libIDL is used by GNOME's CORBA "
 "implementation, ORBit. CORBA is discussed in <xref linkend=\"bonobo-corba\"/"
 ">."
 msgstr ""
+"libIDL — библиотека для разбора файлов языка определения интерфейсов(IDL), "
+"которые необходимы интерфейсам CORBA. libIDL используется реализацией GNOME "
+"CORBA — ORBit. CORBA рассмотрена в <xref linkend=\"bonobo-corba\"/>."
 
-#: C/apx-modules.xml:77(term)
+#: C/apx-modules.xml:90(term)
 msgid "libart_lgpl"
 msgstr "libart_lgpl"
 
-#: C/apx-modules.xml:78(para)
+#: C/apx-modules.xml:91(para)
 msgid ""
 "libart is a graphics library which can render vector paths. It is used by "
 "the GnomeCanvas widget."
 msgstr ""
+"libart — графическая библиотека, отрисовывающая векторные пути, используется "
+"виджетом GnomeCanvas."
 
-#: C/apx-modules.xml:82(term)
+#: C/apx-modules.xml:95(term)
 msgid "libbonobo"
 msgstr "libbonobo"
 
-#: C/apx-modules.xml:83(para)
+#: C/apx-modules.xml:96(para)
 msgid ""
 "Bonobo is a framework for creating reusable components for use in GNOME "
 "applications, built on top of CORBA. Bonobo is discussed in <xref linkend="
 "\"bonobo-corba\"/>."
 msgstr ""
+"Bonobo — платформа для создания компонентов многократного использования в "
+"приложениях GNOME, построенная на основе CORBA. Bonobo рассматривается в "
+"<xref linkend=\"bonobo-corba\"/>."
 
-#: C/apx-modules.xml:88(term)
+#: C/apx-modules.xml:101(term)
 msgid "libbonoboui"
 msgstr "libbonoboui"
 
-#: C/apx-modules.xml:89(para)
+#: C/apx-modules.xml:102(para)
 msgid ""
 "The Bonobo UI library provides a number of user interface controls using the "
 "Bonobo component framework. Bonobo is discussed in <xref linkend=\"bonobo-"
 "corba\"/>."
 msgstr ""
+"Библиотека Bonobo UI предоставляет множество элементов управления "
+"пользовательского интерфейса, с помощью компонентов платформы Bonobo. Bonobo "
+"рассматривается в <xref linkend=\"bonobo-corba\"/>."
 
-#: C/apx-modules.xml:94(term)
+#: C/apx-modules.xml:107(term)
 msgid "libglade"
 msgstr "libglade"
 
-#: C/apx-modules.xml:95(para)
+#: C/apx-modules.xml:108(para)
 msgid ""
 "Libglade is a library for constructing user interfaces dynamically from XML "
 "descriptions. Libglade allow programmers to construct their user interfaces "
 "using a graphical interface builder application, and then import those "
 "interface definitions. Libglade is discussed in <xref linkend=\"libglade\"/>."
 msgstr ""
+"Libglade — библиотека для динамического построения интерфейсов на основе XML-"
+"описаний. Libglade позволяет разработчикам создавать пользовательские "
+"интерфейсы с помощью специальных описаний, а затем импортировать эти "
+"определения интерфейсов в приложения. Libglade рассматривается в <xref linkend=\"libglade"
+"\"/>."
 
-#: C/apx-modules.xml:102(term)
+#: C/apx-modules.xml:115(term)
 msgid "libgnome"
 msgstr "libgnome"
 
-#: C/apx-modules.xml:103(para)
+#: C/apx-modules.xml:116(para)
 msgid ""
 "The libgnome library provides a number of useful routines for building "
 "modern applications, including session management, activation of files and "
 "URIs, and displaying help."
 msgstr ""
-"Библиотека libgnome предоставляет полезный функции для построения "
+"Библиотека libgnome предоставляет полезные функции для построения "
 "современных приложений, включая управление сеансами, активацию файлов и URI "
 "и отображение справки."
 
-#: C/apx-modules.xml:108(term)
+#: C/apx-modules.xml:121(term)
 msgid "libgnomecanvas"
 msgstr "libgnomecanvas"
 
-#: C/apx-modules.xml:109(para)
+#: C/apx-modules.xml:122(para)
 msgid ""
 "The GnomeCanvas widget provides a flexible widget for creating iteractive "
 "structrued graphics."
 msgstr ""
-"GnomeCanvas - это гибкий виджет для создания интерактивной структурированной "
+"GnomeCanvas — это гибкий виджет для создания итеративно структурированной "
 "графики."
 
-#: C/apx-modules.xml:113(term)
+#: C/apx-modules.xml:126(term)
 msgid "libgnomeui"
 msgstr "libgnomeui"
 
-#: C/apx-modules.xml:114(para)
+#: C/apx-modules.xml:127(para)
 msgid ""
 "The libgnomeui library provides additional widgets for applications. Many of "
 "the widgets from libgnomeui have already been ported to GTK+."
 msgstr ""
 "Библиотека libgnomeui предоставляет дополнительные виджеты для приложений. "
-"Многие виджеты из библиотеки libgnomeui уже портированы в GTK+."
+"Многие из них уже перенесены в GTK+."
 
-#: C/apx-modules.xml:119(term)
+#: C/apx-modules.xml:132(term)
 msgid "libxml2"
 msgstr "libxml2"
 
-#: C/apx-modules.xml:120(para)
+#: C/apx-modules.xml:133(para)
 msgid ""
 "The libxml2 library provides a number of APIs for working with XML in a "
 "standards-compliant manner. The libxml2 library is discussed in <xref "
 "linkend=\"libxml2\"/>."
 msgstr ""
-"Библиотека libxml2 предоставляет программный интерфейс для работы с XML соответствующим "
-"стандартам образом. Библиотека libxml2 рассматривается в <xref linkend="
-"\"libxml2\"/>."
+"Библиотека libxml2 предоставляет программный интерфейс для работы с XML в "
+"соответствии со стандартами. Библиотека libxml2 рассматривается в <xref "
+"linkend=\"libxml2\"/>."
 
-#: C/apx-modules.xml:125(term)
+#: C/apx-modules.xml:138(term)
 msgid "libxslt"
 msgstr "libxslt"
 
-#: C/apx-modules.xml:126(para)
+#: C/apx-modules.xml:139(para)
 msgid ""
 "The libxslt library provides a fast and complete implementation of XSLT, a "
 "language for transforming XML. The libxslt library is discussed in <xref "
 "linkend=\"libxslt\"/>."
 msgstr ""
-"Библиотека libxslt предоставляет быструю и полную реализацию XSLT, языка для "
+"Библиотека libxslt предоставляет быструю и полную реализацию XSLT— языка для "
 "преобразования XML. Библиотека libxslt рассматривается в <xref linkend="
 "\"libxslt\"/>."
 
-#: C/apx-modules.xml:131(term)
+#: C/apx-modules.xml:144(term)
 msgid "pango"
 msgstr "pango"
 
-#: C/apx-modules.xml:132(para)
+#: C/apx-modules.xml:145(para)
 msgid ""
 "Pango is the core textand font handling library used in GNOME applications. "
 "It has extensive support for the different writing systems used throughout "
 "the world. Pango is discussed in <xref linkend=\"pango\"/>."
 msgstr ""
+"Pango — ключевая библиотека работы с текстом и шрифтами в приложениях GNOME. "
+"Она поддерживает широкий набор различных систем письменности, используемых "
+"по всему миру. Pango рассматривается в <xref linkend=\"pango\"/>."
 
-#: C/apx-modules.xml:141(title)
+#: C/apx-modules.xml:154(title)
 msgid "Desktop Modules"
-msgstr ""
+msgstr "Модули рабочего стола"
 
-#: C/apx-modules.xml:143(para)
+#: C/apx-modules.xml:156(para)
 msgid ""
 "Modules in the GNOME desktop are not required to make the same API and ABI "
 "stability guarantees as modules in the platform, although attempts are made "
 "to keep them relatively stable. Often, modules are introduced in the desktop "
 "release to mature, and are moved into the platform once they've stabilized."
 msgstr ""
+"Модули рабочего стола GNOME не требуют таких же гарантий стабильности API и "
+"ABI как модули платформы, хотя предпринимаются попытки сделать их "
+"относительно стабильными. Обычно, модули вводятся в выпуск рабочего стола "
+"для его зрелости и перемещаются в платформу после их стабилизации."
 
-#: C/apx-modules.xml:151(term)
+#: C/apx-modules.xml:164(term)
 msgid "eel"
 msgstr "eel"
 
-#: C/apx-modules.xml:152(para)
+#: C/apx-modules.xml:165(para)
 msgid ""
 "The eel library provides a number of additional widgets primarily for use "
 "inside <application>Nautilus</application>, the GNOME file manager. Many of "
@@ -2642,34 +3609,41 @@ msgstr ""
 "для использования в <application>Nautilus</application>, менеджере файлов "
 "GNOME. Многие виджеты eel со временем были перенесены в GTK+."
 
-#: C/apx-modules.xml:158(term)
+#: C/apx-modules.xml:171(term)
 msgid "evolution-data-server"
-msgstr ""
+msgstr "evolution-data-server"
 
-#: C/apx-modules.xml:159(para)
+#: C/apx-modules.xml:172(para)
 msgid ""
 "Evolution Data Server provides a unified location for address book and "
 "calendar information, allowing multiple applications to share the same data. "
 "Evolution Data Server is discussed in <xref linkend=\"address-book-calendar"
 "\"/>."
 msgstr ""
+"Сервер данных Evolution обеспечивает единое хранилище адресной книги и "
+"информации календаря, позволяя разным приложениям использовать единые "
+"данные. Сервер данных Evolution рассмотрен в <xref linkend=\"address-book-"
+"calendar\"/>."
 
-#: C/apx-modules.xml:165(term)
+#: C/apx-modules.xml:178(term)
 msgid "gnome-panel"
-msgstr ""
+msgstr "gnome-panel"
 
-#: C/apx-modules.xml:166(para)
+#: C/apx-modules.xml:179(para)
 msgid ""
 "In addition to the actual panel, the gnome-panel package provides the "
 "libraries used to construct panel applets to run on the user's panel. Panel "
 "applets are discussed in <xref linkend=\"panel-applets\"/>."
 msgstr ""
+"В дополнение к текущей панели, пакет gnome-panel предоставляет библиотеки, "
+"используемые для построения апплетов панели, выполняющихся на панели "
+"пользователя. Апплеты панели рассмотрены в <xref linkend=\"panel-applets\"/>."
 
-#: C/apx-modules.xml:172(term)
+#: C/apx-modules.xml:185(term)
 msgid "gnome-keyring"
-msgstr "Менеджер брелоков"
+msgstr "gnome-keyring"
 
-#: C/apx-modules.xml:173(para)
+#: C/apx-modules.xml:186(para)
 msgid ""
 "The GNOME keyring manager provides a modern and secure means of storing "
 "users' passwords and other sensitive data. Keys are encrypted and can only "
@@ -2681,33 +3655,40 @@ msgstr ""
 "и доступ к ним может быть совершен только с явного разрешения пользователя. "
 "Менеджер брелоков рассматривается в <xref linkend=\"keyring\"/>."
 
-#: C/apx-modules.xml:179(term)
+#: C/apx-modules.xml:192(term)
 msgid "gstreamer"
 msgstr "gstreamer"
 
-#: C/apx-modules.xml:180(para)
+#: C/apx-modules.xml:193(para)
 msgid ""
 "GStreamer is the powerful multimedia used throughout GNOME to play, create, "
 "and manipulate sound and video. GStreamer is discussed in <xref linkend="
 "\"multimedia\"/>."
 msgstr ""
+"GStreamer — мощное мультимедийное средство GNOME для воспроизведения, "
+"создания и и манипулирования звуком и видео. GStreamer рассматривается <xref "
+"linkend=\"multimedia\"/>."
 
-#: C/apx-modules.xml:185(term)
+#: C/apx-modules.xml:198(term)
 msgid "gtkhtml"
-msgstr ""
+msgstr "gtkhtml"
 
-#: C/apx-modules.xml:186(para)
+#: C/apx-modules.xml:199(para)
 msgid ""
 "The gtkhtml library provides a lightweight HTML renderer with full support "
 "for rich text editing. It is used inside the <application>Evolution</"
 "application> mailer to allow users to compose and read HTML email."
 msgstr ""
+"Библиотека gtkhtml предоставляет лековесное средство просмотра HTML с полной "
+"поддержкой расширенного редактирования текста. Она используется в почтовом "
+"модуле приложения <application>Evolution</application> для просмотра и "
+"составления писем в формате HTML."
 
-#: C/apx-modules.xml:192(term)
+#: C/apx-modules.xml:205(term)
 msgid "gtksourceview"
 msgstr "gtksourceview"
 
-#: C/apx-modules.xml:193(para)
+#: C/apx-modules.xml:206(para)
 msgid ""
 "The gtksourceview library provides an extension of the GtkTextView widget "
 "with support for automatic syntax highlighting and other functions that are "
@@ -2719,51 +3700,57 @@ msgstr ""
 "будут полезны для редакторов исходных текстов. Эта библиотека используется в "
 "текстовом редакторе <application>gedit</application>."
 
-#: C/apx-modules.xml:199(term)
+#: C/apx-modules.xml:212(term)
 msgid "libgail-gnome"
 msgstr "libgail-gnome"
 
-#: C/apx-modules.xml:206(term)
+#: C/apx-modules.xml:219(term)
 msgid "libgnomeprint"
-msgstr ""
+msgstr "libgnomeprint"
 
-#: C/apx-modules.xml:207(para)
+#: C/apx-modules.xml:220(para)
 msgid ""
 "The libgnomeprint library provides an implementation of the PostScript "
 "imaging model and can be used to create high-quality print renderings. The "
 "GNOME print framework is discussed in <xref linkend=\"gnomeprint\"/>."
 msgstr ""
+"Библиотека libgnomeprint реализует графическую модель PostScript и может "
+"быть использована для создания высококачественных препринтов. Подсистема "
+"печати GNOME рассмотрена в <xref linkend=\"gnomeprint\"/>."
 
-#: C/apx-modules.xml:213(term)
+#: C/apx-modules.xml:226(term)
 msgid "libgnomeprintui"
 msgstr "libgnomeprintui"
 
-#: C/apx-modules.xml:214(para)
+#: C/apx-modules.xml:227(para)
 msgid ""
 "The libgnomeprintui library provides a standart print dialog, a print "
 "preview dialog, and various other controls required for printing. The GNOME "
 "print framework is discussed in <xref linkend=\"gnomeprint\"/>."
 msgstr ""
+"Библиотека libgnomeprintui предоставляет стандартный диалог печати, диалог "
+"просмотра печати и множество других элементов управления, необходимых для "
+"печати. Подсистема печати GNOME рассмотрена в <xref linkend=\"gnomeprint\"/>."
 
-#: C/apx-modules.xml:220(term)
+#: C/apx-modules.xml:233(term)
 msgid "libgtop"
 msgstr "libgtop"
 
-#: C/apx-modules.xml:221(para)
+#: C/apx-modules.xml:234(para)
 msgid ""
 "The libgtop library provides a portable API for obtaining information about "
 "running processes. It is used in the <application>System Monitor</"
 "application> applicatio."
 msgstr ""
-"Библиотека libgtop предоставляет переносимый программный интерфейс для получения информации о "
-"запущенных процессах. Она используется в приложении <application>System "
-"Monitor</application>."
+"Библиотека libgtop предоставляет переносимый программный интерфейс для "
+"получения информации о запущенных процессах. Она используется в приложении "
+"<application>Системный монитор</application>."
 
-#: C/apx-modules.xml:226(term)
+#: C/apx-modules.xml:239(term)
 msgid "librsvg"
 msgstr "librsvg"
 
-#: C/apx-modules.xml:227(para)
+#: C/apx-modules.xml:240(para)
 msgid ""
 "The librsvg library provides an implementation of Scalable Vector Graphics "
 "(SVG). It is used throughout the desktop to render resolution-independent "
@@ -2771,13 +3758,13 @@ msgid ""
 msgstr ""
 "Библиотека librsvg предоставляет реализацию Scalable Vector Graphics (SVG). "
 "Она используется повсюду в рабочем столе для отрисовки векторной графики, "
-"независящий от разрешения экрана."
+"не зависящий от разрешения экрана."
 
-#: C/apx-modules.xml:232(term)
+#: C/apx-modules.xml:245(term)
 msgid "libsoup"
 msgstr "libsoup"
 
-#: C/apx-modules.xml:233(para)
+#: C/apx-modules.xml:246(para)
 msgid ""
 "The libsoup library provides an implementation of the Simple Object Access "
 "Protocol (SOAP), as well as an HTTP implementation. SOAP can be used to "
@@ -2787,11 +3774,11 @@ msgstr ""
 "Библиотека libsoup предоставляет реализацию Simple Object Access Protocol "
 "(SOAP). Библиотека libsoup рассматривается в <xref linkend=\"libsoup\"/>."
 
-#: C/apx-modules.xml:239(term)
+#: C/apx-modules.xml:252(term)
 msgid "libwnck"
 msgstr "libwnck"
 
-#: C/apx-modules.xml:240(para)
+#: C/apx-modules.xml:253(para)
 msgid ""
 "The libwnck library provides a means of controlling any EWMH-compliant "
 "window manager, including <application>Metacity</application>, the GNOME "
@@ -2803,37 +3790,37 @@ msgstr ""
 "GNOME по умолчанию. Библиотека libwnck рассматривается в <xref linkend="
 "\"window-manager\"/>."
 
-#: C/apx-modules.xml:246(term)
+#: C/apx-modules.xml:259(term)
 msgid "libxklavier"
 msgstr "libxklavier"
 
-#: C/apx-modules.xml:247(para)
+#: C/apx-modules.xml:260(para)
 msgid ""
 "The libxklavier library provides a high-level API for accessing and setting "
 "keyboard layouts. It is used in the <application>Keyboard Preferences</"
 "application> to allow users to set their keyboard layout and options."
 msgstr ""
-"Библиотека libxklavier предоставляет высокоуровневый программный интерфейс для доступа и "
-"установки раскладок клавиатуры. Эта библиотека используется в "
+"Библиотека libxklavier предоставляет высокоуровневый программный интерфейс "
+"для доступа и установки раскладок клавиатуры. Эта библиотека используется в "
 "<application>Keyboard Preferences</application> и позволяет пользователям "
 "устанавливать раскладку и параметры клавиатуры."
 
-#: C/apx-modules.xml:253(term)
+#: C/apx-modules.xml:266(term)
 msgid "vte"
 msgstr "vte"
 
-#: C/apx-modules.xml:254(para)
+#: C/apx-modules.xml:267(para)
 msgid ""
 "VTE is a terminal emulator widget for use in GTK+ applications. It provides "
 "a consistent API and uses Pango for text drawing, allowing it to display all "
 "internationalized text. VTE is used in GNOME's <application>Terminal</"
 "application> application."
 msgstr ""
-"VTE - это виджет эмулятора терминала для использования в приложения, "
-"написанных с использованием GTK+. Он предоставляет стабильный программный интерфейс и "
-"использует Pango для отображения текста, что позволяет отображать любой "
-"интернациональный текст. VTE используется в GNOME's <application>Terminal</"
-"application> application."
+"VTE — это виджет эмулятора терминала для использования в приложения, "
+"написанных с использованием GTK+. Он предоставляет стабильный программный "
+"интерфейс и использует Pango для отображения текста, что позволяет "
+"отображать любой интернациональный текст. VTE используется в приложении "
+"GNOME <application>Терминал</application>."
 
 #: C/platform-overview.xml:7(title) C/platform-overview.xml:10(title)
 msgid "Overview of the GNOME Platform"
@@ -2877,7 +3864,7 @@ msgstr "McCance"
 
 #: C/platform-overview.xml:30(orgname)
 msgid "GNOME Documentation Project"
-msgstr ""
+msgstr "Проект документирования GNOME"
 
 #: C/platform-overview.xml:32(email)
 msgid "shaunm@gnome.org"
@@ -2886,4 +3873,6 @@ msgstr "shaunm@gnome.org"
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/platform-overview.xml:0(None)
 msgid "translator-credits"
-msgstr "Yura Penkin <yura.penkin@gmail.ru>"
+msgstr ""
+"Nikita Belobrov <qvzqvz@gmail.com>, 2008\n"
+"Yura Penkin <yura.penkin@gmail.ru>, 2007"
