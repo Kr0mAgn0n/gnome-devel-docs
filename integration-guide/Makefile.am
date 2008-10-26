@@ -3,4 +3,4 @@ dist-hook: doc-dist-hook
 
 DOC_MODULE = integration-guide
 DOC_FIGURES =
-DOC_LINGUAS =
+DOC_LINGUAS = es
