@@ -1,9 +1,10 @@
-SUBDIRS =			\
-	gdp-handbook		\
-	gdp-style-guide		\
-	hig			\
-	integration-guide	\
-	optimization-guide	\
+SUBDIRS =				\
+	accessibility-devel-guide	\
+	gdp-handbook			\
+	gdp-style-guide			\
+	hig				\
+	integration-guide		\
+	optimization-guide		\
 	platform-overview
 
 EXTRA_DIST = gnome-doc-utils.make
