@@ -40,7 +40,7 @@ Run the <application>test-speech</application> application by opening a terminal
 </step>
 <step>
 <para>
-A list of speech synthesis engines should be displayed. These may include <application>eSpeak</application>, <application>Festival</application> and others. Enter the number corresponding to the speech synthesizer engines you need to test. Ideally, no errors will be encountered. If you have no  servers listed or errors are being listed, confirm you have included all the required  packages for your OS build.
+A list of speech synthesis engines should be displayed. These may include <application>eSpeak</application>, <application>Festival</application> and others. Enter the number corresponding to the speech synthesizer engines you need to test. Ideally, no errors will be encountered. If you have no servers listed or errors are being listed, confirm you have included all the required packages for your OS build.
 </para>
 </step>
 <step>
@@ -55,7 +55,7 @@ Verify that speech works in conjunction with other audio output applications lik
 <itemizedlist>
 <listitem>
 <para>
-Shipping a speech synthesis engine with your operating system, such as eSpeak
+Shipping a speech synthesis engine with your operating system, such as <application>eSpeak</application>
 </para>
 </listitem>
 <listitem>
@@ -76,7 +76,7 @@ Exploring how to make audio work better on your distribution, especially audio m
 <section>
 <title>Test Braille</title>
 <para>
-Orca uses <application>BrlTTY</application> and <application>liblouis</application> for braille output. 
+<application>Orca</application> uses <application>BrlTTY</application> and <application>liblouis</application> for braille output. 
 </para>
 <procedure>
 <step>
@@ -105,7 +105,7 @@ Test if <application>BrlTTY</application> automatically starts when a USB braill
 <section>
 <title>Test Magnification</title>
 <para>
-Orca uses <application>GNOME Mag</application> for magnification. For a compelling magnification experience, <application>GNOME Mag</application> uses various X Windows System server extensions: COMPOSITE, FIXES, DAMAGE, RANDR, and RENDER.
+<application>Orca</application> uses <application>GNOME Mag</application> for magnification. For a compelling magnification experience, <application>GNOME Mag</application> uses various X Windows System server extensions: COMPOSITE, FIXES, DAMAGE, RANDR, and RENDER.
 </para>
 <procedure>
 <step>
@@ -124,7 +124,7 @@ Run <application>Orca</application> and open the <guilabel>Magnifier</guilabel> 
 <section>
 <title>Test AT-SPI</title>
 <para>
-Orca uses the AT-SPI to communicate with applications on the desktop.
+<application>Orca</application> uses the AT-SPI to communicate with applications on the desktop.
 </para>
 <procedure>
 <step>
@@ -495,7 +495,7 @@ Backup the original file <userinput>/etc/X11/xorg.conf</userinput> - if this fil
 </step>
 <step>
 <para>
-Edit the file <userinput>/etc/X11/xorg.conf</userinput> and add lines of the following form  for each device:
+Edit the file <userinput>/etc/X11/xorg.conf</userinput> and add lines of the following form for each device:
 </para>
 <para>
 Section "ServerLayout"
@@ -914,6 +914,21 @@ EndSection
 <step>
 <para>
 Save changes and restart Xsession; all settings are passed on two machines. 
+</para>
+</step>
+</procedure>
+<para>
+The best way to confirm the proper setup of multiple switches is to test with a second, physical USB mouse also connected to the machine. Verify the second USB mouse doesn't produce any core events after it has been configured using the steps given. You can follow this quick procedure to ensure there is no undesired device behavior:
+</para>
+<procedure>
+<step>
+<para>
+Confirm that moving the second mouse doesn't cause the core pointer to move.
+</para>
+</step>
+<step>
+<para>
+Confirm that clicking mouse button 1 on the second USB device doesn't result in activating a push button that the core pointer might be hovering over.
 </para>
 </step>
 </procedure>
