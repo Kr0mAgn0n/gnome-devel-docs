@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: integration-guide.HEAD\n"
-"POT-Creation-Date: 2008-10-27 06:29+0000\n"
-"PO-Revision-Date: 2008-11-02 15:04+0100\n"
+"POT-Creation-Date: 2008-11-07 12:51+0100\n"
+"PO-Revision-Date: 2008-11-09 13:42+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -297,6 +297,12 @@ msgid ""
 "relatively little work, applications which are not written explicitly with "
 "GNOME in mind can be made to run comfortably within a GNOME desktop."
 msgstr ""
+"Una de las principales preocupaciones de GNOME es la experiencia del "
+"usuario. Los usuarios deberían tener un entorno de computación confortable: "
+"esto significa tener un escritorio completo y un conjunto de aplicaciones "
+"que operan conjuntamente de forma consistente. Con poco trabajo, las "
+"aplicaciones que no están escritas explícitamente para GNOME pueden "
+"ejecutarse de una forma confortable en un escritorio GNOME."
 
 #: C/integration-guide.xml:213(title)
 msgid "Structure of this guide"
@@ -349,6 +355,13 @@ msgid ""
 "as possible. Even though no official rules have been adopted, there is a set "
 "of specifications available at <emphasis>freedesktop.org</emphasis>."
 msgstr ""
+"Crear una aplicación perfecta es un sentimiento maravilloso. "
+"Independientemente de si es grande o pequeña, querrá que el escritorio "
+"reconozca su aplicación para que ellos puedan interactuar con ella "
+"apropiadamente. Con la cantidad de escritorios disponible actualmente, lo "
+"mejor es que su aplicación sea capaz de integrarse en tantos como sea "
+"posible. Aunque no existan reglas oficiales, hay unas especificaciones "
+"disponibles en <emphasis>freedesktop.org</emphasis>."
 
 #: C/integration-guide.xml:252(para)
 msgid ""
@@ -356,6 +369,10 @@ msgid ""
 "informal but commonly agreed upon guidelines. When followed, these "
 "guidelines allow applications to be integrated on to compliant desktops."
 msgstr ""
+"Aunque no sean unos estándares formales, freedesktop.org mantiene un "
+"conjunto de guías informales pero generalmente aceptadas. Al seguirlas, "
+"estas guías permiten que las aplicaciones se integren en los escritorios que "
+"siguen el estándar."
 
 #: C/integration-guide.xml:262(title)
 msgid "Basic Integration"
@@ -367,28 +384,38 @@ msgid ""
 "integrate a program into the GNOME desktop. These steps concern the "
 "following:"
 msgstr ""
+"Este capítulo le enseña los pasos básicos que debe realizar para integrar un "
+"programa en el Escritorio GNOME. Estos pasos incluyen lo siguiente:"
 
 #: C/integration-guide.xml:272(para)
 msgid ""
 "Letting the user launch your application by making it appear in the "
 "desktop's panel menus, or any other launching mechanism in the desktop."
 msgstr ""
+"Permitir que el usuario lance su aplicación haciendo que aparezca en los "
+"menús del panel del escritorio, o cualquier otro mecanismo de lanzamiento en "
+"el escritorio."
 
 #: C/integration-guide.xml:279(para)
 msgid ""
 "Letting the desktop know which types of user-created files require your "
 "application to be launched."
 msgstr ""
+"Permitir que el escritorio sepa qué tipo de archivos creados por el usuario "
+"requiere su aplicación para poderse lanzar."
 
 #: C/integration-guide.xml:285(para)
 msgid ""
 "Letting the desktop know how to display the appropriate icons for your "
 "program and the files which your program creates."
 msgstr ""
+"Permitir que el escritorio sepa cómo mostrar los iconos apropiados para su "
+"programa y los archivos que su programa crea."
 
 #: C/integration-guide.xml:293(title)
 msgid "Desktop files: putting your application in the desktop menus"
 msgstr ""
+"Archivos de escritorio: poner su aplicación en los menús del escritorio"
 
 #: C/integration-guide.xml:295(para)
 msgid ""
@@ -398,6 +425,11 @@ msgid ""
 "<firstterm>register</firstterm> it with the set of applications that users "
 "can run."
 msgstr ""
+"Para ejecutar aplicaciones desde GNOME, los usuarios pulsan en iconos de sus "
+"escritorios o seleccionan las aplicaciones que quieren ejecutar de un menú. "
+"Por ello, el primer paso para integrar un programa existente con GNOME es "
+"<firstterm>registrarlo</firstterm> con el conjunto de aplicaciones que los "
+"usuarios pueden ejecutar."
 
 #: C/integration-guide.xml:304(para)
 msgid ""
@@ -451,7 +483,7 @@ msgstr "use el icono apropiado."
 
 #: C/integration-guide.xml:347(para)
 msgid "recognize the MIME types it supports for opening files."
-msgstr ""
+msgstr "reconozca el tipo MIME que soporta para abrir archivos."
 
 #: C/integration-guide.xml:351(para)
 msgid ""
@@ -528,6 +560,9 @@ msgid ""
 "not the same as <command>type=Application</command> or "
 "<command>TYPE=Application</command>."
 msgstr ""
+"No obstante, las claves distinguen entre mayúsculas y minúsculas. "
+"<command>Type=Application</command> no es lo mismo que "
+"<command>type=Application</command> o <command>TYPE=Application</command>."
 
 #: C/integration-guide.xml:469(title)
 msgid "Sample desktop file"
@@ -546,10 +581,19 @@ msgid ""
 "Icon=application.png\n"
 "Terminal=false\n"
 msgstr ""
+"\n"
+"[Desktop Entry]\n"
+"Type=Application\n"
+"Encoding=UTF-8\n"
+"Name=Nombre de ejemplo\n"
+"Comment=Una aplicación de ejemplo\n"
+"Exec=aplicacion\n"
+"Icon=aplicación.png\n"
+"Terminal=false\n"
 
 #: C/integration-guide.xml:483(title)
 msgid "Line by line explanation"
-msgstr ""
+msgstr "Explicación línea a línea"
 
 #: C/integration-guide.xml:490(entry)
 msgid "Line"
@@ -561,7 +605,7 @@ msgstr "Descripción"
 
 #: C/integration-guide.xml:497(command)
 msgid "[Desktop Entry]"
-msgstr ""
+msgstr "[Desktop Entry]"
 
 #: C/integration-guide.xml:498(entry)
 msgid ""
@@ -569,10 +613,13 @@ msgid ""
 "block of key value pairs associated with the desktop. Necessary for the "
 "desktop to recognize the file correctly."
 msgstr ""
+"La primera línea de todo archivo de escritorio y la sección de cabecera para "
+"identificar el bloque de los pares de claves asociados con el escritorio. "
+"Necesario para que el escritorio reconozca el archivo correctamente."
 
 #: C/integration-guide.xml:504(command)
 msgid "Type=Application"
-msgstr ""
+msgstr "Type=Application"
 
 #: C/integration-guide.xml:507(command)
 msgid "Link"
@@ -587,6 +634,9 @@ msgid ""
 "Tells the desktop that this desktop file pertains to an application. Other "
 "valid values for this key are <placeholder-1/> and <placeholder-2/>."
 msgstr ""
+"Le dice al escritorio que este archivo de escritorio pertenece a una "
+"aplicación. Otros valores válidos para esta clave son <placeholder-1/> y "
+"<placeholder-2/>."
 
 #: C/integration-guide.xml:511(command)
 msgid "Encoding=UTF-8"
@@ -604,6 +654,7 @@ msgstr "Name="
 #: C/integration-guide.xml:517(entry)
 msgid "Names of your application for the main menu and any launchers."
 msgstr ""
+"Da el nombre a su aplicación para el menú principal y cualquier lanzador."
 
 #: C/integration-guide.xml:520(command)
 msgid "Comment=A sample application"
@@ -611,7 +662,7 @@ msgstr "Comment="
 
 #: C/integration-guide.xml:521(entry)
 msgid "Describes the application. Used as a tooltip."
-msgstr ""
+msgstr "Describe la aplicación. Usado como consejo."
 
 #: C/integration-guide.xml:524(command)
 msgid "Exec=application"
@@ -621,6 +672,8 @@ msgstr "Exec=application"
 msgid ""
 "The command that starts this application from a shell. It can have arguments."
 msgstr ""
+"El comando que inicia la aplicación desde una consola. Puede tener "
+"argumentos."
 
 #: C/integration-guide.xml:529(command)
 msgid "Icon=application.png"
@@ -628,7 +681,7 @@ msgstr "Icon=aplicación.png"
 
 #: C/integration-guide.xml:530(entry)
 msgid "The icon name associated with this application."
-msgstr ""
+msgstr "El nombre del icono asociado con esta aplicación."
 
 #: C/integration-guide.xml:533(command)
 msgid "Terminal=false"
@@ -636,21 +689,24 @@ msgstr "Terminal=false"
 
 #: C/integration-guide.xml:534(entry)
 msgid "Describes whether application should run in a terminal."
-msgstr ""
+msgstr "Describe si la aplicación se debería ejecutar en un terminal."
 
 #: C/integration-guide.xml:542(title)
 msgid "Starting your application"
-msgstr ""
+msgstr "Iniciar su aplicación"
 
 #: C/integration-guide.xml:543(para)
 msgid ""
 "If your application can take command line arguments, you can signify that by "
 "using the fields as shown in <xref linkend=\"tb-exec-params\"/>."
 msgstr ""
+"Si su aplicación puede llevar argumentos de la línea de comandos, puede "
+"detallarlo usando los campos mostrados en la <xref linkend=\"tb-exec-params"
+"\"/>."
 
 #: C/integration-guide.xml:550(title)
 msgid "Exec variables"
-msgstr ""
+msgstr "Variables de ejecución"
 
 #: C/integration-guide.xml:557(entry)
 msgid "Add..."
@@ -702,6 +758,7 @@ msgid ""
 "a single directory. Used in conjunction with <placeholder-1/> to locate a "
 "file."
 msgstr ""
+"un sólo directorio. Usado junto con <placeholder-1/> para ubicar un archivo."
 
 #: C/integration-guide.xml:585(command)
 msgid "%D"
@@ -712,6 +769,7 @@ msgid ""
 "multiple directories. Used in conjunction with <placeholder-1/> to locate "
 "files."
 msgstr ""
+"múltiples directorios. Usado junto con <placeholder-1/> para ubicar archivos."
 
 #: C/integration-guide.xml:590(command)
 msgid "%n"
@@ -719,7 +777,7 @@ msgstr "%n"
 
 #: C/integration-guide.xml:591(entry)
 msgid "a single filename without a path."
-msgstr ""
+msgstr "un sólo nombre de archivo sin ruta."
 
 #: C/integration-guide.xml:594(command)
 msgid "%N"
@@ -727,7 +785,7 @@ msgstr "%N"
 
 #: C/integration-guide.xml:595(entry)
 msgid "multiple filenames without paths."
-msgstr ""
+msgstr "múltiples archivos sin rutas."
 
 #: C/integration-guide.xml:598(command)
 msgid "%k"
@@ -736,6 +794,8 @@ msgstr "%k"
 #: C/integration-guide.xml:599(entry)
 msgid "a URI or local filename of the location of the desktop file."
 msgstr ""
+"un URI o nombre de archivo local para la localización del archivo de "
+"escritorio."
 
 #: C/integration-guide.xml:603(command)
 msgid "%v"
@@ -860,6 +920,8 @@ msgid ""
 "Additional Mime types can be added by separating the different types with "
 "semicolons."
 msgstr ""
+"Se pueden añadir tipos MIME adicionales separando los diferentes tipos con "
+"puntos y comas."
 
 #: C/integration-guide.xml:732(para)
 msgid ""
@@ -1104,6 +1166,8 @@ msgstr "%i"
 #: C/integration-guide.xml:970(entry)
 msgid "Input file name. This is the file that your thumbnailer needs to read."
 msgstr ""
+"Nombre del archivo de entrada. Este es el archivo que su gestor de "
+"miniaturas debe leer."
 
 #: C/integration-guide.xml:977(entry)
 msgid ""
@@ -1169,7 +1233,7 @@ msgstr ""
 
 #: C/integration-guide.xml:1043(para)
 msgid "Does your application appear in the menus of the GNOME Panel?"
-msgstr ""
+msgstr "¿Aparece su aplicación en los menús del panel de GNOME?"
 
 #: C/integration-guide.xml:1048(para)
 msgid ""
@@ -1185,13 +1249,15 @@ msgstr ""
 
 #: C/integration-guide.xml:1061(para)
 msgid "Does your application provide MIME icons for the file manager?"
-msgstr ""
+msgstr "¿Proporciona su aplicación iconos MIME para el gestor de archivos?"
 
 #: C/integration-guide.xml:1067(para)
 msgid ""
 "Does your application support startup notification, so that GNOME can "
 "display feedback to the user while your application is being launched?"
 msgstr ""
+"¿Su aplicación soporta notificación de inicio, de tal forma que GNOME pueda "
+"mostrarle comentarios al usuario mientras que su aplicación se está lanzando?"
 
 #: C/integration-guide.xml:1074(para)
 msgid ""
@@ -1216,4 +1282,4 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/integration-guide.xml:0(None)
 msgid "translator-credits"
-msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008."
+msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2008"
