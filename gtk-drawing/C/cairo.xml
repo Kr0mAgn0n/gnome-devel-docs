@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+]>
+
+<chapter id="chapter.cairo">
+ <title>Cairo</title>
+
+ <para>
+  <ulink url="http://cairographics.org/">Cairo</ulink>
+  is a cross-platform, multi-toolkit, backend-independant vector
+  graphics library that is used extensively throughout GTK+.
+ </para>
+
+ <para>
+  This section of the manual does not aim to be a complete Cairo tutorial,
+  and instead serves to highlight how to carry out common drawing tasks
+  within GTK+ and how to optimise them. If you need a complete Cairo
+  tutorial, see <ulink url="http://cairographics.org/documentation/"/>.
+ </para>
+  
+ <sect1 id="sect.cairo.masks">
+  <title>Speeding Up Drawing Using Masks</title>
+
+  <para>
+   Masks are used when drawing the same shape repeatedly. Rather than
+   recalculating a path and stroking or filling it every time, a mask can
+   be thought of like cutting one copy out of a piece of card and then
+   using it to spray paint the result onto the target surface. A Cairo mask
+   is a surface of the same type as the target surface but with only an
+   alpha channel.
+  </para>
+  <para>
+   Any sort of source may be used with a mask (e.g. a solid colour,
+   gradient or image). If you want something that uses two colours (e.g. a
+   marker with a border), you should use two marks (one for the marker and
+   one for the border).
+  </para>
+
+  <para>
+   To enable the graphics layer to accellerate the drawing of masks on your
+   target surface, the target surface should be untransformed and the mask
+   and target surface should be pixel aligned. If this isn't the case,
+   using masks may be slower than restroking the path. See <xref
+   linkend="note.cairo.masks.subpixel"/> below for more details.
+  </para>
+
+  <para>
+   Create a new mask with
+   <function>cairo_surface_create_similar</function>. Then draw your path
+   into that mask (<xref linkend="example.cairo.masks.ex1"/>). You can use
+   <function>cairo_surface_set_device_offset</function> to set the middle
+   of your mask.
+  </para>
+  <para>
+   Remember that only the alpha channel is available, so
+   use <function>cairo_set_source_rgba (cr, 0., 0., 0., a)</function>. The
+   amount of alpha in the mask is the amount of alpha that will be used
+   with the source colour when that mask is applied.
+  </para>
+  <example id="example.cairo.masks.ex1">
+   <title>Creating a Mask</title>
+   <programlisting>
+<![CDATA[#define MASK_SIZE 16
+
+cairo_surface_t *mask = cairo_surface_create_similar (
+       	target_surface, CAIRO_CONTENT_ALPHA,
+       	MASK_SIZE, MASK_SIZE);
+
+/* set the middle of our mask as the offset for cairo_mask_surface() */
+cairo_surface_set_device_offset (mask, MASK_SIZE / 2, MASK_SIZE / 2);
+
+cairo_t *cr = cairo_create (mask);
+/* draw into mask - remember to fill/stroke */
+cairo_destroy (cr);]]></programlisting>
+  </example>
+
+  <para>
+   To apply your mask use <function>cairo_mask_surface</function>
+   (<xref linkend="example.cairo.masks.ex2"/>). This
+   will apply the mask using your current source at the position (x, y) as
+   the top left corner of the mask (unless you offset it with
+   <function>cairo_surface_set_device_offset</function>). You do not need
+   to stroke, fill or paint the mask.
+  </para>
+
+  <example id="example.cairo.masks.ex2">
+   <title>Applying a Mask</title>
+   <programlisting>
+<![CDATA[/* cr is a cairo_t on our target surface */
+cairo_set_source_rgb (cr, 1., 0., 0.); /* mask in red */
+cairo_mask_surface (cr, mask, x, y);]]></programlisting>
+  </example>
+
+  <caution id="caution.cairo.masks.cleanup">
+   <para>
+    Remember to clean up masks you create with
+    <function>cairo_surface_destroy</function>. Otherwise they will leak.
+   </para>
+  </caution>
+
+  <note id="note.cairo.masks.subpixel">
+   <title>Sub-pixel Alignment Using Pixel Aligned Masks</title>
+
+   <para>
+    Masks must be pixel aligned with the target surface for speed, but this
+    can cause undesirable aliasing issues when drawing objects that require
+    sub-pixel alignment.
+   </para>
+   <para>
+    The trick is to create a set of masking surfaces with variously aligned
+    masking functions and then to choose the appropriate masking surface to
+    create the effect of anti-aliased drawing.
+   </para>
+   <example id="example.cairo.masks.subpixel.ex1">
+    <title>Creating and Applying Sub-pixel Aligned Masks</title>
+    <programlisting>
+<![CDATA[cairo_surface_t *mask[NSUBPX][NSUBPX];
+
+int i;
+for (i = 0; i < NSUBPX; i++)
+{
+       int j;
+       for (j = 0; j < NSUBPX; j++)
+       {
+       	cairo_t *cr;
+
+       	mask[i][j] = cairo_surface_create_similar (
+       			target_surface,
+       			CAIRO_CONTENT_ALPHA,
+       			MASK_SIZE, MASK_SIZE);
+       	cairo_surface_set_device_offset (mask[i][j],
+       			MASK_SIZE / 2, MASK_SIZE / 2);
+
+       	cr = cairo_create (mask[i][j]);
+
+       	/* add a certain amount of subpixel
+       	 * offset for this mask */
+       	cairo_translate (cr, 1. / NSUBPX * i,
+       			     1. / NSUBPX * j);
+       		
+       	draw_func (cr) /* draw onto the mask */;
+       	cairo_destroy (cr);
+       }
+}
+
+double x, y;
+int xi, yi;
+
+for (...)
+{
+       x = ...; y = ...;
+
+       xi = CLAMP (((int) (x * NSUBPX + 0.5)) % NSUBPX,
+       		0, NSUBPX-1);
+       yi = CLAMP (((int) (y * NSUBPX + 0.5)) % NSUBPX,
+       		0, NSUBPX-1);
+
+       x = ((int) (x * NSUBPX + 0.5)) / NSUBPX;
+       y = ((int) (y * NSUBPX + 0.5)) / NSUBPX;
+
+       cairo_mask_surface (cr, mask[xi][yi], x, y);
+}]]></programlisting>
+   </example>
+   <para>
+    Remember to destroy the masks afterwards with
+    <function>cairo_surface_destroy</function>.
+   </para>
+  </note>
+
+ </sect1>
+
+ <sect1 id="sect.cairo.images">
+  <title>Drawing an Image to a Cairo Surface</title>
+
+  <para>
+   An almost universal requirement when doing custom drawing with GTK+ is
+   being able to add images (from a file or other buffer) onto a Cairo
+   surface.
+  </para>
+
+  <para>
+   The easiest way to do this is to load your image into a
+   <classname>GdkPixbuf</classname> (e.g. by using
+   <function>gdk_pixbuf_new_from_file</function>). This pixbuf can then be
+   converted to a Cairo source and <emphasis>painted</emphasis> onto the
+   surface using <function>gdk_cairo_set_source_pixbuf</function> and
+   <function>cairo_paint</function>
+   (<xref linkend="example.cairo.images.ex1"/>).
+   This will work with any sort of target surface.
+  </para>
+
+  <example id="example.cairo.images.ex1">
+   <title>Loading a theme icon and painting it onto a Cairo surface</title>
+   <programlisting>
+<![CDATA[GdkPixbuf *icon = gtk_icon_theme_load_icon (
+		gtk_icon_theme_get_default (),
+		GTK_STOCK_DIALOG_INFO, 48,
+		GTK_ICON_LOOKUP_USE_BUILTIN,
+		NULL);
+
+cairo_save (cr); /* save the context state before changing the source */
+
+/* position the image on the target surface */
+cairo_translate (cr, x, y);
+
+/* apply any rotation or scaling required to the image here */
+
+gdk_cairo_set_source_pixbuf (cr, icon, 0., 0.);
+cairo_paint (cr);
+
+cairo_restore (cr); /* restore the context state */
+
+g_object_unref (icon);]]></programlisting>
+  </example>
+
+  <sect2 id="sect.cairo.images.faster">
+   <title>Speeding Up Image Painting</title>
+
+   <para>
+    <classname>GdkPixbuf</classname>s are kept in your program's memory
+    (the same applies to Cairo's <classname>ImageSurface</classname>).
+    Every time your program calls
+    <function>gdk_cairo_set_source_pixbuf</function>, that image needs to be
+    copied over to the video card and then painted onto your target surface.
+    If this needs to happen every time your window is exposed, it can cause
+    a significant performance penalty (especially over systems like remote
+    X11).
+   </para>
+
+   <para>
+    The solution is to create a working surface of the same type as the
+    target surface at the size of the image.
+    Many Cairo backends allow for fast painting between
+    surfaces of the same type (in graphics this is known as
+    <emphasis>blitting</emphasis>).
+   </para>
+
+   <para>
+    Create a working surface with
+    <function>cairo_surface_create_similar</function>.
+    Paint the image into the new surface. You can then
+    use this working surface as the source for further painting options
+    (<xref linkend="example.cairo.images.ex2"/>).
+   </para>
+
+   <example id="example.cairo.images.ex2">
+    <title>Faster painting of a theme icon</title>
+    <programlisting>
+<![CDATA[static cairo_surface_t *icon_surface = NULL;
+if (icon_surface == NULL)
+{
+	/* create the work surface */
+
+	GdkPixbuf *icon = gtk_icon_theme_load_icon (
+			gtk_icon_theme_get_default (),
+			GTK_STOCK_DIALOG_INFO, 48,
+			GTK_ICON_LOOKUP_USE_BUILTIN,
+			NULL);
+
+	cairo_surface_t *other_surface = cairo_get_target (cr);
+	
+	icon_surface = cairo_surface_create_similar (target_surface,
+			CAIRO_CONTENT_COLOR_ALPHA,
+			gdk_pixbuf_get_width (icon),
+			gdk_pixbuf_get_height (icon));
+	cairo_t *crw = cairo_create (icon_surface);
+
+	/* apply any common rotation or scaling here to cache it */
+	gdk_cairo_set_source_pixbuf (crw, icon, 0., 0.);
+	cairo_paint (crw);
+
+	cairo_destroy (crw);
+	g_object_unref (icon);
+}
+
+cairo_save (cr);
+
+/* position the image on the target surface */
+cairo_translate (cr, x, y);
+
+/* apply any specific rotation or scaling here */
+
+cairo_set_source_surface (cr, icon_surface, 0., 0.);
+cairo_paint (cr);
+
+cairo_restore (cr);]]></programlisting>
+   </example>
+
+   <para>
+    Don't forget to free <varname>icon_surface</varname> when it can no
+    longer be needed (e.g. when the <classname>GtkDrawingArea</classname> is
+    destroyed.
+   </para>
+
+  </sect2>
+
+  <sect2 id="sect.cairo.images.svg">
+   <title>Drawing SVG to a Cairo Surface</title>
+  </sect2>
+
+ </sect1>
+</chapter>
