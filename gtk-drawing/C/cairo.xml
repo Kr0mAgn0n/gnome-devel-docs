@@ -18,6 +18,23 @@
   within GTK+ and how to optimise them. If you need a complete Cairo
   tutorial, see <ulink url="http://cairographics.org/documentation/"/>.
  </para>
+
+ <sect1 id="sect.cairo.coords">
+  <title>Cairo Coordinate System</title>
+
+  <para>
+   The Cairo coordinate system is not identical to the one presented in
+   GTK+. Coordinates in GTK+ are given in integer pixels from the top-left
+   corner; where the first pixel is 0, 0.
+  </para>
+  <para>
+   Cairo coordinates are given as double precision floating point numbers,
+   with the top-left corner (not pixel) is given the position 0.0, 0.0.
+   Coordinates are given in this space to enable Cairo to create the effect
+   of a higher resolution device via antialiasing, and to provide more
+   consistent output between different drawing backends.
+  </para>
+ </sect1>
   
  <sect1 id="sect.cairo.masks">
   <title>Speeding Up Drawing Using Masks</title>
