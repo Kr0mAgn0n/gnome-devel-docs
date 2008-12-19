@@ -225,6 +225,94 @@ gdk_window_invalidate_rect (da->window, &rect, FALSE);]]></programlisting>
 
  <sect1 id="sect.gtkdrawingarea.caching">
   <title>Caching</title>
+
+  <para>
+   If the expose-event callback is especially slow to complete, the main
+   loop will block, which will make the application appear unresponsive. The
+   solution is to cache the contents of the drawing area in an offscreen
+   <classname>GdkPixmap</classname>.
+  </para>
+
+  <para>
+   The principle behind caching a pixmap it to add code to the expose-event
+   callback that creates a cache and draws into it when required, and then
+   copies (blits) the contents of that cache back into the
+   <classname>GdkWindow</classname>.
+   <xref linkend="example.gtkdrawingarea.caching.expose-event"/> extends the
+   examples in <xref linkend="sect.gtkdrawingarea.expose"/> to add simple
+   caching.
+  </para>
+
+  <example id="example.gtkdrawingarea.caching.expose-event">
+   <title>Extending an expose-event for Caching</title>
+
+   <programlisting>
+<![CDATA[static gboolean
+expose_callback (GtkWidget *da, GdkEventExpose *event, gpointer user_data)
+{
+        struct Context *context = (struct Context *) user_data;
+
+        if (context->update_cache)
+        {
+                int w, h;
+
+                g_print ("Expose\n");
+
+                if (context->cache) g_object_unref (context->cache);
+
+                /* create a pixmap the same size as the window */
+                gdk_drawable_get_size (event->window, &w, &h);
+                context->cache = gdk_pixmap_new (event->window, w, h, -1);
+
+                cairo_t *cr = gdk_cairo_create (context->cache);
+
+                /* clear it to white */
+                cairo_set_source_rgb (cr, 1., 1., 1.);
+                cairo_paint (cr);
+
+                /* draw a circle */
+                cairo_set_source_rgb (cr, 0., 0., 0.);
+                cairo_arc (cr, 50., 50., 25, -M_PI, M_PI);
+                cairo_stroke (cr);
+
+                cairo_destroy (cr);
+
+                context->update_cache = FALSE;
+        }
+        else
+        {
+                g_print ("Expose from cache\n");
+        }
+
+        /* copy the cache to the window */
+        GdkGC *gc = gdk_gc_new (event->window);
+        gdk_draw_drawable (event->window, gc, context->cache,
+                        event->area.x, event->area.y,
+                        event->area.x, event->area.y,
+                        event->area.width, event->area.height);
+        g_object_unref (gc);
+
+        return TRUE;
+}]]></programlisting>
+  </example>
+
+  <para>
+   To manually update the image, set <varname>update_cache</varname> to
+   True before calling <function>gdk_window_invalidate_rect</function>
+   (<xref linkend="example.gtkdrawingarea.caching.manual-update"/>).
+  </para>
+
+  <example id="example.gtkdrawingarea.caching.manual-update">
+   <title>Manually Updating the Drawing Area</title>
+   <programlisting>
+<![CDATA[static void
+force_update (GtkWidget *da, struct Context *context)
+{
+	context->update_cache = TRUE;
+	gdk_window_invalidate_rect (da->window, NULL, FALSE);
+}]]></programlisting>
+  </example>
+
  </sect1>
 
  <sect1 id="sect.gtkdrawingarea.opengl">
