@@ -25,15 +25,82 @@
   <para>
    The Cairo coordinate system is not identical to the one presented in
    GTK+. Coordinates in GTK+ are given in integer pixels from the top-left
-   corner; where the first pixel is 0, 0.
+   corner; where the first pixel is (0, 0).
   </para>
   <para>
    Cairo coordinates are given as double precision floating point numbers,
-   with the top-left corner (not pixel) is given the position 0.0, 0.0.
-   Coordinates are given in this space to enable Cairo to create the effect
-   of a higher resolution device via antialiasing, and to provide more
+   with the top-left corner (not pixel) is given the position (0.0, 0.0).
+   Coordinates are given in this space to enable Cairo to support
+   higher resolution devices, and to provide more
    consistent output between different drawing backends.
   </para>
+
+  <sect2 id="sect.cairo.coords.stroking">
+   <title>Stroking Solid Lines</title>
+
+   <para>
+    A common mistake when stroking lines with Cairo is proving incorrect
+    coordinates, which leads to a fuzzy, pale or overwidth line. This is
+    because Cairo is antialiasing lines to simulate a higher resolution
+    device. An example of this mistake is <xref
+    linkend="example.cairo.coords.stroking.wrong"/>.
+   </para>
+
+   <example id="example.cairo.coords.stroking.wrong">
+    <title>Incorrectly stroking a 1 pixel wide line in Cairo</title>
+    <programlisting>
+<![CDATA[/* draw a 1px wide line between pixel (0, 0) and pixel (0, 50) */
+cairo_set_line_width (cr, 1.);
+cairo_move_to (cr, 0., 0.);
+cairo_line_to (cr, 0., 50.);
+cairo_stroke (cr);]]></programlisting>
+   </example>
+
+   <para>
+    When Cairo strokes a path, it draws half of the width of the line down
+    each side of the path.
+    To prevent Cairo from antialiasing a straight line (i.e. horizontal or
+    vertical), that line must fill an integer number of pixels.
+    So if a line goes from Cairo's (0, 0) to (0, 50), this line will infact
+    fill half of the pixel either side. Cairo's antialiasing will render
+    this as a line two pixels wide, but half as dark.
+   </para>
+
+   <para>
+    Instead we want to draw the line in the middle of the pixels, which in
+    Cairo coordinates is (0.5, 0.5) to (0.5, 50.5). <xref
+    linkend="example.cairo.coords.stroking.correct"/> shows the correct way
+    to draw the line.
+   </para>
+   
+   <example id="example.cairo.coords.stroking.correct">
+    <title>Correctly stroking a 1 pixel wide line in Cairo</title>
+    <programlisting>
+<![CDATA[/* draw a 1px wide line between pixel (0, 0) and pixel (0, 50) */
+cairo_set_line_width (cr, 1.);
+cairo_move_to (cr, 0.5, 0.5);
+cairo_line_to (cr, 0.5, 50.5);
+cairo_stroke (cr);]]></programlisting>
+   </example>
+
+   <tip id="tip.cairo.coords.stroking.wider">
+    <title>Lines Wider Than One Pixel</title>
+
+    <para>
+     When stroking lines wider than one pixel, the same rules applies: the
+     line must fill an integer number of pixels.
+    </para>
+
+    <para>
+     Half of the stroke is drawn on each side of the path. So for a 1 pixel wide
+     line we needed to draw the path in the middle of the pixel (0.5, 0.5).
+     For a 2 pixel wide line, we need to draw the path along the edge of the
+     pixel (0.0, 0.0); for a 3 pixel wide line, draw in the middle of the
+     path; for a 4 pixel wide line, along the edge; and so on.
+    </para>
+   </tip>
+
+  </sect2>
  </sect1>
   
  <sect1 id="sect.cairo.masks">
