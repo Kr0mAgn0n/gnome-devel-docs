@@ -313,6 +313,34 @@ force_update (GtkWidget *da, struct Context *context)
 }]]></programlisting>
   </example>
 
+  <para>
+   Some other events that trigger expose events will require the cache to be
+   invalidated. The most important case is when the
+   <classname>GtkDrawingArea</classname> is resized. <xref
+   linkend="example.gtkdrawingarea.caching.size-allocate"/> connects up
+   size-allocate to invalidate the cache when the
+   <classname>GtkDrawingArea</classname> is resized.
+  </para>
+
+  <example id="example.gtkdrawingarea.caching.size-allocate">
+   <title>Updating the Cache on Resize</title>
+   <programlisting>
+<![CDATA[static void
+size_allocate (GtkWidget *da, GtkAllocation *allocation, gpointer user_data)
+{
+        struct Context *context = (struct Context *) user_data;
+
+        g_print ("Resize, invalidate cache\n");
+
+        /* mark the cache as requiring an update */
+        context->update_cache = TRUE;
+}
+
+/* connect up size-allocate when connecting expose-event */
+g_signal_connect (da, "size-allocate",
+		G_CALLBACK (size_allocate), &context);]]></programlisting>
+  </example>
+
  </sect1>
 
  <sect1 id="sect.gtkdrawingarea.opengl">
