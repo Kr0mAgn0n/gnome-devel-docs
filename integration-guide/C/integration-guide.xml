@@ -321,7 +321,8 @@
       <para>
 	In GNOME and other freedesktop.org-compliant desktops, an
 	application gets registered into the desktop's menus through a
-	<firstterm>desktop file</firstterm>.  This desktop file
+	<firstterm>desktop entry</firstterm>, which is a text file with 
+	<filename>.desktop</filename> extension.  This desktop file
 	contains a listing of the configurations for your application.
 	The desktop takes the information in this file and uses it to:
       </para>
@@ -658,7 +659,7 @@ Terminal=false
 
       <para>
 	In <xref linkend="ex-sample-desktop-file"/>, we have specified the
-	icon for this file as
+	icon for this application as
 	<filename><replaceable>application.png</replaceable></filename>.
 	In order for this to work, we need to put that icon file in the
 	correct directory.
@@ -716,7 +717,7 @@ Terminal=false
       <para>
 	If your application can open specific MIME types, you need to let
 	the desktop know in the desktop file.  For example, if your
-	application can accept <filename>png</filename> files, add the
+	application can accept <acronym>PNG</acronym> files, add the
 	following line into your desktop file:
       </para>
 
@@ -734,7 +735,7 @@ Terminal=false
 	However, if you are creating one of your own, you need to
 	register your MIME type into the MIME database.  In the
 	<filename>/usr/share/mime/packages/</filename> directory,
-	create an <filename>XML</filename> file with the format as
+	create an <acronym>XML</acronym> file with the format as
 	shown in <xref linkend ="ex-mime-xml"/>.
       </para>
 
@@ -1048,7 +1049,7 @@ Terminal=false
 	<para>
 	  Does your application have an icon for the panel menus or
 	  the desktop? If so, does it have multiple pre-rendered sizes
-	  and a scalable SVG version?
+	  and a scalable <acronym>SVG</acronym> version?
 	</para>
       </listitem>
       <listitem>
