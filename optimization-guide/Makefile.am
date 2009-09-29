@@ -3,7 +3,8 @@ dist-hook: doc-dist-hook
 
 DOC_MODULE = optimization-guide
 DOC_LINGUAS =
-DOC_ENTITIES =			\
+DOC_ENTITIES =
+DOC_INCLUDES = \
   optimization-harmful.xml \
   optimization-massif.xml \
   optimization-intro.xml
