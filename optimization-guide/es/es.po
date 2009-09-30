@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.optimization-guide.master\n"
 "POT-Creation-Date: 2009-09-29 19:58+0000\n"
-"PO-Revision-Date: 2009-09-30 00:40+0200\n"
+"PO-Revision-Date: 2009-09-30 15:59+0200\n"
 "Last-Translator: Jorge Gonzalez <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,9 @@ msgid ""
 "Details of individual tools and techniques are left for later articles, but "
 "a collection of hints and tricks is provided."
 msgstr ""
+"Esta es una breve introducción a la optimización, de los cómos tanto de los "
+"porqués. Se dejan para posteriores artículos los detalles de herramientas y técnicas "
+"individuales pero se proporciona una colección de sugerencias y trucos."
 
 #: C/optimization-intro.xml:10(title)
 msgid "What are we Optimizing?"
@@ -38,6 +41,9 @@ msgid ""
 "trying to make the program better, we are trying to make the person using "
 "the computer happier."
 msgstr ""
+"Al optimizar GNOME lo primero que hay que recordar es esto: no se "
+"está intentando mejorar el programa, se está intentando hacer que las personas "
+"usen el equipo más felices."
 
 #: C/optimization-intro.xml:14(para)
 msgid ""
@@ -46,6 +52,10 @@ msgid ""
 "easy to access commands and not having the computer go into swap the moment "
 "more than two programs are open."
 msgstr ""
+"Programas mejores hacen a la gente más feliz pero existen algunas mejoras que "
+"los harán más felices que otras: tiempo de respuesta, tiempo de inicio, "
+"facilidad para acceder a comandos y que el equipo no tenga que usar la memoria "
+"de intercambio cuando más de dos programas estén abiertos."
 
 #: C/optimization-intro.xml:17(para)
 msgid ""
@@ -127,12 +137,17 @@ msgid ""
 "of everything you change and how it affects the benchmark. This lets you "
 "undo mistakes and also helps you not to repeat mistakes."
 msgstr ""
+"Vuelva a ejecutar su prueba de rendimiento después de cada cambio que realice sobre el código "
+"y mantenga un registro de todo lo que cambia y de cómo afecta al rendimiento. Esto le permite "
+"deshacer errores y también le ayuda a no repetirlos."
 
 #: C/optimization-intro.xml:50(para)
 msgid ""
 "Make sure your code is correct and bug-free before optimizing it. Check that "
 "it remains correct and bug-free after optimization."
 msgstr ""
+"Asegúrese de que su código es correcto y está libre de errores antes de optimizarlo. Compruebe que "
+"permanece correcto y libre de errores después de haberlo optimizado."
 
 #: C/optimization-intro.xml:55(para)
 msgid "Optimize at the high level before optimizing the details."
@@ -170,7 +185,7 @@ msgstr ""
 
 #: C/optimization-intro.xml:81(title)
 msgid "Traps for the Unwary"
-msgstr ""
+msgstr "Trampas para los imprudentes"
 
 #: C/optimization-intro.xml:83(para)
 msgid ""
@@ -178,6 +193,8 @@ msgid ""
 "different sections of code, a speed-up in one part can slow another part "
 "down."
 msgstr ""
+"Esté atento a efectos laterales. Generalmente son interacciones extrañas entre "
+"diferentes secciones del código, una extensión de una parte puede retardar otra."
 
 #: C/optimization-intro.xml:88(para)
 msgid ""
@@ -247,6 +264,9 @@ msgid ""
 "one processor, it is not even guaranteed to be fast on every processor that "
 "supports that architecture (e.g. Athlon vs. Pentium 4)."
 msgstr ""
+"No use lenguajes de ensamblado. El código no es portable y puede ser más "
+"rápido en un procesador que en otro, además no está garantizado que sea rápido en "
+"cada procesador que soporta esa arquitectura (ej. Athlon contra Pentium 4)."
 
 #: C/optimization-intro.xml:131(para)
 msgid ""
@@ -262,6 +282,8 @@ msgid ""
 "in, the faster the program starts. This is a difficult thing to do with "
 "GNOME."
 msgstr ""
+"Minimice el número de bibliotecas a las que enlaza. Cuanto menor sea el número de bibliotecas "
+"que enlazar, más rápido se iniciará el programa. Es una tarea difícil en GNOME."
 
 #: C/optimization-intro.xml:142(title)
 msgid "High Level Tricks"
@@ -358,6 +380,8 @@ msgid ""
 "<application>Massif</application> produces two output files: a graphical "
 "overview in a postscript file and a detailed breakdown in a text file."
 msgstr ""
+"<application>Massif</application> produce dos archivos de salida: una vista "
+"general gráfica en un archivo postscript y un archivo de texto detallado."
 
 #: C/optimization-massif.xml:22(title)
 msgid "Using <application>Massif</application> with GNOME"
@@ -529,6 +553,21 @@ msgid ""
 "  and 1 other insignificant place\n"
 "        "
 msgstr ""
+"\n"
+"== 4 ===========================\n"
+"Context accounted for 28.8% of measured spacetime\n"
+"  0x6BF83A: gdk_pixbuf_new (in /usr/lib/libgdk_pixbuf-2.0.so.0.400.9)\n"
+"  0x3A998998: (within /usr/lib/gtk-2.0/2.4.0/loaders/libpixbufloader-png.so)\n"
+"  0x6C2760: (within /usr/lib/libgdk_pixbuf-2.0.so.0.400.9)\n"
+"  0x6C285E: gdk_pixbuf_new_from_file (in /usr/lib/libgdk_pixbuf-2.0.so.0.400.9)\n"
+"\n"
+"Called from:\n"
+"  27.8% : 0x804C1A3: load_scenario (same-gnome.c:463)\n"
+"\n"
+"    0.9% : 0x3E8095E: (within /usr/lib/libgnomeui-2.so.0.792.0)\n"
+"\n"
+"  and 1 other insignificant place\n"
+"        "
 
 #: C/optimization-massif.xml:95(para)
 msgid ""
@@ -603,6 +642,8 @@ msgid ""
 "Can we do better ? A quick examination of <application>Massif</"
 "application>'s text output reveals: g_strdup to be the new major offender."
 msgstr ""
+"¿Se puede hacer mejor? Un examen rápido de la salida de texto de "
+"<application>Massif</application> releva que g_strdup es el nuevo mayor problema."
 
 #: C/optimization-massif.xml:124(programlisting)
 #, no-wrap
@@ -641,7 +682,7 @@ msgstr ""
 
 #: C/optimization-massif.xml:139(para)
 msgid "If we look closer though we see that it is called from many, many, places."
-msgstr ""
+msgstr "Si se mira con detenimiento se ve que se llama desde muchos, muchos sitios."
 
 #: C/optimization-massif.xml:142(programlisting)
 #, no-wrap
@@ -663,6 +704,22 @@ msgid ""
 "  and 155 other insignificant places\n"
 "        "
 msgstr ""
+"\n"
+"== 1 ===========================\n"
+"Context accounted for  7.7% of measured spacetime\n"
+"  0x5A32A5: g_strdup (in /usr/lib/libglib-2.0.so.0.400.6)\n"
+"\n"
+"Called from:\n"
+"    1.8% : 0x8BF606: gtk_icon_source_copy (in /usr/lib/libgtk-x11-2.0.so.0.400.9)\n"
+"\n"
+"    1.1% : 0x67AF6B: g_param_spec_internal (in /usr/lib/libgobject-2.0.so.0.400.6)\n"
+"\n"
+"    0.9% : 0x91FCFC: (within /usr/lib/libgtk-x11-2.0.so.0.400.9)\n"
+"\n"
+"    0.8% : 0x57EEBF: g_quark_from_string (in /usr/lib/libglib-2.0.so.0.400.6)\n"
+"\n"
+"  and 155 other insignificant places\n"
+"        "
 
 #: C/optimization-massif.xml:158(para)
 msgid ""
@@ -676,7 +733,7 @@ msgstr ""
 
 #: C/optimization-massif.xml:163(title)
 msgid "Caveats"
-msgstr ""
+msgstr "Advertencias"
 
 #: C/optimization-massif.xml:164(para)
 msgid ""
@@ -704,7 +761,7 @@ msgstr ""
 
 #: C/optimization-harmful.xml:3(title)
 msgid "Disk Seeks Considered Harmful"
-msgstr ""
+msgstr "Búsquedas de disco consideradas dañinas"
 
 #: C/optimization-harmful.xml:5(para)
 msgid ""
@@ -716,11 +773,11 @@ msgstr ""
 
 #: C/optimization-harmful.xml:10(para)
 msgid "Placing lots of small files all over the disk."
-msgstr ""
+msgstr "Ubicar montones de pequeños archivos por todo el disco."
 
 #: C/optimization-harmful.xml:15(para)
 msgid "Opening, stating, and reading lots of files all over the disk"
-msgstr ""
+msgstr "Abrir, iniciar y leer montones de archivos por todo el disco."
 
 #: C/optimization-harmful.xml:20(para)
 msgid ""
@@ -736,35 +793,39 @@ msgstr ""
 
 #: C/optimization-harmful.xml:30(para)
 msgid "Repeatedly doing the above when it only needs to be done once."
-msgstr ""
+msgstr "Realizar repetidamente lo anterior cuando sólo se necesita realizar una vez."
 
 #: C/optimization-harmful.xml:35(para)
 msgid "Ways in which you can optimize your code to be seek-friendly:"
-msgstr ""
+msgstr "Formas en las que puede optimizar su código para que sea amigable a la hora de hacer búsquedas:"
 
 #: C/optimization-harmful.xml:40(para)
 msgid "Consolidate data into a single file."
-msgstr ""
+msgstr "Consolidar los datos en un solo archivo."
 
 #: C/optimization-harmful.xml:45(para)
 msgid "Keep data together in the same directory."
-msgstr ""
+msgstr "Mantener los datos juntos en el mismo directorio."
 
 #: C/optimization-harmful.xml:50(para)
 msgid "Cache data so as to not need to reread constantly."
-msgstr ""
+msgstr "Cachear los datos para no tener que volver a leerlos constantemente."
 
 #: C/optimization-harmful.xml:55(para)
 msgid ""
 "Share data so as not to have to reread it from disk when each application "
 "loads."
 msgstr ""
+"Compartir los datos para no tener que volver a leerlos del disco cada vez que una "
+"aplicación se carga."
 
 #: C/optimization-harmful.xml:60(para)
 msgid ""
 "Consider caching all of the data in a single binary file that is properly "
 "aligned and can be mmaped."
 msgstr ""
+"Considerar cachear todos los datos en un archivo binario único que está alineado "
+"apropiadamente y se puede mapear."
 
 #: C/optimization-harmful.xml:65(para)
 msgid ""
