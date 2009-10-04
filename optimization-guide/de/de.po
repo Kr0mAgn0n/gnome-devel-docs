@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
-"POT-Creation-Date: 2009-09-29 18:19+0000\n"
-"PO-Revision-Date: 2009-09-29 21:52+0100\n"
+"POT-Creation-Date: 2009-09-29 19:58+0000\n"
+"PO-Revision-Date: 2009-10-04 16:18+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,10 @@ msgid ""
 "Details of individual tools and techniques are left for later articles, but a "
 "collection of hints and tricks is provided."
 msgstr ""
+"Dies ist eine kurze Einführung in die Optimierung und behandelt sowohl das "
+"Wie als auch das Warum. Details zu individuellen Werkzeugen verschieben wir "
+"auf spätere Artikel, eine Sammlung aus Hinweisen und Tricks ist jedoch "
+"enthalten."
 
 #: C/optimization-intro.xml:10(title)
 msgid "What are we Optimizing?"
@@ -49,8 +53,14 @@ msgid ""
 "to access commands and not having the computer go into swap the moment more "
 "than two programs are open."
 msgstr ""
+"Bessere Programme machen die Benutzer glücklicher, aber es gibt "
+"Verbesserungsmöglichkeiten, die sie viel glücklicher machen werden als "
+"Andere: Ansprechzeit, Startzeit, leichter Zugriff auf Befehle. Der Rechner "
+"sollte auch nicht sofort den Auslagerungsspeicher benutzen müssen, wenn mehr "
+"als eine Anwendung geöffnet ist."
 
 #: C/optimization-intro.xml:17(para)
+#, fuzzy
 msgid ""
 "Traditional optimization tackles concepts like CPU use, code size, the number "
 "of mouse clicks and the memory use of the program. This second list has been "
@@ -60,6 +70,10 @@ msgid ""
 "reduce CPU use, memory use and all those things, but these are the means to "
 "the end, not the final goal. We are optimizing for people."
 msgstr ""
+"Die traditionelle Optimierung umfasst Konzepte wie Prozessorlast, Umfang des "
+"Codes, die Anzahl der Mausklicks sowie die Speichernutzung des Programms. Die "
+"folgende Auflistung sollte die erste Liste ergänzen, wobei ein grundlegender "
+"Unterschied besteht: "
 
 #: C/optimization-intro.xml:23(title)
 msgid "Doing the Optimization"
@@ -104,6 +118,7 @@ msgid ""
 msgstr ""
 
 #: C/optimization-intro.xml:36(para)
+#, fuzzy
 msgid ""
 "Don't forget the big picture. For example, rather than just trying to speed "
 "up a piece of code, ask yourself if it needs to be run at all. Could it be "
@@ -113,11 +128,11 @@ msgid ""
 "be optimized and is doing the heavy calculations now to avoid doing them "
 "later. Code does not run in isolation and neither does the optimization "
 "process."
-msgstr ""
+msgstr "Vergessen Sie nicht das Gesamtbild."
 
 #: C/optimization-intro.xml:41(title)
 msgid "Hints"
-msgstr ""
+msgstr "Hinweise"
 
 #: C/optimization-intro.xml:43(title)
 msgid "The Fundamentals"
@@ -135,6 +150,9 @@ msgid ""
 "Make sure your code is correct and bug-free before optimizing it. Check that "
 "it remains correct and bug-free after optimization."
 msgstr ""
+"Stellen Sie sicher, dass Ihr Code korrekt und fehlerfrei ist, bevor Sie mit "
+"der Optimierung beginnen. Überprüfen Sie nach der Optimierung, ob dies dann "
+"auch noch zutrifft."
 
 #: C/optimization-intro.xml:55(para)
 msgid "Optimize at the high level before optimizing the details."
@@ -175,10 +193,11 @@ msgid "Traps for the Unwary"
 msgstr "Fallen für die Unvorsichtigen"
 
 #: C/optimization-intro.xml:83(para)
+#, fuzzy
 msgid ""
 "Beware of side effects. There can often be strange interactions between "
 "different sections of code, a speed-up in one part can slow another part down."
-msgstr ""
+msgstr "Verhindern Sie Nebeneffekte. "
 
 #: C/optimization-intro.xml:88(para)
 msgid ""
@@ -203,6 +222,11 @@ msgid ""
 "still using up memory. Use xrestop to see what resources your program is "
 "using."
 msgstr ""
+"Vergessen Sie nicht den Ressourcenverbrauch des X-Servers. Der "
+"Speicherverbrauch Ihres Programms enthält nicht die Pixmaps, die vom X-Server "
+"verarbeitet werden, aber sie verbrauchen dennoch Speicher. Verwenden Sie "
+"<command>xrestop</command>, um zu sehen, welche Ressourcen Ihr Programm "
+"beansprucht."
 
 #: C/optimization-intro.xml:104(title)
 msgid "Low Level Hints"
@@ -307,6 +331,11 @@ msgid ""
 "results, but they will at least know the program hasn't crashed and they can "
 "go get a cup of coffee."
 msgstr ""
+"Falls alles Andere scheitern sollte, informieren Sie den Benutzer mit einem "
+"Fortschrittsbalken drüber, dass es derzeit nur langsam voran geht. Das dürfte "
+"ihm lieber sein, als wenn Sie nur die Ergebnisse präsentieren würden. Er "
+"möchte zumindest wissen, dass das Programm nicht abgestürzt ist und er dann "
+"erst einmal eine Tasse Kaffee trinken gehen kann."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -398,7 +427,7 @@ msgstr ""
 
 #: C/optimization-massif.xml:29(para)
 msgid "Your command-line should therefore look something like:"
-msgstr ""
+msgstr "Ihre Befehlszeile sollte daher so aussehen:"
 
 #: C/optimization-massif.xml:32(programlisting)
 #, no-wrap
@@ -577,7 +606,7 @@ msgstr ""
 
 #: C/optimization-massif.xml:103(title)
 msgid "Acting on the Results"
-msgstr ""
+msgstr "Interpretieren der Ergebnisse"
 
 #: C/optimization-massif.xml:104(para)
 msgid ""
