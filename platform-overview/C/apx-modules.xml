@@ -25,8 +25,8 @@
     </varlistentry>
     <varlistentry>
       <term>ORBit</term>
-      <listitem><para>ORBit is a fast and lightweight CORBA server.  GNOME's
-      component architecture, Bonobo, is built on top of CORBA.  CORBA is
+      <listitem><para>ORBit is a deprecated CORBA server.  GNOME's deprecated
+      omponent architecture, Bonobo, is built on top of CORBA.  CORBA is
       discussed in <xref linkend="bonobo-corba"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
@@ -41,8 +41,8 @@
       <term>gail</term>
       <listitem><para>GAIL provides an implementation of the ATK interfaces for
       GTK+ and GNOME libraries, allowing accessibility tools to interact with
-      applications written using these libraries.  Accessibility is discussed
-      in <xref linkend="a11y"/>.</para></listitem>
+      applications written using these libraries.  In 2009 GAIL was moved into
+      GTK+.  Accessibility is discussed in <xref linkend="a11y"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>gio</term>
@@ -81,39 +81,43 @@
     </varlistentry>
     <varlistentry>
       <term>libIDL</term>
-      <listitem><para>libIDL is a library for parsing Interface Definition
+      <listitem><para>libIDL is a deprecated library for parsing Interface Definition
       Language (IDL) files, which are necessary for CORBA interfaces.  libIDL
-      is used by GNOME's CORBA implementation, ORBit.  CORBA is discussed in
+      is used by GNOME's deprecated CORBA implementation, ORBit.  CORBA is discussed in
       <xref linkend="bonobo-corba"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libart_lgpl</term>
-      <listitem><para>libart is a graphics library which can render vector
-      paths.  It is used by the GnomeCanvas widget.</para></listitem>
+      <listitem><para>libart is a deprecated graphics library which can render 
+      vector paths.  It is used by the GnomeCanvas widget.  Newly written code
+      should not use libart_lgpl and instead use Cairo and/or other 
+      technologies.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libbonobo</term>
-      <listitem><para>Bonobo is a framework for creating reusable components
+      <listitem><para>Bonobo is a deprecated framework for creating reusable components
       for use in GNOME applications, built on top of CORBA.  Bonobo is
       discussed in <xref linkend="bonobo-corba"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libbonoboui</term>
-      <listitem><para>The Bonobo UI library provides a number of user interface
+      <listitem><para>The deprecated Bonobo UI library provides a number of user interface
       controls using the Bonobo component framework.  Bonobo is discussed in
       <xref linkend="bonobo-corba"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libglade</term>
-      <listitem><para>Libglade is a library for constructing user interfaces
-      dynamically from XML descriptions.  Libglade allow programmers to
+      <listitem><para>Libglade is a deprecated library for constructing user interfaces
+      dynamically from XML descriptions. Libglade has been deprecated in favor
+      of <ulink url="http://library.gnome.org/devel/gtk/stable/GtkBuilder.html">GtkBuilder</ulink>.
+      Libglade allowed programmers to
       construct their user interfaces using a graphical interface builder
       application, and then import those interface definitions.  Libglade
       is discussed in <xref linkend="libglade"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libgnome</term>
-      <listitem><para>The libgnome library provides a number of useful routines
+      <listitem><para>The deprecated libgnome library provides a number of useful routines
       for building modern applications, including session management, activation
       of files and URIs, and displaying help.</para></listitem>
     </varlistentry>
@@ -124,7 +128,7 @@
     </varlistentry>
     <varlistentry>
       <term>libgnomeui</term>
-      <listitem><para>The libgnomeui library provides additional widgets for
+      <listitem><para>The deprecated libgnomeui library provides additional widgets for
       applications.  Many of the widgets from libgnomeui have already been
       ported to GTK+.</para></listitem>
     </varlistentry>
@@ -217,16 +221,20 @@
     </varlistentry>
     <varlistentry>
       <term>libgnomeprint</term>
-      <listitem><para>The libgnomeprint library provides an implementation of
-      the PostScript imaging model and can be used to create high-quality
-      print renderings.  The GNOME print framework is discussed in <xref
+      <listitem><para>libgnomeprint is a deprecated library that provided an 
+      implementation of the PostScript imaging model.  It is superseded by <ulink
+      url="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</ulink>.
+      Newly written code should use GtkPrint instead.
+      The GNOME print framework is discussed in <xref
       linkend="gnomeprint"/>.</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>libgnomeprintui</term>
-      <listitem><para>The libgnomeprintui library provides a standard print
-      dialog, a print preview dialog, and various other controls required for
-      printing.  The GNOME print framework is discussed in <xref
+      <listitem><para>libgnomeprintui is a deprecated library that provided a 
+      standard print dialog, a print preview dialog, and various other controls 
+      required for printing.  It is superseded by <ulink
+      url="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</ulink>.
+      The GNOME print framework is discussed in <xref
       linkend="gnomeprint"/>.</para></listitem>
     </varlistentry>
     <varlistentry>

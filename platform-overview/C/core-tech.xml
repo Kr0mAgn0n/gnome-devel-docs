@@ -67,6 +67,10 @@
 
   <section id="libglade">
     <title>Libglade</title>
+    <note><para><note><para>Note that Libglade has been deprecated in favor of
+    <ulink url="http://library.gnome.org/devel/gtk/stable/GtkBuilder.html">GtkBuilder</ulink>.
+    Newly written code should use GtkBuilder instead.</para></note></para></note>
+
     <para>Libglade is a library for constructing user interfaces dynamically
     from XML descriptions.  You can use a graphical interface builder like
     <application>Glade</application> to construct your user interface,
@@ -481,19 +485,20 @@
   <section id="gnomeprint">
     <title>GNOME Print</title>
 
+    <note><para>Note that this section is outdated and that libgnomeprint and
+    libgnomeprintui have been deprecated in favor of <ulink
+    url="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</ulink>.
+    Printing has been integrated directly into GTK+ 2.10 and later versions,
+    providing a cross-platform print API that all applications can use.
+    API and ABI stability guarantees ensures that Gnomeprint will continue to
+    be functional and supported throughout the GNOME 2 lifecycle.</para></note>
+
     <para>The GNOME print framework consists of two libraries which help
     you provide high-quality printing with a consistent interface in your
     application.  At the core of the printing framework is libgnomeprint,
     a library for creating PostScript output to send to printers.  On top
     of that is libgnomeprintui, which provides standard print controls for
     your user interface.</para>
-
-    <note><para>Work is currently underway to integrate printing directly
-    into GTK+, providing a cross-platform print API that all applications
-    can use.  While the current GNOME print framework will be deprecated
-    once GTK+ supports printing, API and ABI stability guarantees ensures
-    that it will continue to be functional and supported throughout the
-    GNOME 2 lifecycle.</para></note>
 
     <para>The libgnomeprint library implements the PostScript imaging model,
     which is used by most printers.  Printers which do not support PostScript

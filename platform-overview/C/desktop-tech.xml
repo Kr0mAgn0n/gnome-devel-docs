@@ -77,6 +77,9 @@
   context menu items to display a detailed report and to update the displayed
   information.</para>
 
+  <note><para>Note that Bonobo has been deprecated in favor of D-Bus and other
+  technologies.</para></note>
+
   <para>For more information on panel applets, see the
   <ulink url="http://library.gnome.org/devel/panel-applet/stable/">Panel
   Applet Library</ulink>.</para>
@@ -254,6 +257,14 @@
   those applications fully restored when they log back in.  To provide this
   functionality, your application must connect to the session manager and
   save its state when the user logs out.</para>
+
+  <note><para>Note that this section is outdated as GnomeClient and 
+  Libgnomeui are deprecated. Newly written code should use <ulink 
+  url="http://live.gnome.org/SessionManagement/EggSMClient">EggSMClient</ulink>
+  instead. Work is currently underway to integrate EggSMClient directly into
+  GTK+. API and ABI stability guarantees ensures that GnomeClient will
+  continue to be functional and supported throughout the GNOME 2 lifecycle.
+  </para></note>
 
   <para>GNOME provides a simple API for session management in the GNOME User
   Interface Library.  See the section <ulink
