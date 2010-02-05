@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
 "POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2010-02-03 08:21+0100\n"
+"PO-Revision-Date: 2010-02-05 15:17+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -750,7 +750,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:192(title)
 msgid "Providing an accessible description for a GtkButton"
-msgstr ""
+msgstr "Proporcionar una descripción accesible para un GtkButton"
 
 #: C/accessibility-devel-guide.xml:193(programlisting)
 #, no-wrap
@@ -762,17 +762,27 @@ msgid ""
 "  atk_object_set_description(obj,_(\"Closes the window\"));\n"
 "}\n"
 msgstr ""
+"\n"
+"{\n"
+"  AtkObject *obj;\n"
+"  obj = gtk_widget_get_accessible(button);\n"
+"  atk_object_set_description(obj,_(\"Cierra la ventana\"));\n"
+"}\n"
 
 #: C/accessibility-devel-guide.xml:203(para)
 msgid ""
 "Use <function>atk_image_set_description()</function> to provide a text "
 "description for all images and icons in your program."
 msgstr ""
+"Use <function>atk_image_set_description()</function> para proporcionar una "
+"descripción de texto para todas las imágenes e iconos de su programa."
 
 #: C/accessibility-devel-guide.xml:208(para)
 msgid ""
 "If several components form a logical group, try to put them in one container."
 msgstr ""
+"Si varios componentes forman un grupo lógico, intente ponerlos en un "
+"contenedor."
 
 #: C/accessibility-devel-guide.xml:213(para)
 msgid ""
@@ -787,7 +797,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:217(title)
 msgid "Relating a GtkLabel to a GtkWidget"
-msgstr ""
+msgstr "Relacionar un GtkLabel con un GtkWidget"
 
 #: C/accessibility-devel-guide.xml:218(programlisting)
 #, no-wrap
