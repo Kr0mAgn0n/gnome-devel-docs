@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
 "POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2010-02-05 15:17+0100\n"
+"PO-Revision-Date: 2010-02-15 23:15+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -412,6 +412,11 @@ msgid ""
 "of the people who use the worldwide web have some sort of disability. "
 "Disabilities fall into one of these categories:"
 msgstr ""
+"Sólo en los EE. UU. existe una estimación de 30 000 000 personas cuya "
+"capacidad para usar equipos puede estar comprometida por un diseño "
+"inaccesible. Globalmente alrededor del 8% de la población que usa Internet "
+"tiene algún tipo de discapacidad. Las discapacidades pueden ser de una de "
+"estas categorías:"
 
 #: C/accessibility-devel-guide.xml:23(para)
 msgid ""
@@ -823,6 +828,26 @@ msgid ""
 "  g_object_unref(G_OBJECT(relation));\n"
 "}\n"
 msgstr ""
+"\n"
+"{\n"
+"  GtkWidget *widget;\n"
+"  GtkLabel *label;\n"
+"\n"
+"  AtkObject *atk_widget, *atk_label;\n"
+"  AtkRelationSet *relation_set;\n"
+"  AtkRelation *relation;\n"
+"  AtkObject *targets[1];\n"
+"\n"
+"  atk_widget = gtk_widget_get_accessible(widget);\n"
+"  atk_label = gtk_widget_get_accessible (GTK_WIDGET(label));\n"
+"\n"
+"  relation_set = atk_object_ref_relation_set (atk_label);\n"
+"  targets[0] = atk_widget;\n"
+"\n"
+"  relation = atk_relation_new(targets,1, ATK_RELATION_LABEL_FOR);\n"
+"  atk_relation_set_add(relation_set,relation);\n"
+"  g_object_unref(G_OBJECT(relation));\n"
+"}\n"
 
 #: C/accessibility-devel-guide.xml:242(para)
 msgid ""
@@ -840,7 +865,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:255(title)
 msgid "The Accessibility API"
-msgstr ""
+msgstr "La API de accesibilidad"
 
 #: C/accessibility-devel-guide.xml:256(para)
 msgid ""
@@ -852,11 +877,11 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:260(title)
 msgid "Commonly used ATK API calls"
-msgstr ""
+msgstr "Llamadas a la API de ATK comúnmente usadas"
 
 #: C/accessibility-devel-guide.xml:264(entry)
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: C/accessibility-devel-guide.xml:265(entry)
 msgid "Description"
@@ -864,7 +889,7 @@ msgstr "Descripción"
 
 #: C/accessibility-devel-guide.xml:272(function)
 msgid "AtkObject* gtk_widget_get_accessible (GtkWidget*)"
-msgstr ""
+msgstr "AtkObject* gtk_widget_get_accessible (GtkWidget*)"
 
 #: C/accessibility-devel-guide.xml:276(para)
 msgid ""
@@ -874,7 +899,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:284(function)
 msgid "void atk_object_set_name (AtkObject*, const gchar*)"
-msgstr ""
+msgstr "void atk_object_set_name (AtkObject*, const gchar*)"
 
 #: C/accessibility-devel-guide.xml:288(para)
 msgid ""
@@ -885,7 +910,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:296(function)
 msgid "void atk_object_set_description (AtkObject*, const gchar*)"
-msgstr ""
+msgstr "void atk_object_set_description (AtkObject*, const gchar*)"
 
 #: C/accessibility-devel-guide.xml:300(para)
 msgid ""
@@ -896,7 +921,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:308(function)
 msgid "AtkRelation* atk_relation_new (AtkObject**, gint, AtkRelationType)"
-msgstr ""
+msgstr "AtkRelation* atk_relation_new (AtkObject**, gint, AtkRelationType)"
 
 #: C/accessibility-devel-guide.xml:312(para)
 msgid ""
@@ -909,7 +934,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:320(function)
 msgid "void atk_image_set_description (AtkImage*, const gchar*)"
-msgstr ""
+msgstr "void atk_image_set_description (AtkImage*, const gchar*)"
 
 #: C/accessibility-devel-guide.xml:324(para)
 msgid ""
@@ -920,7 +945,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:335(title)
 msgid "Examples that Use the Accessibility API"
-msgstr ""
+msgstr "Ejemplos que usan la API de accesibilidad"
 
 #: C/accessibility-devel-guide.xml:336(para)
 msgid ""
@@ -939,7 +964,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:345(title)
 msgid "Setting the accessible description for a button"
-msgstr ""
+msgstr "Establecer la descripción accesible para un botón"
 
 #: C/accessibility-devel-guide.xml:346(programlisting)
 #, no-wrap
@@ -951,6 +976,12 @@ msgid ""
 "   atk_object_set_description(obj,_(\"Opens Preferences dialog\"));\n"
 "}\n"
 msgstr ""
+"\n"
+"{\n"
+"   AtkObject *obj;\n"
+"   obj = gtk_widget_get_accessible(button);\n"
+"   atk_object_set_description(obj,_(\"Abre el diálogo de preferencias\"));\n"
+"}\n"
 
 #: C/accessibility-devel-guide.xml:358(para)
 msgid ""
@@ -961,7 +992,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:362(title)
 msgid "Specifying accessible relationship between two controls"
-msgstr ""
+msgstr "Especificar la relación accesible entre dos controles"
 
 #: C/accessibility-devel-guide.xml:363(programlisting)
 #, no-wrap
@@ -987,6 +1018,26 @@ msgid ""
 "  g_object_unref(G_OBJECT(relation));\n"
 "}\n"
 msgstr ""
+"\n"
+"{\n"
+"  GtkWidget *widget;\n"
+"  GtkLabel *label;\n"
+"\n"
+"  AtkObject *atk_widget, *atk_label;\n"
+"  AtkRelationSet *relation_set;\n"
+"  AtkRelation *relation;\n"
+"  AtkObject *targets[1];\n"
+"\n"
+"  atk_widget = gtk_widget_get_accessible (widget);\n"
+"  atk_label = gtk_widget_get_accessible (GTK_WIDGET(label));\n"
+"\n"
+"  relation_set = atk_object_ref_relation_set (atk_label);\n"
+"  targets[0] = atk_widget;\n"
+"\n"
+"  relation = atk_relation_new(targets,1, ATK_RELATION_LABEL_FOR);\n"
+"  atk_relation_set_add(relation_set,relation);\n"
+"  g_object_unref(G_OBJECT(relation));\n"
+"}\n"
 
 #: C/accessibility-devel-guide.xml:387(para)
 msgid ""
@@ -1002,7 +1053,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:392(title)
 msgid "Gtk Modules"
-msgstr ""
+msgstr "Módulos GTK"
 
 #: C/accessibility-devel-guide.xml:393(para)
 msgid ""
@@ -1016,7 +1067,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:397(userinput)
 #, no-wrap
 msgid "setenv GTK_MODULES \"libgail:libtestprops\""
-msgstr ""
+msgstr "setenv GTK_MODULES \"libgail:libtestprops\""
 
 #: C/accessibility-devel-guide.xml:399(para)
 msgid "All GTK modules have a <function>gtk_module_init()</function> function."
@@ -1048,11 +1099,13 @@ msgid ""
 "where <function>_my_focus_tracker()</function> is a function with this "
 "prototype:"
 msgstr ""
+"donde <function>_my_focus_tracker()</function> es una función con este "
+"prototipo:"
 
 #: C/accessibility-devel-guide.xml:418(programlisting)
 #, no-wrap
 msgid "void _my_focus_tracker (AtkObject *aobject);"
-msgstr ""
+msgstr "void _my_focus_tracker (AtkObject *aobject);"
 
 #: C/accessibility-devel-guide.xml:421(para)
 msgid "Set up a global event listener, with atk_add_global_event_listener():"
@@ -1080,7 +1133,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:435(programlisting)
 #, no-wrap
 msgid "AtkObject *root_obj = atk_get_root();"
-msgstr ""
+msgstr "AtkObject *root_obj = atk_get_root();"
 
 #: C/accessibility-devel-guide.xml:436(para)
 msgid ""
@@ -1107,15 +1160,15 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:456(function)
 msgid "ATK_IS_ACTION(atkobj)"
-msgstr ""
+msgstr "ATK_IS_ACTION(atkobj)"
 
 #: C/accessibility-devel-guide.xml:461(function)
 msgid "ATK_IS_COMPONENT(atkobj)"
-msgstr ""
+msgstr "ATK_IS_COMPONENT(atkobj)"
 
 #: C/accessibility-devel-guide.xml:465(para)
 msgid "etc. (there is one for each interface)"
-msgstr ""
+msgstr "etc. (existe uno para cada interfaz)"
 
 #: C/accessibility-devel-guide.xml:470(para)
 msgid ""
@@ -1145,6 +1198,9 @@ msgid ""
 "table_column_inserted_id = g_signal_connect_closure_by_id(my_atk_obj, \n"
 "g_signal_lookup(\"column_inserted\", G_OBJECT_TYPE(my_atk_obj)),0,g_cclosure_new(G_CALLBACK (_my_table_column_inserted_func),NULL,NULL), FALSE);\n"
 msgstr ""
+"\n"
+"table_column_inserted_id = g_signal_connect_closure_by_id(my_atk_obj, \n"
+"g_signal_lookup(\"column_inserted\", G_OBJECT_TYPE(my_atk_obj)),0,g_cclosure_new(G_CALLBACK (_my_table_column_inserted_func),NULL,NULL), FALSE);\n"
 
 #: C/accessibility-devel-guide.xml:491(para)
 msgid ""
@@ -1167,6 +1223,8 @@ msgid ""
 "\n"
 "child_added_id = g_signal_connect_closure (my_atk_obj,\"children_changed::add\",   g_cclosure_new (G_CALLBACK(_my_children_changed_func),NULL,NULL),FALSE); \n"
 msgstr ""
+"\n"
+"child_added_id = g_signal_connect_closure (my_atk_obj,\"children_changed::add\",   g_cclosure_new (G_CALLBACK(_my_children_changed_func),NULL,NULL),FALSE); \n"
 
 #: C/accessibility-devel-guide.xml:499(para)
 msgid ""
@@ -1178,7 +1236,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:505(title)
 msgid "Implementing an ATK Object"
-msgstr ""
+msgstr "Implementar un objeto ATK"
 
 #: C/accessibility-devel-guide.xml:506(para)
 msgid ""
@@ -1191,7 +1249,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:511(title)
 msgid "Registry"
-msgstr ""
+msgstr "Registro"
 
 #: C/accessibility-devel-guide.xml:512(para)
 msgid ""
@@ -1209,7 +1267,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:520(para)
 msgid "Access the default registry:"
-msgstr ""
+msgstr "Acceso al registro predeterminado:"
 
 #: C/accessibility-devel-guide.xml:523(programlisting)
 #, no-wrap
@@ -1217,6 +1275,8 @@ msgid ""
 "\n"
 "default_registry = atk_get_default_registry();\n"
 msgstr ""
+"\n"
+"default_registry = atk_get_default_registry();\n"
 
 #: C/accessibility-devel-guide.xml:527(para)
 msgid ""
@@ -1230,6 +1290,8 @@ msgid ""
 "\n"
 "atk_registry_set_factory_type (default_registry, GTK_TYPE_MYTYPE, MYATKIMP_TYPE_MYTYPE_FACTORY); \n"
 msgstr ""
+"\n"
+"atk_registry_set_factory_type (default_registry, GTK_TYPE_MYTYPE, MYATKIMP_TYPE_MYTYPE_FACTORY); \n"
 
 #: C/accessibility-devel-guide.xml:534(para)
 msgid ""
@@ -1290,6 +1352,16 @@ msgid ""
 "g_type_add_interface_static (type, ATK_TYPE_TEXT, \n"
 "                             &amp;atk_text_info); \n"
 msgstr ""
+"\n"
+"static const GInterfaceInfo atk_text_info = \n"
+"{ \n"
+"   (GInterfaceInitFunc) atk_text_interface_init, \n"
+"   (GInterfaceFinalizeFunc) NULL, \n"
+"   NULL \n"
+"}; \n"
+"\n"
+"g_type_add_interface_static (type, ATK_TYPE_TEXT, \n"
+"                             &amp;atk_text_info); \n"
 
 #: C/accessibility-devel-guide.xml:568(para)
 msgid ""
@@ -1303,6 +1375,8 @@ msgid ""
 "\n"
 "void atk_text_interface_init (AtkTextIface *iface); \n"
 msgstr ""
+"\n"
+"void atk_text_interface_init (AtkTextIface *iface); \n"
 
 #: C/accessibility-devel-guide.xml:574(para)
 msgid ""
@@ -1327,6 +1401,15 @@ msgid ""
 "   ... \n"
 "}\n"
 msgstr ""
+"\n"
+"void \n"
+"atk_text_interface_init (AtkTextIface *iface) \n"
+"{ \n"
+"   g_return_if_fail (iface != NULL); \n"
+"   iface-&gt;get_text = myatkimp_mytype_get_text; \n"
+"   iface-&gt;get_character_at_offset = myatkimp_mytype_get_character_at_offset; \n"
+"   ... \n"
+"}\n"
 
 #: C/accessibility-devel-guide.xml:590(para)
 msgid ""
@@ -1338,7 +1421,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:596(title)
 msgid "<type>AtkObject</type> Implementation"
-msgstr ""
+msgstr "Implementación de <type>AtkObject</type>"
 
 #: C/accessibility-devel-guide.xml:597(para)
 msgid ""
@@ -1352,7 +1435,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:601(title)
 msgid "Sample <function>get_type()</function> implementation"
-msgstr ""
+msgstr "Ejemplo de implementación de <function>get_type()</function>"
 
 #: C/accessibility-devel-guide.xml:602(programlisting)
 #, no-wrap
@@ -1401,7 +1484,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:647(title)
 msgid "Class/Instance Initializers"
-msgstr ""
+msgstr "Inicializadores de clases/instancias"
 
 #: C/accessibility-devel-guide.xml:648(para)
 msgid ""
@@ -1441,6 +1524,12 @@ msgid ""
 "  class-&gt;get_name = myatkimp_mytype_get_name; \n"
 "} \n"
 msgstr ""
+"\n"
+"myatkimp_mytype_class_init (GailLabelClass *klass) \n"
+"{ \n"
+"  AtkObjectClass *class = ATK_OBJECT_CLASS (klass); \n"
+"  class-&gt;get_name = myatkimp_mytype_get_name; \n"
+"} \n"
 
 #: C/accessibility-devel-guide.xml:670(para)
 msgid ""
@@ -1480,7 +1569,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:695(para)
 msgid "parent-&gt;init"
-msgstr ""
+msgstr "parent-&gt;init"
 
 #: C/accessibility-devel-guide.xml:698(para)
 msgid ""
@@ -1498,11 +1587,11 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:713(para)
 msgid "Here is an example of both:"
-msgstr ""
+msgstr "Aquí hay un ejemplo de ambas:"
 
 #: C/accessibility-devel-guide.xml:717(title)
 msgid "A custom <function>init()</function> function"
-msgstr ""
+msgstr "Una función <function>init()</function> personalizada"
 
 #: C/accessibility-devel-guide.xml:718(programlisting)
 #, no-wrap
@@ -1535,7 +1624,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:742(para)
 msgid "parent-&gt;notify_gtk"
-msgstr ""
+msgstr "parent-&gt;notify_gtk"
 
 #: C/accessibility-devel-guide.xml:745(para)
 msgid ""
@@ -1546,7 +1635,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:749(title)
 msgid "A custom <function>notify_gtk()</function> function"
-msgstr ""
+msgstr "Una función <function>notify_gtk()</function> personalizada"
 
 #: C/accessibility-devel-guide.xml:750(programlisting)
 #, no-wrap
@@ -1572,7 +1661,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:771(para)
 msgid "parent-&gt;finalize"
-msgstr ""
+msgstr "parent-&gt;finalize"
 
 #: C/accessibility-devel-guide.xml:774(para)
 msgid ""
@@ -1583,7 +1672,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:778(title)
 msgid "A custom <function>finalize()</function> function"
-msgstr ""
+msgstr "Una función <function>finalize()</function> personalizada"
 
 #: C/accessibility-devel-guide.xml:779(programlisting)
 #, no-wrap
@@ -1757,7 +1846,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:11(title)
 #: C/accessibility-devel-guide.xml:293(entry)
 msgid "Keyboard Navigation"
-msgstr ""
+msgstr "Navegación por teclado"
 
 #: C/accessibility-devel-guide.xml:897(para)
 msgid ""
@@ -1894,7 +1983,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:971(title)
 #: C/accessibility-devel-guide.xml:372(entry)
 msgid "Mouse Interaction"
-msgstr ""
+msgstr "Interacción del ratón"
 
 #: C/accessibility-devel-guide.xml:972(para)
 msgid ""
@@ -1944,7 +2033,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1004(title)
 msgid "Mouse Interaction Examples"
-msgstr ""
+msgstr "Ejemplos de interacción con el ratón"
 
 #: C/accessibility-devel-guide.xml:1006(title)
 msgid "Example of \"no-drop\" pointer from CDE/Motif"
@@ -1958,7 +2047,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:55(title)
 #: C/accessibility-devel-guide.xml:404(entry)
 msgid "Graphical Elements"
-msgstr ""
+msgstr "Elementos gráficos"
 
 #: C/accessibility-devel-guide.xml:1021(para)
 msgid ""
@@ -2014,7 +2103,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:100(title)
 #: C/accessibility-devel-guide.xml:438(entry)
 msgid "Fonts and Text"
-msgstr ""
+msgstr "Tipografías y textos"
 
 #: C/accessibility-devel-guide.xml:1055(para)
 msgid ""
@@ -2138,7 +2227,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:121(title)
 #: C/accessibility-devel-guide.xml:490(entry)
 msgid "Color and Contrast"
-msgstr ""
+msgstr "Color y contraste"
 
 #: C/accessibility-devel-guide.xml:1163(para)
 msgid ""
