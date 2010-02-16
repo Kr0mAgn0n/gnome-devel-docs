@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
 "POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2010-02-15 23:15+0100\n"
+"PO-Revision-Date: 2010-02-16 18:00+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -366,6 +366,11 @@ msgid ""
 "that allow people with disabilities to utilize all of the functionality of "
 "the GNOME user environment."
 msgstr ""
+"Accesibilidad significa ayudar a que gente con discapacidades participe en "
+"las actividades sustanciales de la vida. Esto incluye trabajo, el uso de "
+"servicios, productos e información. GNOME incluye bibliotecas y soporte para "
+"entorno de trabajo que permite que personas con discapacidades utilicen toda "
+"la funcionalidad del entorno de usuario de GNOME."
 
 #: C/accessibility-devel-guide.xml:6(para)
 msgid ""
@@ -601,7 +606,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:111(title)
 msgid "What are the common pitfalls?"
-msgstr ""
+msgstr "¿Cuáles son las principales dificultades?"
 
 #: C/accessibility-devel-guide.xml:112(para)
 msgid ""
@@ -1117,6 +1122,8 @@ msgid ""
 "\n"
 "mouse_watcher_focus_id =   atk_add_global_event_listener(_my_global_listener,\"Gtk:GtkWidget:enter_notify_event\");\n"
 msgstr ""
+"\n"
+"mouse_watcher_focus_id =   atk_add_global_event_listener(_my_global_listener,\"Gtk:GtkWidget:enter_notify_event\");\n"
 
 #: C/accessibility-devel-guide.xml:427(para)
 msgid ""
@@ -1145,7 +1152,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:444(title)
 msgid "Querying an <type>AtkObject</type>'s Interfaces"
-msgstr ""
+msgstr "Preguntar a la interfaz de un <type>AtkObject</type>"
 
 #: C/accessibility-devel-guide.xml:445(para)
 msgid ""
@@ -1157,6 +1164,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:450(para)
 msgid "Use the supplied <function>ATK_IS_...</function> macros, for example:"
 msgstr ""
+"Use las macros proporcionadas <function>ATK_IS_...</function>, por ejemplo:"
 
 #: C/accessibility-devel-guide.xml:456(function)
 msgid "ATK_IS_ACTION(atkobj)"
@@ -1175,6 +1183,8 @@ msgid ""
 "If the macro returns <function>TRUE</function>, the interface calls can "
 "safely be made on that ATK object."
 msgstr ""
+"Si la macro devuelve <function>TRUE</function>, las llamadas a la interfaz "
+"se pueden hacer de forma segura sobre ese objeto ATK."
 
 #: C/accessibility-devel-guide.xml:475(para)
 msgid ""
@@ -1185,7 +1195,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:483(title)
 msgid "Setting up an ATK Signal Handler"
-msgstr ""
+msgstr "Establecer un manejador de señal ATK"
 
 #: C/accessibility-devel-guide.xml:484(para)
 msgid "Using the <constant>column_inserted</constant> signal as an example:"
@@ -1318,7 +1328,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:547(title)
 msgid "ATK Implemetation for a Specific Object"
-msgstr ""
+msgstr "Implementación ATK para un objeto específico"
 
 #: C/accessibility-devel-guide.xml:548(para)
 msgid ""
@@ -1583,7 +1593,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:708(para)
 msgid "Listen to any signals from the backing GTK widget."
-msgstr ""
+msgstr "Escuche cualquier señal desde el widget GTK de respaldo."
 
 #: C/accessibility-devel-guide.xml:713(para)
 msgid "Here is an example of both:"
@@ -1658,6 +1668,23 @@ msgid ""
 "   } \n"
 "} \n"
 msgstr ""
+"\n"
+"void \n"
+"myatkimp_mytype_real_notify_gtk (GObject    *obj, \n"
+"                                 GParamSpec *pspec) \n"
+"{ \n"
+"   GtkWidget *widget = GTK_WIDGET (obj); \n"
+"   AtkObject* atk_obj = gtk_widget_get_accessible (widget); \n"
+"\n"
+"   if (strcmp (pspec-&gt;name, \"property-of-interest\") == 0) \n"
+"   { \n"
+"      /* Gestionar el cambio de la propiedad. */ \n"
+"   } \n"
+"   else \n"
+"   { \n"
+"      parent_class-&gt;notify_gtk (obj, pspec); \n"
+"   } \n"
+"} \n"
 
 #: C/accessibility-devel-guide.xml:771(para)
 msgid "parent-&gt;finalize"
@@ -1687,10 +1714,19 @@ msgid ""
 "   G_OBJECT_CLASS (parent_class)-&gt;finalize (object); \n"
 "} \n"
 msgstr ""
+"\n"
+"void \n"
+"myatkimp_mytype_finalize (GObject *object) \n"
+"{ \n"
+"   MyAtkimpMyType *my_type = MYATKIMP_MYTYPE (object); \n"
+"\n"
+"   g_object_unref (my_type-&gt;cached_value); \n"
+"   G_OBJECT_CLASS (parent_class)-&gt;finalize (object); \n"
+"} \n"
 
 #: C/accessibility-devel-guide.xml:799(title)
 msgid "Making Custom Components Accessible"
-msgstr ""
+msgstr "Hacer accesibles componentes personalizados"
 
 #: C/accessibility-devel-guide.xml:800(para)
 msgid ""
@@ -1726,7 +1762,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:825(para)
 msgid "directly by the custom widget, or"
-msgstr ""
+msgstr "directamente a través del widget personalizado o"
 
 #: C/accessibility-devel-guide.xml:830(para)
 msgid ""
@@ -1735,6 +1771,10 @@ msgid ""
 "\"http://library.gnome.org/devel/atk/stable/AtkObjectFactory.html"
 "\"><type>AtkObjectFactory</type></ulink> subclass"
 msgstr ""
+"en un subtipo <ulink url=\"http://library.gnome.org/devel/atk/stable/"
+"AtkObject.html\"><type>AtkObject</type></ulink> creado por una nueva "
+"subclase <ulink url=\"http://library.gnome.org/devel/atk/stable/"
+"AtkObjectFactory.html\"><type>AtkObjectFactory</type></ulink>"
 
 #: C/accessibility-devel-guide.xml:835(para)
 msgid ""
@@ -1750,7 +1790,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:846(title)
 msgid "User Interface Guidelines for Supporting Accessibility"
-msgstr ""
+msgstr "Guías de interfaz de usuario para soportar accesibilidad"
 
 #: C/accessibility-devel-guide.xml:847(para)
 msgid ""
@@ -2185,11 +2225,11 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1102(title)
 msgid "Fonts and Text Examples"
-msgstr ""
+msgstr "Ejemplos de tipografías y textos"
 
 #: C/accessibility-devel-guide.xml:1104(title)
 msgid "Correct label placement for various GUI elements"
-msgstr ""
+msgstr "Ubicación correcta de etiquetas para varios elementos de la IGU"
 
 #: C/accessibility-devel-guide.xml:1115(phrase)
 msgid "List control with label above"
@@ -2209,11 +2249,13 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1137(phrase)
 msgid "Small toolbar icon with label to its right"
-msgstr ""
+msgstr "Icono pequeño de barra de herramientas con etiqueta a su derecha"
 
 #: C/accessibility-devel-guide.xml:1131(entry)
 msgid "<placeholder-1/> Small toolbar icon with label to its right"
 msgstr ""
+"<placeholder-1/> Icono pequeño de barra de herramientas con etiqueta a su "
+"derecha"
 
 #: C/accessibility-devel-guide.xml:1148(phrase)
 msgid "Spinbox control with label to its left"
@@ -2281,7 +2323,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1193(title)
 msgid "Color and Contrast Examples"
-msgstr ""
+msgstr "Ejemplos de color y contraste"
 
 #: C/accessibility-devel-guide.xml:1195(title)
 msgid "Example illustrating redundant use of color"
