@@ -1,13 +1,13 @@
-# German translation for gnome-devel-docs.
+# German translation for gnome-devel-docs (accessibility handbook).
 # Copyright (C) 2009 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Mario Blättermann <mariobl@gnome.org>, 2009.
+# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
-"POT-Creation-Date: 2009-09-29 19:58+0000\n"
-"PO-Revision-Date: 2009-10-04 16:18+0100\n"
+"POT-Creation-Date: 2009-12-14 19:50+0000\n"
+"PO-Revision-Date: 2010-02-21 22:35+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,6 @@ msgstr ""
 "als eine Anwendung geöffnet ist."
 
 #: C/optimization-intro.xml:17(para)
-#, fuzzy
 msgid ""
 "Traditional optimization tackles concepts like CPU use, code size, the number "
 "of mouse clicks and the memory use of the program. This second list has been "
@@ -73,7 +72,11 @@ msgstr ""
 "Die traditionelle Optimierung umfasst Konzepte wie Prozessorlast, Umfang des "
 "Codes, die Anzahl der Mausklicks sowie die Speichernutzung des Programms. Die "
 "folgende Auflistung sollte die erste Liste ergänzen, wobei ein grundlegender "
-"Unterschied besteht: "
+"Unterschied besteht: Ein GNOME-Benutzer schenkt der zweiten Liste keine "
+"Beachtung, während der ersten Liste sehr wohl Aufmerksamkeit gewidmet wird. "
+"Beim Optimieren von GNOME-Programmen sollen die Prozessorlast, der "
+"Speicherverbrauch und all diese Dinge optimiert werden, aber das sind die "
+"Bedeutungen, nicht das Endziel. Wir optimieren für Benutzer."
 
 #: C/optimization-intro.xml:23(title)
 msgid "Doing the Optimization"
@@ -86,6 +89,10 @@ msgid ""
 "measure start-up time so you can tell if you have improved it. Happiness will "
 "then, hopefully, follow."
 msgstr ""
+"Aus dem vorigen Abschnitt wurde deutlich: Um etwas optimieren zu können, muss "
+"es messbar sein. Sie können Zufriedenheit nicht messen, aber Sie können sehr "
+"wohl Startzeiten messen, um sagen zu können, dass Sie sie verbessert haben. "
+"Die Zufriedenheit wird dann - hoffentlich - folgen."
 
 #: C/optimization-intro.xml:27(para)
 msgid ""
@@ -256,6 +263,10 @@ msgid ""
 "that is executed once is far quicker than a simple piece of code executed a "
 "thousand times. Avoid calling slow code often."
 msgstr ""
+"Gliedern Sie Code aus Schleifen aus. Ein etwas umfangreicheres Stück Code, "
+"das nur einmal ausgeführt wird, ist um Einiges schneller als ein simples "
+"Stück Code, was dafür tausend Schleifen durchläuft. Vermeiden Sie es, "
+"langsamen Code allzu oft aufzurufen."
 
 #: C/optimization-intro.xml:121(para)
 msgid ""
@@ -265,6 +276,12 @@ msgid ""
 "miscellaneous macros. Use the macros instead of gcc-specific keywords to "
 "ensure portability."
 msgstr ""
+"Geben Sie dem Compiler so viele Hinweise wie möglich. Verwenden Sie das const-"
+"Schlüsselwort. Verwenden Sie <envar>G_INLINE_FUNC</envar> für kurze, häufig "
+"aufgerufene Funktionen. Schauen Sie nach <envar>G_GNUC_PURE</envar>, "
+"<envar>G_LIKELY</envar> und weiteren diversen glib-Makros. Verwenden Sie "
+"diese Makros anstelle der gcc-spezifischen Schlüsselwörter, um die "
+"Portierbarkeit zu erhalten."
 
 #: C/optimization-intro.xml:126(para)
 msgid ""
@@ -284,6 +301,11 @@ msgid ""
 "optimized. Conversely, some library routines are slow, especially ones that "
 "make system calls to the operating system."
 msgstr ""
+"Schreiben Sie eine vorhandene Bibliotheksroutine nicht neu, es sei denn, Sie "
+"sind sich sicher, dass sie unakzeptabel langsam ist. Viele prozessorintensive "
+"Bibliotheksroutinen wurden bereits optimiert. Andererseits sind einige "
+"Routinen tatsächlich langsam, insbesondere diejenigen, die Systemaufrufe an "
+"das Betriebssystem absetzen."
 
 #: C/optimization-intro.xml:136(para)
 msgid ""
@@ -356,6 +378,8 @@ msgid ""
 "Using <application>Massif</application> for Profiling Memory Use in GNOME "
 "Software"
 msgstr ""
+"Verwendung von <application>Massif</application> zur Profilierung des "
+"Speicherverbrauchs in GNOME-Software"
 
 #: C/optimization-massif.xml:5(para)
 msgid ""
@@ -465,6 +489,11 @@ msgid ""
 "big thick ones at the top you will have to consult the text file for the "
 "details."
 msgstr ""
+"Die grafische Ausgabe von <application>Massif</application> ist weitgehend "
+"selbsterklärend. Jedes Band stellt den einer Funktion zugewiesenen Speicher "
+"nach Zeit dar. Sobald Sie herausgefunden haben, welche Bänder den meisten "
+"Speicher verbrauchen, üblicherweise die dickeren, oberen, dann schauen Sie "
+"sich die Textausgabe für weitere Details an."
 
 #: C/optimization-massif.xml:45(para)
 msgid ""
@@ -474,12 +503,19 @@ msgid ""
 "proceed down the call-stack. To illustrate this we will use the output of the "
 "command above."
 msgstr ""
+"Die Textdatei ist hierarchisch in Abschnitte gegliedert. Am oberen Ende "
+"finden sich die größten Speicherverbraucher, in absteigender Ordnung nach "
+"Speicherzeit. Darunter finden sich weitere Abschnitte, die je nach dem Platz "
+"im Aufruf-Stack feiner detaillierter sind. Um dies zu verdeutlichen, "
+"verwenden wir die Ausgabe des oben stehenden Befehls."
 
 #: C/optimization-massif.xml:49(title)
 msgid ""
 "<application>Massif</application> output for the unoptimized version of the "
 "<application>Same GNOME</application> program."
 msgstr ""
+"<application>Massif</application>-Ausgabe für die nicht optimierte Version "
+"des Programms <application>Same GNOME</application>."
 
 #: C/optimization-massif.xml:56(para)
 msgid ""
