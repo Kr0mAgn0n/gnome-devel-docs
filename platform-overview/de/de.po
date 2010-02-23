@@ -1,11 +1,11 @@
 # German translation of the platform-overview documentation.
-# Mario Blättermann <mariobl@gnome.org>, 2009.
+# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2009-12-28 23:42+0100\n"
+"POT-Creation-Date: 2010-02-16 00:57+0000\n"
+"PO-Revision-Date: 2010-02-23 22:20+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +157,6 @@ msgstr ""
 "behandelt."
 
 #: C/platform.xml:66(para)
-#, fuzzy
 #| msgid ""
 #| "GNOME features the Bonobo component system, built on top of CORBA. Bonobo "
 #| "allows programmers to create complex embeddable components which can be "
@@ -172,8 +171,9 @@ msgid ""
 msgstr ""
 "GNOME enthält das Bonobo-Komponentensystem, welches auf CORBA aufsetzt. "
 "Bonobo ermöglicht Programmierern, komplexe einbettbare Komponenten zu "
-"entwickeln, die in anderen Programmen wiederverwendet werden können. Bonobo "
-"wird in <xref linkend=\"bonobo-corba\"/> behandelt."
+"entwickeln, die in anderen Programmen wiederverwendet werden können. Beachten "
+"Sie, dass Bonobo als veraltet markiert wurde. Bonobo wird in <xref linkend="
+"\"bonobo-corba\"/> behandelt."
 
 #: C/platform.xml:72(para)
 msgid ""
@@ -567,11 +567,6 @@ msgstr ""
 "Benutzeroberfläche zugute kommt."
 
 #: C/ipc-network.xml:117(para)
-#| msgid ""
-#| "Bonobo components are not limited to graphical controls. Bonobo is used by "
-#| "Evolution, GNOME's email and groupware suite, to provide access to users' "
-#| "addressbook and calendar. This allows users to keep all their information "
-#| "in one place, where all applications can access it."
 msgid ""
 "Bonobo components are not limited to graphical controls. Bonobo was used by "
 "Evolution, GNOME's email and groupware suite, to provide access to users' "
@@ -621,6 +616,12 @@ msgid ""
 "instance, GNOME's accessibility infastructure uses CORBA to allow assistive "
 "tools to inspect and interact with running applications."
 msgstr ""
+"Bonobo hilft, die Lücken in CORBA zu füllen, indem zusätzliche Schnittstellen "
+"und Spezifikationen zur Unterstützung konsistenter Komponenten bereitgestellt "
+"werden. Sie werden CORBA kaum ohne Bonobo nutzen können, es ist direkt "
+"einsetzbar. Beispielsweise nutzt GNOMEs Barrierefreiheits-Architektur CORBA, "
+"um Hilfstechnologien die Überwachung von und Interaktion mit Anwendungen zu "
+"ermöglichen."
 
 #: C/ipc-network.xml:140(para)
 msgid ""
@@ -1098,14 +1099,10 @@ msgstr ""
 "Archive aller GNOME-Mailinglisten."
 
 #: C/intro.xml:95(ulink)
-#| msgid "live.gnome.org"
 msgid "git.gnome.org"
 msgstr "git.gnome.org"
 
 #: C/intro.xml:96(para)
-#| msgid ""
-#| "The GNOME Subversion repository, tracking all GNOME source code back to "
-#| "the inception of the project."
 msgid ""
 "The GNOME Git repository, tracking all GNOME source code back to the "
 "inception of the project."
@@ -1454,6 +1451,8 @@ msgstr ""
 msgid ""
 "Note that Bonobo has been deprecated in favor of D-Bus and other technologies."
 msgstr ""
+"Beachten Sie, dass Bonobo als veraltet markiert und durch D-Bus und andere "
+"Technologien abgelöst wurde."
 
 #: C/desktop-tech.xml:83(para)
 msgid ""
@@ -1728,11 +1727,17 @@ msgid "Storing Passwords"
 msgstr "Speichern von Passwörtern"
 
 #: C/desktop-tech.xml:210(para)
+#| msgid ""
+#| "GNOME provides a modern and secure keyring manager to store users' "
+#| "passwords and other sensitive data. Applications can use the keyring "
+#| "manager library to store and access passwords, and users can manage their "
+#| "passwords using GNOME's <application>Keyring Manager</application> "
+#| "application."
 msgid ""
 "GNOME provides a modern and secure keyring manager to store users' passwords "
 "and other sensitive data. Applications can use the keyring manager library to "
 "store and access passwords, and users can manage their passwords using "
-"GNOME's <application>Keyring Manager</application> application."
+"GNOME's <application>Seahorse</application> application."
 msgstr ""
 "GNOME stellt eine moderne und sichere Schlüsselbundverwaltung zum Speichern "
 "von Benutzerpasswörtern und anderen sicherheitsrelevanten Daten bereit. "
@@ -1812,11 +1817,27 @@ msgstr ""
 "speichern soll. Die Schlüsselbundverwaltung bietet eine hohe "
 "Bedienerfreundlichkeit und hält die Benutzerdaten doch sicher in Verwahrung."
 
-#: C/desktop-tech.xml:254(title)
+#: C/desktop-tech.xml:252(para)
+#| msgid ""
+#| "For more information on GTK+, see the <ulink url=\"http://library.gnome."
+#| "org/devel/gtk/stable/\">GTK+ Reference Manual</ulink> or visit <ulink url="
+#| "\"http://gtk.org/\">the GTK+ web site</ulink>."
+msgid ""
+"For API references please see the <ulink url=\"http://library.gnome.org/devel/"
+"gnome-keyring/stable/\">gnome-keyring Reference Manual</ulink> and the <ulink "
+"url=\"http://library.gnome.org/devel/libseahorse/stable/\">libseahorse "
+"Reference Manual</ulink>."
+msgstr ""
+"Weitere Informationen über API-Referenzen finden sie im <ulink url=\"http://"
+"library.gnome.org/devel/gnome-keyring/stable/\">gnome-keyring Reference "
+"Manual</ulink> und dem <ulink url=\"http://library.gnome.org/devel/"
+"libseahorse/stable/\">libseahorse Reference Manual</ulink>."
+
+#: C/desktop-tech.xml:260(title)
 msgid "Session Management"
 msgstr "Sitzungsverwaltung"
 
-#: C/desktop-tech.xml:255(para)
+#: C/desktop-tech.xml:261(para)
 msgid ""
 "GNOME provides tools to allow your application to run smoothly from session "
 "to session. Users can log out with running applications and have those "
@@ -1831,7 +1852,7 @@ msgstr ""
 "Sitzungsverwaltung verbunden sein und ihren Status speichern, wenn sich der "
 "Benutzer abmeldet."
 
-#: C/desktop-tech.xml:261(para)
+#: C/desktop-tech.xml:267(para)
 msgid ""
 "Note that this section is outdated as GnomeClient and Libgnomeui are "
 "deprecated. Newly written code should use <ulink url=\"http://live.gnome.org/"
@@ -1841,7 +1862,7 @@ msgid ""
 "and supported throughout the GNOME 2 lifecycle."
 msgstr ""
 
-#: C/desktop-tech.xml:269(para)
+#: C/desktop-tech.xml:275(para)
 msgid ""
 "GNOME provides a simple API for session management in the GNOME User "
 "Interface Library. See the section <ulink url=\"http://library.gnome.org/"
@@ -1857,11 +1878,11 @@ msgstr ""
 "Library Reference Manual</ulink> finden Sie weitere Informationen über den "
 "Umgang mit der Sitzungsverwaltung."
 
-#: C/desktop-tech.xml:279(title)
+#: C/desktop-tech.xml:285(title)
 msgid "Address Book and Calendar"
 msgstr "Adressbuch und Kalender"
 
-#: C/desktop-tech.xml:280(para)
+#: C/desktop-tech.xml:286(para)
 msgid ""
 "With Evolution Data Server, GNOME provides a single address book and calendar "
 "that all applications can use to store and retrieve information. Using "
@@ -1875,7 +1896,7 @@ msgstr ""
 "in den verschiedenen Anwendungen zu verwalten oder per Hand Ereignisse in ."
 "den Kalender zu kopieren"
 
-#: C/desktop-tech.xml:286(para)
+#: C/desktop-tech.xml:292(para)
 msgid ""
 "People use computers increasingly to interact with their friends and "
 "colleagues. Applications such as email programs, instant messengers, and "
@@ -1894,7 +1915,7 @@ msgstr ""
 "einem zentralen Ort speichern, was allen Anwendungen die für Kontakt "
 "relevanten Daten zur Verfügung stellt."
 
-#: C/desktop-tech.xml:294(para)
+#: C/desktop-tech.xml:300(para)
 msgid ""
 "Applications can also use Evolution Data Server to store and retrieve "
 "appointments on the user's calendar. For example, the clock on the panel "
@@ -1909,7 +1930,7 @@ msgstr ""
 "wird die Anzeige von Terminen erleichtert, da das Öffnen einer kompletten "
 "Kalender-Anwendung nicht nötig ist."
 
-#: C/desktop-tech.xml:300(para)
+#: C/desktop-tech.xml:306(para)
 msgid ""
 "For more information on the address book, see <ulink url=\"http://gnome.org/"
 "projects/evolution/developer-doc/libebook/ch01.html\"> Evolution API "
@@ -1923,11 +1944,11 @@ msgstr ""
 "sind in der <ulink url=\"http://gnome.org/projects/evolution/developer-doc/"
 "libecal/index.html\"> Evolution API Reference: libecal</ulink> verfügbar."
 
-#: C/desktop-tech.xml:309(title)
+#: C/desktop-tech.xml:315(title)
 msgid "Usability"
 msgstr "Bedienbarkeit"
 
-#: C/desktop-tech.xml:310(para)
+#: C/desktop-tech.xml:316(para)
 msgid ""
 "The GNOME desktop is designed around usability, and it aims to provide a "
 "consistent and simple user experience. People use computers to get work done "
@@ -1946,7 +1967,7 @@ msgstr ""
 "Umgang mit den speziellen Elementen Ihrer Anwendung erlernen können und wie "
 "effizient nach diesem Lernprozess Aufgaben ausgeführt werden können."
 
-#: C/desktop-tech.xml:318(para)
+#: C/desktop-tech.xml:324(para)
 msgid ""
 "GNOME provides comprehensive Human Interface Guidelines to help you write "
 "applications that are attractive and usable. While no guidelines can provide "
@@ -1964,11 +1985,11 @@ msgstr ""
 "<ulink url=\"http://library.gnome.org/devel/hig-book/stable/\">GNOME Human "
 "Interface Guidelines</ulink>. "
 
-#: C/desktop-tech.xml:328(title)
+#: C/desktop-tech.xml:334(title)
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: C/desktop-tech.xml:329(para)
+#: C/desktop-tech.xml:335(para)
 msgid ""
 "All applications should provide documentation to help their users understand "
 "the application and troubleshoot problems that may arise. While a well-"
@@ -1983,7 +2004,7 @@ msgstr ""
 "ein bedeutsames Werzeug für Benutzer sein, insbesondere für sehr komplexe "
 "Anwendungen."
 
-#: C/desktop-tech.xml:335(para)
+#: C/desktop-tech.xml:341(para)
 msgid ""
 "GNOME provides a unified framework for providing user documentation. You can "
 "provide documentation in the industry-standard DocBook format. Using DocBook "
@@ -1998,7 +2019,7 @@ msgstr ""
 "automatisch formatiert, mit den gleichen konsistenten Konventionen wie die "
 "übrige Systemdokumentation."
 
-#: C/desktop-tech.xml:341(para)
+#: C/desktop-tech.xml:347(para)
 msgid ""
 "GNOME's help viewer, <application>Yelp</application>, displays and prints "
 "documentation, provides a listing of all documentation on the system, and "
@@ -2011,7 +2032,7 @@ msgstr ""
 "die Volltextsuche innerhalb der gesamten Dokumentation ermöglicht. Das GNOME-"
 "Hilfesystem bietet alle diese Funktionsmerkmale frei verfügbar an."
 
-#: C/desktop-tech.xml:346(para)
+#: C/desktop-tech.xml:352(para)
 msgid ""
 "For more information on writing documentation for your application, see the "
 "<ulink url=\"http://library.gnome.org/devel/gdp-handbook/stable/\">GNOME "
@@ -2174,6 +2195,10 @@ msgid ""
 "library.gnome.org/devel/gtk/stable/GtkBuilder.html\">GtkBuilder</ulink>. "
 "Newly written code should use GtkBuilder instead."
 msgstr ""
+"Beachten sie, dass Libglade als veraltet markiert wurde und durch <ulink url="
+"\"http://library.gnome.org/devel/gtk/stable/GtkBuilder.html\">GtkBuilder</"
+"ulink> abgelöst wird. Neu geschriebener Code sollte auf jeden Fall GtkBuilder "
+"verwenden."
 
 #: C/core-tech.xml:74(para)
 msgid ""
@@ -2898,6 +2923,11 @@ msgid ""
 "construct a pipeline to read and playback files in any supported format, "
 "allowing you to use sound and video in your application easily."
 msgstr ""
+"GStreamer bietet nicht nur eine mächtige API für die Manipulation von "
+"Multimediadaten, sondern auch bequeme Routinen für die einfache Wiedergabe. "
+"GStreamer kann automatisch eine Weiterleitung konstruieren, um Dateien in "
+"jedem unterstützten Format zu lesen und wiederzugeben. Dies erlaubt Ihnen in "
+"Ihrer Anwendung die einfache Nutzung von Klang und Video."
 
 #: C/core-tech.xml:455(para)
 msgid ""
@@ -2937,6 +2967,13 @@ msgid ""
 "gstreamer.freedesktop.org/documentation/\">the GStreamer documentation page</"
 "ulink>."
 msgstr ""
+"Umfassende Informationen zu GStreamer finden Sie in <ulink url=\"http://"
+"gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/index.html"
+"\">The GStreamer Application Development Manual</ulink>, <ulink url=\"http://"
+"gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer/html/\">The "
+"GStreamer 0.10 Core Reference Manual</ulink>, und der <ulink url=\"http://"
+"gstreamer.freedesktop.org/documentation/\">Dokumentationsseite zu GStreamer</"
+"ulink>."
 
 #: C/core-tech.xml:478(title)
 msgid "Printing"
@@ -2960,7 +2997,6 @@ msgid "GNOME Print"
 msgstr "GNOME Print"
 
 #: C/core-tech.xml:488(para)
-#, fuzzy
 #| msgid ""
 #| "Work is currently underway to integrate printing directly into GTK+, "
 #| "providing a cross-platform print API that all applications can use. While "
@@ -2976,8 +3012,11 @@ msgid ""
 "that Gnomeprint will continue to be functional and supported throughout the "
 "GNOME 2 lifecycle."
 msgstr ""
-"Gegenwärtig wird daran gearbeitet, das Drucken direkt in GTK+ zu integrieren. "
-"Eine plattformübergreifende Druck-Schnittstelle soll entstehen, die von allen "
+"Beachten Sie, dass dieser Abschnitt veraltet ist, weil libgnomeprint und "
+"libgnomeprintui als veraltet markiert und durch <ulink url=\"http://library."
+"gnome.org/devel/gtk/stable/Printing.html\">GtkPrint</ulink> ersetzt wurden. "
+"Drucken wurde direkt in GTK+ 2.10 und neuere Versionen intergriert. Eine "
+"plattformübergreifende Druck-Schnittstelle ist entstanden, die von allen "
 "Anwendungen genutzt werden kann. Während die gegenwärtige GNOME-Druckumgebung "
 "veraltet sein wird, sobald GTK+ das Drucken direkt unterstützt, stellen die "
 "ABI- und API-Stabilitätsgarantien sicher, dass die Funktionalität und "
@@ -3018,6 +3057,12 @@ msgid ""
 "source. Using the GNOME print framework provides your users a consistent user "
 "interface with the features they expect of printing appliations."
 msgstr ""
+"Wo immer es möglich ist, sollten Sie libgnomeprint zur Ausgabe von Inhalten "
+"im PostScript-Format für das Drucken verwenden. Konstruieren Sie mit "
+"libgnomeprintui die Benutzerschnittstelle für Druckaufgaben, selbst dann, "
+"wenn die gerenderte Ausgabe aus einer anderen Quelle stammt. Mit dem GNOME-"
+"Druck-Framework erhält der Benutzer eine konsistente Bedienoberfläche mit den "
+"Funktionsmerkmalen, die er von Druckanwendungen erwartet."
 
 #: C/core-tech.xml:523(title)
 msgid "CUPS"
@@ -3030,6 +3075,10 @@ msgid ""
 "printer discovery, printer option access, and spooling print jobs to "
 "different types of printers."
 msgstr ""
+"Auf den meisten GNOME-Systemen bildet CUPS das Rückgrat des Drucksystems. "
+"CUPS stellt eine moderne, funktionsreiche Architektur zur Druckererkennung "
+"sowie den Zugriff auf Optionen und Warteschlangen für die verschiedenen "
+"Druckertypen bereit."
 
 #: C/core-tech.xml:530(para)
 msgid ""
@@ -3037,6 +3086,10 @@ msgid ""
 "locally and on the network. This allows users not only to see all available "
 "printers, but to use different types of printers without manual configuration."
 msgstr ""
+"CUPS liefert eine Reihe von Dienstprogrammen für die automatische Erkennung "
+"von sowohl lokalen als auch Netzwerkdruckern. Dadurch sehen die Benutzer die "
+"verfügbaren Drucker nicht nur, sondern können die verschiedenen Arten von "
+"Druckern weitgehend ohne manuelle Konfiguration nutzen."
 
 #: C/core-tech.xml:535(para)
 msgid ""
@@ -3046,9 +3099,14 @@ msgid ""
 "Applications can simply provide PostScript output, and CUPS will "
 "automatically convert it for printers that do not support PostScript natively."
 msgstr ""
+"CUPS stellt eine vereinheitlichte Schnittstelle zum Drucken bereit, "
+"unabhängig von Ort oder Art des Druckers. Mehrere Druckprotokolle werden "
+"nahtlos von CUPS verarbeitet, indem auf die an die Drucker gesendeten Inhalte "
+"automatisch Filter angewendet werden. Anwendungen können so ganz einfach "
+"PostScript ausgeben, und CUPS wird es automatisch für Drucker umwandeln, die "
+"PostScript nicht direkt unterstützen."
 
 #: C/core-tech.xml:542(para)
-#, fuzzy
 msgid ""
 "CUPS also provides printer configuration options in the form of PostScript "
 "Printer Description (PPD) files. PPD configurations allow applications to "
@@ -3104,7 +3162,6 @@ msgid "C++"
 msgstr "C++"
 
 #: C/bindings.xml:16(para)
-#, fuzzy
 #| msgid ""
 #| "The Java bindings provide complete coverage of the GNOME platform, "
 #| "including GTK+, Cairo, and GConf. The Java bindings wrap all objects with "
@@ -3118,12 +3175,13 @@ msgid ""
 "inheritence. They provide a fully native API, with type-safe signal handlers, "
 "full use of the standard C++ library, and complete C++ memory management."
 msgstr ""
-"Die Java-Bindungen werden von der GNOME-Plattform komplett abgedeckt, "
-"einschließlich GTK+, Cairo und GConf. Die Java-Bindungen umschließen alle "
-"Objekte mit nativen Java-Objekten und ermöglichen Programmierern, eigene "
-"Widgets mit den normalen Java-Vererbungseigenschaften bereitzustellen. Sie "
-"bieten eine vollständig native API unter Verwendung der Java-"
-"Klassenbibliotheken und Schnittstellen, wo immer es möglich ist."
+"Die C++-Bindungen werden von der GNOME-Plattform komplett abgedeckt, "
+"einschließlich GTK+, Cairo und GConf. Die C++-Bindungen umschließen alle "
+"Objekte mit nativen C++-Objekten und ermöglichen Programmierern, eigene "
+"Widgets mit den normalen C++-Vererbungseigenschaften bereitzustellen. Sie "
+"bieten eine vollständig native API mit typsicheren Signalhandlern, unter "
+"Verwendung der C++-Klassenbibliotheken und Schnittstellen, wo immer es "
+"möglich ist."
 
 #: C/bindings.xml:23(para)
 msgid ""
@@ -3234,9 +3292,12 @@ msgstr ""
 "Einzug halten."
 
 #: C/bindings.xml:72(para)
+#| msgid ""
+#| "For a list of language bindings, visit <ulink url=\"http://gtk.org/"
+#| "bindings.html\">the GTK+ bindings page</ulink>."
 msgid ""
-"For a list of language bindings, visit <ulink url=\"http://gtk.org/bindings."
-"html\">the GTK+ bindings page</ulink>."
+"For a list of language bindings, visit <ulink url=\"http://www.gtk.org/"
+"language-bindings.html\">the GTK+ bindings page</ulink>."
 msgstr ""
 "Eine Liste der Sprachbindungen finden Sie auf der <ulink url=\"http://gtk.org/"
 "bindings.html\">GTK+ -Bindungen-Webseite</ulink>."
@@ -3288,7 +3349,6 @@ msgid "ORBit"
 msgstr "ORBit"
 
 #: C/apx-modules.xml:28(para)
-#, fuzzy
 #| msgid ""
 #| "ORBit is a fast and lightweight CORBA server. GNOME's component "
 #| "architecture, Bonobo, is built on top of CORBA. CORBA is discussed in "
@@ -3298,9 +3358,9 @@ msgid ""
 "architecture, Bonobo, is built on top of CORBA. CORBA is discussed in <xref "
 "linkend=\"bonobo-corba\"/>."
 msgstr ""
-"ORBit ist ein schneller und ressourcenschonender CORBA-Server. Die Bonobo-"
-"Komponentenarchitektur von GNOME setzt auf CORBA auf. CORBA wird in <xref "
-"linkend=\"bonobo-corba\"/> behandelt."
+"ORBit ist ein schneller und ressourcenschonender, veralteter CORBA-Server. "
+"Die Bonobo-Komponentenarchitektur von GNOME setzt auf CORBA auf. CORBA wird "
+"in <xref linkend=\"bonobo-corba\"/> behandelt."
 
 #: C/apx-modules.xml:33(term)
 msgid "atk"
@@ -3313,13 +3373,17 @@ msgid ""
 "tools have full access to view and control running applications. ATK is "
 "discussed in <xref linkend=\"a11y\"/>."
 msgstr ""
+"ATK stellt eine Reihe von Schnittstellen für Hilfstechnologien, die von "
+"anderen Toolkits und Anwendungen implementiert werden können. Durch Nutzung "
+"der ATK-Schnittstellen haben Hilfstechnologie-Werkzeuge vollen Zugriff auf "
+"laufende Anwendungen, um diese zu überwachen und zu steuern. ATK wird in "
+"<xref linkend=\"a11y\"/> behandelt."
 
 #: C/apx-modules.xml:41(term)
 msgid "gail"
 msgstr "gail"
 
 #: C/apx-modules.xml:42(para)
-#, fuzzy
 #| msgid ""
 #| "GAIL provides an implementation of the ATK interfaces for GTK+ and GNOME "
 #| "libraries, allowing accessibility tools to interact with applications "
@@ -3333,8 +3397,9 @@ msgid ""
 msgstr ""
 "GAIL stellt eine Implementation von ATK-Schnittstellen für GTK+ und GNOME-"
 "Bibliotheken bereit, so dass die Barrierefreiheits-Werkzeuge mit Anwendungen "
-"interagieren können, welche diese Bibliotheken verwenden. Die "
-"Barrierefreiheit wird in <xref linkend=\"a11y\"/> behandelt."
+"interagieren können, welche diese Bibliotheken verwenden. GAIL wurde 2009 in "
+"GTK+ integriert. Die Barrierefreiheit wird in <xref linkend=\"a11y\"/> "
+"behandelt."
 
 #: C/apx-modules.xml:48(term)
 msgid "gio"
@@ -3347,6 +3412,10 @@ msgid ""
 "abstraction that allows transparent access to local and remote files. GIO is "
 "discussed in <xref linkend=\"gio\"/>."
 msgstr ""
+"Als Teil der GLib stellt GIO eine High-Level-API zum Zugriff auf Dateien und "
+"Ordner bereit. Zusammen mit der GVFS-Bibliothek bildet sie eine Dateisystem-"
+"Abstraktionsschicht, welche transparenten Zugriff auf lokale und entfernte "
+"Dateien ermöglicht. GIO wird in <xref linkend=\"gio\"/> behandelt."
 
 #: C/apx-modules.xml:56(term)
 msgid "glib"
@@ -3409,7 +3478,6 @@ msgid "libIDL"
 msgstr "libIDL"
 
 #: C/apx-modules.xml:84(para)
-#, fuzzy
 #| msgid ""
 #| "libIDL is a library for parsing Interface Definition Language (IDL) files, "
 #| "which are necessary for CORBA interfaces. libIDL is used by GNOME's CORBA "
@@ -3421,17 +3489,16 @@ msgid ""
 "GNOME's deprecated CORBA implementation, ORBit. CORBA is discussed in <xref "
 "linkend=\"bonobo-corba\"/>."
 msgstr ""
-"libIDL ist eine Bibliothek zum Parsen von Dateien der »Interface Definition "
-"Language« (IDL), die für CORBA-Schnittstellen erforderlich ist. Die libIDL "
-"wird von ORBit verwendet, der GNOME-Implementation von CORBA. CORBA wird in "
-"<xref linkend=\"bonobo-corba\"/> behandelt."
+"libIDL ist eine veraltete Bibliothek zum Parsen von Dateien der »Interface "
+"Definition Language« (IDL), die für CORBA-Schnittstellen erforderlich ist. Die "
+"libIDL wird von ORBit verwendet, der GNOME-Implementation von CORBA. CORBA "
+"wird in <xref linkend=\"bonobo-corba\"/> behandelt."
 
 #: C/apx-modules.xml:90(term)
 msgid "libart_lgpl"
 msgstr "libart_lgpl"
 
 #: C/apx-modules.xml:91(para)
-#, fuzzy
 #| msgid ""
 #| "libart is a graphics library which can render vector paths. It is used by "
 #| "the GnomeCanvas widget."
@@ -3440,15 +3507,15 @@ msgid ""
 "used by the GnomeCanvas widget. Newly written code should not use libart_lgpl "
 "and instead use Cairo and/or other technologies."
 msgstr ""
-"libart ist eine Grafikbibliothek, die Vektorpfade darstellen kann. Sie wird "
-"vom GnomeCanvas-Widget verwendet."
+"libart ist eine veraltete Grafikbibliothek, die Vektorpfade darstellen kann. "
+"Sie wird vom GnomeCanvas-Widget verwendet. Neu geschriebener Code sollte "
+"anstelle der libart_lgpl Cairo und/oder andere Technologien verwenden."
 
 #: C/apx-modules.xml:97(term)
 msgid "libbonobo"
 msgstr "libbonobo"
 
 #: C/apx-modules.xml:98(para)
-#, fuzzy
 #| msgid ""
 #| "Bonobo is a framework for creating reusable components for use in GNOME "
 #| "applications, built on top of CORBA. Bonobo is discussed in <xref linkend="
@@ -3458,16 +3525,15 @@ msgid ""
 "GNOME applications, built on top of CORBA. Bonobo is discussed in <xref "
 "linkend=\"bonobo-corba\"/>."
 msgstr ""
-"Bonobo ist ein Framework zur Erzeugung wiederverwendbarer Komponenten für die "
-"Benutzung in GNOME-Anwendungen und setzt auf CORBA auf. Bonobo wird in <xref "
-"linkend=\"bonobo-corba\"/> behandelt."
+"Bonobo ist ein veraltetes Framework zur Erzeugung wiederverwendbarer "
+"Komponenten für die Benutzung in GNOME-Anwendungen und setzt auf CORBA auf. "
+"Bonobo wird in <xref linkend=\"bonobo-corba\"/> behandelt."
 
 #: C/apx-modules.xml:103(term)
 msgid "libbonoboui"
 msgstr "libbonoboui"
 
 #: C/apx-modules.xml:104(para)
-#, fuzzy
 #| msgid ""
 #| "The Bonobo UI library provides a number of user interface controls using "
 #| "the Bonobo component framework. Bonobo is discussed in <xref linkend="
@@ -3477,7 +3543,7 @@ msgid ""
 "using the Bonobo component framework. Bonobo is discussed in <xref linkend="
 "\"bonobo-corba\"/>."
 msgstr ""
-"Die Bonobo-Schnittstellenbibliothek stellt eine Reihe von "
+"Die veraltete Bonobo-Schnittstellenbibliothek stellt eine Reihe von "
 "Steuerungsmöglichkeiten der Benutzeroberfläche durch das Bonobo-Komponenten-"
 "Framework bereit. Bonobo wird in <xref linkend=\"bonobo-corba\"/> behandelt."
 
@@ -3486,7 +3552,6 @@ msgid "libglade"
 msgstr "libglade"
 
 #: C/apx-modules.xml:110(para)
-#, fuzzy
 #| msgid ""
 #| "Libglade is a library for constructing user interfaces dynamically from "
 #| "XML descriptions. Libglade allow programmers to construct their user "
@@ -3501,19 +3566,20 @@ msgid ""
 "a graphical interface builder application, and then import those interface "
 "definitions. Libglade is discussed in <xref linkend=\"libglade\"/>."
 msgstr ""
-"Libglade ist eine Bibliothek, mit der Sie Benutzerschnittstellen dynamisch "
-"aus XML-Beschreibungen erstellen können. Libglade erlaubt Programmierern die "
-"Konstruktion ihrer grafischen Benutzeroberflächen mittels geeigneter "
-"Werkzeuge wie Erstellungsanwendungen für grafische Oberflächen und den "
-"anschließenden Import dieser Schnittstellenbeschreibungen. Libglade wird in "
-"<xref linkend=\"libglade\"/> behandelt."
+"Libglade ist eine veraltete Bibliothek, mit der Sie Benutzerschnittstellen "
+"dynamisch aus XML-Beschreibungen erstellen können. Sie wurde durch <ulink url="
+"\"http://library.gnome.org/devel/gtk/stable/GtkBuilder.html\">GtkBuilder</"
+"ulink> abgelöst. Libglade erlaubt Programmierern die Konstruktion ihrer "
+"grafischen Benutzeroberflächen mittels geeigneter Werkzeuge wie "
+"Erstellungsanwendungen für grafische Oberflächen und den anschließenden "
+"Import dieser Schnittstellenbeschreibungen. Libglade wird in <xref linkend="
+"\"libglade\"/> behandelt."
 
 #: C/apx-modules.xml:119(term)
 msgid "libgnome"
 msgstr "libgnome"
 
 #: C/apx-modules.xml:120(para)
-#, fuzzy
 #| msgid ""
 #| "The libgnome library provides a number of useful routines for building "
 #| "modern applications, including session management, activation of files and "
@@ -3523,8 +3589,8 @@ msgid ""
 "building modern applications, including session management, activation of "
 "files and URIs, and displaying help."
 msgstr ""
-"Die libgnome-Bibliothek stellt eine Anzahl nützlicher Routinen zum Bau "
-"moderner Anwendungen zur Verfügung, einschließlich Sitzungsverwaltung, "
+"Die veraltete libgnome-Bibliothek stellt eine Anzahl nützlicher Routinen zum "
+"Bau moderner Anwendungen zur Verfügung, einschließlich Sitzungsverwaltung, "
 "Aktivierung von Dateien und Adressen sowie Anzeige von Hilfen."
 
 #: C/apx-modules.xml:125(term)
@@ -3544,7 +3610,6 @@ msgid "libgnomeui"
 msgstr "libgnomeui"
 
 #: C/apx-modules.xml:131(para)
-#, fuzzy
 #| msgid ""
 #| "The libgnomeui library provides additional widgets for applications. Many "
 #| "of the widgets from libgnomeui have already been ported to GTK+."
@@ -3553,8 +3618,9 @@ msgid ""
 "applications. Many of the widgets from libgnomeui have already been ported to "
 "GTK+."
 msgstr ""
-"Die libgnomeui-Bibliothek stellt zusätzliche Widgets für Anwendungen zur "
-"Verfügung. Viele dieser Widgets wurden bereits auf GTK+ portiert."
+"Die veraltete libgnomeui-Bibliothek stellt zusätzliche Widgets für "
+"Anwendungen zur Verfügung. Viele dieser Widgets wurden bereits auf GTK+ "
+"portiert."
 
 #: C/apx-modules.xml:136(term)
 msgid "libxml2"
@@ -3650,12 +3716,15 @@ msgid "gnome-panel"
 msgstr "gnome-panel"
 
 #: C/apx-modules.xml:183(para)
-#, fuzzy
 msgid ""
 "In addition to the actual panel, the gnome-panel package provides the "
 "libraries used to construct panel applets to run on the user's panel. Panel "
 "applets are discussed in <xref linkend=\"panel-applets\"/>."
-msgstr "Zusätzlich zum aktuellen Panel"
+msgstr ""
+"Zusätzlich zum Panel an sich stellt das Paket gnome-panel die Bibliotheken "
+"zum Entwerfen von Panel-Applets bereit, die im Panel des Benutzers ausgeführt "
+"werden können. Panel-Applets werden in <xref linkend=\"panel-applets\"/> "
+"behandelt."
 
 #: C/apx-modules.xml:189(term)
 msgid "gnome-keyring"
@@ -3739,7 +3808,6 @@ msgid "libgnomeprint"
 msgstr "libgnomeprint"
 
 #: C/apx-modules.xml:224(para)
-#, fuzzy
 #| msgid ""
 #| "The libgnomeprint library provides an implementation of the PostScript "
 #| "imaging model and can be used to create high-quality print renderings. The "
@@ -3751,17 +3819,17 @@ msgid ""
 "code should use GtkPrint instead. The GNOME print framework is discussed in "
 "<xref linkend=\"gnomeprint\"/>."
 msgstr ""
-"Die libgnomeprint-Bibliothek bietet eine Implementation des PostScript-"
-"Darstellungsmodells und kann zur Erzeugung qualitativ hochwertiger "
-"Druckobjekte verwendet werden. Die GNOME-Druckumgebung wird in <xref linkend="
-"\"gnomeprint\"/> behandelt."
+"Die veraltete libgnomeprint-Bibliothek bietet eine Implementation des "
+"PostScript-Darstellungsmodells und kann zur Erzeugung qualitativ hochwertiger "
+"Druckobjekte verwendet werden. Sie wurde durch <ulink url=\"http://library."
+"gnome.org/devel/gtk/stable/Printing.html\">GtkPrint</ulink> abgelöst. Die "
+"GNOME-Druckumgebung wird in <xref linkend=\"gnomeprint\"/> behandelt."
 
 #: C/apx-modules.xml:232(term)
 msgid "libgnomeprintui"
 msgstr "libgnomeprintui"
 
 #: C/apx-modules.xml:233(para)
-#, fuzzy
 #| msgid ""
 #| "The libgnomeprintui library provides a standard print dialog, a print "
 #| "preview dialog, and various other controls required for printing. The "
@@ -3773,10 +3841,12 @@ msgid ""
 "stable/Printing.html\">GtkPrint</ulink>. The GNOME print framework is "
 "discussed in <xref linkend=\"gnomeprint\"/>."
 msgstr ""
-"Die libgnomeprint-Bibliothek stellt einen Standard-Druckdialog bereit, einen "
-"Dialog zur Druckvorschau und verschiedene andere auf Druckvorgänge bezogene "
-"Steuerungsmöglichkeiten. Die GNOME-Druckumgebung wird in <xref linkend="
-"\"gnomeprint\"/> behandelt."
+"Die veraltete libgnomeprint-Bibliothek stellt einen Standard-Druckdialog "
+"bereit, einen Dialog zur Druckvorschau und verschiedene andere auf "
+"Druckvorgänge bezogene Steuerungsmöglichkeiten. Sie wurde durch <ulink url="
+"\"http://library.gnome.org/devel/gtk/stable/Printing.html\">GtkPrint</ulink> "
+"abgelöst. Die GNOME-Druckumgebung wird in <xref linkend=\"gnomeprint\"/> "
+"behandelt."
 
 #: C/apx-modules.xml:241(term)
 msgid "libgtop"
@@ -3920,7 +3990,7 @@ msgstr "shaunm@gnome.org"
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/platform-overview.xml:0(None)
 msgid "translator-credits"
-msgstr "Mario Blättermann <mariobl@gnome.org>, 2009"
+msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 
 #~ msgid "svn.gnome.org"
 #~ msgstr "svn.gnome.org"
