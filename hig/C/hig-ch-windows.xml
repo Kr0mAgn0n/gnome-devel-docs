@@ -1720,13 +1720,11 @@ saved, in case an error occurs.  Then hide the document window immediately after
     during an operation that takes more than a few seconds. See <xref
     linkend="controls-progress-bars" /> for more details about proper use of
     progress bars.</para>
-	<para>A progress window may appear in the panel window list if it
-	is, or may be, the only window shown by an application. For example,
-	the file download progress window of a web browser may remain after
-	all the browser windows have been closed.</para>
-	<para>Otherwise, a progress window should be raised above the
-	application when the application window itself is selected from the
-	window list.</para>
+		
+    <para>A progress window should always appear as an independent window in a window list.
+	If progress of a task makes a window temporarily unusable, do not present a modal dialog-like progress window in front of it.
+	Instead, present progress somewhere in the original window, making all its other elements temporarily insensitive.
+	This helps reduce visual clutter.</para>
 
     <figure id="example-progress-figure">
       <title>An example of a progress window</title>
@@ -1749,9 +1747,9 @@ saved, in case an error occurs.  Then hide the document window immediately after
     <formalpara>
       <title>Title Format</title>
 
-      <para>Progress windows should have the same title as their primary text.
-      Unlike alerts, it is expected that progress windows will be present in
-      the window list and may be active for extended periods.</para>
+      <para>Progress windows should have a title representing the overall
+      operation: for example <guilabel>Copying Files</guilabel>, <guilabel>Installing</guilabel>, or <guilabel>Calling</guilabel>.
+      As with other window titles, do not end progress window titles with an ellipsis.</para>
     </formalpara>
 
     <formalpara>
