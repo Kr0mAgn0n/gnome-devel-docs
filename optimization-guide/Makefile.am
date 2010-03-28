@@ -2,7 +2,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 dist-hook: doc-dist-hook
 
 DOC_MODULE = optimization-guide
-DOC_LINGUAS = de es
+DOC_LINGUAS = de el es
 DOC_ENTITIES =
 DOC_INCLUDES = \
   optimization-harmful.xml \
