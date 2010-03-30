@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
 "POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2010-03-28 14:14+0200\n"
+"PO-Revision-Date: 2010-03-30 21:24+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -405,6 +405,11 @@ msgid ""
 "markets, many of which now require their applications to be accessible by "
 "law."
 msgstr ""
+"Con un poco de esfuerzo adicional puede hacer que su programa funcione aún "
+"más suavemente con tecnologías de asistencia. Además de ayudar a usuarios "
+"individuales, también hará que su producto sea más atractivo en el mercados "
+"del gobierno y educativo, muchos de los cuales ahora requieren que sus "
+"aplicaciones sean accesibles por ley."
 
 #: C/accessibility-devel-guide.xml:17(title)
 msgid "Types of Disability"
@@ -749,6 +754,10 @@ msgid ""
 "function>. You might want to do this for image-only buttons, panels that "
 "provide logical groupings, text areas, and so on."
 msgstr ""
+"Para los componentes que no muestren una cadena corta (tales como un botón "
+"gráfico), especifique un nombre para ellos con <function>atk_object_set_name"
+"()</function>. Puede querer hacerlo para botones con imagen exclusivamente, "
+"paneles que proporcionen agrupaciones lógicas, áreas de texto y demás."
 
 #: C/accessibility-devel-guide.xml:188(para)
 msgid ""
@@ -757,6 +766,11 @@ msgid ""
 "description that assistive technologies can give the user. For example, to "
 "provide an accessible description for a <guibutton>Close</guibutton> button:"
 msgstr ""
+"Si no puede proporcionar una sugerencia para un componente, use "
+"<function>atk_object_set_description()</function> en su lugar para "
+"proporcionar una descripción que las tecnologías de asistencia puedan "
+"proporcionar al usuario. Por ejemplo, para proporcionar una descripción "
+"accesible para un botón <function>Cerrar</function>."
 
 #: C/accessibility-devel-guide.xml:192(title)
 msgid "Providing an accessible description for a GtkButton"
@@ -901,6 +915,8 @@ msgid ""
 "Returns the accessible object that describes the specified GTK widget to an "
 "assistive technology."
 msgstr ""
+"Devuelve a una tecnología accesible el objeto accesible que describe el "
+"widget GTK especificado."
 
 #: C/accessibility-devel-guide.xml:284(function)
 msgid "void atk_object_set_name (AtkObject*, const gchar*)"
@@ -912,6 +928,9 @@ msgid ""
 "graphical button that quits the application when pressed, the name might be "
 "\"Quit\"."
 msgstr ""
+"Establece el nombre del objeto accesible. Por ejemplo, si el objeto es un "
+"botón gráfico que sale de la aplicación al pulsarlo, el nombre puede ser "
+"«Salir»."
 
 #: C/accessibility-devel-guide.xml:296(function)
 msgid "void atk_object_set_description (AtkObject*, const gchar*)"
@@ -923,6 +942,9 @@ msgid ""
 "object is a graphical \"Close\" button, the description might be \"Closes "
 "the window\"."
 msgstr ""
+"Establece la descripción textual del objeto accesible. Por ejemplo, si el "
+"objeto es un botón gráfico «Cerrar», la descripción puede ser «Cierra la "
+"ventana»."
 
 #: C/accessibility-devel-guide.xml:308(function)
 msgid "AtkRelation* atk_relation_new (AtkObject**, gint, AtkRelationType)"
@@ -994,6 +1016,9 @@ msgid ""
 "<function>atk_relation_new()</function> and <function>atk_relation_set_add()"
 "</function>:"
 msgstr ""
+"Especifique la relación entre cualquier agrupación inusual de widgets usando "
+"<function>atk_relation_new()</function> y <function>atk_relation_set_add()</"
+"function>:"
 
 #: C/accessibility-devel-guide.xml:362(title)
 msgid "Specifying accessible relationship between two controls"
@@ -1077,16 +1102,20 @@ msgstr "setenv GTK_MODULES \"libgail:libtestprops\""
 #: C/accessibility-devel-guide.xml:399(para)
 msgid "All GTK modules have a <function>gtk_module_init()</function> function."
 msgstr ""
+"Todos los módulos GTK tienen una función <function>gtk_module_init()</"
+"function>."
 
 #: C/accessibility-devel-guide.xml:405(title)
 msgid "Gathering accessibility information from an application"
-msgstr ""
+msgstr "Obtener la información de accesibilidad de una aplicación"
 
 #: C/accessibility-devel-guide.xml:406(para)
 msgid ""
 "A program that wishes to make use of ATK calls would likely need to do one "
 "(or more) of the following things:"
 msgstr ""
+"Un programa que quiera hacer llamadas ATK debería hacer una, o más, de las "
+"siguientes:"
 
 #: C/accessibility-devel-guide.xml:411(para)
 msgid ""
