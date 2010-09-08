@@ -2,7 +2,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 dist-hook: doc-dist-hook
 
 DOC_MODULE = hig-book
-DOC_LINGUAS = de el es
+DOC_LINGUAS = de el es fr
 DOC_ENTITIES =			\
 	hig-ch-bibliography.xml	\
 	hig-ch-checks.xml	\
