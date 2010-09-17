@@ -25,4 +25,5 @@ DOC_FIGURES =						\
 	figures/label_left.png				\
 	figures/label_right.png				\
 	figures/nodrop.png
-DOC_LINGUAS = es
+DOC_LINGUAS = es fr
+
