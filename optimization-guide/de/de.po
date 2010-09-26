@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
-"POT-Creation-Date: 2009-12-14 19:50+0000\n"
-"PO-Revision-Date: 2010-02-21 22:35+0100\n"
+"POT-Creation-Date: 2010-09-12 20:12+0000\n"
+"PO-Revision-Date: 2010-09-25 22:19+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,7 @@ msgstr ""
 "Die Zufriedenheit wird dann - hoffentlich - folgen."
 
 #: C/optimization-intro.xml:27(para)
+#, fuzzy
 msgid ""
 "Optimization is the process of measurement, refinement and re-measurement. So "
 "the first thing you must do is find a way to measure what you are optimizing. "
@@ -104,8 +105,17 @@ msgid ""
 "<emphasis>should</emphasis> be fast and a program that <emphasis>is</"
 "emphasis> fast."
 msgstr ""
+"Optimierung ist ein Prozess des Messens, ? und erneuten Messens. Daher müssen "
+"Sie zunächst einen Weg finden, das zu messen, was Sie optimieren wollen. "
+"Idealerweise ist dieser Messwert eine einzige Zahl, beispielsweise die Zeit, "
+"die für die Ausführung einer Aufgabe benötigt wird. Dies ist Ihr Maßstab, es "
+"ist der einzige Weg festzustellen, ob Sie auf der Gewinner- oder der "
+"Verliererseite sind. Es ist ein sehr wesentlicher Unterschied, ob ein "
+"Programm schnell sein <emphasis>sollte</emphasis> oder ob es tatsächlich "
+"schnell <emphasis>ist</emphasis>."
 
 #: C/optimization-intro.xml:30(para)
+#, fuzzy
 msgid ""
 "Once you have a basic benchmark you need to find out why your code is not "
 "doing as well as it should. It is tempting to do this by inspection: just "
@@ -113,6 +123,9 @@ msgid ""
 "improvement. You will invariably be wrong. Using a profiler to get a detailed "
 "break-down of what your program really does is the only way to be sure."
 msgstr ""
+"Sobald Sie einen Ausgangsmaßstab gefunden haben, müssen Sie nun herausfinden, "
+"warum Ihr Code seine Aufgabe nicht so gut erledigt, wie er es eigentlich "
+"sollte."
 
 #: C/optimization-intro.xml:33(para)
 msgid ""
@@ -221,6 +234,10 @@ msgid ""
 "optimizing the operating system idle-loop because that is where it spent all "
 "its time! Don't optimize code that does nothing the user cares about."
 msgstr ""
+"Es ist sehr leicht, vom Profiler in die Irre geführt zu werden. Es gibt "
+"Geschichten über Leute, die die Untätigkeitsphase perfekt optimiert haben, "
+"weil das Programm ja die meiste Zeit in Untätigleit verbringt! Optimieren Sie "
+"keinen Code, von dessen Wirkung der Benutzer ohnehin keine Notiz nimmt."
 
 #: C/optimization-intro.xml:98(para)
 msgid ""
@@ -337,6 +354,12 @@ msgid ""
 "calculated, cached, or will in fact be worked out later at a more convenient "
 "time, as long as the user gets what they expect."
 msgstr ""
+"Bluffen Sie. Der Benutzer sollte denken, dass sein Rechner schnell ist, aber "
+"es ist gleich, ob er es wirklich ist oder nicht. Die Zeit zwischen dem Befehl "
+"und der darauf folgenden Antwort ist maßgebend. Es ist gleichgültig, ob die "
+"Antwort vorausberechnet wird, zwischengespeichert oder in irgendeiner anderen "
+"Weise später zu einem günstigeren Zeitpunkt ausgewertet wird, solange der "
+"Benutzer genau das bekommt, was er erwartet."
 
 #: C/optimization-intro.xml:154(para)
 msgid ""
@@ -388,12 +411,18 @@ msgid ""
 "act on the output of <application>Massif</application>. The <application>Same "
 "GNOME</application> game is used as an example."
 msgstr ""
+"Dieser Artikel beschreibt, wie Sie den Heap-Profiler <application>Massif</"
+"application> mit GNOME-Anwendungen verwenden. Wir beschreiben den Aufruf, die "
+"Interpreatation und die Möglichkeiten, die Ausgaben von <application>Massif</"
+"application> richtig zu nutzen. Das Spiel <application>Same GNOME</"
+"application> wird als Beispiel verwendet."
 
 #: C/optimization-massif.xml:10(title)
 msgid "Introduction"
 msgstr "Einführung"
 
 #: C/optimization-massif.xml:11(para)
+#, fuzzy
 msgid ""
 "<application>Massif</application> is a member of the <ulink type=\"http\" url="
 "\"http://valgrind.org/\">valgrind</ulink> suite of memory-profiling tools. "
@@ -401,6 +430,12 @@ msgid ""
 "lifetime of the program. Specifically it records the memory use of the heap "
 "and the stack."
 msgstr ""
+"<application>Massif</application> ist Teil der Programmsammlung <ulink type="
+"\"http\" url=\"http://valgrind.org/\">valgrind</ulink>, die Werkzeuge zur "
+"Speicherprofilierung bereitstellt. Zweck ist die Erstellung eines "
+"detaillierten Überblicks über die dynamische Speichernutzung während der "
+"Lebensdauer eines Programms. Speziell wird der Speicherverbrauch von »heap« "
+"und »stack« aufgezeichnet."
 
 #: C/optimization-massif.xml:14(para)
 msgid ""
@@ -420,10 +455,13 @@ msgid ""
 "<application>Massif</application> produces two output files: a graphical "
 "overview in a postscript file and a detailed breakdown in a text file."
 msgstr ""
+"<application>Massif</application> erstellt zwei Ausgabdateien: eine grafische "
+"Übersicht in einer PostScript-Datei und eine detaillierte Ausgabe in einer "
+"Textdatei."
 
 #: C/optimization-massif.xml:22(title)
 msgid "Using <application>Massif</application> with GNOME"
-msgstr ""
+msgstr "<application>Massif</application> mit GNOME verwenden"
 
 #: C/optimization-massif.xml:23(para)
 msgid ""
@@ -732,6 +770,8 @@ msgstr ""
 msgid ""
 "If we look closer though we see that it is called from many, many, places."
 msgstr ""
+"Bei näherer Betrachtung sehen wir jedoch, dass es von vielen verschiedenen "
+"Orten aus aufgerufen wird."
 
 #: C/optimization-massif.xml:142(programlisting)
 #, no-wrap
@@ -782,7 +822,7 @@ msgstr ""
 
 #: C/optimization-massif.xml:163(title)
 msgid "Caveats"
-msgstr ""
+msgstr "Vorbehalte"
 
 #: C/optimization-massif.xml:164(para)
 msgid ""
@@ -846,31 +886,37 @@ msgstr ""
 
 #: C/optimization-harmful.xml:35(para)
 msgid "Ways in which you can optimize your code to be seek-friendly:"
-msgstr ""
+msgstr "Mögliche Wege, wie Sie Ihren Code suchfreundlich optimieren können:"
 
 #: C/optimization-harmful.xml:40(para)
 msgid "Consolidate data into a single file."
-msgstr ""
+msgstr "Fassen Sie Daten in einer einzigen Datei zusammen."
 
 #: C/optimization-harmful.xml:45(para)
 msgid "Keep data together in the same directory."
-msgstr ""
+msgstr "Halten Sie Daten im gleichen Ordner vor."
 
 #: C/optimization-harmful.xml:50(para)
 msgid "Cache data so as to not need to reread constantly."
 msgstr ""
+"Speichern Sie Daten zwischen, so dass sie nicht fortwährend erneut eingelesen "
+"werden müssen."
 
 #: C/optimization-harmful.xml:55(para)
 msgid ""
 "Share data so as not to have to reread it from disk when each application "
 "loads."
 msgstr ""
+"Geben Sie Daten frei, so dass sie nicht beim Laden von Anwendungen immer "
+"wieder erneut gelesen werden müssen."
 
 #: C/optimization-harmful.xml:60(para)
 msgid ""
 "Consider caching all of the data in a single binary file that is properly "
 "aligned and can be mmaped."
 msgstr ""
+"Erwägen Sie, alle Daten in einer einzigen Binärdatei zwischenzuspeichern, die "
+"sauber aufgebaut ist und mit mmap verarbeitbar ist."
 
 #: C/optimization-harmful.xml:65(para)
 msgid ""
@@ -925,8 +971,8 @@ msgid ""
 "You may obtain a copy of the <citetitle>GNU Free Documentation License</"
 "citetitle> from the Free Software Foundation by visiting <ulink type=\"http\" "
 "url=\"http://www.fsf.org\">their Web site</ulink> or by writing to: Free "
-"Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-"
-"1307, USA."
+"Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA "
+"02111-1307, USA."
 msgstr ""
 "Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free "
 "Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free "
