@@ -24,7 +24,7 @@
           <application>Massif</application> has very few options and for many programs does not need them. However for GNOME applications, where memory allocation might be buried deep in either glib or GTK, the number of levels down the call-stack Massif descends needs to be increased. This is achieved using the --depth parameter. By default this is 3; increasing it to 5 will guarantee the call-stack reaches down to your code. One or two more levels may also be desirable to provide your code with some context. Since the level of detail becomes quickly overwhelming it is best to start with the smaller depth parameter and only increase it when it becomes apparent that it isn't sufficient.
         </para>
         <para>
-            It is also useful to tell <application>Massif</application> which functions allocate memory in glib. It removes an unnecessary layer of function calls from the reports and gives you a clearer idea of what code is allocating memory. The allocating functions in glib are g_malloc, g_malloc0, g_realloc, g_try_malloc, and g_mem_chunk_alloc. You use the --alloc-fn option to tell Masiff about them.
+            It is also useful to tell <application>Massif</application> which functions allocate memory in glib. It removes an unnecessary layer of function calls from the reports and gives you a clearer idea of what code is allocating memory. The allocating functions in glib are g_malloc, g_malloc0, g_realloc, g_try_malloc, and g_mem_chunk_alloc. You use the --alloc-fn option to tell Massif about them.
         </para>
         <para>
             Your command-line should therefore look something like:
@@ -116,7 +116,7 @@ Called from:
             </mediaobject>
         </figure>
         <para>
-            The spacetime use of gdk_pixbuf_new is now a thin band that only spikes briefly (it is now the sixteenth band down and shaded magenta). As a bonus, the peak memory use has dropped by 200 kB since the spike occurs before other memory is allocated. If two processes like this where run together the chances of the peak memory usage coinciding, and hence the risk of swapping, would be quite low.
+            The spacetime use of gdk_pixbuf_new is now a thin band that only spikes briefly (it is now the sixteenth band down and shaded magenta). As a bonus, the peak memory use has dropped by 200 kB since the spike occurs before other memory is allocated. If two processes like this were run together the chances of the peak memory usage coinciding, and hence the risk of swapping, would be quite low.
         </para>
         <para>
             Can we do better ? A quick examination of <application>Massif</application>'s text output reveals: g_strdup to be the new major offender.
