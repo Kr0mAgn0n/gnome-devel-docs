@@ -1,14 +1,14 @@
-# translation of accessibility-devel-guide.master.po to Español
-# Spanish translation for gnome-devel-docs.
+# translation of accessibility-devel-guide.master.po to Spanish
 # Copyright (C) 2009 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
+# Francisco Javier F. Serrador <fserrador@gmail.com>, 2010.
 # Jorge González <jorgegonz@svn.gnome.org>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
-"POT-Creation-Date: 2010-02-16 17:00+0000\n"
-"PO-Revision-Date: 2010-10-14 18:30+0200\n"
+"POT-Creation-Date: 2010-10-28 11:53+0000\n"
+"PO-Revision-Date: 2010-11-03 16:11+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -382,6 +385,13 @@ msgid ""
 "computers outside their home or office. For example, if you're stuck in "
 "traffic, you might use voice input and output to check your email."
 msgstr ""
+"Junto con las tecnologías de asistencia si es necesario (interfaces de voz, "
+"pantallas de lector, dispositivos de entrada alternativos, y similares) "
+"gente con discapacidades permanentes o temporales puede usar el escritorio y "
+"las aplicaciones de GNOME. Las tecnologías de asistencia también son útiles "
+"para gente que usa los equipos fuera de su casa u oficina. Por ejemplo, si "
+"está en un atasco de tráfico puede utilizar la entrada y salida de voz para "
+"comprobar su correo electrónico."
 
 #: C/accessibility-devel-guide.xml:9(para)
 msgid ""
@@ -397,6 +407,18 @@ msgid ""
 "there is any tooltip text associated with a widget, and use that to describe "
 "the widget to the user."
 msgstr ""
+"Las tecnologías de asistencia reciben información desde aplicaciones a "
+"través del API de las Herramientas de accesibilidad, que puede encontrar en "
+"el módulo de atk en el repositorio de GNOME. Debido a que el soporte de "
+"accesibilidad API está construido dentro de los widgets de GNOME, su "
+"programa GNOME debería funcionar razonablemente bien con las tecnologías de "
+"asistencia sin ningún trabajo adicional por su parte. Por ejemplo, las "
+"tecnologías de asistencia pueden leer automáticamente las etiquetas de los "
+"widgets que generalmente establecerá en su programa (ej. con las llamadas a "
+"funciones de GTK tales como <function>gtk_label_set_text()</function> o "
+"<function>gtk_button_new_with_label()</function>). También pueden "
+"encontrarse si hay cualquier descripción de texto asociada con un widget, y "
+"usarlo para describir el widget al usuario."
 
 #: C/accessibility-devel-guide.xml:12(para)
 msgid ""
@@ -437,6 +459,12 @@ msgid ""
 "choice of text size and color, and tasks that involve good hand-eye "
 "coordination (such as moving the mouse) can cause problems for these users."
 msgstr ""
+"<emphasis>Discapacidades visuales</emphasis>: estos pueden ir desde baja "
+"visión (incluyendo visión borrosa o nublada, visión extrema de hipermetropía "
+"o miopía, daltonismo, y visión de túnel, entre otros) hasta la ceguera "
+"completa. Una pobre elección del tamaño y color del texto, y tareas que "
+"implican una buena coordinación mano-ojo (tales como mover el ratón) pueden "
+"causan problemas para estos usuarios."
 
 #: C/accessibility-devel-guide.xml:30(para)
 msgid ""
@@ -445,6 +473,11 @@ msgid ""
 "example, they may be unable to hold down two keys simultaneously, or they "
 "may be more likely to strike keys accidentally."
 msgstr ""
+"<emphasis>Discapacidades de movimiento</emphasis>: los usuarios con un "
+"control pobre o debilidad en sus músculos pueden encontrar muy difícil usar "
+"un teclado estándar o un ratón. Por ejemplo, pueden ser incapaces de "
+"mantener pulsadas dos teclas a la vez, o pueden ser más propensos a pulsar "
+"teclas accidentalmente."
 
 #: C/accessibility-devel-guide.xml:35(para)
 msgid ""
@@ -453,6 +486,11 @@ msgid ""
 "Applications that convey important information by sound alone will cause "
 "problems for these users."
 msgstr ""
+"<emphasis>Deficiencias auditivas</emphasis>: éstas pueden variar desde ser "
+"capaz de oír algunos sonidos pero no distinguir las palabras habladas, hasta "
+"sordera profunda. Las aplicaciones que comunican información importante "
+"exclusivamente a través del sonido pueden causar problemas para estos "
+"usuarios."
 
 #: C/accessibility-devel-guide.xml:40(para)
 msgid ""
@@ -462,12 +500,19 @@ msgid ""
 "displays, or poor choice of words can make using computers difficult for "
 "these users."
 msgstr ""
+"<emphasis>Trastornos Cognitivos y del Lenguaje</emphasis> - éstas pueden ir "
+"desde la dislexia a las dificultades para recordar cosas, resolver problemas "
+"o comprender y utilizar el lenguaje hablado o escrito. Es difícil la "
+"exposición compleja o inconsistente, o la selección pobre de palabras usando "
+"ordenadores para estos usuarios."
 
 #: C/accessibility-devel-guide.xml:45(para)
 msgid ""
 "<emphasis>Seizure disorders</emphasis> - certain light or sound patterns can "
 "cause epileptic seizures in some susceptible users."
 msgstr ""
+"<emphasis>Trastornos convulsivos</emphasis>: cierta luz o patrones de sonido "
+"pueden causar ataques epilépticos en algunos usuarios susceptibles."
 
 #: C/accessibility-devel-guide.xml:53(title)
 msgid "How Accessibility Works in GNOME"
@@ -486,6 +531,7 @@ msgstr ""
 "independientes; las implementaciones se pueden escribir para cualquier "
 "conjunto de widgets, como GTK, Motif o Qt."
 
+# Muy largo!!
 #: C/accessibility-devel-guide.xml:57(para)
 msgid ""
 "The implementation for the GTK widgets is in a module called GAIL (GNOME "
@@ -508,6 +554,26 @@ msgid ""
 "must be set to \"gail:atk-bridge\" in order to enable assistive technology "
 "support."
 msgstr ""
+"La implementación para los widgets GTK está en un módulo llamado GAIL "
+"(«GNOME Accessibility Implementation Library», Biblioteca de implementación "
+"de accesibilidad de GNOME), cargada dinámicamente, en tiempo de ejecución, "
+"por una aplicación GTK. Una vez cargadas, dichas partes de su aplicación que "
+"usan widgets estándar GTK tendrán un nivel básico de accesibilidad, sin "
+"tener que modificar nada de su aplicación. Si no se carga GAIL, los widgets "
+"GTK tendrán una implementación de accesibilidad predeterminada que "
+"esencialmente no devuelve ninguna información, aunque nominalmente se ajusta "
+"la API de ATK. Las aplicaciones que usan controladores Bonobo, "
+"particularmente aquellas fuera del proceso, también cargan códigos para el "
+"soporte de accesibilidad desde el módulo libgail-gnome. Que las aplicaciones "
+"del escritorio GNOME carguen automáticamente estas bibliotecas de soporte "
+"para la accesibilidad depende del valor de una clave de <application>gconf</"
+"application>, «/desktop/gnome/interface/accessibility»; un valor booleano "
+"cierto activa el soporte para las tecnologías de asistencia y las "
+"aplicaciones que llaman a gnome_program_init que cargará automáticamente "
+"librerías de accesibilidad en tiempo de carga. Las «aplicaciones GTK puras» "
+"por ejemplo, aquellas que usan gtk+ pero no enlazan libgnome, dependen del "
+"valor de la variable de entorno GTK_MODULES, las cual debe establecerse a "
+"«gail:atk-bridge» para activar el soporte de las tecnologías de asistencia."
 
 #: C/accessibility-devel-guide.xml:63(para)
 msgid ""
@@ -966,6 +1032,11 @@ msgid ""
 "a particular GtkLabel widget is the caption for a GtkTreeView in the same "
 "window."
 msgstr ""
+"Crea una nueva relación entre la clave especificada y la lista especificada "
+"de objetos de destino. Generalmente una relación indica a las tecnologías de "
+"asistencia que un widget está relacionado, de alguna forma, con otro. Por "
+"ejemplo, que un widget GtkLabel en particular es el título de un GtkTreeView "
+"en la misma ventana."
 
 #: C/accessibility-devel-guide.xml:320(function)
 msgid "void atk_image_set_description (AtkImage*, const gchar*)"
@@ -1134,7 +1205,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:414(programlisting)
 #, no-wrap
 msgid "atk_add_focus_tracker (_my_focus_tracker);"
-msgstr ""
+msgstr "atk_add_focus_tracker (_my_focus_tracker);"
 
 #: C/accessibility-devel-guide.xml:415(para)
 msgid ""
@@ -2808,7 +2879,7 @@ msgstr "La información del objeto se lee correctamente."
 
 #: C/accessibility-devel-guide.xml:74(title)
 msgid "Visual Focus Indicator"
-msgstr ""
+msgstr "Indicador visual del foco"
 
 #: C/accessibility-devel-guide.xml:77(para)
 msgid ""
@@ -2852,18 +2923,24 @@ msgid ""
 "If magnification is available, test the font, color, and size using the "
 "magnification option."
 msgstr ""
+"Si la magnificación está disponible, comprobar la tipografía, color y tamaño "
+"al usar la opción de magnificación."
 
 #: C/accessibility-devel-guide.xml:124(para)
 msgid ""
 "Print screenshots to a black and white printer and confirm that all "
 "information is visible."
 msgstr ""
+"Imprimir capturas de pantalla en una impresora en blanco y negro y confirmar "
+"que toda la información es visible."
 
 #: C/accessibility-devel-guide.xml:129(para)
 msgid ""
 "Test applications using only black and white, high-contrast settings and "
 "confirm that all information is conveyed correctly."
 msgstr ""
+"Probar aplicaciones usando sólo los ajustes de alto contraste de blanco y "
+"negro y confirmar que toda la información se transmite correctamente."
 
 #: C/accessibility-devel-guide.xml:134(para)
 msgid ""
@@ -2871,29 +2948,40 @@ msgid ""
 "schemes and that high-contrast schemes are available (e.g. white on black or "
 "yellow on blue)."
 msgstr ""
+"Probar que la aplicación proporciona al menos tres combinaciones de esquemas "
+"de color y que están disponibles los esquemas de alto contraste (ej. blanco "
+"sobre negro o amarillos sobre azul)."
 
 #: C/accessibility-devel-guide.xml:139(para)
 msgid ""
 "Turn on high-contrast settings in the GBONE Control Center and confirm that "
 "the application respects these settings."
 msgstr ""
+"Activar las características de contraste alto en el Centro de control de "
+"GNOME y confirmar que la aplicación respeta esos ajustes."
 
 #: C/accessibility-devel-guide.xml:144(para)
 msgid ""
 "Test various themes to ensure that the software is working for all the "
 "available settings."
 msgstr ""
+"Probar varios temas para asegurarse de que el software funciona para todos "
+"los ajustes disponibles."
 
 #: C/accessibility-devel-guide.xml:153(para)
 msgid ""
 "There should be an option in the application to show audio alerts visually."
 msgstr ""
+"Debe existir una opción en la aplicación para mostrar visualmente las "
+"alertas de sonido."
 
 #: C/accessibility-devel-guide.xml:156(para)
 msgid ""
 "Test that the audio is working correctly by enabling sound in the GNOME "
 "Control Center and then perform the following actions:"
 msgstr ""
+"Probar que el sonido funciona correctamente activando el sonido en el Centro "
+"de control de GNOME y después realizando las siguientes acciones:"
 
 #: C/accessibility-devel-guide.xml:161(para)
 msgid ""
@@ -3864,6 +3952,13 @@ msgid ""
 "screen keyboard. The characters should appear in the <application>Gedit</"
 "application> text area."
 msgstr ""
+"Comprobar que el teclado en pantalla <application>gok</application> "
+"proporciona el botón <guibutton>Redactar</guibutton> y que se puede usar "
+"para escribir cualquier texto para la aplicación seleccionada; ejecute "
+"<application>gedit</application>, pulse en el área de texto y después pulse "
+"el botón <guibutton>Redactar</guibutton> de <application>gok</application>. "
+"Seleccione las teclas necesarias en el teclado en pantalla. Los caracteres "
+"deberían aparecer en el área de texto de <application>gedit</application>."
 
 #: C/accessibility-devel-guide.xml:748(para)
 msgid ""
