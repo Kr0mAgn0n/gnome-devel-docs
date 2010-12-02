@@ -8,21 +8,22 @@ using Gst;
 
 public class Webcam : Window
 {
-  private DrawingArea drawing_area;
-  private Element camerabin;
+  private Gtk.DrawingArea drawing_area;
+  private Gst.Element camerabin;
   private int counter = 1;
 
   public Webcam ()
   {
-    var vbox = new VBox (false, 0);
-    this.drawing_area = new DrawingArea ();
+    var vbox = new Gtk.VBox (false, 0);
+    this.destroy.connect (Gtk.main_quit);
+    this.drawing_area = new Gtk.DrawingArea ();
     this.drawing_area.set_size_request (640, 480);
     vbox.pack_start (this.drawing_area, true, true, 0);
 
     var photo_button = new Button.with_label ("Take a picture");
     photo_button.clicked.connect (on_take_picture);
 
-    var button_box = new HButtonBox ();
+    var button_box = new Gtk.HButtonBox ();
     button_box.add (photo_button);
     vbox.pack_start (button_box, false, true, 0);
 
@@ -32,19 +33,19 @@ public class Webcam : Window
     var bus = this.camerabin.get_bus ();
     bus.set_sync_handler (on_bus_callback);
 
-    this.camerabin.set_state (State.PLAYING);
+    this.camerabin.set_state (Gst.State.PLAYING);
   }
 
-  private BusSyncReply on_bus_callback (Gst.Bus bus, Gst.Message message)
+  private Gst.BusSyncReply on_bus_callback (Gst.Bus bus, Gst.Message message)
   {
 
     if (message.get_structure () != null && message.get_structure().has_name("prepare-xwindow-id")) {
-      var xoverlay = message.src as XOverlay;
+      var xoverlay = message.src as Gst.XOverlay;
       xoverlay.set_xwindow_id (Gdk.x11_drawable_get_xid (this.drawing_area.window));
-      return BusSyncReply.DROP;
+      return Gst.BusSyncReply.DROP;
     }
 
-    return BusSyncReply.PASS;
+    return Gst.BusSyncReply.PASS;
   }
 
   private void on_take_picture ()
@@ -52,7 +53,7 @@ public class Webcam : Window
     var filename = "photo" + "%d".printf (this.counter) + ".jpg";
     this.counter++;
     this.camerabin.set ("filename", filename);
-    Signal.emit_by_name (this.camerabin, "capture-start");
+    GLib.Signal.emit_by_name (this.camerabin, "capture-start");
   }
 
   public static int main (string[] args)
