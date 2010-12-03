@@ -1,0 +1,286 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="Guitar-Tuner example for GNOME"
+      id="guitar-tuner">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <link type="seealso" xref="index"/>
+  
+    <desc>This tutorial will show of Gtk+ and GStreamer to build a simple guitar tuner application
+    for GNOME</desc>
+    
+    <revision pkgversion="0.1" version="0.1" date="2010-12-02" status="stub"/>
+    <credit type="author">
+      <name>GNOME Documentation Project</name>
+      <email>gnome-doc-list@gnome.org</email>
+    </credit>
+    
+  </info>
+
+<title>Guitar-Tuner example</title>
+
+<synopsis>
+  <p>In this tutorial, you will learn:</p>
+  <list>
+    <item><p>Setting up a basic project in Anjuta</p></item>
+    <item><p>Creating a simple GUI with the Glade UI editor</p></item>
+    <item><p>Using GStreamer to play sound</p></item>
+  </list>
+  <p>The following is required to follow that tutorial</p>
+  <list>
+    <item><p>Anjuta (Integrated Development Environment)is 
+    installed and working (TODO: Link install instructions)</p></item>
+    <item><p>Basic knowledge of the C programming language</p></item>
+  </list>
+</synopsis>
+
+<media type="image" mime="image/png" src="guitar-tuner.png"/>
+
+<section>
+  <title>Setup the project in anjuta</title>
+  <steps>
+    <item><p>Startup <app>anjuta</app></p></item>
+    <item><p>Open the project wizard with <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq></p></item>
+    <item><p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab and hit <gui>Next</gui></p></item>
+    <item><p>Fill out your details on the next pages. Use <file>guiter-tuner</file> as project name and 
+       directory</p></item>
+    <item><p>Enable the <gui>Configure external pages</gui> switch and choose </p></item>
+    <item><p>After you hit <gui>Finished</gui> the project should be created for you and 
+    you can open the <file>src/main.c</file>
+    from the <gui>Project</gui> or the <gui>File</gui> tab. You should see the following code:</p></item>
+  </steps>
+  <code mime="text/C"><![CDATA[
+#include <config.h>
+#include <gtk/gtk.h>
+
+
+#include <glib/gi18n.h>
+
+
+/* For testing propose use the local (not installed) ui file */
+/* #define UI_FILE PACKAGE_DATA_DIR"/gtk_foobar/ui/gtk_foobar.ui" */
+#define UI_FILE "src/gtk_foobar.ui"
+
+/* Signal handlers */
+/* Note: These may not be declared static because signal autoconnection
+ * only works with non-static methods
+ */
+
+/* Called when the window is closed */
+void
+destroy (GtkWidget *widget, gpointer data)
+{
+	gtk_main_quit ();
+}
+
+static GtkWidget*
+create_window (void)
+{
+	GtkWidget *window;
+	GtkBuilder *builder;
+	GError* error = NULL;
+
+	/* Load UI from file */
+	builder = gtk_builder_new ();
+	if (!gtk_builder_add_from_file (builder, UI_FILE, &error))
+	{
+		g_warning ("Couldn't load builder file: %s", error->message);
+		g_error_free (error);
+	}
+
+	/* Auto-connect signal handlers */
+	gtk_builder_connect_signals (builder, NULL);
+
+	/* Get the window object from the ui file */
+	window = GTK_WIDGET (gtk_builder_get_object (builder, "window"));
+	g_object_unref (builder);
+	
+	return window;
+}
+
+int
+main (int argc, char *argv[])
+{
+ 	GtkWidget *window;
+
+
+#ifdef ENABLE_NLS
+	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+#endif
+
+	
+	gtk_set_locale ();
+	gtk_init (&argc, &argv);
+
+	window = create_window ();
+	gtk_widget_show (window);
+
+	gtk_main ();
+	return 0;
+}
+  ]]></code>
+</section>
+
+<section>
+  <title>Initial build</title>
+  <p>C is a rather verbose language so don't be surprised that this is quite a lot of code, most of it is
+     template code. It loads an (empty) window from the user interface description file and shows it.</p>
+  <p>But it already works so you can compile it by using <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> or
+    <key>Shift+F7</key>. Just hit <gui>Configure</gui> on the next dialog to configure a debug build. This is only
+    necessary for the first build. </p>
+</section>
+
+<section>
+  <title>Create the user interface</title>
+  <p>The user interface is described in an XML format and can be put together graphically. To open the user-interface.
+    open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The window is the center while
+    you have the widgets and widgets properties to the left and the pallette of available widgets to the right.
+  </p>
+
+  <p>Ever user interface in GTK+ is organized into boxes and tables. We use a vertical <gui>GtkButtonBox</gui> here
+    to assign six <gui>GtkButton</gui>s for the six guitar strings.</p>
+
+    <steps>
+        <item><p>Choose a <gui>GtkButtonBox</gui> from the <gui>Palette</gui> on the right and put 
+        in into the window. Set the number of elements to 6 for the six strings</p></item>
+        <item><p>Choose a <gui>GtkButton</gui> from the left and put in into the first part of the box</p></item>
+        <item><p>While the button is still selected, change the <gui>Label</gui> property in the <gui>Widgets</gui>
+            tab to <gui>E</gui> for the low E string.</p></item>
+        <item><p>Switch to the <gui>Signals</gui> tab inside of <gui>Widgets</gui> and search for the 
+            <gui>clicked</gui> signal
+            of the button. You can connect a signal handler here that will be called once the user presses the button.
+            To do so, click on the signal and type <gui>on_button_clicked</gui> in the <gui>Handler</gui> column and hit
+            <key>Return</key>.</p></item>
+        <item><p>Repeat the above steps for the other buttons completing the 6 strings with the names A, D, G, B, e</p></item>
+        <item><p>Save the file (<guiseq><gui>File</gui><gui>Save</gui></guiseq>) and close it.</p></item>
+    </steps>
+</section>
+
+<section>
+  <title>Creating the signal handler</title>
+
+    <p>As all buttons call <gui>on_button_clicked</gui> now when they are clicked we need to create that function.
+    This is quite simple, just add this code a some point of <file>main.c</file>:</p>
+<code mime="text/C"><![CDATA[
+void on_button_clicked (GtkWidget* button, gpointer user_data)
+{
+
+}
+]]></code>
+    <p>The prototype of each signal handler is available in the Gtk+ documentation (TODO: link). 
+    For GtkButton::clicked there are no additional arguments. The <gui>user_data</gui> is a pointer that you
+    can set in the call to gtk_builder_connect_signals() and it usually contains a pointer to a data structure
+    you might need to access inside the signal handler.</p>
+</section>
+
+<section>
+    <title>Playing the sound</title>
+        <section>
+        <title>The GStreamer Multimedia framework</title>
+        <p><app>GStreamer</app> is used inside of GNOME for all kind of multimedia handling. The concept
+        is that you a pipeline containing several processing elements from the source to the output (also called
+        sink here). The source can be an image file, a video, or a music file and the output could a window or
+        the soundcard. Between those elements various filters and converters can be applied to handle effects
+        or format conversions.</p>.
+        <p>Each element of the pipeline has properties to change it's behaviour.</p>
+        </section>
+
+        <section>
+        <title>Setting up the pipeline</title>
+        <p>In this simple example we use a tone generator called <gui>audiotestsrc</gui> and send
+        the output to the configured sound device (autoaudiosink).</p>
+        <p>We only need to configure the frequency of the tone generator which is accesible through
+        the <gui>freq</gui> property of <gui>audiotestsrc</gui>.</p>
+        <p>As we don't want to play an annoying tone forever, we setup a timeout for stopping.</p>
+<code mime="text/C"><![CDATA[
+/* Length of playing in ms */
+#define LENGTH 500
+
+static gboolean
+pipeline_stop (GstElement* pipeline)
+{
+	gst_element_set_state (pipeline, GST_STATE_PAUSED);
+	g_object_unref (pipeline);
+
+	/* disconnect handler */
+	return FALSE;
+}
+
+static void 
+play_sound (gdouble frequency)
+{
+	GstElement *source, *sink;
+	GstElement *pipeline;
+
+	pipeline = gst_pipeline_new ("note");
+	source   = gst_element_factory_make ("audiotestsrc",
+	                                     "source");
+	sink     = gst_element_factory_make ("autoaudiosink",
+	                                     "output");
+
+	/* set frequency */
+	g_object_set (source, "freq", frequency, NULL);
+	
+	gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
+	gst_element_link (source, sink);
+
+	gst_element_set_state (pipeline, GST_STATE_PLAYING);
+
+	/* stop it after 200ms */
+	g_timeout_add (LENGTH, (GSourceFunc) pipeline_stop, pipeline);
+}
+]]></code>
+    </section>
+    <section>
+    <title>Bringing everything together</title>
+    <p>Finally we need to play the correct sound when the user clicks a button. We already setup the
+    signal handler so this is also really easy. The only thing we need to take core of is that we
+    play the right sound for the clicked string. We could have connected every button to a different signal
+    handler but that would lead to a lot of code duplication. Instead, we abuse the label of the button
+    to know which button was clicked.</p>
+    <p>Of course we also need to know the frequencies for the six guitar strings which we need to define.</p>
+    <code mime="text/C"><![CDATA[
+/* Frequencies of the strings */
+#define NOTE_E 369.23
+#define NOTE_A 440
+#define NOTE_D 587.33
+#define NOTE_G 783.99
+#define NOTE_B 987.77
+#define NOTE_e 1318.5
+
+/* Callback for the buttons */
+void on_button_clicked (GtkButton* button,
+                        gpointer user_data)
+{
+	GtkWidget* label = gtk_bin_get_child (GTK_BIN (button));
+	const gchar* text = gtk_label_get_label (GTK_LABEL (label));
+
+	if (g_str_equal (text, _("E")))
+	    play_sound (NOTE_E);
+	else if (g_str_equal (text, _("A")))
+	    play_sound (NOTE_A);
+	else if (g_str_equal (text, _("G")))
+	    play_sound (NOTE_G);
+	else if (g_str_equal (text, _("D")))
+	    play_sound (NOTE_D);
+	else if (g_str_equal (text, _("B")))
+	    play_sound (NOTE_B);
+	else if (g_str_equal (text, _("e")))
+	    play_sound (NOTE_e);
+}
+]]></code>
+    </section>
+</section>
+
+<section>
+<title>Building and running the application</title>
+<steps>
+    <item><p><guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again</p></item>
+    <item><p><guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application</p></item>
+    <item><p>Choose the <file>Debug/src/guitar-tuner</file> application if not already done in the dialog</p></item>
+    <item><p>Hit <gui>Run</gui> and enjoy!</p></item>
+</steps>
+</section>
+</page>
