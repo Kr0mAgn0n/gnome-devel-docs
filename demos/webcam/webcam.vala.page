@@ -41,7 +41,7 @@
 <section>
   <title>The story...</title>
   <p>Who doesn't know it: your mirror just fell off the wall and broke in
-  thousand pieces and you need a mirror to shave your beard of or add some make
+  thousand pieces and you need a mirror to shave your beard off or add some make
   up. You only have 15 minutes left, before catching the bus to work. But
   breaking a thing, mend your luck. And you are very lucky, because I am going
   to show you how to write a webcam application in 15 minutes.</p>
@@ -165,7 +165,8 @@ public class Webcam : Gtk.Window
   libraries. We declare a <code>Gtk.DrawingArea</code>, which will be the
   element which holds our video feed afterwards. As we want to add buttons too
   later, it is a good idea to add a vertical box, where we can put widgets
-  into. This is done by <code>vbox.pack_start</code>. Of course, we need to add
+  into. We need a box to put multiple elements into it and we want to put stuff
+  below each other. This is done by <code>vbox.pack_start</code>. Of course, we need to add
   the box to the window, which is done by writing <code>this.add (vbox)</code>.
   </p>
 
@@ -295,7 +296,7 @@ public class Webcam : Gtk.Window
   get the source of the signal, which actually is our pipeline and set the X
   window id we got before <code>xoverlay.set_xwindow_id (this.xid);</code>. The
   return values just pass on the message or drop the message from the message
-  flow. We want to drop that single message of course, otherways somebody else
+  flow. We want to drop that single message of course, otherwise somebody else
   could steal it.
   </p>
 
@@ -399,10 +400,11 @@ public class Webcam : Gtk.Window
   <p>
   That's it, you have managed to create a full featured webcam photo
   application in 15 minutes. Now you can shave your beard off or add some make
-  up to your beautiful face, right before having a beautiful day at your work,
-  where you can impress your friends and colleagues with an awesome application
-  you just make in 15 minutes.
+  up to your beautiful face, right before having a beautiful day at your
+  workplace, where you can impress your friends and colleagues with an awesome
+  application you just made in 15 minutes.
   </p>
+
 </section>
 
 </page>
