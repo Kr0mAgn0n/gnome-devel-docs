@@ -41,10 +41,11 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Next</gui>, and fill-out your details on the next few pages. Use <file>guiter-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guiter-tuner</file> as project name and directory.</p>
    	</item>
     <item>
-    <p>Make sure that <gui>Configure external packages</gui> is selected.</p>
+    <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
+       <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
     </item>
     <item>
     <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
@@ -89,7 +90,7 @@
    <p>Select a <gui>GtkButtonBox</gui> from the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the six strings).</p>
    </item>
    <item>
-    <p>Now, choose a <gui>GtkButton</gui> from the palette and put in into the first part of the box.</p>
+    <p>Now, choose a <gui>GtkButton</gui> from the palette and put it into the first part of the box.</p>
    </item>
    <item>
     <p>While the button is still selected, change the <gui>Label</gui> property in the <gui>Widgets</gui> tab to <gui>E</gui>. This will be the low E string.</p>
@@ -136,6 +137,8 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   <p>Insert the following code into <file>main.c</file>:</p>
   <code mime="text/C"><![CDATA[
+#include <gst/gst.h>
+
 static void 
 play_sound (gdouble frequency)
 {
