@@ -135,11 +135,13 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
 <section>
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
-  <p>Insert the following code into <file>main.c</file>:</p>
-  <code mime="text/C"><![CDATA[
-#include <gst/gst.h>
-
-static void 
+  
+  <p>Insert the following line into <file>main.c</file>, just below the <code><![CDATA[#include <gtk/gtk.h>]]></code> line:</p>
+  <code mime="text/C"><![CDATA[#include <gst/gst.h>]]></code>
+  <p>This includes the GStreamer library. You also need to add a line to initialize GStreamer; put the following code on the line above the <code>gtk_init</code> function in the <code>main</code> function:</p>
+  <code><![CDATA[gst_init (&argc, &argv);]]></code>
+  <p>Then, copy the following function into <file>main.c</file> somewhere:</p>
+  <code mime="text/C"><![CDATA[static void 
 play_sound (gdouble frequency)
 {
 	GstElement *source, *sink;
