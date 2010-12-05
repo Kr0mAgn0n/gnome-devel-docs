@@ -5,18 +5,22 @@ DOC_ID = demos
 DOC_LINGUAS =
 
 DOC_FIGURES =					\
-	gda-demo/demo.png			\
-	guitar-tuner/guitar-tuner.png		\
-	guitar-tuner/simple-player.png		\
-	image-viewer/gtk_test.png
+	media/guitar-tuner.png			\
+	media/image-viewer.png			\
+	media/photo-wall.png			\
+	media/photo-wall-zoomed.png		\
+	media/record-collection.png
 
 DOC_ENTITIES =
 
 DOC_PAGES =			\
-	gda-demo.js.page	\
 	guitar-tuner.c.page	\
+	image-viewer.c.page	\
+	image-viewer.js.page	\
+	magic-mirror.vala.page	\
 	message-board.c.page	\
-	webcam.vala.page	\
+	photo-wall.c.page	\
+	record-collection.js.page	\
 	index.page
 
 dist-hook: doc-dist-hook
