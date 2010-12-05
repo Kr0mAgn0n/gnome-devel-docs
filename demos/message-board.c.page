@@ -1,0 +1,159 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="webkit.c">
+
+  <info>
+    
+    <link type="guide" xref="index"/>
+    
+    <link type="seealso" xref="index"/>
+    
+    <desc>XXX</desc>
+    
+    <revision pkgversion="0.1" version="0.1" date="2010-12-02" status="stub"/>
+    <credit type="author">
+      <name>GNOME Documentation Project</name>
+      <email>gnome-doc-list@gnome.org</email>
+    </credit>
+    
+  </info>
+
+<title>WebKitGTK+</title>
+
+<synopsis>
+  <p>In this tutorial, you will learn:</p>
+  <list style="compact">
+    <item><p>how to display a web page with WebKit</p></item>
+    <item><p>YYY</p></item>
+    <item><p>ZZZ</p></item>
+  </list>
+</synopsis>
+
+<media type="image" mime="image/png" src="webkit/demo.png"/>
+
+<e:links type="section" xmlns:e="http://projectmallard.org/experimental/"/>
+
+<section id="setup">
+  <title>Some initial set-up stuff</title>
+
+  <steps>
+    <item><p>Start Anjuta.</p></item>
+    <item><p>Click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq>
+    to open the new project assistant.</p></item>
+    <item><p>Select <gui>GTK+ (Simple)</gui> on the <gui>C</gui> tab,
+    and click <gui>Forward</gui>.</p></item>
+    <item><p>Fill out your details on the <gui>Basic information</gui> page.
+    Use <input>message-board</input> for the project name.
+    Click <gui>Forward</gui>.</p></item>
+    <item><p>You need to tell Anjuta you're using WebKitGTK+ on this project.
+    On the <gui>Project options</gui> page, select <gui>Configure external
+    packages</gui>. Click <gui>Forward</gui>. On the <gui>Configure external
+    packages</gui> page, check <gui>webkitgtk-3.0</gui>.</p></item>
+    <item><p>After you finish the new project assistant, ...</p></item>
+    <item><p>Open <file>main.c</file>.</p></item>
+  </steps>
+
+  <p>After <code>#include &lt;gtk/gtk.h></code>, add line
+  <code>#include &lt;webkit/webkit.h></code>. Replace the
+  <code>create_window</code> function with the following:</p>
+
+<code style="numbered" mime="text/C"><![CDATA[
+static GtkWidget*
+create_window (void)
+{
+    GtkWidget *window, *box, *scroll, *view, *entry;
+
+    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_default_size (GTK_WINDOW (window), 400, 400);
+
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+    gtk_container_add (GTK_CONTAINER (window), box);
+
+    entry = gtk_entry_new ();
+    gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 0);
+
+    scroll = gtk_scrolled_window_new (NULL, NULL);
+    g_object_set (scroll, "shadow-type", GTK_SHADOW_IN, NULL);
+    gtk_box_pack_start (GTK_BOX (box), scroll, TRUE, TRUE, 0);
+
+    view = webkit_web_view_new ();
+    gtk_container_add (GTK_CONTAINER (scroll), view);
+    webkit_web_view_load_string (WEBKIT_WEB_VIEW (view),
+                                 "<html><body></body></html>",
+                                 "text/html",
+                                 "UTF-8",
+                                 NULL);
+
+    gtk_widget_show_all (GTK_WIDGET (box));
+    return window;
+}
+]]></code>
+</section>
+
+<section id="signals">
+  <title>Hook up signals</title>
+  <p></p>
+<code style="numbered"><![CDATA[
+static void
+entry_activate_cb (GtkEntry *entry, WebKitWebView *view)
+{
+    WebKitDOMDocument *document;
+    WebKitDOMElement *body, *div;
+
+    document = webkit_web_view_get_dom_document (view);
+    body = webkit_dom_document_query_selector (document,
+                                               "body",
+                                               NULL);
+    div = webkit_dom_document_create_element (document,
+                                              "div",
+                                              NULL);
+    webkit_dom_node_set_text_content (WEBKIT_DOM_NODE (div),
+                                      gtk_entry_get_text (entry),
+                                      NULL);
+    webkit_dom_node_append_child (WEBKIT_DOM_NODE (body),
+                                  WEBKIT_DOM_NODE (div),
+                                  NULL);
+    gtk_entry_set_text (entry, "");
+}
+]]></code>
+
+<p>Into <code>create_window</code> function, after both
+<code>entry</code> and <code>view</code> have been defined:</p>
+
+<code><![CDATA[
+g_signal_connect (entry, "activate",
+                  G_CALLBACK (entry_activate_cb), view);
+]]></code>
+</section>
+
+<section id="css">
+  <title>CSS</title>
+<p>Anywhere above <code>create_window</code>:</p>
+<code><![CDATA[
+static const char CSS[] =
+"body { margin: 0; padding: 0; }\n"
+"div { "
+" -webkit-border-radius: 2px;"
+" background: -webkit-gradient(linear, 0% 100%, 0% 0%,"
+" from(#f1f1f1), to(white));"
+" border: solid 1px #c6c6c6;"
+" -webkit-box-shadow: 0px 0px 2px #c6c6c6;"
+" margin: 12px; padding: 6px;"
+"}";
+]]></code>
+
+
+<p>In <code>create_window</code>:</p>
+<code><![CDATA[
+tmp = g_base64_encode (CSS, strlen(CSS));
+css = g_strconcat ("data:text/css;charset=utf-8;base64,",
+                   tmp, NULL);
+g_object_set (webkit_web_view_get_settings (WEBKIT_WEB_VIEW (view)),
+              "user-stylesheet-uri", css, NULL);
+g_free (css);
+g_free (tmp);
+]]></code>
+
+
+</section>
+</page>
