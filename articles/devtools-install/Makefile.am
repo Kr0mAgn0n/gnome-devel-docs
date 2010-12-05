@@ -5,5 +5,6 @@ DOC_ID = devtools-install
 DOC_PAGES = \
 	index.page \
 	fedora.page \
-	ubuntu.page
+	ubuntu.page \
+	opensuse.page
 
