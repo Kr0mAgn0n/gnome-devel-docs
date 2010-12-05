@@ -1,0 +1,494 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="clutter">
+  <info>
+    <link type="guide" xref="index"/>
+    <link type="seealso" xref="index"/>
+
+    <desc>Clutter image viewer</desc>
+
+    <revision pkgversion="0.1" version="0.1" date="2010-12-03" status="stub"/>
+    <credit type="author">
+      <name>GNOME Documentation Project</name>
+      <email>gnome-doc-list@gnome.org</email>
+    </credit>
+  </info>
+
+<title>Clutter image viewer</title>
+
+<synopsis>
+  <p>For this example we will build a simple image viewer using clutter. You will learn:</p>
+  <list>
+    <item><p>How to size and position <code>ClutterActors</code> </p></item>
+    <item><p>How to place an image in a <code>ClutterActor</code> </p></item>
+    <item><p>How to do simple transitions using Clutter's animation framework</p></item>
+    <item><p>How to make <code>ClutterActor</code>'s respond to mouse events</p></item>
+    <item><p>How to get file names from a directory</p></item>
+  </list>
+</synopsis>
+
+<section>
+  <title>Introduction</title>
+  <p>
+    Clutter is a library for creating dynamic user interfaces using OpenGL for hardware acceleration. This example demonstates a small, but central, part of the Clutter library to create a simple but attractive image viewing program.
+  </p>
+  <p>
+    To help us reach our goal we will be utilising a few other common pieces of GLib as well. Most importantly, we'll use one <code>GSList</code>, a singlely-linked list, to hold our <code>ClutterActor</code>s and another for file path names. We will also use <code>GDir</code> for accessing our image directory and gathering file paths.
+  </p>
+</section>
+
+<section>
+  <title>Building the example</title>
+  <p>
+    In order to build the example you'll need to run the following command from the directory containing the source file.
+  </p>
+  <screen>
+    gcc -g -o clutter-image-viewer `pkg-config --cflags clutter-1.0` `pkg-config --libs clutter-1.0` clutter-image-viewer.c
+  </screen>
+  <p>
+    If you are unfamiliar with compiling C programs, the above line creates a binary file <code>-o clutter-image-viewer</code> using the c source file clutter-image-viewer.c. We use the <code>-g</code> flag to generate debug symbols which is always a good idea during the development stage. The bit between the <code>`</code> pairs shows how to use the <code>pkg-config</code> tool to insert other flags and libraries needed for compilation.
+  </p>
+</section>
+
+<section>
+  <title>A look at the image viewer</title>
+  <p>
+    Our image viewer presents the user with a "wall" of images.
+  </p>
+  <media type="image" mime="image/png" src="clutter-image-viewer-wall.png"/>
+  <p>When an image is clicked, it's animated to fill the viewing area. When the image having focus is clicked it's returned to it's original position using an animation with the same duration of 500 milliseconds.
+  </p>
+  <media type="image" mime="image/png" src="clutter-image-viewer-zoomed.png"/>
+</section>
+
+<section>
+  <title>Initial setup</title>
+  <p>
+    The following code segment contains many of the defines and variables we will be using in the following sections. Use this as a reference for later sections.
+  </p>
+<code mime="text/x-csrc" style="numbered"><![CDATA[
+#include <clutter/clutter.h>
+
+#define STAGE_WIDTH  800
+#define STAGE_HEIGHT 600
+
+#define THUMBNAIL_SIZE 200
+#define ROW_COUNT (STAGE_HEIGHT / THUMBNAIL_SIZE)
+#define COL_COUNT (STAGE_WIDTH  / THUMBNAIL_SIZE)
+#define THUMBNAIL_COUNT (ROW_COUNT * COL_COUNT)
+
+#define ANIMATION_DURATION_MS 500
+
+#define FOCUS_DEPTH 100.0
+#define UNFOCUS_DEPTH 0.0
+
+#define IMAGE_DIR_PATH "./berlin_images/"
+
+static GSList *actor_list = NULL;
+static GSList *img_path_list = NULL;
+
+typedef struct Position
+{
+    float x;
+    float y;
+}
+Position;
+
+static Position origin = {0, 0};
+]]>
+</code>
+</section>
+
+<section>
+  <title>Jumping into the code</title>
+  <p>We will start by taking a look at the <code>main</code> function as a whole. Then we'll discuss the other code sections in detail.</p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+int
+main(int argc, char *argv[])
+{
+    ClutterColor stage_color = { 16, 16, 16, 255 };
+    ClutterActor *stage = NULL;
+
+    clutter_init(&argc, &argv);
+
+    stage = clutter_stage_get_default();
+    clutter_actor_set_size(stage, STAGE_WIDTH, STAGE_HEIGHT);
+    clutter_stage_set_color(CLUTTER_STAGE (stage), &stage_color);
+
+    load_image_path_names();
+
+    int row = 0;
+    int col = 0;
+    for(row=0; row < ROW_COUNT; ++row)
+    {
+        for(col=0; col < COL_COUNT; ++col)
+        {
+            GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
+            ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
+            initialize_actor(actor, &row, &col);
+            clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
+            actor_list = g_slist_prepend(actor_list, actor);
+        }
+    }
+
+    /* Show the stage. */
+    clutter_actor_show(stage);
+
+    /* Start the clutter main loop. */
+    clutter_main();
+
+    return 0;
+}]]>
+  </code>
+  <list>
+    <item><p>Line 4: <code>ClutterColor</code> is defined by setting the red, green, blue and transparency (alpha) values. The values range from 0-255. For transparency a value of 255 is opaque.</p></item>
+    <item><p>Line 7: You must initialize Clutter. If you forget to do this, you will get very strange errors. Be warned.</p></item>
+    <item><p>Lines 9-11: Here we get the default stage that was provided by <code>clutter_init</code>. We then set the size using the defines from the previous section and the address of the <code>ClutterColor</code> we just defined.</p></item>
+    <item><p>Line 12: Here we call our function for getting the image file paths. We'll look at this in a bit.</p></item>
+    <item><p>Lines 14-26: This is were we setup up the <code>ClutterActor</code>s, load the images and place them into their spot in the image wall. We will look at this in detail in the next section.</p></item>
+    <item><p>Line 29: Show the stage and <em>all its children</em>, meaning our images.</p></item>
+    <item><p>Line 32: Start the Clutter mainloop.</p></item>
+  </list>
+</section>
+
+<section>
+  <title>Setting up our image actors</title>
+<p>
+  As mentioned, we are going to take a closer look at the loop used for setting up the <code>ClutterActor</code>s.
+</p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+for(row=0; row < ROW_COUNT; ++row)
+{
+    for(col=0; col < COL_COUNT; ++col)
+    {
+        GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
+        ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
+        initialize_actor(actor, &row, &col);
+        clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
+        actor_list = g_slist_prepend(actor_list, actor);
+    }
+}
+]]>
+</code>
+<list>
+  <item><p>Line 5: Here we want to get the path at the nth location in the <code>GSList</code> that is holding our image path names. The nth position is calculated based on the row and col. The return value is a pointer to a <code>GSList</code> which is just a node in the list. We will use this to get the actual path in the next line. The first parameter is a pointer to the head of the list.</p>
+  </item>
+  <item><p>Line 6: This is where we actually create the <code>ClutterActor</code> and place the image into the actor. The first argument is the path which we access through our <code>GSList</code> node. The second argument is for error reporting but we are ignoring that to keep things short.</p>
+  </item>
+  <item><p>Line 7: We'll look at this function in a later section.</p>
+  </item>
+  <item><p>Line 8: This adds the <code>ClutterActor</code> to the stage, which is a container. It also assumes ownership of the <code>ClutterActor</code> which is something you'll want to look into as you get deeper into GNOME development.</p>
+  </item>
+  <item><p>Line 9: This adds our <code>ClutterActor</code> to a <code>GSList</code> so that we can later iterate over the <code>ClutterActor</code>s.</p>
+<note><p>Interesting to note is that we want to prepend the <code>ClutterActor</code>s rather than append so that we avoid traversing the list upon each insertion. You will often see <code>g_slist_prepend</code> followed by <code>g_slist_reverse</code> because it faster than inserting many objects to the end of the list.</p></note>
+  </item>
+</list>
+</section>
+
+<section>
+  <title>Loading the images</title>
+  <p>Lets take a short break from Clutter to see how we can get the file names form our image directory.</p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+static void
+load_image_path_names()
+{
+    /* Insure we can access the directory. */
+    GError *error = NULL;
+    GDir *dir = g_dir_open(IMAGE_DIR_PATH, 0, &error);
+    if(error)
+    {
+        g_warning("g_dir_open() failed with error: %s\n", error->message);
+        g_clear_error(&error);
+        return;
+    }
+
+    const gchar *filename = g_dir_read_name(dir);
+    while(filename)
+    {
+        gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
+        img_path_list = g_slist_prepend(img_path_list, path);
+        filename = g_dir_read_name(dir);
+    }
+}]]>
+  </code>
+  <list>
+    <item><p>Lines 5 and 12: This opens our directory or, if an error occured, returns after printing an error message.</p></item>
+    <item><p>Lines 14-20: The first line gets another file name from the <code>GDir</code> we opened earlier. If there was a file in the directory we proceed to prepend the image directory path to the filename and prepend that to the list we set up earlier. Lastly we attempt to get the next path name and reenter the loop if another file was found.</p></item>
+  </list>
+</section>
+
+<section>
+  <title>Setup the actors</title>
+  <p>
+     We now take a look at the sizing and  positioning of <code>ClutterActor</code>s and also readying the <code>ClutterActor</code> for user interaction.
+  </p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+/* This functions handles setup and placing the rectangles. */
+static void
+initialize_actor(ClutterActor *actor, guint *row, guint *col)
+{
+    clutter_actor_set_size(actor, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
+    clutter_actor_set_position(actor, (*col) * THUMBNAIL_SIZE, (*row) * THUMBNAIL_SIZE);
+    clutter_actor_set_reactive(actor, TRUE);
+
+    g_signal_connect(actor,
+                     "button-press-event",
+                     G_CALLBACK(actor_clicked_cb),
+                     NULL);
+}
+]]>
+  </code>
+  <list>
+    <item>
+      <p>Line 7: Setting an actor reactive means that it reacts to events. Initially, all <code>ClutterActor</code>s should be reactive.</p>
+    </item>
+    <item>
+      <p>Line 9-12: Now we connect the <code>button-press-event</code> to the <code>actor_clicked_cb</code> callback which we will look at next.</p>
+    </item>
+  </list>
+  <p>At this point we've got a wall of images that are ready to be viewed.</p>
+</section>
+
+<section>
+  <title>Reacting to the clicks</title>
+  <p>
+
+  </p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+static gboolean
+actor_clicked_cb(ClutterActor *actor,
+                 ClutterEvent *event,
+                 gpointer      user_data)
+{
+    /* Flag to keep track of our state. */
+    static gboolean is_focused = FALSE;
+
+    g_slist_foreach(actor_list, foreach_set_focus_state, &is_focused);
+
+    if(is_focused)
+    {
+        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
+                              "x",      origin.x,
+                              "y",      origin.y,
+                              "depth",  UNFOCUS_DEPTH,
+                              "width",  (float) THUMBNAIL_SIZE,
+                              "height", (float) THUMBNAIL_SIZE,
+                              NULL);
+    }
+    else
+    {
+        /*Save the current location before animating. */
+        clutter_actor_get_position(actor, &origin.x, &origin.y);
+        clutter_actor_set_reactive(actor, TRUE);
+        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
+                              "x",      (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
+                              "y",      0.0,
+                              "depth",  FOCUS_DEPTH,
+                              "width",  (float) STAGE_HEIGHT,
+                              "height", (float) STAGE_HEIGHT,
+                              NULL);
+    }
+
+    /* Toggle our flag. */
+    is_focused = !is_focused;
+
+    return TRUE;
+}]]>
+  </code>
+  <list>
+    <item><p>Lines 1-4: We have to make sure our callback function matches the signiture required for the <code>button_clicked_event</code> signal. For our example, we will only use the first argument, the <code>ClutterActor</code> that is actually clicked. </p></item>
+    <item><p>Line 7 : We set up a static flag to track which state we are in: wall mode or focus mode. We start out in wall mode so no image has focus. Thus, we set the flag to FALSE initially.</p></item>
+    <item><p>Line 9: This line of code runs a function, <code>foreach_set_focus_state</code>, for each element in our <code>actor_list</code>, passing it the address to the <code>is_focused</code> flag. We'll look at the <code>foreach_set_focus_state</code> function in the next section.</p></item>
+    <item><p>Lines 13-19: Reaching this code means that one image currently has focus and we want to return to wall mode. The <code>clutter_actor_animate</code> function is used to animate an <code>ClutterActor</code>'s property or properties from the current state(s) to the specified state(s). the arguments are as followed:</p>
+<list type="numbered">
+  <item><p>The address of the <code>ClutterActor</code> to animate</p></item>
+  <item><p>The animation mode to use. Here we use <code>CLUTTER_LINEAR</code> so that we have a constant speed for animation.</p></item>
+  <item><p>The duration of the animation in milliseconds. I've chosen 500ms for this example.</p></item>
+  <item><p>The remaining arguments are property/value pairs. Here we want to set the <code>x</code> value to the starting <code>x</code> value this <code>ClutterActor</code> was at before being brought into focus.</p></item>
+  <item><p>The last argument must always be NULL to indicate that there are no more properties to be set.</p></item>
+</list>
+<note><p>The <code>depth</code> property needs a little more explaining. We need to raise the focused image so that it doesn't slide behind other <code>ClutterActor</code>s. In this section we are returning it to the same depth as the others on the wall.</p>
+<p>Depth also determines which <code>ClutterActor</code>s receive events. A <code>ClutterActor</code> with a higher depth value receives the click events and can choose whether the event gets sent to <code>ClutterActor</code>s under it. We'll see how that works in a few steps.</p></note>
+    </item>
+    <item><p>Line 24: Reaching this line of code means we are currently in the wall state and are about to give a <code>ClutterActor</code> focus. Here we save the starting position so that we can return to it later.</p></item>
+    <item><p>Line 25: Setting the <code>ClutterActor</code>'s <code>reactive</code> property to TRUE makes this <code>ClutterActor</code> react to events. In this focused state the only <code>ClutterActor</code> that we want to receive evente will be the <code>ClutterActor</code> being viewed. Clicking on the <code>ClutterActor</code> will return it to it's starting position. </p></item>
+    <item><p>Lines 27-33: This is similar to the above block of code. Notice that we are setting the the depth to raise it above the other images.</p></item>
+    <item><p>Line 37: Here we toggle the <code>is_focused</code> flag to the current state.</p></item>
+<item><p>As mentioned previously, the <code>ClutterActor</code>s with a higher <code>depth</code> receive events but can allow <code>ClutterActor</code>s below them to also receive events. Returning <code>TRUE</code> will stop events from being passed down, while <code>FALSE</code> will pass events down.</p></item>
+ </list>
+ <p>
+   The following is the convenience function passed to <code>g_slist_foreach</code>.
+</p>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+static void
+foreach_set_focus_state(gpointer data, gpointer user_data)
+{
+    ClutterActor *actor = CLUTTER_ACTOR(data);
+    gboolean is_reactive = *((gboolean*)user_data);
+
+    clutter_actor_set_reactive(actor, is_reactive);
+}]]></code>
+<list>
+  <item><p>Lines 2-5: The signature of this function requires two <code>gpointers</code>. The first is a pointer to the <code>ClutterActor</code> that our <code>GSList</code> holds and the other is the <code>is_focused</code> flag that we've passed in the previous section. We want to cast these and store them for easy use.</p></item>
+  <item><p>Line 7: Depending on which boolean value is passed in, the <code>ClutterActor</code> will be set to respond to events or not.</p></item>
+</list>
+</section>
+
+<section>
+  <title>Full listing</title>
+  <code mime="text/x-csrc" style="numbered"><![CDATA[
+#include <clutter/clutter.h>
+
+#define STAGE_WIDTH  800
+#define STAGE_HEIGHT 600
+
+#define THUMBNAIL_SIZE 200
+#define ROW_COUNT (STAGE_HEIGHT / THUMBNAIL_SIZE)
+#define COL_COUNT (STAGE_WIDTH  / THUMBNAIL_SIZE)
+#define THUMBNAIL_COUNT (ROW_COUNT * COL_COUNT)
+
+#define ANIMATION_DURATION_MS 500
+
+#define FOCUS_DEPTH 100.0
+#define UNFOCUS_DEPTH 0.0
+
+#define IMAGE_DIR_PATH "./berlin_images/"
+
+static GSList *actor_list = NULL;
+static GSList *img_path_list = NULL;
+
+typedef struct Position
+{
+    float x;
+    float y;
+}
+Position;
+
+static Position origin = {0, 0};
+
+static void
+load_image_path_names()
+{
+    /* Insure we can access the directory. */
+    GError *error = NULL;
+    GDir *dir = g_dir_open(IMAGE_DIR_PATH, 0, &error);
+    if(error)
+    {
+        g_warning("g_dir_open() failed with error: %s\n", error->message);
+        g_clear_error(&error);
+        return;
+    }
+
+    const gchar *filename = g_dir_read_name(dir);
+    while(filename)
+    {
+        gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
+
+        img_path_list = g_slist_prepend(img_path_list, path);
+        filename = g_dir_read_name(dir);
+    }
+}
+
+static void
+foreach_set_focus_state(gpointer data, gpointer user_data)
+{
+    ClutterActor *actor = CLUTTER_ACTOR(data);
+    gboolean is_reactive = *((gboolean*)user_data);
+
+    clutter_actor_set_reactive(actor, is_reactive);
+}
+
+static gboolean
+actor_clicked_cb(ClutterActor *actor,
+                 ClutterEvent *event,
+                 gpointer      user_data)
+{
+    /* Flag to keep track of our state. */
+    static gboolean is_focused = FALSE;
+
+    g_slist_foreach(actor_list, foreach_set_focus_state, &is_focused);
+
+    if(is_focused)
+    {
+        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
+                              "x",      origin.x,
+                              "y",      origin.y,
+                              "depth",  UNFOCUS_DEPTH,
+                              "width",  (float) THUMBNAIL_SIZE,
+                              "height", (float) THUMBNAIL_SIZE,
+                              NULL);
+    }
+    else
+    {
+        /*Save the current location before animating. */
+        clutter_actor_get_position(actor, &origin.x, &origin.y);
+        clutter_actor_set_reactive(actor, TRUE);
+        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
+                              "x",      (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
+                              "y",      0.0,
+                              "depth",  FOCUS_DEPTH,
+                              "width",  (float) STAGE_HEIGHT,
+                              "height", (float) STAGE_HEIGHT,
+                              NULL);
+    }
+
+    /* Toggle our flag. */
+    is_focused = !is_focused;
+
+    return TRUE;
+}
+
+/* This functions handles setup and placing the rectangles. */
+static void
+initialize_actor(ClutterActor *actor, guint *row, guint *col)
+{
+    clutter_actor_set_size(actor, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
+    clutter_actor_set_position(actor, (*col) * THUMBNAIL_SIZE, (*row) * THUMBNAIL_SIZE);
+    clutter_actor_set_reactive(actor, TRUE);
+
+    g_signal_connect(actor,
+                     "button-press-event",
+                     G_CALLBACK(actor_clicked_cb),
+                     NULL);
+}
+
+int
+main(int argc, char *argv[])
+{
+    ClutterColor stage_color = { 16, 16, 16, 255 };
+    ClutterActor *stage = NULL;
+
+    clutter_init (&argc, &argv);
+
+    stage = clutter_stage_get_default();
+    clutter_actor_set_size(stage, STAGE_WIDTH, STAGE_HEIGHT);
+    clutter_stage_set_color(CLUTTER_STAGE (stage), &stage_color);
+
+    load_image_path_names();
+
+    int row = 0;
+    int col = 0;
+    for(row=0; row < ROW_COUNT; ++row)
+    {
+        for(col=0; col < COL_COUNT; ++col)
+        {
+            GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
+            ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
+            initialize_actor(actor, &row, &col);
+            clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
+            actor_list = g_slist_prepend(actor_list, actor);
+        }
+    }
+
+    /* Show the stage. */
+    clutter_actor_show(stage);
+
+    /* Start the clutter main loop. */
+    clutter_main();
+
+    return 0;
+}]]>
+</code>
+</section>
+
+</page>
