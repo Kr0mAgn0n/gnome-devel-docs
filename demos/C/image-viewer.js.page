@@ -10,8 +10,8 @@
     
     <revision pkgversion="0.1" version="0.1" date="2010-12-03" status="stub"/>
     <credit type="author">
-      <name>GNOME Documentation Project</name>
-      <email>gnome-doc-list@gnome.org</email>
+      <name>Jonh Wendell</name>
+      <email>jwendell@gnome.org</email>
     </credit>
     
   </info>
@@ -192,18 +192,26 @@ Gtk.main ();]]>
   <note><p>There is a tool called <app>Glade</app> that makes the creation of windows interfaces really easy. It's a visual tool where you can draw your GUI without coding at all. As our demo is really simple, we are not going to use Glade at this time.</p></note>
   <p>Let's see how to add boxes and widgets to our application:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
-var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
-this.window.add (main_box);]]>
-  </code>
+ImageViewer.prototype = {
+  _init: function () {
+    this.window = new Gtk.Window ({title: "Image Viewer Demo"});
+    this.window.connect ("hide", Gtk.main_quit);
+
+    var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
+    this.window.add (main_box);
+
+    this.window.show ();
+  }
+}]]></code>
   <list>
     <item>
-      <p>Line 1: Create a box object. We pass to the constructor two properties:</p>
+      <p>Line 6: Create a box object. We pass to the constructor two properties:</p>
       <list>
         <item><p>orientation: VERTICAL means the widgets added to the box are packed one under another. HORIZONTAL means widgets are packed side-by-side</p></item>
         <item><p>spacing: the space between the widgets</p></item>
       </list>
     </item>
-    <item><p>Line 2: Add that newly created box to the window. Remember: the window object can hold one and only one widget.</p></item>
+    <item><p>Line 7: Add that newly created box to the window. Remember: the window object can hold one and only one widget.</p></item>
   </list>
   <p>At this time the window contains an empty box. So, if you run the application with the snippet above added, you will see no changes at all. That's because we haven't add any widget to the box. Also, the box is only a container, it's a sort of "transparent" widget.</p>
   <p>Let's now add real widgets into the box container:</p>
@@ -213,21 +221,24 @@ ImageViewer.prototype = {
     this.window = new Gtk.Window ({title: "Image Viewer Demo"});
     this.window.connect ("hide", Gtk.main_quit);
 
+    var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
+    this.window.add (main_box);
+
     this.image = new Gtk.Image ();
     main_box.pack_start (this.image, true, true, 0);
 
     var open_button = new Gtk.Button ({label: "Open a picture..."});
     main_box.pack_start (open_button, false, false, 0);
 
-    this.window.show ();
+    this.window.show_all ();
   }
 }]]>
   </code>
-  <p>New stuff happens between lines 6 and 10:</p>
+  <p>New stuff happens between lines 9 and 13:</p>
   <list>
-    <item><p>Line 6: Create the image widget. It will store the actual image, to be picken from the file system.</p></item>
+    <item><p>Line 9: Create the image widget. It will store the actual image, to be picken from the file system.</p></item>
     <item>
-      <p>Line 7: Add the image widget to the box container. We're using the <code>pack_start()</code> method of the Box class to do that. It takes 4 arguments:</p>
+      <p>Line 10: Add the image widget to the box container. We're using the <code>pack_start()</code> method of the Box class to do that. It takes 4 arguments:</p>
       <steps>
         <item><p><em>child</em>: The widget to be packed into the box. In our case, the image widget.</p></item>
         <item><p><em>expand</em>: true if the widget should use all remain space available to the box.</p></item>
@@ -235,8 +246,9 @@ ImageViewer.prototype = {
         <item><p><em>padding</em>: extra space in pixels to put between this widget and its neighbours.</p></item>
       </steps>
     </item>
-    <item><p>Line 9: Create the "open..." button. More about its behavior below.</p></item>
-    <item><p>Line 10: Add the button to the box. Notice that we are passing <code>false</code> to the <em>expand</em> argument. By doing that, we are telling: Let the image takes all available space, and let the button take only the space it needs. So, when you maximize the window, the button size remains the same, but the image size changes (increases) taking all window space.</p></item>
+    <item><p>Line 12: Create the "open..." button. More about its behavior below.</p></item>
+    <item><p>Line 13: Add the button to the box. Notice that we are passing <code>false</code> to the <em>expand</em> argument. By doing that, we are telling: Let the image takes all available space, and let the button take only the space it needs. So, when you maximize the window, the button size remains the same, but the image size changes (increases) taking all window space.</p></item>
+    <item><p>Line 15: We changed the <code>show()</code> window method to <code>show_all()</code>. The difference between them is that the latter shows all widgets inside the window, while the former shows only the window itself.</p></item>
   </list>
   <note>
     <p>You are not supposed to understand how all this packing stuff works just by reading the explanation above. Go and play with those parameters, to see the result in practice.</p>
@@ -302,7 +314,7 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
 <section>
   <title>That's it!</title>
   <p>We reached the end of this tutorial. By now you have a complete Gtk application done in a few minutes in the Javascript language.</p>
-  <p>Download the full source code of this demo and starting improving it!</p>
+  <p><link href="image-viewer/image-viewer.js">Download the full source code</link> of this demo and starting improving it!</p>
 </section>
 
 </page>
