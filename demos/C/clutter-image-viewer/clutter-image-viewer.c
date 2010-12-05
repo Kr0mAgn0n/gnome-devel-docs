@@ -40,8 +40,7 @@ load_image_path_names()
         return;
     }
 
-    const gchar *filename = NULL;
-    filename = g_dir_read_name(dir);
+    const gchar *filename = g_dir_read_name(dir);
     while(filename)
     {
         gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
@@ -70,27 +69,27 @@ actor_clicked_cb(ClutterActor *actor,
 
     g_slist_foreach(actor_list, foreach_set_focus_state, &is_focused);
 
-    if(!is_focused)
+    if(is_focused)
+    {
+        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
+                              "x",      origin.x,
+                              "y",      origin.y,
+                              "depth",  UNFOCUS_DEPTH,
+                              "width",  (float) THUMBNAIL_SIZE,
+                              "height", (float) THUMBNAIL_SIZE,
+                              NULL);
+    }
+    else
     {
         /*Save the current location before animating. */
         clutter_actor_get_position(actor, &origin.x, &origin.y);
         clutter_actor_set_reactive(actor, TRUE);
         clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x", (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
-                              "y", 0.0,
-                              "depth", FOCUS_DEPTH,
+                              "x",      (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
+                              "y",      0.0,
+                              "depth",  FOCUS_DEPTH,
                               "width",  (float) STAGE_HEIGHT,
                               "height", (float) STAGE_HEIGHT,
-                              NULL);
-    }
-    else
-    {
-        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x", origin.x,
-                              "y", origin.y,
-                              "depth", UNFOCUS_DEPTH,
-                              "width",  (float) THUMBNAIL_SIZE,
-                              "height", (float) THUMBNAIL_SIZE,
                               NULL);
     }
 
@@ -117,18 +116,13 @@ initialize_actor(ClutterActor *actor, guint *row, guint *col)
 int
 main(int argc, char *argv[])
 {
-    /* Set the color as Red, Green, Blue and Alpha to values between */
-    /* 0 and 255. An alpha value of 255 is opaque and 0 is transparent.*/
     ClutterColor stage_color = { 16, 16, 16, 255 };
     ClutterActor *stage = NULL;
 
     clutter_init (&argc, &argv);
 
-    /* We get the stage... */
     stage = clutter_stage_get_default();
-    /* ...set the size for the stage... */
     clutter_actor_set_size(stage, STAGE_WIDTH, STAGE_HEIGHT);
-    /* ...and its color. */
     clutter_stage_set_color(CLUTTER_STAGE (stage), &stage_color);
 
     load_image_path_names();
