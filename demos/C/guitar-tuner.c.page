@@ -31,7 +31,7 @@
   </list>
 </synopsis>
 
-<media type="image" mime="image/png" src="guitar-tuner/guitar-tuner.png"/>
+<media type="image" mime="image/png" src="media/guitar-tuner.png"/>
 
 <section>
   <title>Create a project in Anjuta</title>
@@ -41,7 +41,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guiter-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
@@ -65,7 +65,7 @@
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtk</code> (user interface) and <code>gi18n</code> (internationalization) libraries. Functions from these libraries are used in the rest of the code.</p>
    </item>
    <item>
-    <p>The <code>create_window</code> function creates a new window by opening a GtkBuilder file (<file>src/gtk_foobar.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor design GtkBuilder user interfaces.</p>
+    <p>The <code>create_window</code> function creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor design GtkBuilder user interfaces.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
    </item>
    <item>
@@ -111,7 +111,7 @@
   <title>Write the signal handler</title>
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to create that function in the source file.</p>
   <p>To do this, add the following code somewhere in <file>main.c</file>:</p>
-<code mime="text/C"><![CDATA[
+<code mime="text/x-csrc"><![CDATA[
 void on_button_clicked (GtkWidget* button, gpointer user_data)
 {
 
@@ -126,10 +126,9 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   <p>GStreamer is GNOME's multimedia framework - you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
   <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
   <p>Between source and sink, you can apply various filters and converters to handle effects, format conversions and so on. Each element of the pipeline has properties which can be used to change its behaviour.</p>
-  <media type="image" mime="image/png" src="simple-player.png">
+  <media type="image" mime="image/png" src="media/guitar-tuner-pipeline.png">
     <p>An example GStreamer pipeline.</p>
   </media>
-  <!-- FIXME: Needs copyright clearing: Image taken from GStreamer docs: http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/section-intro-basics-bins.html#section-pipeline-img -->
 </section>
 
 <section>
@@ -137,11 +136,11 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
   <p>Insert the following line into <file>main.c</file>, just below the <code><![CDATA[#include <gtk/gtk.h>]]></code> line:</p>
-  <code mime="text/C"><![CDATA[#include <gst/gst.h>]]></code>
+  <code mime="text/x-csrc"><![CDATA[#include <gst/gst.h>]]></code>
   <p>This includes the GStreamer library. You also need to add a line to initialize GStreamer; put the following code on the line above the <code>gtk_init</code> function in the <code>main</code> function:</p>
   <code><![CDATA[gst_init (&argc, &argv);]]></code>
   <p>Then, copy the following function into <file>main.c</file> somewhere:</p>
-  <code mime="text/C"><![CDATA[static void 
+  <code mime="text/x-csrc"><![CDATA[static void 
 play_sound (gdouble frequency)
 {
 	GstElement *source, *sink;
@@ -186,7 +185,7 @@ play_sound (gdouble frequency)
   <title>Stopping playback</title>
   <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to call <code>g_timeout_add</code>. This sets a timeout for stopping the sound; it waits for <code>LENGTH</code> milliseconds before calling the function <code>pipeline_stop</code>, and will keep calling it until <code>pipeline_stop</code> returns <code>FALSE</code>.</p>
   <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>g_timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
-  <code mime="text/C"><![CDATA[
+  <code mime="text/x-csrc"><![CDATA[
 #define LENGTH 500 /* Length of playing in ms */
 
 static gboolean
@@ -202,8 +201,8 @@ pipeline_stop (GstElement* pipeline)
 
 <section>
   <title>Define the tones</title>
-  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined as follows:</p>
-  <code mime="text/C"><![CDATA[
+  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the top of <file>main.c</file>) as follows:</p>
+  <code mime="text/x-csrc"><![CDATA[
 /* Frequencies of the strings */
 #define NOTE_E 369.23
 #define NOTE_A 440
@@ -212,7 +211,7 @@ pipeline_stop (GstElement* pipeline)
 #define NOTE_B 987.77
 #define NOTE_e 1318.5]]></code>
   <p>Now to flesh-out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure-out which button was clicked:</p>
-  <code mime="text/C"><![CDATA[
+  <code mime="text/x-csrc"><![CDATA[
 /* Callback for the buttons */
 void on_button_clicked (GtkButton* button,
                         gpointer user_data)
@@ -246,7 +245,21 @@ void on_button_clicked (GtkButton* button,
 
 <section>
   <title>Next steps</title>
-  <p></p>
+  <p>Here are some ideas for how you can extend this simple demonstration file:</p>
+  <list>
+   <item>
+   <p>Have the program automatically cycle through the notes.</p>
+   </item>
+   <item>
+   <p>Make the program play recordings of real guitar strings being plucked.</p>
+   <p>To do this, you would need to set up a more complicated GStreamer pipeline which allows you to load and play back music files. You'll have to choose <link href="http://gstreamer.freedesktop.org/documentation/plugins.html">decoder and demuxer</link> GStreamer elements based on the file format of your recorded sounds - MP3s use different elements to Ogg Vorbis files, for example.</p>
+   <p>You might need to connect the elements in more complicated ways too. This could involve using <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/">GStreamer concepts</link> that we didn't cover in this tutorial, such as <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/">pads</link>. You may also find the <cmd>gst-inspect</cmd> command useful.</p>
+   </item>
+   <item>
+   <p>Automatically analyze notes that the user plays.</p>
+   <p>You could connect a microphone and record sounds from it using an <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-autoaudiosrc.html">input source</link>. Perhaps some form of <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-plugin-spectrum.html">spectrum analysis</link> would allow you to figure out what notes is being played?</p>
+   </item>
+  </list>
 </section>
 
 </page>
