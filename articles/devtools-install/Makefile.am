@@ -8,3 +8,8 @@ DOC_PAGES = \
 	ubuntu.page \
 	opensuse.page
 
+DOC_FIGURES = \
+	fedora.png \
+	ubuntu.png \
+	opensuse.png
+
