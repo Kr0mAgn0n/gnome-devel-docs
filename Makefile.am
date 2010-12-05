@@ -1,5 +1,6 @@
 SUBDIRS =				\
 	accessibility-devel-guide	\
+	articles			\
 	gdp-handbook			\
 	gdp-style-guide			\
 	hig				\
