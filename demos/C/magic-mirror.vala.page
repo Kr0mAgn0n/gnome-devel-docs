@@ -18,45 +18,26 @@
 <title>Magic Mirror</title>
 
 <synopsis>
-  <p>In this tutorial, you will learn:</p>
+  <p><em>Your mirror just fell off the wall and broke into a thousand pieces - but you need a mirror to shave your beard off or add some make up! You only have 15 minutes left before catching the bus to work. So what can you do?</em></p>
+  <p>In this tutorial, we're going to make a program which lets you use your webcam as a mirror. You will learn how to:</p>
   <list>
-    <item><p>How to create a GTK+ Application</p></item>
-    <item><p>How to access your webcam using GStreamer and embedding the result into your application</p></item>
-    <item><p>How to grap photos off your webcam</p></item>
-    <item><p>We need these tools/libraries</p>
-      <list>
-        <item><p>GTK+</p></item>
-        <item><p>GStreamer</p></item>
-        <item><p>Vala</p></item>
-      </list>
-    </item>
+    <item><p>Create a GTK+ application</p></item>
+    <item><p>Access your webcam using GStreamer and embed the result into a window</p></item>
+    <item><p>Grab photos off your webcam</p></item>
+  </list>
+  <p>You'll need the following to be able to follow this tutorial:</p>
+  <list>
+    <item><p>An installed copy of the <link xref="getting-ready">Anjuta IDE</link></p></item>
+    <item><p>Installed copies of GTK, GStreamer, and a Vala compiler</p></item>
+    <item><p>Basic knowledge of an object-orientated programming language</p></item>
   </list>
 </synopsis>
 
 <media type="image" mime="image/png" src="media/magic-mirror.png"/>
 
 <section>
-  <title>The story...</title>
-  <p>Who doesn't know it: your mirror just fell off the wall and broke in
-  thousand pieces and you need a mirror to shave your beard off or add some make
-  up. You only have 15 minutes left, before catching the bus to work. But
-  breaking a thing, mend your luck. And you are very lucky, because I am going
-  to show you how to write a webcam application in 15 minutes.</p>
-
-  <p>This tutorial is split up in 4 easy steps:</p>
-  <list>
-    <item><p>Create an empty window with GTK+</p></item>
-    <item><p>Access the camera and have a look at yourself</p></item>
-    <item><p>Embed the video into the GTK+ window</p></item>
-    <item><p>Add buttons to control the application</p></item>
-  </list>
-</section>
-
-<section>
   <title>Create an empty window with GTK+</title>
-  <p>
-  Let's start with creating an empty file named <file>webcam.vala</file>.
-  </p>
+  <p>Create an empty file named <file>webcam.vala</file> and copy the following code into it:</p>
   <code mime="text/x-vala" style="numbered">
 using Gtk;
 
@@ -80,8 +61,7 @@ public class Webcam : Gtk.Window
 
     return 0;
   }
-}
-  </code>
+}</code>
 
   <p>
   That code above will give us an empty window with a title. Awesome work! Now
