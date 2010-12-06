@@ -6,7 +6,7 @@
     
     <link type="guide" xref="index#js"/>
     
-    <desc>A little bit more than a simple "Hello world" Gtk application.</desc>
+    <desc>A little bit more than a simple "Hello world" application - write an image viewer in GTK.</desc>
     
     <revision pkgversion="0.1" version="0.1" date="2010-12-03" status="stub"/>
     <credit type="author">
@@ -19,45 +19,42 @@
 <title>Image Viewer</title>
 
 <synopsis>
-  <p>In this tutorial, you will learn:</p>
+  <p>In this tutorial, we're going to write a very simple GTK application that loads and displays an image file. You will learn how to:</p>
   <list>
-    <item><p>Some basic concepts of the Javascript language, specially the best practices when developing for GNOME</p></item>
-    <item><p>How to write a Gtk application in Javascript</p></item>
+    <item><p>Write a basic GTK user interface in JavaScript</p></item>
+    <item><p>Deal with events by connecting signals to signal handlers</p></item>
+    <item><p>Lay out GTK user interfaces using containers</p></item>
+    <item><p>Load and display image files</p></item>
+  </list>
+  <p>You'll need the following to be able to follow this tutorial:</p>
+  <list>
+    <item><p>An installed copy of the <link xref="getting-ready">Anjuta IDE</link></p></item>
+    <item><p>An installed copy of the <em>gjs</em> interpreter</p></item>
+    <item><p>Basic knowledge of any object-orientated programming language</p></item>
   </list>
 </synopsis>
 
-<section>
-  <title>Introduction</title>
-  <p>This demo uses the Javascript language. You need the <em>gjs</em> interpreter (already present in GNOME 3). We are not going to teach the Javascript language itself, instead, we are going to show the best practices in development for GNOME with Javascript.</p>
-  <p>In order to run this demo, just save the code into a file (for instance iv.js) and run the following command:</p>
-  <screen>gjs iv.js</screen>
-</section>
+<!--   <screen>gjs iv.js</screen> -->
+
+<media type="image" mime="image/png" src="media/image-viewer.png"/>
 
 <section>
-  <title>Program Structure</title>
-  <media type="image" mime="image/png" src="media/image-viewer.png"/>
-  <p>This demo is a simple GTK application (with a single window) capable of showing an image on the screen. The window has only two elements: On the top, there is a widget that shows the image. On the bottom, there's a button that allows you to choose an image from the file system.
-  </p>
-</section>
-
-<section>
-  <title>Hello World</title>
-  <p>Before enter in the Image Viewer demo itself, we are going to do a bit explanation about Javascript usage in GNOME.</p>
-  <p>Of course, the very first contact with a language is the Hello World program:</p>
+  <title>JavaScript basics: Hello World</title>
+  <p>Before we start writing the image viewer, let's find out more about the way JavaScript is used in GNOME. Of course, your very first contact with any programming language should be the Hello World program:</p>
   <code mime="text/javascript">print ("Hello world!");</code>
-  <p>That's it. Very simple, isn't it?</p>
+  <p>This should look quite natural if you're familiar with almost any other programming language. The function <code>print</code> is called with the argument <code>"Hello world!"</code>, which will be printed on the screen. Note that each line of code ends with a semicolon.</p>
 </section>
 
 <section>
-  <title>Classes in Javascript</title>
-  <note><p>It's not the scope of this tutorial to discuss class versus prototypes in Javascript. If you want to do a deeper study on this topic, please refer to the Javascript documentation.</p></note>
-  <p>Let's see the standard way to define a class in GNOME's Javascript:</p>
+  <title>Classes in JavaScript</title>
+  <p>This is the standard way to define a class in JavaScript:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
 function MyClass () {
   this._init ();
-}
+}the constructor just calls the <code>_init</code> method.
 
 MyClass.prototype = {
+
   _init: function () {
     this.propertyA = "This is an object's field";
     this.propertyB = 10;
@@ -71,12 +68,28 @@ MyClass.prototype = {
     print (this.propertyA);
     print (this.propertyB);
   }
+  
 }]]>
   </code>
-  <p>This defines a class called <code>MyClass</code>. That's what we do:</p>
+  <p>This defines a class called <code>MyClass</code>. Let's go through each part of the class definition:</p>
   <steps>
-    <item><p>Create a function that serves as a constructor. The function name is the name of the class. It just calls the <code>_init</code> method.</p></item>
-    <item><p>Actually define the class structure - its fields and methods - using the JSON syntax. In the snippet above, <code>MyClass</code> class has 2 fields: <code>propertyA</code> and <code>propertyB</code>, and 2 methods: <code>aMethod()</code> and <code>dumpProperties()</code>.</p></item>
+    <item>
+    <p><code>function MyClass ()</code> is the constructor of the class - its name must match the class's name. You can access any member of the class by using the <code>this</code> object; here, the constructor calls the class's <code>_init</code> method.</p>
+    </item>
+    <item>
+    <p>The <code>MyClass.prototype</code> block defines the structure of the class. Each class is made up of methods (functions) and fields (variables); there are three methods and two fields in this example.</p>
+    </item>
+    <item>
+    <p>The first method defined here is called <code>_init</code>, and we specify that it is a function with no arguments:</p>
+    <code>_init: function ()</code>
+    <p>We write the function inside some curly braces. Two fields are defined here, <code>propertyA</code> and <code>propertyB</code>. The first is set to a string and the second is set to an integer (10). The function doesn't return any value.</p>
+    </item>
+    <item>
+    <p>The next fu</p>
+    </item>
+    <item>
+    <p>The next three blocks of code define the class structure (its fields and methods) - using the JSON syntax. In the snippet above, <code>MyClass</code> class has 2 fields: <code>propertyA</code> and <code>propertyB</code>, and 2 methods: <code>aMethod()</code> and <code>dumpProperties()</code>.</p>
+    </item>
   </steps>
 
   <p>Now we can use this class and play with it:</p>
