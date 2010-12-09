@@ -32,10 +32,9 @@ int main( int   argc,
     /* Make window scrollable. */
     scroll_window = gtk_scrolled_window_new (NULL, NULL); 
     gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroll_window), app_widgets.image);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
     /* Button's box. */
-    hbox = gtk_hbox_new (FALSE,5);
+    hbox = gtk_box_new (GTK_HORIENTATION_HORIZONTAL, 5);
 
     open_button = gtk_button_new_with_label( "Open...");
     gtk_box_pack_start (GTK_BOX (hbox), open_button, TRUE, TRUE, 0);
@@ -43,7 +42,7 @@ int main( int   argc,
                       G_CALLBACK (on_open_button_clicked), &app_widgets);
 
     /* Main window layout. */
-    vbox = gtk_vbox_new (FALSE,0);
+    vbox = gtk_box_new (GTK_HORIENTATION_VERTICAL, 0);
 
     gtk_box_pack_start (GTK_BOX (vbox), scroll_window, TRUE, TRUE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
