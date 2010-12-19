@@ -9,7 +9,7 @@
 
     <revision pkgversion="0.1" version="0.1" date="2010-12-02" status="stub"/>
     <credit type="author">
-      <name>daniel g. siegel</name>
+      <name>Daniel G. Siegel</name>
       <email>dgsiegel@gnome.org</email>
     </credit>
 
@@ -63,41 +63,44 @@ public class Webcam : Gtk.Window
   }
 }</code>
 
-  <p>
-  That code above will give us an empty window with a title. Awesome work! Now
-  let's have a closer look on it: <code>using Gtk;</code> will tell the Vala
-  compiler to include the needed files and libraries from the GTK+ package. We
-  then create a class named <code>Webcam</code>, which inherits from 
-  <code>Gtk.Window</code>. And that creates already the window for us. By using
-  <code>this</code>, we can access the window. And we are doing that right away
-  by setting a window title and connect the close button to the <code>Gtk.main_quit</code>
-  method. The <code>main</code> method now just initializes GTK+ and creates a
-  new <code>Webcam</code> object. <code>webcam.show_all ()</code> is
-  responsible to show the window and all widgets we put into it later.
-  </p>
+ <p>This code will give you an empty window with a title. Let's see what's going on:</p>
+ 
+ <list>
+  <item>
+  <p><code>using Gtk;</code> tells the Vala compiler to include the GTK+ library.</p>
+  </item>
+  <item>
+  <p>On the next line, we create a class named <code>Webcam</code>. This inherits from <code>Gtk.Window</code>, which creates a blank window.</p>
+  </item>
+  <item>
+  <p><code>public Webcam ()</code> is the constructor for our new <code>Webcam</code> class. Here, we access the some of the window object's methods by using the <code>this</code> pointer: The first line sets the title of the window, and the second line connects the <code>destroy</code> signal to the <code>Gtk.main_quit</code> function. The <code>destroy</code> signal is emitted when the window's close button is clicked, and <code>main_quit</code> quits the entire application.</p>
+  </item>
+  <item>
+  <p>Next we define the <code>main</code> method. This is very similar to the <code>main</code> function in C, which is the first function that is called when the program is run. It may seem odd to you that this <code>main</code> function is inside the class definition; this is fine, however, because it is declared as a public static function, so the compiler will identify it correctly.</p>
+  </item>
+  <item>
+  <p>Inside the <code>main</code> method, GTK+ is initialized and a new <code>Webcam</code> object is created. The <code>show_all ()</code> method is then called; this is inherited from <code>Gtk.Window</code>, and shows all of the widgets in the window (in GTK+, widgets remain hidden until you explicitly show them).</p>
+  </item>
+  <item>
+  <p>Finally, we enter the GTK main loop by calling <code>Gtk.main</code>. The main loop displays the UI and starts listening for events (signals).</p>
+  </item>
 
-  <p>
-  In order to run this demo just save the code into a file (for instance
-  webcam.vala) and run the following command:
-  </p>
+ <p>To see this code in action, compile it with the following command:</p>
 
-  <screen>
-  valac --pkg gtk+-2.0 --pkg gdk-x11-2.0 --pkg gstreamer-0.10 \
-        --pkg gstreamer-interfaces-0.10 webcam.vala
-  </screen>
+ <screen>
+valac --pkg gtk+-2.0 --pkg gdk-x11-2.0 --pkg gstreamer-0.10 \
+      --pkg gstreamer-interfaces-0.10 webcam.vala
+ </screen>
 
-  <p>
-  You will end up with an executable <file>webcam</file>, which you can run.
-  </p>
+ <p>You will end up with an executable <file>webcam</file>, which you can run.</p>
 </section>
 
 
 <section>
-  <title>Access the camera and have a look at yourself</title>
-  <p>Let's add GStreamer to our application and have a look at our beautiful
-  faces</p>
+ <title>Access the webcam video stream with GStreamer</title>
+ <p>The GStreamer multimedia framework is able to handle video from webcams. Let's add GStreamer to our application and so we can access the video stream.</p>
 
-  <code mime="text/x-vala" style="numbered">
+ <code mime="text/x-vala" style="numbered">
 using Gtk;
 using Gst;
 
@@ -136,10 +139,15 @@ public class Webcam : Gtk.Window
   }
 }
   </code>
-
+ <list>
+  <item>
   <p>
-  First we need <code>using Gst;</code> to also include the GStreamer
-  libraries. We declare a <code>Gtk.DrawingArea</code>, which will be the
+  Under the <code>using Gtk</code> line, insert
+  <code>
+using Gst;</code> to also include the GStreamer libraries.</p>
+  </item>
+  <item>
+  We declare a <code>Gtk.DrawingArea</code>, which will be the
   element which holds our video feed afterwards. As we want to add buttons too
   later, it is a good idea to add a vertical box, where we can put widgets
   into. We need a box to put multiple elements into it and we want to put stuff
