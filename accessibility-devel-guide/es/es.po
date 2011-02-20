@@ -1723,7 +1723,9 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:703(para)
 msgid "Cache any data obtained from a backing GTK widget."
-msgstr "Cachear cualquier dato obtenido desde un respaldo del widget de GTK."
+msgstr ""
+"Cachear cualquier dato obtenido desde un respaldo del widget de "
+"GTK."
 
 #: C/accessibility-devel-guide.xml:708(para)
 msgid "Listen to any signals from the backing GTK widget."
@@ -1830,9 +1832,9 @@ msgid ""
 "destroyed, then a <function>finalize()</function> function is needed to free "
 "the memory. For example:"
 msgstr ""
-"Si es necesario para liberar cualquier dato cuando se destruye una instancia "
-"de <type>GObject</type>, entonces se necesita una función de "
-"<function>finalize()</function> para liberar la memoria. Por ejemplo:"
+"Si es necesario para liberar cualquier dato cuando se destruye una instancia de "
+"<type>GObject</type>, entonces se necesita una función <function>finalize"
+"()</function> para liberar la memoria. Por ejemplo:"
 
 #: C/accessibility-devel-guide.xml:778(title)
 msgid "A custom <function>finalize()</function> function"
@@ -1918,12 +1920,16 @@ msgid ""
 "If the second method is used, the appropriate factory type must be "
 "registered with the <type>AtkObjectFactoryRegistry</type> at runtime."
 msgstr ""
+"Si se usa el segundo método, se debe registrar el tipo de factor apropiado "
+"con el <type>AtkObjectFactoryRegistry</type> en tiempo de ejecución."
 
 #: C/accessibility-devel-guide.xml:840(para)
 msgid ""
 "The <ulink url=\"ftp://ftp.gnome.org/pub/GNOME/sources/gail/\">GAIL source "
 "code</ulink> serves as an excellent tutorial for advanced ATK usage."
 msgstr ""
+"El <ulink url=\"ftp://ftp.gnome.org/pub/GNOME/sources/gail/\">código fuente "
+"de GAIL</ulink> sirve como un excelente turorial para el uso avanzado de ATK."
 
 #: C/accessibility-devel-guide.xml:846(title)
 msgid "User Interface Guidelines for Supporting Accessibility"
@@ -2214,11 +2220,11 @@ msgstr "Ejemplos de interacción con el ratón"
 
 #: C/accessibility-devel-guide.xml:1006(title)
 msgid "Example of \"no-drop\" pointer from CDE/Motif"
-msgstr ""
+msgstr "Ejemplo del puntero «no-drop» desde CDE/Motif"
 
 #: C/accessibility-devel-guide.xml:1012(phrase)
 msgid "Example of an \"invalid drop target\" pointer shape"
-msgstr ""
+msgstr "Ejemplo de una forma «objetivo de soltado no válido» del puntero"
 
 #: C/accessibility-devel-guide.xml:1020(title)
 #: C/accessibility-devel-guide.xml:55(title)
@@ -2232,6 +2238,9 @@ msgid ""
 "elements in your application. This will make it easier for people with "
 "visual or cognitive impairments to use."
 msgstr ""
+"Proporcione opciones para personalizar la presentación de todos los "
+"elementos importantes en su aplicación gráfica. Esto hará que sea más fácil "
+"de usar para las personas con discapacidades visuales o cognitivas."
 
 #: C/accessibility-devel-guide.xml:1026(para)
 msgid ""
@@ -2370,19 +2379,21 @@ msgstr "Ubicación correcta de etiquetas para varios elementos de la IGU"
 
 #: C/accessibility-devel-guide.xml:1115(phrase)
 msgid "List control with label above"
-msgstr ""
+msgstr "Lista de control con etiqueta arriba"
 
 #: C/accessibility-devel-guide.xml:1109(entry)
 msgid "<placeholder-1/> List control with label above"
-msgstr ""
+msgstr "<placeholder-1/> Lista de control con etiqueta arriba"
 
 #: C/accessibility-devel-guide.xml:1126(phrase)
 msgid "Large file manager icon with label underneath"
-msgstr ""
+msgstr "Icono de gestor de archivos de gran tamaño con etiqueta debajo de él"
 
 #: C/accessibility-devel-guide.xml:1120(entry)
 msgid "<placeholder-1/> Large file manager icon with label underneath"
 msgstr ""
+"<placeholder-1/> Icono del gestor de archivos de gran tamaño con etiqueta "
+"debajo de él"
 
 #: C/accessibility-devel-guide.xml:1137(phrase)
 msgid "Small toolbar icon with label to its right"
@@ -2396,11 +2407,12 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1148(phrase)
 msgid "Spinbox control with label to its left"
-msgstr ""
+msgstr "Caja de control incrementable con etiqueta a su izquierda"
 
 #: C/accessibility-devel-guide.xml:1142(entry)
 msgid "<placeholder-1/> Spinbox control with label to its left"
 msgstr ""
+"<placeholder-1/> Caja de control incrementable con etiqueta a su izquierda"
 
 #: C/accessibility-devel-guide.xml:1162(title)
 #: C/accessibility-devel-guide.xml:121(title)
@@ -2416,6 +2428,11 @@ msgid ""
 "the colors in any part of your application that conveys important "
 "information."
 msgstr ""
+"Una mala elección de los colores en la pantalla puede causar problemas a los "
+"usuarios daltónicos (para los que el tono es importante) o de baja visión "
+"(para quienes el brillo y el contraste es importante). Generalmente debería "
+"permitir al usuario personalizar los colores en cualquier parte de su "
+"aplicación que transmita información importante."
 
 #: C/accessibility-devel-guide.xml:1166(para)
 msgid ""
@@ -2424,6 +2441,10 @@ msgid ""
 "used to prevent the background from \"bleeding\" over. These settings are "
 "critical for users with visual impairments."
 msgstr ""
+"Los usuarios con impedimentos visuales pueden requerir un alto nivel de "
+"contraste entre los colores de fondo y texto. A menudo se usa un fondo negro "
+"y texto en blanco para prevenir el fondo de «sangrado» más. Estos ajustes "
+"son críticos para los usuarios con impedimentos visuales."
 
 #: C/accessibility-devel-guide.xml:1171(para)
 msgid ""
@@ -2435,6 +2456,14 @@ msgid ""
 "some reason you do need to use colors that are not available in the theme, "
 "ensure they are customizable within the application itself."
 msgstr ""
+"No programe en el código los colores de las aplicaciones. Algunos usuarios "
+"necesitan usar determinadas combinaciones de colores y niveles de contraste "
+"para poder leer la pantalla cómodamente. Por lo tanto todos los colores "
+"principales que su aplicación de GNOME usa, se deben tomar desde el tema "
+"GTK, para que el usuario puede configurar los colores para todas sus "
+"aplicaciones a algo legible, tan solo cambiando el tema. Si por alguna razón "
+"necesita usar colores que no están disponibles en el tema, asegúrese de que "
+"se pueden personalizar en la propia aplicación."
 
 #: C/accessibility-devel-guide.xml:1176(para)
 msgid ""
@@ -2443,6 +2472,10 @@ msgid ""
 "shape, position or textual description. See <link linkend=\"gad-color-"
 "examples\">Color and Contrast Examples</link>."
 msgstr ""
+"No use el color como el único medio de distinguir los elementos de "
+"información. Toda esa información se debe proporcionar al menos por otro "
+"método, tales como forma, posición o descripción textual. Consulte los <link "
+"linkend=\"gad-color-examples\">Ejemplos de color y contraste</link>."
 
 #: C/accessibility-devel-guide.xml:1181(para)
 msgid ""
@@ -2464,7 +2497,7 @@ msgstr "Ejemplos de color y contraste"
 
 #: C/accessibility-devel-guide.xml:1195(title)
 msgid "Example illustrating redundant use of color"
-msgstr ""
+msgstr "Ejemplo ilustrando el uso redundante de color"
 
 #: C/accessibility-devel-guide.xml:1206(phrase)
 msgid "Example showing changes in stock price using color only"
