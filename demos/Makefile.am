@@ -1,6 +1,6 @@
 include $(top_srcdir)/gnome-doc-utils.make
 
-DOC_ID = demos
+DOC_ID = gnome-devel-demos
 
 DOC_LINGUAS =
 
