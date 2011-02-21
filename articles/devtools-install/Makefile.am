@@ -13,3 +13,4 @@ DOC_FIGURES = \
 	ubuntu.png \
 	opensuse.png
 
+dist-hook: doc-dist-hook
