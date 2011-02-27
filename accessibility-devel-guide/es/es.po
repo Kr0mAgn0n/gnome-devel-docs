@@ -1072,6 +1072,9 @@ msgid ""
 "<function>atk_object_set_description()</function> or "
 "<function>atk_image_set_description():</function>"
 msgstr ""
+"proporcione descripciones de algunos controles e imágenes usando "
+"<function>atk_object_set_description()</function> o "
+"<function>atk_image_set_description():</function>"
 
 #: C/accessibility-devel-guide.xml:345(title)
 msgid "Setting the accessible description for a button"
@@ -1206,6 +1209,8 @@ msgid ""
 "Create an event watcher, for example with the <function>atk_add_focus_tracker"
 "()</function> function:"
 msgstr ""
+"Crear un vigilante de eventos, por ejemplo con la función "
+"<function>atk_add_focus_tracker()</function>:"
 
 #: C/accessibility-devel-guide.xml:414(programlisting)
 #, no-wrap
@@ -1228,6 +1233,8 @@ msgstr "void _my_focus_tracker (AtkObject *aobject);"
 #: C/accessibility-devel-guide.xml:421(para)
 msgid "Set up a global event listener, with atk_add_global_event_listener():"
 msgstr ""
+"Configurar un detector de eventos globales, con atk_add_global_event_listener"
+"():"
 
 #: C/accessibility-devel-guide.xml:424(programlisting)
 #, no-wrap
@@ -1313,7 +1320,7 @@ msgstr "Establecer un manejador de señal ATK"
 
 #: C/accessibility-devel-guide.xml:484(para)
 msgid "Using the <constant>column_inserted</constant> signal as an example:"
-msgstr ""
+msgstr "Usando la señal <constant>column_inserted</constant> como un ejemplo:"
 
 #: C/accessibility-devel-guide.xml:487(programlisting)
 #, no-wrap
@@ -1388,6 +1395,8 @@ msgid ""
 "To register an ATK implementation of a GTK object, these steps must be "
 "followed in the module's <function>gtk_module_init()</function> function:"
 msgstr ""
+"Para registrar una implementación ATK de un objeto GTK, se deben seguir "
+"estos pasos en la función <funtion>gtk_module_init()</function> del módulo:"
 
 #: C/accessibility-devel-guide.xml:520(para)
 msgid "Access the default registry:"
@@ -1634,6 +1643,11 @@ msgid ""
 "necessary if the object has children, but they are not represented with "
 "widgets."
 msgstr ""
+"Redefina cualquier llamada de función por el padre del objeto. Generalmente "
+"esto es necesario cuando un objeto necesita implementar una función "
+"como <function>atk_object_get_n_accessible_children()</function>. Es "
+"necesario si el objeto tiene hijos pero no están representados con los "
+"widgets."
 
 #: C/accessibility-devel-guide.xml:656(para)
 msgid ""
@@ -1641,6 +1655,9 @@ msgid ""
 "<type>AtkObject</type> function <function>get_name()</function>, then the "
 "class initializer would look like:"
 msgstr ""
+"Por ejemplo, si su implementación de ATK necesita pasar por encima del tipo "
+"<type>AtkObject</type> de la función <function>get_name()</function>, "
+"entonces las clases inicializadas podrían ser así:"
 
 #: C/accessibility-devel-guide.xml:660(title)
 msgid ""
@@ -1767,6 +1784,9 @@ msgid ""
 "generated on the backing <varname>gtk_widget</varname>, then the "
 "<function>_myatkimp_mytype_signal_type()</function> function would be called."
 msgstr ""
+"En este ejemplo, si la señal especificada <type>signal-type</type> se "
+"generase en el respaldo de <varname>gtk_widget</varname>, entonces se "
+"podría llamar a la función <function>_myatkimp_mytype_signal_type()</function>."
 
 #: C/accessibility-devel-guide.xml:742(para)
 msgid "parent-&gt;notify_gtk"
@@ -1778,6 +1798,9 @@ msgid ""
 "the backing GTK object, a <function>parent-&gt;notify_gtk()</function> "
 "function may be necessary. For example:"
 msgstr ""
+"Si la implementación de ATK necesita escuchar cualquier notificación "
+"de propiedad en el respaldo del objeto GTK, podría ser necesaria una "
+"función <function>parent-&gt;notify_gtk()</function>. Por ejemplo:"
 
 #: C/accessibility-devel-guide.xml:749(title)
 msgid "A custom <function>notify_gtk()</function> function"
@@ -1873,12 +1896,17 @@ msgid ""
 "the accessibility infrastructure. These are the general steps that are "
 "required:"
 msgstr ""
+"Añadir soporte de ATK en su widget personalizado asegurará su "
+"cooperación con la infraestructura de accesibilidad. Estos son los pasos "
+"generales necesarios:"
 
 #: C/accessibility-devel-guide.xml:805(para)
 msgid ""
 "assess a custom widget according to the applicable <link linkend=\"gad-ui-"
 "guidelines\">User Interface Guidelines</link>;"
 msgstr ""
+"evaluar un widget personalizado de acuerdo a la <link linkend=\"gad-ui-"
+"guidelines\">Guías de la interfaz de usuario</link>;"
 
 #: C/accessibility-devel-guide.xml:810(para)
 msgid ""
@@ -1886,18 +1914,26 @@ msgid ""
 "html\">ATK interfaces</ulink> a custom widget should implement, according to "
 "the widget's feature set and function;"
 msgstr ""
+"determinar qué <ulink url=\"http://library.gnome.org/devel/atk/stable/atk.html"
+"\">interfaces de ATK</ulink> debería implementar un widget personalizado, de "
+"acuerdo a la característica del widget establecido y la funcionalidad;"
 
 #: C/accessibility-devel-guide.xml:815(para)
 msgid ""
 "assess which <ulink url=\"http://library.gnome.org/devel/atk/stable/atk.html"
 "\">ATK interfaces</ulink> can be inherited from the parent widget class;"
 msgstr ""
+"evaluar qué <ulink url=\"http://library.gnome.org/devel/atk/stable/atk."
+"html\">interfaces de ATK</ulink> pueden heredarse desde la clase del "
+"widget padre;"
 
 #: C/accessibility-devel-guide.xml:820(para)
 msgid ""
 "implement the appropriate ATK interfaces for the widget class in one of two "
 "ways:"
 msgstr ""
+"implementar las interfaces apropiadas de ATK para la clase de widget de una "
+"o dos formas:"
 
 #: C/accessibility-devel-guide.xml:825(para)
 msgid "directly by the custom widget, or"
@@ -1976,6 +2012,12 @@ msgid ""
 "default settings outside the application itself. This could be done using a "
 "command line switch, for example."
 msgstr ""
+"Proporcione comandos para restaurar la configuración predeterminada. Si una "
+"configuración particular puede hacer la aplicación completamente "
+"inservible para un individuo, por ejemplo, haciendo que las tipografías sean "
+"muy pequeñas, sería útil proporcionar una opción para restaurar la "
+"configuración predeterminada fuera de la propia aplicación. Esto podría hacerse, "
+"por ejemplo, mediante un interruptor de línea de comandos."
 
 #: C/accessibility-devel-guide.xml:868(para)
 msgid ""
@@ -1985,6 +2027,12 @@ msgid ""
 "confirmation dialogs or forcing the user to go into a particular mode to "
 "perform potentially destructive actions."
 msgstr ""
+"La ayuda evita que los usuarios hagan mal las cosas. Es particularmente "
+"importante para las acciones que se puedan hacer de forma accidental (por "
+"ejemplo, las acciones del ratón) o algo que no se puede deshacer fácilmente "
+"(por ejemplo, sobrescribir un archivo). Considere usar los diálogos de "
+"confirmación o forzar al usuario para entrar en un modo particular para llevar "
+"a cabo acciones potencialmente destructivas."
 
 #: C/accessibility-devel-guide.xml:873(para)
 msgid ""
@@ -2076,6 +2124,10 @@ msgid ""
 "controls in a predictable order. In Western locales, this is normally left "
 "to right and top to bottom."
 msgstr ""
+"Use un orden de navegación de teclado lógico. Al navegar alrededor de "
+"una ventana con la tecla <keycap>Tab</keycap>, el foco del teclado debería "
+"moverse entre los controles en un orden predecible. En configuraciones regionales "
+"occidentales, ésto normalmente es de izquierda a derecha y de arriba a abajo."
 
 #: C/accessibility-devel-guide.xml:918(para)
 msgid ""
@@ -2104,6 +2156,9 @@ msgid ""
 "Provide more than one method to perform keyboard tasks where possible. Some "
 "users may find some keys and key combinations easier to use than others."
 msgstr ""
+"Proporcione más de un método para realizar las tareas del teclado siempre "
+"que sea posible. Algunos usuarios pueden encontrar algunas claves y "
+"combinaciones de teclas más fáciles de usar que otras."
 
 #: C/accessibility-devel-guide.xml:933(para)
 msgid ""
@@ -2173,6 +2228,9 @@ msgid ""
 "Remember that not everybody can use a mouse with equal dexterity, and that "
 "some users may have difficulty seeing or following the mouse pointer."
 msgstr ""
+"Recuerde que no todo el mundo puede usar un ratón con igual destreza y que "
+"algunos usuarios pueden tener dificultad viendo o siguiendo el puntero del "
+"ratón."
 
 #: C/accessibility-devel-guide.xml:977(para)
 msgid ""
@@ -2346,6 +2404,11 @@ msgid ""
 "user should type their username. This helps identify it as a control's label "
 "rather than an independent item of text."
 msgstr ""
+"Cuando se utiliza texto estático para etiquetar un control, termine la "
+"etiqueta con dos puntos. Por ejemplo, <guilabel>Nombre del usuario:</"
+"guilabel> para marcar un campo del texto en el que el usuario debe escribir "
+"su nombre. Esto ayuda a identificarlo como una etiqueta de control, en lugar "
+"de un elemento de texto independiente."
 
 #: C/accessibility-devel-guide.xml:1090(para)
 msgid ""
@@ -2354,6 +2417,10 @@ msgid ""
 "the mnemonic (underlined character) you assign to the label will move focus "
 "to or activate the correct control when pressed."
 msgstr ""
+"Cuando usa texto estático para etiquetar un control, asegúrese de que la "
+"etiqueta precede inmediatamente ese control en el orden de pestañas. Esto "
+"asegurará que el mnemónico (carácter subrayado) que asigna a la etiqueta moverá "
+"el foco a o activará el control correcto al pulsarlo."
 
 #: C/accessibility-devel-guide.xml:1095(para)
 msgid ""
@@ -2368,6 +2435,17 @@ msgid ""
 "panels with child controls, consider allowing the panels to resize along "
 "with the parent window."
 msgstr ""
+"Ofrece alternativas a WYSIWYG. Algunos usuarios pueden necesitar imprimir el "
+"texto en letra pequeña, pero editarlo en una tipografía de pantalla más "
+"grande. Las alternativas posibles incluyen mostrar todo el texto en la misma "
+"tipografía y tamaño (elegido por el usuario); una opción «ajustar a la "
+"ventana» que le permite leer todo el texto en una ventana sin necesidad de "
+"desplazarse horizontalmente; una vista de una sola columna que muestra el "
+"contenido de la ventana en una sola columna, incluso si se imprimen en "
+"varias columnas; y una vista de sólo texto, donde los gráficos se muestran "
+"como marcadores de posición o descripciones de texto. Si la aplicación tiene "
+"paneles con controles secundarios, considere la posibilidad de cambiar "
+"el tamaño de los paneles junto a la ventana madre."
 
 #: C/accessibility-devel-guide.xml:1102(title)
 msgid "Fonts and Text Examples"
