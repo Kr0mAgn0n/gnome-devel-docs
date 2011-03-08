@@ -9,8 +9,8 @@ DOC_PAGES = \
 	opensuse.page
 
 DOC_FIGURES = \
-	fedora.png \
-	ubuntu.png \
-	opensuse.png
+	media/fedora.png \
+	media/ubuntu.png \
+	media/opensuse.png
 
 dist-hook: doc-dist-hook
