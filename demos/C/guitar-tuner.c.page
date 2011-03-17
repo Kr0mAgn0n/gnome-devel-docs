@@ -88,9 +88,13 @@
   <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets properties are on the left, and the palette of available widgets is on the right.
   </p>
   <p>The layout of every UI in GTK+ is organized using boxes and tables. Let's use a vertical <gui>GtkButtonBox</gui> here to assign six <gui>GtkButtons</gui>, one for each of the six guitar strings.</p>
+
+<media type="image" mime="image/png" src="media/guitar-tuner-glade.png"/>
+
   <steps>
    <item>
-   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the six strings).</p>
+   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui>-section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
+six strings) and the orientation to vertical.</p>
    </item>
    <item>
     <p>Now, choose a <gui>GtkButton</gui> from the palette and put it into the first part of the box.</p>
@@ -105,22 +109,23 @@
     <p>Repeat the above steps for the other buttons, adding the next 5 strings with the names <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em>.</p>
     </item>
     <item>
-    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and then close it.</p>
+    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and keep it open.</p>
     </item>
   </steps>
 </section>
 
 <section>
-  <title>Write the signal handler</title>
-  <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to create that function in the source file.</p>
-  <p>To do this, add the following code somewhere in <file>main.c</file>:</p>
+  <title>Creating the signal handler</title>
+  <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to add that function in the source file.</p>
+  <p>To do this, open the <file>main.c</file> while the user interface file is still open. Switch to <gui>Signals</gui> tab that you already used to set the signal name. Now take the row where you set the 
+<gui>clicked</gui> signal and drag it into to the source file at a 
+position that is outside any function. The following code will be added to your source file:</p>
 <code mime="text/x-csrc"><![CDATA[
 void on_button_clicked (GtkWidget* button, gpointer user_data)
 {
 
 }]]></code>
   <p>This signal handler has two arguments: a pointer to the GtkWidget that called the function (in our case, always a GtkButton), and a pointer to some "user data" that you can define, but which we won't be using here. (You can set the user data by calling <code>gtk_builder_connect_signals</code>; it is normally used to pass a pointer to a data structure that you might need to access inside the signal handler.)</p>
-  <p>You can find the prototypes of signal handlers in the Gtk+ documentation.</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 

@@ -6,6 +6,8 @@ DOC_LINGUAS =
 
 DOC_FIGURES =					\
 	media/guitar-tuner.png			\
+	media/guitar-tuner-glade.png		\
+	media/guitar-tuner-pipeline.png		\
 	media/image-viewer.png			\
 	media/photo-wall.png			\
 	media/photo-wall-zoomed.png		\
