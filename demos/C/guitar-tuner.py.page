@@ -18,7 +18,7 @@
     </credit>
   </info>
 
-<title>Guitar Tuner (FIXME)</title>
+<title>Guitar Tuner</title>
 
 <synopsis>
   <p>In this tutorial, we're going to make a program which plays tones that you can use to tune a guitar. You will learn how to:</p>
@@ -46,16 +46,11 @@
     <item>
     <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Python</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
-    <!--<item>
-    <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
-       <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
-    </item>-->
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
-    <!-- FIXME -->
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/guitar_tuner.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
     <code mime="test/x-python"><![CDATA[
-from gi.repository import Gtk, Gst, GObject 
-import sys]]></code>
+from gi.repository import Gtk, GdkPixbuf, Gdk
+import os, sys]]></code>
     </item>
   </steps>
 </section>
@@ -66,17 +61,18 @@ import sys]]></code>
   
   <list>
   <item>
-    <p>The three <code>import</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtk</code> (user interface) and <code>gi18n</code> (internationalization) libraries. Functions from these libraries are used in the rest of the code.</p>
+    <p>The <code>import</code> lines at the top include the tell python to load the user interface and system
+libraries needed.</p>
    </item>
    <item>
-    <p>The <code>create_window</code> function creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor design GtkBuilder user interfaces.</p>
-    <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
+    <p>A class is declared that will be the main class for our application. In the <code>__init()</code> method
+	the main window is loaded from the GtkBuilder file (<file>src/guitar-tuner.ui</file>) and connects the
+	signals.</p>
+    <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> method is called (and quits the app) when you close the window.</p>
    </item>
    <item>
-    <p>The <code>main</code> function is run by default when you start a C application. It calls a few functions which set-up and then run the application. The <code>gtk_main</code> function start the GTK mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
-   </item>
-   <item>
-    <p>The <code>ENABLE_NLS</code> conditional definition sets-up <code>gettext</code>, which is a framework for translating applications. These functions specify how translation tools should handle your app when you run them.</p>
+    <p>The <code>main</code> function is run by default when you start a python application. It just creates 
+	an instance of the main class and starts the main loop to bring up the window.</p>
    </item>
   </list>
 
@@ -88,9 +84,13 @@ import sys]]></code>
   <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets properties are on the left, and the palette of available widgets is on the right.
   </p>
   <p>The layout of every UI in GTK+ is organized using boxes and tables. Let's use a vertical <gui>GtkButtonBox</gui> here to assign six <gui>GtkButtons</gui>, one for each of the six guitar strings.</p>
+
+<media type="image" mime="image/png" src="media/guitar-tuner-glade.png"/>
+
   <steps>
    <item>
-   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the six strings).</p>
+   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui>-section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
+six strings) and the orientation to vertical.</p>
    </item>
    <item>
     <p>Now, choose a <gui>GtkButton</gui> from the palette and put it into the first part of the box.</p>
@@ -105,22 +105,21 @@ import sys]]></code>
     <p>Repeat the above steps for the other buttons, adding the next 5 strings with the names <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em>.</p>
     </item>
     <item>
-    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and then close it.</p>
+    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and keep it open.</p>
     </item>
   </steps>
 </section>
 
 <section>
   <title>Write the signal handler</title>
-  <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to create that function in the source file.</p>
-  <p>To do this, add the following code somewhere in <file>main.c</file>:</p>
-<code mime="test/x-python"><![CDATA[
-void on_button_clicked (GtkWidget* button, gpointer user_data)
-{
+  <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to add that function in the source file.</p>
+<p>To do this, open the <file>guitar_tuner.py</file> while the user interface file is still open. Switch to <gui>Signals</gui> tab that you already used to set the signal name. Now take the row where you set the 
+<gui>clicked</gui> signal and drag it into to the source file inside the main class. The following code will be added to your source file:</p>
+<code mime="text/x-csrc"><![CDATA[
+	def on_button_clicked (button, self):
+]]></code>
 
-}]]></code>
-  <p>This signal handler has two arguments: a pointer to the GtkWidget that called the function (in our case, always a GtkButton), and a pointer to some "user data" that you can define, but which we won't be using here. (You can set the user data by calling <code>gtk_builder_connect_signals</code>; it is normally used to pass a pointer to a data structure that you might need to access inside the signal handler.)</p>
-  <p>You can find the prototypes of signal handlers in the Gtk+ documentation.</p>
+  <p>This signal handler has two arguments: the GtkButton that called the function the usual python class pointer</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
@@ -138,36 +137,37 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
-  <p>Insert the following line into <file>main.py</file>, just below the <code><![CDATA[#include <gtk/gtk.h>]]></code> line:</p>
-  <code mime="test/x-python"><![CDATA[#include <gst/gst.h>]]></code>
-  <p>This includes the GStreamer library. You also need to add a line to initialize GStreamer; put the following code on the line above the <code>gtk_init</code> function in the <code>main</code> function:</p>
-  <code><![CDATA[gst_init (&argc, &argv);]]></code>
-  <p>Then, copy the following function into <file>main.c</file> somewhere:</p>
+  <p>Change the import line in <file>guitar_tuner.py</file>, just at the beginning to :</p>
+  <code mime="test/x-python"><![CDATA[from gi.repository import Gtk, Gst, GObject ]]></code>
+  <p>The <code>Gst</code> includes the GStreamer library. You also need to initialise GStreamer properly which
+     is done in the <code>main()</code> method with this call added above the <code>app = GUI()</code>
+     line:</p>
+  <code mime="test/x-python"><![CDATA[Gst.init_check(sys.argv)]]></code>
+  <p>Then, copy the following function into the main class in the <file>guitar_tuner.py</file> somewhere:</p>
   <code mime="test/x-python"><![CDATA[
-def play_sound(self, frequency):
-  pipeline = Gst.Pipeline(name='note')
-  source = Gst.ElementFactory.make('audiotestsrc', 'src')
-  sink = Gst.ElementFactory.make('autoaudiosink', 'output')
-  
-  source.set_property('freq', frequency)
-  pipeline.add(source)
-  pipeline.add(sink)
-  pipeline.set_state(Gst.State.PLAYING)
-  
-  GObject.timeout_add(self.LENGTH, self.pipeline_stop, pipeline)]]></code>
-  
+	def play_sound(self, frequency):
+	  pipeline = Gst.Pipeline(name='note')
+	  source = Gst.ElementFactory.make('audiotestsrc', 'src')
+	  sink = Gst.ElementFactory.make('autoaudiosink', 'output')
+	  
+	  source.set_property('freq', frequency)
+	  pipeline.add(source)
+	  pipeline.add(sink)
+	  pipeline.set_state(Gst.State.PLAYING)
+	  
+	  GObject.timeout_add(self.LENGTH, self.pipeline_stop, pipeline)]]></code>  
   <steps>
     <item>
-    <p>The first three lines create source and sink GStreamer elements (<code>GstElement</code>), and a pipeline element (which will be used as a container for the other two elements). The pipeline is given the name "note"; the source is named "source" and is set to the <code>audiotestsrc</code> source; and the sink is named "output" and set to the <code>autoaudiosink</code> sink (default sound card output).</p>
+    <p>The first three lines create source and sink GStreamer elements and a pipeline element (which will be used as a container for the other two elements). The pipeline is given the name "note"; the source is named "source" and is set to the <code>audiotestsrc</code> source; and the sink is named "output" and set to the <code>autoaudiosink</code> sink (default sound card output).</p>
     </item>
     <item>
     <p>The call to <code>source.set_property</code> sets the <code>freq</code> property of the source element to <code>frequency</code>, which was passed as an argument to the <code>play_sound</code> function. This is just the frequency of the note in Hertz; some useful frequencies will be defined later on.</p>
     </item>
     <item>
-    <p>The next two lines call <code>pipeline.add</code>, putting the source and sink into the pipeline. The pipeline is actually a <code>GstBin</code>, which is just an element that can contain multiple other GStreamer elements. In general, you can add as many GstElements as you like to the pipeline by calling its <code>add</code> method repeatedly.</p>
+    <p>The next two lines call <code>pipeline.add</code>, putting the source and sink into the pipeline. The pipeline can contain multiple other GStreamer elements. In general, you can add as many elements as you like to the pipeline by calling its <code>add</code> method repeatedly.</p>
     </item>
     <item>
-    <p>Next, <code>gst_element_link</code> is used to connect the elements together, so the output of source (a tone) goes into the input of sink (which is then output to the sound card). <code>pipeline.set_state</code> is then used to start playback, by setting the state of the pipeline to playing (<code>Gst.State.PLAYING</code>).</p>
+    <p>Next <code>pipeline.set_state</code> is used to start playback, by setting the state of the pipeline to playing (<code>Gst.State.PLAYING</code>).</p>
     </item>
   </steps>
   
@@ -176,49 +176,45 @@ def play_sound(self, frequency):
 <section>
   <title>Stopping playback</title>
   <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to call <code>GObject.timeout_add</code>. This sets a timeout for stopping the sound; it waits for <code>LENGTH</code> milliseconds before calling the function <code>pipeline_stop</code>, and will keep calling it until <code>pipeline_stop</code> returns <code>False</code>.</p>
-  <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>g_timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
+  <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>GObject.timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
   <code mime="test/x-python"><![CDATA[
-LENGTH = 500
-
-def pipeline_stop(self, pipeline):
-  pipeline.set_state(Gst.State.PAUSED)
-  return False]]></code>
+	def pipeline_stop(self, pipeline):
+	  pipeline.set_state(Gst.State.PAUSED)
+	  return False
+]]></code>
+  <p>You need to define the <code>LENGTH</code> constant inside the class so add this code at the beginning of the
+main class:</p>
+  <code mime="test/x-python"><![CDATA[
+	LENGTH = 500
+]]></code>
   <p>The call to <code>pipeline.set_state</code> pauses the playback of the pipeline.</p>
 </section>
 
 <section>
   <title>Define the tones</title>
-  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the top of <file>main.c</file>) as follows:</p>
+  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the beginning of the main class) inside a hashtable so 
+we can easily map them to the name of the strings:</p>
   <code mime="test/x-python"><![CDATA[
 # Frequencies of the strings
-NOTE_E = 369.23
-NOTE_A = 440
-NOTE_D = 587.33
-NOTE_G = 783.99
-NOTE_B = 987.77
-NOTE_e = 1318.5]]></code>
+	frequencies = {
+		'E': 369.23,
+		'A': 440,
+		'D': 587.33,
+		'G': 783.99,
+		'B': 987.77,
+		'e': 1318.5
+	}
+]]></code>
   <p>Now to flesh-out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure-out which button was clicked:</p>
-  <!-- Not done in a very Python-y way. Can we just loop through a list? -->
-  <!-- Also, what's the deal with the semicolons? -->
   <code mime="test/x-python"><![CDATA[
 def on_button_clicked(self, button):
-  label = button.get_child()
-  text = label.get_label()
+	label = button.get_child()
+	text = label.get_label()
 
-  if text == "E":
-    self.play_sound (self.NOTE_E);
-  elif text == "A":
-    self.play_sound (self.NOTE_A);
-  elif text == "G":
-    self.play_sound (self.NOTE_G);
-  elif text == "D":
-    self.play_sound (self.NOTE_D);
-  elif text == "B":
-    self.play_sound (self.NOTE_B);
-  elif text == "e":
-    self.play_sound (self.NOTE_e);]]></code>
-  <p>The GtkButton that was clicked is passed as an argument (<code>button</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>button.get_child</code>, and then get the text from that label using <code>label.get_label</code>.</p>
-  <p>The label text is then compared to the notes that we have in an <code>if ... elif</code> block, and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
+	self.play_sound (self.frequencies[text])
+]]></code>
+  <p>The button that was clicked is passed as an argument (<code>button</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>button.get_child</code>, and then get the text from that label using <code>label.get_label</code>.</p>
+  <p>The label text is then used as key for the hashtable and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
 <section>
