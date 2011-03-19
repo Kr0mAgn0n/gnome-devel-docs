@@ -1,87 +1,95 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
+
+#include <config.h>
 #include <gtk/gtk.h>
 
-typedef struct _AppWidgets AppWidgets;
 
-struct _AppWidgets
+#include <glib/gi18n.h>
+
+static void
+on_open_image (GtkButton* button, gpointer user_data)
 {
-   GtkWidget *window;
-   GtkWidget *image;
-};
+	GtkWidget *image = GTK_WIDGET (user_data);
+	GtkWidget *toplevel = gtk_widget_get_toplevel (image);
+	GtkFileFilter *filter = gtk_file_filter_new ();
+	GtkWidget *dialog = gtk_file_chooser_dialog_new (_("Open image"),
+	                                                 GTK_WINDOW (toplevel),
+	                                                 GTK_FILE_CHOOSER_ACTION_OPEN,
+	                                                 GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+	                                                 GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+	                                                 NULL);
 
-void on_open_button_clicked (GtkWidget *button, gpointer data);
-
-int main( int   argc,
-          char *argv[] )
-{
-    GtkWidget *scroll_window = NULL;
-    GtkWidget *open_button = NULL;
-    GtkWidget *hbox = NULL;
-    GtkWidget *vbox;
-    AppWidgets app_widgets;
- 
-    gtk_init (&argc, &argv);
-    
-    app_widgets.window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_default_size (GTK_WINDOW (app_widgets.window), 400, 400);
-    gtk_window_set_title (GTK_WINDOW (app_widgets.window), "Image Viewer Demo");
-    g_signal_connect (app_widgets.window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
-
-    /* Sets the image.*/
-    app_widgets.image = gtk_image_new_from_file ("gtk_test.png");
-
-    /* Make window scrollable. */
-    scroll_window = gtk_scrolled_window_new (NULL, NULL); 
-    gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroll_window), app_widgets.image);
-
-    /* Button's box. */
-    hbox = gtk_box_new (GTK_HORIENTATION_HORIZONTAL, 5);
-
-    open_button = gtk_button_new_with_label( "Open...");
-    gtk_box_pack_start (GTK_BOX (hbox), open_button, TRUE, TRUE, 0);
-    g_signal_connect (open_button, "clicked",
-                      G_CALLBACK (on_open_button_clicked), &app_widgets);
-
-    /* Main window layout. */
-    vbox = gtk_box_new (GTK_HORIENTATION_VERTICAL, 0);
-
-    gtk_box_pack_start (GTK_BOX (vbox), scroll_window, TRUE, TRUE, 0);
-    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
-
-    gtk_container_add (GTK_CONTAINER (app_widgets.window), vbox);
-
-    gtk_widget_show_all  (app_widgets.window);
-    
-    gtk_main ();
-    
-    return 0;
+	gtk_file_filter_add_pixbuf_formats (filter);
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (dialog),
+	                             filter);
+	
+	switch (gtk_dialog_run (GTK_DIALOG (dialog)))
+	{
+		case GTK_RESPONSE_ACCEPT:
+		{
+			gchar *filename = 
+				gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+			gtk_image_set_from_file (GTK_IMAGE (image), filename);
+			break;
+		}
+		default:
+			break;
+	}
+	gtk_widget_destroy (dialog);
 }
-void on_open_button_clicked (GtkWidget *button, gpointer data)
+	
+
+static GtkWidget*
+create_window (void)
 {
-   GtkWidget *file_chooser_dialog = NULL;
-   GtkFileFilter *filter = NULL;
-   GFile *file = NULL;
-   char *filename;
-   AppWidgets *app_widgets = (AppWidgets *) data;
+	GtkWidget *window;
+	GtkWidget *button;
+	GtkWidget *image;
+	GtkWidget *box;
 
-   file_chooser_dialog = gtk_file_chooser_dialog_new ("Open file",
-                                         GTK_WINDOW (app_widgets->window),
-                                         GTK_FILE_CHOOSER_ACTION_OPEN,
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                         GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-                                         NULL);
+	/* Setup the UI */
+	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title (GTK_WINDOW (window), "image-viewer-c");
 
-   /* Show just image files. */
-   filter = gtk_file_filter_new ();
-   gtk_file_filter_add_pixbuf_formats (filter);
-   gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (file_chooser_dialog), filter); 
+	box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+	button = gtk_button_new_with_label (_("Open image"));
+	image = gtk_image_new ();
 
-   if (gtk_dialog_run (GTK_DIALOG (file_chooser_dialog)) == GTK_RESPONSE_ACCEPT)
-   {
-      file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (file_chooser_dialog));
-      filename = g_file_get_basename (file);
-      gtk_image_set_from_file (GTK_IMAGE (app_widgets->image), filename);
-      
-      g_free (filename);
-   }
-   gtk_widget_destroy (file_chooser_dialog);
+	gtk_box_pack_start (GTK_BOX (box), image, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (box), button, FALSE, FALSE, 0);
+
+	gtk_container_add (GTK_CONTAINER (window), box);
+
+	/* Connect signals */
+
+	/* Show open dialog when opening a file */
+	g_signal_connect (button, "clicked", G_CALLBACK (on_open_image), image);
+	
+	/* Exit when the window is closed */
+	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
+	
+	return window;
+}
+
+
+int
+main (int argc, char *argv[])
+{
+ 	GtkWidget *window;
+
+
+#ifdef ENABLE_NLS
+	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+#endif
+
+	
+	gtk_init (&argc, &argv);
+
+	window = create_window ();
+	gtk_widget_show_all (window);
+
+	gtk_main ();
+	return 0;
 }
