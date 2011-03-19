@@ -6,13 +6,17 @@
     
     <link type="guide" xref="index#js"/>
     
-    <desc>A little bit more than a simple "Hello world" application - write an image viewer in GTK.</desc>
+    <desc>A little bit more than a simple "Hello world" application - write an image viewer in GTK. Includes an introduction to the Javascript language.</desc>
     
-    <revision pkgversion="0.1" version="0.1" date="2010-12-06" status="review"/>
+    <revision pkgversion="0.1" version="0.1" date="2011-03-19" status="review"/>
     <credit type="author">
       <name>Jonh Wendell</name>
       <email>jwendell@gnome.org</email>
     </credit>
+    <credit type="author">
+      <name>Johannes Schmid</name>
+      <email>jhs@gnome.org</email>
+    </credit>    
     
   </info>
 
@@ -41,8 +45,25 @@
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
 
 <section>
+  <title>Create a project in Anjuta</title>
+  <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
+  <steps>
+    <item>
+    <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+    <p>Choose <gui>Generic Javascript</gui> from the <gui>JS</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+   	</item>
+    <item>
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
+    </item>
+  </steps>
+</section>
+
+
+<section>
   <title>JavaScript basics: Hello World</title>
-  <p>Before we start writing the image viewer, let's find out more about the way JavaScript is used in GNOME. Of course, your very first contact with any programming language should be the Hello World program:</p>
+  <p>Before we start writing the image viewer, let's find out more about the way JavaScript is used in GNOME. Of course, your very first contact with any programming language should be the Hello World program which can already be found in <file>main.js</file>:</p>
   <code mime="text/javascript">print ("Hello world!");</code>
   <p>This should look quite natural if you're familiar with almost any other programming language. The function <code>print</code> is called with the argument <code>"Hello world!"</code>, which will be printed on the screen. Note that each line of code ends with a semicolon.</p>
 </section>
@@ -102,7 +123,8 @@ o.propertyA = "Just changed its value!";
 o.dumpProperties ();]]>
   </code>
   <p>This code creates a new instance of the class called <code>o</code>, runs <code>aMethod</code>, changes <code>propertyA</code> to a different string, and then calls <code>dumpProperties</code> (which outputs the fields).</p>
-  <p>Save the code in a file called <file>hello.js</file> and then type <cmd>gjs hello.js</cmd> into a Terminal to run the program.</p>
+  <p>Save the code in the <file>main.js</file> and then run it by using 
+  <guiseq><gui>Run</gui><gui>Run…</gui></guiseq> from the menu or using the toolbar.</p>
 </section>
 
 <section>
@@ -132,7 +154,7 @@ Gtk.main ();]]>
     <item><p>Finally, <code>Gtk.main</code> runs the main loop - in other words, it executes the program. The main loop listens for events (signals) from the user interface and then calls a signal handler which will do something useful. We'll learn more about signals shortly.</p></item>
   </list>
   
-  <p>Save the code in a file called <file>image-viewer.js</file> and run it by typing <cmd>gjs image-viewer.js</cmd> into a Terminal window. You will notice that the application does not quit when you close the window. This is because we haven't set up a signal handler to deal with the window's <code>destroy</code> (close) signal yet. We'll do this shortly, but for now you can just hit <keyseq><key>Ctrl</key><key>C</key></keyseq> to quit the program.</p>
+  <p>Save the code in <file>main.js</file> and run it. You will notice that the application does not quit when you close the window. This is because we haven't set up a signal handler to deal with the window's <code>destroy</code> (close) signal yet. We'll do this shortly, but for now you can just hit <keyseq><key>Ctrl</key><key>C</key></keyseq> in the terminal window to quit the program.</p>
   
 </section>
 
@@ -199,7 +221,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   <p>Widgets (controls, such as buttons and labels) can be arranged in the window by making use of <em>containers</em>. You can organize the layout by mixing different types of containers, like boxes and grids.</p>
   <p>A GtkWindow is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a GtkBox here. A GtkBox can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
   <note>
-  <p>There is a graphical user interface designer called <app>Glade</app> which makes UI design really easy. For this simple example, however, we will code everything manually.</p>
+  <p>There is a graphical user interface designer called <app>Glade</app> integrated in <app>Anjuta</app> which makes UI design really easy. For this simple example, however, we will code everything manually.</p>
   </note>
   <p>Let's add the box and widgets to the window. Insert the following code into the <code>_init</code> method, immediately above the <code>this.window.show</code> line:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -290,7 +312,7 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
 
 <section>
   <title>Run the application</title>
-  <p>All of the code you need should now be in place, so try running the code using <cmd>gjs</cmd>. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
+  <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
 </section>
 
 <section>

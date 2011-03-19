@@ -15,10 +15,8 @@ ImageViewer.prototype = {
     var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
     this.window.add (main_box);
 
-    var sw = new Gtk.ScrolledWindow ();
     this.image = new Gtk.Image ();
-    sw.add_with_viewport (this.image);
-    main_box.pack_start (sw, true, true, 0);
+    main_box.pack_start (this.image, true, true, 0);
 
     var open_button = new Gtk.Button ({label: "Open a picture..."});
     open_button.connect ("clicked", Lang.bind (this, this._openClicked));
