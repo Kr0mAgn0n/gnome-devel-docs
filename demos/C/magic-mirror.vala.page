@@ -5,14 +5,17 @@
   <info>
     <link type="guide" xref="index#vala"/>
 
-    <desc>XXX</desc>
+    <desc>Use your webcam as a mirror using the GStreamer framework and Gtk+</desc>
 
-    <revision pkgversion="0.1" version="0.1" date="2010-12-02" status="stub"/>
+    <revision pkgversion="0.1" version="0.1" date="2011-03-19" status="review"/>
     <credit type="author">
       <name>Daniel G. Siegel</name>
       <email>dgsiegel@gnome.org</email>
     </credit>
-
+    <credit type="author">
+      <name>Johannes Schmid</name>
+      <email>jhs@gnome.org</email>
+    </credit>
   </info>
 
 <title>Magic Mirror</title>
@@ -36,126 +39,87 @@
 <media type="image" mime="image/png" src="media/magic-mirror.png"/>
 
 <section>
-  <title>Create an empty window with GTK+</title>
-  <p>Create an empty file named <file>webcam.vala</file> and copy the following code into it:</p>
-  <code mime="text/x-vala" style="numbered">
-using Gtk;
-
-public class Webcam : Gtk.Window
-{
-
-  public Webcam ()
-  {
-    this.set_title ("Press play to start");
-    this.destroy.connect (Gtk.main_quit);
-  }
-
-  public static int main (string[] args)
-  {
-    Gtk.init (ref args);
-
-    var webcam = new Webcam ();
-    webcam.show_all ();
-
-    Gtk.main ();
-
-    return 0;
-  }
-}</code>
-
- <p>This code will give you an empty window with a title. Let's see what's going on:</p>
- 
- <list>
-  <item>
-  <p><code>using Gtk;</code> tells the Vala compiler to include the GTK+ library.</p>
-  </item>
-  <item>
-  <p>On the next line, we create a class named <code>Webcam</code>. This inherits from <code>Gtk.Window</code>, which creates a blank window.</p>
-  </item>
-  <item>
-  <p><code>public Webcam ()</code> is the constructor for our new <code>Webcam</code> class. Here, we access the some of the window object's methods by using the <code>this</code> pointer: The first line sets the title of the window, and the second line connects the <code>destroy</code> signal to the <code>Gtk.main_quit</code> function. The <code>destroy</code> signal is emitted when the window's close button is clicked, and <code>main_quit</code> quits the entire application.</p>
-  </item>
-  <item>
-  <p>Next we define the <code>main</code> method. This is very similar to the <code>main</code> function in C, which is the first function that is called when the program is run. It may seem odd to you that this <code>main</code> function is inside the class definition; this is fine, however, because it is declared as a public static function, so the compiler will identify it correctly.</p>
-  </item>
-  <item>
-  <p>Inside the <code>main</code> method, GTK+ is initialized and a new <code>Webcam</code> object is created. The <code>show_all ()</code> method is then called; this is inherited from <code>Gtk.Window</code>, and shows all of the widgets in the window (in GTK+, widgets remain hidden until you explicitly show them).</p>
-  </item>
-  <item>
-  <p>Finally, we enter the GTK main loop by calling <code>Gtk.main</code>. The main loop displays the UI and starts listening for events (signals).</p>
-  </item>
- </list>
-
- <p>To see this code in action, compile it with the following command:</p>
-
- <screen>
-valac --pkg gtk+-2.0 --pkg gdk-x11-2.0 --pkg gstreamer-0.10 \
-      --pkg gstreamer-interfaces-0.10 webcam.vala
- </screen>
-
- <p>You will end up with an executable <file>webcam</file>, which you can run.</p>
+  <title>Create a project in Anjuta</title>
+  <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
+  <steps>
+    <item>
+    <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+   	</item>
+   	<item>
+    <p>Disable <gui>Use GtkBuilder for user interface</gui> as we will
+    create the UI manually in this tutorial. Check the <link xref="guitar-tuner.vala">Guitar-Tuner</link>
+    tutorial using the interface builder.</p>
+    </item>
+    <item>
+    <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
+       <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
+    </item>
+    <item>
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/magic_mirror.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <code mime="text/x-valasrc"><![CDATA[
+using GLib;
+using Gtk;]]></code>
+    </item>
+  </steps>
 </section>
 
+<section>
+  <title>Build the code for the first time</title>
+  <p>The code loads an (empty) window and shows it. More details are given below; skip this list if you understand the basics:</p>
+  <list>
+  <item>
+    <p>The two <code>using</code> lines import namespaces so we don't have to name them explicitly.</p>
+   </item>
+   <item>
+    <p>The constructor of the <code>Main</code> class creates a new window and sets its title. Afterwards the window
+    is shown and a signal is connected to quite the application if the widget is closed. More on signals laster on.</p>
+   </item>
+   <item>
+    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set-up and then run the application. The <code>Gtk.Main</code> function start the GTK mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+   </item>
+  </list>
+
+  <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
+  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Configure</gui> configure the build directory. You only need to do this once, for the first build.</p>
+</section>
 
 <section>
  <title>Access the webcam video stream with GStreamer</title>
  <p>The GStreamer multimedia framework is able to handle video from webcams. Let's add GStreamer to our application and so we can access the video stream.</p>
 
- <code mime="text/x-vala" style="numbered">
+<code mime="text/x-vala" style="numbered">
+<![CDATA[
+using GLib;
 using Gtk;
-using Gst;
 
-public class Webcam : Gtk.Window
+public class Main : Object 
 {
-  private Gtk.DrawingArea drawing_area;
-  private Gst.Element camerabin;
+	private Gst.Element camerabin;
+	
+	public Main () {
+		this.camerabin = Gst.ElementFactory.make ("camerabin", "camera");
+		this.camerabin.set_state (Gst.State.PLAYING);
+	}
 
-  public Webcam ()
-  {
-    this.set_title ("Press play to start");
-    this.destroy.connect (Gtk.main_quit);
+	static int main (string[] args) {
+		Gtk.init (ref args);
+		Gst.init (ref args);
+		var app = new Main ();
 
-    var vbox = new Gtk.VBox (false, 0);
-    this.drawing_area = new Gtk.DrawingArea ();
-    this.drawing_area.set_size_request (640, 480);
-    vbox.pack_start (this.drawing_area, true, true, 0);
-
-    this.add (vbox);
-
-    this.camerabin = Gst.ElementFactory.make ("camerabin", "camera");
-    this.camerabin.set_state (Gst.State.PLAYING);
-  }
-
-  public static int main (string[] args)
-  {
-    Gst.init (ref args);
-    Gtk.init (ref args);
-
-    var webcam = new Webcam ();
-    webcam.show_all ();
-
-    Gtk.main ();
-
-    return 0;
-  }
+		Gtk.main ();
+		
+		return 0;
+	}
 }
-  </code>
- <list>
+]]></code>
+ <steps>
+ <item><p>First we remove the window we created before because GStreamer will
+ take care of showing the picture on screen.</p>
+ </item>
   <item>
-  <p>
-  Under the <code>using Gtk</code> line, insert
-  <code>
-using Gst;</code> to also include the GStreamer libraries.</p>
-  </item>
-  <item>
-  <p>We declare a <code>Gtk.DrawingArea</code>, which will be the
-  element which holds our video feed afterwards. As we want to add buttons too
-  later, it is a good idea to add a vertical box, where we can put widgets
-  into. We need a box to put multiple elements into it and we want to put stuff
-  below each other. This is done by <code>vbox.pack_start</code>. Of course, we need to add
-  the box to the window, which is done by writing <code>this.add (vbox)</code>.
-  </p>
-
   <p>
   Now we are creating a GStreamer element, which accesses our webcam. We are
   using the Camerabin element, which is an all-in-one camera element and is
@@ -163,228 +127,33 @@ using Gst;</code> to also include the GStreamer libraries.</p>
   our use case! With <code>this.camerabin.set_state (Gst.State.PLAYING)</code>
   we tell the GStreamer pipeline we just created to start playing. Easy, not?
   </p>
-
+  <p>Of course it is also possible to integrate the video more tighly into other
+  windows but that is an advanced topics that includes some details of the X Window
+  System we will omit here.
+  </p>
   <p>
   Compile and run it again. You will end up with two windows. In the next step
   we will integrate the video into the GTK+ window.
   </p>
   </item>
- </list>
+ </steps>
 </section>
 
 <section>
-  <title>Embed the video into the GTK+ window</title>
-  <p>
-  After this step you will have a full featured webcam viewer, that are
-  awesome news, aren't they?
-  </p>
-
-  <code mime="text/x-vala" style="numbered">
-using Gtk;
-using Gst;
-
-public class Webcam : Gtk.Window
-{
-  private Gtk.DrawingArea drawing_area;
-  private Gst.Element camerabin;
-  private static X.ID xid;
-
-  public Webcam ()
-  {
-    this.set_title ("Press play to start");
-    this.destroy.connect (Gtk.main_quit);
-
-    var vbox = new Gtk.VBox (false, 0);
-    this.drawing_area = new Gtk.DrawingArea ();
-    this.drawing_area.set_size_request (640, 480);
-    this.drawing_area.realize.connect (on_realize);
-    vbox.pack_start (this.drawing_area, true, true, 0);
-
-    this.add (vbox);
-
-    this.camerabin = Gst.ElementFactory.make ("camerabin", "camera");
-    var bus = this.camerabin.get_bus ();
-    bus.set_sync_handler (on_bus_callback);
-  }
-
-  private Gst.BusSyncReply on_bus_callback (Gst.Bus bus, Gst.Message message)
-  {
-    if (message.get_structure () != null &amp;&amp; message.get_structure().has_name("prepare-xwindow-id")) {
-      var xoverlay = message.src as Gst.XOverlay;
-      xoverlay.set_xwindow_id (this.xid);
-      return Gst.BusSyncReply.DROP;
-    }
-
-    return Gst.BusSyncReply.PASS;
-  }
-
-  private void on_realize ()
-  {
-    this.xid = Gdk.x11_drawable_get_xid (this.drawing_area.window);
-    this.camerabin.set_state (Gst.State.PLAYING);
-  }
-
-  public static int main (string[] args)
-  {
-    Gst.init (ref args);
-    Gtk.init (ref args);
-
-    var webcam = new Webcam ();
-    webcam.show_all ();
-
-    Gtk.main ();
-
-    return 0;
-  }
-}
-  </code>
-
-  <p>
-  Now we are making our hands dirty. Did you ever hear about X window id? No?
-  Doesn't matter, just remember this: Every window has a unique id, which
-  identifies that specific window. What we want to do now is to get the X
-  window id of our GTK+ window and then set the X window id of the GStreamer
-  overlay to that specific id. We could now run into two problems:
-  </p>
-
-  <list>
-    <item><p>The X window id of any window is only available after you can see it
-    on your screen</p></item>
-    <item><p>We only can set the X window id of the GStreamer overlay before it
-    has started to get data from the webcam.</p></item>
-  </list>
-
-  <p>
-  As you probably can imagine, many things can go wrong with the above points.
-  So we need to make sure to first get the X window id from the GTK+ window and
-  after that is done, set it on the GStreamer overlay before it has started.
-  With <code>this.drawing_area.realize.connect (on_realize);</code> we hook on
-  the <code>realize</code> signal GTK+ will send after it is drawn on the screen
-  and call our method <code>on_realize</code>. There we just get the X window
-  id and store it in the static variable <code>this.xid</code>. This variable
-  has to be static, as we have to make sure that it stays the same througout
-  the context and threads of the application. After that is done, we can just
-  start our GStreamer pipeline.
-  </p>
-
-  <p>
-  To intercept the GStreamer overlay, just before it is drawn and put it into
-  the GTK+ window we need to listen to the signals GStreamer is sending around.
-  First we need to get the bus, over which the messages flow using
-  <code>this.camerabin.get_bus ();</code> and then, like before with the
-  realize signal we are hooking into the messages of that pipeline using our
-  own function <code>on_bus_callback</code>.
-  </p>
-
-  <p>
-  There are a lot of messages coming in, so first we need to make sure that it
-  is a message, we can process using <code>message.get_structure () != null</code> and then 
-  we just want to get the one message with the name <code>prepare-xwindow-id</code>. This 
-  signal is sent when the pipeline is ready and waiting for an X window id. We
-  get the source of the signal, which actually is our pipeline and set the X
-  window id we got before <code>xoverlay.set_xwindow_id (this.xid);</code>. The
-  return values just pass on the message or drop the message from the message
-  flow. We want to drop that single message of course, otherwise somebody else
-  could steal it.
-  </p>
-
+ <title>Reference Implementation</title>
+ <p>If you run into problems with the tutorial, compare your code with this <link href="magic-mirror/magic-mirror.vala">reference code</link>.
+ There is also a more <link href="magic-mirror/magic-mirror-advanced.vala">extensive implementation</link> that embeds the window into a regular Gtk.Window
+ which involves some advanced techniques, and adds buttons to start/stop the picture.</p>
 </section>
 
 <section>
-  <title>Add buttons to control the application</title>
-  <p>So if you just need a webcam viewer you can stop reading now and run to
-  your bus. If you however want to impress your friends, let's just add a
-  button and make your application fully functional</p>
+<title>Further reading</title>
+<p>To find out more about the Vala programming language you might want to check out the 
+<link href="http://live.gnome.org/Vala/Tutorial">Vala Tutorial</link>.</p>
+</section>
 
-  <code mime="text/x-vala" style="numbered">
-using Gtk;
-using Gst;
-
-public class Webcam : Gtk.Window
-{
-  private Gtk.DrawingArea drawing_area;
-  private X.ID xid;
-  private Gst.Element camerabin;
-  private int counter = 1;
-
-  public Webcam ()
-  {
-    this.set_title ("Press play to start");
-    this.destroy.connect (Gtk.main_quit);
-
-    var vbox = new Gtk.VBox (false, 0);
-    this.drawing_area = new Gtk.DrawingArea ();
-    this.drawing_area.set_size_request (640, 480);
-    this.drawing_area.realize.connect (on_realize);
-    vbox.pack_start (this.drawing_area, true, true, 0);
-
-    var photo_button = new Button.with_label ("Take a picture");
-    photo_button.clicked.connect (on_take_picture);
-
-    vbox.pack_start (photo_button, false, false, 5);
-
-    this.add (vbox);
-
-    this.camerabin = Gst.ElementFactory.make ("camerabin", "camera");
-    var bus = this.camerabin.get_bus ();
-    bus.set_sync_handler (on_bus_callback);
-  }
-
-  private Gst.BusSyncReply on_bus_callback (Gst.Bus bus, Gst.Message message)
-  {
-    if (message.get_structure () != null &amp;&amp; message.get_structure().has_name("prepare-xwindow-id")) {
-      var xoverlay = message.src as Gst.XOverlay;
-      xoverlay.set_xwindow_id (this.xid);
-      return Gst.BusSyncReply.DROP;
-    }
-
-    return Gst.BusSyncReply.PASS;
-  }
-
-  private void on_realize ()
-  {
-    this.xid = Gdk.x11_drawable_get_xid (this.drawing_area.window);
-    this.camerabin.set_state (Gst.State.PLAYING);
-  }
-
-  private void on_take_picture ()
-  {
-    var filename = "photo" + "%d".printf (this.counter) + ".jpg";
-    this.set_title ("%d".printf (this.counter) + " photos taken");
-    this.counter++;
-    this.camerabin.set ("filename", filename);
-    GLib.Signal.emit_by_name (this.camerabin, "capture-start");
-  }
-
-  public static int main (string[] args)
-  {
-    Gst.init (ref args);
-    Gtk.init (ref args);
-
-    var webcam = new Webcam ();
-    webcam.show_all ();
-
-    Gtk.main ();
-
-    return 0;
-  }
-}
-  </code>
-
-  <p>
-  We create the take a photo button using
-  <code>new Button.with_label ("Take a picture");</code>. Then we connect the
-  <code>clicked</code> event with our method <code>on_take_picture</code>. This
-  signal happens when you click on the button and it automatically calls that
-  one method. In there we set the filename we want to use for the photo, update
-  the window title and take a photo. The title we set using
-  <code>this.set_title ("%d".printf (this.counter) + " photos taken");</code>,
-  the filename by setting a property of our GStreamer camerabin element
-  <code>this.camerabin.set ("filename", filename);</code> and finally we take a
-  photo by sending a signal to the camerabin element
-  <code>GLib.Signal.emit_by_name (this.camerabin, "capture-start");</code>
-  </p>
-
+<section>
+<title>Conclusion</title>
   <p>
   That's it, you have managed to create a full featured webcam photo
   application in 15 minutes. Now you can shave your beard off or add some make
