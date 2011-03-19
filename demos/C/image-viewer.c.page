@@ -135,6 +135,9 @@ create_window (void)
     <item>
     <p>The last <code>g_signal_connect()</code> makes sure that the application exits when the window is closed.</p>
     </item>
+    <item>
+    <p>As a last step, make sure to replace the <code>gtk_widget_show</code> call in the <code>main()</code> function by
+    <code>gtk_widget_show_all()</code> to show the window and all the widgets it contains.</p>
   </steps>
 </section>
 

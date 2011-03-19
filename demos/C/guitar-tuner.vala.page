@@ -51,7 +51,7 @@
        <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
     </item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/guitar_tuner.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
     <code mime="text/x-valasrc"><![CDATA[
 using GLib;
 using Gtk;]]></code>
@@ -140,7 +140,7 @@ that need special treating while linking to be found at runtime.</p>
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
-  <p>Insert the following line into <file>main.vala</file> inside our <code>Main</code> class:</p>
+  <p>Insert the following line into <file>guitar_tuner.vala</file> inside our <code>Main</code> class:</p>
   <code mime="text/x-valasrc"><![CDATA[
 Gst.Element sink;
 Gst.Element source;
