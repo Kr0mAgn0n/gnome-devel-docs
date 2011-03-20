@@ -2,7 +2,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 dist-hook: doc-dist-hook
 
 DOC_ID = platform-overview
-DOC_INCLUDES =			\
+DOC_PAGES =			\
 	apx-modules.page	\
 	bindings.page		\
 	core-tech.page		\
