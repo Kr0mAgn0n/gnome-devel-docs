@@ -23,7 +23,7 @@
 <synopsis>
   <p>In this tutorial, we're going to make a program which plays tones that you can use to tune a guitar. You will learn how to:</p>
   <list>
-    <item><p>Set-up up a basic project in Anjuta</p></item>
+    <item><p>Set up a basic project in Anjuta</p></item>
     <item><p>Create a simple GUI with Anjuta's UI designer</p></item>
     <item><p>Use GStreamer to play sounds</p></item>
   </list>
@@ -44,11 +44,11 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
-       <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
+       <em>gstreamer-0.10</em> from the list to include the GStreamer library in your project.</p>
     </item>
     <item>
     <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/guitar_tuner.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
@@ -68,11 +68,11 @@ using Gtk;]]></code>
     <p>The two <code>using</code> lines import namespaces so we don't have to name them explicitly.</p>
    </item>
    <item>
-    <p>The constructor of the <code>Main</code> clss creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor design GtkBuilder user interfaces.</p>
+    <p>The constructor of the <code>Main</code> clss creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
    </item>
    <item>
-    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set-up and then run the application. The <code>Gtk.Main</code> function start the GTK mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set up and then run the application. The <code>Gtk.Main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
   </list>
 
@@ -82,7 +82,7 @@ using Gtk;]]></code>
 
 <section>
   <title>Create the user interface</title>
-  <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets properties are on the left, and the palette of available widgets is on the right.
+  <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets' properties are on the left, and the palette of available widgets is on the right.
   </p>
   <p>The layout of every UI in GTK+ is organized using boxes and tables. Let's use a vertical <gui>GtkButtonBox</gui> here to assign six <gui>GtkButtons</gui>, one for each of the six guitar strings.</p>
 
@@ -90,7 +90,7 @@ using Gtk;]]></code>
 
   <steps>
    <item>
-   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui>-section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
+   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui> section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
 six strings) and the orientation to vertical.</p>
    </item>
    <item>
@@ -106,7 +106,7 @@ six strings) and the orientation to vertical.</p>
     <p>Repeat the above steps for the other buttons, adding the next 5 strings with the names <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em>.</p>
     </item>
     <item>
-    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and keep it open.</p>
+    <p>Save the UI design (by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and keep it open.</p>
     </item>
   </steps>
 </section>
@@ -114,21 +114,21 @@ six strings) and the orientation to vertical.</p>
 <section>
   <title>Creating the signal handler</title>
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. Actually we type <gui>main_on_button_clicked</gui> which tells the UI designer that this method is part of our <code>Main</code>. We need to add that function in the source file.</p>
-  <p>To do this, open the <file>guitar_tuner.vala</file> while the user interface file is still open. Switch to <gui>Signals</gui> tab that you already used to set the signal name. Now take the row where you set the 
+  <p>To do this, open <file>guitar_tuner.vala</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the 
 <gui>clicked</gui> signal and drag it into to the source file at the beginning of the class. The following code will be added to your source file:</p>
 <code mime="text/x-valasrc"><![CDATA[
 [CCode (instance_pos=-1)]
 public void on_button_clicked (Gtk.Button sender) {
 
 }]]></code>
-  <p>This signal handler has only one arguments: the Gtk.Widget that called the function (in our case, always a Gtk.Button). The additonal <code>[CCode (instance_pos=-1)]</code> tell the compiler that this is a signal handler
+  <p>This signal handler has only one arguments: the <code>Gtk.Widget</code> that called the function (in our case, always a <code>Gtk.Button</code>). The additonal <code>[CCode (instance_pos=-1)]</code> tell the compiler that this is a signal handler
 that need special treating while linking to be found at runtime.</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
 <section>
   <title>GStreamer pipelines</title>
-  <p>GStreamer is GNOME's multimedia framework - you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
+  <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
   <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
   <p>Between source and sink, you can apply various filters and converters to handle effects, format conversions and so on. Each element of the pipeline has properties which can be used to change its behaviour.</p>
   <media type="image" mime="image/png" src="media/guitar-tuner-pipeline.png">
@@ -201,7 +201,7 @@ private void play_sound(double frequency)
 <section>
   <title>Define the signal handler</title>
   <p>We want to play the correct sound when the user clicks a button.</p>
-  <p>Now to flesh-out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure-out which button was clicked:</p>
+  <p>Now to flesh out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure out which button was clicked:</p>
   <code mime="text/x-valasrc"><![CDATA[
 public void on_button_clicked (Gtk.Button sender) {
 	var label = sender.get_child () as Gtk.Label;
@@ -229,7 +229,7 @@ public void on_button_clicked (Gtk.Button sender) {
 	}
 }
 ]]></code>
-  <p>A pointer to the Gtk.Button that was clicked is passed as an argument (<code>sender</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>get_child()</code>, and then get the text from that label using <code>get_label()</code>.</p>
+  <p>A pointer to the <code>Gtk.Button</code> that was clicked is passed as an argument (<code>sender</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>get_child()</code>, and then get the text from that label using <code>get_label()</code>.</p>
   <p>The switch statement compares the label text to the notes that and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
@@ -264,7 +264,7 @@ public void on_button_clicked (Gtk.Button sender) {
    </item>
    <item>
    <p>Automatically analyze notes that the user plays.</p>
-   <p>You could connect a microphone and record sounds from it using an <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-autoaudiosrc.html">input source</link>. Perhaps some form of <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-plugin-spectrum.html">spectrum analysis</link> would allow you to figure out what notes is being played?</p>
+   <p>You could connect a microphone and record sounds from it using an <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-autoaudiosrc.html">input source</link>. Perhaps some form of <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-plugin-spectrum.html">spectrum analysis</link> would allow you to figure out what notes are being played?</p>
    </item>
   </list>
 </section>

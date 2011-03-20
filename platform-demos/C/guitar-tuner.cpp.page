@@ -23,7 +23,7 @@
 <synopsis>
   <p>In this tutorial, we're going to make a program which plays tones that you can use to tune a guitar. You will learn how to:</p>
   <list>
-    <item><p>Set-up up a basic project in Anjuta</p></item>
+    <item><p>Set up a basic project in Anjuta</p></item>
     <item><p>Create a simple GUI with Anjuta's UI designer</p></item>
     <item><p>Use GStreamer to play sounds</p></item>
   </list>
@@ -44,11 +44,11 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
-       <em>gstreamermm-0.10</em> from the list to include the <app>GStreamermm</app> library into your project.</p>
+       <em>gstreamermm-0.10</em> from the list to include the GStreamermm library in your project.</p>
     </item>
     <item>
     <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.cc</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
@@ -68,10 +68,10 @@
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtkmm</code> (user interface) and <code>iostream</code> STL. Functions from these libraries are used in the rest of the code.</p>
    </item>
    <item>
-    <p>The <code>main</code> function creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above) and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor design GtkBuilder user interfaces.</p>
+    <p>The <code>main</code> function creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above) and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
    </item>
    <item>
-    <p>Afterwards it calls a few functions which set-up and then run the application. The <code>kit.run</code> function start the GTKmm mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>Afterwards it calls a few functions which set up and then run the application. The <code>kit.run</code> function starts the GTKmm main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
   </list>
 
@@ -81,7 +81,7 @@
 
 <section>
   <title>Create the user interface</title>
-  <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets properties are on the left, and the palette of available widgets is on the right.
+  <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets' properties are on the left, and the palette of available widgets is on the right.
   </p>
   <p>The layout of every UI in GTK+ is organized using boxes and tables. Let's use a vertical <gui>GtkButtonBox</gui> here to assign six <gui>GtkButtons</gui>, one for each of the six guitar strings.</p>
 
@@ -89,7 +89,7 @@
 
   <steps>
    <item>
-   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui>-section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
+   <p>Select a <gui>GtkButtonBox</gui> from the <gui>Container</gui> section of the <gui>Palette</gui> on the right and put it into the window. In the <gui>Properties</gui> pane, set the number of elements to 6 (for the
 six strings) and the orientation to vertical.</p>
    </item>
    <item>
@@ -103,14 +103,14 @@ six strings) and the orientation to vertical.</p>
     <p>Repeat the above steps for the other buttons, adding the next 5 strings with the labels <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em> and the names <em>button_A</em>, etc.</p>
     </item>
     <item>
-    <p>Save the UI design by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and close the file.</p>
+    <p>Save the UI design (by clicking <guiseq><gui>File</gui><gui>Save</gui></guiseq>) and close the file.</p>
     </item>
   </steps>
 </section>
 
 <section>
   <title>GStreamer pipelines</title>
-  <p>GStreamer is GNOME's multimedia framework - you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones. GStreamermm is the C++-Binding to GStreamer which
+  <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones. GStreamermm is the C++-Binding to GStreamer which
   we will use here.</p>
   <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
   <p>Between source and sink, you can apply various filters and converters to handle effects, format conversions and so on. Each element of the pipeline has properties which can be used to change its behaviour.</p>
@@ -278,7 +278,7 @@ on_button_clicked(double frequency, Sound* sound)
    </item>
    <item>
    <p>Automatically analyze notes that the user plays.</p>
-   <p>You could connect a microphone and record sounds from it using an <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-autoaudiosrc.html">input source</link>. Perhaps some form of <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-plugin-spectrum.html">spectrum analysis</link> would allow you to figure out what notes is being played?</p>
+   <p>You could connect a microphone and record sounds from it using an <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-autoaudiosrc.html">input source</link>. Perhaps some form of <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-plugin-spectrum.html">spectrum analysis</link> would allow you to figure out what notes are being played?</p>
    </item>
   </list>
 </section>
