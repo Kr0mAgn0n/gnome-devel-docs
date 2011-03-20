@@ -5,7 +5,7 @@
 #include <gst/gst.h>
 #include <glib/gi18n.h>
 
-/* For testing propose use the local (not installed) ui file */
+/* For testing purposes, use the local (not installed) ui file */
 /* #define UI_FILE PACKAGE_DATA_DIR"/guitar_tuner/ui/guitar_tuner.ui" */
 #define UI_FILE "src/guitar_tuner.ui"
 
@@ -82,10 +82,9 @@ main (int argc, char *argv[])
  	GtkWidget *window;
 	GtkBuilder *builder;
 
-	
 	/* Initialize gtk+ and gstreamer */
-	gtk_init (&argc, &argv);
 	gst_init (&argc, &argv);
+	gtk_init (&argc, &argv);
 
 	builder = gtk_builder_new ();
 	gtk_builder_add_from_file (builder, UI_FILE, NULL);
