@@ -1,284 +1,302 @@
-<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" stlye="task"
+      id="apx-modules">
 
-<appendix id="apx-modules">
-  <title>Quick Module Overview</title>
+<info>
+  <link type="guide" xref="index#what-is-gnome-platform"/>
+  <link type="seealso" xref="desktop-tech"/>
+  <link type="seealso" xref="core-tech"/>
+  <link type="seealso" xref="ipc-network"/>
+  <desc>Quick Module Overview</desc>
+  <revision pkgversion="3.0" version="0.1" date="2011-03-18" status="incomplete"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2005-2011</years>
+  </credit>
+  <credit type="collaborator">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+    <years>2011</years>
+  </credit>
+</info>
 
-  <para>This appendix provides a quick overview of the libraries included
+<title>Quick Module Overview</title>
+
+  <p>This appendix provides a quick overview of the libraries included
   in the GNOME desktop and developer platform.  Libraries are listed by
   module with a brief description and a link for more information in this
-  document, where possible.</para>
+  document, where possible.</p>
 
 <section id="apx-modules-platform">
   <title>Platform Modules</title>
 
-  <para>Modules in the GNOME developer platform make strict guarantees
+  <p>Modules in the GNOME developer platform make strict guarantees
   about API and ABI stability.  Applications developed against platform
   modules can be assured of running unmodified for the duration of the
-  GNOME 2 lifecycle.</para>
+  GNOME 2 lifecycle.</p>
 
-  <variablelist>
-    <varlistentry>
-      <term>GConf</term>
-      <listitem><para>GConf provides the daemon and libraries for storing
-      and retrieving configuration data.  GConf is discussed in <xref
-      linkend="gconf"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>ORBit</term>
-      <listitem><para>ORBit is a deprecated CORBA server.  GNOME's deprecated
+  <terms>
+    <item>
+      <title>GConf</title>
+      <p>GConf provides the daemon and libraries for storing
+      and retrieving configuration data.  GConf is discussed in 
+      <link xref="core-tech#gconf"/>.</p>
+    </item>
+    <item>
+      <title>ORBit</title>
+      <p>ORBit is a deprecated CORBA server.  GNOME's deprecated
       component architecture, Bonobo, is built on top of CORBA.  CORBA is
-      discussed in <xref linkend="bonobo-corba"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>atk</term>
-      <listitem><para>ATK provides the set of accessibility interfaces that
+      discussed in <link xref="ipc-network#bonobo-corba"/>.</p>
+    </item>
+    <item>
+      <title>atk</title>
+      <p>ATK provides the set of accessibility interfaces that
       are implemented by other toolkits and applications.  Using the ATK
       interfaces, accessibility tools have full access to view and control
-      running applications.  ATK is discussed in <xref linkend="a11y"/>.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gail</term>
-      <listitem><para>GAIL provides an implementation of the ATK interfaces for
+      running applications.  ATK is discussed in <link xref="core-tech#a11y"/>.</p>
+      
+    </item>
+    <item>
+      <title>gail</title>
+      <p>GAIL provides an implementation of the ATK interfaces for
       GTK+ and GNOME libraries, allowing accessibility tools to interact with
       applications written using these libraries.  In 2009 GAIL was moved into
-      GTK+.  Accessibility is discussed in <xref linkend="a11y"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gio</term>
-      <listitem><para>A part of GLib, the GIO library provides a high-level
+      GTK+.  Accessibility is discussed in <link xref="core-tech#a11y"/>.</p>
+    </item>
+    <item>
+      <title>gio</title>
+      <p>A part of GLib, the GIO library provides a high-level
       API for accessing files and folders.  Together with the GVFS library,
       it provides a file system abstraction that allows transparent access
       to local and remote files.  GIO is discussed in
-      <xref linkend="gio"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>glib</term>
-      <listitem><para>GLib provides the core application building blocks for
+      <link xref="core-tech#gio"/>.</p>
+    </item>
+    <item>
+      <title>glib</title>
+      <p>GLib provides the core application building blocks for
       libraries and applications written in C.  It provides the core object
       system used in GNOME, the main loop implementation, and a large set of
-      utility functions for strings and common data structures.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gnome-vfs</term>
-      <listitem><para>GnomeVFS is a deprecated library for accessing files and
+      utility functions for strings and common data structures.</p>
+    </item>
+    <item>
+      <title>gnome-vfs</title>
+      <p>GnomeVFS is a deprecated library for accessing files and
       folders.  It is superseded by GIO and GVFS.  Newly written code should
-      use GIO instead.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gtk+</term>
-      <listitem><para>GTK+ is the primary library used to construct user
+      use GIO instead.</p>
+    </item>
+    <item>
+      <title>gtk+</title>
+      <p>GTK+ is the primary library used to construct user
       interfaces in GNOME applications.  It provides user interface controls
       and signal callbacks to control user interfaces.  GTK+ is discussed in
-      <xref linkend="gtk"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gvfs</term>
-      <listitem><para>GVFS provides a backend implementation for GIO, allowing
+      <link xref="core-tech#gtk"/>.</p>
+    </item>
+    <item>
+      <title>gvfs</title>
+      <p>GVFS provides a backend implementation for GIO, allowing
       access to numerous protocols with the GIO API.  Developers do not access
       GVFS directly.  Instead, applications written with GIO will automatically
-      use GVFS on systems where it is enabled.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libIDL</term>
-      <listitem><para>libIDL is a deprecated library for parsing Interface Definition
+      use GVFS on systems where it is enabled.</p>
+    </item>
+    <item>
+      <title>libIDL</title>
+      <p>libIDL is a deprecated library for parsing Interface Definition
       Language (IDL) files, which are necessary for CORBA interfaces.  libIDL
       is used by GNOME's deprecated CORBA implementation, ORBit.  CORBA is discussed in
-      <xref linkend="bonobo-corba"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libart_lgpl</term>
-      <listitem><para>libart is a deprecated graphics library which can render 
+      <link xref="ipc-network#bonobo-corba"/>.</p>
+    </item>
+    <item>
+      <title>libart_lgpl</title>
+      <p>libart is a deprecated graphics library which can render 
       vector paths.  It is used by the GnomeCanvas widget.  Newly written code
       should not use libart_lgpl and instead use Cairo and/or other 
-      technologies.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libbonobo</term>
-      <listitem><para>Bonobo is a deprecated framework for creating reusable components
+      technologies.</p>
+    </item>
+    <item>
+      <title>libbonobo</title>
+      <p>Bonobo is a deprecated framework for creating reusable components
       for use in GNOME applications, built on top of CORBA.  Bonobo is
-      discussed in <xref linkend="bonobo-corba"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libbonoboui</term>
-      <listitem><para>The deprecated Bonobo UI library provides a number of user interface
+      discussed in <link xref="ipc-network#bonobo-corba"/>.</p>
+    </item>
+    <item>
+      <title>libbonoboui</title>
+      <p>The deprecated Bonobo UI library provides a number of user interface
       controls using the Bonobo component framework.  Bonobo is discussed in
-      <xref linkend="bonobo-corba"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libglade</term>
-      <listitem><para>Libglade is a deprecated library for constructing user interfaces
+      <link xref="ipc-network#bonobo-corba"/>.</p>
+    </item>
+    <item>
+      <title>libglade</title>
+      <p>Libglade is a deprecated library for constructing user interfaces
       dynamically from XML descriptions. Libglade has been deprecated in favor
-      of <ulink url="http://library.gnome.org/devel/gtk/stable/GtkBuilder.html">GtkBuilder</ulink>.
+      of <link href="http://library.gnome.org/devel/gtk/stable/GtkBuilder.html">GtkBuilder</link>.
       Libglade allows programmers to
       construct their user interfaces using a graphical interface builder
       application, and then import those interface definitions.  Libglade
-      is discussed in <xref linkend="libglade"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgnome</term>
-      <listitem><para>The deprecated libgnome library provides a number of useful routines
+      is discussed in <link xref="core-tech#libglade"/>.</p>
+    </item>
+    <item>
+      <title>libgnome</title>
+      <p>The deprecated libgnome library provides a number of useful routines
       for building modern applications, including session management, activation
-      of files and URIs, and displaying help.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgnomecanvas</term>
-      <listitem><para>The GnomeCanvas widget provides a flexible widget for
-      creating interactive structured graphics.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgnomeui</term>
-      <listitem><para>The deprecated libgnomeui library provides additional widgets for
+      of files and URIs, and displaying help.</p>
+    </item>
+    <item>
+      <title>libgnomecanvas</title>
+      <p>The GnomeCanvas widget provides a flexible widget for
+      creating interactive structured graphics.</p>
+    </item>
+    <item>
+      <title>libgnomeui</title>
+      <p>The deprecated libgnomeui library provides additional widgets for
       applications.  Many of the widgets from libgnomeui have already been
-      ported to GTK+.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libxml2</term>
-      <listitem><para>The libxml2 library provides a number of APIs for working
+      ported to GTK+.</p>
+    </item>
+    <item>
+      <title>libxml2</title>
+      <p>The libxml2 library provides a number of APIs for working
       with XML in a standards-compliant manner.  The libxml2 library is
-      discussed in <xref linkend="libxml2"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libxslt</term>
-      <listitem><para>The libxslt library provides a fast and complete
+      discussed in <link xref="ipc-network#libxml2"/>.</p>
+    </item>
+    <item>
+      <title>libxslt</title>
+      <p>The libxslt library provides a fast and complete
       implementation of XSLT, a language for transforming XML.  The libxslt
-      library is discussed in <xref linkend="libxslt"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>pango</term>
-      <listitem><para>Pango is the core text and font handling library used
+      library is discussed in <link xref="ipc-network#libxslt"/>.</p>
+    </item>
+    <item>
+      <title>pango</title>
+      <p>Pango is the core text and font handling library used
       in GNOME applications.  It has extensive support for the different
       writing systems used throughout the world.  Pango is discussed in
-      <xref linkend="pango"/>.</para></listitem>
-    </varlistentry>
-  </variablelist>
+      <link xref="core-tech#pango"/>.</p>
+    </item>
+  </terms>
 </section>
 
 <section id="apx-modules-desktop">
   <title>Desktop Modules</title>
 
-  <para>Modules in the GNOME desktop are not required to make the same
+  <p>Modules in the GNOME desktop are not required to make the same
   API and ABI stability guarantees as modules in the platform, although
   attempts are made to keep them relatively stable.  Often, modules are
   introduced in the desktop release to mature, and are moved into the
-  platform once they've stabilized.</para>
+  platform once they've stabilized.</p>
 
-  <variablelist>
-    <varlistentry>
-      <term>eel</term>
-      <listitem><para>The eel library provides a number of additional widgets
-      primarily for use inside <application>Nautilus</application>, the GNOME
+  <terms>
+    <item>
+      <title>eel</title>
+      <p>The eel library provides a number of additional widgets
+      primarily for use inside <app>Nautilus</app>, the GNOME
       file manager.  Many of the widgets in eel have since been provided in
-      GTK+.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>evolution-data-server</term>
-      <listitem><para>Evolution Data Server provides a unified location for
+      GTK+.</p>
+    </item>
+    <item>
+      <title>evolution-data-server</title>
+      <p>Evolution Data Server provides a unified location for
       address book and calendar information, allowing multiple applications
       to share the same data.  Evolution Data Server is discussed in
-      <xref linkend="address-book-calendar"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gnome-panel</term>
-      <listitem><para>In addition to the actual panel, the gnome-panel package
+      <link xref="desktop-tech#address-book-calendar"/>.</p>
+    </item>
+    <item>
+      <title>gnome-panel</title>
+      <p>In addition to the actual panel, the gnome-panel package
       provides the libraries used to construct panel applets to run on the
-      user's panel.  Panel applets are discussed in <xref
-      linkend="panel-applets"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gnome-keyring</term>
-      <listitem><para>The GNOME keyring manager provides a modern and secure
+      user's panel.  Panel applets are discussed in 
+      <link xref="desktop-tech#panel-applets"/>.</p>
+    </item>
+    <item>
+      <title>gnome-keyring</title>
+      <p>The GNOME keyring manager provides a modern and secure
       means of storing users' passwords and other sensitive data.  Keys are
       encrypted and can only be accessed by explicit user permission.  The
-      keyring manager is discussed in <xref linkend="keyring"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gstreamer</term>
-      <listitem><para>GStreamer is the powerful multimedia used throughout GNOME
+      keyring manager is discussed in <link xref="desktop-tech#keyring"/>.</p>
+    </item>
+    <item>
+      <title>gstreamer</title>
+      <p>GStreamer is the powerful multimedia used throughout GNOME
       to play, create, and manipulate sound and video.  GStreamer is discussed
-      in <xref linkend="multimedia"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gtkhtml</term>
-      <listitem><para>The gtkhtml library provides a lightweight HTML renderer
+      in <link xref="core-tech#multimedia"/>.</p>
+    </item>
+    <item>
+      <title>gtkhtml</title>
+      <p>The gtkhtml library provides a lightweight HTML renderer
       with full support for rich text editing.  It is used inside the
-      <application>Evolution</application> mailer to allow users to compose
-      and read HTML email.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>gtksourceview</term>
-      <listitem><para>The gtksourceview library provides an extension of the
+      <app>Evolution</app> mailer to allow users to compose
+      and read HTML email.</p>
+    </item>
+    <item>
+      <title>gtksourceview</title>
+      <p>The gtksourceview library provides an extension of the
       GtkTextView widget with support for automatic syntax highlighting and
       other functions that are useful for source code editors.  It is used in
-      the <application>gedit</application> text editor.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgail-gnome</term>
-      <listitem><para>GAIL provides an implementation of the ATK interfaces for
+      the <app>gedit</app> text editor.</p>
+    </item>
+    <item>
+      <title>libgail-gnome</title>
+      <p>GAIL provides an implementation of the ATK interfaces for
       GTK+ and GNOME libraries, allowing accessibility tools to interact with
       applications written using these libraries.  Accessibility is discussed
-      in <xref linkend="a11y"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgnomeprint</term>
-      <listitem><para>libgnomeprint is a deprecated library that provides an 
-      implementation of the PostScript imaging model.  It is superseded by <ulink
-      url="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</ulink>.
+      in <link xref="core-tech#a11y"/>.</p>
+    </item>
+    <item>
+      <title>libgnomeprint</title>
+      <p>libgnomeprint is a deprecated library that provides an 
+      implementation of the PostScript imaging model.  It is superseded by <link
+      href="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</link>.
       Newly written code should use GtkPrint instead.
-      The GNOME print framework is discussed in <xref
-      linkend="gnomeprint"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgnomeprintui</term>
-      <listitem><para>libgnomeprintui is a deprecated library that provides a 
+      The GNOME print framework is discussed in <link xref="core-tech#gnomeprint"/>.</p>
+    </item>
+    <item>
+      <title>libgnomeprintui</title>
+      <p>libgnomeprintui is a deprecated library that provides a 
       standard print dialog, a print preview dialog, and various other controls 
-      required for printing.  It is superseded by <ulink
-      url="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</ulink>.
-      The GNOME print framework is discussed in <xref
-      linkend="gnomeprint"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libgtop</term>
-      <listitem><para>The libgtop library provides a portable API for obtaining
-      information about running processes.  It is used in the <application>System
-      Monitor</application> application.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>librsvg</term>
-      <listitem><para>The librsvg library provides an implementation of
+      required for printing.  It is superseded by <link
+      href="http://library.gnome.org/devel/gtk/stable/Printing.html">GtkPrint</link>.
+      The GNOME print framework is discussed in <link xref="core-tech#gnomeprint"/>.</p>
+    </item>
+    <item>
+      <title>libgtop</title>
+      <p>The libgtop library provides a portable API for obtaining
+      information about running processes.  It is used in the <app>System
+      Monitor</app> application.</p>
+    </item>
+    <item>
+      <title>librsvg</title>
+      <p>The librsvg library provides an implementation of
       Scalable Vector Graphics (SVG).  It is used throughout the desktop
-      to render resolution-independent vector graphics.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libsoup</term>
-      <listitem><para>The libsoup library provides an implementation of the Simple
+      to render resolution-independent vector graphics.</p>
+    </item>
+    <item>
+      <title>libsoup</title>
+      <p>The libsoup library provides an implementation of the Simple
       Object Access Protocol (SOAP), as well as an HTTP implementation.  SOAP can
       be used to build web services into applications.  The libsoup library is
-      discussed in <xref linkend="libsoup"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libwnck</term>
-      <listitem><para>The libwnck library provides a means of controlling any
-      EWMH-compliant window manager, including <application>Metacity</application>,
+      discussed in <link xref="ipc-network#libsoup"/>.</p>
+    </item>
+    <item>
+      <title>libwnck</title>
+      <p>The libwnck library provides a means of controlling any
+      EWMH-compliant window manager, including <app>Metacity</app>,
       the GNOME default window manager.  The libwnck library is discussed in
-      <xref linkend="window-manager"/>.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>libxklavier</term>
-      <listitem><para>The libxklavier library provides a high-level API for
+      <link xref="desktop-tech#window-manager"/>.</p>
+    </item>
+    <item>
+      <title>libxklavier</title>
+      <p>The libxklavier library provides a high-level API for
       accessing and setting keyboard layouts.  It is used in the
-      <application>Keyboard Preferences</application> to allow users to set
-      their keyboard layout and options.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>vte</term>
-      <listitem><para>VTE is a terminal emulator widget for use in GTK+
+      <app>Keyboard Preferences</app> to allow users to set
+      their keyboard layout and options.</p>
+    </item>
+    <item>
+      <title>vte</title>
+      <p>VTE is a terminal emulator widget for use in GTK+
       applications.  It provides a consistent API and uses Pango for text
       drawing, allowing it to display all internationalized text.  VTE
-      is used in GNOME's <application>Terminal</application> application.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+      is used in GNOME's <app>Terminal</app> application.</p>
+      
+    </item>
+  </terms>
 </section>
 
-</appendix>
+</page>
