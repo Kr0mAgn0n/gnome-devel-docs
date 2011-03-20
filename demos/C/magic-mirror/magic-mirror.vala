@@ -7,10 +7,7 @@ public class Main : Object
 	private Gtk.DrawingArea drawing_area;
 	private Gst.Element camerabin;
 	
-	public Main () {
-		this.drawing_area = new Gtk.DrawingArea ();
-		this.drawing_area.set_size_request (640, 480);
-		
+	public Main () {		
 		this.camerabin = Gst.ElementFactory.make ("camerabin", "camera");
 		this.camerabin.set_state (Gst.State.PLAYING);
 	}
