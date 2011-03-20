@@ -1,16 +1,17 @@
 include $(top_srcdir)/gnome-doc-utils.make
 dist-hook: doc-dist-hook
 
-DOC_MODULE = platform-overview
+DOC_ID = platform-overview
 DOC_INCLUDES =			\
-	apx-modules.xml		\
-	bindings.xml		\
-	core-tech.xml		\
-	desktop-tech.xml	\
-	intro.xml		\
-	ipc-network.xml		\
-	legal-fdl.xml		\
-	platform.xml
+	apx-modules.page	\
+	bindings.page		\
+	core-tech.page		\
+	desktop-tech.page	\
+	introduction.page	\
+	ipc-network.page	\
+	cc-by-sa-3-0.xml	\
+	platform.page		\
+	index.page
 DOC_FIGURES =			\
 	figures/graphics.png	\
 	figures/i18n.png	\
