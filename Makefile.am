@@ -1,9 +1,6 @@
 SUBDIRS =				\
 	accessibility-devel-guide	\
-	articles			\
-	demos				\
-	gdp-handbook			\
-	gdp-style-guide			\
+	platform-demos			\
 	hig				\
 	integration-guide		\
 	optimization-guide		\
