@@ -4,6 +4,22 @@ DOC_ID = gnome-devel-demos
 
 DOC_LINGUAS =
 
+demo_sources = \ 
+	guitar-tuner/guitar-tuner.c \
+	guitar-tuner/guitar-tuner.cc \
+	guitar-tuner/guitar-tuner.py \
+	guitar-tuner/guitar-tuner.vala \
+	image-viewer/image-viewer.c \
+	image-viewer/image-viewer.cc \
+	image-viewer/image-viewer.py \
+	image-viewer/image-viewer.js \
+	magic-mirror/magic-mirror.vala \
+	magic-mirror/maigc-mirror-advanced.vala \
+	message-board/message-board.c \
+	photo-wall/photo-wall.c \
+	record-collection/record-collection.js
+	
+
 DOC_FIGURES = \
 	media/ubuntu.png			\
 	media/fedora.png			\
@@ -14,12 +30,13 @@ DOC_FIGURES = \
 	media/image-viewer.png			\
 	media/photo-wall.png			\
 	media/photo-wall-zoomed.png		\
-	media/record-collection.png
+	media/record-collection.png		\
+	$(demo_sources)
 
 DOC_ENTITIES =
 
 DOC_PAGES =			\
-	getting-started.page
+	getting-ready.page
 	guitar-tuner.c.page	\
 	guitar-tuner.cpp.page   \
 	guitar-tuner.py.page    \
