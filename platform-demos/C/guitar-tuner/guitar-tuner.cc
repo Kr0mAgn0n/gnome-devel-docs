@@ -1,19 +1,16 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
+/* -*- Mode: C++; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 
 #include <gtkmm.h>
 #include <iostream>
 #include <gstreamermm.h>
 
-
 #ifdef ENABLE_NLS
 #  include <libintl.h>
 #endif
 
-
-
-/* For testing propose use the local (not installed) ui file */
+/* For testing purposes, use the local (not installed) ui file */
 /* #define UI_FILE PACKAGE_DATA_DIR"/guitar_tuner_cpp/ui/guitar_tuner_cpp.ui" */
-#define UI_FILE "src/guitar_tuner_cpp.ui"
+#define UI_FILE "src/guitar_tuner.ui"
 
 class Sound
 {
@@ -69,7 +66,7 @@ main(int argc, char *argv[])
 	Gtk::Main kit(argc, argv);
 	Gst::init (argc, argv);
 	
-	//Load the Glade file and instiate its widgets:
+	// Load the Glade file and instantiate its widgets:
 	Glib::RefPtr<Gtk::Builder> builder;
 	try
 	{
@@ -90,19 +87,19 @@ main(int argc, char *argv[])
 	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              369.23, &sound));
 	builder->get_widget("button_A", button);
-	button->signal_clicked().connect (sigc::bind<double>(sigc::ptr_fun(&on_button_clicked),
+	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              440, &sound));
 	builder->get_widget("button_D", button);
-	button->signal_clicked().connect (sigc::bind<double>(sigc::ptr_fun(&on_button_clicked),
+	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              587.33, &sound));
 	builder->get_widget("button_G", button);
-	button->signal_clicked().connect (sigc::bind<double>(sigc::ptr_fun(&on_button_clicked),
+	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              783.99, &sound));
 	builder->get_widget("button_B", button);
-	button->signal_clicked().connect (sigc::bind<double>(sigc::ptr_fun(&on_button_clicked),
+	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              987.77, &sound));
 	builder->get_widget("button_e", button);
-	button->signal_clicked().connect (sigc::bind<double>(sigc::ptr_fun(&on_button_clicked),
+	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              1318.5, &sound));
 	
 	if (main_win)

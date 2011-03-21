@@ -84,7 +84,6 @@ public class Main : Object
 
 		time.set_callback(() => {
 			pipeline.set_state (Gst.State.PAUSED);
-			pipeline.unref();
 		    return false;
 		});
 
@@ -92,8 +91,8 @@ public class Main : Object
 	}
 		
 	static int main (string[] args) {
-		Gtk.init (ref args);
 		Gst.init (ref args);
+		Gtk.init (ref args);
 		var app = new Main ();
 
 		Gtk.main ();
