@@ -17,7 +17,12 @@ DOC_ENTITIES =
 
 DOC_PAGES =			\
 	guitar-tuner.c.page	\
+	guitar-tuner.cpp.page   \
+	guitar-tuner.py.page    \
+	guitar-tuner.vala.page  \
 	image-viewer.c.page	\
+	image-viewer.cpp.page   \
+	image-viewer.py.page    \
 	image-viewer.js.page	\
 	magic-mirror.vala.page	\
 	message-board.c.page	\
