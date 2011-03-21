@@ -36,7 +36,7 @@ DOC_FIGURES = \
 DOC_ENTITIES =
 
 DOC_PAGES =			\
-	getting-ready.page
+	getting-ready.page	\
 	guitar-tuner.c.page	\
 	guitar-tuner.cpp.page   \
 	guitar-tuner.py.page    \
