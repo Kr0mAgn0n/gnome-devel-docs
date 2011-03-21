@@ -47,7 +47,7 @@ create_window (void)
 	GtkWidget *image;
 	GtkWidget *box;
 
-	/* Setup the UI */
+	/* Set up the UI */
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title (GTK_WINDOW (window), "image-viewer-c");
 

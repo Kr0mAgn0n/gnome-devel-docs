@@ -23,7 +23,7 @@
 <synopsis>
   <p>In this tutorial, you will learn:</p>
   <list>
-    <item><p>Some basic concepts of the C/GObject programming</p></item>
+    <item><p>Some basic concepts of C/GObject programming</p></item>
     <item><p>How to write a Gtk application in C</p></item>
   </list>
 </synopsis>
@@ -38,15 +38,15 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will
     create the UI manually in this tutorial. Check the <link xref="guitar-tuner.c">Guitar-Tuner</link>
-    tutorial using the interface builder.</p>
+    tutorial if you want to learn how to use the interface builder.</p>
     </item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <p>Click <gui>Apply</gui> and the project will be created for you. Open <file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
     <code mime="text/x-csrc"><![CDATA[
 #include <config.h>
 #include <gtk/gtk.h>]]></code>
@@ -63,26 +63,26 @@
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtk</code> (user interface) and <code>gi18n</code> (internationalization) libraries. Functions from these libraries are used in the rest of the code.</p>
    </item>
    <item>
-    <p>The <code>create_window</code> function creates a new (empty) and connects a signal to exit the application when that window is closed.</p>
+    <p>The <code>create_window</code> function creates a new (empty) window and connects a signal to exit the application when that window is closed.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
    </item>
    <item>
-    <p>The <code>main</code> function is run by default when you start a C application. It calls a few functions which set-up and then run the application. The <code>gtk_main</code> function start the GTK mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>The <code>main</code> function is run by default when you start a C application. It calls a few functions which set up and then run the application. The <code>gtk_main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
    <item>
-    <p>The <code>ENABLE_NLS</code> conditional definition sets-up <code>gettext</code>, which is a framework for translating applications. These functions specify how translation tools should handle your app when you run them.</p>
+    <p>The <code>ENABLE_NLS</code> conditional definition sets up <code>gettext</code>, which is a framework for translating applications. These functions specify how translation tools should handle your app when you run them.</p>
    </item>
   </list>
 
   <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
-  <p>Press <gui>Configure</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
+  <p>Press <gui>Execute</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
 </section>
 
 <section>
 <title>Creating the user interface</title>
-<p>Now we will bring live into the empty window. <em>Gtk+</em> organizes the user interface
-with <em>GtkContainer</em> that can contain other widgets and even other containers. Here we
-will use the simplest available container, a <em>GtkBox</em>:</p>
+<p>Now we will bring life into the empty window. GTK organizes the user interface
+with <code>GtkContainer</code>s that can contain other widgets and even other containers. Here we
+will use the simplest available container, a <code>GtkBox</code>:</p>
 <code mime="text/x-csrc"><![CDATA[
 static GtkWidget*
 create_window (void)
@@ -92,7 +92,7 @@ create_window (void)
 	GtkWidget *image;
 	GtkWidget *box;
 
-	/* Setup the UI */
+	/* Set up the UI */
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title (GTK_WINDOW (window), "image-viewer-c");
 
@@ -118,21 +118,20 @@ create_window (void)
 ]]></code>
   <steps>
     <item>
-    <p>The first lines create the widgets we want to use, a button for opening up an image, the image view widget itself and
-    the box we will use at container. The macros like <code>GTK_BOX()</code> are used for dynamic type checking and casting
+    <p>The first lines create the widgets we want to use: a button for opening up an image, the image view widget itself and
+    the box we will use as a container. The macros like <code>GTK_BOX</code> are used for dynamic type checking and casting
     which is needed as C doesn't support object-orientation out-of-the-box.</p>
     </item>
     <item>
-    <p>The calls to <code>gtk_box_pack_start()</code> add the two widgets to the box and define their behaviour. The image will
-    expand to any available space while the button will just be as big as needed. You will notice that we don't set
-    explicit sizes on the widgets. In <em>GTK+</em> this is usually not needed at makes it much easier to have a layout that
+    <p>The calls to <code>gtk_box_pack_start</code> add the two widgets to the box and define their behaviour. The image will
+    expand into any available space while the button will just be as big as needed. You will notice that we don't set
+    explicit sizes on the widgets. In GTK this is usually not needed as it makes it much easier to have a layout that
     looks good in different window sizes. Next, the box is added to the window.</p>
     </item>
     <item>
-    <p>>We need to define what happens when the user clicks on the button. <em>Gtk+</em> uses the concept of <em>signals</em> and
-    the buttons fires the <em>clicked</em> signal that we can connect to some action. This is done using the <code>g_signal_connect()</code>
-    method which tells <em>Gtk+</em> to call the <code>on_image_open</code> when the button is clicked and
-    to pass the image as additional argument to that function. We will define the <em>callback</em> in the next section.</p>
+    <p>We need to define what happens when the user clicks on the button. GTK uses the concept of <em>signals</em>. When the button is clicked, it fires the <em>clicked</em> signal, which we can connect to some action. This is done using the <code>g_signal_connect</code>
+    function which tells GTK to call the <code>on_image_open</code> function when the button is clicked and
+    to pass the image as an additional argument to that function. We will define the <em>callback</em> in the next section.</p>
     </item>
     <item>
     <p>The last <code>g_signal_connect()</code> makes sure that the application exits when the window is closed.</p>
@@ -146,7 +145,7 @@ create_window (void)
 
 <section>
 <title>Showing the image</title>
-<p>We will now define the signal handler for the <em>click</em>-signal or the 
+<p>We will now define the signal handler for the <em>clicked</em> signal or the 
 button we mentioned before. Add this code before the <code>create_window()</code>
 method.</p>
 <code mime="text/x-csrc"><![CDATA[
@@ -184,23 +183,23 @@ on_open_image (GtkButton* button, gpointer user_data)
 ]]></code>
   <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
   <list>
-    <item><p>The first argument of the signal is always the widget that send the signal, then several 
-    other arguments related to the signal could come but <em>clicked</em> doesn't have any. Next is
-    the <code>user_data</code> argumemt which is a pointer to the data we passed when connecting the signal.
-    In this case it is our<em>GtkImage</em> object.</p>
+    <item><p>The first argument of the signal is always the widget that sent the signal. Sometimes 
+    other arguments related to the signal come after that, but <em>clicked</em> doesn't have any. Next is
+    the <code>user_data</code> argument which is a pointer to the data we passed when connecting the signal.
+    In this case it is our <code>GtkImage</code> object.</p>
     </item> 
     <item>
       <p>The next interesting line is where the dialog for choosing the file is created using
-      <code>gtk_file_chooser_dialog_new()</code>. The function takes the title of the dialog, the
+      <code>gtk_file_chooser_dialog_new</code>. The function takes the title of the dialog, the
       parent window of the dialog and several options like the number of buttons and their corresponding
       values.</p>
     <p>Notice that we are using <em>stock</em> button names from Gtk, instead of manually typing "Cancel" or "Open". The advantage of using stock names is that the button labels will already be translated into the user's language.</p>
     </item>
     <item>
-    <p>The next two lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. A filter object is created first; we then add all kinds of files supported by GtkPixbuf (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
+    <p>The next two lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. A filter object is created first; we then add all kinds of files supported by <code>GdkPixbuf</code> (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
     </item>
     <item>
-    <p><code>gtk_dialog_run ()</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>gtk_dialog_run ()</code> will return the value <code>GTK_RESPONSE_ACCEPT</code> (it would return <code>GTK_RESPONSE_CANCEL</code> if the user clicked <gui>Cancel</gui>). The <code>switch</code> statement tests for this.</p>
+    <p><code>gtk_dialog_run</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>gtk_dialog_run</code> will return the value <code>GTK_RESPONSE_ACCEPT</code> (it would return <code>GTK_RESPONSE_CANCEL</code> if the user clicked <gui>Cancel</gui>). The <code>switch</code> statement tests for this.</p>
     </item>
     <item><p>Assuming that the user did click <gui>Open</gui>, the next line sets the <code>file</code> property of the GtkImage to the filename of the image selected by the user. The GtkImage will then load and display the chosen image.</p>
     </item>
@@ -213,7 +212,7 @@ on_open_image (GtkButton* button, gpointer user_data)
 
 <section>
   <title>Build and run the application</title>
-  <p>All of the code should now be ready to go. Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application.</p>
+  <p>All of the code should now be ready to go. Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
   <p>If you haven't already done so, choose the <file>Debug/src/image-viewer</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
