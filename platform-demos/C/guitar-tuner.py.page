@@ -61,17 +61,17 @@ import os, sys]]></code>
   
   <list>
   <item>
-    <p>The <code>import</code> lines at the top include the tell python to load the user interface and system
+    <p>The <code>import</code> lines at the top include the tell Python to load the user interface and system
 libraries needed.</p>
    </item>
    <item>
     <p>A class is declared that will be the main class for our application. In the <code>__init()</code> method
-	the main window is loaded from the GtkBuilder file (<file>src/guitar-tuner.ui</file>) and connects the
-	signals.</p>
+	the main window is loaded from the GtkBuilder file (<file>src/guitar-tuner.ui</file>) and the
+	signals are connected.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> method is called (and quits the app) when you close the window.</p>
    </item>
    <item>
-    <p>The <code>main</code> function is run by default when you start a python application. It just creates 
+    <p>The <code>main</code> function is run by default when you start a Python application. It just creates 
 	an instance of the main class and starts the main loop to bring up the window.</p>
    </item>
   </list>
@@ -119,7 +119,7 @@ six strings) and the orientation to vertical.</p>
 	def on_button_clicked (button, self):
 ]]></code>
 
-  <p>This signal handler has two arguments: the <code>GtkButton</code> that called the function the usual python class pointer</p>
+  <p>This signal handler has two arguments: the <code>GtkButton</code> that called the function, and the usual Python class pointer.</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
@@ -143,19 +143,19 @@ six strings) and the orientation to vertical.</p>
      is done in the <code>main()</code> method with this call added above the <code>app = GUI()</code>
      line:</p>
   <code mime="test/x-python"><![CDATA[Gst.init_check(sys.argv)]]></code>
-  <p>Then, copy the following function into the main class in the <file>guitar_tuner.py</file> somewhere:</p>
+  <p>Then, copy the following function into the main class in <file>guitar_tuner.py</file> somewhere:</p>
   <code mime="test/x-python"><![CDATA[
-	def play_sound(self, frequency):
-	  pipeline = Gst.Pipeline(name='note')
-	  source = Gst.ElementFactory.make('audiotestsrc', 'src')
-	  sink = Gst.ElementFactory.make('autoaudiosink', 'output')
-	  
-	  source.set_property('freq', frequency)
-	  pipeline.add(source)
-	  pipeline.add(sink)
-	  pipeline.set_state(Gst.State.PLAYING)
-	  
-	  GObject.timeout_add(self.LENGTH, self.pipeline_stop, pipeline)]]></code>  
+def play_sound(self, frequency):
+	pipeline = Gst.Pipeline(name='note')
+	source = Gst.ElementFactory.make('audiotestsrc', 'src')
+	sink = Gst.ElementFactory.make('autoaudiosink', 'output')
+
+	source.set_property('freq', frequency)
+	pipeline.add(source)
+	pipeline.add(sink)
+	pipeline.set_state(Gst.State.PLAYING)
+
+	GObject.timeout_add(self.LENGTH, self.pipeline_stop, pipeline)]]></code>  
   <steps>
     <item>
     <p>The first three lines create source and sink GStreamer elements and a pipeline element (which will be used as a container for the other two elements). The pipeline is given the name "note"; the source is named "source" and is set to the <code>audiotestsrc</code> source; and the sink is named "output" and set to the <code>autoaudiosink</code> sink (default sound card output).</p>
@@ -178,32 +178,32 @@ six strings) and the orientation to vertical.</p>
   <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to call <code>GObject.timeout_add</code>. This sets a timeout for stopping the sound; it waits for <code>LENGTH</code> milliseconds before calling the function <code>pipeline_stop</code>, and will keep calling it until <code>pipeline_stop</code> returns <code>False</code>.</p>
   <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>GObject.timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
   <code mime="test/x-python"><![CDATA[
-	def pipeline_stop(self, pipeline):
-	  pipeline.set_state(Gst.State.PAUSED)
-	  return False
+def pipeline_stop(self, pipeline):
+	pipeline.set_state(Gst.State.PAUSED)
+	return False
 ]]></code>
-  <p>You need to define the <code>LENGTH</code> constant inside the class so add this code at the beginning of the
+  <p>You need to define the <code>LENGTH</code> constant inside the class, so add this code at the beginning of the
 main class:</p>
   <code mime="test/x-python"><![CDATA[
-	LENGTH = 500
+LENGTH = 500
 ]]></code>
   <p>The call to <code>pipeline.set_state</code> pauses the playback of the pipeline.</p>
 </section>
 
 <section>
   <title>Define the tones</title>
-  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the beginning of the main class) inside a hashtable so 
-we can easily map them to the name of the strings:</p>
+  <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the beginning of the main class) inside a dictionary so 
+we can easily map them to the names of the strings:</p>
   <code mime="test/x-python"><![CDATA[
 # Frequencies of the strings
-	frequencies = {
-		'E': 369.23,
-		'A': 440,
-		'D': 587.33,
-		'G': 783.99,
-		'B': 987.77,
-		'e': 1318.5
-	}
+frequencies = {
+	'E': 369.23,
+	'A': 440,
+	'D': 587.33,
+	'G': 783.99,
+	'B': 987.77,
+	'e': 1318.5
+}
 ]]></code>
   <p>Now to flesh out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure out which button was clicked:</p>
   <code mime="test/x-python"><![CDATA[
@@ -214,7 +214,7 @@ def on_button_clicked(self, button):
 	self.play_sound (self.frequencies[text])
 ]]></code>
   <p>The button that was clicked is passed as an argument (<code>button</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>button.get_child</code>, and then get the text from that label using <code>label.get_label</code>.</p>
-  <p>The label text is then used as key for the hashtable and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
+  <p>The label text is then used as a key for the dictionary and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
 <section>
@@ -236,7 +236,7 @@ def on_button_clicked(self, button):
    </item>
    <item>
    <p>Make the program play recordings of real guitar strings being plucked.</p>
-   <p>To do this, you would need to set up a more complicated GStreamer pipeline which allows you to load and play back music files. You'll have to choose <link href="http://gstreamer.freedesktop.org/documentation/plugins.html">decoder and demuxer</link> GStreamer elements based on the file format of your recorded sounds - MP3s use different elements to Ogg Vorbis files, for example.</p>
+   <p>To do this, you would need to set up a more complicated GStreamer pipeline which allows you to load and play back music files. You'll have to choose <link href="http://gstreamer.freedesktop.org/documentation/plugins.html">decoder and demuxer</link> GStreamer elements based on the file format of your recorded sounds &#x2014; MP3s use different elements to Ogg Vorbis files, for example.</p>
    <p>You might need to connect the elements in more complicated ways too. This could involve using <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/chapter-intro-basics.html">GStreamer concepts</link> that we didn't cover in this tutorial, such as <link href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/manual/html/section-intro-basics-pads.html">pads</link>. You may also find the <cmd>gst-inspect</cmd> command useful.</p>
    </item>
    <item>
