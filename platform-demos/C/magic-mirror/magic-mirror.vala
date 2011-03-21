@@ -4,7 +4,6 @@ using Gtk;
 
 public class Main : Object 
 {
-	private Gtk.DrawingArea drawing_area;
 	private Gst.Element camerabin;
 	
 	public Main () {		

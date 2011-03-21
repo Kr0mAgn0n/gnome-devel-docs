@@ -29,8 +29,8 @@ DOC_FIGURES = \
 	media/guitar-tuner-pipeline.png		\
 	media/image-viewer.png			\
 	media/photo-wall.png			\
-	media/photo-wall-zoomed.png		\
 	media/record-collection.png		\
+	media/magic-mirror.png			\
 	$(demo_sources)
 
 DOC_ENTITIES =
