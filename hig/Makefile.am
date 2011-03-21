@@ -10,6 +10,7 @@ DOC_ENTITIES =			\
 	hig-ch-credits.xml	\
 	hig-ch-desktop.xml	\
 	hig-ch-feedback.xml	\
+	hig-ch-gnome3.xml	\
 	hig-ch-icons-new.xml	\
 	hig-ch-icons.xml	\
 	hig-ch-input.xml	\
