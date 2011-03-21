@@ -68,11 +68,11 @@ using Gtk;]]></code>
     <p>The two <code>using</code> lines import namespaces so we don't have to name them explicitly.</p>
    </item>
    <item>
-    <p>The constructor of the <code>Main</code> clss creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
+    <p>The constructor of the <code>Main</code> class creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
    </item>
    <item>
-    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set up and then run the application. The <code>Gtk.Main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set up and then run the application. The <code>Gtk.main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
   </list>
 
@@ -121,8 +121,8 @@ six strings) and the orientation to vertical.</p>
 public void on_button_clicked (Gtk.Button sender) {
 
 }]]></code>
-  <p>This signal handler has only one arguments: the <code>Gtk.Widget</code> that called the function (in our case, always a <code>Gtk.Button</code>). The additonal <code>[CCode (instance_pos=-1)]</code> tell the compiler that this is a signal handler
-that need special treating while linking to be found at runtime.</p>
+  <p>This signal handler has only one argument: the <code>Gtk.Widget</code> that called the function (in our case, always a <code>Gtk.Button</code>). The additonal <code>[CCode (instance_pos=-1)]</code> tells the compiler that this is a signal handler
+that needs special treating while linking in order to be found at runtime.</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
@@ -182,16 +182,16 @@ private void play_sound(double frequency)
     <p>The call to <code>source.set</code> sets the <code>freq</code> property of the source element to <code>frequency</code>, which is passed as an argument to the <code>play_sound</code> function. This is just the frequency of the note in Hertz; some useful frequencies will be defined later on.</p>
     </item>
     <item>
-    <p><code>pipeline.add()</code> puts the source and sink into the pipeline. The pipeline is a <code>Gst.Bin</code>, which is just an element that can contain multiple other GStreamer elements. In general, you can add as many Gst.Elements as you like to the pipeline by adding more calls to <code>pipeline.add()</code>.</p>
+    <p><code>pipeline.add</code> puts the source and sink into the pipeline. The pipeline is a <code>Gst.Bin</code>, which is just an element that can contain multiple other GStreamer elements. In general, you can add as many elements as you like to the pipeline by adding more calls to <code>pipeline.add</code>.</p>
     </item>
     <item>
-    <p>Next, <code>sink.link()</code> is used to connect the elements together, so the output of source (a tone) goes into the input of sink (which is then output to the sound card). <code>pipeline.set_state()</code> is then used to start playback, by setting the state of the pipeline to playing (<code>Gst.State.PLAYING</code>).</p>
+    <p>Next, <code>sink.link</code> is used to connect the elements together, so the output of source (a tone) goes into the input of sink (which is then output to the sound card). <code>pipeline.set_state</code> is then used to start playback, by setting the state of the pipeline to playing (<code>Gst.State.PLAYING</code>).</p>
     </item>
     <item>
     <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to add
     add a <code>TimeoutSource</code>. This sets a timeout for stopping the sound; it waits for 200 milliseconds before 
-    calling signal handler defined inlined that stops and destroys the pipeline. It returns <code>false</code> to 
-    remove itself from the timeout, otherwise it would be called every 200 ms.</p>
+    calling a signal handler defined inline that stops and destroys the pipeline. It returns <code>false</code> to 
+    remove itself from the timeout, otherwise it would continue to be called every 200 ms.</p>
     </item>
   </steps>
   
@@ -200,8 +200,7 @@ private void play_sound(double frequency)
 
 <section>
   <title>Define the signal handler</title>
-  <p>We want to play the correct sound when the user clicks a button.</p>
-  <p>Now to flesh out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure out which button was clicked:</p>
+  <p>We want to play the correct sound when the user clicks a button. For this, we flesh out the signal handler that we defined earlier, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure out which button was clicked:</p>
   <code mime="text/x-valasrc"><![CDATA[
 public void on_button_clicked (Gtk.Button sender) {
 	var label = sender.get_child () as Gtk.Label;
@@ -229,8 +228,8 @@ public void on_button_clicked (Gtk.Button sender) {
 	}
 }
 ]]></code>
-  <p>A pointer to the <code>Gtk.Button</code> that was clicked is passed as an argument (<code>sender</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>get_child()</code>, and then get the text from that label using <code>get_label()</code>.</p>
-  <p>The switch statement compares the label text to the notes that and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
+  <p>The <code>Gtk.Button</code> that was clicked is passed as an argument (<code>sender</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>get_child</code>, and then get the text from that label using <code>get_label</code>.</p>
+  <p>The switch statement compares the label text to the notes that we can play, and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
 <section>
