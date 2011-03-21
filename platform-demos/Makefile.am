@@ -4,7 +4,10 @@ DOC_ID = gnome-devel-demos
 
 DOC_LINGUAS =
 
-DOC_FIGURES =					\
+DOC_FIGURES = \
+	media/ubuntu.png			\
+	media/fedora.png			\
+	media/opensuse.png			\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -16,6 +19,7 @@ DOC_FIGURES =					\
 DOC_ENTITIES =
 
 DOC_PAGES =			\
+	getting-started.page
 	guitar-tuner.c.page	\
 	guitar-tuner.cpp.page   \
 	guitar-tuner.py.page    \
