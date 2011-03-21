@@ -77,7 +77,7 @@ using Gtk;]]></code>
   </list>
 
   <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
-  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Configure</gui> configure the build directory. You only need to do this once, for the first build.</p>
+  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Execute</gui> to configure the build directory. You only need to do this once, for the first build.</p>
 </section>
 
 <section>
@@ -140,7 +140,9 @@ that needs special treating while linking in order to be found at runtime.</p>
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
-  <p>Insert the following line into <file>guitar_tuner.vala</file> inside our <code>Main</code> class:</p>
+  <p>We need to add a line to initialize GStreamer; put the following code on the line above the <code>Gtk.init</code> call in the <code>main</code> function:</p>
+  <code mime="text/x-valasrc"><![CDATA[Gst.init (ref argv);]]></code>
+  <p>Then, copy the following function into <file>guitar_tuner.vala</file> inside our <code>Main</code> class:</p>
   <code mime="text/x-valasrc"><![CDATA[
 Gst.Element sink;
 Gst.Element source;
@@ -168,7 +170,6 @@ private void play_sound(double frequency)
 
 	time.set_callback(() => {
 		pipeline.set_state (Gst.State.PAUSED);
-		pipeline.unref();
 		return false;
 	});
 	time.attach(null);

@@ -44,10 +44,10 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Python</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>PyGTK (automake)</gui> from the <gui>Python</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/guitar_tuner.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <p>Click <gui>Apply</gui> and the project will be created for you. Open <file>src/guitar_tuner.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
     <code mime="test/x-python"><![CDATA[
 from gi.repository import Gtk, GdkPixbuf, Gdk
 import os, sys]]></code>
@@ -65,7 +65,7 @@ import os, sys]]></code>
 libraries needed.</p>
    </item>
    <item>
-    <p>A class is declared that will be the main class for our application. In the <code>__init()</code> method
+    <p>A class is declared that will be the main class for our application. In the <code>__init__</code> method
 	the main window is loaded from the GtkBuilder file (<file>src/guitar-tuner.ui</file>) and the
 	signals are connected.</p>
     <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>destroy</code> method is called (and quits the app) when you close the window.</p>
@@ -76,7 +76,7 @@ libraries needed.</p>
    </item>
   </list>
 
-  <p>This code is ready to be used, so you can run it by clicking <guiseq><gui>Run</gui><gui>Run</gui></guiseq>.</p>
+  <p>This code is ready to be used, so you can run it by clicking <guiseq><gui>Run</gui><gui>Execute</gui></guiseq>.</p>
 </section>
 
 <section>

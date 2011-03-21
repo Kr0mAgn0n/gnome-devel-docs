@@ -44,7 +44,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>GTKmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
@@ -76,7 +76,7 @@
   </list>
 
   <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
-  <p>Press <gui>Configure</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
+  <p>Press <gui>Execute</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
 </section>
 
 <section>
@@ -173,7 +173,7 @@ bool Sound::stop_playing()
 	m_pipeline->set_state(Gst::STATE_NULL);
 	return false;
 }
-  ]]></code>
+]]></code>
  
   <p>The code has the following purpose:</p>  
   <steps>
@@ -208,7 +208,7 @@ on_button_clicked(double frequency, Sound* sound)
 {
 	sound->start_playing (frequency);
 }
-  ]]></code>
+]]></code>
   <p>It only calls the helper class we defined before to play the correct frequencies. With some more
   clever code we would also have been able to directly connect to the class without using the function
   but we will leave that to use as an exercise.</p>
