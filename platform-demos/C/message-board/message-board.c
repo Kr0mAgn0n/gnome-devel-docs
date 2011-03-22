@@ -7,16 +7,6 @@
 
 #include <glib/gi18n.h>
 
-
-/* For testing propose use the local (not installed) ui file */
-/* #define UI_FILE PACKAGE_DATA_DIR"/message_board/ui/message_board.ui" */
-#define UI_FILE "src/message_board.ui"
-
-/* Signal handlers */
-/* Note: These may not be declared static because signal autoconnection
- * only works with non-static methods
- */
-
 static const guchar CSS[] =
 "body { margin: 0; padding: 0; }\n"
 "div { "
@@ -27,13 +17,6 @@ static const guchar CSS[] =
 " -webkit-box-shadow: 0px 0px 2px #c6c6c6;"
 " margin: 12px; padding: 6px;"
 "}";
-
-/* Called when the window is closed */
-void
-destroy (GtkWidget *widget, gpointer data)
-{
-	gtk_main_quit ();
-}
 
 static void
 entry_activate_cb (GtkEntry *entry, WebKitWebView *view)
@@ -67,7 +50,7 @@ create_window (void)
     gtk_window_set_default_size (GTK_WINDOW (window), 400, 400);
     gtk_window_set_title (GTK_WINDOW (window), "Message Board");
 	g_signal_connect (window, "delete-event",
-	                  G_CALLBACK (destroy), NULL);
+	                  G_CALLBACK (gtk_main_quit), NULL);
 
     box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_set_border_width (GTK_CONTAINER (box), 6);
@@ -115,8 +98,6 @@ main (int argc, char *argv[])
 	textdomain (GETTEXT_PACKAGE);
 #endif
 
-	
-	gtk_set_locale ();
 	gtk_init (&argc, &argv);
 
 	window = create_window ();

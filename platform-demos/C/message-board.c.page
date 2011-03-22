@@ -52,7 +52,7 @@
   <steps>
     <item><p>In Anjuta, click <guiseq><gui>File</gui><gui>New</gui>
     <gui>Project</gui></guiseq> to open the new project assistant.</p></item>
-    <item><p>Select <gui>GTK+ (Simple)</gui> on the <gui>C</gui> tab,
+    <item><p>Select <gui>GTK+ (simple)</gui> on the <gui>C</gui> tab,
     and click <gui>Forward</gui>.</p></item>
     <item><p>Fill out your details on the <gui>Basic information</gui> page.
     Use <input>message-board</input> for the project name.
@@ -103,7 +103,7 @@ create_window (void)
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size (GTK_WINDOW (window), 400, 400);
     gtk_window_set_title (GTK_WINDOW (window), "Message Board");
-    g_signal_connect (window, "delete-event", G_CALLBACK (destroy), NULL);
+    g_signal_connect (window, "delete-event", G_CALLBACK (gtk_main_quit), NULL);
 
     box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_set_border_width (GTK_CONTAINER (box), 6);
@@ -130,11 +130,10 @@ create_window (void)
 ]]></code>
 
   <p>You first create a <code>GtkWindow</code> object and set its title and
-  default size. You also connect the <code>destroy</code> function to the
+  default size. You also connect the <code>gtk_main_quit</code> function to the
   <code>delete-event</code> signal. The <code>delete-event</code> signal is
-  emitted when the window is closed. The <code>destroy</code> function is
-  already provided in <file>main.c</file>. It just calls
-  <code>gtk_main_quit</code> to quit the application.</p>
+  emitted when the window is closed. The <code>gtk_main_quit</code> function is
+  part of GTK, and it quits the application.</p>
 
   <p>You then create a vertical box and add it to the window. A window can only
   hold a single child widget, so you need to use a box to add multiple widgets.
@@ -158,7 +157,7 @@ create_window (void)
 
   <p>Finally, you create a <code>WebKitWebView</code> and add it to the scrolled
   window. Then load a very basic HTML page into the web view by calling
-  <code>webkit_web_view_load_string</code> with the follow arguments:</p>
+  <code>webkit_web_view_load_string</code> with the following arguments:</p>
 
   <terms>
     <item>
