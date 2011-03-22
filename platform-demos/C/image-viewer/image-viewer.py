@@ -3,13 +3,8 @@
 from gi.repository import Gtk, GdkPixbuf, Gdk
 import os, sys
 
-#Comment the first line and uncomment the second before installing
-#or making the tarball (alternatively, use project variables)
-UI_FILE = "image_viewer_py.ui"
-#UI_FILE = "/usr/local/share/image_viewer_py/ui/image_viewer_py.ui"
-
 class GUI:
-	image = 0	
+	image = 0
 
 	def __init__(self):
 
@@ -18,15 +13,15 @@ class GUI:
 		window.connect_after('destroy', self.destroy)
 
 		box = Gtk.Box()
-		box.set_spacing(5);
-		box.set_orientation (Gtk.Orientation.VERTICAL);
-		window.add (box);
+		box.set_spacing(5)
+		box.set_orientation (Gtk.Orientation.VERTICAL)
+		window.add (box)
 
-		self.image = Gtk.Image();
-		box.pack_start (self.image, True, True, 0);
+		self.image = Gtk.Image()
+		box.pack_start (self.image, True, True, 0)
 
-		button = Gtk.Button ("Open a picture...");
-		box.pack_start (button, False, False, 0);
+		button = Gtk.Button ("Open a picture...")
+		box.pack_start (button, False, False, 0)
 		button.connect_after('clicked', self.on_open_clicked)
 
 		window.show_all()
@@ -45,7 +40,7 @@ class GUI:
 		dialog.set_filter(filefilter)
 
 		if dialog.run() == 1:
-			self.image.set_from_file(dialog.get_filename());
+			self.image.set_from_file(dialog.get_filename())
 		dialog.destroy()
 	
 def main():

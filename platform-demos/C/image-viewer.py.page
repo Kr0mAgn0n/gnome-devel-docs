@@ -38,8 +38,6 @@
 </synopsis>
 
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
-<media type="image" mime="image/png" src="media/guitar-tuner.png"/>
-
 
 <section>
   <title>Create a project in Anjuta</title>
@@ -49,15 +47,15 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>PyGTK</gui> from the <gui>Python</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+    <p>Choose <gui>PyGTK (automake)</gui> from the <gui>Python</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
    	<item>
    	<p>Be sure to disable <gui>Use GtkBuilder for user interface</gui> as we will build the
-   	user interface manually in this example. For an example using the interface designer,
+       user interface manually in this example. For an example of using the interface designer,
    	check the <link xref="guitar-tuner.py">Guitar-Tuner demo</link>.</p>
     </item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/image_viewer.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
+    <p>Click <gui>Apply</gui> and the project will be created for you. Open <file>src/image_viewer.py</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
     </item>
   </steps>
 </section>
@@ -94,20 +92,20 @@ if __name__ == "__main__":
     <p>The first line imports the Gtk namespace (that is, it includes the Gtk library). The libraries are provided by GObject Introspection (gi), which provides language bindings for many GNOME libraries.</p>
     </item>
     <item>
-    <p>In the <code>__init</code> method of the <code>GUI</code> class creates an
-    (empty) Gtk.Window, sets it's title and than connects a signal to quite the application
+    <p>In the <code>__init__</code> method of the <code>GUI</code> class creates an
+    (empty) <code>Gtk.Window</code>, sets its title and then connects a signal to quit the application
     once the window is closed. That's pretty simple overall, more on signals later.</p>
     </item>
     <item>
     <p>Next, <code>destroy</code> is defined which just quits the application. It is called
-    by the destroy signal defined above.</p>
+    by the <code>destroy</code> signal connected above.</p>
     </item>
     <item>
-    <p>The rest of the file does initilisation for Gtk and shows up the GUI.</p>
+    <p>The rest of the file does initialisation for Gtk and displays the GUI.</p>
     </item>
   </list>
   
-  <p>This code is ready to run, so try it using <guiseq><gui>Run</gui><gui>Run…</gui></guiseq>.
+  <p>This code is ready to run, so try it using <guiseq><gui>Run</gui><gui>Execute</gui></guiseq>.
    It should show you an empty window.</p>
 </section>
 
@@ -119,49 +117,46 @@ def button_clicked () :
   print "you clicked me!"
 
 b = new Gtk.Button ("Click me")
-b.connect_after ('clicked', button_clicked)
-]]>
-  </code>
-  <p>The last two lines create a GtkButton called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
+b.connect_after ('clicked', button_clicked)]]></code>
+  <p>The last two lines create a <code>Gtk.Button</code> called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
 </section>
 
 <section>
   <title>Containers: Laying-out the user interface</title>
   <p>Widgets (controls, such as buttons and labels) can be arranged in the window by making use of <em>containers</em>. You can organize the layout by mixing different types of containers, like boxes and grids.</p>
-  <p>A GtkWindow is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a GtkBox here. A GtkBox can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
+  <p>A <code>Gtk.Window</code> is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a <code>Gtk.Box</code> here. A <code>Gtk.Box</code> can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
   <note>
   <p>There is a graphical user interface designer called <app>Glade</app> integrated in <app>Anjuta</app> which makes UI design really easy. For this simple example, however, we will code everything manually.</p>
   </note>
   <p>Let's add the box and widgets to the window. Insert the following code into the <code>__init__</code> method, immediately after the <code>window.connect_after</code> line:</p>
-<code mime="text/python" style="numbered">
-<![CDATA[
+<code mime="text/python" style="numbered"><![CDATA[
 box = Gtk.Box()
-box.set_orientation (Gtk.Orientation.VERTICAL);
-window.add (box);
+box.set_spacing (5)
+box.set_orientation (Gtk.Orientation.VERTICAL)
+window.add (box)
 ]]>
 </code>
-  <p>The first line creates a GtkBox called <code>box</code> and sets two of its properties: the <code>orientation</code> is set to vertical (so widgets are arranged in a column), and the <code>spacing</code> between the widgets is set to 5 pixels. The next line then adds the newly-created GtkBox to the window.</p>
-  <p>So far the window only contains an empty GtkBox, and if you run the program now you will see no changes at all (the GtkBox is a transparent container, so you can't see that it's there).</p>
+  <p>The first line creates a <code>Gtk.Box</code> called <code>box</code> and the following lines set two of its properties: the <code>orientation</code> is set to vertical (so the widgets are arranged in a column), and the <code>spacing</code> between the widgets is set to 5 pixels. The next line then adds the newly-created <code>Gtk.Box</code> to the window.</p>
+  <p>So far the window only contains an empty <code>Gtk.Box</code>, and if you run the program now you will see no changes at all (the <code>Gtk.Box</code> is a transparent container, so you can't see that it's there).</p>
 </section>
 
 <section>
   <title>Packing: Adding widgets to the container</title>
-  <p>To add some widgets to the GtkBox, insert the following code directly below the <code>this.window.add (main_box)</code> line:</p>
+  <p>To add some widgets to the <code>Gtk.Box</code>, insert the following code directly below the <code>window.add (box)</code> line:</p>
   <code mime="text/python" style="numbered"><![CDATA[
-self.image = Gtk.Image();
-box.pack_start (self.image, False, False, 0);]]></code>
-  <p>The first line creates a new GtkImage called <code>image</code>, which will be used to display an image file.
-As we need that later on in the signal handler, we define this is class-wide variable. You need to add <code>image = 0</code> to the beginning of the <code>GUI</code> clas. Then, the image widget is added (<em>packed</em>) into the <code>box</code> container using GtkBox's <link href="http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"><code>pack_start</code></link> method.</p>
-  <p><code>pack_start</code> takes 4 arguments: the widget that is to be added to the GtkBox (<code>child</code>); whether the GtkBox should grow larger when the new widget is added (<code>expand</code>); whether the new widget should take up all of the extra space created if the GtkBox gets bigger (<code>fill</code>); and how much space there should be, in pixels, between the widget and its neighbors inside the GtkBox (<code>padding</code>).</p>
+self.image = Gtk.Image()
+box.pack_start (self.image, False, False, 0)]]></code>
+  <p>The first line creates a new <code>Gtk.Image</code> called <code>image</code>, which will be used to display an image file.
+As we need that later on in the signal handler, we will define it as a class-wide variable. You need to add <code>image = 0</code> to the beginning of the <code>GUI</code> class. Then, the image widget is added (<em>packed</em>) into the <code>box</code> container using GtkBox's <link href="http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"><code>pack_start</code></link> method.</p>
+  <p><code>pack_start</code> takes 4 arguments: the widget that is to be added to the GtkBox (<code>child</code>); whether the <code>Gtk.Box</code> should grow larger when the new widget is added (<code>expand</code>); whether the new widget should take up all of the extra space created if the <code>Gtk.Box</code> gets bigger (<code>fill</code>); and how much space there should be, in pixels, between the widget and its neighbors inside the <code>Gtk.Box</code> (<code>padding</code>).</p>
   <p>Gtk containers (and widgets) dynamically expand to fill the available space, if you let them. You don't position widgets by giving them a precise x,y-coordinate location in the window; rather, they are positioned relative to one another. This makes handling window resizing much easier, and widgets should automatically take a sensible size in most situations.</p>
-  <p>Also note how the widgets are organized in a hierarchy. Once packed in the GtkBox, the GtkImage is considered a <em>child</em> of the GtkBox. This allows you to treat all of the children of a widget as a group; for example, you could hide the GtkBox, which would also hide all of its children at the same time.</p>
+  <p>Also note how the widgets are organized in a hierarchy. Once packed in the <code>Gtk.Box</code>, the <code>Gtk.Image</code> is considered a <em>child</em> of the <code>Gtk.Box</code>. This allows you to treat all of the children of a widget as a group; for example, you could hide the <code>Gtk.Box</code>, which would also hide all of its children at the same time.</p>
   <p>Now insert these two lines, below the two you just added:</p>
-  <code mime="text/python" style="numbered">
-<![CDATA[
-button = Gtk.Button ("Open a picture...");
-box.pack_start (button, False, False, 0);
+  <code mime="text/python" style="numbered"><![CDATA[
+button = Gtk.Button ("Open a picture...")
+box.pack_start (button, False, False, 0)
 ]]></code>
-  <p>These lines are similar the first two, but this time they create a GtkButton and add it to <code>box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>false</code> here, whereas it was set to <code>true</code> for the GtkImage. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
+  <p>These lines are similar to the first two, but this time they create a <code>Gtk.Button</code> and add it to <code>box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>False</code> here, whereas it was set to <code>True</code> for the <code>Gtk.Image</code>. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
 </section>
 
 <section>
@@ -171,7 +166,7 @@ box.pack_start (button, False, False, 0);
   <code mime="text/python"><![CDATA[
 button.connect_after('clicked', self.on_open_clicked)
 ]]></code>
-  <p>This will connect the <em>clicked</em>-signal to <code>on_open_clicked</code> method that we will define
+  <p>This will connect the <code>clicked</code> signal to <code>on_open_clicked</code> method that we will define
 below.</p>
 </section>
 
@@ -179,7 +174,7 @@ below.</p>
   <title>Loading the image: Writing the signal's callback</title>
   <p>Now we can create the <code>on_open_clicked</code> method. Insert the following into the <code>GUI</code> class code block, after the <code>__init__</code> method:</p>
     <code mime="text/javascript" style="numbered"><![CDATA[
- def on_open_clicked (self, button):
+def on_open_clicked (self, button):
 	dialog = Gtk.FileChooserDialog ("Open Image", button.get_toplevel(), Gtk.FileChooserAction.OPEN);
 	dialog.add_button (Gtk.STOCK_CANCEL, 0)
 	dialog.add_button (Gtk.STOCK_OK, 1)
@@ -190,14 +185,13 @@ below.</p>
 	dialog.set_filter(filefilter)
 
 	if dialog.run() == 1:
-		self.image.set_from_file(dialog.get_filename());
+		self.image.set_from_file(dialog.get_filename())
 	
-	dialog.destroy()
-  }]]></code>
+	dialog.destroy()]]></code>
   <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
   <list>
     <item>
-      <p>The line beginning with <code>dialog</code> creates an <gui>Open</gui> dialog, which the user can use to choose files. We set three properties: the title of the dialog; the action (type) of the dialog (it's an "open" dialog, but we could have used <code>SAVE</code> if the intention was to save a file and <code>transient_for</code>, which sets the parent window of the dialog.</p>
+      <p>The line beginning with <code>dialog</code> creates an <gui>Open</gui> dialog, which the user can use to choose files. We set three properties: the title of the dialog; the action (type) of the dialog (it's an "open" dialog, but we could have used <code>SAVE</code> if the intention was to save a file; and <code>transient_for</code>, which sets the parent window of the dialog.</p>
     </item>
     <item>
     <p>The next two lines add <gui>Cancel</gui> and <gui>Open</gui> buttons to the dialog. The second argument of the <code>add_button</code> method is the (integer) value that is returned when the button is pressed: 0 for <gui>Cancel</gui> and 1 for <gui>Open</gui>.</p>
@@ -207,12 +201,12 @@ below.</p>
     <p><code>set_default_response</code> determines the button that will be activated if the user double-clicks a file or presses <key>Enter</key>. In our case, we are using the <gui>Open</gui> button as default (which has the value 1).</p>
     </item>
     <item>
-    <p>The next three lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. A filter object is created first; we then add all kinds of files supported by GtkPixbuf (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
+    <p>The next three lines restrict the <gui>Open</gui> dialog to only display files which can be opened by <code>Gtk.Image</code>. A filter object is created first; we then add all kinds of files supported by <code>Gdk.Pixbuf</code> (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
     </item>
     <item>
-    <p><code>dialog.run ()</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>dialog.run</code> will return the value <output>1</output> (it would return <output>0</output> if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests for this.</p>
+    <p><code>dialog.run</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>dialog.run</code> will return the value <output>1</output> (it would return <output>0</output> if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests for this.</p>
     </item>
-    <item><p>Assuming that the user did click <gui>Open</gui>, the next line sets the <code>file</code> property of the GtkImage to the filename of the image selected by the user. The GtkImage will then load and display the chosen image.</p>
+    <item><p>Assuming that the user did click <gui>Open</gui>, the next line sets the <code>file</code> property of the <code>Gtk.Image</code> to the filename of the image selected by the user. The <code>Gtk.Image</code> will then load and display the chosen image.</p>
     </item>
     <item>
     <p>In the final line of this method, we destroy the <gui>Open</gui> dialog because we don't need it any more.</p>
@@ -223,7 +217,7 @@ below.</p>
 
 <section>
   <title>Run the application</title>
-  <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
+  <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of Python and Gtk) in not much time at all!</p>
 </section>
 
 <section>
