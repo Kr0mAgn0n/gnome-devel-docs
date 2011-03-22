@@ -5,14 +5,17 @@
   <info>
     <link type="guide" xref="index#js"/>
     
-    <desc>Database Access Demo</desc>
+    <desc>Create a small database application for ordering your music collection</desc>
     
-    <revision pkgversion="0.1" version="0.1" date="2010-12-03" status="stub"/>
+    <revision pkgversion="0.1" version="0.1" date="2011-02-22" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
       <email>gnome-doc-list@gnome.org</email>
     </credit>
-    
+    <credit type="author">
+      <name>Johannes Schmid</name>
+      <email>jhs@gnome.org</email>
+    </credit>    
   </info>
 
 <title>Record Collection</title>
@@ -28,20 +31,30 @@
 <section>
   <title>Introduction</title>
   <p>
-    This demo uses the Javascript language. You need the <em>gjs</em> interpreter (already present in GNOME 3). We are going to demonstrate how to connect and use a database from a GTK program, by using the GDA (GNOME Data Access) library. Thus you also need this library installed.
+    This demo uses the Javascript language. We are going to demonstrate how to connect and use a database from a GTK program, by using the GDA (GNOME Data Access) library. Thus you also need this library installed.
   </p>
   <p>
     GNOME Data Access (GDA) is library whose purpose is to provide universal access to different kinds and types of data sources. This goes from traditional relational database systems, to any imaginable kind of data source such as a mail server, a LDAP directory, etc. For more information, and for a full API and documentation, visit the GDA website.
   </p>
   <p>
-    Although a big part of the code is related to user interface (GUI), we are going to focus our tutorial on the database parts (we might mention other parts we think are relevant though). To know more about Javascript programs in GNOME, see the Image Viewer program tutorial in Javascript. LINK.
+    Although a big part of the code is related to user interface (GUI), we are going to focus our tutorial on the database parts (we might mention other parts we think are relevant though). To know more about Javascript programs in GNOME, see the <link xref="image-viewer.js">Image Viewer program</link> tutorial.
   </p>
-  <p>
-    In order to run this demo, just save the code into a file (for instance demo-gda.js) and run the following command:
-  </p>
-  <screen>
-    gjs demo-gda.js
-  </screen>
+</section>
+
+<section>
+  <title>Create a project in Anjuta</title>
+  <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
+  <steps>
+    <item>
+    <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+    <p>Choose <gui>Generic Javascript</gui> from the <gui>JS</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>record-collection</file> as project name and directory.</p>
+   	</item>
+    <item>
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
+    </item>
+  </steps>
 </section>
 
 <section>
@@ -241,7 +254,8 @@ Gtk.main ();]]>
     if (!this._validateFields ())
       return;
 
-    // Gda.execute_non_select_command (this.connection, "insert into demo values ('" + this.id_entry.text + "', '" + this.name_entry.text + "')");
+    // Gda.execute_non_select_command (this.connection, 
+    //   "insert into demo values ('" + this.id_entry.text + "', '" + this.name_entry.text + "')");
 
     var b = new Gda.SqlBuilder ({stmt_type:Gda.SqlStatementType.INSERT});
     b.set_table ("demo");
@@ -272,10 +286,12 @@ Gtk.main ();]]>
 </section>
 
 <section>
-  <title>The work continues...</title>
-  <p>
-    Final considerations...
-    You can grab the complete source code of this demo at [LINK].
-  </p>
+  <title>Run the application</title>
+  <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
+</section>
+
+<section>
+ <title>Reference Implementation</title>
+ <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.js">reference code</link>.</p>
 </section>
 </page>
