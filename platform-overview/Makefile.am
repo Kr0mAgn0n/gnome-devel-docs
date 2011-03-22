@@ -7,7 +7,7 @@ DOC_PAGES =			\
 	bindings.page		\
 	core-tech.page		\
 	desktop-tech.page	\
-	introduction.page	\
+	audience.page	\
 	ipc-network.page	\
 	cc-by-sa-3-0.xml	\
 	platform.page		\
