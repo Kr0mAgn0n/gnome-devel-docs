@@ -30,7 +30,7 @@ static Position origin = {0, 0};
 static void
 load_image_path_names()
 {
-    /* Insure we can access the directory. */
+    /* Ensure we can access the directory. */
     GError *error = NULL;
     GDir *dir = g_dir_open(IMAGE_DIR_PATH, 0, &error);
     if(error)
@@ -43,9 +43,11 @@ load_image_path_names()
     const gchar *filename = g_dir_read_name(dir);
     while(filename)
     {
-        gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
-
-        img_path_list = g_slist_prepend(img_path_list, path);
+        if(g_str_has_suffix(filename, ".jpg") || g_str_has_suffix(filename, ".png")) 
+        {
+            gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
+            img_path_list = g_slist_prepend(img_path_list, path);
+        }
         filename = g_dir_read_name(dir);
     }
 }
@@ -99,12 +101,12 @@ actor_clicked_cb(ClutterActor *actor,
     return TRUE;
 }
 
-/* This functions handles setup and placing the rectangles. */
+/* This function handles setting up and placing the rectangles. */
 static void
-initialize_actor(ClutterActor *actor, guint *row, guint *col)
+initialize_actor(ClutterActor *actor, guint row, guint col)
 {
     clutter_actor_set_size(actor, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
-    clutter_actor_set_position(actor, (*col) * THUMBNAIL_SIZE, (*row) * THUMBNAIL_SIZE);
+    clutter_actor_set_position(actor, col * THUMBNAIL_SIZE, row * THUMBNAIL_SIZE);
     clutter_actor_set_reactive(actor, TRUE);
 
     g_signal_connect(actor,
@@ -127,15 +129,15 @@ main(int argc, char *argv[])
 
     load_image_path_names();
 
-    int row = 0;
-    int col = 0;
+    guint row = 0;
+    guint col = 0;
     for(row=0; row < ROW_COUNT; ++row)
     {
         for(col=0; col < COL_COUNT; ++col)
         {
             GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
             ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
-            initialize_actor(actor, &row, &col);
+            initialize_actor(actor, row, col);
             clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
             actor_list = g_slist_prepend(actor_list, actor);
         }
