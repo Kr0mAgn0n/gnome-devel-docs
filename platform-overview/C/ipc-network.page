@@ -4,7 +4,7 @@
 
 <info>
   <link type="guide" xref="index#what-is-gnome-platform"/>
-  <desc>IPC and Networking</desc>
+  <desc>Connect your applications and to the world</desc>
   <revision pkgversion="3.0" version="0.1" date="2011-03-18" status="incomplete"/>
   <credit type="author">
     <name>Shaun McCance</name>
@@ -18,57 +18,7 @@
   </credit>
 </info>
 
-<title>IPC and Networking</title>
-
-<section id="clipboard">
-  <title>Clipboards and Drag and Drop</title>
-
-  <p>As users work with more and more types of data in different
-  applications, they have an increasing need to share objects and data
-  between their applications.  GNOME supports two related methods for
-  transfering data between applications: using drag and drop operations,
-  and copying to and pasting from a system-wide clipboard.  Both the
-  clipboard and drag and drop work across multiple applications,
-  including those not developed with GNOME.</p>
-
-  <p>The clipboard is used when a user explicitly copies data in an
-  application.  The application then claims ownership of the clipboard.
-  When the user pastes the data into another application, that application
-  requests the clipboard data from the first application.  Clipboard
-  operations are fully supported in GTK+.</p>
-
-  <p>Drag and drop operations are similar, but they require the pointer
-  to be tracked and updated as the user moves across potential drop targets.
-  When an application is notified a pointer is moving over it during an
-  active drag, it must update the cursor to indicate whether or not it can
-  accept the drop.  GTK+ provides drag and drop support with a sophisticated
-  API that makes it easy to manage drop targets in your applications.</p>
-
-  <p>Both the clipboard and drag and drop operations support content
-  negotation.  When an application has data to offer, it advertises which
-  formats are available for that data.  Receiving applications can request
-  the most suitable formats.  For instance, if a user copies text from a
-  web browser, a word processor can maintain formatting by requesting the
-  data in HTML, while a plain text editor can receive the text without
-  formatting.</p>
-
-  <p>You should provide clipboard and drag and drop functionality for
-  any data your application operates on.  The clipboard and drag and drop
-  are useful for more than just text: files, graphics, and sound clips are
-  all examples of data that can be transferred between applications.  When
-  you use GTK+, you automatically get clipboard and drag and drop support
-  for text areas, color buttons, file choosers, and other built-in user
-  interface controls.  You should use the APIs in GTK+ to provide support
-  for any other data in your application.</p>
-
-  <p>For more information, see <link
-  href="http://www.newplanetsoftware.com/xdnd/">Drag-and-Drop Protocol for
-  the X Window System</link>, <link
-  href="http://standards.freedesktop.org/clipboards-spec/clipboards-latest.txt">X
-  Clipboard Explanation</link>, and <link
-  href="http://freedesktop.org/wiki/ClipboardManager">The
-  Clipboard Manager Specification</link>.</p>
-</section>
+<title>IPC and network</title>
 
 <section id="dbus">
   <title>D-BUS Messaging</title>
@@ -110,63 +60,20 @@
   D-BUS Specification</link>.</p>
 </section>
 
-<section id="bonobo-corba">
-  <title>Bonobo and CORBA</title>
+<section id="network">
+<title>Network stack</title>
 
-  <note><p>Note that Bonobo, libIDL and ORBit have been deprecated in 
-  favor of D-Bus and other technologies. See above.</p></note>
+<p>The GIO library which is part of GLib provides integrated
+networking support, including Sockets, TLS/SSL authentication and DNS resolution.
+Thus, networking support is an integral part of the GNOME platform and no
+additional dependencies are needed.</p>
 
-  <p>Bonobo is a framework for creating reusable components for use
-  in applications.  Built on top of the industry-standard Common Object
-  Request Broker Architecture (CORBA), Bonobo provides all the common
-  interfaces needed to create and use well-behaved components in GNOME
-  applications.</p>
+<p>GIO also provides a convenience layer to access D-Bus an a object-oriented
+way.</p>
 
-  <p>Bonobo components can be used in a variety of situations, and can
-  help create flexible and extensible software.  For example, a component
-  to display multimedia content could be embedded inside a word processor,
-  effectively adding multimedia support to the word processor without the
-  word processor working directly with it.  Bonobo components are also used
-  to embed the applets in the GNOME panel.  Using Bonobo enables the applets
-  to communicate effectively with the panel, affording users a consistent
-  interface.</p>
+<p>For more information on GIO, see the <link
+href="http://library.gnome.org/devel/gio/stable/">GIO Reference Manual</link>.</p>
 
-  <p>Bonobo components are not limited to graphical controls.  Bonobo was
-  used by Evolution, GNOME's email and groupware suite, to provide access
-  to users' addressbook and calendar.  This allows users to keep all their
-  information in one place, where all applications can access it.</p>
-
-  <p>Bonobo is built off of CORBA, allowing components to run in seperate
-  processes.  Components can be written in different languages and run on top
-  of different runtimes; they need only adhere to an interface specified with
-  the Interface Definition Language (IDL).  CORBA's flexible design even allows
-  components to run on seperate machines over a network.</p>
-
-  <p>GNOME provides its own fast and lightweight CORBA implementation with
-  ORBit.  The tools and libraries supplied with GNOME even allow components
-  to be written effectively in C, a language often excluded by other CORBA
-  implementations.  ORBit is an incredibly fast CORBA implementation.</p>
-
-  <p>Bonobo helps fill the gaps in CORBA, providing the additional
-  interfaces and specifications needed to support consistent components.
-  Although you will rarely need to use CORBA without Bonobo, it can be
-  used directly.  For instance, GNOME's accessibility infastructure uses
-  CORBA to allow assistive tools to inspect and interact with running
-  applications.</p>
-
-  <p>You may wish to use Bonobo to provide complex graphical components
-  that can be embedded into applications.  For most IPC needs, however,
-  GNOME is moving towards D-Bus, as integrating D-Bus into applications
-  is considerably easier.</p>
-
-  <p>For more information on Bonobo, see the <link
-  href="http://library.gnome.org/devel/libbonobo/stable/">Libbonobo
-  Reference Manual</link> and the <link
-  href="http://library.gnome.org/devel/libbonoboui/stable/">LibbonoboUI
-  Reference Manual</link>.  For information on ORBit, GNOME's
-  CORBA implementation, see the <link
-  href="http://library.gnome.org/devel/ORBit2/stable/">ORBit2
-  Reference Manual</link>.</p>
 </section>
 
 <section id="dns-sd">
@@ -190,8 +97,8 @@
   Avahi web site</link>.</p>
 </section>
 
-<section id="xml-web-services">
-  <title>XML and Web Services</title>
+<section id="web-services">
+  <title>Web Services</title>
 
   <p>In our increasingly inter-connected world, more and more applications
   need to provide support for various web services.  Sometimes web services
@@ -201,8 +108,8 @@
   web services.</p>
 
   <p>The GNOME Platform provides support for using web services from
-  within your application, as well as comprehensive libraries for consuming,
-  managing, and transforming XML, the language of the web.</p>
+  within your application, as well as comprehensive <link xref="xml">
+  libraries for consuming, managing, and transforming XML</link>, the language of the web.</p>
 
   <section id="libsoup">
     <title>SOAP</title>
@@ -229,69 +136,6 @@
     <p>For more information on libsoup, see the <link
     href="http://library.gnome.org/devel/libsoup/stable/">libsoup
     Reference Manual</link>.</p>
-  </section>
-
-  <section id="libxml2">
-    <title>XML Processing</title>
-
-    <p>Since its formal introduction in 1998, XML (eXtensible Markup
-    Langauge) has been used in increasingly more applications.  It is used
-    for a wide variety of purposes, from document formats like XHMTL and
-    DocBook to internet protocols like SOAP and Jabber.  XML provides a
-    clean and simple base syntax, allowing applications to focus on their
-    particular needs.</p>
-
-    <p>GNOME ships with the libxml2 library, and uses it extensively
-    throughout the desktop.  The libxml2 library is a fast and fully
-    standards-compliant XML processing library, providing everything you
-    need to use XML in your application.</p>
-
-    <p>The libxml2 library provides a number of different APIs for
-    working with XML, so you can use whatever best suits your application
-    development needs.  In addition to a native tree API, libxml2 also
-    provides the callback-based SAX2 API, streaming XML reader and writer
-    interfaces, and complete support for XPath.</p>
-
-    <p>In addition to DTD support, libxml2 also provides full support
-    for validing documents using RELAX NG, which allows a more flexible
-    validation model while remaining simple to use.  There is also partial
-    support for XML Schema, the new schema language produced by W3C.</p>
-
-    <p>You should use libxml2 whenever you need to work directly with
-    XML in your application.  Using libxml2 ensures that you have fully
-    standards-compliant parsing, processing, and XML output.  This means
-    developers can stop worrying about incompatibilities between
-    applications.</p>
-
-    <p>For more information on libxml2, see <link
-    href="http://xmlsoft.org/tutorial/index.html">The Libxml Tutorial</link>
-    and <link href="http://xmlsoft.org/html/libxml-lib.html">The Reference
-    Manual for libxml2</link>.</p>
-  </section>
-
-  <section id="libxslt">
-    <title>Transforming XML with XSLT</title>
-
-    <p>XSLT is an XML-based language for transforming XML into other
-    formats.  XSLT is a template-based language, allowing you to match
-    particular types of XML elements and create output accordingly.
-    Based on XML and XPath, XSLT enables developers to create clean and
-    modularized templates to convert an XML dialect into another format
-    more suitable for the application.</p>
-
-    <p>GNOME ships with the libxslt library, a complete implementation of
-    XSLT.  The libxslt library is built on top of the XML and XPath support
-    in libxml2, allowing it to be fast and fully standards-compliant.</p>
-
-    <p>You should use libxslt if you need to transform XML documents.
-    Although XSLT is not always the right solution for XML processing, it
-    can often simplify development.  Since libxslt allows you to add extension
-    elements and extension functions, you can customize it to fit your
-    application.</p>
-
-    <p>For more information on libxslt, see <link
-    href="http://xmlsoft.org/XSLT/html/index.html">The XSLT C library for
-    Gnome</link>.</p>
   </section>
 </section>
 

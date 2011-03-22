@@ -1,0 +1,89 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" stlye="task"
+      id="xml">
+
+<info>
+  <link type="guide" xref="index#what-is-gnome-platform"/>
+  <desc>Use the power of the number one markup language</desc>
+  <revision pkgversion="3.0" version="0.1" date="2011-03-18" status="incomplete"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2005-2011</years>
+  </credit>
+  <credit type="collaborator">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+    <years>2011</years>
+  </credit>
+</info>
+
+<title>XML and XSLT</title>
+
+<section>
+<title>Introduction</title>
+    <p>Since its formal introduction in 1998, XML (eXtensible Markup
+    Langauge) has been used in increasingly more applications.  It is used
+    for a wide variety of purposes, from document formats like XHMTL and
+    DocBook to internet protocols like SOAP and Jabber.  XML provides a
+    clean and simple base syntax, allowing applications to focus on their
+    particular needs.</p>
+</section>
+
+<section id="libxml2">
+    <title>XML Processing</title>
+
+    <p>GNOME ships with the libxml2 library, and uses it extensively
+    throughout the desktop.  The libxml2 library is a fast and fully
+    standards-compliant XML processing library, providing everything you
+    need to use XML in your application.</p>
+
+    <p>The libxml2 library provides a number of different APIs for
+    working with XML, so you can use whatever best suits your application
+    development needs.  In addition to a native tree API, libxml2 also
+    provides the callback-based SAX2 API, streaming XML reader and writer
+    interfaces, and complete support for XPath.</p>
+
+    <p>In addition to DTD support, libxml2 also provides full support
+    for validing documents using RELAX NG, which allows a more flexible
+    validation model while remaining simple to use.  There is also partial
+    support for XML Schema, the new schema language produced by W3C.</p>
+
+    <p>You should use libxml2 whenever you need to work directly with
+    XML in your application.  Using libxml2 ensures that you have fully
+    standards-compliant parsing, processing, and XML output.  This means
+    developers can stop worrying about incompatibilities between
+    applications.</p>
+
+    <p>For more information on libxml2, see <link
+    href="http://xmlsoft.org/tutorial/index.html">The Libxml Tutorial</link>
+    and <link href="http://xmlsoft.org/html/libxml-lib.html">The Reference
+    Manual for libxml2</link>.</p>
+</section>
+
+<section id="libxslt">
+    <title>Transforming XML with XSLT</title>
+
+    <p>XSLT is an XML-based language for transforming XML into other
+    formats.  XSLT is a template-based language, allowing you to match
+    particular types of XML elements and create output accordingly.
+    Based on XML and XPath, XSLT enables developers to create clean and
+    modularized templates to convert an XML dialect into another format
+    more suitable for the application.</p>
+
+    <p>GNOME ships with the libxslt library, a complete implementation of
+    XSLT.  The libxslt library is built on top of the XML and XPath support
+    in libxml2, allowing it to be fast and fully standards-compliant.</p>
+
+    <p>You should use libxslt if you need to transform XML documents.
+    Although XSLT is not always the right solution for XML processing, it
+    can often simplify development.  Since libxslt allows you to add extension
+    elements and extension functions, you can customize it to fit your
+    application.</p>
+
+    <p>For more information on libxslt, see <link
+    href="http://xmlsoft.org/XSLT/html/index.html">The XSLT C library for
+    Gnome</link>.</p>
+</section>
+
+</page>
