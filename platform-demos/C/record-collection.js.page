@@ -34,7 +34,7 @@
     This demo uses the Javascript language. We are going to demonstrate how to connect and use a database from a GTK program, by using the GDA (GNOME Data Access) library. Thus you also need this library installed.
   </p>
   <p>
-    GNOME Data Access (GDA) is library whose purpose is to provide universal access to different kinds and types of data sources. This goes from traditional relational database systems, to any imaginable kind of data source such as a mail server, a LDAP directory, etc. For more information, and for a full API and documentation, visit the GDA website.
+    GNOME Data Access (GDA) is library whose purpose is to provide universal access to different kinds and types of data sources. This goes from traditional relational database systems, to any imaginable kind of data source such as a mail server, a LDAP directory, etc. For more information, and for a full API and documentation, visit the <link href="http://library.gnome.org/devel/libgda/stable/">GDA website</link>.
   </p>
   <p>
     Although a big part of the code is related to user interface (GUI), we are going to focus our tutorial on the database parts (we might mention other parts we think are relevant though). To know more about Javascript programs in GNOME, see the <link xref="image-viewer.js">Image Viewer program</link> tutorial.
@@ -60,13 +60,13 @@
 <section>
   <title>Program Structure</title>
   <media type="image" mime="image/png" src="media/record-collection.png"/>
-  <p>This demo is a simple GTK application (with a single window) capable of insert records into a database table as well browse all records of the table. The table has two fields: id, integer and name, varchar. The first section (on the top) of the application allows you to insert a record into the table. The last section (bottom) allows you to see all the records of that table. Its content is refreshed every time a new record is inserted and on the application startup.
+  <p>This demo is a simple GTK application (with a single window) capable of inserting records into a database table as well as browsing all records of the table. The table has two fields: <code>id</code>, an integer, and <code>name</code>, a varchar. The first section (on the top) of the application allows you to insert a record into the table. The last section (bottom) allows you to see all the records of that table. Its content is refreshed every time a new record is inserted and on the application startup.
   </p>
 </section>
 
 <section>
   <title>Starting the fun</title>
-  <p>Let's start by commenting the skeleton of the program:</p>
+  <p>Let's start by examining the skeleton of the program:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -90,18 +90,17 @@ Gtk.init (0, null);
 
 var demo = new Demo ();
 
-Gtk.main ();]]>
-  </code>
+Gtk.main ();]]></code>
   <list>
-    <item><p>Lines 1-4: Initial imports. Special attention to line 3, which tells Javascript to import the GDA library, our focus in this tutorial.</p></item>
-    <item><p>Lines 6-17: Define our Demo class. Special attention to lines 13-15, where we call 3 methods which will do all the job. They will be detailed below.</p></item>
-    <item><p>Lines 19-23: Start the application.</p></item>
+    <item><p>Lines 1&#x2012;4: Initial imports. Pay special attention to line 3, which tells Javascript to import the GDA library, our focus in this tutorial.</p></item>
+    <item><p>Lines 6&#x2012;17: Define our <code>Demo</code> class. Pay special attention to lines 13&#x2012;15, where we call 3 methods which will do the whole job. They will be detailed below.</p></item>
+    <item><p>Lines 19&#x2012;23: Start the application.</p></item>
   </list>
 </section>
 
 <section>
   <title>Designing the application</title>
-  <p>Let's take a look at <em>setupWindow</em> method. It is responsible for creating the User Interface (UI). As UI is not our focus, let's comment only the relevant parts.</p>
+  <p>Let's take a look at the <code>setupWindow</code> method. It is responsible for creating the User Interface (UI). As UI is not our focus, we will explain only the relevant parts.</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
   setupWindow: function () {
     this.window = new Gtk.Window ({title: "Data Access Demo", height_request: 350});
@@ -150,12 +149,11 @@ Gtk.main ();]]>
     main_box.pack_start (this.count_label, false, false, 0);
 
     this.window.show_all ();
-  },]]>
-  </code>
+  },]]></code>
   <list>
     <item><p>Lines 22 and 27: Create the 2 entries (for the two fields) in which users will type something to get inserted in the database.</p></item>
-    <item><p>Lines 31-34: Create the Insert button. We connect its <em>clicked</em> signal to the <em>_insertClicked</em> private method of the class. This method is detailed below.</p></item>
-    <item><p>Line 39: Create the widget (TextView) where we will show the contents of the table.</p></item>
+    <item><p>Lines 31&#x2012;34: Create the Insert button. We connect its <code>clicked</code> signal to the <code>_insertClicked</code> private method of the class. This method is detailed below.</p></item>
+    <item><p>Line 39: Create the widget (<code>TextView</code>) where we will show the contents of the table.</p></item>
     <item><p>Line 44: Create the label where we will show the number of records in the table. Initially it's empty, it will be updated later.</p></item>
   </list>
 </section>
@@ -163,7 +161,7 @@ Gtk.main ();]]>
 <section>
   <title>Connecting to and initializing the database</title>
   <p>
-     The code which makes the connection to the database is in the <em>setupDatabase</em> method below:
+     The code which makes the connection to the database is in the <code>setupDatabase</code> method below:
   </p>
   <code mime="text/javascript" style="numbered"><![CDATA[
   setupDatabase: function () {
@@ -176,28 +174,27 @@ Gtk.main ();]]>
     } catch (e) {
       Gda.execute_non_select_command (this.connection, "create table demo (id integer, name varchar(100))");
     }
-  },]]>
-  </code>
+  },]]></code>
   <list>
     <item>
-      <p>Lines 2-3: Create the GDA's <em>Connection</em> object. We must supply to its constructor some properties:</p>
+      <p>Lines 2&#x2012;3: Create the GDA's <code>Connection</code> object. We must supply to its constructor some properties:</p>
       <list>
         <item>
-          <p>provider: One of GDA's supported provider. GDA supports SQLite, MySQL, Posgresql, Oracle and many others. For demo purposes we will use a SQLite database, as it comes installed by default in most distributions and it is simple to use (it just uses a file as a database).</p>
+          <p><code>provider</code>: One of GDA's supported providers. GDA supports SQLite, MySQL, PostgreSQL, Oracle and many others. For demo purposes we will use a SQLite database, as it comes installed by default in most distributions and it is simple to use (it just uses a file as a database).</p>
         </item>
         <item>
-          <p>cnc_string: The connection string. It may change from provider to provider. The syntax for SQLite is: DB_DIR=PATH;DB_NAME=FILENAME. In this demo we are accessing a database called gnome_demo in the user home dir (note the call to GLib's <em>get_home_dir</em> function).</p>
+          <p><code>cnc_string</code>: The connection string. It may change from provider to provider. The syntax for SQLite is: <code>DB_DIR=<var>PATH</var>;DB_NAME=<var>FILENAME</var></code>. In this demo we are accessing a database called gnome_demo in the user home dir (note the call to GLib's <code>get_home_dir</code> function).</p>
         </item>
       </list>
       <note>
-        <p>If the provider is not supported by GDA, or if the connection string is missing some element, line 2 will raise an exception. So, in real life we should handle it with javascript's statement try...catch.</p>
+        <p>If the provider is not supported by GDA, or if the connection string is missing some element, line 2 will raise an exception. So, in real life we should handle it with JavaScript's statement <code>try</code>...<code>catch</code>.</p>
       </note>
     </item>
 
-    <item><p>Line 4: Open the connection. In SQLite provider, if the database does not exist, it will be created in this step.</p></item>
+    <item><p>Line 4: Open the connection. In the SQLite provider, if the database does not exist, it will be created in this step.</p></item>
     <item>
-      <p>Lines 6-10: Try to do a simple select to check if the table exists (line 7). If it does not exist (because the database was just created), this command will raise an exception, which is handled by the try..catch block. If it is the case, we run the create table statement (line 9).</p>
-      <p>In order to run the SQL commands above we are using global GDA functions, <em>execute_select_command</em> and <em>execute_non_select_command</em>. They are simple to use, and just require two arguments: The <em>Connection</em> object and the SQL command to be parsed.</p>
+      <p>Lines 6&#x2012;10: Try to do a simple select to check if the table exists (line 7). If it does not exist (because the database was just created), this command will raise an exception, which is handled by the <code>try</code>...<code>catch</code> block. If it is the case, we run the create table statement (line 9).</p>
+      <p>In order to run the SQL commands above we are using global GDA functions, <code>execute_select_command</code> and <code>execute_non_select_command</code>. They are simple to use, and just require two arguments: The <code>Connection</code> object and the SQL command to be parsed.</p>
     </item>
   </list>
 
@@ -207,7 +204,7 @@ Gtk.main ();]]>
 <section>
   <title>Selecting</title>
   <p>
-     After connect to the database, our demo's constructor calls <em>selectData</em> method. It is responsible for getting all the records in the table and showing them on the TextView widget. Let's take a look at it:
+     After connecting to the database, our demo's constructor calls the <code>selectData</code> method. It is responsible for getting all the records in the table and showing them on the <code>TextView</code> widget. Let's take a look at it:
   </p>
   <code mime="text/javascript" style="numbered"><![CDATA[
   selectData: function () {
@@ -225,29 +222,28 @@ Gtk.main ();]]>
 
     this.text.buffer.text = text;
     this.count_label.label = "<i>" + dm.get_n_rows () + " record(s)</i>";
-  },]]>
-  </code>
+  },]]></code>
   <list>
-    <item><p>Line 2: The SELECT command. We are using the global GDA's function <em>execute_select_command</em> for that. It returns a <em>DataModel</em> object, which is later used to retrieve the rows.</p></item>
-    <item><p>Line 3: Create an <em>Iter</em> object, which is used to iterate over the <em>DataModel</em>'s records.</p></item>
-    <item><p>Line 7: Loop fetching all the records with the help of the <em>Iter</em> object. At this point, <em>iter</em> variable contains the actual, retrieved data. Its <em>move_next</em> method returns false when it reaches the last record.</p></item>
+    <item><p>Line 2: The <code>SELECT</code> command. We are using the global GDA's function <code>execute_select_command</code> for that. It returns a <code>DataModel</code> object, which is later used to retrieve the rows.</p></item>
+    <item><p>Line 3: Create an <code>Iter</code> object, which is used to iterate over the <code>DataModel</code>'s records.</p></item>
+    <item><p>Line 7: Loop through all the records, fetching them with the help of the <code>Iter</code> object. At this point, the <code>iter</code> variable contains the actual, retrieved data. Its <code>move_next</code> method returns <code>false</code> when it reaches the last record.</p></item>
     <item>
-      <p>Lines 8-9: We do two things in each line:</p>
+      <p>Lines 8&#x2012;9: We do two things in each line:</p>
       <list>
-        <item><p>Use Iter's method <em>get_value_at</em>, which requires only one argument: the column number to retrieve, starting on 0. As our SELECT command returns only two columns, we are retrieving columns 0 and 1.</p></item>
-        <item><p>The method <em>get_value_at</em> returns the field in the GLib's <em>GValue</em> format. A simple way to convert this format to a string is by using the GDA's global function <em>value_stringify</em>. That's what we are doing here, and we store the results in the variables <em>id_field</em> and <em>name_field</em>.</p></item>
+        <item><p>Use <code>Iter</code>'s method <code>get_value_at</code>, which requires only one argument: the column number to retrieve, starting at 0. As our <code>SELECT</code> command returns only two columns, we are retrieving columns 0 and 1.</p></item>
+        <item><p>The method <code>get_value_at</code> returns the field in GLib's <code>GValue</code> format. A simple way to convert this format to a string is by using GDA's global function <code>value_stringify</code>. That's what we are doing here, and we store the results in the variables <code>id_field</code> and <code>name_field</code>.</p></item>
       </list>
     </item>
-    <item><p>Line 11: Concatenate the two fields to make one text line, separated by "=>", and store it in the <em>text</em> variable</p></item>
-    <item><p>Line 14: After the loop is finished, we have all records formatted in the <em>text</em> variable. In this line we just set the contents of the TextView with that variable.</p></item>
-    <item><p>Line 15: Display the number of records in the table, making use of the DataModel's <em>get_n_rows</em> method.</p></item>
+    <item><p>Line 11: Concatenate the two fields to make one text line, separated by <code>"=>"</code>, and store it in the <code>text</code> variable.</p></item>
+    <item><p>Line 14: After the loop is finished, we have all the records formatted in the <code>text</code> variable. In this line we just set the contents of the <code>TextView</code> with that variable.</p></item>
+    <item><p>Line 15: Display the number of records in the table, making use of the <code>DataModel</code>'s <code>get_n_rows</code> method.</p></item>
   </list>
 </section>
 
 <section>
   <title>Inserting</title>
   <p>
-     OK, we know how to connect to a database and how to select rows from a table. Now it's time to do an INSERT on the table. Do you remember above, in the method <em>setupWindow</em> we connected the Insert button clicked signal to the method <em>_insertClicked</em>? Let's see the implementation of this method.
+     OK, we know how to connect to a database and how to select rows from a table. Now it's time to do an <code>INSERT</code> on the table. Do you remember above, in the method <code>setupWindow</code> we connected the <gui>Insert</gui> button's <code>clicked</code> signal to the method <code>_insertClicked</code>? Let's see the implementation of this method.
   </p>
   <code mime="text/javascript" style="numbered"><![CDATA[
   _insertClicked: function () {
@@ -266,32 +262,31 @@ Gtk.main ();]]>
 
     this._clearFields ();
     this.selectData ();
-  },]]>
-  </code>
+  },]]></code>
   <p>
-    We have learned how to use GDA's convenience functions <em>execute_select_command</em> and <em>execute_non_select_command</em> to quickly execute SQL commands on the database. GDA allows one to build a SQL statement indirectly, by using its <em>SqlBuilder</em> object. The benefits of this? GDA will generate dynamically the SQL statement, and it will be valid for the connection provider used (it will use the same SQL dialect the provider uses). Let's study the code:
+    We have learned how to use GDA's convenience functions <code>execute_select_command</code> and <code>execute_non_select_command</code> to quickly execute SQL commands on the database. GDA allows one to build a SQL statement indirectly, by using its <code>SqlBuilder</code> object. What are the benefits of this? GDA will generate the SQL statement dynamically, and it will be valid for the connection provider used (it will use the same SQL dialect the provider uses). Let's study the code:
   </p>
   <list>
-    <item><p>Lines 2-3: Check if the user filled all fields. The code for the private method <em>_validateFields</em> is really simple and you can read it in the full demo source code.</p></item>
-    <item><p>Line 5: The faster way of doing the INSERT. It's commented as we want to show how to use the <em>SqlBuilder</em> object to build a SQL statement portable across databases.</p></item>
-    <item><p>Line 7: Create the <em>SqlBuilder</em> object. We must pass the type of statement we are going to build. It can be SELECT, UPDATE, INSERT or DELETE.</p></item>
-    <item><p>Line 8: Set the name of the table on which the built statement will operate (it will generate <em>INSERT INTO demo</em>)</p></item>
-    <item><p>Lines 9-10: Set the fields and its values that will be part of the statement. The first argument is the field name (as in the table). The second one is the value for that field.</p></item>
-    <item><p>Line 11: Get the dynamically generated <em>Statement</em> object, which represents a SQL statement.</p></item>
-    <item><p>Line 12: Finally, execute the SQL statement (INSERT).</p></item>
-    <item><p>Line 14: Clear the id and name fields on the screen.  The code for the private method <em>_clearFields</em> is really simple and you can read it in the full demo source code.</p></item>
-    <item><p>Line 15: Refresh the view on the screen by doing another SELECT.</p></item>
+    <item><p>Lines 2&#x2012;3: Check if the user filled all the fields. The code for the private method <code>_validateFields</code> is really simple and you can read it in the full demo source code.</p></item>
+    <item><p>Line 5: The faster way of doing the <code>INSERT</code>. It's commented out as we want to show how to use the <code>SqlBuilder</code> object to build a SQL statement portable across databases.</p></item>
+    <item><p>Line 7: Create the <code>SqlBuilder</code> object. We must pass the type of statement we are going to build. It can be <code>SELECT</code>, <code>UPDATE</code>, <code>INSERT</code> or <code>DELETE</code>.</p></item>
+    <item><p>Line 8: Set the name of the table on which the built statement will operate (it will generate <code>INSERT INTO demo</code>)</p></item>
+    <item><p>Lines 9&#x2012;10: Set the fields and its values that will be part of the statement. The first argument is the field name (as in the table). The second one is the value for that field.</p></item>
+    <item><p>Line 11: Get the dynamically generated <code>Statement</code> object, which represents a SQL statement.</p></item>
+    <item><p>Line 12: Finally, execute the SQL statement (<code>INSERT</code>).</p></item>
+    <item><p>Line 14: Clear the id and name fields on the screen.  The code for the private method <code>_clearFields</code> is really simple and you can read it in the full demo source code.</p></item>
+    <item><p>Line 15: Refresh the view on the screen by doing another <code>SELECT</code>.</p></item>
   </list>
-  <note><p>You can also make use of parameters while building the statement. By using the <em>SqlBuilder</em> objects and parameters you are less subject to attacks like SQL injection. Check the GDA documentation for more information about parameters.</p></note>
+  <note><p>You can also make use of parameters while building the statement. By using the <code>SqlBuilder</code> objects and parameters you are less subject to attacks like SQL injection. Check the <link href="http://library.gnome.org/devel/libgda/stable/">GDA documentation</link> for more information about parameters.</p></note>
 </section>
 
 <section>
   <title>Run the application</title>
-  <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
+  <p>All of the code you need should now be in place, so try running the code. You now have a database for your record collection!</p>
 </section>
 
 <section>
  <title>Reference Implementation</title>
- <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.js">reference code</link>.</p>
+ <p>If you run into problems with the tutorial, compare your code with this <link href="record-collection/record-collection.js">reference code</link>.</p>
 </section>
 </page>
