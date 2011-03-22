@@ -116,10 +116,10 @@ six strings) and the orientation to vertical.</p>
 <p>To do this, open <file>guitar_tuner.py</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the 
 <gui>clicked</gui> signal and drag it into to the source file inside the main class. The following code will be added to your source file:</p>
 <code mime="text/x-csrc"><![CDATA[
-	def on_button_clicked (button, self):
+def on_button_clicked (self, button):
 ]]></code>
 
-  <p>This signal handler has two arguments: the <code>GtkButton</code> that called the function, and the usual Python class pointer.</p>
+  <p>This signal handler has two arguments: the usual Python class pointer, and the <code>Gtk.Button</code> that called the function.</p>
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
@@ -219,7 +219,7 @@ def on_button_clicked(self, button):
 
 <section>
   <title>Run the application</title>
-  <p>All of the code should now be ready to go. Click <guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application. Enjoy!</p>
+  <p>All of the code should now be ready to go. Click <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application. Enjoy!</p>
 </section>
 
 <section>
