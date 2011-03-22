@@ -6,10 +6,14 @@
 
     <desc>A Clutter image viewer</desc>
 
-    <revision pkgversion="0.1" version="0.1" date="2010-12-03" status="stub"/>
+    <revision pkgversion="0.1" version="0.1" date="2011-03-22" status="review"/>
     <credit type="author">
       <name>Chris Kühl</name>
       <email>chrisk@openismus.com</email>
+    </credit>
+    <credit type="author">
+      <name>Johannes Schmid</name>
+      <email>jhs@gnome.org</email>
     </credit>
   </info>
 
@@ -37,16 +41,31 @@
 </section>
 
 <section>
-  <title>Building the example</title>
-  <p>
-    In order to build the example you'll need to run the following command from the directory containing the source file.
-  </p>
-  <screen>
-    gcc -g -o photo-wall `pkg-config --cflags clutter-1.0` `pkg-config --libs clutter-1.0` photo-wall.c
-  </screen>
-  <p>
-    If you are unfamiliar with compiling C programs, the above line creates a binary file <code>-o photo-wall</code> using the C source file <code>photo-wall.c</code>. We use the <code>-g</code> flag to generate debug symbols which is always a good idea during the development stage. The bit between the <code>`</code> pairs shows how to use the <code>pkg-config</code> tool to insert other flags and libraries needed for compilation.
-  </p>
+  <title>Create a project in Anjuta</title>
+  <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
+  <steps>
+    <item>
+    <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>photo-wall</file> as project name and directory.</p>
+   	</item>
+    <item>
+    <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will
+    create the UI manually in this tutorial. Check the <link xref="guitar-tuner.c">Guitar-Tuner</link>
+    tutorial using the interface builder.</p>
+    </item>
+    <item>
+    <p>Enable <gui>Configure external packages</gui>. On the next page, select
+       <em>clutter-1.0</em> from the list to include the Clutter library in your project.</p>
+    </item>
+    <item>
+    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <code mime="text/x-csrc"><![CDATA[
+#include <config.h>
+#include <gtk/gtk.h>]]></code>
+    </item>
+  </steps>
 </section>
 
 <section>
@@ -63,7 +82,7 @@
 <section>
   <title>Initial setup</title>
   <p>
-    The following code segment contains many of the defines and variables we will be using in the following sections. Use this as a reference for later sections.
+    The following code segment contains many of the defines and variables we will be using in the following sections. Use this as a reference for later sections. Copy this code to the beginning of the <file>src/main.c</file>:
   </p>
 <code mime="text/x-csrc" style="numbered"><![CDATA[
 #include <clutter/clutter.h>
@@ -100,7 +119,9 @@ static Position origin = {0, 0};
 
 <section>
   <title>Jumping into the code</title>
-  <p>We will start by taking a look at the <code>main</code> function as a whole. Then we'll discuss the other code sections in detail.</p>
+  <p>We will start by taking a look at the <code>main()</code> function as a whole. Then we'll discuss the other code sections in detail.
+  Change the <file>src/main.c</file> to contain this <code>main()</code> function. You can delete the 
+  <code>create_window()</code> function as we don't need it in this example.</p>
   <code mime="text/x-csrc" style="numbered"><![CDATA[
 int
 main(int argc, char *argv[])
@@ -143,7 +164,7 @@ main(int argc, char *argv[])
     <item><p>Line 4: <code>ClutterColor</code> is defined by setting the red, green, blue and transparency (alpha) values. The values range from 0-255. For transparency a value of 255 is opaque.</p></item>
     <item><p>Line 7: You must initialize Clutter. If you forget to do this, you will get very strange errors. Be warned.</p></item>
     <item><p>Lines 9-11: Here we get the default <code>ClutterStage</code> that was provided by <code>clutter_init</code>. We then set the size using the defines from the previous section and the address of the <code>ClutterColor</code> we just defined.</p>
-      <note>A <code>ClutterStage</code> is the top-level <code>ClutterActor</code> onto which other <code>ClutterActor</code> are placed.</note>
+      <note><p>A <code>ClutterStage</code> is the top-level <code>ClutterActor</code> onto which other <code>ClutterActor</code> are placed.</p></note>
 </item>
     <item><p>Line 12: Here we call our function for getting the image file paths. We'll look at this in a bit.</p></item>
     <item><p>Lines 14-26: This is were we setup up the <code>ClutterActor</code>s, load the images and place them into their spot in the image wall. We will look at this in detail in the next section.</p></item>
@@ -155,7 +176,7 @@ main(int argc, char *argv[])
 <section>
   <title>Setting up our image actors</title>
 <p>
- <note>In Clutter, an actor is the most basic visual element. Basically, everything you see is an actor.</note>
+ <note><p>In Clutter, an actor is the most basic visual element. Basically, everything you see is an actor.</p></note>
 In this section, we are going to take a closer look at the loop used for setting up the <code>ClutterActor</code>s that will display our images.
 </p>
   <code mime="text/x-csrc" style="numbered"><![CDATA[
@@ -324,7 +345,7 @@ actor_clicked_cb(ClutterActor *actor,
     <item><p>Line 37: Here we toggle the <code>is_focused</code> flag to the current state.</p></item>
 <item><p>As mentioned previously, the <code>ClutterActor</code>s with higher <code>depth</code> value receive events but can allow <code>ClutterActor</code>s below them to also receive events. Returning <code>TRUE</code> will stop events from being passed down, while <code>FALSE</code> will pass events down.</p>
  <note>
-   Remember, however, that to receive events the <code>ClutterActor</code>s must be set <code>reactive</code>.
+   <p>Remember, however, that to receive events the <code>ClutterActor</code>s must be set <code>reactive</code>.</p>
  </note>
 </item>
  </list>
@@ -347,160 +368,14 @@ foreach_set_focus_state(gpointer data, gpointer user_data)
 </section>
 
 <section>
-  <title>Full listing</title>
-  <code mime="text/x-csrc" style="numbered"><![CDATA[
-#include <clutter/clutter.h>
+  <title>Build and run the application</title>
+  <p>All of the code should now be ready to go. Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application.</p>
+  <p>If you haven't already done so, choose the <file>Debug/src/photo-wall</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>
+</section>
 
-#define STAGE_WIDTH  800
-#define STAGE_HEIGHT 600
-
-#define THUMBNAIL_SIZE 200
-#define ROW_COUNT (STAGE_HEIGHT / THUMBNAIL_SIZE)
-#define COL_COUNT (STAGE_WIDTH  / THUMBNAIL_SIZE)
-#define THUMBNAIL_COUNT (ROW_COUNT * COL_COUNT)
-
-#define ANIMATION_DURATION_MS 500
-
-#define FOCUS_DEPTH 100.0
-#define UNFOCUS_DEPTH 0.0
-
-#define IMAGE_DIR_PATH "./berlin_images/"
-
-static GSList *actor_list = NULL;
-static GSList *img_path_list = NULL;
-
-typedef struct Position
-{
-    float x;
-    float y;
-}
-Position;
-
-static Position origin = {0, 0};
-
-static void
-load_image_path_names()
-{
-    /* Insure we can access the directory. */
-    GError *error = NULL;
-    GDir *dir = g_dir_open(IMAGE_DIR_PATH, 0, &error);
-    if(error)
-    {
-        g_warning("g_dir_open() failed with error: %s\n", error->message);
-        g_clear_error(&error);
-        return;
-    }
-
-    const gchar *filename = g_dir_read_name(dir);
-    while(filename)
-    {
-        gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
-
-        img_path_list = g_slist_prepend(img_path_list, path);
-        filename = g_dir_read_name(dir);
-    }
-}
-
-static void
-foreach_set_focus_state(gpointer data, gpointer user_data)
-{
-    ClutterActor *actor = CLUTTER_ACTOR(data);
-    gboolean is_reactive = *((gboolean*)user_data);
-
-    clutter_actor_set_reactive(actor, is_reactive);
-}
-
-static gboolean
-actor_clicked_cb(ClutterActor *actor,
-                 ClutterEvent *event,
-                 gpointer      user_data)
-{
-    /* Flag to keep track of our state. */
-    static gboolean is_focused = FALSE;
-
-    g_slist_foreach(actor_list, foreach_set_focus_state, &is_focused);
-
-    if(is_focused)
-    {
-        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x",      origin.x,
-                              "y",      origin.y,
-                              "depth",  UNFOCUS_DEPTH,
-                              "width",  (float) THUMBNAIL_SIZE,
-                              "height", (float) THUMBNAIL_SIZE,
-                              NULL);
-    }
-    else
-    {
-        /*Save the current location before animating. */
-        clutter_actor_get_position(actor, &origin.x, &origin.y);
-        clutter_actor_set_reactive(actor, TRUE);
-        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x",      (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
-                              "y",      0.0,
-                              "depth",  FOCUS_DEPTH,
-                              "width",  (float) STAGE_HEIGHT,
-                              "height", (float) STAGE_HEIGHT,
-                              NULL);
-    }
-
-    /* Toggle our flag. */
-    is_focused = !is_focused;
-
-    return TRUE;
-}
-
-/* This functions handles setup and placing the rectangles. */
-static void
-initialize_actor(ClutterActor *actor, guint *row, guint *col)
-{
-    clutter_actor_set_size(actor, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
-    clutter_actor_set_position(actor, (*col) * THUMBNAIL_SIZE, (*row) * THUMBNAIL_SIZE);
-    clutter_actor_set_reactive(actor, TRUE);
-
-    g_signal_connect(actor,
-                     "button-press-event",
-                     G_CALLBACK(actor_clicked_cb),
-                     NULL);
-}
-
-int
-main(int argc, char *argv[])
-{
-    ClutterColor stage_color = { 16, 16, 16, 255 };
-    ClutterActor *stage = NULL;
-
-    clutter_init (&argc, &argv);
-
-    stage = clutter_stage_get_default();
-    clutter_actor_set_size(stage, STAGE_WIDTH, STAGE_HEIGHT);
-    clutter_stage_set_color(CLUTTER_STAGE (stage), &stage_color);
-
-    load_image_path_names();
-
-    int row = 0;
-    int col = 0;
-    for(row=0; row < ROW_COUNT; ++row)
-    {
-        for(col=0; col < COL_COUNT; ++col)
-        {
-            GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
-            ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
-            initialize_actor(actor, &row, &col);
-            clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
-            actor_list = g_slist_prepend(actor_list, actor);
-        }
-    }
-
-    /* Show the stage. */
-    clutter_actor_show(stage);
-
-    /* Start the clutter main loop. */
-    clutter_main();
-
-    return 0;
-}]]>
-</code>
+<section>
+ <title>Reference Implementation</title>
+ <p>If you run into problems with the tutorial, compare your code with this <link href="photo-wall/photo-wall.c">reference code</link>.</p>
 </section>
 
 </page>
