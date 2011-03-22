@@ -14,7 +14,7 @@ demo_sources = \
 	image-viewer/image-viewer.py \
 	image-viewer/image-viewer.js \
 	magic-mirror/magic-mirror.vala \
-	magic-mirror/maigc-mirror-advanced.vala \
+	magic-mirror/magic-mirror-advanced.vala \
 	message-board/message-board.c \
 	photo-wall/photo-wall.c \
 	record-collection/record-collection.js
