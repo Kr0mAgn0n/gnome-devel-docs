@@ -21,7 +21,7 @@
 <title>Magic Mirror</title>
 
 <synopsis>
-  <p><em>Your mirror just fell off the wall and broke into a thousand pieces - but you need a mirror to shave your beard off or add some make up! You only have 15 minutes left before catching the bus to work. So what can you do?</em></p>
+  <p><em>Your mirror just fell off the wall and broke into a thousand pieces &#x2014; but you need a mirror to shave your beard off or add some makeup! You only have 15 minutes left before catching the bus to work. So what can you do?</em></p>
   <p>In this tutorial, we're going to make a program which lets you use your webcam as a mirror. You will learn how to:</p>
   <list>
     <item><p>Create a GTK+ application</p></item>
@@ -32,7 +32,7 @@
   <list>
     <item><p>An installed copy of the <link xref="getting-ready">Anjuta IDE</link></p></item>
     <item><p>Installed copies of GTK, GStreamer, and a Vala compiler</p></item>
-    <item><p>Basic knowledge of an object-orientated programming language</p></item>
+    <item><p>Basic knowledge of an object-oriented programming language</p></item>
   </list>
 </synopsis>
 
@@ -46,7 +46,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
    	<item>
     <p>Disable <gui>Use GtkBuilder for user interface</gui> as we will
@@ -58,7 +58,7 @@
        <em>gstreamer-0.10</em> from the list to include the <app>GStreamer</app> library into your project.</p>
     </item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/magic_mirror.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
+    <p>Click <gui>Apply</gui> and the project will be created for you. Open <file>src/magic_mirror.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. You should see some code which starts with the lines:</p>
     <code mime="text/x-valasrc"><![CDATA[
 using GLib;
 using Gtk;]]></code>
@@ -75,23 +75,22 @@ using Gtk;]]></code>
    </item>
    <item>
     <p>The constructor of the <code>Main</code> class creates a new window and sets its title. Afterwards the window
-    is shown and a signal is connected to quite the application if the widget is closed. More on signals laster on.</p>
+    is shown and a signal is connected which quits the application if the window is closed. More on signals later on.</p>
    </item>
    <item>
-    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set-up and then run the application. The <code>Gtk.Main</code> function start the GTK mainloop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set up and then run the application. The <code>Gtk.Main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
   </list>
 
   <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
-  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Configure</gui> configure the build directory. You only need to do this once, for the first build.</p>
+  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Execute</gui> to configure the build directory. You only need to do this once, for the first build.</p>
 </section>
 
 <section>
  <title>Access the webcam video stream with GStreamer</title>
  <p>The GStreamer multimedia framework is able to handle video from webcams. Let's add GStreamer to our application and so we can access the video stream.</p>
 
-<code mime="text/x-vala" style="numbered">
-<![CDATA[
+<code mime="text/x-vala" style="numbered"><![CDATA[
 using GLib;
 using Gtk;
 
@@ -121,14 +120,14 @@ public class Main : Object
  </item>
   <item>
   <p>
-  Now we are creating a GStreamer element, which accesses our webcam. We are
+  Now we are creating a GStreamer element which accesses our webcam. We are
   using the Camerabin element, which is an all-in-one camera element and is
   capable of taking photos, videos, applying effects and much more. Perfect for
   our use case! With <code>this.camerabin.set_state (Gst.State.PLAYING)</code>
-  we tell the GStreamer pipeline we just created to start playing. Easy, not?
+  we tell the GStreamer pipeline we just created to start playing. Easy, no?
   </p>
   <p>Of course it is also possible to integrate the video more tighly into other
-  windows but that is an advanced topics that includes some details of the X Window
+  windows but that is an advanced topic that includes some details of the X Window
   System we will omit here.
   </p>
   <p>
@@ -155,9 +154,9 @@ public class Main : Object
 <section>
 <title>Conclusion</title>
   <p>
-  That's it, you have managed to create a full featured webcam photo
-  application in 15 minutes. Now you can shave your beard off or add some make
-  up to your beautiful face, right before having a beautiful day at your
+  That's it, you have managed to create a full-featured webcam photo
+  application in 15 minutes. Now you can shave your beard off or add some makeup
+  to your beautiful face, right before having a beautiful day at your
   workplace, where you can impress your friends and colleagues with an awesome
   application you just made in 15 minutes.
   </p>
