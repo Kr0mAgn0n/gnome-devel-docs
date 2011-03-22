@@ -7,9 +7,7 @@ function ImageViewer () {
 
 ImageViewer.prototype = {
   _init: function () {
-    this.window = new Gtk.Window ({title: "Image Viewer Demo",
-                                   width_request: 400,
-                                   height_request: 350});
+    this.window = new Gtk.Window ({title: "Image Viewer Demo"});
     this.window.connect ("hide", Gtk.main_quit);
 
     var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});

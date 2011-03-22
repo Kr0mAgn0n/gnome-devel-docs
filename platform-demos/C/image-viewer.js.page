@@ -6,7 +6,7 @@
     
     <link type="guide" xref="index#js"/>
     
-    <desc>A little bit more than a simple "Hello world" application - write an image viewer in GTK. Includes an introduction to the Javascript language.</desc>
+    <desc>A little bit more than a simple "Hello world" application - write an image viewer in GTK. Includes an introduction to the JavaScript language.</desc>
     
     <revision pkgversion="0.1" version="0.1" date="2011-03-19" status="review"/>
     <credit type="author">
@@ -48,10 +48,10 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Generic Javascript</gui> from the <gui>JS</gui> tab, click <gui>Forward</gui>, and fill-out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+    <p>Choose <gui>Generic Javascript</gui> from the <gui>JS</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
     <item>
-    <p>Click <gui>Finished</gui> and the project will be created for you. Open <file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
+    <p>Click <gui>Apply</gui> and the project will be created for you. Open <file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> tabs. It contains very basic example code.</p>
     </item>
   </steps>
 </section>
@@ -70,7 +70,7 @@
   <code mime="text/javascript" style="numbered"><![CDATA[
 function MyClass () {
   this._init ();
-}the constructor just calls the <code>_init</code> method.
+}
 
 MyClass.prototype = {
 
@@ -88,12 +88,11 @@ MyClass.prototype = {
     print (this.propertyB);
   }
   
-}]]>
-  </code>
+}]]></code>
   <p>This defines a class called <code>MyClass</code>. Let's go through each part of the class definition:</p>
   <steps>
     <item>
-    <p><code>function MyClass ()</code> is the constructor of the class - its name must match the class's name. You can access any member of the class by using the <code>this</code> object; here, the constructor calls the class's <code>_init</code> method.</p>
+    <p><code>function MyClass</code> is the constructor of the class &#x2014; its name must match the class's name. You can access any member of the class by using the <code>this</code> object; here, the constructor calls the class's <code>_init</code> method.</p>
     </item>
     <item>
     <p>The <code>MyClass.prototype</code> block is where you define the <em>structure</em> of the class. Each class is made up of methods (functions) and fields (variables); there are three methods and two fields in this example.</p>
@@ -116,11 +115,10 @@ MyClass.prototype = {
 var o = new MyClass ();
 o.aMethod ("Hello", "world");
 o.propertyA = "Just changed its value!";
-o.dumpProperties ();]]>
-  </code>
+o.dumpProperties ();]]></code>
   <p>This code creates a new instance of the class called <code>o</code>, runs <code>aMethod</code>, changes <code>propertyA</code> to a different string, and then calls <code>dumpProperties</code> (which outputs the fields).</p>
   <p>Save the code in the <file>main.js</file> and then run it by using 
-  <guiseq><gui>Run</gui><gui>Run…</gui></guiseq> from the menu or using the toolbar.</p>
+  <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> from the menu or using the toolbar.</p>
 </section>
 
 <section>
@@ -134,8 +132,7 @@ Gtk.init (0, null);
 var w = new Gtk.Window ({title: "Image Viewer Demo"});
 w.show ();
 
-Gtk.main ();]]>
-  </code>
+Gtk.main ();]]></code>
   <p>Let's take a look at what's happening:</p>
   <list>
     <item>
@@ -145,9 +142,9 @@ Gtk.main ();]]>
     <p><code>Gtk.init</code> initializes the Gtk library; this statement is mandatory for all Gtk programs.</p>
     </item>
     <item>
-    <p>The next line creates the main window by creating a new Gtk.Window object. You can pass several properties to the window's constructor by using the syntax <code>{property: value, property: value, ...}</code>. In this case we are setting the title of the window.</p></item>
+    <p>The next line creates the main window by creating a new <code>Gtk.Window</code> object. You can pass several properties to the window's constructor by using the syntax <code>{property: value, property: value, ...}</code>. In this case we are setting the title of the window.</p></item>
     <item><p>The next line explicitly shows the window. In Gtk, every widget is hidden by default.</p></item>
-    <item><p>Finally, <code>Gtk.main</code> runs the main loop - in other words, it executes the program. The main loop listens for events (signals) from the user interface and then calls a signal handler which will do something useful. We'll learn more about signals shortly.</p></item>
+    <item><p>Finally, <code>Gtk.main</code> runs the main loop &#x2014; in other words, it executes the program. The main loop listens for events (signals) from the user interface and then calls a signal handler which will do something useful. We'll learn more about signals shortly.</p></item>
   </list>
   
   <p>Save the code in <file>main.js</file> and run it. You will notice that the application does not quit when you close the window. This is because we haven't set up a signal handler to deal with the window's <code>destroy</code> (close) signal yet. We'll do this shortly, but for now you can just hit <keyseq><key>Ctrl</key><key>C</key></keyseq> in the terminal window to quit the program.</p>
@@ -173,8 +170,7 @@ ImageViewer.prototype = {
 
 Gtk.init (0, null);
 var iv = new ImageViewer ();
-Gtk.main ();]]>
-  </code>
+Gtk.main ();]]></code>
   <!-- FIXME: Throws an error, "JS ERROR: !!!   Unhandled type int32 releasing GArgument" on Ubuntu 10.10 -->
   <p>Notice that the program is the same; we just moved the window creation code to our own <code>ImageViewer</code> class. The class's constructor calls the <code>_init</code> method, which creates and shows the window. We then create an instance of the class before running the main loop (<code>Gtk.main</code>).</p>
   <p>This code is modular and can be split into multiple files easily. This makes it cleaner and easier to read.</p>
@@ -188,9 +184,8 @@ function button_clicked () {
   print ("you clicked me!");
 }
 var b = new Gtk.Button ({label:"Click me"});
-b.connect ("clicked", button_clicked);]]>
-  </code>
-  <p>The last two lines create a GtkButton called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
+b.connect ("clicked", button_clicked);]]></code>
+  <p>The last two lines create a <code>Gtk.Button</code> called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
   <p>The syntax for connecting any signal to a function is:</p>
   <code mime="text/javascript"><![CDATA[
 object.connect (<signal_name>, <function_to_be_called>);]]></code>
@@ -215,7 +210,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
 <section>
   <title>Containers: Laying-out the user interface</title>
   <p>Widgets (controls, such as buttons and labels) can be arranged in the window by making use of <em>containers</em>. You can organize the layout by mixing different types of containers, like boxes and grids.</p>
-  <p>A GtkWindow is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a GtkBox here. A GtkBox can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
+  <p>A <code>Gtk.Window</code> is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a <code>Gtk.Box</code> here. A <code>Gtk.Box</code> can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
   <note>
   <p>There is a graphical user interface designer called <app>Glade</app> integrated in <app>Anjuta</app> which makes UI design really easy. For this simple example, however, we will code everything manually.</p>
   </note>
@@ -223,25 +218,25 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   <code mime="text/javascript" style="numbered"><![CDATA[
 var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
 this.window.add (main_box);]]></code>
-  <p>The first line creates a GtkBox called <code>main_box</code> and sets two of its properties: the <code>orientation</code> is set to vertical (so widgets are arranged in a column), and the <code>spacing</code> between the widgets is set to 0 pixels. The next line then adds the newly-created GtkBox to the window.</p>
-  <p>So far the window only contains an empty GtkBox, and if you run the program now you will see no changes at all (the GtkBox is a transparent container, so you can't see that it's there).</p>
+  <p>The first line creates a <code>Gtk.Box</code> called <code>main_box</code> and sets two of its properties: the <code>orientation</code> is set to vertical (so widgets are arranged in a column), and the <code>spacing</code> between the widgets is set to 0 pixels. The next line then adds the newly-created <code>Gtk.Box</code> to the window.</p>
+  <p>So far the window only contains an empty <code>Gtk.Box</code>, and if you run the program now you will see no changes at all (the <code>Gtk.Box</code> is a transparent container, so you can't see that it's there).</p>
 </section>
 
 <section>
   <title>Packing: Adding widgets to the container</title>
-  <p>To add some widgets to the GtkBox, insert the following code directly below the <code>this.window.add (main_box)</code> line:</p>
+  <p>To add some widgets to the <code>Gtk.Box</code>, insert the following code directly below the <code>this.window.add (main_box)</code> line:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
 this.image = new Gtk.Image ();
 main_box.pack_start (this.image, true, true, 0);]]></code>
-  <p>The first line creates a new GtkImage called <code>image</code>, which will be used to display an image file. Then, the image widget is added (<em>packed</em>) into the <code>main_box</code> container using GtkBox's <link href="http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"><code>pack_start</code></link> method.</p>
-  <p><code>pack_start</code> takes 4 arguments: the widget that is to be added to the GtkBox (<code>child</code>); whether the GtkBox should grow larger when the new widget is added (<code>expand</code>); whether the new widget should take up all of the extra space created if the GtkBox gets bigger (<code>fill</code>); and how much space there should be, in pixels, between the widget and its neighbors inside the GtkBox (<code>padding</code>).</p>
+  <p>The first line creates a new <code>Gtk.Image</code> called <code>image</code>, which will be used to display an image file. Then, the image widget is added (<em>packed</em>) into the <code>main_box</code> container using <code>Gtk.Box</code>'s <link href="http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"><code>pack_start</code></link> method.</p>
+  <p><code>pack_start</code> takes 4 arguments: the widget that is to be added to the <code>Gtk.Box</code> (<code>child</code>); whether the <code>Gtk.Box</code> should grow larger when the new widget is added (<code>expand</code>); whether the new widget should take up all of the extra space created if the <code>Gtk.Box</code> gets bigger (<code>fill</code>); and how much space there should be, in pixels, between the widget and its neighbors inside the <code>Gtk.Box</code> (<code>padding</code>).</p>
   <p>Gtk containers (and widgets) dynamically expand to fill the available space, if you let them. You don't position widgets by giving them a precise x,y-coordinate location in the window; rather, they are positioned relative to one another. This makes handling window resizing much easier, and widgets should automatically take a sensible size in most situations.</p>
-  <p>Also note how the widgets are organized in a hierarchy. Once packed in the GtkBox, the GtkImage is considered a <em>child</em> of the GtkBox. This allows you to treat all of the children of a widget as a group; for example, you could hide the GtkBox, which would also hide all of its children at the same time.</p>
+  <p>Also note how the widgets are organized in a hierarchy. Once packed in the <code>Gtk.Box</code>, the <code>Gtk.Image</code> is considered a <em>child</em> of the <code>Gtk.Box</code>. This allows you to treat all of the children of a widget as a group; for example, you could hide the <code>Gtk.Box</code>, which would also hide all of its children at the same time.</p>
   <p>Now insert these two lines, below the two you just added:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
 var open_button = new Gtk.Button ({label: "Open a picture..."});
 main_box.pack_start (open_button, false, false, 0);]]></code>
-  <p>These lines are similar the first two, but this time they create a GtkButton and add it to <code>main_box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>false</code> here, whereas it was set to <code>true</code> for the GtkImage. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
+  <p>These lines are similar to the first two, but this time they create a <code>Gtk.Button</code> and add it to <code>main_box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>false</code> here, whereas it was set to <code>true</code> for the <code>Gtk.Image</code>. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
   <p>Finally, we must change the <code>this.window.show ();</code> line to read:</p>
   <code>this.window.show_all ();</code>
   <p>This will show the child of the Gtk window, and all of its children, and its children's children, and so on. (Remember that Gtk widgets are all hidden by default.)</p>
@@ -250,7 +245,7 @@ main_box.pack_start (open_button, false, false, 0);]]></code>
 <section>
   <title>Loading the image: Connecting to the button's <code>clicked</code> signal</title>
   <p>When the user clicks on the <gui>Open</gui> button, a dialog should appear so that the user can choose a picture. Once chosen, the picture should be loaded and shown in the image widget.</p>
-  <p>The first step is to connect the <code>clicked</code> signal of the button to a signal handler function, which we call <code>_openCLicked</code>. Put this code immediately after the <code>var open_button = new Gtk.Button</code> line where the button was created:</p>
+  <p>The first step is to connect the <code>clicked</code> signal of the button to a signal handler function, which we call <code>_openClicked</code>. Put this code immediately after the <code>var open_button = new Gtk.Button</code> line where the button was created:</p>
   <code mime="text/javascript"><![CDATA[
 open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
   <p>We are using the <em>Lang</em> JavaScript helper here. It allows us to connect a <em>class method</em> to the signal, rather than a plain function (without a class) which we had used before for the window's <code>hide</code> signal. Don't worry about this for now, it's just a technical detail. For it to work, you also need to put the following line at the top of the file:</p>
@@ -282,7 +277,7 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
   <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
   <list>
     <item>
-      <p>The line beginning with <code>var chooser</code> creates an <gui>Open</gui> dialog, which the user can use to choose files. We set four properties: the title of the dialog; the action (type) of the dialog (it's an "open" dialog, but we could have used <code>SAVE</code> if the intention was to save a file_; <code>transient_for</code>, which sets the parent window of the dialog; and <code>modal</code> which, if set to <code>true</code>, prevents the user from clicking on another area of the application until the dialog is closed.</p>
+      <p>The line beginning with <code>var chooser</code> creates an <gui>Open</gui> dialog, which the user can use to choose files. We set four properties: the title of the dialog; the action (type) of the dialog (it's an "open" dialog, but we could have used <code>SAVE</code> if the intention was to save a file; <code>transient_for</code>, which sets the parent window of the dialog; and <code>modal</code> which, if set to <code>true</code>, prevents the user from clicking on another area of the application until the dialog is closed.</p>
     </item>
     <item>
     <p>The next two lines add <gui>Cancel</gui> and <gui>Open</gui> buttons to the dialog. The second argument of the <code>add_button</code> method is the (integer) value that is returned when the button is pressed: 0 for <gui>Cancel</gui> and 1 for <gui>Open</gui>.</p>
@@ -292,12 +287,12 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
     <p><code>set_default_response</code> determines the button that will be activated if the user double-clicks a file or presses <key>Enter</key>. In our case, we are using the <gui>Open</gui> button as default (which has the value 1).</p>
     </item>
     <item>
-    <p>The next three lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. A filter object is created first; we then add all kinds of files supported by GtkPixbuf (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
+    <p>The next three lines restrict the <gui>Open</gui> dialog to only display files which can be opened by <code>Gtk.Image</code>. A filter object is created first; we then add all kinds of files supported by <code>Gdk.Pixbuf</code> (which includes most image formats like PNG and JPEG) to the filter. Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
     </item>
     <item>
-    <p><code>chooser.run ()</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>chooser.run</code> will return the value <output>1</output> (it would return <output>0</output> if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests for this.</p>
+    <p><code>chooser.run</code> displays the <gui>Open</gui> dialog. The dialog will wait for the user to choose an image; when they do, <code>chooser.run</code> will return the value <output>1</output> (it would return <output>0</output> if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests for this.</p>
     </item>
-    <item><p>Assuming that the user did click <gui>Open</gui>, the next line sets the <code>file</code> property of the GtkImage to the filename of the image selected by the user. The GtkImage will then load and display the chosen image.</p>
+    <item><p>Assuming that the user did click <gui>Open</gui>, the next line sets the <code>file</code> property of the <code>Gtk.Image</code> to the filename of the image selected by the user. The <code>Gtk.Image</code> will then load and display the chosen image.</p>
     </item>
     <item>
     <p>In the final line of this method, we destroy the <gui>Open</gui> dialog because we don't need it any more.</p>
