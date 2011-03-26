@@ -1,0 +1,244 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="image-viewer.vala">
+
+  <info>
+    <link type="guide" xref="index#vala"/>
+    
+    <desc>A little bit more than a simple "Hello world" Gtk application.</desc>
+    
+    <revision pkgversion="0.1" version="0.1" date="2011-03-18" status="review"/>
+    <credit type="author">
+      <name>GNOME Documentation Project</name>
+      <email>gnome-doc-list@gnome.org</email>
+    </credit>
+    <credit type="author">
+      <name>Johannes Schmid</name>
+      <email>jhs@gnome.org</email>
+    </credit>
+    <credit type="author">
+      <name>Philip Chimento</name>
+      <email>philip.chimento@gmail.com</email>
+    </credit>
+  </info>
+
+<title>Image Viewer</title>
+
+<synopsis>
+  <p>In this tutorial, you will learn:</p>
+  <list>
+    <item><p>Some basic concepts of GObject programming</p></item>
+    <item><p>How to write a Gtk application in Vala</p></item>
+  </list>
+</synopsis>
+
+<media type="image" mime="image/png" src="media/image-viewer.png"/>
+
+<section>
+  <title>Create a project in Anjuta</title>
+  <p>Before you start coding, you'll need to set up a new project in Anjuta. 
+  This will create all of the files you need to build and run the code later on. 
+  It's also useful for keeping everything together.</p>
+  <steps>
+    <item>
+      <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+      <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. 
+      Use <file>image-viewer</file> as project name and directory.</p>
+   	</item>
+    <item>
+      <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will create the UI manually in this tutorial. 
+      Check the <link xref="guitar-tuner.vala">Guitar-Tuner</link> tutorial if you want to learn how to use the interface builder.</p>
+    </item>
+    <item>
+      <p>Click <gui>Apply</gui> and the project will be created for you. 
+      Open <file>src/main.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. 
+      You should see some code which starts with the lines:</p>
+      <code mime="text/x-valasrc"><![CDATA[
+using GLib;
+using Gtk;]]></code>
+    </item>
+  </steps>
+</section>
+
+<section>
+  <title>Build the code for the first time</title>
+  <p>The code loads an (empty) window from the user interface description file and shows it. 
+  More details are given below; skip this list if you understand the basics:</p>
+  
+  <list>
+    <item>
+      <p>The two <code>using</code> lines at the top import namespaces so we don't have to name them explicitly.</p>
+    </item>
+    <item>
+      <p>The constructor of the <code>Main</code> class creates a new (empty) window and connects a signal to exit the application when that window is closed.</p>
+      <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. 
+      Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
+    </item>
+    <item>
+      <p>The <code>static main</code> function is run by default when you start a Vala application.
+      It calls a few functions which create the <code>Main</code> class, set up and then run the application.
+      The <code>Gtk.main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    </item>
+  </list>
+
+  <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
+  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Execute</gui> to configure the build directory. 
+  You only need to do this once, for the first build.</p>
+</section>
+
+<section>
+  <title>Creating the user interface</title>
+  <p>Now we will bring life into the empty window. 
+  GTK organizes the user interface with <code>Gtk.Container</code>s that can contain other widgets and even other containers. 
+  Here we will use the simplest available container, a <code>Gtk.Box</code>. 
+  Add the following lines to the top of the <code>Main</code> class instead of the constructor that is already there:</p>
+  <code mime="text/x-valasrc"><![CDATA[
+private Window window;
+private Image image;
+	
+public Main () {
+
+	window = new Window ();
+	window.set_title ("Image Viewer in Vala");
+	
+	// Set up the UI
+	var box = new Box (Orientation.VERTICAL, 5);
+	var button = new Button.with_label ("Open image");
+	image = new Image ();
+	
+	box.pack_start (image, true, true, 0);
+	box.pack_start (button, false, false, 0);
+	window.add (box);
+	
+	// Show open dialog when opening a file
+	button.clicked.connect (on_open_image);
+	
+	window.show_all ();
+	window.destroy.connect (main_quit);
+}
+]]></code>
+  <steps>
+    <item>
+      <p>The first two lines are the parts of the GUI that we will need to access from more than one method.
+      We declare them up here so that they are accessible throughout the class instead of only in the method where they are created.</p>
+    </item>
+    <item>
+      <p>The first lines of the constructor are similar to the lines that were already there to create the empty window.
+      The next lines create the widgets we want to use: a button for opening up an image, the image view widget itself and the box we will use as a container.</p>
+    </item>
+    <item>
+      <p>The calls to <code>pack_start</code> add the two widgets to the box and define their behaviour.
+      The image will expand into any available space whereas the button will just be as big as needed.
+      You will notice that we don't set explicit sizes on the widgets.
+      In GTK this is usually not needed as it makes it much easier to have a layout that looks good in different window sizes.
+      Next, the box is added to the window.</p>
+    </item>
+    <item>
+      <p>We need to define what happens when the user clicks on the button. GTK uses the concept of <em>signals</em>. 
+      When the button is clicked, it fires the <code>clicked</code> signal, which we can connect to some action. 
+      This is done using the <code>connect</code> method of the button's <code>clicked</code> signal, which tells GTK to call the <code>on_image_open</code> method when the button is clicked.
+      We will define the <em>callback</em> in the next section.
+      In the callback, we need to access the <code>window</code> and <code>image</code> widgets, which is why we defined them as private members at the top of our class.</p>
+    </item>
+    <item>
+      <p>The last <code>connect</code> call makes sure that the application exits when the window is closed. 
+      The code generated by Anjuta called an <code>on_destroy</code> method which called <code>Gtk.main_quit</code>, but just connecting our signal to <code>main_quit</code> directly is easier. You can delete the <code>on_destroy</code> method.</p>
+    </item>
+  </steps>
+</section>
+
+<section>
+  <title>Showing the image</title>
+  <p>We will now define the signal handler for the <code>clicked</code> signal for the 
+button we mentioned before. 
+  Add this code after the constructor:</p>
+  <code mime="text/x-valasrc"><![CDATA[
+[CCode (instance_pos = -1)]
+public void on_open_image (Button self) {
+	var filter = new FileFilter ();
+	var dialog = new FileChooserDialog ("Open image",
+	                                    window,
+	                                    FileChooserAction.OPEN,
+	                                    Stock.OK,     ResponseType.ACCEPT,
+	                                    Stock.CANCEL, ResponseType.CANCEL);
+	filter.add_pixbuf_formats ();
+	dialog.add_filter (filter);
+	
+	switch (dialog.run ()) 
+	{
+		case ResponseType.ACCEPT:
+			var filename = dialog.get_filename ();
+			image.set_from_file (filename);
+			break;
+		default:
+			break;
+	}
+	dialog.destroy ();
+}
+]]></code>
+  <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
+  <list>
+    <item>
+      <p>The first argument of the signal is always the widget that sent the signal. 
+      Sometimes other arguments related to the signal come after that, but <em>clicked</em> doesn't have any.</p>
+    </item> 
+    <item>
+      <p>The next interesting line is where the dialog for choosing the file is created.
+      <code>FileChooserDialog</code>'s constructor takes the title of the dialog, the parent window of the dialog and several options like the number of buttons and their corresponding values.</p>
+      <p>Notice that we are using <em>stock</em> button names from Gtk, instead of manually typing "Cancel" or "Open". 
+      The advantage of using stock names is that the button labels will already be translated into the user's language.</p>
+    </item>
+    <item>
+      <p>The next two lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. 
+      A filter object is created first; we then add all kinds of files supported by <code>Gdk.Pixbuf</code> (which includes most image formats like PNG and JPEG) to the filter.
+      Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
+    </item>
+    <item>
+      <p><code>dialog.run</code> displays the <gui>Open</gui> dialog. 
+      The dialog will wait for the user to choose an image; when they do, <code>dialog.run</code> will return the value <code>ResponseType.ACCEPT</code> (it would return <code>ResponseType.CANCEL</code> if the user clicked <gui>Cancel</gui>).
+      The <code>switch</code> statement tests for this.</p>
+    </item>
+    <item>
+      <p>Assuming that the user did click <gui>Open</gui>, the next lines get the filename of the image selected by the user, and tell the <code>Gtk.Image</code> to load and display the selected image.</p>
+    </item>
+    <item>
+      <p>In the final line of this method, we destroy the <gui>Open</gui> dialog because we don't need it any more.
+      Destroying automatically hides the dialog.</p>
+    </item>
+  </list>
+</section>
+
+<section>
+  <title>Build and run the application</title>
+  <p>All of the code should now be ready to go. 
+  Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
+  <p>If you haven't already done so, choose the <file>src/image-viewer</file> application in the dialog that appears. 
+  Finally, hit <gui>Run</gui> and enjoy!</p>
+</section>
+
+<section>
+  <title>Reference Implementation</title>
+  <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.vala">reference code</link>.</p>
+</section>
+
+<section>
+  <title>Next steps</title>
+  <p>Here are some ideas for how you can extend this simple demonstration:</p>
+  <list>
+   <item>
+     <p>Have the user select a directory rather than a file, and provide controls to cycle through all of the images in a directory.</p>
+   </item>
+   <item>
+     <p>Apply random filters and effects to the image when it is loaded and allow the user to save the modified image.</p>
+     <p><link href="http://www.gegl.org/api.html">GEGL</link> provides powerful image manipulation capabilities.</p>
+   </item>
+   <item>
+     <p>Allow the user to load images from network shares, scanners, and other more complicated sources.</p>
+     <p>You can use <link href="http://library.gnome.org/devel/gio/unstable/">GIO</link> to handle network file tranfers and the like, and <link href="http://library.gnome.org/devel/gnome-scan/unstable/">GNOME Scan</link> to handle scanning.</p>
+   </item>
+  </list>
+</section>
+
+</page>
