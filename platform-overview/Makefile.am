@@ -7,12 +7,13 @@ DOC_PAGES =			\
 	bindings.page		\
 	core-tech.page		\
 	desktop-tech.page	\
-	audience.page	\
+	audience.page		\
 	ipc-network.page	\
 	cc-by-sa-3-0.xml	\
 	platform.page		\
-	xml.page
+	xml.page		\
 	index.page
+
 DOC_FIGURES =			\
 	figures/graphics.png	\
 	figures/i18n.png	\
