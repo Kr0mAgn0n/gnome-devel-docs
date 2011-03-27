@@ -4,7 +4,7 @@ DOC_ID = gnome-devel-demos
 
 DOC_LINGUAS = es
 
-demo_sources = \ 
+demo_sources = \
 	guitar-tuner/guitar-tuner.c \
 	guitar-tuner/guitar-tuner.cc \
 	guitar-tuner/guitar-tuner.py \
