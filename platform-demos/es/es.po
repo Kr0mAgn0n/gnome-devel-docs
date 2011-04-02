@@ -3,13 +3,14 @@
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-03-23 18:05+0000\n"
-"PO-Revision-Date: 2011-03-23 19:33+0100\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"POT-Creation-Date: 2011-03-23 20:43+0000\n"
+"PO-Revision-Date: 2011-04-01 14:10+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,7 +155,8 @@ msgid ""
 "access to different kinds and types of data sources. This goes from "
 "traditional relational database systems, to any imaginable kind of data "
 "source such as a mail server, a LDAP directory, etc. For more information, "
-"and for a full API and documentation, visit the GDA website."
+"and for a full API and documentation, visit the <link href=\"http://library."
+"gnome.org/devel/libgda/stable/\">GDA website</link>."
 msgstr ""
 
 #: C/record-collection.js.page:39(p)
@@ -168,16 +170,16 @@ msgstr ""
 
 #: C/record-collection.js.page:45(title) C/photo-wall.c.page:44(title)
 #: C/message-board.c.page:40(title) C/magic-mirror.vala.page:42(title)
-#: C/image-viewer.js.page:44(title) C/image-viewer.py.page:45(title)
+#: C/image-viewer.js.page:44(title) C/image-viewer.py.page:43(title)
 #: C/image-viewer.cpp.page:34(title) C/image-viewer.c.page:34(title)
 #: C/guitar-tuner.vala.page:40(title) C/guitar-tuner.py.page:40(title)
 #: C/guitar-tuner.cpp.page:40(title) C/guitar-tuner.c.page:40(title)
 msgid "Create a project in Anjuta"
-msgstr ""
+msgstr "Crear un proyecto en Anjuta"
 
 #: C/record-collection.js.page:46(p) C/photo-wall.c.page:45(p)
 #: C/magic-mirror.vala.page:43(p) C/image-viewer.js.page:45(p)
-#: C/image-viewer.py.page:46(p) C/image-viewer.cpp.page:35(p)
+#: C/image-viewer.py.page:44(p) C/image-viewer.cpp.page:35(p)
 #: C/image-viewer.c.page:35(p) C/guitar-tuner.vala.page:41(p)
 #: C/guitar-tuner.py.page:41(p) C/guitar-tuner.cpp.page:41(p)
 #: C/guitar-tuner.c.page:41(p)
@@ -189,7 +191,7 @@ msgstr ""
 
 #: C/record-collection.js.page:49(p) C/photo-wall.c.page:48(p)
 #: C/magic-mirror.vala.page:46(p) C/image-viewer.js.page:48(p)
-#: C/image-viewer.py.page:49(p) C/image-viewer.cpp.page:38(p)
+#: C/image-viewer.py.page:47(p) C/image-viewer.cpp.page:38(p)
 #: C/image-viewer.c.page:38(p) C/guitar-tuner.vala.page:44(p)
 #: C/guitar-tuner.py.page:44(p) C/guitar-tuner.cpp.page:44(p)
 #: C/guitar-tuner.c.page:44(p)
@@ -205,7 +207,7 @@ msgid ""
 "<file>record-collection</file> as project name and directory."
 msgstr ""
 
-#: C/record-collection.js.page:55(p) C/image-viewer.js.page:54(p)
+#: C/record-collection.js.page:55(p)
 msgid ""
 "Click <gui>Finished</gui> and the project will be created for you. Open "
 "<file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> "
@@ -219,12 +221,12 @@ msgstr "Estructura del programa"
 #: C/record-collection.js.page:63(p)
 msgid ""
 "This demo is a simple GTK application (with a single window) capable of "
-"insert records into a database table as well browse all records of the "
-"table. The table has two fields: id, integer and name, varchar. The first "
-"section (on the top) of the application allows you to insert a record into "
-"the table. The last section (bottom) allows you to see all the records of "
-"that table. Its content is refreshed every time a new record is inserted and "
-"on the application startup."
+"inserting records into a database table as well as browsing all records of "
+"the table. The table has two fields: <code>id</code>, an integer, and "
+"<code>name</code>, a varchar. The first section (on the top) of the "
+"application allows you to insert a record into the table. The last section "
+"(bottom) allows you to see all the records of that table. Its content is "
+"refreshed every time a new record is inserted and on the application startup."
 msgstr ""
 
 #: C/record-collection.js.page:68(title)
@@ -232,309 +234,317 @@ msgid "Starting the fun"
 msgstr ""
 
 #: C/record-collection.js.page:69(p)
-msgid "Let's start by commenting the skeleton of the program:"
+msgid "Let's start by examining the skeleton of the program:"
+msgstr ""
+
+#: C/record-collection.js.page:95(p)
+msgid ""
+"Lines 1‒4: Initial imports. Pay special attention to line 3, which tells "
+"Javascript to import the GDA library, our focus in this tutorial."
 msgstr ""
 
 #: C/record-collection.js.page:96(p)
 msgid ""
-"Lines 1-4: Initial imports. Special attention to line 3, which tells "
-"Javascript to import the GDA library, our focus in this tutorial."
+"Lines 6‒17: Define our <code>Demo</code> class. Pay special attention to "
+"lines 13‒15, where we call 3 methods which will do the whole job. They will "
+"be detailed below."
 msgstr ""
 
 #: C/record-collection.js.page:97(p)
-msgid ""
-"Lines 6-17: Define our Demo class. Special attention to lines 13-15, where "
-"we call 3 methods which will do all the job. They will be detailed below."
-msgstr ""
+#| msgid "Run the application"
+msgid "Lines 19‒23: Start the application."
+msgstr "Líneas 19‒23: iniciar la aplicación."
 
-#: C/record-collection.js.page:98(p)
-msgid "Lines 19-23: Start the application."
-msgstr ""
-
-#: C/record-collection.js.page:103(title)
+#: C/record-collection.js.page:102(title)
 msgid "Designing the application"
-msgstr ""
+msgstr "Diseñar la aplicación"
 
-#: C/record-collection.js.page:104(p)
+#: C/record-collection.js.page:103(p)
 msgid ""
-"Let's take a look at <em>setupWindow</em> method. It is responsible for "
-"creating the User Interface (UI). As UI is not our focus, let's comment only "
-"the relevant parts."
+"Let's take a look at the <code>setupWindow</code> method. It is responsible "
+"for creating the User Interface (UI). As UI is not our focus, we will "
+"explain only the relevant parts."
 msgstr ""
 
-#: C/record-collection.js.page:156(p)
+#: C/record-collection.js.page:154(p)
 msgid ""
 "Lines 22 and 27: Create the 2 entries (for the two fields) in which users "
 "will type something to get inserted in the database."
 msgstr ""
 
-#: C/record-collection.js.page:157(p)
+#: C/record-collection.js.page:155(p)
 msgid ""
-"Lines 31-34: Create the Insert button. We connect its <em>clicked</em> "
-"signal to the <em>_insertClicked</em> private method of the class. This "
+"Lines 31‒34: Create the Insert button. We connect its <code>clicked</code> "
+"signal to the <code>_insertClicked</code> private method of the class. This "
 "method is detailed below."
 msgstr ""
 
-#: C/record-collection.js.page:158(p)
+#: C/record-collection.js.page:156(p)
 msgid ""
-"Line 39: Create the widget (TextView) where we will show the contents of the "
-"table."
+"Line 39: Create the widget (<code>TextView</code>) where we will show the "
+"contents of the table."
 msgstr ""
 
-#: C/record-collection.js.page:159(p)
+#: C/record-collection.js.page:157(p)
 msgid ""
 "Line 44: Create the label where we will show the number of records in the "
 "table. Initially it's empty, it will be updated later."
 msgstr ""
 
-#: C/record-collection.js.page:164(title)
+#: C/record-collection.js.page:162(title)
 msgid "Connecting to and initializing the database"
 msgstr ""
 
-#: C/record-collection.js.page:165(p)
+#: C/record-collection.js.page:163(p)
 msgid ""
 "The code which makes the connection to the database is in the "
-"<em>setupDatabase</em> method below:"
+"<code>setupDatabase</code> method below:"
+msgstr ""
+
+#: C/record-collection.js.page:180(p)
+msgid ""
+"Lines 2‒3: Create the GDA's <code>Connection</code> object. We must supply "
+"to its constructor some properties:"
 msgstr ""
 
 #: C/record-collection.js.page:183(p)
 msgid ""
-"Lines 2-3: Create the GDA's <em>Connection</em> object. We must supply to "
-"its constructor some properties:"
+"<code>provider</code>: One of GDA's supported providers. GDA supports "
+"SQLite, MySQL, PostgreSQL, Oracle and many others. For demo purposes we will "
+"use a SQLite database, as it comes installed by default in most "
+"distributions and it is simple to use (it just uses a file as a database)."
 msgstr ""
 
 #: C/record-collection.js.page:186(p)
 msgid ""
-"provider: One of GDA's supported provider. GDA supports SQLite, MySQL, "
-"Posgresql, Oracle and many others. For demo purposes we will use a SQLite "
-"database, as it comes installed by default in most distributions and it is "
-"simple to use (it just uses a file as a database)."
+"<code>cnc_string</code>: The connection string. It may change from provider "
+"to provider. The syntax for SQLite is: <code>DB_DIR=<var>PATH</var>;"
+"DB_NAME=<var>FILENAME</var></code>. In this demo we are accessing a database "
+"called gnome_demo in the user home dir (note the call to GLib's "
+"<code>get_home_dir</code> function)."
 msgstr ""
 
-#: C/record-collection.js.page:189(p)
-msgid ""
-"cnc_string: The connection string. It may change from provider to provider. "
-"The syntax for SQLite is: DB_DIR=PATH;DB_NAME=FILENAME. In this demo we are "
-"accessing a database called gnome_demo in the user home dir (note the call "
-"to GLib's <em>get_home_dir</em> function)."
-msgstr ""
-
-#: C/record-collection.js.page:193(p)
+#: C/record-collection.js.page:190(p)
 msgid ""
 "If the provider is not supported by GDA, or if the connection string is "
 "missing some element, line 2 will raise an exception. So, in real life we "
-"should handle it with javascript's statement try...catch."
+"should handle it with JavaScript's statement <code>try</code>...<code>catch</"
+"code>."
+msgstr ""
+
+#: C/record-collection.js.page:194(p)
+msgid ""
+"Line 4: Open the connection. In the SQLite provider, if the database does "
+"not exist, it will be created in this step."
+msgstr ""
+
+#: C/record-collection.js.page:196(p)
+msgid ""
+"Lines 6‒10: Try to do a simple select to check if the table exists (line 7). "
+"If it does not exist (because the database was just created), this command "
+"will raise an exception, which is handled by the <code>try</code>..."
+"<code>catch</code> block. If it is the case, we run the create table "
+"statement (line 9)."
 msgstr ""
 
 #: C/record-collection.js.page:197(p)
 msgid ""
-"Line 4: Open the connection. In SQLite provider, if the database does not "
-"exist, it will be created in this step."
-msgstr ""
-
-#: C/record-collection.js.page:199(p)
-msgid ""
-"Lines 6-10: Try to do a simple select to check if the table exists (line 7). "
-"If it does not exist (because the database was just created), this command "
-"will raise an exception, which is handled by the try..catch block. If it is "
-"the case, we run the create table statement (line 9)."
-msgstr ""
-
-#: C/record-collection.js.page:200(p)
-msgid ""
 "In order to run the SQL commands above we are using global GDA functions, "
-"<em>execute_select_command</em> and <em>execute_non_select_command</em>. "
-"They are simple to use, and just require two arguments: The <em>Connection</"
-"em> object and the SQL command to be parsed."
+"<code>execute_select_command</code> and <code>execute_non_select_command</"
+"code>. They are simple to use, and just require two arguments: The "
+"<code>Connection</code> object and the SQL command to be parsed."
 msgstr ""
 
-#: C/record-collection.js.page:204(p)
+#: C/record-collection.js.page:201(p)
 msgid "At this point we have the database set up, and are ready to use it."
 msgstr ""
 
-#: C/record-collection.js.page:208(title)
+#: C/record-collection.js.page:205(title)
 msgid "Selecting"
+msgstr "Seleccionar"
+
+#: C/record-collection.js.page:206(p)
+msgid ""
+"After connecting to the database, our demo's constructor calls the "
+"<code>selectData</code> method. It is responsible for getting all the "
+"records in the table and showing them on the <code>TextView</code> widget. "
+"Let's take a look at it:"
 msgstr ""
 
-#: C/record-collection.js.page:209(p)
+#: C/record-collection.js.page:227(p)
 msgid ""
-"After connect to the database, our demo's constructor calls <em>selectData</"
-"em> method. It is responsible for getting all the records in the table and "
-"showing them on the TextView widget. Let's take a look at it:"
+"Line 2: The <code>SELECT</code> command. We are using the global GDA's "
+"function <code>execute_select_command</code> for that. It returns a "
+"<code>DataModel</code> object, which is later used to retrieve the rows."
+msgstr ""
+
+#: C/record-collection.js.page:228(p)
+msgid ""
+"Line 3: Create an <code>Iter</code> object, which is used to iterate over "
+"the <code>DataModel</code>'s records."
+msgstr ""
+
+#: C/record-collection.js.page:229(p)
+msgid ""
+"Line 7: Loop through all the records, fetching them with the help of the "
+"<code>Iter</code> object. At this point, the <code>iter</code> variable "
+"contains the actual, retrieved data. Its <code>move_next</code> method "
+"returns <code>false</code> when it reaches the last record."
 msgstr ""
 
 #: C/record-collection.js.page:231(p)
-msgid ""
-"Line 2: The SELECT command. We are using the global GDA's function "
-"<em>execute_select_command</em> for that. It returns a <em>DataModel</em> "
-"object, which is later used to retrieve the rows."
-msgstr ""
-
-#: C/record-collection.js.page:232(p)
-msgid ""
-"Line 3: Create an <em>Iter</em> object, which is used to iterate over the "
-"<em>DataModel</em>'s records."
+msgid "Lines 8‒9: We do two things in each line:"
 msgstr ""
 
 #: C/record-collection.js.page:233(p)
 msgid ""
-"Line 7: Loop fetching all the records with the help of the <em>Iter</em> "
-"object. At this point, <em>iter</em> variable contains the actual, retrieved "
-"data. Its <em>move_next</em> method returns false when it reaches the last "
-"record."
+"Use <code>Iter</code>'s method <code>get_value_at</code>, which requires "
+"only one argument: the column number to retrieve, starting at 0. As our "
+"<code>SELECT</code> command returns only two columns, we are retrieving "
+"columns 0 and 1."
 msgstr ""
 
-#: C/record-collection.js.page:235(p)
-msgid "Lines 8-9: We do two things in each line:"
+#: C/record-collection.js.page:234(p)
+msgid ""
+"The method <code>get_value_at</code> returns the field in GLib's "
+"<code>GValue</code> format. A simple way to convert this format to a string "
+"is by using GDA's global function <code>value_stringify</code>. That's what "
+"we are doing here, and we store the results in the variables <code>id_field</"
+"code> and <code>name_field</code>."
 msgstr ""
 
 #: C/record-collection.js.page:237(p)
 msgid ""
-"Use Iter's method <em>get_value_at</em>, which requires only one argument: "
-"the column number to retrieve, starting on 0. As our SELECT command returns "
-"only two columns, we are retrieving columns 0 and 1."
+"Line 11: Concatenate the two fields to make one text line, separated by "
+"<code>\"=&gt;\"</code>, and store it in the <code>text</code> variable."
 msgstr ""
 
 #: C/record-collection.js.page:238(p)
 msgid ""
-"The method <em>get_value_at</em> returns the field in the GLib's <em>GValue</"
-"em> format. A simple way to convert this format to a string is by using the "
-"GDA's global function <em>value_stringify</em>. That's what we are doing "
-"here, and we store the results in the variables <em>id_field</em> and "
-"<em>name_field</em>."
+"Line 14: After the loop is finished, we have all the records formatted in "
+"the <code>text</code> variable. In this line we just set the contents of the "
+"<code>TextView</code> with that variable."
 msgstr ""
 
-#: C/record-collection.js.page:241(p)
-msgid ""
-"Line 11: Concatenate the two fields to make one text line, separated by "
-"\"=&gt;\", and store it in the <em>text</em> variable"
-msgstr ""
-
-#: C/record-collection.js.page:242(p)
-msgid ""
-"Line 14: After the loop is finished, we have all records formatted in the "
-"<em>text</em> variable. In this line we just set the contents of the "
-"TextView with that variable."
-msgstr ""
-
-#: C/record-collection.js.page:243(p)
+#: C/record-collection.js.page:239(p)
 msgid ""
 "Line 15: Display the number of records in the table, making use of the "
-"DataModel's <em>get_n_rows</em> method."
+"<code>DataModel</code>'s <code>get_n_rows</code> method."
 msgstr ""
 
-#: C/record-collection.js.page:248(title)
+#: C/record-collection.js.page:244(title)
 msgid "Inserting"
 msgstr "Insertar"
 
-#: C/record-collection.js.page:249(p)
+#: C/record-collection.js.page:245(p)
 msgid ""
 "OK, we know how to connect to a database and how to select rows from a "
-"table. Now it's time to do an INSERT on the table. Do you remember above, in "
-"the method <em>setupWindow</em> we connected the Insert button clicked "
-"signal to the method <em>_insertClicked</em>? Let's see the implementation "
-"of this method."
+"table. Now it's time to do an <code>INSERT</code> on the table. Do you "
+"remember above, in the method <code>setupWindow</code> we connected the "
+"<gui>Insert</gui> button's <code>clicked</code> signal to the method "
+"<code>_insertClicked</code>? Let's see the implementation of this method."
+msgstr ""
+
+#: C/record-collection.js.page:266(p)
+msgid ""
+"We have learned how to use GDA's convenience functions "
+"<code>execute_select_command</code> and <code>execute_non_select_command</"
+"code> to quickly execute SQL commands on the database. GDA allows one to "
+"build a SQL statement indirectly, by using its <code>SqlBuilder</code> "
+"object. What are the benefits of this? GDA will generate the SQL statement "
+"dynamically, and it will be valid for the connection provider used (it will "
+"use the same SQL dialect the provider uses). Let's study the code:"
+msgstr ""
+
+#: C/record-collection.js.page:270(p)
+msgid ""
+"Lines 2‒3: Check if the user filled all the fields. The code for the private "
+"method <code>_validateFields</code> is really simple and you can read it in "
+"the full demo source code."
 msgstr ""
 
 #: C/record-collection.js.page:271(p)
 msgid ""
-"We have learned how to use GDA's convenience functions "
-"<em>execute_select_command</em> and <em>execute_non_select_command</em> to "
-"quickly execute SQL commands on the database. GDA allows one to build a SQL "
-"statement indirectly, by using its <em>SqlBuilder</em> object. The benefits "
-"of this? GDA will generate dynamically the SQL statement, and it will be "
-"valid for the connection provider used (it will use the same SQL dialect the "
-"provider uses). Let's study the code:"
+"Line 5: The faster way of doing the <code>INSERT</code>. It's commented out "
+"as we want to show how to use the <code>SqlBuilder</code> object to build a "
+"SQL statement portable across databases."
 msgstr ""
 
-#: C/record-collection.js.page:275(p)
+#: C/record-collection.js.page:272(p)
 msgid ""
-"Lines 2-3: Check if the user filled all fields. The code for the private "
-"method <em>_validateFields</em> is really simple and you can read it in the "
-"full demo source code."
+"Line 7: Create the <code>SqlBuilder</code> object. We must pass the type of "
+"statement we are going to build. It can be <code>SELECT</code>, "
+"<code>UPDATE</code>, <code>INSERT</code> or <code>DELETE</code>."
 msgstr ""
 
-#: C/record-collection.js.page:276(p)
-msgid ""
-"Line 5: The faster way of doing the INSERT. It's commented as we want to "
-"show how to use the <em>SqlBuilder</em> object to build a SQL statement "
-"portable across databases."
-msgstr ""
-
-#: C/record-collection.js.page:277(p)
-msgid ""
-"Line 7: Create the <em>SqlBuilder</em> object. We must pass the type of "
-"statement we are going to build. It can be SELECT, UPDATE, INSERT or DELETE."
-msgstr ""
-
-#: C/record-collection.js.page:278(p)
+#: C/record-collection.js.page:273(p)
 msgid ""
 "Line 8: Set the name of the table on which the built statement will operate "
-"(it will generate <em>INSERT INTO demo</em>)"
+"(it will generate <code>INSERT INTO demo</code>)"
 msgstr ""
 
-#: C/record-collection.js.page:279(p)
+#: C/record-collection.js.page:274(p)
 msgid ""
-"Lines 9-10: Set the fields and its values that will be part of the "
+"Lines 9‒10: Set the fields and its values that will be part of the "
 "statement. The first argument is the field name (as in the table). The "
 "second one is the value for that field."
 msgstr ""
 
-#: C/record-collection.js.page:280(p)
+#: C/record-collection.js.page:275(p)
 msgid ""
-"Line 11: Get the dynamically generated <em>Statement</em> object, which "
+"Line 11: Get the dynamically generated <code>Statement</code> object, which "
 "represents a SQL statement."
 msgstr ""
 
-#: C/record-collection.js.page:281(p)
-msgid "Line 12: Finally, execute the SQL statement (INSERT)."
+#: C/record-collection.js.page:276(p)
+msgid "Line 12: Finally, execute the SQL statement (<code>INSERT</code>)."
 msgstr ""
 
-#: C/record-collection.js.page:282(p)
+#: C/record-collection.js.page:277(p)
 msgid ""
 "Line 14: Clear the id and name fields on the screen. The code for the "
-"private method <em>_clearFields</em> is really simple and you can read it in "
-"the full demo source code."
+"private method <code>_clearFields</code> is really simple and you can read "
+"it in the full demo source code."
 msgstr ""
 
-#: C/record-collection.js.page:283(p)
-msgid "Line 15: Refresh the view on the screen by doing another SELECT."
+#: C/record-collection.js.page:278(p)
+msgid ""
+"Line 15: Refresh the view on the screen by doing another <code>SELECT</code>."
 msgstr ""
 
-#: C/record-collection.js.page:285(p)
+#: C/record-collection.js.page:280(p)
 msgid ""
 "You can also make use of parameters while building the statement. By using "
-"the <em>SqlBuilder</em> objects and parameters you are less subject to "
-"attacks like SQL injection. Check the GDA documentation for more information "
-"about parameters."
+"the <code>SqlBuilder</code> objects and parameters you are less subject to "
+"attacks like SQL injection. Check the <link href=\"http://library.gnome.org/"
+"devel/libgda/stable/\">GDA documentation</link> for more information about "
+"parameters."
 msgstr ""
 
-#: C/record-collection.js.page:289(title) C/image-viewer.js.page:310(title)
-#: C/image-viewer.py.page:225(title) C/guitar-tuner.py.page:221(title)
+#: C/record-collection.js.page:284(title) C/image-viewer.js.page:305(title)
+#: C/image-viewer.py.page:219(title) C/guitar-tuner.py.page:221(title)
 msgid "Run the application"
 msgstr "Ejecutar la aplicación"
 
-#: C/record-collection.js.page:290(p) C/image-viewer.js.page:311(p)
-#: C/image-viewer.py.page:226(p)
+#: C/record-collection.js.page:285(p)
 msgid ""
 "All of the code you need should now be in place, so try running the code. "
-"That should be it; a fully-functioning image viewer (and a whistlestop tour "
-"of JavaScript and Gtk) in not much time at all!"
+"You now have a database for your record collection!"
 msgstr ""
 
-#: C/record-collection.js.page:294(title) C/photo-wall.c.page:377(title)
-#: C/magic-mirror.vala.page:143(title) C/image-viewer.js.page:315(title)
-#: C/image-viewer.py.page:230(title) C/image-viewer.cpp.page:213(title)
-#: C/image-viewer.c.page:221(title) C/guitar-tuner.vala.page:243(title)
+#: C/record-collection.js.page:289(title) C/photo-wall.c.page:377(title)
+#: C/magic-mirror.vala.page:142(title) C/image-viewer.js.page:310(title)
+#: C/image-viewer.py.page:224(title) C/image-viewer.cpp.page:212(title)
+#: C/image-viewer.c.page:220(title) C/guitar-tuner.vala.page:243(title)
 #: C/guitar-tuner.py.page:226(title) C/guitar-tuner.cpp.page:255(title)
 #: C/guitar-tuner.c.page:255(title)
 msgid "Reference Implementation"
 msgstr ""
 
-#: C/record-collection.js.page:295(p) C/image-viewer.js.page:316(p)
+#: C/record-collection.js.page:290(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
-"<link href=\"image-viewer/image-viewer.js\">reference code</link>."
+"<link href=\"record-collection/record-collection.js\">reference code</link>."
 msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
@@ -574,7 +584,7 @@ msgid ""
 msgstr ""
 
 #: C/photo-wall.c.page:25(p)
-msgid "How to size and position <code>ClutterActors</code>"
+msgid "How to size and position <code>ClutterActor</code>s"
 msgstr ""
 
 #: C/photo-wall.c.page:26(p)
@@ -586,7 +596,7 @@ msgid "How to do simple transitions using Clutter's animation framework"
 msgstr ""
 
 #: C/photo-wall.c.page:28(p)
-msgid "How to make <code>ClutterActor</code>'s respond to mouse events"
+msgid "How to make <code>ClutterActor</code>s respond to mouse events"
 msgstr ""
 
 #: C/photo-wall.c.page:29(p)
@@ -612,12 +622,12 @@ msgstr ""
 
 #: C/photo-wall.c.page:51(p)
 msgid ""
-"Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click "
-"<gui>Forward</gui>, and fill-out your details on the next few pages. Use "
+"Choose <gui>Gtk+ (simple)</gui> from the <gui>C</gui> tab, click "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>photo-wall</file> as project name and directory."
 msgstr ""
 
-#: C/photo-wall.c.page:54(p) C/image-viewer.c.page:44(p)
+#: C/photo-wall.c.page:54(p)
 msgid ""
 "Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as "
 "we will create the UI manually in this tutorial. Check the <link xref="
@@ -632,8 +642,9 @@ msgid ""
 msgstr ""
 
 #: C/photo-wall.c.page:63(p) C/image-viewer.c.page:49(p)
+#: C/guitar-tuner.c.page:54(p)
 msgid ""
-"Click <gui>Finished</gui> and the project will be created for you. Open "
+"Click <gui>Apply</gui> and the project will be created for you. Open "
 "<file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. "
 "You should see some code which starts with the lines:"
 msgstr ""
@@ -661,7 +672,7 @@ msgstr "Configuración inicial"
 msgid ""
 "The following code segment contains many of the defines and variables we "
 "will be using in the following sections. Use this as a reference for later "
-"sections. Copy this code to the beginning of the <file>src/main.c</file>:"
+"sections. Copy this code to the beginning of <file>src/main.c</file>:"
 msgstr ""
 
 #: C/photo-wall.c.page:121(title)
@@ -677,83 +688,83 @@ msgid ""
 "this example."
 msgstr ""
 
-#: C/photo-wall.c.page:164(p)
+#: C/photo-wall.c.page:163(p)
 msgid ""
 "Line 4: <code>ClutterColor</code> is defined by setting the red, green, blue "
 "and transparency (alpha) values. The values range from 0-255. For "
 "transparency a value of 255 is opaque."
 msgstr ""
 
-#: C/photo-wall.c.page:165(p)
+#: C/photo-wall.c.page:164(p)
 msgid ""
 "Line 7: You must initialize Clutter. If you forget to do this, you will get "
 "very strange errors. Be warned."
 msgstr ""
 
-#: C/photo-wall.c.page:166(p)
+#: C/photo-wall.c.page:165(p)
 msgid ""
-"Lines 9-11: Here we get the default <code>ClutterStage</code> that was "
+"Lines 9‒11: Here we get the default <code>ClutterStage</code> that was "
 "provided by <code>clutter_init</code>. We then set the size using the "
 "defines from the previous section and the address of the <code>ClutterColor</"
 "code> we just defined."
 msgstr ""
 
-#: C/photo-wall.c.page:167(p)
+#: C/photo-wall.c.page:166(p)
 msgid ""
 "A <code>ClutterStage</code> is the top-level <code>ClutterActor</code> onto "
-"which other <code>ClutterActor</code> are placed."
+"which other <code>ClutterActor</code>s are placed."
 msgstr ""
 
-#: C/photo-wall.c.page:169(p)
+#: C/photo-wall.c.page:168(p)
 msgid ""
 "Line 12: Here we call our function for getting the image file paths. We'll "
 "look at this in a bit."
 msgstr ""
 
-#: C/photo-wall.c.page:170(p)
+#: C/photo-wall.c.page:169(p)
 msgid ""
-"Lines 14-26: This is were we setup up the <code>ClutterActor</code>s, load "
+"Lines 14‒26: This is where we set up the <code>ClutterActor</code>s, load "
 "the images and place them into their spot in the image wall. We will look at "
 "this in detail in the next section."
 msgstr ""
 
-#: C/photo-wall.c.page:171(p)
+#: C/photo-wall.c.page:170(p)
 msgid ""
 "Line 29: Show the stage and <em>all its children</em>, meaning our images."
 msgstr ""
 
-#: C/photo-wall.c.page:172(p)
+#: C/photo-wall.c.page:171(p)
 msgid "Line 32: Start the Clutter main loop."
 msgstr ""
 
-#: C/photo-wall.c.page:177(title)
+#: C/photo-wall.c.page:176(title)
 msgid "Setting up our image actors"
 msgstr ""
 
-#: C/photo-wall.c.page:179(p)
+#: C/photo-wall.c.page:178(p)
 msgid ""
 "In Clutter, an actor is the most basic visual element. Basically, everything "
 "you see is an actor."
 msgstr ""
 
-#: C/photo-wall.c.page:178(p)
+#: C/photo-wall.c.page:177(p)
 msgid ""
 "<note><placeholder-1/></note> In this section, we are going to take a closer "
 "look at the loop used for setting up the <code>ClutterActor</code>s that "
 "will display our images."
 msgstr ""
 
-#: C/photo-wall.c.page:197(p)
+#: C/photo-wall.c.page:196(p)
 msgid ""
-"Line 5: Here we want to get the path at the nth location in the "
-"<code>GSList</code> that is holding our image path names. The nth position "
-"is calculated based on the row and col. The return value is a pointer to a "
-"<code>GSList</code> which is just a node in the list. We will use this to "
-"get the actual path in the next line. The first parameter is a pointer to "
-"the head of the list."
+"Line 5: Here we want to get the path at the <var>n</var>th location in the "
+"<code>GSList</code> that is holding our image path names. The <var>n</var>th "
+"position is calculated based on <code>row</code> and <code>col</code>. The "
+"return value is a pointer to a <code>GSList</code> which is just a node in "
+"the list. We will use this to get the actual path in the next line. The "
+"first parameter is a pointer to the head of the list."
 msgstr ""
 
-#: C/photo-wall.c.page:199(p)
+#: C/photo-wall.c.page:198(p)
 msgid ""
 "Line 6: This is where we actually create the <code>ClutterActor</code> and "
 "place the image into the actor. The first argument is the path which we "
@@ -761,109 +772,112 @@ msgid ""
 "error reporting but we are ignoring that to keep things short."
 msgstr ""
 
-#: C/photo-wall.c.page:201(p)
+#: C/photo-wall.c.page:200(p)
 msgid "Line 7: We'll look at this function in a later section."
 msgstr ""
 
-#: C/photo-wall.c.page:203(p)
+#: C/photo-wall.c.page:202(p)
 msgid ""
 "Line 8: This adds the <code>ClutterActor</code> to the stage, which is a "
 "container. It also assumes ownership of the <code>ClutterActor</code> which "
 "is something you'll want to look into as you get deeper into GNOME "
-"development. See the <code>GObject</code> documentation for the gory details."
+"development. See the <link href=\"http://library.gnome.org/devel/gobject/"
+"stable/gobject-memory.html\"><code>GObject</code> documentation</link> for "
+"the gory details."
 msgstr ""
 
-#: C/photo-wall.c.page:205(p)
+#: C/photo-wall.c.page:204(p)
 msgid ""
 "Line 9: This adds our <code>ClutterActor</code> to a <code>GSList</code> so "
 "that we can later iterate over the <code>ClutterActor</code>s."
 msgstr ""
 
-#: C/photo-wall.c.page:206(p)
+#: C/photo-wall.c.page:205(p)
 msgid ""
 "Interesting to note is that we want to prepend the <code>ClutterActor</"
 "code>s rather than append so that we avoid traversing the list upon each "
 "insertion. You will often see <code>g_slist_prepend</code> followed by "
 "<code>g_slist_reverse</code> because it faster than inserting many objects "
-"to the end of the list."
+"at the end of the list."
 msgstr ""
 
-#: C/photo-wall.c.page:212(title)
+#: C/photo-wall.c.page:211(title)
 msgid "Loading the images"
-msgstr ""
+msgstr "Cargar las imágenes"
 
-#: C/photo-wall.c.page:213(p)
+#: C/photo-wall.c.page:212(p)
 msgid ""
 "Let's take a short break from Clutter to see how we can get the file names "
 "from our image directory."
 msgstr ""
 
-#: C/photo-wall.c.page:238(p)
+#: C/photo-wall.c.page:239(p)
 msgid ""
 "Lines 5 and 12: This opens our directory or, if an error occured, returns "
 "after printing an error message."
 msgstr ""
 
-#: C/photo-wall.c.page:239(p)
+#: C/photo-wall.c.page:240(p)
 msgid ""
-"Lines 14-20: The first line gets another file name from the <code>GDir</"
-"code> we opened earlier. If there was a file in the directory we proceed to "
-"prepend the image directory path to the filename and prepend that to the "
+"Lines 14‒23: The first line gets another file name from the <code>GDir</"
+"code> we opened earlier. If there was an image file (which we check by "
+"looking at its extension, \".png\" or \".jpg\") in the directory we proceed "
+"to prepend the image directory path to the filename and prepend that to the "
 "list we set up earlier. Lastly we attempt to get the next path name and "
 "reenter the loop if another file was found."
 msgstr ""
 
-#: C/photo-wall.c.page:244(title)
-msgid "Setup the actors"
-msgstr ""
+#: C/photo-wall.c.page:245(title)
+msgid "Set up the actors"
+msgstr "Configurar los actores"
 
-#: C/photo-wall.c.page:245(p)
+#: C/photo-wall.c.page:246(p)
 msgid ""
 "We now take a look at the sizing and positioning of <code>ClutterActor</"
 "code>s and also readying the <code>ClutterActor</code> for user interaction."
 msgstr ""
 
-#: C/photo-wall.c.page:266(p)
+#: C/photo-wall.c.page:265(p)
 msgid ""
 "Line 7: Setting an actor reactive means that it reacts to events, such as "
 "<code>button-press-event</code> in our case. For Photo Wall, all "
 "<code>ClutterActor</code>s in the wall should initially be reactive."
 msgstr ""
 
-#: C/photo-wall.c.page:269(p)
+#: C/photo-wall.c.page:268(p)
 msgid ""
-"Line 9-12: Now we connect the <code>button-press-event</code> to the "
+"Line 9‒12: Now we connect the <code>button-press-event</code> to the "
 "<code>actor_clicked_cb</code> callback which we will look at next."
 msgstr ""
 
-#: C/photo-wall.c.page:272(p)
+#: C/photo-wall.c.page:271(p)
 msgid "At this point we've got a wall of images that are ready to be viewed."
 msgstr ""
 
-#: C/photo-wall.c.page:276(title)
+#: C/photo-wall.c.page:275(title)
 msgid "Reacting to the clicks"
 msgstr ""
 
-#: C/photo-wall.c.page:322(p)
+#: C/photo-wall.c.page:320(p)
 msgid ""
-"Lines 1-4: We have to make sure our callback function matches the signature "
+"Lines 1‒4: We have to make sure our callback function matches the signature "
 "required for the <code>button_clicked_event</code> signal. For our example, "
 "we will only use the first argument, the <code>ClutterActor</code> that is "
 "actually clicked."
 msgstr ""
 
-#: C/photo-wall.c.page:324(p)
+#: C/photo-wall.c.page:322(p)
 msgid ""
 "A few words on the arguments we are not using in this example. The "
 "<code>ClutterEvent</code> is different depending on what event is being "
 "handled. For example, a key event produces a <code>ClutterKeyEvent</code> "
 "from which you can get the key being pressed among other information. For "
-"mouse click events you get a <code>ClutterButtonEvent</code>s from which you "
+"mouse click events you get a <code>ClutterButtonEvent</code> from which you "
 "can get the <code>x</code> and <code>y</code> values. See the Clutter "
 "documentation for other <code>ClutterEvent</code> types."
 msgstr ""
 
-#: C/photo-wall.c.page:325(p)
+#: C/photo-wall.c.page:323(p)
 msgid ""
 "The <code>user_data</code> is what one uses to pass data into the the "
 "function. A pointer to any data type can be passed in. If you need multiple "
@@ -871,14 +885,14 @@ msgid ""
 "and pass its address in."
 msgstr ""
 
-#: C/photo-wall.c.page:329(p)
+#: C/photo-wall.c.page:327(p)
 msgid ""
-"Line 7 : We set up a static flag to track which state we are in: wall mode "
-"or focus mode. We start out in wall mode so no image has focus. Thus, we set "
-"the flag to FALSE initially."
+"Line 7: We set up a static flag to track which state we are in: wall mode or "
+"focus mode. We start out in wall mode so no image has focus. Thus, we set "
+"the flag to <code>FALSE</code> initially."
 msgstr ""
 
-#: C/photo-wall.c.page:330(p)
+#: C/photo-wall.c.page:328(p)
 msgid ""
 "Line 9: This line of code runs a custom function, "
 "<code>foreach_set_focus_state</code>, for each element in our "
@@ -887,45 +901,45 @@ msgid ""
 "code> function in the next section."
 msgstr ""
 
-#: C/photo-wall.c.page:331(p)
+#: C/photo-wall.c.page:329(p)
 msgid ""
-"Lines 13-19: Reaching this code means that one image currently has focus and "
+"Lines 13‒19: Reaching this code means that one image currently has focus and "
 "we want to return to wall mode. The <code>clutter_actor_animate</code> "
 "function is used to animate a <code>ClutterActor</code>'s property or "
 "properties from the current state(s) to the specified state(s). The "
 "arguments are as follows:"
 msgstr ""
 
-#: C/photo-wall.c.page:333(p)
+#: C/photo-wall.c.page:331(p)
 msgid "The address of the <code>ClutterActor</code> to animate"
 msgstr ""
 
-#: C/photo-wall.c.page:334(p)
+#: C/photo-wall.c.page:332(p)
 msgid ""
 "The animation mode to use. Here we use <code>CLUTTER_LINEAR</code> so that "
 "we have a constant speed for animation."
 msgstr ""
 
-#: C/photo-wall.c.page:335(p)
+#: C/photo-wall.c.page:333(p)
 msgid ""
-"The duration of the animation in milliseconds. I've chosen 500ms for this "
+"The duration of the animation in milliseconds. I've chosen 500 ms for this "
 "example."
 msgstr ""
 
-#: C/photo-wall.c.page:336(p)
+#: C/photo-wall.c.page:334(p)
 msgid ""
 "The remaining arguments are property/value pairs. Here we want to set the "
 "<code>x</code> value to the starting <code>x</code> value this "
 "<code>ClutterActor</code> was at before being brought into focus."
 msgstr ""
 
-#: C/photo-wall.c.page:337(p)
+#: C/photo-wall.c.page:335(p)
 msgid ""
-"The last argument must always be NULL to indicate that there are no more "
-"properties to be set."
+"The last argument must always be <code>NULL</code> to indicate that there "
+"are no more properties to be set."
 msgstr ""
 
-#: C/photo-wall.c.page:339(p)
+#: C/photo-wall.c.page:337(p)
 msgid ""
 "The <code>depth</code> property needs a little more explaining. We need to "
 "raise the focused image so that it doesn't slide behind other "
@@ -933,7 +947,7 @@ msgid ""
 "depth as the others on the wall."
 msgstr ""
 
-#: C/photo-wall.c.page:340(p)
+#: C/photo-wall.c.page:338(p)
 msgid ""
 "Depth also determines which <code>ClutterActor</code>s receive events. A "
 "<code>ClutterActor</code> with a higher depth value receives the click "
@@ -941,83 +955,95 @@ msgid ""
 "code>s under it. We'll see how that works in a few steps."
 msgstr ""
 
-#: C/photo-wall.c.page:342(p)
+#: C/photo-wall.c.page:340(p)
 msgid ""
 "Line 24: Reaching this line of code means we are currently in the wall state "
 "and are about to give a <code>ClutterActor</code> focus. Here we save the "
 "starting position so that we can return to it later."
 msgstr ""
 
-#: C/photo-wall.c.page:343(p)
+#: C/photo-wall.c.page:341(p)
 msgid ""
 "Line 25: Setting the <code>ClutterActor</code>'s <code>reactive</code> "
-"property to TRUE makes this <code>ClutterActor</code> react to events. In "
-"this focused state the only <code>ClutterActor</code> that we want to "
-"receive evente will be the <code>ClutterActor</code> being viewed. Clicking "
-"on the <code>ClutterActor</code> will return it to its starting position."
+"property to <code>TRUE</code> makes this <code>ClutterActor</code> react to "
+"events. In this focused state the only <code>ClutterActor</code> that we "
+"want to receive events will be the <code>ClutterActor</code> being viewed. "
+"Clicking on the <code>ClutterActor</code> will return it to its starting "
+"position."
 msgstr ""
 
-#: C/photo-wall.c.page:344(p)
+#: C/photo-wall.c.page:342(p)
 msgid ""
-"Lines 27-33: This is similar to the above block of code. Notice that we are "
+"Lines 27‒33: This is similar to the above block of code. Notice that we are "
 "setting the the depth to raise it above the other images."
 msgstr ""
 
-#: C/photo-wall.c.page:345(p)
+#: C/photo-wall.c.page:343(p)
 msgid ""
 "Line 37: Here we toggle the <code>is_focused</code> flag to the current "
 "state."
 msgstr ""
 
-#: C/photo-wall.c.page:346(p)
+#: C/photo-wall.c.page:344(p)
 msgid ""
 "As mentioned previously, the <code>ClutterActor</code>s with higher "
-"<code>depth</code> value receive events but can allow <code>ClutterActor</"
+"<code>depth</code> values receive events but can allow <code>ClutterActor</"
 "code>s below them to also receive events. Returning <code>TRUE</code> will "
 "stop events from being passed down, while <code>FALSE</code> will pass "
 "events down."
 msgstr ""
 
-#: C/photo-wall.c.page:348(p)
+#: C/photo-wall.c.page:346(p)
 msgid ""
 "Remember, however, that to receive events the <code>ClutterActor</code>s "
 "must be set <code>reactive</code>."
 msgstr ""
 
-#: C/photo-wall.c.page:352(p)
+#: C/photo-wall.c.page:350(p)
 msgid ""
 "The following is the convenience function passed to <code>g_slist_foreach</"
 "code>."
 msgstr ""
 
-#: C/photo-wall.c.page:365(p)
+#: C/photo-wall.c.page:363(p)
 msgid ""
-"Lines 2-5: The signature of this function requires two <code>gpointers</"
-"code>. The first is a pointer to the <code>ClutterActor</code> that our "
+"Lines 2‒5: The signature of this function requires two <code>gpointer</"
+"code>s. The first is a pointer to the <code>ClutterActor</code> that our "
 "<code>GSList</code> holds and the other is the <code>is_focused</code> flag "
 "that we've passed in the previous section. We want to cast these and store "
 "them for easy use."
 msgstr ""
 
-#: C/photo-wall.c.page:366(p)
+#: C/photo-wall.c.page:364(p)
 msgid ""
 "Line 7: Depending on which boolean value is passed in, the "
 "<code>ClutterActor</code> will be set to respond to events or not."
 msgstr ""
 
-#: C/photo-wall.c.page:371(title) C/image-viewer.cpp.page:207(title)
-#: C/image-viewer.c.page:215(title) C/guitar-tuner.vala.page:237(title)
+#: C/photo-wall.c.page:369(title) C/image-viewer.cpp.page:206(title)
+#: C/image-viewer.c.page:214(title) C/guitar-tuner.vala.page:237(title)
 #: C/guitar-tuner.cpp.page:249(title) C/guitar-tuner.c.page:249(title)
 msgid "Build and run the application"
+msgstr "Construir y ejecutar la aplicación"
+
+#: C/photo-wall.c.page:370(p)
+msgid ""
+"All of the code should now be ready to go. All you need now is some pictures "
+"to load. By default, the pictures are loaded from a <file>berlin_images</"
+"file> directory. If you want, you can change the <code>#define "
+"IMAGE_DIR_PATH</code> line near the top to refer to your photo directory, or "
+"create a <file>berlin_images</file> directory by clicking "
+"<guiseq><gui>Project</gui><gui>New Directory...</gui></guiseq> and creating "
+"a <file>berlin_images</file> directory as a subdirectory of the <file>photo-"
+"wall</file> directory. Make sure to put at least twelve images in the "
+"directory!"
 msgstr ""
 
-#: C/photo-wall.c.page:372(p) C/image-viewer.cpp.page:208(p)
-#: C/image-viewer.c.page:216(p) C/guitar-tuner.vala.page:238(p)
-#: C/guitar-tuner.cpp.page:250(p)
+#: C/photo-wall.c.page:372(p)
 msgid ""
-"All of the code should now be ready to go. Click <guiseq><gui>Build</"
-"gui><gui>Build Project</gui></guiseq> to build everything again, and then "
-"<guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application."
+"When you have done that, click <guiseq><gui>Build</gui><gui>Build Project</"
+"gui></guiseq> to build everything again, then <guiseq><gui>Run</"
+"gui><gui>Execute</gui></guiseq> to start the application."
 msgstr ""
 
 #: C/photo-wall.c.page:373(p)
@@ -1090,7 +1116,7 @@ msgstr ""
 
 #: C/message-board.c.page:55(p)
 msgid ""
-"Select <gui>GTK+ (Simple)</gui> on the <gui>C</gui> tab, and click "
+"Select <gui>GTK+ (simple)</gui> on the <gui>C</gui> tab, and click "
 "<gui>Forward</gui>."
 msgstr ""
 
@@ -1127,7 +1153,7 @@ msgstr ""
 #: C/message-board.c.page:76(code)
 #, no-wrap
 msgid "#include &lt;webkit/webkit.h&gt;"
-msgstr ""
+msgstr "#include &lt;webkit/webkit.h&gt;"
 
 #: C/message-board.c.page:78(p)
 msgid ""
@@ -1160,14 +1186,13 @@ msgstr ""
 #: C/message-board.c.page:132(p)
 msgid ""
 "You first create a <code>GtkWindow</code> object and set its title and "
-"default size. You also connect the <code>destroy</code> function to the "
-"<code>delete-event</code> signal. The <code>delete-event</code> signal is "
-"emitted when the window is closed. The <code>destroy</code> function is "
-"already provided in <file>main.c</file>. It just calls <code>gtk_main_quit</"
-"code> to quit the application."
+"default size. You also connect the <code>gtk_main_quit</code> function to "
+"the <code>delete-event</code> signal. The <code>delete-event</code> signal "
+"is emitted when the window is closed. The <code>gtk_main_quit</code> "
+"function is part of GTK, and it quits the application."
 msgstr ""
 
-#: C/message-board.c.page:139(p)
+#: C/message-board.c.page:138(p)
 msgid ""
 "You then create a vertical box and add it to the window. A window can only "
 "hold a single child widget, so you need to use a box to add multiple "
@@ -1176,7 +1201,7 @@ msgid ""
 "border around the entire thing."
 msgstr ""
 
-#: C/message-board.c.page:145(p)
+#: C/message-board.c.page:144(p)
 msgid ""
 "You next create a <code>GtkEntry</code> object and pack it into the box. The "
 "third and fourth arguments to <code>gtk_box_pack_start</code> specify that "
@@ -1186,7 +1211,7 @@ msgid ""
 "all the padding."
 msgstr ""
 
-#: C/message-board.c.page:152(p)
+#: C/message-board.c.page:151(p)
 msgid ""
 "Before you add a web view, you have to create a scrolled window to put it "
 "inside of. The scrolled window will place scrollbars on the right and bottom "
@@ -1196,70 +1221,70 @@ msgid ""
 "web view) to use any extra space available in the box."
 msgstr ""
 
-#: C/message-board.c.page:159(p)
+#: C/message-board.c.page:158(p)
 msgid ""
 "Finally, you create a <code>WebKitWebView</code> and add it to the scrolled "
 "window. Then load a very basic HTML page into the web view by calling "
-"<code>webkit_web_view_load_string</code> with the follow arguments:"
+"<code>webkit_web_view_load_string</code> with the following arguments:"
 msgstr ""
 
-#: C/message-board.c.page:165(code)
+#: C/message-board.c.page:164(code)
 #, no-wrap
 msgid "WEBKIT_WEB_VIEW (view)"
 msgstr ""
 
-#: C/message-board.c.page:166(p)
+#: C/message-board.c.page:165(p)
 msgid ""
 "The view itself. Because <code>view</code> is typed as a <code>GtkWidget*</"
 "code>, you have to use <code>WEBKIT_WEB_VIEW</code> to safely cast the "
 "object."
 msgstr ""
 
-#: C/message-board.c.page:171(code)
+#: C/message-board.c.page:170(code)
 #, no-wrap
 msgid "\"&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;\""
 msgstr "\"&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;\""
 
-#: C/message-board.c.page:172(p)
+#: C/message-board.c.page:171(p)
 msgid "The simplest HTML file you could possibly write."
 msgstr ""
 
-#: C/message-board.c.page:175(code)
+#: C/message-board.c.page:174(code)
 #, no-wrap
 msgid "\"text/html\""
 msgstr "\"text/html\""
 
-#: C/message-board.c.page:176(p)
+#: C/message-board.c.page:175(p)
 msgid ""
 "The MIME type of the content you provided. In this case, you're using plain "
 "HTML."
 msgstr ""
 
-#: C/message-board.c.page:180(code)
+#: C/message-board.c.page:179(code)
 #, no-wrap
 msgid "\"UTF-8\""
 msgstr "\"UTF-8\""
 
-#: C/message-board.c.page:181(p)
+#: C/message-board.c.page:180(p)
 msgid ""
 "The character encoding of the content you provided. Although you only used "
 "ASCII characters, it's a good idea to specify UTF-8. UTF-8 is used as the "
 "default encoding throughout the GNOME platform."
 msgstr ""
 
-#: C/message-board.c.page:186(code)
+#: C/message-board.c.page:185(code)
 #, no-wrap
 msgid "NULL"
 msgstr "NULL"
 
-#: C/message-board.c.page:187(p)
+#: C/message-board.c.page:186(p)
 msgid ""
 "The base URI. You don't need it in this simple example, but you might want "
 "to provide a <sys>file:</sys> URI if you add images or other features where "
 "you want to use relative URI references."
 msgstr ""
 
-#: C/message-board.c.page:194(p)
+#: C/message-board.c.page:193(p)
 msgid ""
 "Every time you add a widget, you have to call <code>gtk_widget_show</code> "
 "on it for it to be visible. If you call <code>gtk_widget_show_all</code> on "
@@ -1269,25 +1294,25 @@ msgid ""
 "dynamically hide and show some widgets in response to events."
 msgstr ""
 
-#: C/message-board.c.page:202(p)
+#: C/message-board.c.page:201(p)
 msgid ""
 "Finally, you have to call <code>gtk_widget_show_all</code> on the box. "
 "Otherwise, none of the widgets you created will be visible. (The window is "
 "shown in the <code>main</code> function with <code>gtk_widget_show</code>.)"
 msgstr ""
 
-#: C/message-board.c.page:206(p)
+#: C/message-board.c.page:205(p)
 msgid ""
 "Build and run the message board again. You should see a window with a text "
 "entry and a web view. It doesn't do anything yet because the text entry and "
 "the web view don't know anything about each other."
 msgstr ""
 
-#: C/message-board.c.page:212(title)
+#: C/message-board.c.page:211(title)
 msgid "Hook up signals"
 msgstr ""
 
-#: C/message-board.c.page:214(p)
+#: C/message-board.c.page:213(p)
 msgid ""
 "Now you want to make the message board actually <em>do</em> something when "
 "you enter text into the text entry. To do this, connect a callback function "
@@ -1297,13 +1322,13 @@ msgid ""
 "both <code>entry</code> and <code>view</code> have been defined:"
 msgstr ""
 
-#: C/message-board.c.page:225(p)
+#: C/message-board.c.page:224(p)
 msgid ""
 "You then have to actually define <code>entry_activate_cb</code>. Define it "
 "as follows, anywhere above <code>create_window</code>:"
 msgstr ""
 
-#: C/message-board.c.page:248(p)
+#: C/message-board.c.page:247(p)
 msgid ""
 "The first thing you do is get a <code>WebKitDOMDocument</code> object that "
 "represents the HTML document displayed in <code>view</code>. The DOM classes "
@@ -1312,7 +1337,7 @@ msgid ""
 "JavaScript."
 msgstr ""
 
-#: C/message-board.c.page:254(p)
+#: C/message-board.c.page:253(p)
 msgid ""
 "Once you have the document, you want to get the <code>body</code> element so "
 "that you can add <code>div</code> elements to it. The "
@@ -1321,17 +1346,17 @@ msgid ""
 "write tedious loops to traverse the document."
 msgstr ""
 
-#: C/message-board.c.page:261(cite) C/message-board.c.page:273(cite)
-#: C/message-board.c.page:325(cite) C/message-board.c.page:382(cite)
-#: C/message-board.c.page:390(cite)
+#: C/message-board.c.page:260(cite) C/message-board.c.page:272(cite)
+#: C/message-board.c.page:324(cite) C/message-board.c.page:381(cite)
+#: C/message-board.c.page:389(cite)
 msgid "shaunm"
 msgstr "shaunm"
 
-#: C/message-board.c.page:262(p)
+#: C/message-board.c.page:261(p)
 msgid "FIXME: Is this true? Does query_selector take CSS, CSSish, or what?"
 msgstr ""
 
-#: C/message-board.c.page:265(p)
+#: C/message-board.c.page:264(p)
 msgid ""
 "Next, you create a new <code>div</code> element to hold the message. Every "
 "element you create has to be attached to a document, so the function to "
@@ -1341,24 +1366,24 @@ msgid ""
 "<code>const gchar*</code>, you don't have to free the result."
 msgstr ""
 
-#: C/message-board.c.page:274(p)
+#: C/message-board.c.page:273(p)
 msgid ""
 "Not passing the GError**, but we should give it a quick mention and link to "
 "somewhere that explains how GError-handling works."
 msgstr ""
 
-#: C/message-board.c.page:278(p)
+#: C/message-board.c.page:277(p)
 msgid ""
 "Finally, you append the new <code>div</code> element to the body and clear "
 "out the text entry so you can type something new. Build and run the program "
 "again and test it for yourself."
 msgstr ""
 
-#: C/message-board.c.page:285(title)
+#: C/message-board.c.page:284(title)
 msgid "Make it look better with CSS"
 msgstr ""
 
-#: C/message-board.c.page:287(p)
+#: C/message-board.c.page:286(p)
 msgid ""
 "At this point, your program is completely functional, but not very pretty. "
 "You can style the message display with CSS, just like you can with any other "
@@ -1368,7 +1393,7 @@ msgid ""
 "even programmatically construct it using the DOM APIs."
 msgstr ""
 
-#: C/message-board.c.page:294(p)
+#: C/message-board.c.page:293(p)
 msgid ""
 "In this tutorial, you'll attach the CSS using the <code>user-stylesheet-uri</"
 "code> property of the <code>WebKitWebSetting</code> object attached to your "
@@ -1381,7 +1406,7 @@ msgid ""
 "string near the top of your file."
 msgstr ""
 
-#: C/message-board.c.page:316(p)
+#: C/message-board.c.page:315(p)
 msgid ""
 "All you have in this example are <code>div</code> elements inside a "
 "<code>body</code> element. If you created more complicated HTML, you could "
@@ -1389,24 +1414,24 @@ msgid ""
 "should trying changing this to something you like better."
 msgstr ""
 
-#: C/message-board.c.page:321(p)
+#: C/message-board.c.page:320(p)
 msgid ""
 "To apply the CSS, you set the <code>user-stylesheet-uri</code> in the "
 "<code>create_window</code> function, anywhere after <code>view</code> has "
 "already been defined."
 msgstr ""
 
-#: C/message-board.c.page:325(p)
+#: C/message-board.c.page:324(p)
 msgid "g_base64_encode has bad args"
 msgstr ""
 
-#: C/message-board.c.page:337(p)
+#: C/message-board.c.page:336(p)
 msgid ""
 "Also, make sure to add variable declarations for <code>tmp</code> and "
 "<code>css</code> to the top of <code>create_window</code>."
 msgstr ""
 
-#: C/message-board.c.page:340(code)
+#: C/message-board.c.page:339(code)
 #, no-wrap
 msgid ""
 "\n"
@@ -1415,7 +1440,7 @@ msgstr ""
 "\n"
 "gchar *tmp, *css;\n"
 
-#: C/message-board.c.page:344(p)
+#: C/message-board.c.page:343(p)
 msgid ""
 "A data URI starts with <sys>data:</sys> and some information about the "
 "content type and how the data is encoded. The actual data follows after a "
@@ -1425,7 +1450,7 @@ msgid ""
 "gives the entire contents of the file."
 msgstr ""
 
-#: C/message-board.c.page:351(p)
+#: C/message-board.c.page:350(p)
 msgid ""
 "The code above first encodes your CSS definitions in Base64, then combines "
 "that with a fixed string to create a data URI. The <code>g_strconcat</code> "
@@ -1435,18 +1460,18 @@ msgid ""
 "you set the stylesheet property."
 msgstr ""
 
-#: C/message-board.c.page:358(p)
+#: C/message-board.c.page:357(p)
 msgid ""
 "Build and run the program again. It should now work exactly the same as at "
 "the end of the last section, except the messages will be nicely styled with "
 "a border and a subtle background gradient."
 msgstr ""
 
-#: C/message-board.c.page:364(title)
+#: C/message-board.c.page:363(title)
 msgid "Learn more"
 msgstr "Aprender más"
 
-#: C/message-board.c.page:366(p)
+#: C/message-board.c.page:365(p)
 msgid ""
 "This tutorial showed you how to create a basic application using GTK+ and "
 "WebKit, including showing a document and manipulating its contents. To "
@@ -1454,7 +1479,7 @@ msgid ""
 "adding features on your own. Here are a few ideas:"
 msgstr ""
 
-#: C/message-board.c.page:372(p)
+#: C/message-board.c.page:371(p)
 msgid ""
 "If you're comfortable with CSS, try changing the style of the message "
 "display. CSS is easy to get started with, but increasingly more powerful. "
@@ -1462,18 +1487,18 @@ msgid ""
 "everything you can do on the web, you can do in this application."
 msgstr ""
 
-#: C/message-board.c.page:378(p)
+#: C/message-board.c.page:377(p)
 msgid ""
 "Right now, you lose all your messages whenever you close the message board. "
 "Try saving the HTML contents after each post, and loading the saved file (if "
 "it exists) on startup."
 msgstr ""
 
-#: C/message-board.c.page:382(p)
+#: C/message-board.c.page:381(p)
 msgid "Link to method to get HTML from DOM and to GIO APIs."
 msgstr ""
 
-#: C/message-board.c.page:386(p)
+#: C/message-board.c.page:385(p)
 msgid ""
 "If you keep your messages around for a long time, you'll start wondering "
 "when you posted them. Add a timestamp to each message when it's posted. "
@@ -1481,11 +1506,11 @@ msgid ""
 "elements with different classes that you can style in the CSS."
 msgstr ""
 
-#: C/message-board.c.page:390(p)
+#: C/message-board.c.page:389(p)
 msgid "Link to strftime or something"
 msgstr ""
 
-#: C/message-board.c.page:393(p)
+#: C/message-board.c.page:392(p)
 msgid ""
 "This program keeps messages around forever. Think about ways you could allow "
 "the user to delete messages. Perhaps you want messages to disappear "
@@ -1520,8 +1545,8 @@ msgstr ""
 
 #: C/magic-mirror.vala.page:24(em)
 msgid ""
-"Your mirror just fell off the wall and broke into a thousand pieces - but "
-"you need a mirror to shave your beard off or add some make up! You only have "
+"Your mirror just fell off the wall and broke into a thousand pieces — but "
+"you need a mirror to shave your beard off or add some makeup! You only have "
 "15 minutes left before catching the bus to work. So what can you do?"
 msgstr ""
 
@@ -1562,13 +1587,13 @@ msgid "Installed copies of GTK, GStreamer, and a Vala compiler"
 msgstr ""
 
 #: C/magic-mirror.vala.page:35(p)
-msgid "Basic knowledge of an object-orientated programming language"
+msgid "Basic knowledge of an object-oriented programming language"
 msgstr ""
 
 #: C/magic-mirror.vala.page:49(p)
 msgid ""
-"Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click "
-"<gui>Forward</gui>, and fill-out your details on the next few pages. Use "
+"Choose <gui>Gtk+ (simple)</gui> from the <gui>Vala</gui> tab, click "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
 
@@ -1588,7 +1613,7 @@ msgstr ""
 
 #: C/magic-mirror.vala.page:61(p)
 msgid ""
-"Click <gui>Finished</gui> and the project will be created for you. Open "
+"Click <gui>Apply</gui> and the project will be created for you. Open "
 "<file>src/magic_mirror.vala</file> from the <gui>Project</gui> or <gui>File</"
 "gui> tabs. You should see some code which starts with the lines:"
 msgstr ""
@@ -1614,16 +1639,16 @@ msgstr ""
 #: C/magic-mirror.vala.page:77(p)
 msgid ""
 "The constructor of the <code>Main</code> class creates a new window and sets "
-"its title. Afterwards the window is shown and a signal is connected to quite "
-"the application if the widget is closed. More on signals laster on."
+"its title. Afterwards the window is shown and a signal is connected which "
+"quits the application if the window is closed. More on signals later on."
 msgstr ""
 
 #: C/magic-mirror.vala.page:81(p)
 msgid ""
 "The static <code>main</code> function is run by default when you start a "
-"Vala application. It calls a few functions which create the Main class, set-"
-"up and then run the application. The <code>Gtk.Main</code> function start "
-"the GTK mainloop, which runs the user interface and starts listening for "
+"Vala application. It calls a few functions which create the Main class, set "
+"up and then run the application. The <code>Gtk.Main</code> function starts "
+"the GTK main loop, which runs the user interface and starts listening for "
 "events (like clicks and key presses)."
 msgstr ""
 
@@ -1636,11 +1661,11 @@ msgid ""
 "<keyseq><key>Shift</key><key>F7</key></keyseq>)."
 msgstr ""
 
-#: C/magic-mirror.vala.page:86(p)
+#: C/magic-mirror.vala.page:86(p) C/guitar-tuner.vala.page:80(p)
 msgid ""
 "Change the <gui>Configuration</gui> to <gui>Default</gui> and then press "
-"<gui>Configure</gui> configure the build directory. You only need to do this "
-"once, for the first build."
+"<gui>Execute</gui> to configure the build directory. You only need to do "
+"this once, for the first build."
 msgstr ""
 
 #: C/magic-mirror.vala.page:90(title)
@@ -1653,36 +1678,36 @@ msgid ""
 "Let's add GStreamer to our application and so we can access the video stream."
 msgstr ""
 
-#: C/magic-mirror.vala.page:119(p)
+#: C/magic-mirror.vala.page:118(p)
 msgid ""
 "First we remove the window we created before because GStreamer will take "
 "care of showing the picture on screen."
 msgstr ""
 
-#: C/magic-mirror.vala.page:123(p)
+#: C/magic-mirror.vala.page:122(p)
 msgid ""
-"Now we are creating a GStreamer element, which accesses our webcam. We are "
+"Now we are creating a GStreamer element which accesses our webcam. We are "
 "using the Camerabin element, which is an all-in-one camera element and is "
 "capable of taking photos, videos, applying effects and much more. Perfect "
 "for our use case! With <code>this.camerabin.set_state (Gst.State.PLAYING)</"
 "code> we tell the GStreamer pipeline we just created to start playing. Easy, "
-"not?"
+"no?"
 msgstr ""
 
-#: C/magic-mirror.vala.page:130(p)
+#: C/magic-mirror.vala.page:129(p)
 msgid ""
 "Of course it is also possible to integrate the video more tighly into other "
-"windows but that is an advanced topics that includes some details of the X "
+"windows but that is an advanced topic that includes some details of the X "
 "Window System we will omit here."
 msgstr ""
 
-#: C/magic-mirror.vala.page:134(p)
+#: C/magic-mirror.vala.page:133(p)
 msgid ""
 "Compile and run it again. You will end up with two windows. In the next step "
 "we will integrate the video into the GTK+ window."
 msgstr ""
 
-#: C/magic-mirror.vala.page:144(p)
+#: C/magic-mirror.vala.page:143(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"magic-mirror/magic-mirror.vala\">reference code</link>. There "
@@ -1692,26 +1717,26 @@ msgid ""
 "stop the picture."
 msgstr ""
 
-#: C/magic-mirror.vala.page:150(title) C/guitar-tuner.vala.page:248(title)
+#: C/magic-mirror.vala.page:149(title) C/guitar-tuner.vala.page:248(title)
 msgid "Further reading"
 msgstr ""
 
-#: C/magic-mirror.vala.page:151(p) C/guitar-tuner.vala.page:249(p)
+#: C/magic-mirror.vala.page:150(p) C/guitar-tuner.vala.page:249(p)
 msgid ""
 "To find out more about the Vala programming language you might want to check "
 "out the <link href=\"http://live.gnome.org/Vala/Tutorial\">Vala Tutorial</"
 "link>."
 msgstr ""
 
-#: C/magic-mirror.vala.page:156(title)
+#: C/magic-mirror.vala.page:155(title)
 msgid "Conclusion"
 msgstr "Conclusión"
 
-#: C/magic-mirror.vala.page:157(p)
+#: C/magic-mirror.vala.page:156(p)
 msgid ""
-"That's it, you have managed to create a full featured webcam photo "
-"application in 15 minutes. Now you can shave your beard off or add some make "
-"up to your beautiful face, right before having a beautiful day at your "
+"That's it, you have managed to create a full-featured webcam photo "
+"application in 15 minutes. Now you can shave your beard off or add some "
+"makeup to your beautiful face, right before having a beautiful day at your "
 "workplace, where you can impress your friends and colleagues with an awesome "
 "application you just made in 15 minutes."
 msgstr ""
@@ -1727,7 +1752,7 @@ msgstr ""
 #: C/image-viewer.js.page:9(desc)
 msgid ""
 "A little bit more than a simple \"Hello world\" application - write an image "
-"viewer in GTK. Includes an introduction to the Javascript language."
+"viewer in GTK. Includes an introduction to the JavaScript language."
 msgstr ""
 
 #: C/image-viewer.js.page:13(name) C/image-viewer.py.page:13(name)
@@ -1763,7 +1788,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:31(p) C/image-viewer.py.page:31(p)
 msgid "Load and display image files"
-msgstr ""
+msgstr "Cargar y mostrar archivos de imagen"
 
 #: C/image-viewer.js.page:36(p)
 msgid "An installed copy of the <em>gjs</em> interpreter"
@@ -1776,8 +1801,15 @@ msgstr ""
 #: C/image-viewer.js.page:51(p)
 msgid ""
 "Choose <gui>Generic Javascript</gui> from the <gui>JS</gui> tab, click "
-"<gui>Forward</gui>, and fill-out your details on the next few pages. Use "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
+msgstr ""
+
+#: C/image-viewer.js.page:54(p)
+msgid ""
+"Click <gui>Apply</gui> and the project will be created for you. Open "
+"<file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> "
+"tabs. It contains very basic example code."
 msgstr ""
 
 #: C/image-viewer.js.page:61(title)
@@ -1795,7 +1827,7 @@ msgstr ""
 #: C/image-viewer.js.page:63(code)
 #, no-wrap
 msgid "print (\"Hello world!\");"
-msgstr ""
+msgstr "print (\"¡Hola mundo!\");"
 
 #: C/image-viewer.js.page:64(p)
 msgid ""
@@ -1807,27 +1839,27 @@ msgstr ""
 
 #: C/image-viewer.js.page:68(title)
 msgid "Classes in JavaScript"
-msgstr ""
+msgstr "Clases en JavaScript"
 
 #: C/image-viewer.js.page:69(p)
 msgid "This is the standard way to define a class in JavaScript:"
 msgstr ""
 
-#: C/image-viewer.js.page:93(p)
+#: C/image-viewer.js.page:92(p)
 msgid ""
 "This defines a class called <code>MyClass</code>. Let's go through each part "
 "of the class definition:"
 msgstr ""
 
-#: C/image-viewer.js.page:96(p)
+#: C/image-viewer.js.page:95(p)
 msgid ""
-"<code>function MyClass ()</code> is the constructor of the class - its name "
+"<code>function MyClass</code> is the constructor of the class — its name "
 "must match the class's name. You can access any member of the class by using "
 "the <code>this</code> object; here, the constructor calls the class's "
 "<code>_init</code> method."
 msgstr ""
 
-#: C/image-viewer.js.page:99(p)
+#: C/image-viewer.js.page:98(p)
 msgid ""
 "The <code>MyClass.prototype</code> block is where you define the "
 "<em>structure</em> of the class. Each class is made up of methods "
@@ -1835,18 +1867,18 @@ msgid ""
 "in this example."
 msgstr ""
 
-#: C/image-viewer.js.page:102(p)
+#: C/image-viewer.js.page:101(p)
 msgid ""
 "The first method defined here is called <code>_init</code>, and we specify "
 "that it is a function with no arguments:"
 msgstr ""
 
-#: C/image-viewer.js.page:103(code)
+#: C/image-viewer.js.page:102(code)
 #, no-wrap
 msgid "_init: function ()"
-msgstr ""
+msgstr "_init: function ()"
 
-#: C/image-viewer.js.page:104(p)
+#: C/image-viewer.js.page:103(p)
 msgid ""
 "We write the function inside some curly braces. Two fields are defined here, "
 "<code>propertyA</code> and <code>propertyB</code>. The first is set to a "
@@ -1854,7 +1886,7 @@ msgid ""
 "any value."
 msgstr ""
 
-#: C/image-viewer.js.page:107(p)
+#: C/image-viewer.js.page:106(p)
 msgid ""
 "The next method is called <code>aMethod</code> and has two arguments, which "
 "it prints out when you call it. The final method is <code>dumpProperties</"
@@ -1862,78 +1894,78 @@ msgid ""
 "code>."
 msgstr ""
 
-#: C/image-viewer.js.page:110(p)
+#: C/image-viewer.js.page:109(p)
 msgid ""
 "Note how the class definition (prototype) is arranged; each function "
 "definition is separated by a comma."
 msgstr ""
 
-#: C/image-viewer.js.page:114(p)
+#: C/image-viewer.js.page:113(p)
 msgid "Now that MyClass has been defined, we can play with it:"
 msgstr ""
 
-#: C/image-viewer.js.page:121(p)
+#: C/image-viewer.js.page:119(p)
 msgid ""
 "This code creates a new instance of the class called <code>o</code>, runs "
 "<code>aMethod</code>, changes <code>propertyA</code> to a different string, "
 "and then calls <code>dumpProperties</code> (which outputs the fields)."
 msgstr ""
 
-#: C/image-viewer.js.page:122(p)
+#: C/image-viewer.js.page:120(p)
 msgid ""
 "Save the code in the <file>main.js</file> and then run it by using "
-"<guiseq><gui>Run</gui><gui>Run…</gui></guiseq> from the menu or using the "
+"<guiseq><gui>Run</gui><gui>Execute</gui></guiseq> from the menu or using the "
 "toolbar."
 msgstr ""
 
-#: C/image-viewer.js.page:127(title) C/image-viewer.py.page:66(title)
+#: C/image-viewer.js.page:125(title) C/image-viewer.py.page:64(title)
 msgid "A first Gtk application"
 msgstr ""
 
-#: C/image-viewer.js.page:128(p)
+#: C/image-viewer.js.page:126(p)
 msgid "Let's see what a very basic Gtk application looks like in JavaScript:"
 msgstr ""
 
-#: C/image-viewer.js.page:139(p) C/image-viewer.py.page:91(p)
+#: C/image-viewer.js.page:136(p) C/image-viewer.py.page:89(p)
 msgid "Let's take a look at what's happening:"
 msgstr ""
 
-#: C/image-viewer.js.page:142(p) C/image-viewer.py.page:94(p)
+#: C/image-viewer.js.page:139(p) C/image-viewer.py.page:92(p)
 msgid ""
 "The first line imports the Gtk namespace (that is, it includes the Gtk "
 "library). The libraries are provided by GObject Introspection (gi), which "
 "provides language bindings for many GNOME libraries."
 msgstr ""
 
-#: C/image-viewer.js.page:145(p)
+#: C/image-viewer.js.page:142(p)
 msgid ""
 "<code>Gtk.init</code> initializes the Gtk library; this statement is "
 "mandatory for all Gtk programs."
 msgstr ""
 
-#: C/image-viewer.js.page:148(p)
+#: C/image-viewer.js.page:145(p)
 msgid ""
-"The next line creates the main window by creating a new Gtk.Window object. "
-"You can pass several properties to the window's constructor by using the "
-"syntax <code>{property: value, property: value, ...}</code>. In this case we "
-"are setting the title of the window."
+"The next line creates the main window by creating a new <code>Gtk.Window</"
+"code> object. You can pass several properties to the window's constructor by "
+"using the syntax <code>{property: value, property: value, ...}</code>. In "
+"this case we are setting the title of the window."
 msgstr ""
 
-#: C/image-viewer.js.page:149(p)
+#: C/image-viewer.js.page:146(p)
 msgid ""
 "The next line explicitly shows the window. In Gtk, every widget is hidden by "
 "default."
 msgstr ""
 
-#: C/image-viewer.js.page:150(p)
+#: C/image-viewer.js.page:147(p)
 msgid ""
-"Finally, <code>Gtk.main</code> runs the main loop - in other words, it "
+"Finally, <code>Gtk.main</code> runs the main loop — in other words, it "
 "executes the program. The main loop listens for events (signals) from the "
 "user interface and then calls a signal handler which will do something "
 "useful. We'll learn more about signals shortly."
 msgstr ""
 
-#: C/image-viewer.js.page:153(p)
+#: C/image-viewer.js.page:150(p)
 msgid ""
 "Save the code in <file>main.js</file> and run it. You will notice that the "
 "application does not quit when you close the window. This is because we "
@@ -1943,18 +1975,18 @@ msgid ""
 "quit the program."
 msgstr ""
 
-#: C/image-viewer.js.page:158(title)
+#: C/image-viewer.js.page:155(title)
 msgid "Adding classes"
 msgstr "Añadir clases"
 
-#: C/image-viewer.js.page:159(p)
+#: C/image-viewer.js.page:156(p)
 msgid ""
 "The proper way of doing Gtk programming is by using classes. Let's rewrite "
 "the simple code you just wrote using classes:"
 msgstr ""
 
 #. FIXME: Throws an error, "JS ERROR: !!!   Unhandled type int32 releasing GArgument" on Ubuntu 10.10
-#: C/image-viewer.js.page:179(p)
+#: C/image-viewer.js.page:175(p)
 msgid ""
 "Notice that the program is the same; we just moved the window creation code "
 "to our own <code>ImageViewer</code> class. The class's constructor calls the "
@@ -1963,17 +1995,17 @@ msgid ""
 "main</code>)."
 msgstr ""
 
-#: C/image-viewer.js.page:180(p)
+#: C/image-viewer.js.page:176(p)
 msgid ""
 "This code is modular and can be split into multiple files easily. This makes "
 "it cleaner and easier to read."
 msgstr ""
 
-#: C/image-viewer.js.page:184(title) C/image-viewer.py.page:115(title)
+#: C/image-viewer.js.page:180(title) C/image-viewer.py.page:113(title)
 msgid "Signals"
 msgstr "Señales"
 
-#: C/image-viewer.js.page:185(p) C/image-viewer.py.page:116(p)
+#: C/image-viewer.js.page:181(p) C/image-viewer.py.page:114(p)
 msgid ""
 "Signals are one of the key concepts in Gtk programming. Whenever something "
 "happens to an object, it emits a signal; for example, when a button is "
@@ -1982,42 +2014,42 @@ msgid ""
 "(a \"signal handler\") to that signal. Here's an example:"
 msgstr ""
 
-#: C/image-viewer.js.page:193(p) C/image-viewer.py.page:125(p)
+#: C/image-viewer.js.page:188(p) C/image-viewer.py.page:121(p)
 msgid ""
-"The last two lines create a GtkButton called <code>b</code> and connect its "
-"<code>clicked</code> signal to the <code>button_clicked</code> function, "
-"which is defined above. Every time the button is clicked, the code in the "
-"<code>button_clicked</code> function will be executed. It just prints a "
-"message here."
+"The last two lines create a <code>Gtk.Button</code> called <code>b</code> "
+"and connect its <code>clicked</code> signal to the <code>button_clicked</"
+"code> function, which is defined above. Every time the button is clicked, "
+"the code in the <code>button_clicked</code> function will be executed. It "
+"just prints a message here."
 msgstr ""
 
-#: C/image-viewer.js.page:194(p)
+#: C/image-viewer.js.page:189(p)
 msgid "The syntax for connecting any signal to a function is:"
 msgstr ""
 
-#: C/image-viewer.js.page:197(p)
+#: C/image-viewer.js.page:192(p)
 msgid ""
 "You can find signal definitions for any object in the <link href=\"http://"
 "library.gnome.org/devel/gtk/stable/ch01.html\">GTK class reference</link>."
 msgstr ""
 
-#: C/image-viewer.js.page:200(p)
+#: C/image-viewer.js.page:195(p)
 msgid ""
 "You can simplify the code by making use of an inline function definition:"
 msgstr ""
 
-#: C/image-viewer.js.page:208(title)
+#: C/image-viewer.js.page:203(title)
 msgid "Closing the window"
-msgstr ""
+msgstr "Cerrar la ventana"
 
-#: C/image-viewer.js.page:209(p)
+#: C/image-viewer.js.page:204(p)
 msgid ""
 "When you close a Gtk window it's not really closed, it's hidden. This allows "
 "you to keep the window around (which is useful if you want to ask the user "
 "if they really want to close the window, for example)."
 msgstr ""
 
-#: C/image-viewer.js.page:210(p)
+#: C/image-viewer.js.page:205(p)
 msgid ""
 "In our case, we really do just want to close the window. The simplest way of "
 "doing this is by connecting the <code>hide</code> signal of the GtkWindow "
@@ -2026,12 +2058,12 @@ msgid ""
 "method, on the line above <code>this.window.show</code>:"
 msgstr ""
 
-#: C/image-viewer.js.page:211(code)
+#: C/image-viewer.js.page:206(code)
 #, no-wrap
 msgid "this.window.connect (\"hide\", Gtk.main_quit);"
-msgstr ""
+msgstr "this.window.connect (\"hide\", Gtk.main_quit);"
 
-#: C/image-viewer.js.page:212(p)
+#: C/image-viewer.js.page:207(p)
 msgid ""
 "This connects the <code>hide</code> signal of the window to Gtk's "
 "<code>main_quit</code> function, which ends the execution of the Gtk main "
@@ -2041,89 +2073,92 @@ msgid ""
 "point, the program just ends."
 msgstr ""
 
-#: C/image-viewer.js.page:216(title) C/image-viewer.py.page:129(title)
+#: C/image-viewer.js.page:211(title) C/image-viewer.py.page:125(title)
 msgid "Containers: Laying-out the user interface"
 msgstr ""
 
-#: C/image-viewer.js.page:217(p) C/image-viewer.py.page:130(p)
+#: C/image-viewer.js.page:212(p) C/image-viewer.py.page:126(p)
 msgid ""
 "Widgets (controls, such as buttons and labels) can be arranged in the window "
 "by making use of <em>containers</em>. You can organize the layout by mixing "
 "different types of containers, like boxes and grids."
 msgstr ""
 
-#: C/image-viewer.js.page:218(p) C/image-viewer.py.page:131(p)
+#: C/image-viewer.js.page:213(p) C/image-viewer.py.page:127(p)
 msgid ""
-"A GtkWindow is itself a type of container, but you can only put one widget "
-"directly into it. We would like to have two widgets, an image and a button, "
-"so we must put a \"higher-capacity\" container inside the window to hold the "
-"other widgets. A number of <link href=\"http://library.gnome.org/devel/gtk/"
-"stable/GtkContainer.html\">container types</link> are available, but we will "
-"use a GtkBox here. A GtkBox can hold several widgets, organized horizontally "
-"or vertically. You can do more complicated layouts by putting several boxes "
-"inside another box and so on."
+"A <code>Gtk.Window</code> is itself a type of container, but you can only "
+"put one widget directly into it. We would like to have two widgets, an image "
+"and a button, so we must put a \"higher-capacity\" container inside the "
+"window to hold the other widgets. A number of <link href=\"http://library."
+"gnome.org/devel/gtk/stable/GtkContainer.html\">container types</link> are "
+"available, but we will use a <code>Gtk.Box</code> here. A <code>Gtk.Box</"
+"code> can hold several widgets, organized horizontally or vertically. You "
+"can do more complicated layouts by putting several boxes inside another box "
+"and so on."
 msgstr ""
 
-#: C/image-viewer.js.page:220(p) C/image-viewer.py.page:133(p)
+#: C/image-viewer.js.page:215(p) C/image-viewer.py.page:129(p)
 msgid ""
 "There is a graphical user interface designer called <app>Glade</app> "
 "integrated in <app>Anjuta</app> which makes UI design really easy. For this "
 "simple example, however, we will code everything manually."
 msgstr ""
 
-#: C/image-viewer.js.page:222(p)
+#: C/image-viewer.js.page:217(p)
 msgid ""
 "Let's add the box and widgets to the window. Insert the following code into "
 "the <code>_init</code> method, immediately above the <code>this.window.show</"
 "code> line:"
 msgstr ""
 
-#: C/image-viewer.js.page:226(p)
+#: C/image-viewer.js.page:221(p)
 msgid ""
-"The first line creates a GtkBox called <code>main_box</code> and sets two of "
-"its properties: the <code>orientation</code> is set to vertical (so widgets "
-"are arranged in a column), and the <code>spacing</code> between the widgets "
-"is set to 0 pixels. The next line then adds the newly-created GtkBox to the "
-"window."
+"The first line creates a <code>Gtk.Box</code> called <code>main_box</code> "
+"and sets two of its properties: the <code>orientation</code> is set to "
+"vertical (so widgets are arranged in a column), and the <code>spacing</code> "
+"between the widgets is set to 0 pixels. The next line then adds the newly-"
+"created <code>Gtk.Box</code> to the window."
 msgstr ""
 
-#: C/image-viewer.js.page:227(p) C/image-viewer.py.page:144(p)
+#: C/image-viewer.js.page:222(p) C/image-viewer.py.page:140(p)
 msgid ""
-"So far the window only contains an empty GtkBox, and if you run the program "
-"now you will see no changes at all (the GtkBox is a transparent container, "
-"so you can't see that it's there)."
+"So far the window only contains an empty <code>Gtk.Box</code>, and if you "
+"run the program now you will see no changes at all (the <code>Gtk.Box</code> "
+"is a transparent container, so you can't see that it's there)."
 msgstr ""
 
-#: C/image-viewer.js.page:231(title) C/image-viewer.py.page:148(title)
+#: C/image-viewer.js.page:226(title) C/image-viewer.py.page:144(title)
 msgid "Packing: Adding widgets to the container"
 msgstr ""
 
-#: C/image-viewer.js.page:232(p) C/image-viewer.py.page:149(p)
+#: C/image-viewer.js.page:227(p)
 msgid ""
-"To add some widgets to the GtkBox, insert the following code directly below "
-"the <code>this.window.add (main_box)</code> line:"
+"To add some widgets to the <code>Gtk.Box</code>, insert the following code "
+"directly below the <code>this.window.add (main_box)</code> line:"
 msgstr ""
 
-#: C/image-viewer.js.page:236(p)
+#: C/image-viewer.js.page:231(p)
 msgid ""
-"The first line creates a new GtkImage called <code>image</code>, which will "
-"be used to display an image file. Then, the image widget is added "
-"(<em>packed</em>) into the <code>main_box</code> container using GtkBox's "
-"<link href=\"http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-"
-"pack-start\"><code>pack_start</code></link> method."
+"The first line creates a new <code>Gtk.Image</code> called <code>image</"
+"code>, which will be used to display an image file. Then, the image widget "
+"is added (<em>packed</em>) into the <code>main_box</code> container using "
+"<code>Gtk.Box</code>'s <link href=\"http://library.gnome.org/devel/gtk/"
+"stable/GtkBox.html#gtk-box-pack-start\"><code>pack_start</code></link> "
+"method."
 msgstr ""
 
-#: C/image-viewer.js.page:237(p) C/image-viewer.py.page:155(p)
+#: C/image-viewer.js.page:232(p)
 msgid ""
 "<code>pack_start</code> takes 4 arguments: the widget that is to be added to "
-"the GtkBox (<code>child</code>); whether the GtkBox should grow larger when "
-"the new widget is added (<code>expand</code>); whether the new widget should "
-"take up all of the extra space created if the GtkBox gets bigger "
-"(<code>fill</code>); and how much space there should be, in pixels, between "
-"the widget and its neighbors inside the GtkBox (<code>padding</code>)."
+"the <code>Gtk.Box</code> (<code>child</code>); whether the <code>Gtk.Box</"
+"code> should grow larger when the new widget is added (<code>expand</code>); "
+"whether the new widget should take up all of the extra space created if the "
+"<code>Gtk.Box</code> gets bigger (<code>fill</code>); and how much space "
+"there should be, in pixels, between the widget and its neighbors inside the "
+"<code>Gtk.Box</code> (<code>padding</code>)."
 msgstr ""
 
-#: C/image-viewer.js.page:238(p) C/image-viewer.py.page:156(p)
+#: C/image-viewer.js.page:233(p) C/image-viewer.py.page:152(p)
 msgid ""
 "Gtk containers (and widgets) dynamically expand to fill the available space, "
 "if you let them. You don't position widgets by giving them a precise x,y-"
@@ -2132,69 +2167,69 @@ msgid ""
 "should automatically take a sensible size in most situations."
 msgstr ""
 
-#: C/image-viewer.js.page:239(p) C/image-viewer.py.page:157(p)
+#: C/image-viewer.js.page:234(p) C/image-viewer.py.page:153(p)
 msgid ""
 "Also note how the widgets are organized in a hierarchy. Once packed in the "
-"GtkBox, the GtkImage is considered a <em>child</em> of the GtkBox. This "
-"allows you to treat all of the children of a widget as a group; for example, "
-"you could hide the GtkBox, which would also hide all of its children at the "
-"same time."
+"<code>Gtk.Box</code>, the <code>Gtk.Image</code> is considered a <em>child</"
+"em> of the <code>Gtk.Box</code>. This allows you to treat all of the "
+"children of a widget as a group; for example, you could hide the <code>Gtk."
+"Box</code>, which would also hide all of its children at the same time."
 msgstr ""
 
-#: C/image-viewer.js.page:240(p) C/image-viewer.py.page:158(p)
+#: C/image-viewer.js.page:235(p) C/image-viewer.py.page:154(p)
 msgid "Now insert these two lines, below the two you just added:"
 msgstr ""
 
-#: C/image-viewer.js.page:244(p)
+#: C/image-viewer.js.page:239(p)
 msgid ""
-"These lines are similar the first two, but this time they create a GtkButton "
-"and add it to <code>main_box</code>. Notice that we are setting the "
-"<code>expand</code> argument (the second one) to <code>false</code> here, "
-"whereas it was set to <code>true</code> for the GtkImage. This will cause "
-"the image to take up all available space and the button to take only the "
-"space it needs. When you maximize the window, the button size will remain "
-"the same, but the image size will increase, taking up all of the rest of the "
-"window."
+"These lines are similar to the first two, but this time they create a "
+"<code>Gtk.Button</code> and add it to <code>main_box</code>. Notice that we "
+"are setting the <code>expand</code> argument (the second one) to "
+"<code>false</code> here, whereas it was set to <code>true</code> for the "
+"<code>Gtk.Image</code>. This will cause the image to take up all available "
+"space and the button to take only the space it needs. When you maximize the "
+"window, the button size will remain the same, but the image size will "
+"increase, taking up all of the rest of the window."
 msgstr ""
 
-#: C/image-viewer.js.page:245(p)
+#: C/image-viewer.js.page:240(p)
 msgid ""
 "Finally, we must change the <code>this.window.show ();</code> line to read:"
 msgstr ""
 
-#: C/image-viewer.js.page:246(code)
+#: C/image-viewer.js.page:241(code)
 #, no-wrap
 msgid "this.window.show_all ();"
-msgstr ""
+msgstr "this.window.show_all ();"
 
-#: C/image-viewer.js.page:247(p)
+#: C/image-viewer.js.page:242(p)
 msgid ""
 "This will show the child of the Gtk window, and all of its children, and its "
 "children's children, and so on. (Remember that Gtk widgets are all hidden by "
 "default.)"
 msgstr ""
 
-#: C/image-viewer.js.page:251(title) C/image-viewer.py.page:168(title)
+#: C/image-viewer.js.page:246(title) C/image-viewer.py.page:163(title)
 msgid ""
 "Loading the image: Connecting to the button's <code>clicked</code> signal"
 msgstr ""
 
-#: C/image-viewer.js.page:252(p)
+#: C/image-viewer.js.page:247(p)
 msgid ""
 "When the user clicks on the <gui>Open</gui> button, a dialog should appear "
 "so that the user can choose a picture. Once chosen, the picture should be "
 "loaded and shown in the image widget."
 msgstr ""
 
-#: C/image-viewer.js.page:253(p)
+#: C/image-viewer.js.page:248(p)
 msgid ""
 "The first step is to connect the <code>clicked</code> signal of the button "
-"to a signal handler function, which we call <code>_openCLicked</code>. Put "
+"to a signal handler function, which we call <code>_openClicked</code>. Put "
 "this code immediately after the <code>var open_button = new Gtk.Button</"
 "code> line where the button was created:"
 msgstr ""
 
-#: C/image-viewer.js.page:256(p)
+#: C/image-viewer.js.page:251(p)
 msgid ""
 "We are using the <em>Lang</em> JavaScript helper here. It allows us to "
 "connect a <em>class method</em> to the signal, rather than a plain function "
@@ -2204,42 +2239,42 @@ msgid ""
 "file:"
 msgstr ""
 
-#: C/image-viewer.js.page:257(code)
+#: C/image-viewer.js.page:252(code)
 #, no-wrap
 msgid "const Lang = imports.lang;"
-msgstr ""
+msgstr "const Lang = imports.lang;"
 
-#: C/image-viewer.js.page:261(title) C/image-viewer.py.page:179(title)
+#: C/image-viewer.js.page:256(title) C/image-viewer.py.page:174(title)
 msgid "Loading the image: Writing the signal's callback"
 msgstr ""
 
-#: C/image-viewer.js.page:262(p)
+#: C/image-viewer.js.page:257(p)
 msgid ""
 "Now we can create the <code>_openClicked()</code> method. Insert the "
 "following into the <code>ImageViewer.prototype</code> code block, after the "
 "<code>_init</code> method (and not forgetting the comma):"
 msgstr ""
 
-#: C/image-viewer.js.page:282(p) C/image-viewer.py.page:197(p)
-#: C/image-viewer.cpp.page:173(p) C/image-viewer.c.page:185(p)
+#: C/image-viewer.js.page:277(p) C/image-viewer.py.page:191(p)
+#: C/image-viewer.cpp.page:172(p) C/image-viewer.c.page:184(p)
 msgid ""
 "This is a bit more complicated than anything we've attempted so far, so "
 "let's break it down:"
 msgstr ""
 
-#: C/image-viewer.js.page:285(p)
+#: C/image-viewer.js.page:280(p)
 msgid ""
 "The line beginning with <code>var chooser</code> creates an <gui>Open</gui> "
 "dialog, which the user can use to choose files. We set four properties: the "
 "title of the dialog; the action (type) of the dialog (it's an \"open\" "
 "dialog, but we could have used <code>SAVE</code> if the intention was to "
-"save a file_; <code>transient_for</code>, which sets the parent window of "
-"the dialog; and <code>modal</code> which, if set to <code>true</code>, "
-"prevents the user from clicking on another area of the application until the "
-"dialog is closed."
+"save a file; <code>transient_for</code>, which sets the parent window of the "
+"dialog; and <code>modal</code> which, if set to <code>true</code>, prevents "
+"the user from clicking on another area of the application until the dialog "
+"is closed."
 msgstr ""
 
-#: C/image-viewer.js.page:288(p) C/image-viewer.py.page:203(p)
+#: C/image-viewer.js.page:283(p) C/image-viewer.py.page:197(p)
 msgid ""
 "The next two lines add <gui>Cancel</gui> and <gui>Open</gui> buttons to the "
 "dialog. The second argument of the <code>add_button</code> method is the "
@@ -2247,8 +2282,8 @@ msgid ""
 "<gui>Cancel</gui> and 1 for <gui>Open</gui>."
 msgstr ""
 
-#: C/image-viewer.js.page:289(p) C/image-viewer.py.page:204(p)
-#: C/image-viewer.cpp.page:183(p) C/image-viewer.c.page:197(p)
+#: C/image-viewer.js.page:284(p) C/image-viewer.py.page:198(p)
+#: C/image-viewer.cpp.page:182(p) C/image-viewer.c.page:196(p)
 msgid ""
 "Notice that we are using <em>stock</em> button names from Gtk, instead of "
 "manually typing \"Cancel\" or \"Open\". The advantage of using stock names "
@@ -2256,7 +2291,7 @@ msgid ""
 "language."
 msgstr ""
 
-#: C/image-viewer.js.page:292(p) C/image-viewer.py.page:207(p)
+#: C/image-viewer.js.page:287(p) C/image-viewer.py.page:201(p)
 msgid ""
 "<code>set_default_response</code> determines the button that will be "
 "activated if the user double-clicks a file or presses <key>Enter</key>. In "
@@ -2264,96 +2299,100 @@ msgid ""
 "value 1)."
 msgstr ""
 
-#: C/image-viewer.js.page:295(p) C/image-viewer.py.page:210(p)
+#: C/image-viewer.js.page:290(p) C/image-viewer.py.page:204(p)
 msgid ""
 "The next three lines restrict the <gui>Open</gui> dialog to only display "
-"files which can be opened by GtkImage. A filter object is created first; we "
-"then add all kinds of files supported by GtkPixbuf (which includes most "
-"image formats like PNG and JPEG) to the filter. Finally, we set this filter "
-"to be the <gui>Open</gui> dialog's filter."
+"files which can be opened by <code>Gtk.Image</code>. A filter object is "
+"created first; we then add all kinds of files supported by <code>Gdk.Pixbuf</"
+"code> (which includes most image formats like PNG and JPEG) to the filter. "
+"Finally, we set this filter to be the <gui>Open</gui> dialog's filter."
 msgstr ""
 
-#: C/image-viewer.js.page:298(p)
+#: C/image-viewer.js.page:293(p)
 msgid ""
-"<code>chooser.run ()</code> displays the <gui>Open</gui> dialog. The dialog "
+"<code>chooser.run</code> displays the <gui>Open</gui> dialog. The dialog "
 "will wait for the user to choose an image; when they do, <code>chooser.run</"
 "code> will return the value <output>1</output> (it would return <output>0</"
 "output> if the user clicked <gui>Cancel</gui>). The <code>if</code> "
 "statement tests for this."
 msgstr ""
 
-#: C/image-viewer.js.page:300(p) C/image-viewer.py.page:215(p)
-#: C/image-viewer.c.page:205(p)
+#: C/image-viewer.js.page:295(p) C/image-viewer.py.page:209(p)
 msgid ""
 "Assuming that the user did click <gui>Open</gui>, the next line sets the "
-"<code>file</code> property of the GtkImage to the filename of the image "
-"selected by the user. The GtkImage will then load and display the chosen "
-"image."
+"<code>file</code> property of the <code>Gtk.Image</code> to the filename of "
+"the image selected by the user. The <code>Gtk.Image</code> will then load "
+"and display the chosen image."
 msgstr ""
 
-#: C/image-viewer.js.page:303(p) C/image-viewer.py.page:218(p)
+#: C/image-viewer.js.page:298(p) C/image-viewer.py.page:212(p)
 msgid ""
 "In the final line of this method, we destroy the <gui>Open</gui> dialog "
 "because we don't need it any more."
 msgstr ""
 
-#: C/image-viewer.js.page:320(title) C/image-viewer.py.page:235(title)
-#: C/image-viewer.cpp.page:218(title) C/image-viewer.c.page:226(title)
+#: C/image-viewer.js.page:306(p)
+msgid ""
+"All of the code you need should now be in place, so try running the code. "
+"That should be it; a fully-functioning image viewer (and a whistlestop tour "
+"of JavaScript and Gtk) in not much time at all!"
+msgstr ""
+
+#: C/image-viewer.js.page:311(p)
+msgid ""
+"If you run into problems with the tutorial, compare your code with this "
+"<link href=\"image-viewer/image-viewer.js\">reference code</link>."
+msgstr ""
+
+#: C/image-viewer.js.page:315(title) C/image-viewer.py.page:229(title)
+#: C/image-viewer.cpp.page:217(title) C/image-viewer.c.page:225(title)
 #: C/guitar-tuner.vala.page:254(title) C/guitar-tuner.py.page:231(title)
 #: C/guitar-tuner.cpp.page:268(title) C/guitar-tuner.c.page:260(title)
 msgid "Next steps"
 msgstr ""
 
-#: C/image-viewer.js.page:321(p) C/image-viewer.py.page:236(p)
-#: C/image-viewer.cpp.page:219(p) C/image-viewer.c.page:227(p)
+#: C/image-viewer.js.page:316(p) C/image-viewer.py.page:230(p)
+#: C/image-viewer.cpp.page:218(p) C/image-viewer.c.page:226(p)
 #: C/guitar-tuner.vala.page:255(p) C/guitar-tuner.py.page:232(p)
 #: C/guitar-tuner.cpp.page:269(p) C/guitar-tuner.c.page:261(p)
 msgid "Here are some ideas for how you can extend this simple demonstration:"
 msgstr ""
 
-#: C/image-viewer.js.page:324(p) C/image-viewer.py.page:239(p)
-#: C/image-viewer.cpp.page:222(p) C/image-viewer.c.page:230(p)
+#: C/image-viewer.js.page:319(p) C/image-viewer.py.page:233(p)
+#: C/image-viewer.cpp.page:221(p) C/image-viewer.c.page:229(p)
 msgid ""
 "Have the user select a directory rather than a file, and provide controls to "
 "cycle through all of the images in a directory."
 msgstr ""
 
-#: C/image-viewer.js.page:327(p) C/image-viewer.py.page:242(p)
-#: C/image-viewer.cpp.page:225(p) C/image-viewer.c.page:233(p)
+#: C/image-viewer.js.page:322(p) C/image-viewer.py.page:236(p)
+#: C/image-viewer.cpp.page:224(p) C/image-viewer.c.page:232(p)
 msgid ""
 "Apply random filters and effects to the image when it is loaded and allow "
 "the user to save the modified image."
 msgstr ""
 
-#: C/image-viewer.js.page:328(p) C/image-viewer.py.page:243(p)
-#: C/image-viewer.cpp.page:226(p) C/image-viewer.c.page:234(p)
+#: C/image-viewer.js.page:323(p) C/image-viewer.py.page:237(p)
+#: C/image-viewer.cpp.page:225(p) C/image-viewer.c.page:233(p)
 msgid ""
 "<link href=\"http://www.gegl.org/api.html\">GEGL</link> provides powerful "
 "image manipulation capabilities."
 msgstr ""
 
-#: C/image-viewer.js.page:331(p) C/image-viewer.py.page:246(p)
-#: C/image-viewer.cpp.page:229(p) C/image-viewer.c.page:237(p)
+#: C/image-viewer.js.page:326(p) C/image-viewer.py.page:240(p)
+#: C/image-viewer.cpp.page:228(p) C/image-viewer.c.page:236(p)
 msgid ""
 "Allow the user to load images from network shares, scanners, and other more "
 "complicated sources."
 msgstr ""
 
-#: C/image-viewer.js.page:332(p) C/image-viewer.py.page:247(p)
-#: C/image-viewer.cpp.page:230(p) C/image-viewer.c.page:238(p)
+#: C/image-viewer.js.page:327(p) C/image-viewer.py.page:241(p)
+#: C/image-viewer.cpp.page:229(p) C/image-viewer.c.page:237(p)
 msgid ""
 "You can use <link href=\"http://library.gnome.org/devel/gio/unstable/\">GIO</"
 "link> to handle network file tranfers and the like, and <link href=\"http://"
 "library.gnome.org/devel/gnome-scan/unstable/\">GNOME Scan</link> to handle "
 "scanning."
-msgstr ""
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/image-viewer.py.page:41(None) C/guitar-tuner.vala.page:37(None)
-#: C/guitar-tuner.py.page:37(None) C/guitar-tuner.cpp.page:37(None)
-#: C/guitar-tuner.c.page:37(None)
-msgid "@@image: 'media/guitar-tuner.png'; md5=f0b7ed4cdc2729d2d0f4d38b829db61e"
 msgstr ""
 
 #: C/image-viewer.py.page:9(desc)
@@ -2370,102 +2409,121 @@ msgstr ""
 msgid "Basic knowledge of the python programming language"
 msgstr ""
 
-#: C/image-viewer.py.page:52(p)
+#: C/image-viewer.py.page:50(p)
 msgid ""
-"Choose <gui>PyGTK</gui> from the <gui>Python</gui> tab, click <gui>Forward</"
-"gui>, and fill-out your details on the next few pages. Use <file>image-"
-"viewer</file> as project name and directory."
+"Choose <gui>PyGTK (automake)</gui> from the <gui>Python</gui> tab, click "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
+"<file>image-viewer</file> as project name and directory."
 msgstr ""
 
-#: C/image-viewer.py.page:55(p)
+#: C/image-viewer.py.page:53(p)
 msgid ""
 "Be sure to disable <gui>Use GtkBuilder for user interface</gui> as we will "
-"build the user interface manually in this example. For an example using the "
-"interface designer, check the <link xref=\"guitar-tuner.py\">Guitar-Tuner "
-"demo</link>."
+"build the user interface manually in this example. For an example of using "
+"the interface designer, check the <link xref=\"guitar-tuner.py\">Guitar-"
+"Tuner demo</link>."
 msgstr ""
 
-#: C/image-viewer.py.page:60(p)
+#: C/image-viewer.py.page:58(p)
 msgid ""
-"Click <gui>Finished</gui> and the project will be created for you. Open "
+"Click <gui>Apply</gui> and the project will be created for you. Open "
 "<file>src/image_viewer.py</file> from the <gui>Project</gui> or <gui>File</"
 "gui> tabs. It contains very basic example code."
 msgstr ""
 
-#: C/image-viewer.py.page:67(p)
+#: C/image-viewer.py.page:65(p)
 msgid "Let's see what a very basic Gtk application looks like in Python:"
 msgstr ""
 
-#: C/image-viewer.py.page:97(p)
+#: C/image-viewer.py.page:95(p)
 msgid ""
-"In the <code>__init</code> method of the <code>GUI</code> class creates an "
-"(empty) Gtk.Window, sets it's title and than connects a signal to quite the "
-"application once the window is closed. That's pretty simple overall, more on "
-"signals later."
+"In the <code>__init__</code> method of the <code>GUI</code> class creates an "
+"(empty) <code>Gtk.Window</code>, sets its title and then connects a signal "
+"to quit the application once the window is closed. That's pretty simple "
+"overall, more on signals later."
 msgstr ""
 
-#: C/image-viewer.py.page:102(p)
+#: C/image-viewer.py.page:100(p)
 msgid ""
 "Next, <code>destroy</code> is defined which just quits the application. It "
-"is called by the destroy signal defined above."
+"is called by the <code>destroy</code> signal connected above."
 msgstr ""
 
-#: C/image-viewer.py.page:106(p)
-msgid "The rest of the file does initilisation for Gtk and shows up the GUI."
+#: C/image-viewer.py.page:104(p)
+msgid "The rest of the file does initialisation for Gtk and displays the GUI."
 msgstr ""
 
-#: C/image-viewer.py.page:110(p)
+#: C/image-viewer.py.page:108(p)
 msgid ""
-"This code is ready to run, so try it using <guiseq><gui>Run</gui><gui>Run…</"
-"gui></guiseq>. It should show you an empty window."
+"This code is ready to run, so try it using <guiseq><gui>Run</"
+"gui><gui>Execute</gui></guiseq>. It should show you an empty window."
 msgstr ""
 
-#: C/image-viewer.py.page:135(p)
+#: C/image-viewer.py.page:131(p)
 msgid ""
 "Let's add the box and widgets to the window. Insert the following code into "
 "the <code>__init__</code> method, immediately after the <code>window."
 "connect_after</code> line:"
 msgstr ""
 
-#: C/image-viewer.py.page:143(p)
+#: C/image-viewer.py.page:139(p)
 msgid ""
-"The first line creates a GtkBox called <code>box</code> and sets two of its "
-"properties: the <code>orientation</code> is set to vertical (so widgets are "
-"arranged in a column), and the <code>spacing</code> between the widgets is "
-"set to 5 pixels. The next line then adds the newly-created GtkBox to the "
-"window."
+"The first line creates a <code>Gtk.Box</code> called <code>box</code> and "
+"the following lines set two of its properties: the <code>orientation</code> "
+"is set to vertical (so the widgets are arranged in a column), and the "
+"<code>spacing</code> between the widgets is set to 5 pixels. The next line "
+"then adds the newly-created <code>Gtk.Box</code> to the window."
 msgstr ""
 
-#: C/image-viewer.py.page:153(p)
+#: C/image-viewer.py.page:145(p)
 msgid ""
-"The first line creates a new GtkImage called <code>image</code>, which will "
-"be used to display an image file. As we need that later on in the signal "
-"handler, we define this is class-wide variable. You need to add <code>image "
-"= 0</code> to the beginning of the <code>GUI</code> clas. Then, the image "
-"widget is added (<em>packed</em>) into the <code>box</code> container using "
-"GtkBox's <link href=\"http://library.gnome.org/devel/gtk/stable/GtkBox."
-"html#gtk-box-pack-start\"><code>pack_start</code></link> method."
+"To add some widgets to the <code>Gtk.Box</code>, insert the following code "
+"directly below the <code>window.add (box)</code> line:"
+msgstr ""
+
+#: C/image-viewer.py.page:149(p)
+msgid ""
+"The first line creates a new <code>Gtk.Image</code> called <code>image</"
+"code>, which will be used to display an image file. As we need that later on "
+"in the signal handler, we will define it as a class-wide variable. You need "
+"to add <code>image = 0</code> to the beginning of the <code>GUI</code> "
+"class. Then, the image widget is added (<em>packed</em>) into the <code>box</"
+"code> container using GtkBox's <link href=\"http://library.gnome.org/devel/"
+"gtk/stable/GtkBox.html#gtk-box-pack-start\"><code>pack_start</code></link> "
+"method."
+msgstr ""
+
+#: C/image-viewer.py.page:151(p)
+msgid ""
+"<code>pack_start</code> takes 4 arguments: the widget that is to be added to "
+"the GtkBox (<code>child</code>); whether the <code>Gtk.Box</code> should "
+"grow larger when the new widget is added (<code>expand</code>); whether the "
+"new widget should take up all of the extra space created if the <code>Gtk."
+"Box</code> gets bigger (<code>fill</code>); and how much space there should "
+"be, in pixels, between the widget and its neighbors inside the <code>Gtk."
+"Box</code> (<code>padding</code>)."
+msgstr ""
+
+#: C/image-viewer.py.page:159(p)
+msgid ""
+"These lines are similar to the first two, but this time they create a "
+"<code>Gtk.Button</code> and add it to <code>box</code>. Notice that we are "
+"setting the <code>expand</code> argument (the second one) to <code>False</"
+"code> here, whereas it was set to <code>True</code> for the <code>Gtk.Image</"
+"code>. This will cause the image to take up all available space and the "
+"button to take only the space it needs. When you maximize the window, the "
+"button size will remain the same, but the image size will increase, taking "
+"up all of the rest of the window."
 msgstr ""
 
 #: C/image-viewer.py.page:164(p)
-msgid ""
-"These lines are similar the first two, but this time they create a GtkButton "
-"and add it to <code>box</code>. Notice that we are setting the <code>expand</"
-"code> argument (the second one) to <code>false</code> here, whereas it was "
-"set to <code>true</code> for the GtkImage. This will cause the image to take "
-"up all available space and the button to take only the space it needs. When "
-"you maximize the window, the button size will remain the same, but the image "
-"size will increase, taking up all of the rest of the window."
-msgstr ""
-
-#: C/image-viewer.py.page:169(p)
 msgid ""
 "When the user clicks on the <gui>Open Image...</gui> button, a dialog should "
 "appear so that the user can choose a picture. Once chosen, the picture "
 "should be loaded and shown in the image widget."
 msgstr ""
 
-#: C/image-viewer.py.page:170(p)
+#: C/image-viewer.py.page:165(p)
 msgid ""
 "The first step is to connect the <code>clicked</code> signal of the button "
 "to a signal handler function, which we call <code>on_open_clicked</code>. "
@@ -2473,60 +2531,68 @@ msgid ""
 "where the button was created:"
 msgstr ""
 
-#: C/image-viewer.py.page:174(p)
+#: C/image-viewer.py.page:169(p)
 msgid ""
-"This will connect the <em>clicked</em>-signal to <code>on_open_clicked</"
+"This will connect the <code>clicked</code> signal to <code>on_open_clicked</"
 "code> method that we will define below."
 msgstr ""
 
-#: C/image-viewer.py.page:180(p)
+#: C/image-viewer.py.page:175(p)
 msgid ""
 "Now we can create the <code>on_open_clicked</code> method. Insert the "
 "following into the <code>GUI</code> class code block, after the "
 "<code>__init__</code> method:"
 msgstr ""
 
-#: C/image-viewer.py.page:200(p)
+#: C/image-viewer.py.page:194(p)
 msgid ""
 "The line beginning with <code>dialog</code> creates an <gui>Open</gui> "
 "dialog, which the user can use to choose files. We set three properties: the "
 "title of the dialog; the action (type) of the dialog (it's an \"open\" "
 "dialog, but we could have used <code>SAVE</code> if the intention was to "
-"save a file and <code>transient_for</code>, which sets the parent window of "
+"save a file; and <code>transient_for</code>, which sets the parent window of "
 "the dialog."
 msgstr ""
 
-#: C/image-viewer.py.page:213(p)
+#: C/image-viewer.py.page:207(p)
 msgid ""
-"<code>dialog.run ()</code> displays the <gui>Open</gui> dialog. The dialog "
-"will wait for the user to choose an image; when they do, <code>dialog.run</"
-"code> will return the value <output>1</output> (it would return <output>0</"
-"output> if the user clicked <gui>Cancel</gui>). The <code>if</code> "
-"statement tests for this."
+"<code>dialog.run</code> displays the <gui>Open</gui> dialog. The dialog will "
+"wait for the user to choose an image; when they do, <code>dialog.run</code> "
+"will return the value <output>1</output> (it would return <output>0</output> "
+"if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests "
+"for this."
 msgstr ""
 
-#: C/image-viewer.py.page:231(p)
+#: C/image-viewer.py.page:220(p)
+msgid ""
+"All of the code you need should now be in place, so try running the code. "
+"That should be it; a fully-functioning image viewer (and a whistlestop tour "
+"of Python and Gtk) in not much time at all!"
+msgstr ""
+
+#: C/image-viewer.py.page:225(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"image-viewer/image-viewer.py\">reference code</link>."
 msgstr ""
 
 #: C/image-viewer.cpp.page:8(desc)
-msgid "A little bit more than a simple \"Hello world\" Gtkmm application."
+msgid "A little bit more than a simple \"Hello world\" GTKmm application."
 msgstr ""
 
-#: C/image-viewer.cpp.page:26(p) C/image-viewer.c.page:26(p)
-msgid "Some basic concepts of the C/GObject programming"
+#: C/image-viewer.cpp.page:26(p)
+msgid "Some basic concepts of C++/GObject programming"
 msgstr ""
 
-#: C/image-viewer.cpp.page:27(p) C/image-viewer.c.page:27(p)
-msgid "How to write a Gtk application in C"
-msgstr ""
+#: C/image-viewer.cpp.page:27(p)
+#| msgid "Create a GTK+ application"
+msgid "How to write a Gtk application in C++"
+msgstr "Cómo escribir una aplicación GTK en C++"
 
 #: C/image-viewer.cpp.page:41(p)
 msgid ""
-"Choose <gui>Gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click "
-"<gui>Forward</gui>, and fill-out your details on the next few pages. Use "
+"Choose <gui>GTKmm (Simple)</gui> from the <gui>C++</gui> tab, click "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
 msgstr ""
 
@@ -2534,20 +2600,20 @@ msgstr ""
 msgid ""
 "Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as "
 "we will create the UI manually in this tutorial. Check the <link xref="
-"\"guitar-tuner.cpp\">Guitar-Tuner</link> tutorial using the interface "
-"builder."
+"\"guitar-tuner.cpp\">Guitar-Tuner</link> tutorial if you want to learn how "
+"to use the interface builder."
 msgstr ""
 
-#: C/image-viewer.cpp.page:49(p) C/guitar-tuner.cpp.page:54(p)
+#: C/image-viewer.cpp.page:49(p)
 msgid ""
-"Click <gui>Finished</gui> and the project will be created for you. Open "
+"Click <gui>Apply</gui> and the project will be created for you. Open "
 "<file>src/main.cc</file> from the <gui>Project</gui> or <gui>File</gui> "
 "tabs. You should see some code which starts with the lines:"
 msgstr ""
 
-#: C/image-viewer.cpp.page:61(p) C/guitar-tuner.cpp.page:64(p)
+#: C/image-viewer.cpp.page:61(p)
 msgid ""
-"This is a very basic C++ code setting up Gtkmm. More details are given "
+"This is a very basic C++ code setting up GTKmm. More details are given "
 "below; skip this list if you understand the basics:"
 msgstr ""
 
@@ -2567,148 +2633,158 @@ msgstr ""
 
 #: C/image-viewer.cpp.page:70(p)
 msgid ""
-"The <code>kit::run()</code> call start the GTKmm mainloop, which runs the "
+"The <code>kit::run()</code> call starts the GTKmm main loop, which runs the "
 "user interface and starts listening for events (like clicks and key "
-"presses). As we give the window as argument to that function, the "
+"presses). As we give the window as an argument to that function, the "
 "application will automatically exit when that window is closed."
 msgstr ""
 
 #: C/image-viewer.cpp.page:77(p) C/image-viewer.c.page:78(p)
+#: C/guitar-tuner.cpp.page:79(p) C/guitar-tuner.c.page:83(p)
 msgid ""
-"Press <gui>Configure</gui> on the next window that appears to configure a "
+"Press <gui>Execute</gui> on the next window that appears to configure a "
 "debug build. You only need to do this once, for the first build."
 msgstr ""
 
 #: C/image-viewer.cpp.page:81(title) C/image-viewer.c.page:82(title)
 msgid "Creating the user interface"
-msgstr ""
+msgstr "Crear la interfaz de usuario"
 
 #: C/image-viewer.cpp.page:82(p)
 msgid ""
-"Now we will bring live into the empty window. <em>Gtkmm</em> organizes the "
-"user interface with <em>Gtk::Container</em>s that can contain other widgets "
+"Now we will bring life into the empty window. GTKmm organizes the user "
+"interface with <code>Gtk::Container</code>s that can contain other widgets "
 "and even other containers. Here we will use the simplest available "
-"container, a <em>Gtk::Box</em>:"
+"container, a <code>Gtk::Box</code>:"
 msgstr ""
 
 #: C/image-viewer.cpp.page:119(p)
 msgid ""
-"The first lines create the widgets we want to use, a button for opening up "
-"an image, the image view widget itself and the box we will use as container."
+"The first lines create the widgets we want to use: a button for opening up "
+"an image, the image view widget itself and the box we will use as a "
+"container."
 msgstr ""
 
 #: C/image-viewer.cpp.page:122(p)
 msgid ""
-"The calls to <code>pack_start()</code> add the two widgets to the box and "
-"define their behaviour. The image will expand to any available space while "
+"The calls to <code>pack_start</code> add the two widgets to the box and "
+"define their behaviour. The image will expand into any available space while "
 "the button will just be as big as needed. You will notice that we don't set "
-"explicit sizes on the widgets. In <em>Gtkmm</em> this is usually not needed "
-"at makes it much easier to have a layout that looks good in different window "
+"explicit sizes on the widgets. In GTKmm this is usually not needed as it "
+"makes it much easier to have a layout that looks good in different window "
 "sizes. Next, the box is added to the window."
 msgstr ""
 
 #: C/image-viewer.cpp.page:128(p)
 msgid ""
-"&gt;We need to define what happens when the user clicks on the button. "
-"<em>Gtkmm</em> uses the concept of <em>signals</em> and the buttons fires "
-"the <em>clicked</em> signal that we can connect to some action. This is done "
-"using the <code>signal_clicked().connect()</code> method which tells "
-"<em>Gtkmm</em> to call the <code>on_open_image</code> when the button is "
-"clicked and to pass the image as additional argument to that function. We "
+"We need to define what happens when the user clicks on the button. GTKmm "
+"uses the concept of <em>signals</em>. When the button is clicked, it fires "
+"the <em>clicked</em> signal, which we can connect to some action. This is "
+"done using the <code>signal_clicked().connect</code> method which tells "
+"GTKmm to call the <code>on_open_image</code> function when the button is "
+"clicked and to pass the image as an additional argument to that function. We "
 "will define the <em>callback</em> in the next section."
 msgstr ""
 
-#: C/image-viewer.cpp.page:134(p)
+#: C/image-viewer.cpp.page:133(p)
 msgid ""
 "The last step is to show all widgets in the window using <code>show_all()</"
 "code>. This is equivalent to using the <code>show()</code> method on all our "
 "widgets."
 msgstr ""
 
-#: C/image-viewer.cpp.page:142(title) C/image-viewer.c.page:148(title)
+#: C/image-viewer.cpp.page:141(title) C/image-viewer.c.page:147(title)
 msgid "Showing the image"
-msgstr ""
+msgstr "Mostrar la imagen"
 
-#: C/image-viewer.cpp.page:143(p)
+#: C/image-viewer.cpp.page:142(p)
 msgid ""
-"We will now define the signal handler for the <em>click</em>-signal or the "
-"button we mentioned before. Add this code before the <code>main()</code> "
+"We will now define the signal handler for the <em>clicked</em> signal or the "
+"button we mentioned before. Add this code before the <code>main</code> "
 "method."
 msgstr ""
 
-#: C/image-viewer.cpp.page:175(p)
+#: C/image-viewer.cpp.page:174(p)
 msgid ""
 "The argument to the signal is the image object that we passed while "
-"connecting the signal, Actually the signal could have other arguments but "
-"the <em>clicked</em> doesn't have any."
+"connecting the signal. Sometimes there are other arguments related to the "
+"signal, but <em>clicked</em> doesn't have any."
 msgstr ""
 
-#: C/image-viewer.cpp.page:177(p)
+#: C/image-viewer.cpp.page:176(p)
 msgid ""
 "The next interesting line is where the dialog for choosing the file is "
-"created using <code>Gtk::FileChooserDialog()</code>. The function takes the "
+"created using <code>Gtk::FileChooserDialog</code>. The function takes the "
 "title of the dialog and the type of dialog this should be. In our case, it "
-"is an <em>Open</em> dialog"
+"is an <em>Open</em> dialog."
 msgstr ""
 
-#: C/image-viewer.cpp.page:182(p)
+#: C/image-viewer.cpp.page:181(p)
 msgid ""
 "The next two lines add an <em>Open</em> and a <em>Close</em> button to the "
 "dialog."
 msgstr ""
 
-#: C/image-viewer.cpp.page:184(p)
+#: C/image-viewer.cpp.page:183(p)
 msgid ""
 "The second argument to the <code>add_button()</code> method is a value to "
-"identify the clicked button. We use predefined values provided by Gtkmm "
+"identify the clicked button. We use predefined values provided by GTKmm "
 "here, too."
 msgstr ""
 
-#: C/image-viewer.cpp.page:189(p)
+#: C/image-viewer.cpp.page:188(p)
 msgid ""
 "The next two lines restrict the <gui>Open</gui> dialog to only display files "
-"which can be opened by Gtk::Image. A filter object is created first; we then "
-"add all kinds of files supported by Gtk::Pixbuf (which includes most image "
-"formats like PNG and JPEG) to the filter. Finally, we set this filter to be "
-"the <gui>Open</gui> dialog's filter."
+"which can be opened by <code>Gtk::Image</code>. A filter object is created "
+"first; we then add all kinds of files supported by <code>Gdk::Pixbuf</code> "
+"(which includes most image formats like PNG and JPEG) to the filter. "
+"Finally, we set this filter to be the <gui>Open</gui> dialog's filter."
 msgstr ""
 
-#: C/image-viewer.cpp.page:190(p)
+#: C/image-viewer.cpp.page:189(p)
 msgid ""
 "<code>Glib::RefPtr</code> is a smart pointer used here, that makes sure that "
 "the filter is destroyed when there is no reference to it anymore."
 msgstr ""
 
-#: C/image-viewer.cpp.page:194(p)
+#: C/image-viewer.cpp.page:193(p)
 msgid ""
-"<code>dialog.run()</code> displays the <gui>Open</gui> dialog. The dialog "
-"will wait for the user to choose an image; when they do, <code>dialog.run()</"
-"code> will return the value <code>GTK::RESPONSE_ACCEPT</code> (it would "
-"return <code>GTK::RESPONSE_CANCEL</code> if the user clicked <gui>Cancel</"
-"gui>). The <code>switch</code> statement tests for this."
+"<code>dialog.run</code> displays the <gui>Open</gui> dialog. The dialog will "
+"wait for the user to choose an image; when they do, <code>dialog.run</code> "
+"will return the value <code>Gtk::RESPONSE_ACCEPT</code> (it would return "
+"<code>Gtk::RESPONSE_CANCEL</code> if the user clicked <gui>Cancel</gui>). "
+"The <code>switch</code> statement tests for this."
 msgstr ""
 
-#: C/image-viewer.cpp.page:196(p)
+#: C/image-viewer.cpp.page:195(p)
 msgid ""
 "Assuming that the user did click <gui>Open</gui>, the next line loads the "
-"file into the Gtk::Image so that it is displayed."
+"file into the <code>Gtk::Image</code> so that it is displayed."
 msgstr ""
 
-#: C/image-viewer.cpp.page:200(p)
+#: C/image-viewer.cpp.page:199(p)
 msgid ""
 "In the final line of this method, we hide the <gui>Open</gui> dialog because "
 "we don't need it any more. The dialog would be hidden anyway, as it is only "
-"a local variable and is destroyed (and such hidden) when the scope ends."
+"a local variable and is destroyed (and as such hidden) when the scope ends."
 msgstr ""
 
-#: C/image-viewer.cpp.page:209(p) C/image-viewer.c.page:217(p)
+#: C/image-viewer.cpp.page:207(p) C/image-viewer.c.page:215(p)
+#: C/guitar-tuner.c.page:250(p)
+msgid ""
+"All of the code should now be ready to go. Click <guiseq><gui>Build</"
+"gui><gui>Build Project</gui></guiseq> to build everything again, and then "
+"<guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application."
+msgstr ""
+
+#: C/image-viewer.cpp.page:208(p) C/image-viewer.c.page:216(p)
 msgid ""
 "If you haven't already done so, choose the <file>Debug/src/image-viewer</"
 "file> application in the dialog that appears. Finally, hit <gui>Run</gui> "
 "and enjoy!"
 msgstr ""
 
-#: C/image-viewer.cpp.page:214(p)
+#: C/image-viewer.cpp.page:213(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"image-viewer/image-viewer.cc\">reference code</link>."
@@ -2718,11 +2794,27 @@ msgstr ""
 msgid "A little bit more than a simple \"Hello world\" Gtk application."
 msgstr ""
 
+#: C/image-viewer.c.page:26(p)
+msgid "Some basic concepts of C/GObject programming"
+msgstr "Algunos conceptos básicos de programación en C/GObject"
+
+#: C/image-viewer.c.page:27(p)
+msgid "How to write a Gtk application in C"
+msgstr "Cómo escribir una aplicación GTK en C"
+
 #: C/image-viewer.c.page:41(p)
 msgid ""
 "Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click "
-"<gui>Forward</gui>, and fill-out your details on the next few pages. Use "
+"<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
+msgstr ""
+
+#: C/image-viewer.c.page:44(p)
+msgid ""
+"Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as "
+"we will create the UI manually in this tutorial. Check the <link xref="
+"\"guitar-tuner.c\">Guitar-Tuner</link> tutorial if you want to learn how to "
+"use the interface builder."
 msgstr ""
 
 #: C/image-viewer.c.page:59(p)
@@ -2743,8 +2835,8 @@ msgstr ""
 
 #: C/image-viewer.c.page:66(p)
 msgid ""
-"The <code>create_window</code> function creates a new (empty) and connects a "
-"signal to exit the application when that window is closed."
+"The <code>create_window</code> function creates a new (empty) window and "
+"connects a signal to exit the application when that window is closed."
 msgstr ""
 
 #: C/image-viewer.c.page:67(p) C/guitar-tuner.vala.page:72(p)
@@ -2755,127 +2847,142 @@ msgid ""
 "called (and quits the app) when you close the window."
 msgstr ""
 
-#: C/image-viewer.c.page:70(p)
+#: C/image-viewer.c.page:70(p) C/guitar-tuner.c.page:75(p)
 msgid ""
 "The <code>main</code> function is run by default when you start a C "
-"application. It calls a few functions which set-up and then run the "
-"application. The <code>gtk_main</code> function start the GTK mainloop, "
+"application. It calls a few functions which set up and then run the "
+"application. The <code>gtk_main</code> function starts the GTK main loop, "
 "which runs the user interface and starts listening for events (like clicks "
 "and key presses)."
 msgstr ""
 
-#: C/image-viewer.c.page:73(p)
+#: C/image-viewer.c.page:73(p) C/guitar-tuner.c.page:78(p)
 msgid ""
-"The <code>ENABLE_NLS</code> conditional definition sets-up <code>gettext</"
+"The <code>ENABLE_NLS</code> conditional definition sets up <code>gettext</"
 "code>, which is a framework for translating applications. These functions "
 "specify how translation tools should handle your app when you run them."
 msgstr ""
 
 #: C/image-viewer.c.page:83(p)
 msgid ""
-"Now we will bring live into the empty window. <em>Gtk+</em> organizes the "
-"user interface with <em>GtkContainer</em> that can contain other widgets and "
+"Now we will bring life into the empty window. GTK organizes the user "
+"interface with <code>GtkContainer</code>s that can contain other widgets and "
 "even other containers. Here we will use the simplest available container, a "
-"<em>GtkBox</em>:"
+"<code>GtkBox</code>:"
 msgstr ""
 
 #: C/image-viewer.c.page:121(p)
 msgid ""
-"The first lines create the widgets we want to use, a button for opening up "
-"an image, the image view widget itself and the box we will use at container. "
-"The macros like <code>GTK_BOX()</code> are used for dynamic type checking "
-"and casting which is needed as C doesn't support object-orientation out-of-"
-"the-box."
+"The first lines create the widgets we want to use: a button for opening up "
+"an image, the image view widget itself and the box we will use as a "
+"container. The macros like <code>GTK_BOX</code> are used for dynamic type "
+"checking and casting which is needed as C doesn't support object-orientation "
+"out-of-the-box."
 msgstr ""
 
 #: C/image-viewer.c.page:126(p)
 msgid ""
-"The calls to <code>gtk_box_pack_start()</code> add the two widgets to the "
-"box and define their behaviour. The image will expand to any available space "
+"The calls to <code>gtk_box_pack_start</code> add the two widgets to the box "
+"and define their behaviour. The image will expand into any available space "
 "while the button will just be as big as needed. You will notice that we "
-"don't set explicit sizes on the widgets. In <em>GTK+</em> this is usually "
-"not needed at makes it much easier to have a layout that looks good in "
-"different window sizes. Next, the box is added to the window."
+"don't set explicit sizes on the widgets. In GTK this is usually not needed "
+"as it makes it much easier to have a layout that looks good in different "
+"window sizes. Next, the box is added to the window."
 msgstr ""
 
 #: C/image-viewer.c.page:132(p)
 msgid ""
-"&gt;We need to define what happens when the user clicks on the button. "
-"<em>Gtk+</em> uses the concept of <em>signals</em> and the buttons fires the "
-"<em>clicked</em> signal that we can connect to some action. This is done "
-"using the <code>g_signal_connect()</code> method which tells <em>Gtk+</em> "
-"to call the <code>on_image_open</code> when the button is clicked and to "
-"pass the image as additional argument to that function. We will define the "
+"We need to define what happens when the user clicks on the button. GTK uses "
+"the concept of <em>signals</em>. When the button is clicked, it fires the "
+"<em>clicked</em> signal, which we can connect to some action. This is done "
+"using the <code>g_signal_connect</code> function which tells GTK to call the "
+"<code>on_image_open</code> function when the button is clicked and to pass "
+"the image as an additional argument to that function. We will define the "
 "<em>callback</em> in the next section."
 msgstr ""
 
-#: C/image-viewer.c.page:138(p)
+#: C/image-viewer.c.page:137(p)
 msgid ""
 "The last <code>g_signal_connect()</code> makes sure that the application "
 "exits when the window is closed."
 msgstr ""
 
-#: C/image-viewer.c.page:141(p)
+#: C/image-viewer.c.page:140(p)
 msgid ""
 "As a last step, make sure to replace the <code>gtk_widget_show</code> call "
 "in the <code>main()</code> function by <code>gtk_widget_show_all()</code> to "
 "show the window and all the widgets it contains."
 msgstr ""
 
-#: C/image-viewer.c.page:149(p)
+#: C/image-viewer.c.page:148(p)
 msgid ""
-"We will now define the signal handler for the <em>click</em>-signal or the "
+"We will now define the signal handler for the <em>clicked</em> signal or the "
 "button we mentioned before. Add this code before the <code>create_window()</"
 "code> method."
 msgstr ""
 
-#: C/image-viewer.c.page:187(p)
+#: C/image-viewer.c.page:186(p)
 msgid ""
-"The first argument of the signal is always the widget that send the signal, "
-"then several other arguments related to the signal could come but "
+"The first argument of the signal is always the widget that sent the signal. "
+"Sometimes other arguments related to the signal come after that, but "
 "<em>clicked</em> doesn't have any. Next is the <code>user_data</code> "
-"argumemt which is a pointer to the data we passed when connecting the "
-"signal. In this case it is our<em>GtkImage</em> object."
+"argument which is a pointer to the data we passed when connecting the "
+"signal. In this case it is our <code>GtkImage</code> object."
 msgstr ""
 
-#: C/image-viewer.c.page:193(p)
+#: C/image-viewer.c.page:192(p)
 msgid ""
 "The next interesting line is where the dialog for choosing the file is "
-"created using <code>gtk_file_chooser_dialog_new()</code>. The function takes "
+"created using <code>gtk_file_chooser_dialog_new</code>. The function takes "
 "the title of the dialog, the parent window of the dialog and several options "
 "like the number of buttons and their corresponding values."
 msgstr ""
 
-#: C/image-viewer.c.page:200(p)
+#: C/image-viewer.c.page:199(p)
 msgid ""
 "The next two lines restrict the <gui>Open</gui> dialog to only display files "
 "which can be opened by GtkImage. A filter object is created first; we then "
-"add all kinds of files supported by GtkPixbuf (which includes most image "
-"formats like PNG and JPEG) to the filter. Finally, we set this filter to be "
-"the <gui>Open</gui> dialog's filter."
+"add all kinds of files supported by <code>GdkPixbuf</code> (which includes "
+"most image formats like PNG and JPEG) to the filter. Finally, we set this "
+"filter to be the <gui>Open</gui> dialog's filter."
 msgstr ""
 
-#: C/image-viewer.c.page:203(p)
+#: C/image-viewer.c.page:202(p)
 msgid ""
-"<code>gtk_dialog_run ()</code> displays the <gui>Open</gui> dialog. The "
-"dialog will wait for the user to choose an image; when they do, "
-"<code>gtk_dialog_run ()</code> will return the value "
-"<code>GTK_RESPONSE_ACCEPT</code> (it would return <code>GTK_RESPONSE_CANCEL</"
-"code> if the user clicked <gui>Cancel</gui>). The <code>switch</code> "
-"statement tests for this."
+"<code>gtk_dialog_run</code> displays the <gui>Open</gui> dialog. The dialog "
+"will wait for the user to choose an image; when they do, "
+"<code>gtk_dialog_run</code> will return the value <code>GTK_RESPONSE_ACCEPT</"
+"code> (it would return <code>GTK_RESPONSE_CANCEL</code> if the user clicked "
+"<gui>Cancel</gui>). The <code>switch</code> statement tests for this."
 msgstr ""
 
-#: C/image-viewer.c.page:208(p)
+#: C/image-viewer.c.page:204(p)
+msgid ""
+"Assuming that the user did click <gui>Open</gui>, the next line sets the "
+"<code>file</code> property of the GtkImage to the filename of the image "
+"selected by the user. The GtkImage will then load and display the chosen "
+"image."
+msgstr ""
+
+#: C/image-viewer.c.page:207(p)
 msgid ""
 "In the final line of this method, we destroy the <gui>Open</gui> dialog "
 "because we don't need it any more. Destroying automatically hides the dialog."
 msgstr ""
 
-#: C/image-viewer.c.page:222(p)
+#: C/image-viewer.c.page:221(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"image-viewer/image-viewer.c\">reference code</link>."
 msgstr ""
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/guitar-tuner.vala.page:37(None) C/guitar-tuner.py.page:37(None)
+#: C/guitar-tuner.cpp.page:37(None) C/guitar-tuner.c.page:37(None)
+msgid "@@image: 'media/guitar-tuner.png'; md5=f0b7ed4cdc2729d2d0f4d38b829db61e"
+msgstr ""
+"@@image: 'media/guitar-tuner.png'; md5=f0b7ed4cdc2729d2d0f4d38b829db61e"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2884,6 +2991,7 @@ msgstr ""
 msgid ""
 "@@image: 'media/guitar-tuner-glade.png'; md5=f6606525443ab2160f53a87a454364d0"
 msgstr ""
+"@@image: 'media/guitar-tuner-glade.png'; md5=f6606525443ab2160f53a87a454364d0"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2893,6 +3001,8 @@ msgid ""
 "@@image: 'media/guitar-tuner-pipeline.png'; "
 "md5=5adc952909d92af5dae6954781b4ad5f"
 msgstr ""
+"@@image: 'media/guitar-tuner-pipeline.png'; "
+"md5=5adc952909d92af5dae6954781b4ad5f"
 
 #: C/guitar-tuner.vala.page:8(desc) C/guitar-tuner.py.page:8(desc)
 #: C/guitar-tuner.c.page:8(desc)
@@ -2904,7 +3014,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:21(title) C/guitar-tuner.py.page:21(title)
 #: C/guitar-tuner.cpp.page:21(title) C/guitar-tuner.c.page:21(title)
 msgid "Guitar Tuner"
-msgstr ""
+msgstr "Afinador de guitarra"
 
 #: C/guitar-tuner.vala.page:24(p) C/guitar-tuner.py.page:24(p)
 #: C/guitar-tuner.cpp.page:24(p) C/guitar-tuner.c.page:24(p)
@@ -2916,7 +3026,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:26(p) C/guitar-tuner.py.page:26(p)
 #: C/guitar-tuner.cpp.page:26(p) C/guitar-tuner.c.page:26(p)
 msgid "Set up a basic project in Anjuta"
-msgstr ""
+msgstr "Configurar un proyecto básico en Anjuta"
 
 #: C/guitar-tuner.vala.page:27(p) C/guitar-tuner.py.page:27(p)
 #: C/guitar-tuner.cpp.page:27(p) C/guitar-tuner.c.page:27(p)
@@ -2926,7 +3036,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:28(p) C/guitar-tuner.py.page:28(p)
 #: C/guitar-tuner.cpp.page:28(p) C/guitar-tuner.c.page:28(p)
 msgid "Use GStreamer to play sounds"
-msgstr ""
+msgstr "Usar GStreamer para reproducir sonidos"
 
 #: C/guitar-tuner.vala.page:33(p)
 msgid "Basic knowledge of the Vala programming language"
@@ -2978,17 +3088,10 @@ msgid ""
 "events (like clicks and key presses)."
 msgstr ""
 
-#: C/guitar-tuner.vala.page:80(p)
-msgid ""
-"Change the <gui>Configuration</gui> to <gui>Default</gui> and then press "
-"<gui>Execute</gui> to configure the build directory. You only need to do "
-"this once, for the first build."
-msgstr ""
-
 #: C/guitar-tuner.vala.page:84(title) C/guitar-tuner.py.page:83(title)
 #: C/guitar-tuner.cpp.page:83(title) C/guitar-tuner.c.page:87(title)
 msgid "Create the user interface"
-msgstr ""
+msgstr "Crear la interfaz de usuario"
 
 #: C/guitar-tuner.vala.page:85(p) C/guitar-tuner.py.page:84(p)
 #: C/guitar-tuner.cpp.page:84(p) C/guitar-tuner.c.page:88(p)
@@ -3057,7 +3160,7 @@ msgstr ""
 
 #: C/guitar-tuner.vala.page:115(title) C/guitar-tuner.c.page:118(title)
 msgid "Creating the signal handler"
-msgstr ""
+msgstr "Crear el manejador de señales"
 
 #: C/guitar-tuner.vala.page:116(p)
 msgid ""
@@ -3204,7 +3307,7 @@ msgstr ""
 
 #: C/guitar-tuner.vala.page:203(title)
 msgid "Define the signal handler"
-msgstr ""
+msgstr "Definir el manejador de señales"
 
 #: C/guitar-tuner.vala.page:204(p)
 msgid ""
@@ -3229,6 +3332,13 @@ msgid ""
 "The switch statement compares the label text to the notes that we can play, "
 "and <code>play_sound</code> is called with the frequency appropriate for "
 "that note. This plays the tone; we have a working guitar tuner!"
+msgstr ""
+
+#: C/guitar-tuner.vala.page:238(p) C/guitar-tuner.cpp.page:250(p)
+msgid ""
+"All of the code should now be ready to go. Click <guiseq><gui>Build</"
+"gui><gui>Build Project</gui></guiseq> to build everything again, and then "
+"<guiseq><gui>Run</gui><gui>Run</gui></guiseq> to start the application."
 msgstr ""
 
 #: C/guitar-tuner.vala.page:239(p) C/guitar-tuner.cpp.page:251(p)
@@ -3315,7 +3425,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:59(title)
 msgid "Run the code for the first time"
-msgstr ""
+msgstr "Ejecutar el código por primera vez"
 
 #: C/guitar-tuner.py.page:60(p)
 msgid ""
@@ -3368,7 +3478,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:114(title)
 msgid "Write the signal handler"
-msgstr ""
+msgstr "Escribir el manejador de señales"
 
 #: C/guitar-tuner.py.page:115(p) C/guitar-tuner.c.page:119(p)
 msgid ""
@@ -3388,8 +3498,8 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:122(p)
 msgid ""
-"This signal handler has two arguments: the <code>GtkButton</code> that "
-"called the function, and the usual Python class pointer."
+"This signal handler has two arguments: the usual Python class pointer, and "
+"the <code>Gtk.Button</code> that called the function."
 msgstr ""
 
 #: C/guitar-tuner.py.page:140(p)
@@ -3446,7 +3556,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:177(title) C/guitar-tuner.c.page:193(title)
 msgid "Stopping playback"
-msgstr ""
+msgstr "Detener la reproducción"
 
 #: C/guitar-tuner.py.page:178(p)
 msgid ""
@@ -3479,7 +3589,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:194(title) C/guitar-tuner.c.page:211(title)
 msgid "Define the tones"
-msgstr ""
+msgstr "Definir los tonos"
 
 #: C/guitar-tuner.py.page:195(p)
 msgid ""
@@ -3516,7 +3626,7 @@ msgstr ""
 #: C/guitar-tuner.py.page:222(p)
 msgid ""
 "All of the code should now be ready to go. Click <guiseq><gui>Run</"
-"gui><gui>Run</gui></guiseq> to start the application. Enjoy!"
+"gui><gui>Execute</gui></guiseq> to start the application. Enjoy!"
 msgstr ""
 
 #: C/guitar-tuner.py.page:227(p)
@@ -3549,6 +3659,19 @@ msgid ""
 "GStreamermm library in your project."
 msgstr ""
 
+#: C/guitar-tuner.cpp.page:54(p)
+msgid ""
+"Click <gui>Finished</gui> and the project will be created for you. Open "
+"<file>src/main.cc</file> from the <gui>Project</gui> or <gui>File</gui> "
+"tabs. You should see some code which starts with the lines:"
+msgstr ""
+
+#: C/guitar-tuner.cpp.page:64(p)
+msgid ""
+"This is a very basic C++ code setting up Gtkmm. More details are given "
+"below; skip this list if you understand the basics:"
+msgstr ""
+
 #: C/guitar-tuner.cpp.page:68(p)
 msgid ""
 "The three <code>#include</code> lines at the top include the <code>config</"
@@ -3572,12 +3695,6 @@ msgid ""
 "application. The <code>kit.run</code> function starts the GTKmm main loop, "
 "which runs the user interface and starts listening for events (like clicks "
 "and key presses)."
-msgstr ""
-
-#: C/guitar-tuner.cpp.page:79(p) C/guitar-tuner.c.page:83(p)
-msgid ""
-"Press <gui>Execute</gui> on the next window that appears to configure a "
-"debug build. You only need to do this once, for the first build."
 msgstr ""
 
 #: C/guitar-tuner.cpp.page:99(p)
@@ -3611,7 +3728,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:123(title)
 msgid "Using GStreamermm"
-msgstr ""
+msgstr "Usar GStreamermm"
 
 #: C/guitar-tuner.cpp.page:124(p)
 msgid ""
@@ -3623,7 +3740,7 @@ msgstr ""
 #: C/guitar-tuner.cpp.page:126(code)
 #, no-wrap
 msgid "\tGst::init (argc, argv);"
-msgstr ""
+msgstr "\tGst::init (argc, argv);"
 
 #: C/guitar-tuner.cpp.page:127(p)
 msgid ""
@@ -3640,7 +3757,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:178(p)
 msgid "The code has the following purpose:"
-msgstr ""
+msgstr "El código tiene el propósito siguiente:"
 
 #: C/guitar-tuner.cpp.page:181(p)
 msgid ""
@@ -3673,7 +3790,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:197(title)
 msgid "Connecting the signals"
-msgstr ""
+msgstr "Conectar las señales"
 
 #: C/guitar-tuner.cpp.page:198(p)
 msgid ""
@@ -3768,13 +3885,6 @@ msgid ""
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
 
-#: C/guitar-tuner.c.page:54(p)
-msgid ""
-"Click <gui>Apply</gui> and the project will be created for you. Open "
-"<file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. "
-"You should see some code which starts with the lines:"
-msgstr ""
-
 #: C/guitar-tuner.c.page:64(p)
 msgid ""
 "C is a rather verbose language, so don't be surprised that the file contains "
@@ -3790,22 +3900,6 @@ msgid ""
 "above), connecting its signals and then displaying it in a window. The "
 "GtkBuilder file contains a description of a user interface and all of its "
 "elements. You can use Anjuta's editor to design GtkBuilder user interfaces."
-msgstr ""
-
-#: C/guitar-tuner.c.page:75(p)
-msgid ""
-"The <code>main</code> function is run by default when you start a C "
-"application. It calls a few functions which set up and then run the "
-"application. The <code>gtk_main</code> function starts the GTK main loop, "
-"which runs the user interface and starts listening for events (like clicks "
-"and key presses)."
-msgstr ""
-
-#: C/guitar-tuner.c.page:78(p)
-msgid ""
-"The <code>ENABLE_NLS</code> conditional definition sets up <code>gettext</"
-"code>, which is a framework for translating applications. These functions "
-"specify how translation tools should handle your app when you run them."
 msgstr ""
 
 #: C/guitar-tuner.c.page:120(p)
@@ -3931,13 +4025,6 @@ msgid ""
 "guitar tuner!"
 msgstr ""
 
-#: C/guitar-tuner.c.page:250(p)
-msgid ""
-"All of the code should now be ready to go. Click <guiseq><gui>Build</"
-"gui><gui>Build Project</gui></guiseq> to build everything again, and then "
-"<guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application."
-msgstr ""
-
 #: C/guitar-tuner.c.page:256(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
@@ -3946,25 +4033,25 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/getting-ready.page:31(None)
+#: C/getting-ready.page:40(None)
 msgid "@@image: 'media/ubuntu.png'; md5=40845e4a40b335b1958da1403f01c13f"
-msgstr ""
+msgstr "@@image: 'media/ubuntu.png'; md5=40845e4a40b335b1958da1403f01c13f"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/getting-ready.page:36(None)
+#: C/getting-ready.page:45(None)
 msgid "@@image: 'media/fedora.png'; md5=19add55f4349fd9e90f3a50b344ba626"
-msgstr ""
+msgstr "@@image: 'media/fedora.png'; md5=19add55f4349fd9e90f3a50b344ba626"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/getting-ready.page:41(None)
+#: C/getting-ready.page:50(None)
 msgid "@@image: 'media/opensuse.png'; md5=a852a94199328e2f978c7f6a55bf8b54"
-msgstr ""
+msgstr "@@image: 'media/opensuse.png'; md5=a852a94199328e2f978c7f6a55bf8b54"
 
 #: C/getting-ready.page:8(desc)
 msgid "Install GNOME development tools"
-msgstr ""
+msgstr "Instalar las herramientas de desarrollo de GNOME"
 
 #: C/getting-ready.page:17(title)
 msgid "Getting ready for GNOME development"
@@ -3977,34 +4064,59 @@ msgstr "Instalar las herramientas necesarias"
 #: C/getting-ready.page:21(p)
 msgid ""
 "Before you can start coding you will have to install the required tools for "
-"GNOME development on your computer. The instructions for the various "
-"distributions can be found in the <link href=\"http://live.gnome.org/"
-"DeveloperTools/Installation\">GNOME wiki</link>. This shouldn't take you "
-"more than ten minutes. Click on the image to go directly to the installation "
-"page for your distribution:"
+"GNOME development on your computer. This shouldn't take you more than ten "
+"minutes."
 msgstr ""
 
-#: C/getting-ready.page:31(p)
+#: C/getting-ready.page:26(title)
+msgid "Automatic installation"
+msgstr "Instalación automática"
+
+#: C/getting-ready.page:27(p)
+msgid ""
+"On an up-to-date distribution you should be able to simply install the "
+"required packages by clicking on <link href=\"media/gnome-devtools.catalog"
+"\">Install now</link>"
+msgstr ""
+
+#: C/getting-ready.page:25(section)
+#| msgid "<placeholder-1/><placeholder-2/><placeholder-3/>i"
+msgid "<placeholder-1/><placeholder-2/>."
+msgstr "<placeholder-1/><placeholder-2/>."
+
+#: C/getting-ready.page:32(title)
+msgid "Manual installation"
+msgstr "Instalación manual"
+
+#: C/getting-ready.page:33(p)
+msgid ""
+"If you prefer manual installation you can find the instructions for the "
+"various distributions in the <link href=\"http://live.gnome.org/"
+"DeveloperTools/Installation\">GNOME wiki</link>. Click on the image to go "
+"directly to the installation page for your distribution:"
+msgstr ""
+
+#: C/getting-ready.page:40(p)
 msgid "Ubuntu"
 msgstr "Ubuntu"
 
-#: C/getting-ready.page:36(p)
+#: C/getting-ready.page:45(p)
 msgid "Fedora"
 msgstr "Fedora"
 
-#: C/getting-ready.page:41(p)
+#: C/getting-ready.page:50(p)
 msgid "OpenSuSE"
 msgstr "OpenSuSE"
 
-#: C/getting-ready.page:44(link)
+#: C/getting-ready.page:53(link)
 msgid "Others"
 msgstr "Otras"
 
-#: C/getting-ready.page:49(title)
+#: C/getting-ready.page:60(title)
 msgid "Required versions"
 msgstr "Versiones necesarias"
 
-#: C/getting-ready.page:50(p)
+#: C/getting-ready.page:61(p)
 msgid ""
 "The guides assume that you have at least the following versions of the tools "
 "installed:"
@@ -4012,19 +4124,19 @@ msgstr ""
 "Las guías asumen que tiene instaladas, al menos, las siguientes versiones de "
 "las herramientas."
 
-#: C/getting-ready.page:53(p)
+#: C/getting-ready.page:64(p)
 msgid "Anjuta - 3.0"
 msgstr "Anjuta - 3.0"
 
-#: C/getting-ready.page:54(p)
+#: C/getting-ready.page:65(p)
 msgid "Devhelp - 3.0"
 msgstr "Devhelp - 3.0"
 
-#: C/getting-ready.page:55(p)
+#: C/getting-ready.page:66(p)
 msgid "Glade - 3.10"
 msgstr "Glade - 3.10"
 
-#: C/getting-ready.page:57(p)
+#: C/getting-ready.page:68(p)
 msgid ""
 "Of course, any newer version will also work. Now, we wish you a lot of fun "
 "with the <link xref=\"index\">Demos</link>."
@@ -4035,4 +4147,6 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2011"
+msgstr ""
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 20011\n"
+"Jorge González <jorgegonz@svn.gnome.org>, 2011"
