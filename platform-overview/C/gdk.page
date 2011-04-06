@@ -4,6 +4,7 @@
 <info>
   <link type="guide" xref="index" group="gdk"/>
   <desc>Underlying windowing and event handling</desc>
+  <revision pkgversion="3.0" date="2011-04-05" status="candidate"/>
 </info>
 
 <title>GDK</title>
@@ -13,15 +14,6 @@ system for graphics and input devices.  Although you will rarely use
 GDK directly in application code, it contains all the necessary
 functionality to draw objects and text to the screen and to interact
 with the user with various input devices.</p>
-<note><p>GDK runs on a number of different platforms, including the X Window
-System, Microsoft Windows, DirectFB, and Quartz.  On any platform, GDK
-provides the same consistent API, allowing GTK+ and GTK+ applications to
-run unmodified.</p></note>
-
-<p>GDK features a graphics context and drawing primitives that are
-suitable for drawing simple objects and rendering images on the screen.
-Since a more extensive drawing system is provided by Cairo, GDK provides
-hooks to use Cairo contexts within GDK.</p>
 
 <p>GDK enables you to access events from keyboards, mice, and other
 input devices, rather than connect to the high-level signals used in
@@ -45,7 +37,7 @@ The simple drawing routines in GDK should generally not be used.
 Instead, you should use the extensive functionality provide by
 Cairo.</p>
 
-<p>For more information on GDK, see the
-<link href="http://library.gnome.org/devel/gdk/stable/">GDK Reference
-Manual</link>.</p>
+<list style="compact">
+  <item><p><link href="http://library.gnome.org/devel/gdk/stable/">GDK Reference Manual</link></p></item>
+</list>
 </page>
