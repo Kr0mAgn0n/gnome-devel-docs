@@ -39,7 +39,7 @@
 
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -60,7 +60,7 @@
   </steps>
 </section>
 
-<section>
+<section id="first">
   <title>A first Gtk application</title>
   <p>Let's see what a very basic Gtk application looks like in Python:</p>
   <code mime="text/python" style="numbered"><![CDATA[
@@ -109,7 +109,7 @@ if __name__ == "__main__":
    It should show you an empty window.</p>
 </section>
 
-<section>
+<section id="signals">
   <title>Signals</title>
   <p>Signals are one of the key concepts in Gtk programming. Whenever something happens to an object, it emits a signal; for example, when a button is clicked it gives off the <code>clicked</code> signal. If you want your program to do something when that event occurs, you must connect a function (a "signal handler") to that signal. Here's an example:</p>
   <code mime="text/python" style="numbered"><![CDATA[
@@ -121,7 +121,7 @@ b.connect_after ('clicked', button_clicked)]]></code>
   <p>The last two lines create a <code>Gtk.Button</code> called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
 </section>
 
-<section>
+<section id="containers">
   <title>Containers: Laying-out the user interface</title>
   <p>Widgets (controls, such as buttons and labels) can be arranged in the window by making use of <em>containers</em>. You can organize the layout by mixing different types of containers, like boxes and grids.</p>
   <p>A <code>Gtk.Window</code> is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a <code>Gtk.Box</code> here. A <code>Gtk.Box</code> can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
@@ -140,7 +140,7 @@ window.add (box)
   <p>So far the window only contains an empty <code>Gtk.Box</code>, and if you run the program now you will see no changes at all (the <code>Gtk.Box</code> is a transparent container, so you can't see that it's there).</p>
 </section>
 
-<section>
+<section id="packing">
   <title>Packing: Adding widgets to the container</title>
   <p>To add some widgets to the <code>Gtk.Box</code>, insert the following code directly below the <code>window.add (box)</code> line:</p>
   <code mime="text/python" style="numbered"><![CDATA[
@@ -159,7 +159,7 @@ box.pack_start (button, False, False, 0)
   <p>These lines are similar to the first two, but this time they create a <code>Gtk.Button</code> and add it to <code>box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>False</code> here, whereas it was set to <code>True</code> for the <code>Gtk.Image</code>. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
 </section>
 
-<section>
+<section id="loading">
   <title>Loading the image: Connecting to the button's <code>clicked</code> signal</title>
   <p>When the user clicks on the <gui>Open Image...</gui> button, a dialog should appear so that the user can choose a picture. Once chosen, the picture should be loaded and shown in the image widget.</p>
   <p>The first step is to connect the <code>clicked</code> signal of the button to a signal handler function, which we call <code>on_open_clicked</code>. Put this code immediately after the <code>button = Gtk.Button()</code> line where the button was created:</p>
@@ -170,7 +170,7 @@ button.connect_after('clicked', self.on_open_clicked)
 below.</p>
 </section>
 
-<section>
+<section id="loading2">
   <title>Loading the image: Writing the signal's callback</title>
   <p>Now we can create the <code>on_open_clicked</code> method. Insert the following into the <code>GUI</code> class code block, after the <code>__init__</code> method:</p>
     <code mime="text/javascript" style="numbered"><![CDATA[
@@ -215,17 +215,17 @@ def on_open_clicked (self, button):
 
   </section>
 
-<section>
+<section id="run">
   <title>Run the application</title>
   <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of Python and Gtk) in not much time at all!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.py">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>

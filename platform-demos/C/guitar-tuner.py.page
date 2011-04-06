@@ -36,7 +36,7 @@
 
 <media type="image" mime="image/png" src="media/guitar-tuner.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -55,7 +55,7 @@ import os, sys]]></code>
   </steps>
 </section>
 
-<section>
+<section id="run">
   <title>Run the code for the first time</title>
   <p>Most of the code in the file is template code. It loads an (empty) window from the user interface description file and shows it. More details are given below; skip this list if you understand the basics:</p>
   
@@ -79,7 +79,7 @@ libraries needed.</p>
   <p>This code is ready to be used, so you can run it by clicking <guiseq><gui>Run</gui><gui>Execute</gui></guiseq>.</p>
 </section>
 
-<section>
+<section id="ui">
   <title>Create the user interface</title>
   <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets' properties are on the left, and the palette of available widgets is on the right.
   </p>
@@ -110,7 +110,7 @@ six strings) and the orientation to vertical.</p>
   </steps>
 </section>
 
-<section>
+<section id="signal">
   <title>Write the signal handler</title>
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to add that function in the source file.</p>
 <p>To do this, open <file>guitar_tuner.py</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the 
@@ -123,7 +123,7 @@ def on_button_clicked (self, button):
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
-<section>
+<section id="gstreamer">
   <title>GStreamer pipelines</title>
   <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
   <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
@@ -133,7 +133,7 @@ def on_button_clicked (self, button):
   </media>
 </section>
 
-<section>
+<section id="pipeline">
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
@@ -173,7 +173,7 @@ def play_sound(self, frequency):
   
 </section>
 
-<section>
+<section id="playback">
   <title>Stopping playback</title>
   <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to call <code>GObject.timeout_add</code>. This sets a timeout for stopping the sound; it waits for <code>LENGTH</code> milliseconds before calling the function <code>pipeline_stop</code>, and will keep calling it until <code>pipeline_stop</code> returns <code>False</code>.</p>
   <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>GObject.timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
@@ -190,7 +190,7 @@ LENGTH = 500
   <p>The call to <code>pipeline.set_state</code> pauses the playback of the pipeline.</p>
 </section>
 
-<section>
+<section id="tones">
   <title>Define the tones</title>
   <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the beginning of the main class) inside a dictionary so 
 we can easily map them to the names of the strings:</p>
@@ -217,17 +217,17 @@ def on_button_clicked(self, button):
   <p>The label text is then used as a key for the dictionary and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
-<section>
+<section id="run2">
   <title>Run the application</title>
   <p>All of the code should now be ready to go. Click <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application. Enjoy!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="guitar-tuner/guitar-tuner.py">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>

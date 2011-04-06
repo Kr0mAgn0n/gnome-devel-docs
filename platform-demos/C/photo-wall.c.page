@@ -30,7 +30,7 @@
   </list>
 </synopsis>
 
-<section>
+<section id="intro">
   <title>Introduction</title>
   <p>
     Clutter is a library for creating dynamic user interfaces using OpenGL for hardware acceleration. This example demonstates a small, but central, part of the Clutter library to create a simple but attractive image viewing program.
@@ -40,7 +40,7 @@
   </p>
 </section>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -68,7 +68,7 @@
   </steps>
 </section>
 
-<section>
+<section id="look">
   <title>A look at Photo Wall</title>
   <p>
     Our image viewer presents the user with a wall of images.
@@ -79,7 +79,7 @@
   <media type="image" mime="image/png" src="media/photo-wall-focused.png"/>
 </section>
 
-<section>
+<section id="setup">
   <title>Initial setup</title>
   <p>
     The following code segment contains many of the defines and variables we will be using in the following sections. Use this as a reference for later sections. Copy this code to the beginning of <file>src/main.c</file>:
@@ -117,7 +117,7 @@ static Position origin = {0, 0};
 </code>
 </section>
 
-<section>
+<section id="code">
   <title>Jumping into the code</title>
   <p>We will start by taking a look at the <code>main()</code> function as a whole. Then we'll discuss the other code sections in detail.
   Change the <file>src/main.c</file> to contain this <code>main()</code> function. You can delete the 
@@ -172,10 +172,10 @@ main(int argc, char *argv[])
   </list>
 </section>
 
-<section>
+<section id="actors">
   <title>Setting up our image actors</title>
-<p>
  <note><p>In Clutter, an actor is the most basic visual element. Basically, everything you see is an actor.</p></note>
+<p>
 In this section, we are going to take a closer look at the loop used for setting up the <code>ClutterActor</code>s that will display our images.
 </p>
   <code mime="text/x-csrc" style="numbered"><![CDATA[
@@ -207,7 +207,7 @@ for(row=0; row < ROW_COUNT; ++row)
 </list>
 </section>
 
-<section>
+<section id="load">
   <title>Loading the images</title>
   <p>Let's take a short break from Clutter to see how we can get the file names from our image directory.</p>
   <code mime="text/x-csrc" style="numbered"><![CDATA[
@@ -241,7 +241,7 @@ load_image_path_names()
   </list>
 </section>
 
-<section>
+<section id="actors2">
   <title>Set up the actors</title>
   <p>
      We now take a look at the sizing and  positioning of <code>ClutterActor</code>s and also readying the <code>ClutterActor</code> for user interaction.
@@ -271,7 +271,7 @@ initialize_actor(ClutterActor *actor, guint row, guint col)
   <p>At this point we've got a wall of images that are ready to be viewed.</p>
 </section>
 
-<section>
+<section id="click">
   <title>Reacting to the clicks</title>
   <p>
 
@@ -365,7 +365,7 @@ foreach_set_focus_state(gpointer data, gpointer user_data)
 </list>
 </section>
 
-<section>
+<section id="run">
   <title>Build and run the application</title>
   <p>All of the code should now be ready to go. 
   All you need now is some pictures to load. By default, the pictures are loaded from a <file>berlin_images</file> directory. If you want, you can change the <code>#define IMAGE_DIR_PATH</code> line near the top to refer to your photo directory, or create a <file>berlin_images</file> directory by clicking <guiseq><gui>Project</gui><gui>New Directory...</gui></guiseq> and creating a <file>berlin_images</file> directory as a subdirectory of the <file>photo-wall</file> directory. Make sure to put at least twelve images in the directory! <!--You can download the example images <link href="photo-wall/berlin_images/">here</link> (<link href="photo-wall/CREDITS">credits</link>).--></p>
@@ -373,7 +373,7 @@ foreach_set_focus_state(gpointer data, gpointer user_data)
   <p>If you haven't already done so, choose the <file>Debug/src/photo-wall</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="photo-wall/photo-wall.c">reference code</link>.</p>
 </section>

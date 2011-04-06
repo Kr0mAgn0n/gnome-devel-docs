@@ -40,7 +40,7 @@
 
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -57,14 +57,14 @@
 </section>
 
 
-<section>
+<section id="js">
   <title>JavaScript basics: Hello World</title>
   <p>Before we start writing the image viewer, let's find out more about the way JavaScript is used in GNOME. Of course, your very first contact with any programming language should be the Hello World program which can already be found in <file>main.js</file>:</p>
   <code mime="text/javascript">print ("Hello world!");</code>
   <p>This should look quite natural if you're familiar with almost any other programming language. The function <code>print</code> is called with the argument <code>"Hello world!"</code>, which will be printed on the screen. Note that each line of code ends with a semicolon.</p>
 </section>
 
-<section>
+<section id="classes">
   <title>Classes in JavaScript</title>
   <p>This is the standard way to define a class in JavaScript:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -121,7 +121,7 @@ o.dumpProperties ();]]></code>
   <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> from the menu or using the toolbar.</p>
 </section>
 
-<section>
+<section id="gtk">
   <title>A first Gtk application</title>
   <p>Let's see what a very basic Gtk application looks like in JavaScript:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -151,7 +151,7 @@ Gtk.main ();]]></code>
   
 </section>
 
-<section>
+<section id="classes2">
   <title>Adding classes</title>
   <p>The proper way of doing Gtk programming is by using classes. Let's rewrite the simple code you just wrote using classes:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -176,7 +176,7 @@ Gtk.main ();]]></code>
   <p>This code is modular and can be split into multiple files easily. This makes it cleaner and easier to read.</p>
 </section>
 
-<section>
+<section id="signals">
   <title>Signals</title>
   <p>Signals are one of the key concepts in Gtk programming. Whenever something happens to an object, it emits a signal; for example, when a button is clicked it gives off the <code>clicked</code> signal. If you want your program to do something when that event occurs, you must connect a function (a "signal handler") to that signal. Here's an example:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -199,7 +199,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   
 </section>
 
-<section>
+<section id="close">
   <title>Closing the window</title>
   <p>When you close a Gtk window it's not really closed, it's hidden. This allows you to keep the window around (which is useful if you want to ask the user if they really want to close the window, for example).</p>
   <p>In our case, we really do just want to close the window. The simplest way of doing this is by connecting the <code>hide</code> signal of the GtkWindow object to a function that closes the application. Go back to the <file>image-viewer.js</file> file and add the following code to the <code>_init</code> method, on the line above <code>this.window.show</code>:</p>
@@ -207,7 +207,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   <p>This connects the <code>hide</code> signal of the window to Gtk's <code>main_quit</code> function, which ends the execution of the Gtk main loop. Once the main loop finishes, the function <code>Gtk.main</code> returns. Our program would continue to run any code written after the <code>Gtk.main ();</code> line, but since we don't have any code after that point, the program just ends.</p>
 </section>
 
-<section>
+<section id="containers2">
   <title>Containers: Laying-out the user interface</title>
   <p>Widgets (controls, such as buttons and labels) can be arranged in the window by making use of <em>containers</em>. You can organize the layout by mixing different types of containers, like boxes and grids.</p>
   <p>A <code>Gtk.Window</code> is itself a type of container, but you can only put one widget directly into it. We would like to have two widgets, an image and a button, so we must put a "higher-capacity" container inside the window to hold the other widgets. A number of <link href="http://library.gnome.org/devel/gtk/stable/GtkContainer.html">container types</link> are available, but we will use a <code>Gtk.Box</code> here. A <code>Gtk.Box</code> can hold several widgets, organized horizontally or vertically. You can do more complicated layouts by putting several boxes inside another box and so on.</p>
@@ -222,7 +222,7 @@ this.window.add (main_box);]]></code>
   <p>So far the window only contains an empty <code>Gtk.Box</code>, and if you run the program now you will see no changes at all (the <code>Gtk.Box</code> is a transparent container, so you can't see that it's there).</p>
 </section>
 
-<section>
+<section id="packing2">
   <title>Packing: Adding widgets to the container</title>
   <p>To add some widgets to the <code>Gtk.Box</code>, insert the following code directly below the <code>this.window.add (main_box)</code> line:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -242,7 +242,7 @@ main_box.pack_start (open_button, false, false, 0);]]></code>
   <p>This will show the child of the Gtk window, and all of its children, and its children's children, and so on. (Remember that Gtk widgets are all hidden by default.)</p>
 </section>
 
-<section>
+<section id="loading2">
   <title>Loading the image: Connecting to the button's <code>clicked</code> signal</title>
   <p>When the user clicks on the <gui>Open</gui> button, a dialog should appear so that the user can choose a picture. Once chosen, the picture should be loaded and shown in the image widget.</p>
   <p>The first step is to connect the <code>clicked</code> signal of the button to a signal handler function, which we call <code>_openClicked</code>. Put this code immediately after the <code>var open_button = new Gtk.Button</code> line where the button was created:</p>
@@ -252,7 +252,7 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
   <code mime="text/javascript">const Lang = imports.lang;</code>
 </section>
 
-<section>
+<section id="loading3">
   <title>Loading the image: Writing the signal's callback</title>
   <p>Now we can create the <code>_openClicked()</code> method. Insert the following into the <code>ImageViewer.prototype</code> code block, after the <code>_init</code> method (and not forgetting the comma):</p>
     <code mime="text/javascript" style="numbered"><![CDATA[
@@ -301,17 +301,17 @@ open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
 
   </section>
 
-<section>
+<section id="run">
   <title>Run the application</title>
   <p>All of the code you need should now be in place, so try running the code. That should be it; a fully-functioning image viewer (and a whistlestop tour of JavaScript and Gtk) in not much time at all!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.js">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>

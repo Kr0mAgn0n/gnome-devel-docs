@@ -36,7 +36,7 @@
 
 <media type="image" mime="image/png" src="media/guitar-tuner.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -59,7 +59,7 @@
   </steps>
 </section>
 
-<section>
+<section id="build">
   <title>Build the code for the first time</title>
   <p>C is a rather verbose language, so don't be surprised that the file contains quite a lot of code. Most of it is template code. It loads an (empty) window from the user interface description file and shows it. More details are given below; skip this list if you understand the basics:</p>
   
@@ -83,7 +83,7 @@
   <p>Press <gui>Execute</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
 </section>
 
-<section>
+<section id="ui">
   <title>Create the user interface</title>
   <p>A description of the user interface (UI) is contained in the GtkBuilder file. To edit the user interface, open <file>src/guitar_tuner.ui</file>. This will switch to the interface designer. The design window is in the center; widgets and widgets' properties are on the left, and the palette of available widgets is on the right.
   </p>
@@ -114,7 +114,7 @@ six strings) and the orientation to vertical.</p>
   </steps>
 </section>
 
-<section>
+<section id="signal">
   <title>Creating the signal handler</title>
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to add that function in the source file.</p>
   <p>To do this, open <file>main.c</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the 
@@ -129,7 +129,7 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   <p>For now, we'll leave the signal handler empty while we work on writing the code to produce sounds.</p>
 </section>
 
-<section>
+<section id="gstreamer">
   <title>GStreamer pipelines</title>
   <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
   <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
@@ -139,7 +139,7 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
   </media>
 </section>
 
-<section>
+<section id="pipeline">
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
   
@@ -189,7 +189,7 @@ play_sound (gdouble frequency)
   
 </section>
 
-<section>
+<section id="stop">
   <title>Stopping playback</title>
   <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to call <code>g_timeout_add</code>. This sets a timeout for stopping the sound; it waits for <code>LENGTH</code> milliseconds before calling the function <code>pipeline_stop</code>, and will keep calling it until <code>pipeline_stop</code> returns <code>FALSE</code>.</p>
   <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>g_timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
@@ -207,7 +207,7 @@ pipeline_stop (GstElement* pipeline)
   <p>The call to <code>gst_element_set_state</code> pauses the playback of the pipeline and <code>g_object_unref</code> unreferences the pipeline, destroying it and freeing its memory.</p>
 </section>
 
-<section>
+<section id="tones">
   <title>Define the tones</title>
   <p>We want to play the correct sound when the user clicks a button. First of all, we need to know the frequencies for the six guitar strings, which are defined (at the top of <file>main.c</file>) as follows:</p>
   <code mime="text/x-csrc"><![CDATA[
@@ -245,18 +245,18 @@ void on_button_clicked (GtkButton* button,
   <p>The label text is then compared to the notes that we have using <code>g_str_equal</code>, and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
-<section>
+<section id="run">
   <title>Build and run the application</title>
   <p>All of the code should now be ready to go. Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
   <p>If you haven't already done so, choose the <file>Debug/src/guitar-tuner</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="guitar-tuner/guitar-tuner.c">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>

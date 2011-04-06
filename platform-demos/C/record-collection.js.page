@@ -28,7 +28,7 @@
   </list>
 </synopsis>
 
-<section>
+<section id="intro">
   <title>Introduction</title>
   <p>
     This demo uses the Javascript language. We are going to demonstrate how to connect and use a database from a GTK program, by using the GDA (GNOME Data Access) library. Thus you also need this library installed.
@@ -41,7 +41,7 @@
   </p>
 </section>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -57,14 +57,14 @@
   </steps>
 </section>
 
-<section>
+<section id="structure">
   <title>Program Structure</title>
   <media type="image" mime="image/png" src="media/record-collection.png"/>
   <p>This demo is a simple GTK application (with a single window) capable of inserting records into a database table as well as browsing all records of the table. The table has two fields: <code>id</code>, an integer, and <code>name</code>, a varchar. The first section (on the top) of the application allows you to insert a record into the table. The last section (bottom) allows you to see all the records of that table. Its content is refreshed every time a new record is inserted and on the application startup.
   </p>
 </section>
 
-<section>
+<section id="start">
   <title>Starting the fun</title>
   <p>Let's start by examining the skeleton of the program:</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -98,7 +98,7 @@ Gtk.main ();]]></code>
   </list>
 </section>
 
-<section>
+<section id="design">
   <title>Designing the application</title>
   <p>Let's take a look at the <code>setupWindow</code> method. It is responsible for creating the User Interface (UI). As UI is not our focus, we will explain only the relevant parts.</p>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -158,7 +158,7 @@ Gtk.main ();]]></code>
   </list>
 </section>
 
-<section>
+<section id="connect">
   <title>Connecting to and initializing the database</title>
   <p>
      The code which makes the connection to the database is in the <code>setupDatabase</code> method below:
@@ -201,7 +201,7 @@ Gtk.main ();]]></code>
   <p>At this point we have the database set up, and are ready to use it.</p>
 </section>
 
-<section>
+<section id="select">
   <title>Selecting</title>
   <p>
      After connecting to the database, our demo's constructor calls the <code>selectData</code> method. It is responsible for getting all the records in the table and showing them on the <code>TextView</code> widget. Let's take a look at it:
@@ -240,7 +240,7 @@ Gtk.main ();]]></code>
   </list>
 </section>
 
-<section>
+<section id="insert">
   <title>Inserting</title>
   <p>
      OK, we know how to connect to a database and how to select rows from a table. Now it's time to do an <code>INSERT</code> on the table. Do you remember above, in the method <code>setupWindow</code> we connected the <gui>Insert</gui> button's <code>clicked</code> signal to the method <code>_insertClicked</code>? Let's see the implementation of this method.
@@ -280,12 +280,12 @@ Gtk.main ();]]></code>
   <note><p>You can also make use of parameters while building the statement. By using the <code>SqlBuilder</code> objects and parameters you are less subject to attacks like SQL injection. Check the <link href="http://library.gnome.org/devel/libgda/stable/">GDA documentation</link> for more information about parameters.</p></note>
 </section>
 
-<section>
+<section id="run">
   <title>Run the application</title>
   <p>All of the code you need should now be in place, so try running the code. You now have a database for your record collection!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="record-collection/record-collection.js">reference code</link>.</p>
 </section>

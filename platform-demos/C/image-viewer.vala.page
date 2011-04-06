@@ -34,7 +34,7 @@
 
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. 
   This will create all of the files you need to build and run the code later on. 
@@ -62,7 +62,7 @@ using Gtk;]]></code>
   </steps>
 </section>
 
-<section>
+<section id="build">
   <title>Build the code for the first time</title>
   <p>The code loads an (empty) window from the user interface description file and shows it. 
   More details are given below; skip this list if you understand the basics:</p>
@@ -88,7 +88,7 @@ using Gtk;]]></code>
   You only need to do this once, for the first build.</p>
 </section>
 
-<section>
+<section id="ui">
   <title>Creating the user interface</title>
   <p>Now we will bring life into the empty window. 
   GTK organizes the user interface with <code>Gtk.Container</code>s that can contain other widgets and even other containers. 
@@ -149,7 +149,7 @@ public Main () {
   </steps>
 </section>
 
-<section>
+<section id="image">
   <title>Showing the image</title>
   <p>We will now define the signal handler for the <code>clicked</code> signal for the 
 button we mentioned before. 
@@ -210,7 +210,7 @@ public void on_open_image (Button self) {
   </list>
 </section>
 
-<section>
+<section id="run">
   <title>Build and run the application</title>
   <p>All of the code should now be ready to go. 
   Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
@@ -218,12 +218,12 @@ public void on_open_image (Button self) {
   Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
-<section>
+<section id="impl">
   <title>Reference Implementation</title>
   <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.vala">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>

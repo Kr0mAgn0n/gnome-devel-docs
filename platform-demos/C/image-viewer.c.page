@@ -30,7 +30,7 @@
 
 <media type="image" mime="image/png" src="media/image-viewer.png"/>
 
-<section>
+<section id="anjuta">
   <title>Create a project in Anjuta</title>
   <p>Before you start coding, you'll need to set up a new project in Anjuta. This will create all of the files you need to build and run the code later on. It's also useful for keeping everything together.</p>
   <steps>
@@ -54,7 +54,7 @@
   </steps>
 </section>
 
-<section>
+<section id="build">
   <title>Build the code for the first time</title>
   <p>C is a rather verbose language, so don't be surprised that the file contains quite a lot of code. Most of it is template code. It loads an (empty) window and shows it. More details are given below; skip this list if you understand the basics:</p>
   
@@ -78,7 +78,7 @@
   <p>Press <gui>Execute</gui> on the next window that appears to configure a debug build. You only need to do this once, for the first build.</p>
 </section>
 
-<section>
+<section id="ui">
 <title>Creating the user interface</title>
 <p>Now we will bring life into the empty window. GTK organizes the user interface
 with <code>GtkContainer</code>s that can contain other widgets and even other containers. Here we
@@ -143,7 +143,7 @@ create_window (void)
   </steps>
 </section>
 
-<section>
+<section id="image">
 <title>Showing the image</title>
 <p>We will now define the signal handler for the <em>clicked</em> signal or the 
 button we mentioned before. Add this code before the <code>create_window()</code>
@@ -210,18 +210,18 @@ on_open_image (GtkButton* button, gpointer user_data)
   </list>
 </section>
 
-<section>
+<section id="run">
   <title>Build and run the application</title>
   <p>All of the code should now be ready to go. Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
   <p>If you haven't already done so, choose the <file>Debug/src/image-viewer</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
-<section>
+<section id="impl">
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="image-viewer/image-viewer.c">reference code</link>.</p>
 </section>
 
-<section>
+<section id="next">
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>
