@@ -1,0 +1,58 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="keyring">
+<info>
+  <link type="guide" xref="index" group="apps"/>
+  <desc>Secure storage for passwords and other data</desc>
+</info>
+
+<title>Keyring</title>
+
+<p>GNOME provides a modern and secure keyring manager to store users'
+passwords and other sensitive data.  Applications can use the keyring
+manager library to store and access passwords, and users can manage
+their passwords using GNOME's <app>Seahorse</app>
+application.</p>
+
+<p>The keyring manager provides any number of keyrings, where each
+keyring can contain any number of keyring items.  Items in a keyring
+store some piece of data, often a password.  Each keyring is locked
+individually, and users must provide a password to unlock the keyring.
+Once a keyring has been unlocked, the user has access to all of the
+items in that keyring.</p>
+
+<p>The keyring manager provides access control lists for each keyring
+item, controlling which applications are allowed access to that item.
+If an unknown application attempts to access a keyring item, the keyring
+manager will prompt the user to allow or deny that application access.
+This helps prevent malicious or poorly-written programs from accessing
+the user's sensitive data.</p>
+
+<p>Keyring data stored on the file system is encrypted with the AES
+block cipher, and SHA1 is used for hashes of the item's attributes.
+Using the attributes hash, the keyring manager is able to look up items
+requested by applications without ever unlocking the keyring.  The
+keyring has to be unlocked when a matching item is found and
+accessed.</p>
+
+<p>The keyring manager also provides a session keyring.  Items in
+the session keyring are never stored on disk, and are lost as soon as
+the user's session ends.  The session keyring can be used to store
+passwords to be used in the current session only.</p>
+
+<p>If you use GIO to access remote servers, you automatically
+get the benefits of the keyring manager.  Whenever GVFS needs to
+authenticate the user, it provides the option to store the password,
+either in the default keyring or in the session keyring.</p>
+
+<p>You should use the keyring manager whenever your application needs
+to store passwords or other sensitive data for users.  Using the keyring
+manager provides a better user experience while still keeping user data
+safe and secure.</p>
+
+<p>For API references please see the 
+<link href="http://library.gnome.org/devel/gnome-keyring/stable/">gnome-keyring 
+Reference Manual</link> and the 
+<link href="http://library.gnome.org/devel/libseahorse/stable/">libseahorse 
+Reference Manual</link>.</p>
+</page>

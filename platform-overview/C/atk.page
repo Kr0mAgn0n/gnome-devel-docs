@@ -1,0 +1,51 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="atk">
+<info>
+  <link type="guide" xref="index" group="atk"/>
+  <desc>Support for screen readers and other accessibility
+  tools</desc>
+</info>
+
+<title>ATK</title>
+
+<p>Accessibility is the process of ensuring your application can be
+used by people with various disabilities.  Disabilities come in many forms:
+visual impairments, movement impairments, hearing impairments, cognitive
+and language impairments, and seizure disorders.  Many people have some
+sort of disability, and making your application accessibility will allow
+more people to use your application effectively.</p>
+
+<p>GNOME provides support for accessibility devices using the ATK
+framework.  This framework defines a set of interfaces to which graphical
+interface components adhere.  This allows, for instance, screen readers
+to read the text of an interface and interact with its controls.  ATK
+support is built into GTK+ and the rest of the GNOME platform using the
+GAIL library, so any application using GTK+ will have reasonable
+accessibility support for free.</p>
+
+<p>Nonetheless, you should be aware of accessibility issues when
+when developing your applications.  Although GTK+ interfaces provide
+reasonable accessibility by default, you can often improve how well
+your program behaves with accessibility tools by providing additional
+information to ATK.  If you develop custom widgets, you should ensure
+that they expose their properties to ATK.  You should also avoid using
+sound, graphics, or color as the sole means of conveying information
+to the user.</p>
+
+<p>The GNOME desktop ships with a number of accessibility tools
+which enable users with disabilities to take full advantage of their
+desktop and applications.  Applications that fully implement ATK will
+be able to work with the accessibility tools.  GNOME's accessibility
+tools include a screen reader, a screen magnifier, an on-screen
+keyboard, and <app>Dasher</app>, an innovative
+predictive text entry tool.</p>
+
+<p>For extensive recommendations on accessibility, see <link
+href="http://developer.gnome.org/projects/gap/guide/gad/index.html">GNOME
+Accessibility for Developers</link>.  See also <link
+href="http://library.gnome.org/devel/atk/stable/">ATK -
+Accessibility Toolkit</link> and the <link
+href="http://library.gnome.org/devel/gail-libgail-util/stable/">GAIL
+Reference Manual</link>.</p>
+</page>
