@@ -17,7 +17,8 @@ demo_sources = \
 	magic-mirror/magic-mirror-advanced.vala \
 	message-board/message-board.c \
 	photo-wall/photo-wall.c \
-	record-collection/record-collection.js
+	record-collection/record-collection.js \
+	gnome-devtools.catalog
 	
 
 DOC_FIGURES = \
