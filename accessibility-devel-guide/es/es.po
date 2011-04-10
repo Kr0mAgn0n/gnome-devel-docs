@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: accessibility-devel-guide.master\n"
-"POT-Creation-Date: 2011-04-02 11:16+0000\n"
-"PO-Revision-Date: 2011-04-05 18:30+0200\n"
+"POT-Creation-Date: 2011-04-10 10:40+0000\n"
+"PO-Revision-Date: 2011-04-10 13:38+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -555,10 +555,10 @@ msgid ""
 "must be set to \"gail:atk-bridge\" in order to enable assistive technology "
 "support."
 msgstr ""
-"La implementación para los widgets GTK está en un módulo llamado GAIL («GNOME "
-"Accessibility Implementation Library», Biblioteca de implementación de "
-"accesibilidad de GNOME), cargada dinámicamente, en tiempo de ejecución, por "
-"una aplicación GTK. Una vez cargadas, dichas partes de su aplicación que "
+"La implementación para los widgets GTK está en un módulo llamado GAIL "
+"(«GNOME Accessibility Implementation Library», Biblioteca de implementación "
+"de accesibilidad de GNOME), cargada dinámicamente, en tiempo de ejecución, "
+"por una aplicación GTK. Una vez cargadas, dichas partes de su aplicación que "
 "usan widgets estándar GTK tendrán un nivel básico de accesibilidad, sin "
 "tener que modificar nada de su aplicación. Si no se carga GAIL, los widgets "
 "GTK tendrán una implementación de accesibilidad predeterminada que "
@@ -611,8 +611,8 @@ msgstr ""
 "magnificadores de pantalla, para obtener información sobre la accesibilidad "
 "de la ejecución de aplicaciones a través de una API consistente y estable, y "
 "en muchos casos puede eliminar la necesidad de un modelo fuera de la "
-"pantalla. El soporte de accesibilidad para las solicitudes está «incluída» en "
-"los kits de herramientas de aplicaciones a través del conjunto del API de "
+"pantalla. El soporte de accesibilidad para las solicitudes está «incluída» "
+"en los kits de herramientas de aplicaciones a través del conjunto del API de "
 "herramientas adecuadas (por ejemplo, ATK para la mayoría de las aplicaciones "
 "nativas de C y el API de accesibilidad de Java para las aplicaciones Java), "
 "y exportados al interfaz común «AT-SPI» a través del correspondiente "
@@ -1210,8 +1210,8 @@ msgid ""
 msgstr ""
 "Como se indicó anteriormente, podría tener poco o nada de trabajo para hacer "
 "su aplicación accesible si usa el conjunto de widgets de GTK, o cualquier "
-"otra biblioteca de widgets que implemente las interfaces de ATK. Las dos cosas "
-"más comunes que debe hacer en este caso son:"
+"otra biblioteca de widgets que implemente las interfaces de ATK. Las dos "
+"cosas más comunes que debe hacer en este caso son:"
 
 #: C/accessibility-devel-guide.xml:341(para)
 msgid ""
@@ -1515,9 +1515,9 @@ msgid ""
 "called whenever a column_inserted signal is emitted on the <type>AtkObject</"
 "type><varname>my_atk_object</varname>."
 msgstr ""
-"Esto hará que se llame a la función <function>_my_table_column_inserted_func()</"
-"function> cada vez que se emita una señal «column_inserted» en el <type>AtkObject</"
-"type><varname>my_atk_object</varname>."
+"Esto hará que se llame a la función <function>_my_table_column_inserted_func"
+"()</function> cada vez que se emita una señal «column_inserted» en el "
+"<type>AtkObject</type><varname>my_atk_object</varname>."
 
 #: C/accessibility-devel-guide.xml:493(para)
 msgid ""
@@ -1547,9 +1547,9 @@ msgid ""
 "<parameter>add</parameter> detail is emitted on the <type>AtkObject</"
 "type><varname>my_atk_obj</varname>."
 msgstr ""
-"Esto hará que se llame a la función <function>_my_children_changed_func()</function> se "
-"siempre que una señal <constant>children_changed</constant> con el detalle "
-"<parameter>add</parameter> se emita en el <type>AtkObject</"
+"Esto hará que se llame a la función <function>_my_children_changed_func()</"
+"function> se siempre que una señal <constant>children_changed</constant> con "
+"el detalle <parameter>add</parameter> se emita en el <type>AtkObject</"
 "type><varname>my_atk_obj</varname>."
 
 #: C/accessibility-devel-guide.xml:505(title)
@@ -2200,7 +2200,7 @@ msgid ""
 "assess a custom widget according to the applicable <link linkend=\"gad-ui-"
 "guidelines\">User Interface Guidelines</link>;"
 msgstr ""
-"evaluar un widget personalizado de acuerdo a la <link linkend=\"gad-ui-"
+"evaluar un widget personalizado de acuerdo a las <link linkend=\"gad-ui-"
 "guidelines\">Guías de la interfaz de usuario</link>;"
 
 #: C/accessibility-devel-guide.xml:810(para)
@@ -2279,13 +2279,13 @@ msgid ""
 "application for everyone who uses it - including you!"
 msgstr ""
 "Cuando diseñe la IGU de su aplicación, existen ciertas guías simples que "
-"debería seguir para asegurarse de que puede usarse por tanta gente como "
-"sea posible, ya sea con tecnologías de asistencia o sin ellas. No sea tonto "
+"debería seguir para asegurarse de que puede usarse por tanta gente como sea "
+"posible, ya sea con tecnologías de asistencia o sin ellas. No sea tonto "
 "pensando que esto es sólo en caso de «hacer que su interfaz gráfica de "
 "usuario pueda usarse por personas discapacitadas», aunque, y ya que usted no "
-"debe molestarse si sabe que una persona con discapacidad nunca va a "
-"usar la aplicación. Siguiendo estas directrices mejorará la usabilidad "
-"general de su aplicación para todos los que lo usen, incluyéndole a usted."
+"debe molestarse si sabe que una persona con discapacidad nunca va a usar la "
+"aplicación. Siguiendo estas directrices mejorará la usabilidad general de su "
+"aplicación para todos los que lo usen, incluyéndole a usted."
 
 #: C/accessibility-devel-guide.xml:852(title)
 msgid "General"
@@ -2313,10 +2313,10 @@ msgid ""
 "application's settings. If possible, provide more than one level of undo and "
 "redo, and a history list to allow preview of what actions will be undone."
 msgstr ""
-"Proporcione «Deshacer» para cada acción que cambie los datos del usuario o la "
-"configuración de la aplicación. Si es posible, proporcione más de un nivel "
-"de deshacer y rehacer, y una lista del histórico para permitir un vista "
-"previa de qué acciones se pueden deshacer."
+"Proporcione «Deshacer» para cada acción que cambie los datos del usuario o "
+"la configuración de la aplicación. Si es posible, proporcione más de un "
+"nivel de deshacer y rehacer, y una lista del histórico para permitir un "
+"vista previa de qué acciones se pueden deshacer."
 
 #: C/accessibility-devel-guide.xml:863(para)
 msgid ""
@@ -2563,11 +2563,11 @@ msgid ""
 msgstr ""
 "No asigne alcanza difícil de las operaciones de teclado se realizan con "
 "frecuencia. Algunas personas sólo pueden ser capaces de usar una mano en el "
-"teclado, por lo que los accesos directos que se pueden usar fácilmente "
-"con una mano, son preferibles para operaciones comunes. En cualquier caso, "
-"tener que realizar en el teclado operaciones largas o difíciles con "
-"frecuencia puede aumentar la tensión del músculo para todos los usuarios, "
-"aumentando el riesgo de dolor o lesión."
+"teclado, por lo que los accesos directos que se pueden usar fácilmente con "
+"una mano, son preferibles para operaciones comunes. En cualquier caso, tener "
+"que realizar en el teclado operaciones largas o difíciles con frecuencia "
+"puede aumentar la tensión del músculo para todos los usuarios, aumentando el "
+"riesgo de dolor o lesión."
 
 #: C/accessibility-devel-guide.xml:943(para)
 msgid ""
@@ -2590,8 +2590,8 @@ msgid ""
 "especially for those for whom fine control of the mouse is difficult."
 msgstr ""
 "Asegúrese de que cualquier texto que se pueda seleccionar con el ratón "
-"también se puede seleccionar con el teclado. Esta es una comodidad para todos "
-"los usuarios, pero especialmente para aquellos para quienes un control "
+"también se puede seleccionar con el teclado. Esta es una comodidad para "
+"todos los usuarios, pero especialmente para aquellos para quienes un control "
 "preciso del ratón es difícil."
 
 #: C/accessibility-devel-guide.xml:953(para)
@@ -2685,8 +2685,8 @@ msgid ""
 msgstr ""
 "Proporcione realimentación visual a través de una operación de arrastrar y "
 "soltar. A medida que el ratón pasa por encima de objetivos válidos, "
-"selecciónelos y cambie el puntero del ratón. Utilice el puntero «no drop» del "
-"ratón al pasar sobre los destinos de arrastre válidos. Consulte <link "
+"selecciónelos y cambie el puntero del ratón. Utilice el puntero «no drop» "
+"del ratón al pasar sobre los destinos de arrastre válidos. Consulte <link "
 "linkend=\"gad-mouse-examples\">Ejemplos de iteración del ratón</link>."
 
 #: C/accessibility-devel-guide.xml:992(para)
@@ -2839,8 +2839,8 @@ msgid ""
 "sizes and typefaces. If for some reason you cannot make this functionality "
 "available, never hardcode any font sizes smaller than 10 points."
 msgstr ""
-"No codifique estilos de tipografías ni tamaños. El usuario debería ser capaz de "
-"ajustar todos los tamaños y tipos de letras. Si por alguna razón no puede "
+"No codifique estilos de tipografías ni tamaños. El usuario debería ser capaz "
+"de ajustar todos los tamaños y tipos de letras. Si por alguna razón no puede "
 "hacer esta funcionalidad disponible, nunca codifique una tipografía con un "
 "tamaño inferior a 10 puntos."
 
@@ -2877,10 +2877,10 @@ msgid ""
 msgstr ""
 "No use la misma etiqueta más de una vez en la misma ventana. Si utiliza la "
 "misma etiqueta en diferentes ventanas, ayudará si significa lo mismo en "
-"ambas ventanas. Además, no use etiquetas que se deletrean "
-"diferentemente, pero suenan igual, por ejemplo, «Read» y «Red», (N. del T.: "
-"«Leer» y «Rojo»\t\t) ya que esto puede ser confuso para los usuarios "
-"dependientes de lectores de pantalla."
+"ambas ventanas. Además, no use etiquetas que se deletrean diferentemente, "
+"pero suenan igual, por ejemplo, «Read» y «Red», (N. del T.: «Leer» y «Rojo»\t"
+"\t) ya que esto puede ser confuso para los usuarios dependientes de lectores "
+"de pantalla."
 
 #: C/accessibility-devel-guide.xml:1080(para)
 msgid ""
@@ -3019,8 +3019,8 @@ msgid ""
 msgstr ""
 "Los usuarios con impedimentos visuales pueden requerir un alto nivel de "
 "contraste entre los colores de fondo y texto. A menudo se usa un fondo negro "
-"y texto en blanco para prevenir el fondo de «sangrado» más. Estos ajustes son "
-"críticos para los usuarios con impedimentos visuales."
+"y texto en blanco para prevenir el fondo de «sangrado» más. Estos ajustes "
+"son críticos para los usuarios con impedimentos visuales."
 
 #: C/accessibility-devel-guide.xml:1171(para)
 msgid ""
@@ -3059,6 +3059,10 @@ msgid ""
 "themes is selected, all the text in your application appears in the high "
 "contrast foreground and background colors specified by the theme."
 msgstr ""
+"Soporte todos los temas de alto contraste de GNOME. Asegúrese que cuando uno "
+"de estos temas está seleccionado, todo el texto de su aplicación aparece con "
+"los colores de primer plano y de fondo de alto contraste especificados por "
+"el tema."
 
 #: C/accessibility-devel-guide.xml:1186(para)
 msgid ""
@@ -3066,6 +3070,9 @@ msgid ""
 "theme. Test it with different high-contrast themes to ensure your "
 "application respects the settings."
 msgstr ""
+"Asegúrese de que su aplicación no depende de un tema de alto contraste en "
+"particular. Pruebe con diferentes temas de alto contraste para asegurarse de "
+"que su aplicación respeta la configuración."
 
 #: C/accessibility-devel-guide.xml:1193(title)
 msgid "Color and Contrast Examples"
@@ -3073,11 +3080,11 @@ msgstr "Ejemplos de color y contraste"
 
 #: C/accessibility-devel-guide.xml:1195(title)
 msgid "Example illustrating redundant use of color"
-msgstr "Ejemplo ilustrando el uso redundante de color"
+msgstr "Ejemplo que ilustra el uso redundante de color"
 
 #: C/accessibility-devel-guide.xml:1206(phrase)
 msgid "Example showing changes in stock price using color only"
-msgstr ""
+msgstr "Ejemplo que muestra cambios en el precio usando sólo colores"
 
 #: C/accessibility-devel-guide.xml:1210(entry)
 msgid ""
@@ -3089,7 +3096,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1221(phrase)
 msgid "Example showing changes in stock price using both color and arrows"
-msgstr ""
+msgstr "Ejemplo que muestra cambios en el precio usando colores y flechas"
 
 #: C/accessibility-devel-guide.xml:1226(guilabel)
 msgid "Preferences"
@@ -3120,6 +3127,7 @@ msgstr ""
 #: C/accessibility-devel-guide.xml:1243(para)
 msgid "Provide the ability for the user to magnify the work area."
 msgstr ""
+"Proporcione al usuario la posibilidad de magnificar el área de trabajo."
 
 #: C/accessibility-devel-guide.xml:1248(para)
 msgid ""
@@ -3128,6 +3136,11 @@ msgid ""
 "application to confirm the object you are viewing is not affected by "
 "changing the magnification settings."
 msgstr ""
+"Proporcione opciones en la aplicación para escalar el área de trabajo. Los "
+"usuarios necesitan tener una opción para magnificar el área de trabajo entre "
+"un 150% y un 400%. Verifique la aplicación para confirmar que el objeto que "
+"está viendo no se ve afectado al cambiar la configuración de la "
+"magnificación."
 
 #: C/accessibility-devel-guide.xml:1256(title)
 #: C/accessibility-devel-guide.xml:152(title)
@@ -3162,6 +3175,8 @@ msgid ""
 "Allow users to configure frequency and volume of all warning beeps and other "
 "sounds. This includes being able to turn off sound altogether."
 msgstr ""
+"Permita a los usuarios configurar la frecuencia y el volumen de los pitidos "
+"de aviso y otros sonidos. Esto incluye poder apagar el sonido por completo."
 
 #: C/accessibility-devel-guide.xml:1280(title)
 #: C/accessibility-devel-guide.xml:179(title)
@@ -3198,6 +3213,8 @@ msgid ""
 "Make all animations optional. The animated information should be available "
 "in at least one non-animated format, at the user's request."
 msgstr ""
+"Haga todas las animaciones opcionales. La información animada debería estar "
+"disponible en al menos un formato no animado, a elección del usuario."
 
 #: C/accessibility-devel-guide.xml:1304(title)
 #: C/accessibility-devel-guide.xml:189(title)
@@ -3288,30 +3305,36 @@ msgstr "Ejemplos de foco del teclado"
 
 #: C/accessibility-devel-guide.xml:1341(title)
 msgid "Example illustrating need to show focus clearly"
-msgstr ""
+msgstr "Ejemplo que ilustra la necesidad de mostrar el foco con claridad"
 
 #: C/accessibility-devel-guide.xml:1352(phrase)
 msgid ""
 "The focused item in this window cannot be seen because it has been scrolled "
 "off-screen"
 msgstr ""
+"No se puede ver el elemento de esta ventana que tiene el foco porque se ha "
+"desplazado fuera de la pantalla."
 
 #: C/accessibility-devel-guide.xml:1356(entry)
 msgid ""
 "One of the controls in this window has focus, but it's impossible to tell "
 "which..."
 msgstr ""
+"Uno de los controles de esta ventana tiene el foco, pero es imposible decir "
+"cuál..."
 
 #: C/accessibility-devel-guide.xml:1367(phrase)
 msgid ""
 "The focused item in the list has been brought into view by scrolling the list"
-msgstr ""
+msgstr "El artículo enfocado en la lista se ha mostrado desplazando la lista"
 
 #: C/accessibility-devel-guide.xml:1371(entry)
 msgid ""
 "...until you scroll the list, which reveals that one of its items is "
 "currently selected."
 msgstr ""
+"...hasta que desplaza la lista, lo que revela que uno de los elementos está "
+"actualmente seleccionado."
 
 #: C/accessibility-devel-guide.xml:1382(phrase)
 msgid ""
@@ -3327,7 +3350,7 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:1395(title)
 msgid "Example illustrating use of secondary focus"
-msgstr ""
+msgstr "Ejemplo que ilustra el uso de foco secundario"
 
 #: C/accessibility-devel-guide.xml:1406(phrase)
 msgid "Split-paned window in which both panes seem to have focus"
@@ -3338,6 +3361,8 @@ msgid ""
 "In this example, it's impossible to tell just by looking which of the two "
 "panes actually has keyboard focus."
 msgstr ""
+"En este ejemplo, es imposible decir, simplemente mirando, cuál de los dos "
+"paneles tiene actualmente el foco del teclado."
 
 #: C/accessibility-devel-guide.xml:1421(phrase)
 #: C/accessibility-devel-guide.xml:1436(phrase)
@@ -3404,17 +3429,25 @@ msgid ""
 "importance is keyboard navigation, since this is the only way many users can "
 "navigate the application."
 msgstr ""
+"Las personas con discapacidades no pueden usar aplicación de manera efectiva "
+"si no tienen acceso a los manuales requeridos ni a los archivos de ayuda. "
+"Especialmente importante es la navegación con el teclado, ya que es la única "
+"manera en que muchos usuarios puede moverse por la aplicación."
 
 #: C/accessibility-devel-guide.xml:1477(para)
 msgid ""
 "Provide all documentation in an accessible format. ASCII text and HTML are "
 "both excellent formats for assistive technologies."
 msgstr ""
+"Proporcione toda la documentación en un formato accesible. HTML y texto en "
+"ASCII son formatos excelentes para las tecnologías de asistencia."
 
 #: C/accessibility-devel-guide.xml:1482(para)
 msgid ""
 "Provide alternative text descriptions for all graphics in the documentation."
 msgstr ""
+"Proporcione descripciones de texto alternativas para todos los gráficos de "
+"la documentación."
 
 #: C/accessibility-devel-guide.xml:1487(para)
 msgid ""
@@ -3423,6 +3456,11 @@ msgid ""
 "accessibility section in your documentation, where information on all the "
 "accessibility features can be found."
 msgstr ""
+"Documente todas las características de accesibilidad de su aplicación. Es "
+"especialmente importante que se documenten la navegación con el teclado y "
+"los atajos. incluya una sección de accesibilidad en su documentación, donde "
+"se pueda encontrar información sobre todas las características de "
+"accesibilidad."
 
 #: C/accessibility-devel-guide.xml:2(title)
 msgid "Testing"
@@ -3445,18 +3483,27 @@ msgid ""
 "application fails any of these tests, then further work may need to be done "
 "to improve that aspect of its accessibility."
 msgstr ""
+"Esta sección describe una serie de pruebas que puede realizar manualmente en "
+"una aplicación para comprobar su accesibilidad. Superar todas las pruebas no "
+"implica necesariamente que la aplicación sea completamente accesible, pero "
+"si la aplicación falla en alguna de estas pruebas, el futuro trabajo debe "
+"ser mejorar estos aspectos de la accesibilidad."
 
 #: C/accessibility-devel-guide.xml:12(para)
 msgid ""
 "The following keyboard operations should be tested. Do not use the mouse in "
 "any part of this test."
 msgstr ""
+"Se deberían probar las siguientes operaciones con el teclado. No use el "
+"ratón en ninguna parte de esta prueba."
 
 #: C/accessibility-devel-guide.xml:17(para)
 msgid ""
 "Using only keyboard commands, move the focus through all menu bars in the "
 "application."
 msgstr ""
+"Usando sólo comandos del teclado, mueva el foco a través de todas las barras "
+"de menús de la aplicación."
 
 #: C/accessibility-devel-guide.xml:22(para)
 msgid "Confirm that:"
@@ -3478,6 +3525,8 @@ msgid ""
 "You can operate every control in the client area of the application and "
 "dialog boxes."
 msgstr ""
+"Puede manejar todos los controles en el área de cliente de la aplicación y "
+"en los cuadros de diálogo."
 
 #: C/accessibility-devel-guide.xml:40(para)
 msgid "Text and objects within the client area can be selected."
@@ -3485,15 +3534,17 @@ msgstr "El texto y los objetos en el área del cliente se pueden seleccionar."
 
 #: C/accessibility-devel-guide.xml:45(para)
 msgid "Any keyboard enhancements or shortcuts are working as designed."
-msgstr ""
+msgstr "Cualquier atajo o mejora de teclado funciona como se ha diseñado."
 
 #: C/accessibility-devel-guide.xml:56(para)
 msgid "Test the application using a screen reader and confirm that:"
-msgstr ""
+msgstr "Pruebe la aplicación usando un lector de pantalla y confirme que:"
 
 #: C/accessibility-devel-guide.xml:61(para)
 msgid "Labels and text are being read correctly, including menus and toolbars."
 msgstr ""
+"Las etiquetas y el texto se leen correctamente, incluyendo los menús y las "
+"barras de heramientas."
 
 #: C/accessibility-devel-guide.xml:66(para)
 msgid "Object information is read correctly."
@@ -3508,12 +3559,16 @@ msgid ""
 "Verify that when moving among objects that the visual focus indicator is "
 "easy to identify."
 msgstr ""
+"Verifique que cuando se mueve entre objetos el indicador visual del foco es "
+"fácil de identificar."
 
 #: C/accessibility-devel-guide.xml:82(para)
 msgid ""
 "Keyboard navigation through the software and menus should be clearly visible "
 "when the focus moves."
 msgstr ""
+"La navegación con el teclado a través del software y de los menús debería "
+"ser claramente visible cuando se mueve el foco."
 
 #: C/accessibility-devel-guide.xml:87(para)
 msgid ""
@@ -3533,12 +3588,16 @@ msgid ""
 "Change the font in the application and confirm that the settings are "
 "maintained."
 msgstr ""
+"Cambie la tipografía en la aplicación y confirme que los cambios se "
+"mantienen."
 
 #: C/accessibility-devel-guide.xml:108(para)
 msgid ""
 "Test the application by changing colors and confirm that all settings are "
 "maintained."
 msgstr ""
+"Pruebe la aplicación cambiando los colores y confirme que toda la "
+"configuración se mantiene."
 
 #: C/accessibility-devel-guide.xml:113(para)
 msgid ""
@@ -3553,7 +3612,7 @@ msgid ""
 "Print screenshots to a black and white printer and confirm that all "
 "information is visible."
 msgstr ""
-"Imprimir capturas de pantalla en una impresora en blanco y negro y confirmar "
+"Imprima capturas de pantalla en una impresora en blanco y negro y confirme "
 "que toda la información es visible."
 
 #: C/accessibility-devel-guide.xml:129(para)
@@ -3561,8 +3620,8 @@ msgid ""
 "Test applications using only black and white, high-contrast settings and "
 "confirm that all information is conveyed correctly."
 msgstr ""
-"Probar aplicaciones usando sólo los ajustes de alto contraste de blanco y "
-"negro y confirmar que toda la información se transmite correctamente."
+"Pruebe aplicaciones usando sólo los ajustes de alto contraste de blanco y "
+"negro y confirme que toda la información se transmite correctamente."
 
 #: C/accessibility-devel-guide.xml:134(para)
 msgid ""
@@ -3570,19 +3629,16 @@ msgid ""
 "schemes and that high-contrast schemes are available (e.g. white on black or "
 "yellow on blue)."
 msgstr ""
-"Probar que la aplicación proporciona al menos tres combinaciones de esquemas "
-"de color y que están disponibles los esquemas de alto contraste (ej. blanco "
-"sobre negro o amarillos sobre azul)."
+"Compruebe que la aplicación proporciona al menos tres combinaciones de "
+"esquemas de color y que están disponibles los esquemas de alto contraste "
+"(ej. blanco sobre negro o amarillo sobre azul)."
 
 #: C/accessibility-devel-guide.xml:139(para)
-#| msgid ""
-#| "Turn on high-contrast settings in the GBONE Control Center and confirm "
-#| "that the application respects these settings."
 msgid ""
 "Turn on high-contrast settings in the GNOME Control Center and confirm that "
 "the application respects these settings."
 msgstr ""
-"Activar las características de contraste alto en el Centro de control de "
+"Active las características de contraste alto en el Centro de control de "
 "GNOME y confirmar que la aplicación respeta esos ajustes."
 
 #: C/accessibility-devel-guide.xml:144(para)
@@ -3590,7 +3646,7 @@ msgid ""
 "Test various themes to ensure that the software is working for all the "
 "available settings."
 msgstr ""
-"Probar varios temas para asegurarse de que el software funciona para todos "
+"Pruebe varios temas para asegurarse de que el software funciona para todos "
 "los ajustes disponibles."
 
 #: C/accessibility-devel-guide.xml:153(para)
@@ -3605,15 +3661,15 @@ msgid ""
 "Test that the audio is working correctly by enabling sound in the GNOME "
 "Control Center and then perform the following actions:"
 msgstr ""
-"Probar que el sonido funciona correctamente activando el sonido en el Centro "
-"de control de GNOME y después realizando las siguientes acciones:"
+"Compruebe que el sonido funciona correctamente activando el sonido en el "
+"Centro de control de GNOME y realizando después las siguientes acciones:"
 
 #: C/accessibility-devel-guide.xml:161(para)
 msgid ""
 "Perform an action that should generate an audio alert and confirm that the "
 "application is working as designed."
 msgstr ""
-"Realizar una acción que debe generar una alerta de sonido y confirmar que la "
+"Realice una acción que debe generar una alerta de sonido y confirme que la "
 "aplicación funciona como se ha diseñado."
 
 #: C/accessibility-devel-guide.xml:166(para)
@@ -3621,7 +3677,7 @@ msgid ""
 "Verify that the application works correctly when increasing or decreasing "
 "the volume."
 msgstr ""
-"Comprobar que la aplicación funciona correctamente al aumentar o reducir el "
+"Compruebe que la aplicación funciona correctamente al aumentar o reducir el "
 "volumen."
 
 #: C/accessibility-devel-guide.xml:171(para)
@@ -3629,7 +3685,7 @@ msgid ""
 "Confirm that warning messages and alerts can be heard correctly in a noisy "
 "work environment."
 msgstr ""
-"Confirmar que los mensajes de advertencia y alertas se pueden oír "
+"Confirme que los mensajes de advertencia y alertas se pueden oír "
 "correctamente en un entorno de trabajo ruidoso."
 
 #: C/accessibility-devel-guide.xml:180(para)
@@ -3637,7 +3693,7 @@ msgid ""
 "Verify that an option is available to stop animation and that it is working "
 "as designed."
 msgstr ""
-"Comprobar que existe una opción disponible para detener la animación y que "
+"Compruebe que existe una opción disponible para detener la animación y que "
 "funciona como se ha diseñado."
 
 #: C/accessibility-devel-guide.xml:183(para)
@@ -3645,7 +3701,7 @@ msgid ""
 "Turn the animation off. Confirm that all information is still conveyed "
 "correctly."
 msgstr ""
-"Desactivar la animación. Confirmar que aún así se hace llegar correctamente "
+"Desactive la animación. Confirme que aún así se hace llegar correctamente "
 "toda la información."
 
 #: C/accessibility-devel-guide.xml:192(para)
@@ -3653,7 +3709,7 @@ msgid ""
 "Test all messages to confirm that the user is notified before a message "
 "times out and is given the option to indicate that more time is needed."
 msgstr ""
-"Comprobar todos los mensajes para confirmar que se le notifica al usuario "
+"Compruebe todos los mensajes para confirmar que se le notifica al usuario "
 "antes de que un mensaje caduque y se da la opción de indicar que se necesita "
 "más tiempo."
 
@@ -3662,15 +3718,15 @@ msgid ""
 "Make sure an option has been included to adjust the response time and "
 "confirm that it is working as designed."
 msgstr ""
-"Asegurarse de que se ha incluido una opción para ajustar el tiempo de "
-"respuesta y confirmar que funciona como se ha diseñado."
+"Asegúrese de que se ha incluido una opción para ajustar el tiempo de "
+"respuesta y confirme que funciona como se ha diseñado."
 
 #: C/accessibility-devel-guide.xml:206(para)
 msgid ""
 "Test ASCII text documentation with a screen reader to confirm that it is "
 "clear and precise and can be read by assistive technologies."
 msgstr ""
-"Comprobar la documentación de texto ASCII con un lector de pantalla para "
+"Compruebe la documentación de texto ASCII con un lector de pantalla para "
 "comprobar que es limpia y precisa y las tecnologías de asistencia la pueden "
 "leer."
 
@@ -3679,7 +3735,7 @@ msgid ""
 "Test HTML applications using a web browser and screen reader to confirm that "
 "the documentation is accessible to assistive technologies."
 msgstr ""
-"Comprobar que las aplicaciones HTML que usan un navegador web y el lector de "
+"Compruebe que las aplicaciones HTML que usan un navegador web y el lector de "
 "pantalla confirman que la documentación es accesible a las tecnologías de "
 "asistencia."
 
@@ -3694,23 +3750,23 @@ msgstr ""
 
 #: C/accessibility-devel-guide.xml:215(para)
 msgid "Confirm the following information is included in the documentation:"
-msgstr "Confirmar que la siguiente información se incluye en la documentación:"
+msgstr "Confirme que la siguiente información se incluye en la documentación:"
 
 #: C/accessibility-devel-guide.xml:220(para)
 msgid ""
 "State if the application does not support the standard keyboard access used "
 "by the OS."
 msgstr ""
-"Plantear si la aplicación no soporta los accesos de teclado estándar usados "
+"Plantee si la aplicación no soporta los accesos de teclado estándar usados "
 "por el Sistema Operativo."
 
 #: C/accessibility-devel-guide.xml:225(para)
 msgid "Identify if there are unique keyboard commands."
-msgstr "Identificar si existen comandos únicos de teclado."
+msgstr "Identifique si existen comandos únicos de teclado."
 
 #: C/accessibility-devel-guide.xml:230(para)
 msgid "Identify any unique accessibility features."
-msgstr "Identificar cualquier característica única de accesibilidad."
+msgstr "Identifique cualquier característica única de accesibilidad."
 
 #: C/accessibility-devel-guide.xml:235(para)
 msgid ""
@@ -4559,13 +4615,13 @@ msgid ""
 "'Font properties' capplet, but the same buttons are enabled for the "
 "<application>Gedit</application> application."
 msgstr ""
-"Comprobar que <application>gok</application> activa y desactiva los botones "
+"Compruebe que <application>gok</application> activa y desactiva los botones "
 "de los <guibutton>Menús</guibutton> y <guibutton>Barras de herramientas</"
 "guibutton> basadas en la clase de aplicación invocada; por ejemplo, los "
 "botones de los <guibutton>Menús</guibutton> y <guibutton>Barras de "
-"Herramientas</guibutton> están desactivados para el «capplet» «Propiedades de "
-"las tipografías», pero los mismos botones están activados para la aplicación "
-"<application>gedit</application>."
+"Herramientas</guibutton> están desactivados para el «capplet» «Propiedades "
+"de las tipografías», pero los mismos botones están activados para la "
+"aplicación <application>gedit</application>."
 
 #: C/accessibility-devel-guide.xml:743(para)
 msgid ""
@@ -4577,7 +4633,7 @@ msgid ""
 "screen keyboard. The characters should appear in the <application>Gedit</"
 "application> text area."
 msgstr ""
-"Comprobar que el teclado en pantalla <application>gok</application> "
+"Compruebe que el teclado en pantalla <application>gok</application> "
 "proporciona el botón <guibutton>Redactar</guibutton> y que se puede usar "
 "para escribir cualquier texto para la aplicación seleccionada; ejecute "
 "<application>gedit</application>, pulse en el área de texto y después pulse "
@@ -4591,7 +4647,7 @@ msgid ""
 "launch any of the <application>Terminal</application>, <application>Web "
 "Browser</application> or <application>Text Editor</application> applications."
 msgstr ""
-"Comprobar que el botón del <guibutton>Lanzador</guibutton> permite usar el "
+"Compruebe que el botón del <guibutton>Lanzador</guibutton> permite usar el "
 "lanzador de cualquiera de las aplicaciones <application>Terminal</"
 "application>, <application>Navegador web</application> o <application>Editor "
 "de textos</application>."
@@ -4602,7 +4658,7 @@ msgid ""
 "activate any of the currently running application windows on the user's "
 "desktop, including GNOME panels and the GNOME desktop."
 msgstr ""
-"Comprobar que el botón <guibutton>Activar</guibutton> permite al usuario "
+"Compruebe que el botón <guibutton>Activar</guibutton> permite al usuario "
 "activar cualquiera de las ventanas de las aplicaciones actualmente en "
 "ejecución en el escritorio del usuario, incluyendo los paneles de GNOME y el "
 "escritorio GNOME."
@@ -4632,7 +4688,7 @@ msgid ""
 "window now displays the <guibutton>Back</guibutton>, <guibutton>Forward</"
 "guibutton> and <guibutton>Home</guibutton> buttons."
 msgstr ""
-"Comprobar que las listas de botones <guibutton>Barras de herramientas</"
+"Compruebe que las listas de botones <guibutton>Barras de herramientas</"
 "guibutton> listan todos los botones disponibles en la barra de herramientas "
 "de la aplicación. Por ejemplo, pulse en la aplicación del "
 "<application>Examinador de la ayuda</application> y después pulse en el "
@@ -4707,4 +4763,5 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Jorge González <jorgegonz@svn.gnome.org>, 2009-2010\n"
-"Francisco Javier F. Serrador <fserrador@gmail.com>, 2010"
+"Francisco Javier F. Serrador <fserrador@gmail.com>, 2010\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011"
