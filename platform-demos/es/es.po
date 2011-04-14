@@ -2,15 +2,15 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-04-07 14:34+0000\n"
-"PO-Revision-Date: 2011-04-09 11:54+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"POT-Creation-Date: 2011-04-09 09:56+0000\n"
+"PO-Revision-Date: 2011-04-14 13:41+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,6 +144,10 @@ msgid ""
 "connect and use a database from a GTK program, by using the GDA (GNOME Data "
 "Access) library. Thus you also need this library installed."
 msgstr ""
+"Esta demostración usa el lenguaje Javascript. Se va a demostrar cómo "
+"conectar y usar una base de datos desde un programa GTK, usando la "
+"bilbioteca GDA («GNOME Data Access», Acceso a datos de GNOME). Por lo tanto, "
+"es necesario tener instalada también esta biblioteca."
 
 #: C/record-collection.js.page:36(p)
 msgid ""
@@ -184,6 +188,9 @@ msgid ""
 "will create all of the files you need to build and run the code later on. "
 "It's also useful for keeping everything together."
 msgstr ""
+"Antes de empezar a programar, deberá configurar un proyecto nuevo en Anjuta. "
+"Esto creará todos los archivos que necesite para construir y ejecutar el "
+"código más adelante. También es útil para mantener todo ordenado."
 
 #: C/record-collection.js.page:49(p) C/photo-wall.c.page:48(p)
 #: C/magic-mirror.vala.page:46(p) C/image-viewer.js.page:48(p)
@@ -238,6 +245,9 @@ msgid ""
 "Lines 1‒4: Initial imports. Pay special attention to line 3, which tells "
 "Javascript to import the GDA library, our focus in this tutorial."
 msgstr ""
+"Líneas 1‒4: importaciones iniciales. Preste especial atención a la línea 3, "
+"que indica a Javascript que importe la biblioteca GDA, nuestro objetivo en "
+"este tutorial."
 
 #: C/record-collection.js.page:96(p)
 msgid ""
@@ -266,6 +276,8 @@ msgid ""
 "Lines 22 and 27: Create the 2 entries (for the two fields) in which users "
 "will type something to get inserted in the database."
 msgstr ""
+"Líneas 22 y 27: crear las dos entradas (para los dos campos) en las que el "
+"usuario escribirá algo para insertarlo en la base de datos."
 
 #: C/record-collection.js.page:155(p)
 msgid ""
@@ -273,12 +285,17 @@ msgid ""
 "signal to the <code>_insertClicked</code> private method of the class. This "
 "method is detailed below."
 msgstr ""
+"Líneas 31‒34: crear el botón «Insertar». Se conecta su señal <code>clicked</"
+"code> con el método privado <code>_insertClicked</code> de la clase. Este "
+"método se detalla a continuación."
 
 #: C/record-collection.js.page:156(p)
 msgid ""
 "Line 39: Create the widget (<code>TextView</code>) where we will show the "
 "contents of the table."
 msgstr ""
+"Línea 39: crear el widget (<code>TextView</code>) donde se mostrarán los "
+"contenidos de la tabla."
 
 #: C/record-collection.js.page:157(p)
 msgid ""
@@ -301,6 +318,8 @@ msgid ""
 "Lines 2‒3: Create the GDA's <code>Connection</code> object. We must supply "
 "to its constructor some properties:"
 msgstr ""
+"Líneas 2‒3: crear el objeto de GDA <code>Connection</code>. Se deben "
+"proporcionar a su constructor algunas propiedades:"
 
 #: C/record-collection.js.page:183(p)
 msgid ""
@@ -426,6 +445,8 @@ msgid ""
 "Line 15: Display the number of records in the table, making use of the "
 "<code>DataModel</code>'s <code>get_n_rows</code> method."
 msgstr ""
+"Línea 15: mostrar el número de registros en la tabla, usando el método "
+"<code>get_n_rows</code> de <code>DataModel</code> <code>get_n_rows</code>."
 
 #: C/record-collection.js.page:244(title)
 msgid "Inserting"
@@ -477,6 +498,8 @@ msgid ""
 "Line 8: Set the name of the table on which the built statement will operate "
 "(it will generate <code>INSERT INTO demo</code>)"
 msgstr ""
+"Línea 8: establecer el nombre de la base de datos en la que operará la "
+"sentencia construida (generará <code>INSERT INTO demo</code>)"
 
 #: C/record-collection.js.page:274(p)
 msgid ""
@@ -484,16 +507,21 @@ msgid ""
 "statement. The first argument is the field name (as in the table). The "
 "second one is the value for that field."
 msgstr ""
+"Líneas 9‒10: establecer los campos que formarán parte de la sentencia y sus "
+"valores. El primer argumento es el nombre del campo (como aparece en la "
+"tabla). El segundo es el valor de este campo."
 
 #: C/record-collection.js.page:275(p)
 msgid ""
 "Line 11: Get the dynamically generated <code>Statement</code> object, which "
 "represents a SQL statement."
 msgstr ""
+"Línea 11: obtener el objeto <code>Statement</code> generado dinámicamente, "
+"que representa una sentencia SQL."
 
 #: C/record-collection.js.page:276(p)
 msgid "Line 12: Finally, execute the SQL statement (<code>INSERT</code>)."
-msgstr ""
+msgstr "Línea 12: finalmente, ejecutar la sentencia SQL (<code>INSERT</code>)."
 
 #: C/record-collection.js.page:277(p)
 msgid ""
@@ -506,6 +534,8 @@ msgstr ""
 msgid ""
 "Line 15: Refresh the view on the screen by doing another <code>SELECT</code>."
 msgstr ""
+"Línea 15: actualizar la vista en la pantalla haciendo otro <code>SELECT</"
+"code>."
 
 #: C/record-collection.js.page:280(p)
 msgid ""
@@ -515,6 +545,11 @@ msgid ""
 "devel/libgda/stable/\">GDA documentation</link> for more information about "
 "parameters."
 msgstr ""
+"También puede usar parámetros mientras construye la sentencia. Usando "
+"objetos y parámetros <code>SqlBuilder</code> será menos susceptible a "
+"ataques de inyección de SQL. Para obtener información adicional sobre los "
+"parámetros, consulte la <link href=\"http://library.gnome.org/devel/libgda/"
+"stable/\">documentación de GDA</link>."
 
 #: C/record-collection.js.page:284(title) C/image-viewer.js.page:305(title)
 #: C/image-viewer.py.page:219(title) C/guitar-tuner.py.page:221(title)
@@ -541,6 +576,8 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"record-collection/record-collection.js\">reference code</link>."
 msgstr ""
+"Si tiene problemas con el tutorial, compare su código con este <link href="
+"\"record-collection/record-collection.js\">código de referencia</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -558,7 +595,7 @@ msgstr ""
 
 #: C/photo-wall.c.page:7(desc)
 msgid "A Clutter image viewer"
-msgstr ""
+msgstr "Un visor de imágenes Clutter"
 
 #: C/photo-wall.c.page:11(name)
 msgid "Chris Kühl"
@@ -577,10 +614,12 @@ msgid ""
 "For this example we will build a simple image viewer using Clutter. You will "
 "learn:"
 msgstr ""
+"Para este ejemplo se construirá un sencillo visor de imágenes usando "
+"Clutter. Aprenderá:"
 
 #: C/photo-wall.c.page:25(p)
 msgid "How to size and position <code>ClutterActor</code>s"
-msgstr ""
+msgstr "Cómo dimensionar y posicionar varios <code>ClutterActor</code>"
 
 #: C/photo-wall.c.page:26(p)
 msgid "How to place an image in a <code>ClutterActor</code>"
@@ -605,6 +644,10 @@ msgid ""
 "of the Clutter library to create a simple but attractive image viewing "
 "program."
 msgstr ""
+"Clutter es una biblioteca para crear interfaces de usuarios dinámicas usando "
+"OpenGL para la aceleración gráfica. Este ejemplo demuestra una pequeña, pero "
+"importante parte de la biblioteca Clutter para crear un sencillo pero "
+"atractivo programa para ver imágenes."
 
 #: C/photo-wall.c.page:38(p)
 msgid ""
