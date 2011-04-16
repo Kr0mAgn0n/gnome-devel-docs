@@ -3,16 +3,16 @@
 #
 # Mario Carrión <mario@monouml.org>, 2006.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2009, 2010, 2011.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-09 10:38+0000\n"
-"PO-Revision-Date: 2011-04-14 17:07+0200\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"POT-Creation-Date: 2011-04-14 20:28+0000\n"
+"PO-Revision-Date: 2011-04-16 13:36+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,10 +92,10 @@ msgid ""
 "applications. Create multi-player games or collaborative editors that "
 "integrate with the desktop-wide instant messaging services."
 msgstr ""
-"Con la API de «Telepathy Tubes» puede incluso usar un túnel para un protocolo "
-"arbitrario sobre los protocolos modernos de mensajería instantánea como "
-"Jabber para crear aplicaciones interactivas. Cree juegos multi-jugador o "
-"editores colaborativos que se integren a lo largo de los servicios de "
+"Con la API de «Telepathy Tubes» puede incluso usar un túnel para un "
+"protocolo arbitrario sobre los protocolos modernos de mensajería instantánea "
+"como Jabber para crear aplicaciones interactivas. Cree juegos multi-jugador "
+"o editores colaborativos que se integren a lo largo de los servicios de "
 "mensajería del escritorio."
 
 #: C/telepathy.page:25(link)
@@ -104,7 +104,7 @@ msgstr "Manual del desarrollador de Telepathy"
 
 #: C/pango.page:6(desc)
 msgid "Fully internationalized text layout and rendering"
-msgstr ""
+msgstr "Disposición de texto completamente internacionalizado y renderizado"
 
 #: C/pango.page:10(title)
 msgid "Pango"
@@ -565,7 +565,7 @@ msgstr "La página web de GTK+"
 
 #: C/gstreamer.page:6(desc)
 msgid "Plugin-based rich multimedia creation and delivery"
-msgstr ""
+msgstr "Creación y entrega multimedia rica basada en complementos"
 
 #: C/gstreamer.page:10(title)
 msgid "GStreamer"
@@ -686,6 +686,13 @@ msgid ""
 "popular protocols. This transparent network file access is free to all "
 "applications using GIO."
 msgstr ""
+"GIO proporciona varias API para leer y escribir archivos y otros flujos de "
+"manera asíncrona. Los archivos se referencian con URI, y los «backend» "
+"locales pueden proporcionar acceso a más cosas que sólo a archivos locales. "
+"Cuando se ejecuta bajo el escritorio GNOME, GIO usa GVFS para permitir el "
+"acceso a archivos sobre SFTP, FTP, WebDAV, SMB y otros protocolos populares. "
+"Este acceso transparente a archivos en red es libre para todas las "
+"aplicaciones que usan GIO."
 
 #: C/gio.page:20(p)
 msgid ""
@@ -695,12 +702,20 @@ msgid ""
 "of the APIs available, which are sometimes more convenient for worker "
 "threads or processes."
 msgstr ""
+"Las API de archivo de GIO se diseñaron para usarse en interfaces gráficas "
+"controladas por eventos. El diseño asíncrono, no bloqueante, significa que "
+"su interfaz de usuario no se bloquea esperando un archivo. También hay "
+"disponibles algunas versiones síncronas de las API, que a veces son más "
+"convenientes para trabajar con hilos o con procesos."
 
 #: C/gio.page:26(p)
 msgid ""
 "GIO also provides routines for managing drives and volumes, querying file "
 "types and icons, and finding applications to open files."
 msgstr ""
+"GIO también proporciona rutinas para gestionar dispositivos y volúmenes, "
+"consultar tipos de archivos e iconos y encontrar aplicaciones para abrir "
+"archivos."
 
 #: C/gio.page:30(link) C/gio-network.page:20(link) C/d-bus.page:46(link)
 msgid "GIO Reference Manual"
@@ -722,6 +737,11 @@ msgid ""
 "read resources. The asynchronous API designs means your application doesn't "
 "block waiting for a response."
 msgstr ""
+"Construida en la parte superior del flujo de API usadas por archivos, GIO "
+"proporciona API de red de alto nivel para comunicarse sobre sockets de "
+"dominio TCP/IP y UNIX. Puede usar la API de red GIO para conectarse a un "
+"servidor, detectar eventos, y leer los recursos. El diseño asíncrono de la "
+"API significa que su aplicación no se bloquea esperando una respuesta."
 
 #: C/gio-network.page:21(link)
 msgid "Lowlevel network support"
@@ -828,6 +848,7 @@ msgstr "Manual de acceso a datos de GNOME"
 #: C/eds.page:6(desc)
 msgid "Integration with the desktop-wide address book and calendar"
 msgstr ""
+"Integración con la libreta de direcciones del escritorio y el calendario"
 
 #: C/eds.page:10(title)
 msgid "Evolution Data Server"
@@ -893,7 +914,7 @@ msgstr "Referencia de la API de Evolution: libecal"
 
 #: C/d-bus.page:6(desc)
 msgid "Standard interprocess communications bus"
-msgstr ""
+msgstr "Bus estándar de comunicaciones entre procesos"
 
 #: C/d-bus.page:10(title)
 msgid "D-Bus"
@@ -971,6 +992,8 @@ msgstr ""
 msgid ""
 "GNOME provides full support for D-Bus using the GBus and GDBus APIs in GIO."
 msgstr ""
+"GNOME proporciona soporte completo para D-Bus usando las API GBus y GDBus en "
+"GIO."
 
 #: C/d-bus.page:47(link)
 msgid "D-Bus Tutorial"
@@ -982,7 +1005,7 @@ msgstr "Especificación de D-Bus"
 
 #: C/clutter.page:6(desc)
 msgid "Stunning graphics and animations with a scene-graph API"
-msgstr ""
+msgstr "Gráficos y animaciones impresionantes con una API gráfica"
 
 #: C/clutter.page:10(title)
 msgid "Clutter"
@@ -993,6 +1016,8 @@ msgid ""
 "Clutter is a library that allows creating fast, portable, dynamic, "
 "compelling user interfaces."
 msgstr ""
+"Clutter es una biblioteca que permite crear interfaces de usuario rápidas, "
+"portables, dinámicas e irresistibles."
 
 #: C/clutter.page:15(p)
 msgid ""
@@ -1002,6 +1027,11 @@ msgid ""
 "desktop and mobile environments alike, without exposing the complexities of "
 "GPU pipeline programming."
 msgstr ""
+"Clutter usa las API industriales estándar de <link href=\"http://www.khronos."
+"org/opengl/\">OpenGL</link> y <link href=\"http://www.khronos.org/opengles/"
+"\">OpenGL|ES</link> para acceder al hardware de aceleración gráfica tanto en "
+"entornos de escritorio como en móviles por igual, sin exponer la complejidad "
+"de la de la programación de las tuberías de la GPU."
 
 #: C/clutter.page:21(p)
 msgid ""
@@ -1010,6 +1040,11 @@ msgid ""
 "needed, using a flexible scene graph API, with free-form placement of the "
 "scene elements (or \"actors\") on the main viewport (or \"stage\")."
 msgstr ""
+"Clutter no especifica ningún estilo visual, y no proporciona un control "
+"predefinido de la interfaz de usuario complicado; permite al desarrollador "
+"definir qué se necesita, usando una API gráfica flexible, con libertad para "
+"ubicar los elementos de la escena (o «actores») en la vista principal (o "
+"«escenario»)."
 
 #: C/clutter.page:26(p)
 msgid ""
@@ -1018,6 +1053,11 @@ msgid ""
 "also provides generic classes for structuring a user interface using both a "
 "box-packing model like GTK+, and a series of free-form \"constraints\"."
 msgstr ""
+"Clutter viene con actores predefinidos para mostrar colores sólidos, datos "
+"de imágenes, texto y dibujos 2D personalizados de alta precisión usando la "
+"API de Cairo. Clutter también proporciona clases genéricas para estructurar "
+"una interfaz de usuario usando el modelo de empaquetado de GTK+ y una serie "
+"de «restricciones» de forma libre."
 
 #: C/clutter.page:32(p)
 msgid ""
@@ -1027,6 +1067,10 @@ msgid ""
 "pipelines; Clutter-Box2D and Clutter-Bullet, for adding physics interaction "
 "in both 2D and 3D environments."
 msgstr ""
+"Varias bibliotecas de terceras partes permiten la integración con otras "
+"tecnologías, como: Clutter-GTK, para empotrar un escenario de Clutter en una "
+"aplicación GTK+; Clutter-GStreamer, para empotrar vídeo de GStreamer y "
+"tuberías de sonido."
 
 #: C/clutter.page:39(link)
 msgid "The Clutter Cookbook"
@@ -1042,7 +1086,7 @@ msgstr "La página web de Clutter"
 
 #: C/canberra.page:6(desc)
 msgid "Simple audio API for notifications and events"
-msgstr ""
+msgstr "API simple de sonido para notificaciones y eventos"
 
 #: C/canberra.page:10(title)
 msgid "Canberra"
@@ -1056,6 +1100,11 @@ msgid ""
 "accessibility features of the desktop to provide alternate notification for "
 "hearing-impaired users."
 msgstr ""
+"Canberra es una biblioteca para reproducir eventos sonoros y notificaciones, "
+"como cuando un usuario recibe un mensaje u ocurre un error. Además de "
+"proporcionar una API cómoda, Canberra también puede trabajar con "
+"características de accesibilidad del escritorio o proporcionar "
+"notificaciones alternativas para usuarios con deficiencias auditivas."
 
 #: C/canberra.page:19(link)
 msgid "Canberra Reference"
@@ -1063,7 +1112,7 @@ msgstr "Referencia de Canberra"
 
 #: C/cairo.page:6(desc)
 msgid "Modern 2D vector drawing canvas"
-msgstr ""
+msgstr "Lienzo para dibujar modernos vectores en 2D"
 
 #: C/cairo.page:10(title)
 msgid "Cairo"
@@ -1130,6 +1179,7 @@ msgstr "Manual de Cairo"
 #: C/atk.page:6(desc)
 msgid "Support for screen readers and other accessibility tools"
 msgstr ""
+"Soporte para lectores de pantalla y otras herramientas de accesibilidad"
 
 #: C/atk.page:11(title)
 msgid "ATK"
@@ -1208,7 +1258,7 @@ msgstr ""
 
 #: C/atk.page:46(link)
 msgid "GNOME Accessibility for Developers"
-msgstr ""
+msgstr "Accesibilidad de GNOME para desarrolladores"
 
 #: C/atk.page:47(link)
 msgid "ATK Reference"
@@ -1218,6 +1268,7 @@ msgstr "Referencia de ATK"
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr ""
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Mario Carrión <mario@monouml.org>, 2006"
 
