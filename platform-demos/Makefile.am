@@ -2,7 +2,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 
 DOC_ID = gnome-devel-demos
 
-DOC_LINGUAS = de es
+DOC_LINGUAS = de es gl
 
 demo_sources = \
 	guitar-tuner/guitar-tuner.c \
