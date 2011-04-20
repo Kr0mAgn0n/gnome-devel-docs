@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
 "POT-Creation-Date: 2011-04-19 21:52+0000\n"
-"PO-Revision-Date: 2011-04-20 10:55+0200\n"
+"PO-Revision-Date: 2011-04-20 15:24+0200\n"
 "Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: C/index.page:7(name)
 msgid "GNOME Documentation Team"
-msgstr "Equipo de documentación de GNOME"
+msgstr "Equipo de documentación de GNO"
 
 #: C/index.page:8(email) C/record-collection.js.page:13(email)
 #: C/image-viewer.cpp.page:13(email) C/image-viewer.c.page:13(email)
@@ -317,18 +317,25 @@ msgid ""
 "signal to the <code>_insertClicked</code> private method of the class. This "
 "method is detailed below."
 msgstr ""
+"Liñas 31-34: crear o botón «Insertar». Conéctase o seu sinal <code>clicked</"
+"code> co método privado <code>_insertClicked</code> de clase. Este método "
+"detállase a continuación"
 
 #: C/record-collection.js.page:156(p)
 msgid ""
 "Line 39: Create the widget (<code>TextView</code>) where we will show the "
 "contents of the table."
 msgstr ""
+"Liña 39: Crear o widget (<code>TextView</code>) onde se mostrarán os "
+"contidos da táboa."
 
 #: C/record-collection.js.page:157(p)
 msgid ""
 "Line 44: Create the label where we will show the number of records in the "
 "table. Initially it's empty, it will be updated later."
 msgstr ""
+"Liña 44: crea a etiqueta onde se mostrará o número de rexistros existentes "
+"na táboa. Inicialmente está baleiro, actualizarase máis tarde."
 
 #: C/record-collection.js.page:162(title)
 msgid "Connecting to and initializing the database"
@@ -339,12 +346,16 @@ msgid ""
 "The code which makes the connection to the database is in the "
 "<code>setupDatabase</code> method below:"
 msgstr ""
+"O código que fai a conexión coa base de datos está no método "
+"<code>setupDatabase</code> de embaixo:"
 
 #: C/record-collection.js.page:180(p)
 msgid ""
 "Lines 2‒3: Create the GDA's <code>Connection</code> object. We must supply "
 "to its constructor some properties:"
 msgstr ""
+"Liña 2-3: crear o obxecto de GDA <code>Conection</code>. Debe fornecerlle ao "
+"seu construtor algunhas propiedades:"
 
 #: C/record-collection.js.page:183(p)
 msgid ""
@@ -353,6 +364,11 @@ msgid ""
 "use a SQLite database, as it comes installed by default in most "
 "distributions and it is simple to use (it just uses a file as a database)."
 msgstr ""
+"<code>provider</code>: un dos fornecedores con asistencia en GDA. GDA é "
+"compatíbel con SQLite, MySQL, PostgreSQL, Oracle e moitos outros. Para os "
+"propósitos desta demostración usaremos unha base de datos SQLite, xa que ven "
+"instalada por omisión na maioría das distribucións e é moi sinxela de usar "
+"(usa un só ficheiro por base de datos)."
 
 #: C/record-collection.js.page:186(p)
 msgid ""
@@ -362,6 +378,11 @@ msgid ""
 "called gnome_demo in the user home dir (note the call to GLib's "
 "<code>get_home_dir</code> function)."
 msgstr ""
+"<code>cnc_string</code>: A cadea de conexión. Pode cambiar dun fornecedor a "
+"outro. A sintaxe para SQLite é: <code>DB_DIR=<var>PATH</var>;"
+"DB_NAME=<var>FILENAME</var></code>. Nesta demostración accederemos a unha "
+"base de datos chamada gnome_demo no cartafol persoal do usuario (olle a "
+"chamada á función de GLib <code>get_home_dir</code>)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -370,12 +391,18 @@ msgid ""
 "should handle it with JavaScript's statement <code>try</code>...<code>catch</"
 "code>."
 msgstr ""
+"Se o fornecedor non é compatíbel con GDA, ou falta algún elemento na cadea "
+"de conexión, dispararase a excepción da liña 2. Polo que na vida real "
+"deberíamos xestionar as declaracións JavaScript entre bloques <code>try</"
+"code>...<code>catch</code>."
 
 #: C/record-collection.js.page:194(p)
 msgid ""
 "Line 4: Open the connection. In the SQLite provider, if the database does "
 "not exist, it will be created in this step."
 msgstr ""
+"Liña 4: Abrir a conexión. No fornecedor de SQLite, se a conexión non existe "
+"crearase neste paso."
 
 #: C/record-collection.js.page:196(p)
 msgid ""
@@ -385,6 +412,11 @@ msgid ""
 "<code>catch</code> block. If it is the case, we run the create table "
 "statement (line 9)."
 msgstr ""
+"Liñas 6-10: Tenta facer unha selección sinxela para comprobar que a táboa "
+"existe (liña 7). Se non existe (porque a base de datos foi recén creada), "
+"esta orde disparará unha excepción, que está xestionada polo bloque "
+"<code>try</code>...<code>catch</code>. Se este é o caso executarase a "
+"declaración de creación de táboa (liña 9)."
 
 #: C/record-collection.js.page:197(p)
 msgid ""
@@ -393,6 +425,10 @@ msgid ""
 "code>. They are simple to use, and just require two arguments: The "
 "<code>Connection</code> object and the SQL command to be parsed."
 msgstr ""
+"Para executar ordes SQL usamos as funcións globais de GDA, "
+"<code>execute_select_command</code> e <code>execute_non_select_command</"
+"code>. Son moi sinxelas de usar, e só requiren dous argumentos: o obxecto "
+"<code>Connection</code> e a orde SQL a analizar."
 
 #: C/record-collection.js.page:201(p)
 msgid "At this point we have the database set up, and are ready to use it."
@@ -578,7 +614,7 @@ msgstr ""
 #: C/guitar-tuner.py.page:226(title) C/guitar-tuner.cpp.page:255(title)
 #: C/guitar-tuner.c.page:255(title)
 msgid "Reference Implementation"
-msgstr ""
+msgstr "Implementación de referencia"
 
 #: C/record-collection.js.page:290(p)
 msgid ""
@@ -598,6 +634,7 @@ msgstr ""
 msgid ""
 "@@image: 'media/photo-wall-focused.png'; md5=9f1ceecf3a28c1e468597b093a10cbae"
 msgstr ""
+"@@image: 'media/photo-wall-focused.png'; md5=9f1ceecf3a28c1e468597b093a10cbae"
 
 #: C/photo-wall.c.page:7(desc)
 msgid "A Clutter image viewer"
@@ -720,6 +757,9 @@ msgid ""
 "will be using in the following sections. Use this as a reference for later "
 "sections. Copy this code to the beginning of <file>src/main.c</file>:"
 msgstr ""
+"O seguinte fragmento de código contén moitas definicións e variábeis que se "
+"usarán nas seguintes seccións. Úseo como referencia para as próximas "
+"seccións. Copie este código ao principio de <file>src/main.c</file>:"
 
 #: C/photo-wall.c.page:121(title)
 msgid "Jumping into the code"
@@ -733,6 +773,10 @@ msgid ""
 "can delete the <code>create_window()</code> function as we don't need it in "
 "this example."
 msgstr ""
+"Comezaremos ollando a función <code>main()</code>. Logo discutiremos as "
+"outras seccións de código en detalle. Cambie o ficheiro <file>src/main.c</"
+"file> para que conte;a a función <code>main()</code>. Pode elminar a función "
+"<code>create_window()</code> xa que non a necesitamos neste exemplo."
 
 #: C/photo-wall.c.page:163(p)
 msgid ""
@@ -957,7 +1001,7 @@ msgstr ""
 
 #: C/photo-wall.c.page:331(p)
 msgid "The address of the <code>ClutterActor</code> to animate"
-msgstr ""
+msgstr "O enderezo do <code>ClutterActor</code> a animar"
 
 #: C/photo-wall.c.page:332(p)
 msgid ""
@@ -1110,6 +1154,7 @@ msgstr ""
 msgid ""
 "@@image: 'media/message-board.ogv'; md5=beb80c4538776dc2cdd26c95abea5027"
 msgstr ""
+"@@image: 'media/message-board.ogv'; md5=beb80c4538776dc2cdd26c95abea5027"
 
 #: C/message-board.c.page:9(desc)
 msgid "A simple program using WebKitGTK+ and the DOM."
@@ -1289,11 +1334,11 @@ msgstr ""
 #: C/message-board.c.page:170(code)
 #, no-wrap
 msgid "\"&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;\""
-msgstr ""
+msgstr "\"&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;\""
 
 #: C/message-board.c.page:171(p)
 msgid "The simplest HTML file you could possibly write."
-msgstr ""
+msgstr "O ficheiro HTLM máis sinxelo que pode escribir."
 
 #: C/message-board.c.page:174(code)
 #, no-wrap
@@ -1305,6 +1350,7 @@ msgid ""
 "The MIME type of the content you provided. In this case, you're using plain "
 "HTML."
 msgstr ""
+"O tipo MIME do contido que forneceu. Neste caso, está usando HTML plano."
 
 #: C/message-board.c.page:179(code)
 #, no-wrap
@@ -1317,6 +1363,9 @@ msgid ""
 "ASCII characters, it's a good idea to specify UTF-8. UTF-8 is used as the "
 "default encoding throughout the GNOME platform."
 msgstr ""
+"A codificación de caracteres do contido que forneceu. Aínda que só se usen "
+"caracteres ASCII é boa idea especificar UTF-8. UTF-8 úsase como a "
+"codificación predeterminada na plataforma GNOME."
 
 #: C/message-board.c.page:185(code)
 #, no-wrap
@@ -1469,7 +1518,7 @@ msgstr ""
 
 #: C/message-board.c.page:324(p)
 msgid "g_base64_encode has bad args"
-msgstr ""
+msgstr "g_base64_encode ten argumentos non válidos"
 
 #: C/message-board.c.page:336(p)
 msgid ""
@@ -1542,7 +1591,7 @@ msgstr ""
 
 #: C/message-board.c.page:381(p)
 msgid "Link to method to get HTML from DOM and to GIO APIs."
-msgstr ""
+msgstr "Ligazón ao método para obter HTML desde DOM e nas API de GIO."
 
 #: C/message-board.c.page:385(p)
 msgid ""
@@ -1554,7 +1603,7 @@ msgstr ""
 
 #: C/message-board.c.page:389(p)
 msgid "Link to strftime or something"
-msgstr ""
+msgstr "Ligazóns a strftime ou algo"
 
 #: C/message-board.c.page:392(p)
 msgid ""
@@ -1576,6 +1625,8 @@ msgstr ""
 #: C/magic-mirror.vala.page:8(desc)
 msgid "Use your webcam as a mirror using the GStreamer framework and Gtk+"
 msgstr ""
+"Use a súa cámara web como un espello usando o marco de traballo GStreamer e "
+"GTK+"
 
 #: C/magic-mirror.vala.page:12(name)
 msgid "Daniel G. Siegel"
@@ -1609,6 +1660,7 @@ msgstr "Crear un apliativo GTK+"
 #: C/magic-mirror.vala.page:28(p)
 msgid "Access your webcam using GStreamer and embed the result into a window"
 msgstr ""
+"Acceda á súa cámara web usando GStreamer e incruste o resultado nunha xanela"
 
 #: C/magic-mirror.vala.page:29(p)
 msgid "Grab photos off your webcam"
@@ -1630,11 +1682,11 @@ msgstr ""
 
 #: C/magic-mirror.vala.page:34(p)
 msgid "Installed copies of GTK, GStreamer, and a Vala compiler"
-msgstr ""
+msgstr "Copias instaladas de GTK, GStreamer e compilador de Vala"
 
 #: C/magic-mirror.vala.page:35(p)
 msgid "Basic knowledge of an object-oriented programming language"
-msgstr ""
+msgstr "Coñecemento básico dun linguaxe de programación orientado a obxectos"
 
 #: C/magic-mirror.vala.page:49(p)
 msgid ""
@@ -1773,6 +1825,9 @@ msgid ""
 "out the <link href=\"http://live.gnome.org/Vala/Tutorial\">Vala Tutorial</"
 "link>."
 msgstr ""
+"Para atopar máis información sobre a linguaxe de programación Vala pode "
+"visitar <link href=\"http://live.gnome.org/Vala/Tutorial\">o titorial de "
+"Vala</link>."
 
 #: C/magic-mirror.vala.page:155(title)
 msgid "Conclusion"
@@ -1793,6 +1848,7 @@ msgstr ""
 #: C/image-viewer.cpp.page:31(None) C/image-viewer.c.page:31(None)
 msgid "@@image: 'media/image-viewer.png'; md5=7720360611243b14283b83527be968c2"
 msgstr ""
+"@@image: 'media/image-viewer.png'; md5=7720360611243b14283b83527be968c2"
 
 #: C/image-viewer.js.page:9(desc)
 msgid ""
@@ -1921,7 +1977,7 @@ msgstr ""
 #: C/image-viewer.js.page:102(code)
 #, no-wrap
 msgid "_init: function ()"
-msgstr ""
+msgstr "_init: function ()"
 
 #: C/image-viewer.js.page:103(p)
 msgid ""
@@ -1965,7 +2021,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:125(title) C/image-viewer.py.page:64(title)
 msgid "A first Gtk application"
-msgstr ""
+msgstr "Un primeiro aplicativo en GTK"
 
 #: C/image-viewer.js.page:126(p)
 msgid "Let's see what a very basic Gtk application looks like in JavaScript:"
@@ -2022,7 +2078,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:155(title)
 msgid "Adding classes"
-msgstr ""
+msgstr "Engadir clases"
 
 #: C/image-viewer.js.page:156(p)
 msgid ""
@@ -2048,7 +2104,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:180(title) C/image-viewer.py.page:113(title)
 msgid "Signals"
-msgstr ""
+msgstr "Sinais"
 
 #: C/image-viewer.js.page:181(p) C/image-viewer.py.page:114(p)
 msgid ""
@@ -2070,7 +2126,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:189(p)
 msgid "The syntax for connecting any signal to a function is:"
-msgstr ""
+msgstr "A sintaxe para conectar calquera sinal a unha función é:"
 
 #: C/image-viewer.js.page:192(p)
 msgid ""
@@ -2082,6 +2138,8 @@ msgstr ""
 msgid ""
 "You can simplify the code by making use of an inline function definition:"
 msgstr ""
+"Vostede pode simplificar o código facendo uso da definición en liña de "
+"funcións:"
 
 #: C/image-viewer.js.page:203(title)
 msgid "Closing the window"
@@ -2093,6 +2151,9 @@ msgid ""
 "you to keep the window around (which is useful if you want to ask the user "
 "if they really want to close the window, for example)."
 msgstr ""
+"Ao pechar unha xanela Gtk realmente non se pecha, agóchase. Isto permítelle "
+"manter unha xanela (útil se quere preguntarlle ao usuario se realmente "
+"desexa pechar a xanela, por exemplo)."
 
 #: C/image-viewer.js.page:205(p)
 msgid ""
@@ -2102,6 +2163,11 @@ msgid ""
 "viewer.js</file> file and add the following code to the <code>_init</code> "
 "method, on the line above <code>this.window.show</code>:"
 msgstr ""
+"No noso caso, queremos pechar a xanela. A forma máis doada de facer isto é "
+"conectar o sinal <code>hide</code> do obxecto GtkWindow a unha función que "
+"peche o aplicativo. Vaia de novo ao ficheiro <file>image-viewer.js</file> e "
+"engada o seguinte código ao método <code>_init</code>, na liña superior a "
+"<code>this.window.show</code>."
 
 #: C/image-viewer.js.page:206(code)
 #, no-wrap
@@ -2174,7 +2240,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:226(title) C/image-viewer.py.page:144(title)
 msgid "Packing: Adding widgets to the container"
-msgstr ""
+msgstr "Empaquetado: Engadir widgets ao contedor"
 
 #: C/image-viewer.js.page:227(p)
 msgid ""
@@ -2836,11 +2902,11 @@ msgstr ""
 
 #: C/image-viewer.c.page:8(desc)
 msgid "A little bit more than a simple \"Hello world\" Gtk application."
-msgstr ""
+msgstr "Un pouco máis que un simple aplicativo Gtk «Ola mundo»."
 
 #: C/image-viewer.c.page:26(p)
 msgid "Some basic concepts of C/GObject programming"
-msgstr ""
+msgstr "Algúns conceptos básicos de programación de C/GObject"
 
 #: C/image-viewer.c.page:27(p)
 msgid "How to write a Gtk application in C"
@@ -2852,6 +2918,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>GTK+ (Simple)</gui> desde a lapela <gui>C</gui>, prema "
+"<gui>Adiante</gui> e complete os detalles nas seguintes páxinas. Use "
+"<file>image-viewer</file> como nome do proxecto e cartafol."
 
 #: C/image-viewer.c.page:44(p)
 msgid ""
@@ -2860,6 +2929,10 @@ msgid ""
 "\"guitar-tuner.c\">Guitar-Tuner</link> tutorial if you want to learn how to "
 "use the interface builder."
 msgstr ""
+"Asegúrese que <gui>Usar GtkBuilder para a interface de usuario</gui> está "
+"desactivado xa que crearemos a UI manualmente neste titorial. Comprobe o "
+"titorial <link xref=\"guitar-tuner.c\">Guitar-Tuner</link> se quere aprender "
+"como usar o construtor de interface."
 
 #: C/image-viewer.c.page:59(p)
 msgid ""
@@ -3026,6 +3099,7 @@ msgstr ""
 #: C/guitar-tuner.cpp.page:37(None) C/guitar-tuner.c.page:37(None)
 msgid "@@image: 'media/guitar-tuner.png'; md5=f0b7ed4cdc2729d2d0f4d38b829db61e"
 msgstr ""
+"@@image: 'media/guitar-tuner.png'; md5=f0b7ed4cdc2729d2d0f4d38b829db61e"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -3034,6 +3108,7 @@ msgstr ""
 msgid ""
 "@@image: 'media/guitar-tuner-glade.png'; md5=f6606525443ab2160f53a87a454364d0"
 msgstr ""
+"@@image: 'media/guitar-tuner-glade.png'; md5=f6606525443ab2160f53a87a454364d0"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -3043,6 +3118,8 @@ msgid ""
 "@@image: 'media/guitar-tuner-pipeline.png'; "
 "md5=5adc952909d92af5dae6954781b4ad5f"
 msgstr ""
+"@@image: 'media/guitar-tuner-pipeline.png'; "
+"md5=5adc952909d92af5dae6954781b4ad5f"
 
 #: C/guitar-tuner.vala.page:8(desc) C/guitar-tuner.py.page:8(desc)
 #: C/guitar-tuner.c.page:8(desc)
@@ -3054,7 +3131,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:21(title) C/guitar-tuner.py.page:21(title)
 #: C/guitar-tuner.cpp.page:21(title) C/guitar-tuner.c.page:21(title)
 msgid "Guitar Tuner"
-msgstr ""
+msgstr "Afinador de guitarra"
 
 #: C/guitar-tuner.vala.page:24(p) C/guitar-tuner.py.page:24(p)
 #: C/guitar-tuner.cpp.page:24(p) C/guitar-tuner.c.page:24(p)
@@ -3062,25 +3139,27 @@ msgid ""
 "In this tutorial, we're going to make a program which plays tones that you "
 "can use to tune a guitar. You will learn how to:"
 msgstr ""
+"Neste titorial faremos un programa que reproduce tonos que pode usar para "
+"afinar unha guitarra. Aprenderá como:"
 
 #: C/guitar-tuner.vala.page:26(p) C/guitar-tuner.py.page:26(p)
 #: C/guitar-tuner.cpp.page:26(p) C/guitar-tuner.c.page:26(p)
 msgid "Set up a basic project in Anjuta"
-msgstr ""
+msgstr "Configurar un proxecto básico en Anjuta"
 
 #: C/guitar-tuner.vala.page:27(p) C/guitar-tuner.py.page:27(p)
 #: C/guitar-tuner.cpp.page:27(p) C/guitar-tuner.c.page:27(p)
 msgid "Create a simple GUI with Anjuta's UI designer"
-msgstr ""
+msgstr "Crear unha GUI sinxela co deseñador de UI de Anjuta"
 
 #: C/guitar-tuner.vala.page:28(p) C/guitar-tuner.py.page:28(p)
 #: C/guitar-tuner.cpp.page:28(p) C/guitar-tuner.c.page:28(p)
 msgid "Use GStreamer to play sounds"
-msgstr ""
+msgstr "Usar GStreamer para reproducir sons."
 
 #: C/guitar-tuner.vala.page:33(p)
 msgid "Basic knowledge of the Vala programming language"
-msgstr ""
+msgstr "Coñecemento básico da linguaxe de programación Vala"
 
 #: C/guitar-tuner.vala.page:47(p)
 msgid ""
@@ -3131,7 +3210,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:84(title) C/guitar-tuner.py.page:83(title)
 #: C/guitar-tuner.cpp.page:83(title) C/guitar-tuner.c.page:87(title)
 msgid "Create the user interface"
-msgstr ""
+msgstr "Crear a interface de usuario"
 
 #: C/guitar-tuner.vala.page:85(p) C/guitar-tuner.py.page:84(p)
 #: C/guitar-tuner.cpp.page:84(p) C/guitar-tuner.c.page:88(p)
@@ -3239,7 +3318,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:130(title) C/guitar-tuner.py.page:127(title)
 #: C/guitar-tuner.cpp.page:112(title) C/guitar-tuner.c.page:133(title)
 msgid "GStreamer pipelines"
-msgstr ""
+msgstr "Tuberías de GStreamer"
 
 #: C/guitar-tuner.vala.page:131(p) C/guitar-tuner.py.page:128(p)
 #: C/guitar-tuner.c.page:134(p)
@@ -3248,6 +3327,9 @@ msgid ""
 "recording, and processing video, audio, webcam streams and the like. Here, "
 "we'll be using it to produce single-frequency tones."
 msgstr ""
+"GStreamer é un marco de traballo multimedia de GNOME — vostede pode usalo "
+"para reproducir, gravar e procesar vídeo, son, fluxos de cámara web e "
+"semellantes. Aquí, usarémolo para producir tonos dunha única frecuencia."
 
 #: C/guitar-tuner.vala.page:132(p) C/guitar-tuner.py.page:129(p)
 #: C/guitar-tuner.cpp.page:115(p) C/guitar-tuner.c.page:135(p)
@@ -3269,7 +3351,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:135(p) C/guitar-tuner.py.page:132(p)
 #: C/guitar-tuner.cpp.page:118(p) C/guitar-tuner.c.page:138(p)
 msgid "An example GStreamer pipeline."
-msgstr ""
+msgstr "Un exemplo de tubería de GStreamer."
 
 #: C/guitar-tuner.vala.page:140(title) C/guitar-tuner.py.page:137(title)
 #: C/guitar-tuner.c.page:143(title)
@@ -3347,7 +3429,7 @@ msgstr ""
 
 #: C/guitar-tuner.vala.page:203(title)
 msgid "Define the signal handler"
-msgstr ""
+msgstr "Definir o manexador de sinais"
 
 #: C/guitar-tuner.vala.page:204(p)
 msgid ""
@@ -3398,12 +3480,14 @@ msgstr ""
 #: C/guitar-tuner.vala.page:258(p) C/guitar-tuner.py.page:235(p)
 #: C/guitar-tuner.cpp.page:272(p) C/guitar-tuner.c.page:264(p)
 msgid "Have the program automatically cycle through the notes."
-msgstr ""
+msgstr "Facer que o programa reproduza de forma cíclica as notas."
 
 #: C/guitar-tuner.vala.page:261(p) C/guitar-tuner.py.page:238(p)
 #: C/guitar-tuner.cpp.page:275(p) C/guitar-tuner.c.page:267(p)
 msgid "Make the program play recordings of real guitar strings being plucked."
 msgstr ""
+"Facer que o programa reproduza gravacións de cordas de guitarras que se "
+"están afinando."
 
 #: C/guitar-tuner.vala.page:262(p) C/guitar-tuner.py.page:239(p)
 #: C/guitar-tuner.cpp.page:276(p) C/guitar-tuner.c.page:268(p)
@@ -3431,7 +3515,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:266(p) C/guitar-tuner.py.page:243(p)
 #: C/guitar-tuner.cpp.page:280(p) C/guitar-tuner.c.page:272(p)
 msgid "Automatically analyze notes that the user plays."
-msgstr ""
+msgstr "Analizar automaticamente as notas que toca o músico."
 
 #: C/guitar-tuner.vala.page:267(p) C/guitar-tuner.py.page:244(p)
 #: C/guitar-tuner.cpp.page:281(p) C/guitar-tuner.c.page:273(p)
@@ -3447,7 +3531,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:33(p)
 msgid "Basic knowledge of the Python programming language"
-msgstr ""
+msgstr "Coñecemento básico da linguaxe de programación Python"
 
 #: C/guitar-tuner.py.page:47(p)
 msgid ""
@@ -3518,7 +3602,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:114(title)
 msgid "Write the signal handler"
-msgstr ""
+msgstr "Escribir o manexador de sinais"
 
 #: C/guitar-tuner.py.page:115(p) C/guitar-tuner.c.page:119(p)
 msgid ""
@@ -3596,7 +3680,7 @@ msgstr ""
 
 #: C/guitar-tuner.py.page:177(title) C/guitar-tuner.c.page:193(title)
 msgid "Stopping playback"
-msgstr ""
+msgstr "Deter a reprodución"
 
 #: C/guitar-tuner.py.page:178(p)
 msgid ""
@@ -3683,7 +3767,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:33(p)
 msgid "Basic knowledge of the C++ programming language"
-msgstr ""
+msgstr "Coñecemento básico da linguaxe de programación C++"
 
 #: C/guitar-tuner.cpp.page:47(p)
 msgid ""
@@ -3768,7 +3852,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:123(title)
 msgid "Using GStreamermm"
-msgstr ""
+msgstr "Usar GStreamermm"
 
 #: C/guitar-tuner.cpp.page:124(p)
 msgid ""
@@ -3797,7 +3881,7 @@ msgstr ""
 
 #: C/guitar-tuner.cpp.page:178(p)
 msgid "The code has the following purpose:"
-msgstr ""
+msgstr "O código ten o seguinte propósito:"
 
 #: C/guitar-tuner.cpp.page:181(p)
 msgid ""
@@ -3916,7 +4000,7 @@ msgstr ""
 
 #: C/guitar-tuner.c.page:33(p)
 msgid "Basic knowledge of the C programming language"
-msgstr ""
+msgstr "Coñecemento básico da linguaxe de programación C"
 
 #: C/guitar-tuner.c.page:47(p)
 msgid ""
@@ -4095,7 +4179,7 @@ msgstr "Instalar as ferramentas de desenvolvemento de GNOME"
 
 #: C/getting-ready.page:17(title)
 msgid "Getting ready for GNOME development"
-msgstr ""
+msgstr "Prepárese para desenvolver en GNOME"
 
 #: C/getting-ready.page:20(title)
 msgid "Install the required tools"
@@ -4107,6 +4191,9 @@ msgid ""
 "GNOME development on your computer. This shouldn't take you more than ten "
 "minutes."
 msgstr ""
+"Antes de comezar a escribir código debe instalar as ferramentas requiridas "
+"para o desenvolvemento de GNOME no seu computador. Isto non debería levar "
+"máis de 10 minutos."
 
 #: C/getting-ready.page:26(title)
 msgid "Automatic installation"
@@ -4118,6 +4205,9 @@ msgid ""
 "required packages by clicking on <link href=\"gnome-devtools.catalog"
 "\">Install now</link>."
 msgstr ""
+"Nunha distribución anovada debería poder instalar de forma sinxela os "
+"paquetes requiridos premendo en <link href=\"gnome-devtools.catalog"
+"\">Instalar agora</link>."
 
 #: C/getting-ready.page:32(title)
 msgid "Manual installation"
@@ -4130,6 +4220,10 @@ msgid ""
 "DeveloperTools/Installation\">GNOME wiki</link>. Click on the image to go "
 "directly to the installation page for your distribution:"
 msgstr ""
+"Se prefire a instalación manual pode atopar as instrucións para varias "
+"distribucións no <link href=\"http://live.gnome.org/DeveloperTools/"
+"Installation\">wiki de GNOME</link>. Prema sobre a imaxe para ir diretamente "
+"á páxina de instalación da súa distribución:"
 
 #: C/getting-ready.page:40(media)
 msgid "Ubuntu"
@@ -4156,6 +4250,8 @@ msgid ""
 "The guides assume that you have at least the following versions of the tools "
 "installed:"
 msgstr ""
+"As guías asumen que ten instaladas, cando menos, as seguintes versións das "
+"ferramentas."
 
 #: C/getting-ready.page:64(p)
 msgid "Anjuta - 3.0"
@@ -4174,6 +4270,8 @@ msgid ""
 "Of course, any newer version will also work. Now, we wish you a lot of fun "
 "with the <link xref=\"index\">Demos</link>."
 msgstr ""
+"Por suposto, calquera versión máis moderna tamén funcionará. Agora desexamos "
+"que goce coas <link xref=\"index\">demostracións</link>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
