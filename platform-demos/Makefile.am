@@ -18,8 +18,7 @@ demo_sources = \
 	message-board/message-board.c \
 	photo-wall/photo-wall.c \
 	record-collection/record-collection.js \
-	gnome-devtools.catalog
-	
+	media/gnome-devtools.catalog
 
 DOC_FIGURES = \
 	media/ubuntu.png			\
