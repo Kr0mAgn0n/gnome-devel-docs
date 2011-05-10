@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-05-08 15:28+0000\n"
-"PO-Revision-Date: 2011-05-09 00:56+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"POT-Creation-Date: 2011-05-09 17:36+0000\n"
+"PO-Revision-Date: 2011-05-10 21:02+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -346,6 +346,11 @@ msgid ""
 "use a SQLite database, as it comes installed by default in most "
 "distributions and it is simple to use (it just uses a file as a database)."
 msgstr ""
+"<code>provider</code>: uno de los proveedores de GDA soportados. GDA soporta "
+"SQLite, MySQL, PostgreSQL, Oracle y muchos otros. Para la demostración se "
+"usará una base de datos SQLite, ya que viene instalada de manera "
+"predeterminada en la mayoría de las distribuciones y es fácil de usar (sólo "
+"usa un archivo como base de datos)."
 
 #: C/record-collection.js.page:186(p)
 msgid ""
@@ -355,6 +360,11 @@ msgid ""
 "called gnome_demo in the user home dir (note the call to GLib's "
 "<code>get_home_dir</code> function)."
 msgstr ""
+"<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
+"proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
+"DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
+"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -363,6 +373,10 @@ msgid ""
 "should handle it with JavaScript's statement <code>try</code>...<code>catch</"
 "code>."
 msgstr ""
+"Si GDA no soporta el proveedor, o si falta algún elemento en la cadena de "
+"conexión, la línea 2 elevará una excepción. Por esto, en la vida real hay "
+"que manejarlo con la sentencia <code>try</code>...<code>catch</code> de "
+"JavaScript."
 
 #: C/record-collection.js.page:194(p)
 msgid ""
@@ -380,6 +394,11 @@ msgid ""
 "<code>catch</code> block. If it is the case, we run the create table "
 "statement (line 9)."
 msgstr ""
+"Líneas 6‒10: intentar hacer una selección simple para comprobar si la tabla "
+"existe. Si no existe (porque la base de datos se acaba de crear), este "
+"comando elevará una excepción, que se maneja en el bloque <code>try</code>..."
+"<code>catch</code> block. Si este es el caso, se ejecuta la sentencia para "
+"crear tabla (línea 9)."
 
 #: C/record-collection.js.page:197(p)
 msgid ""
@@ -396,6 +415,7 @@ msgstr ""
 #: C/record-collection.js.page:201(p)
 msgid "At this point we have the database set up, and are ready to use it."
 msgstr ""
+"En este punto, ya está configurada la base de datos y lista para usarse."
 
 #: C/record-collection.js.page:205(title)
 msgid "Selecting"
@@ -408,6 +428,10 @@ msgid ""
 "records in the table and showing them on the <code>TextView</code> widget. "
 "Let's take a look at it:"
 msgstr ""
+"Después de conectar a la base de datos, el constructor de la demostración "
+"llama al método <code>selectData</code>. Es el responsable de obtener todos "
+"los registros de la tabla y de mostrarlos en el widget <code>TextView</"
+"code>. Échele un vistazo:"
 
 #: C/record-collection.js.page:227(p)
 msgid ""
@@ -446,6 +470,10 @@ msgid ""
 "<code>SELECT</code> command returns only two columns, we are retrieving "
 "columns 0 and 1."
 msgstr ""
+"Use el método <code>get_value_at</code> de <code>Iter</code>, que sólo "
+"necesita un argumento: el número de columna que recuperar, empezando por 0. "
+"Ya que el comando <code>SELECT</code> sólo devuelve dos columnas, se están "
+"recuperando las columnas 0 y 1."
 
 #: C/record-collection.js.page:234(p)
 msgid ""
@@ -492,6 +520,11 @@ msgid ""
 "<gui>Insert</gui> button's <code>clicked</code> signal to the method "
 "<code>_insertClicked</code>? Let's see the implementation of this method."
 msgstr ""
+"Bien, ahora ya sabe cómo conectarse a la base de datos y cómo seleccionar "
+"filas de una tabla. Ahora es el momento de hacer un <code>INSERT</code> en "
+"la tabla. ¿Recuerda cuando antes, en el método <code>setupWindow</code>, se "
+"conectó la señal <code>clicked</code> del botón <gui>Insertar</gui> al "
+"método <code>_insertClicked</code>?. Vea la implementación de este método."
 
 #: C/record-collection.js.page:266(p)
 msgid ""
@@ -510,6 +543,9 @@ msgid ""
 "method <code>_validateFields</code> is really simple and you can read it in "
 "the full demo source code."
 msgstr ""
+"Líneas 2‒3: comprobar si el usuario ha rellenado todos los campos. El código "
+"del método privado <code>_validateFields</code> es realmente simple y puede "
+"leerlo en el código fuente completo de la demostración."
 
 #: C/record-collection.js.page:271(p)
 msgid ""
@@ -517,6 +553,9 @@ msgid ""
 "as we want to show how to use the <code>SqlBuilder</code> object to build a "
 "SQL statement portable across databases."
 msgstr ""
+"Línea 5: la manera más rápida de hacer el <code>INSERT</code>. Se ha "
+"comentado que se quiere mostrar cómo usar el objeto <code>SqlBuilder</code> "
+"para construir una sentencia SQL portable entre bases de datos."
 
 #: C/record-collection.js.page:272(p)
 msgid ""
@@ -719,6 +758,9 @@ msgid ""
 "<em>clutter-1.0</em> from the list to include the Clutter library in your "
 "project."
 msgstr ""
+"Active <gui>Configurar paquetes externos</gui>. En la página siguiente, "
+"seleccione <em>clutter-1.0</em> de la lista para incluir la biblioteca "
+"Clutter en su proyecto."
 
 #: C/photo-wall.c.page:63(p) C/image-viewer.c.page:49(p)
 #: C/guitar-tuner.c.page:54(p)
@@ -1170,7 +1212,7 @@ msgstr "Un programa sencillo usando WebKitGTK+ y el DOM."
 
 #: C/message-board.c.page:20(title)
 msgid "Message Board"
-msgstr ""
+msgstr "Cuadro de mensajes"
 
 #: C/message-board.c.page:25(p)
 msgid "How to display a web page with WebKit."
@@ -1273,6 +1315,9 @@ msgid ""
 "gui><gui>Execute</gui></guiseq> or just press <key>F3</key>. You should see "
 "an empty window appear."
 msgstr ""
+"Ahora debería poder ejecutar el programa. Pulse <guiseq><gui>Ejecutar</"
+"gui><gui>Ejecutar</gui></guiseq> o simplemente pulse <key>F3</key>. Debería "
+"ver aparecer una ventana vacía."
 
 #: C/message-board.c.page:90(title)
 msgid "Lay out your window and web view"
@@ -1376,6 +1421,9 @@ msgid ""
 "ASCII characters, it's a good idea to specify UTF-8. UTF-8 is used as the "
 "default encoding throughout the GNOME platform."
 msgstr ""
+"La codificación de caracteres del contenido que ha proporcionado. Aunque "
+"sólo use caracteres ASCII, es una buena idea especificar UTF-8, ya que es la "
+"codificación que se usa de manera predeterminada en toda la plataforma GNOME."
 
 #: C/message-board.c.page:185(code)
 #, no-wrap
@@ -1635,6 +1683,8 @@ msgstr ""
 #: C/magic-mirror.vala.page:8(desc)
 msgid "Use your webcam as a mirror using the GStreamer framework and Gtk+"
 msgstr ""
+"Usar su cámara web como un espejo usando el entorno de trabajo GStreamer y "
+"GTK+"
 
 #: C/magic-mirror.vala.page:12(name)
 msgid "Daniel G. Siegel"
