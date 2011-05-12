@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-05-09 17:36+0000\n"
-"PO-Revision-Date: 2011-05-10 21:02+0200\n"
+"POT-Creation-Date: 2011-05-10 19:14+0000\n"
+"PO-Revision-Date: 2011-05-11 13:29+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -158,6 +158,13 @@ msgid ""
 "and for a full API and documentation, visit the <link href=\"http://library."
 "gnome.org/devel/libgda/stable/\">GDA website</link>."
 msgstr ""
+"Acceso a Datos de GNOME (GDA) es una biblioteca cuyo propósito es "
+"proporcionar acceso universal a diferentes tipos de fuentes de datos. Esto "
+"abarca desde los tradicionales sistemas de bases da datos relacionales hasta "
+"cualquier fuente de datos imaginable como un servidor de correo-e, un "
+"directorio LDAP, etc. Para obtener más información y una documentación "
+"completa de la API, visite la  <link href=\"http://library.gnome.org/devel/"
+"libgda/stable/\">página web de GDA</link>."
 
 #: C/record-collection.js.page:39(p)
 msgid ""
@@ -167,6 +174,11 @@ msgid ""
 "in GNOME, see the <link xref=\"image-viewer.js\">Image Viewer program</link> "
 "tutorial."
 msgstr ""
+"Aunque una gran parte del código se refiere a la interfaz de usuario (IU), "
+"el tutorial se enfocará a las partes de las bases de datos (aunque se puede "
+"hacer mención a otras partes que se consideren relevantes). Para aprender "
+"más sobre los programas en Javascript en GNOME, consulte el tutorial del "
+"programa<link xref=\"image-viewer.js\">Visor de Imágenes</link>"
 
 #: C/record-collection.js.page:45(title) C/photo-wall.c.page:44(title)
 #: C/message-board.c.page:40(title) C/magic-mirror.vala.page:42(title)
@@ -239,6 +251,14 @@ msgid ""
 "(bottom) allows you to see all the records of that table. Its content is "
 "refreshed every time a new record is inserted and on the application startup."
 msgstr ""
+"Esta demostración es una aplicación GTK sencilla (con una única ventana) "
+"capaz de insertar registros en la tabla de una base de datos, así como de "
+"explorar todos los registros de la tabla. La tabla tiene dos campos: "
+"<code>id</code>, un entero, y <code>name</code>, un «varchar». La primera "
+"sección (en la parte superior) de la aplicación le permite insertar un "
+"registro en la tabla. La última sección (en la parte inferior) le permite "
+"ver todos los registros de la tabla. El contenido se actualiza cada vez que "
+"se insertar un registro y al inicio de la aplicación."
 
 #: C/record-collection.js.page:68(title)
 msgid "Starting the fun"
@@ -363,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -458,6 +478,10 @@ msgid ""
 "contains the actual, retrieved data. Its <code>move_next</code> method "
 "returns <code>false</code> when it reaches the last record."
 msgstr ""
+"Línea 7: recorrer todos los registros, recuperándolos con la ayuda del "
+"objeto <code>Iter</code>. En este punto, la variable <code>iter</code> "
+"contiene los datos obtenidos actualmente. Su método <code>move_next</code> "
+"devuelve <code>false</code> cuando se alcanza el último registro."
 
 #: C/record-collection.js.page:231(p)
 msgid "Lines 8‒9: We do two things in each line:"
@@ -483,6 +507,11 @@ msgid ""
 "we are doing here, and we store the results in the variables <code>id_field</"
 "code> and <code>name_field</code>."
 msgstr ""
+"El método <code>get_value_at</code> devuelve el campo en el formato "
+"<code>GValue</code> de GLib. Una manera sencilla de convertir este valor en "
+"una cadena es usar la función global de GDA <code>value_stringify</code>. Es "
+"lo que se está haciendo aquí, y el resultado se almacena en las variables "
+"<code>id_field</code> y <code>name_field</code>."
 
 #: C/record-collection.js.page:237(p)
 msgid ""
@@ -499,6 +528,9 @@ msgid ""
 "the <code>text</code> variable. In this line we just set the contents of the "
 "<code>TextView</code> with that variable."
 msgstr ""
+"Línea 14: cuando termine el bucle, se tendrán todos los registros "
+"formateados en la variable <code>text</code>. En esta línea, simplemente se "
+"establece el contenido del <code>TextView</code> con esta variable."
 
 #: C/record-collection.js.page:239(p)
 msgid ""
@@ -603,6 +635,9 @@ msgid ""
 "private method <code>_clearFields</code> is really simple and you can read "
 "it in the full demo source code."
 msgstr ""
+"Línea 14: limpiar los campos «id» y «name» en la pantalla. El código del "
+"método privado <code>_clearFields</code> es muy sencillo, y puede leerlo en "
+"el código fuente de la demostración completa."
 
 #: C/record-collection.js.page:278(p)
 msgid ""
@@ -744,6 +779,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>photo-wall</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>Gtk+ (simple)</gui> en la pestaña <gui>C</gui>, pulse "
+"<gui>Siguiente</gui>, y rellene los detalles en las siguientes páginas. Use "
+"<file>mural-de-fotos</file> como nombre del proyecto y de la carpeta."
 
 #: C/photo-wall.c.page:54(p)
 msgid ""
@@ -751,6 +789,10 @@ msgid ""
 "we will create the UI manually in this tutorial. Check the <link xref="
 "\"guitar-tuner.c\">Guitar-Tuner</link> tutorial using the interface builder."
 msgstr ""
+"Asegúrese de que <gui>Usar GtkBuilder para la interfaz del usuario</gui> "
+"está desactivado, ya que, en este tutorial, crearemos la IU manualmente. "
+"Revise el tutorial del <link xref=\"guitar-tuner.c\">afinador de guitarra</"
+"link> usando el constructor de interfaces."
 
 #: C/photo-wall.c.page:59(p)
 msgid ""
@@ -831,6 +873,8 @@ msgid ""
 "Line 7: You must initialize Clutter. If you forget to do this, you will get "
 "very strange errors. Be warned."
 msgstr ""
+"Línea 7: debe inicializar Clutter. Si olvida hacerlo, obtendrá mensajes muy "
+"extraños. Queda advertido."
 
 #: C/photo-wall.c.page:165(p)
 msgid ""
@@ -845,12 +889,16 @@ msgid ""
 "A <code>ClutterStage</code> is the top-level <code>ClutterActor</code> onto "
 "which other <code>ClutterActor</code>s are placed."
 msgstr ""
+"Un <code>ClutterStage</code> es el nivel superior de un <code>ClutterActor</"
+"code> en el que se ubican otros <code>ClutterActor</code>."
 
 #: C/photo-wall.c.page:168(p)
 msgid ""
 "Line 12: Here we call our function for getting the image file paths. We'll "
 "look at this in a bit."
 msgstr ""
+"Línea 12: aquí se llama a la función para obtener las rutas de las imágenes. "
+"Esto se verá en breve."
 
 #: C/photo-wall.c.page:169(p)
 msgid ""
@@ -863,6 +911,8 @@ msgstr ""
 msgid ""
 "Line 29: Show the stage and <em>all its children</em>, meaning our images."
 msgstr ""
+"Línea 29: mostrar el escenario y <em>todos sus hijos</em>, es decir, las "
+"imágenes."
 
 #: C/photo-wall.c.page:171(p)
 msgid "Line 32: Start the Clutter main loop."
@@ -877,6 +927,8 @@ msgid ""
 "In Clutter, an actor is the most basic visual element. Basically, everything "
 "you see is an actor."
 msgstr ""
+"En Clutter, un actor es el elemento visual más simple. Básicamente, todo lo "
+"que ve es un actor."
 
 #: C/photo-wall.c.page:178(p)
 msgid ""
@@ -984,7 +1036,7 @@ msgstr ""
 
 #: C/photo-wall.c.page:271(p)
 msgid "At this point we've got a wall of images that are ready to be viewed."
-msgstr ""
+msgstr "En este punto tiene un mural de fotos que está listo para verse."
 
 #: C/photo-wall.c.page:275(title)
 msgid "Reacting to the clicks"
@@ -1044,19 +1096,23 @@ msgstr ""
 
 #: C/photo-wall.c.page:331(p)
 msgid "The address of the <code>ClutterActor</code> to animate"
-msgstr ""
+msgstr "La dirección del <code>ClutterActor</code> que animar"
 
 #: C/photo-wall.c.page:332(p)
 msgid ""
 "The animation mode to use. Here we use <code>CLUTTER_LINEAR</code> so that "
 "we have a constant speed for animation."
 msgstr ""
+"El modo de animación que usar. Aquí se ha usado <code>CLUTTER_LINEAR</code> "
+"por lo que se tiene una velocidad constante en la animación."
 
 #: C/photo-wall.c.page:333(p)
 msgid ""
 "The duration of the animation in milliseconds. I've chosen 500 ms for this "
 "example."
 msgstr ""
+"La duración de la animación, en milisegundos. Se ha escogido 500 ms para "
+"este ejemplo."
 
 #: C/photo-wall.c.page:334(p)
 msgid ""
@@ -1070,6 +1126,8 @@ msgid ""
 "The last argument must always be <code>NULL</code> to indicate that there "
 "are no more properties to be set."
 msgstr ""
+"El último argumento debe ser siempre <code>NULL</code> para indicar que no "
+"hay más propiedades que configurar."
 
 #: C/photo-wall.c.page:337(p)
 msgid ""
@@ -1189,6 +1247,9 @@ msgid ""
 "application in the dialog that appears. Finally, hit <gui>Run</gui> and "
 "enjoy!"
 msgstr ""
+"Si todavía no lo ha hecho, elija la aplicación <file>Debug/src/photo-wall</"
+"file> en el diálogo que aparece. Finalmente, pulse <gui>Ejecutar</gui> y "
+"disfrute."
 
 #: C/photo-wall.c.page:378(p)
 msgid ""
@@ -3217,6 +3278,8 @@ msgid ""
 "Use Gtk+ and GStreamer to build a simple guitar tuner application for GNOME. "
 "Shows off how to use the interface designer."
 msgstr ""
+"Usar GTK+ y GStreamer para construir un sencillo afinador de guitarra para "
+"GNOME. Muestra cómo usar el diseñador de interfaces."
 
 #: C/guitar-tuner.vala.page:21(title) C/guitar-tuner.py.page:21(title)
 #: C/guitar-tuner.cpp.page:21(title) C/guitar-tuner.c.page:21(title)
@@ -3229,6 +3292,8 @@ msgid ""
 "In this tutorial, we're going to make a program which plays tones that you "
 "can use to tune a guitar. You will learn how to:"
 msgstr ""
+"En este tutorial se va a hacer un programa que reproduce tonos que puede "
+"usar para afinar su guitarra. Aprenderá a:"
 
 #: C/guitar-tuner.vala.page:26(p) C/guitar-tuner.py.page:26(p)
 #: C/guitar-tuner.cpp.page:26(p) C/guitar-tuner.c.page:26(p)
@@ -3406,7 +3471,7 @@ msgstr ""
 #: C/guitar-tuner.vala.page:130(title) C/guitar-tuner.py.page:127(title)
 #: C/guitar-tuner.cpp.page:112(title) C/guitar-tuner.c.page:133(title)
 msgid "GStreamer pipelines"
-msgstr ""
+msgstr "Tuberías de Gstreamer"
 
 #: C/guitar-tuner.vala.page:131(p) C/guitar-tuner.py.page:128(p)
 #: C/guitar-tuner.c.page:134(p)
@@ -4284,6 +4349,8 @@ msgid ""
 "GNOME development on your computer. This shouldn't take you more than ten "
 "minutes."
 msgstr ""
+"Antes de empezar a programar, deberá instalar las herramientas de desarrollo "
+"de GNOME requeridas en su equipo. Esto no debería llevarle más de 10 minutos."
 
 #: C/getting-ready.page:26(title)
 msgid "Automatic installation"
@@ -4295,6 +4362,9 @@ msgid ""
 "required packages by clicking on <link href=\"media/gnome-devtools.catalog"
 "\">Install now</link>."
 msgstr ""
+"Un una distribución actualizada, debería ser capaz de instalar los paquetes "
+"simplemente pulsando en <link href=\"media/gnome-devtools.catalog\">Instalar "
+"ahora</link>."
 
 #: C/getting-ready.page:32(title)
 msgid "Manual installation"
