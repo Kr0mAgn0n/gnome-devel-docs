@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-05-10 19:14+0000\n"
-"PO-Revision-Date: 2011-05-11 13:29+0200\n"
+"POT-Creation-Date: 2011-05-12 18:20+0000\n"
+"PO-Revision-Date: 2011-05-26 11:21+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -224,8 +224,8 @@ msgid ""
 "<file>record-collection</file> as project name and directory."
 msgstr ""
 "Elija <gui>Javascript genérico</gui> de la pestaña <gui>JS</gui>, pulse "
-"<gui>Adelante</gui> y rellene los detalles en las siguientes pocas paginas. "
-"Use <file>coleccion-de-albumes</file> como nombre de proyecto y directorio."
+"<gui>Adelante</gui> y rellene los detalles en las siguientes páginas. Use "
+"<file>coleccion-de-albumes</file> como nombre de proyecto y de carpeta."
 
 #: C/record-collection.js.page:55(p)
 msgid ""
@@ -568,6 +568,14 @@ msgid ""
 "dynamically, and it will be valid for the connection provider used (it will "
 "use the same SQL dialect the provider uses). Let's study the code:"
 msgstr ""
+"Se ha aprendido a usar las funciones de conveniencia de GDA "
+"<code>execute_select_command</code> y <code>execute_non_select_command</"
+"code> para ejecutar comandos SQL rápidamente en la base de datos. GDA le "
+"permite construir una sentencia SQL de manera indirecta, usando su objeto "
+"<code>SqlBuilder</code>. ¿Cuáles son los beneficios de esto? GDA generará la "
+"sentencia SQL dinámicamente, y será válida para el proveedor de la conexión "
+"usado (usará el mismo dialecto de SQL que usa el proveedor). Estudie el "
+"código:"
 
 #: C/record-collection.js.page:270(p)
 msgid ""
@@ -772,6 +780,12 @@ msgid ""
 "path names. We will also use <code>GDir</code>, a utility for working with "
 "directories, to access our image directory and gather file paths."
 msgstr ""
+"Para ayudarle a conseguir su objetivo, también se utilizarán algunos "
+"fragmentos comunes de GLib. Más importante es que se usará una <code>GSList</"
+"code>, una lista simple enlazada para tener el <code>ClutterActor</code> y "
+"otro para los nombres de las rutas de los archivos. También se usará "
+"<code>GDir</code>, una utilidad para trabajar con carpetas, acceder a "
+"nuestra carpeta de imágenes y obtener rutas de archivos."
 
 #: C/photo-wall.c.page:51(p)
 msgid ""
@@ -850,7 +864,7 @@ msgstr ""
 
 #: C/photo-wall.c.page:121(title)
 msgid "Jumping into the code"
-msgstr ""
+msgstr "Saltar dentro del código"
 
 #: C/photo-wall.c.page:122(p)
 msgid ""
@@ -860,6 +874,11 @@ msgid ""
 "can delete the <code>create_window()</code> function as we don't need it in "
 "this example."
 msgstr ""
+"Se empezará echando un vistazo a la función <code>main()</code> completa. "
+"Luego se verá el resto de secciones del código en detalle. Cambie el archivo "
+"<file>src/main.c</file> para que contenga la función <code>main()</code>. "
+"Puede eliminar la función <code>create_window()</code>, ya que no se usa en "
+"este ejemplo."
 
 #: C/photo-wall.c.page:163(p)
 msgid ""
@@ -867,6 +886,9 @@ msgid ""
 "and transparency (alpha) values. The values range from 0-255. For "
 "transparency a value of 255 is opaque."
 msgstr ""
+"Línea 4: <code>ClutterColor</code> se define configurando los valores de "
+"rojo, verde, azul y de transparencia (alfa). Los valores van de 0 a 255. "
+"Para la transparencia, el valor 255 es opaco."
 
 #: C/photo-wall.c.page:164(p)
 msgid ""
@@ -883,6 +905,10 @@ msgid ""
 "defines from the previous section and the address of the <code>ClutterColor</"
 "code> we just defined."
 msgstr ""
+"Líneas 9‒11: aquí es donde se obtiene el <code>ClutterStage</code> "
+"predeterminado que <code>clutter_init</code> proporcionó. Entonces se "
+"establece el tamaño usando el definido en la sección anterior y las "
+"direcciones del <code>ClutterColor</code> que ya están definidas."
 
 #: C/photo-wall.c.page:166(p)
 msgid ""
@@ -906,6 +932,9 @@ msgid ""
 "the images and place them into their spot in the image wall. We will look at "
 "this in detail in the next section."
 msgstr ""
+"Líneas 14‒26: aquí es donde se configuran los <code>ClutterActor</code>, se "
+"cargan las imágenes y se colocan en su sitio en el mural de imágenes. Esto "
+"se verá con más detalle en la siguiente sección."
 
 #: C/photo-wall.c.page:170(p)
 msgid ""
@@ -935,6 +964,8 @@ msgid ""
 "In this section, we are going to take a closer look at the loop used for "
 "setting up the <code>ClutterActor</code>s that will display our images."
 msgstr ""
+"En esta sección, se va a mirar más detenidamente el bucle usado para "
+"configurar los <code>ClutterActor</code> que mostrarán las imágenes."
 
 #: C/photo-wall.c.page:196(p)
 msgid ""
@@ -994,12 +1025,16 @@ msgid ""
 "Let's take a short break from Clutter to see how we can get the file names "
 "from our image directory."
 msgstr ""
+"Tómese un pequeño descanso de Clutter para ver cómo se pueden obtener los "
+"nombres de archivos desde la carpeta de imágenes."
 
 #: C/photo-wall.c.page:239(p)
 msgid ""
 "Lines 5 and 12: This opens our directory or, if an error occured, returns "
 "after printing an error message."
 msgstr ""
+"Líneas 5 y 12: esto abre la carpeta o, si ocurre un error, termina después "
+"de mostrar un mensaje de error."
 
 #: C/photo-wall.c.page:240(p)
 msgid ""
@@ -1020,6 +1055,9 @@ msgid ""
 "We now take a look at the sizing and positioning of <code>ClutterActor</"
 "code>s and also readying the <code>ClutterActor</code> for user interaction."
 msgstr ""
+"Eche un vistazo al tamaño y al posicionamiento de los <code>ClutterActor</"
+"code> y a cómo se deja listo el <code>ClutterActor</code> para la "
+"interacción del usuario."
 
 #: C/photo-wall.c.page:265(p)
 msgid ""
@@ -1033,6 +1071,8 @@ msgid ""
 "Line 9‒12: Now we connect the <code>button-press-event</code> to the "
 "<code>actor_clicked_cb</code> callback which we will look at next."
 msgstr ""
+"Líneas 9‒12: ahora se conecta el evento <code>button-press-event</code> a la "
+"llamada <code>actor_clicked_cb</code> que veremos más adelante."
 
 #: C/photo-wall.c.page:271(p)
 msgid "At this point we've got a wall of images that are ready to be viewed."
@@ -1178,6 +1218,7 @@ msgid ""
 "Line 37: Here we toggle the <code>is_focused</code> flag to the current "
 "state."
 msgstr ""
+"Línea 37: aquí se cambia la opción <code>is_focused</code> al estado actual."
 
 #: C/photo-wall.c.page:344(p)
 msgid ""
@@ -1193,12 +1234,16 @@ msgid ""
 "Remember, however, that to receive events the <code>ClutterActor</code>s "
 "must be set <code>reactive</code>."
 msgstr ""
+"Recuerde, sin embargo, que para que los <code>ClutterActor</code> reciban "
+"eventos deben establecerse como <code>reactive</code>."
 
 #: C/photo-wall.c.page:350(p)
 msgid ""
 "The following is the convenience function passed to <code>g_slist_foreach</"
 "code>."
 msgstr ""
+"Lo siguiente es la función de conveniencia pasada a <code>g_slist_foreach</"
+"code>."
 
 #: C/photo-wall.c.page:363(p)
 msgid ""
@@ -1796,22 +1841,23 @@ msgstr "Obtener las fotos de su cámara web"
 #: C/guitar-tuner.py.page:30(p) C/guitar-tuner.cpp.page:30(p)
 #: C/guitar-tuner.c.page:30(p)
 msgid "You'll need the following to be able to follow this tutorial:"
-msgstr ""
+msgstr "Necesitará lo siguiente para poder seguir este tutorial:"
 
 #: C/magic-mirror.vala.page:33(p) C/image-viewer.js.page:35(p)
 #: C/image-viewer.py.page:35(p) C/guitar-tuner.vala.page:32(p)
 #: C/guitar-tuner.py.page:32(p) C/guitar-tuner.cpp.page:32(p)
 #: C/guitar-tuner.c.page:32(p)
 msgid "An installed copy of the <link xref=\"getting-ready\">Anjuta IDE</link>"
-msgstr ""
+msgstr "Una copia instalada del <link xref=\"getting-ready\">EID Anjuta</link>"
 
 #: C/magic-mirror.vala.page:34(p)
 msgid "Installed copies of GTK, GStreamer, and a Vala compiler"
-msgstr ""
+msgstr "Copias instaladas de GTK, GStreamer y de un compilador de Vala"
 
 #: C/magic-mirror.vala.page:35(p)
 msgid "Basic knowledge of an object-oriented programming language"
 msgstr ""
+"Conocimientos básico de un lenguaje de programación orientado a objetos"
 
 #: C/magic-mirror.vala.page:49(p)
 msgid ""
@@ -1819,6 +1865,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
+"Elija <gui>GTK+ (simple)</gui> de la pestaña <gui>Vala</gui>, pulse "
+"<gui>Adelante</gui> y rellene los detalles en las siguientes páginas. Use "
+"<file>afinador-guitarra</file> como nombre de proyecto y de carpeta."
 
 #: C/magic-mirror.vala.page:52(p)
 msgid ""
@@ -1852,6 +1901,8 @@ msgid ""
 "The code loads an (empty) window and shows it. More details are given below; "
 "skip this list if you understand the basics:"
 msgstr ""
+"El código carga una ventana (vacía) y la muestra. A continuación hay más "
+"detalles; omita esta lista si entiende los conceptos básicos:"
 
 #: C/magic-mirror.vala.page:74(p) C/guitar-tuner.vala.page:68(p)
 msgid ""
@@ -1893,7 +1944,7 @@ msgstr ""
 
 #: C/magic-mirror.vala.page:90(title)
 msgid "Access the webcam video stream with GStreamer"
-msgstr ""
+msgstr "Acceder al flujo de vídeo de la cámara web con GStreamer"
 
 #: C/magic-mirror.vala.page:91(p)
 msgid ""
@@ -1906,6 +1957,8 @@ msgid ""
 "First we remove the window we created before because GStreamer will take "
 "care of showing the picture on screen."
 msgstr ""
+"Primero se quita la ventana creada anteriormente, ya que GStreamer se "
+"encargará de mostrar la imagen en la pantalla."
 
 #: C/magic-mirror.vala.page:122(p)
 msgid ""
@@ -1950,6 +2003,9 @@ msgid ""
 "out the <link href=\"http://live.gnome.org/Vala/Tutorial\">Vala Tutorial</"
 "link>."
 msgstr ""
+"Para obtener más información sobre el lenguaje de programación Vala, puede "
+"querer revisar el <link href=\"http://live.gnome.org/Vala/Tutorial"
+"\">tutorial de Vala</link>."
 
 #: C/magic-mirror.vala.page:155(title)
 msgid "Conclusion"
@@ -1977,6 +2033,8 @@ msgid ""
 "A little bit more than a simple \"Hello world\" application - write an image "
 "viewer in GTK. Includes an introduction to the JavaScript language."
 msgstr ""
+"Algo más que una sencilla aplicación «Hola mundo»; escribir un visor de "
+"imágenes en GTK. Incluye una introducción al lenguaje JavaScript."
 
 #: C/image-viewer.js.page:13(name) C/image-viewer.py.page:13(name)
 msgid "Jonh Wendell"
