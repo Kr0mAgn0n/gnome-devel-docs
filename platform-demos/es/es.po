@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-05-29 21:22+0000\n"
-"PO-Revision-Date: 2011-06-01 10:59+0200\n"
+"POT-Creation-Date: 2011-06-05 11:43+0000\n"
+"PO-Revision-Date: 2011-06-07 13:51+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -976,6 +976,13 @@ msgid ""
 "the list. We will use this to get the actual path in the next line. The "
 "first parameter is a pointer to the head of the list."
 msgstr ""
+"Línea 5: aquí se quiere obtener la ruta a la ubicación <var>n</var>-ésima en "
+"la <code>GSList</code> que contiene los nombres de las rutas de las "
+"imágenes. La <var>n</var>-ésima posición se calcula basándose en <code>row</"
+"code> y <code>col</code>. El valor de retorno es un puntero a <code>GSList</"
+"code> que es simplemente un nodo en la lista. Esto se usará para obtener la "
+"ruta actual en la siguiente línea. El primer parámetro es un puntero a la "
+"cabecera de la lista."
 
 #: C/photo-wall.c.page:198(p)
 msgid ""
@@ -984,6 +991,10 @@ msgid ""
 "access through our <code>GSList</code> node. The second argument is for "
 "error reporting but we are ignoring that to keep things short."
 msgstr ""
+"Línea 6: aquí es donde actualmente se crea el <code>ClutterActor</code> y se "
+"ubica la imagen en el actor. El primer argumento es la ruta con la que se "
+"acceder al nodo de la <code>GSList</code>. El segundo argumento es para "
+"informar de un error, pero se ignora para simplificar."
 
 #: C/photo-wall.c.page:200(p)
 msgid "Line 7: We'll look at this function in a later section."
@@ -998,6 +1009,11 @@ msgid ""
 "stable/gobject-memory.html\"><code>GObject</code> documentation</link> for "
 "the gory details."
 msgstr ""
+"Línea 8: esto añade el <code>ClutterActor</code> al escenario, que es un "
+"contenedor. Asume el propietario del <code>ClutterActor</code>, que es algo "
+"que querrá cuando profundice en el desarrollo de GNOME. Para obtener más "
+"detalles, consulte la <link href=\"http://library.gnome.org/devel/gobject/"
+"stable/gobject-memory.html\">documentación de <code>GObject</code></link>."
 
 #: C/photo-wall.c.page:204(p)
 msgid ""
@@ -1015,6 +1031,11 @@ msgid ""
 "<code>g_slist_reverse</code> because it faster than inserting many objects "
 "at the end of the list."
 msgstr ""
+"Es interesante tener en cuenta que se prefiere anteponer los "
+"<code>ClutterActor</code> en lugar de adjuntarlos, lo que evita atravesar la "
+"lista en cada inserción. A menudo vera <code>g_slist_prepend</code> seguido "
+"de <code>g_slist_reverse</code>, ya que es más rápido que insertar varios "
+"objetos al final de la lista."
 
 #: C/photo-wall.c.page:211(title)
 msgid "Loading the images"
@@ -1045,6 +1066,13 @@ msgid ""
 "list we set up earlier. Lastly we attempt to get the next path name and "
 "reenter the loop if another file was found."
 msgstr ""
+"Líneas 14‒23: la primera línea obtiene otro nombre de archivo del "
+"<code>GDir</code> abierto anteriormente. Si hay un archivo de imagen (se "
+"comprueba mirando si la extensión es «.png» o «.jpg») en la carpeta, se "
+"procede a anteponer la ruta de la carpeta de la imagen al nombre del archivo "
+"y se antepone en la lista creada anteriormente. Por último, se intenta "
+"obtener la siguiente ruta y se vuelve a entrar en el bucle si se encuentra "
+"otro archivo."
 
 #: C/photo-wall.c.page:245(title)
 msgid "Set up the actors"
@@ -1112,6 +1140,10 @@ msgid ""
 "data to be passed into the callback, you can place the data into a struct "
 "and pass its address in."
 msgstr ""
+"El <code>user_data</code> es lo que se usa para pasar datos a una función. "
+"Se puede pasar un puntero a cualquier tipo de estructura de datos. Si "
+"necesita pasar varios datos a la llamada, puede colocar los datos en una "
+"estructura y pasar un puntero a su dirección."
 
 #: C/photo-wall.c.page:327(p)
 msgid ""
@@ -1128,6 +1160,11 @@ msgid ""
 "code> flag. We'll see the definition of the <code>foreach_set_focus_state</"
 "code> function in the next section."
 msgstr ""
+"Línea 9: esta línea de código ejecuta una función personalizada, "
+"<code>foreach_set_focus_state</code>, para cada elemento de la "
+"<code>actor_list</code>, pasando la dirección al indicador <code>is_focused</"
+"code>. La definición de la función <code>foreach_set_focus_state</code> se "
+"verá en la siguiente sección."
 
 #: C/photo-wall.c.page:329(p)
 msgid ""
@@ -1180,6 +1217,10 @@ msgid ""
 "<code>ClutterActor</code>s. In this section we are returning it to the same "
 "depth as the others on the wall."
 msgstr ""
+"La propiedad <code>depth</code> necesita un poco más de explicación. Se debe "
+"elevar la imagen que tiene el foco para que no se deslice por debajo de "
+"otros <code>ClutterActor</code>. En esta sección se está devolviendo a la "
+"misma profundidad que las otras en el mural."
 
 #: C/photo-wall.c.page:338(p)
 msgid ""
@@ -1263,6 +1304,8 @@ msgid ""
 "Line 7: Depending on which boolean value is passed in, the "
 "<code>ClutterActor</code> will be set to respond to events or not."
 msgstr ""
+"Línea 7: dependiendo de qué valor booleano se pasa, el <code>ClutterActor</"
+"code> se establecerá para que responda o no a eventos."
 
 #: C/photo-wall.c.page:369(title) C/image-viewer.cpp.page:206(title)
 #: C/image-viewer.c.page:214(title) C/guitar-tuner.vala.page:237(title)
@@ -1384,12 +1427,17 @@ msgid ""
 "Fill out your details on the <gui>Basic information</gui> page. Use "
 "<input>message-board</input> for the project name. Click <gui>Forward</gui>."
 msgstr ""
+"Rellene sus detalles en la página <gui>Información básica</gui>. Use "
+"<input>cuadro-mensajes</input> para el nombre del proyecto. Pulse "
+"<gui>Siguiente</gui>."
 
 #: C/message-board.c.page:60(p)
 msgid ""
 "Disable the <gui>Use GtkBuilder for user interface</gui> option as this "
 "tutorial builds the user-interface manually."
 msgstr ""
+"Desactive la opción <gui>Usar GtkBuilder para la interfaz del usuario</gui>, "
+"ya que, en este tutorial, la interfaz de usuario se construye manualmente."
 
 #: C/message-board.c.page:63(p)
 msgid ""
@@ -1886,6 +1934,10 @@ msgid ""
 "UI manually in this tutorial. Check the <link xref=\"guitar-tuner.vala"
 "\">Guitar-Tuner</link> tutorial using the interface builder."
 msgstr ""
+"Desactive la opción <gui>Usar GtkBuilder para la interfaz del usuario</gui>, "
+"ya que, en este tutorial, la interfaz de usuario se creará manualmente. "
+"Revise el tutorial <link xref=\"guitar-tuner.vala\">afinador-guitarra</link> "
+"usando el constructor de interfaces."
 
 #: C/magic-mirror.vala.page:57(p)
 msgid ""
@@ -1958,6 +2010,9 @@ msgid ""
 "<gui>Execute</gui> to configure the build directory. You only need to do "
 "this once, for the first build."
 msgstr ""
+"Cambie la <gui>Configuración</gui> a <gui>Predeterminada</gui> y pulse "
+"<gui>Ejecutar</gui> para configurar la carpeta de construcción. Sólo "
+"necesita hacer esto una vez, para la primera construcción."
 
 #: C/magic-mirror.vala.page:90(title)
 msgid "Access the webcam video stream with GStreamer"
@@ -2078,7 +2133,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:29(p) C/image-viewer.py.page:29(p)
 msgid "Deal with events by connecting signals to signal handlers"
-msgstr ""
+msgstr "Trabajar con eventos conectando señales a manejadores de señales"
 
 #: C/image-viewer.js.page:30(p) C/image-viewer.py.page:30(p)
 msgid "Lay out GTK user interfaces using containers"
@@ -2095,6 +2150,7 @@ msgstr ""
 #: C/image-viewer.js.page:37(p)
 msgid "Basic knowledge of any object-orientated programming language"
 msgstr ""
+"Conocimiento básico de cualquier lenguaje de programación orientado a objetos"
 
 #: C/image-viewer.js.page:51(p)
 msgid ""
@@ -2728,6 +2784,8 @@ msgid ""
 "Apply random filters and effects to the image when it is loaded and allow "
 "the user to save the modified image."
 msgstr ""
+"Aplicar filtros aleatorios y efectos a la imagen cuando se carga y permitir "
+"al usuario guardar la imagen modificada."
 
 #: C/image-viewer.js.page:323(p) C/image-viewer.py.page:237(p)
 #: C/image-viewer.cpp.page:225(p) C/image-viewer.c.page:233(p)
@@ -2742,6 +2800,8 @@ msgid ""
 "Allow the user to load images from network shares, scanners, and other more "
 "complicated sources."
 msgstr ""
+"Permitir al usuario cargar imágenes desde recursos de red compartidos, "
+"escáneres y otras fuentes más complicadas."
 
 #: C/image-viewer.js.page:327(p) C/image-viewer.py.page:241(p)
 #: C/image-viewer.cpp.page:229(p) C/image-viewer.c.page:237(p)
@@ -2786,6 +2846,11 @@ msgid ""
 "the interface designer, check the <link xref=\"guitar-tuner.py\">Guitar-"
 "Tuner demo</link>."
 msgstr ""
+"Asegúrese de desactivar <gui>Usar GtkBuilder para la interfaz del usuario</"
+"gui>, ya que, en este ejemplo, la interfaz de usuario se construirá "
+"manualmente. Para obtener un ejemplo del uso de diseñador de interfaces. "
+"revise la <link xref=\"guitar-tuner.py\">demostración de afinador de "
+"guitarra</link>."
 
 #: C/image-viewer.py.page:58(p)
 msgid ""
@@ -3304,6 +3369,9 @@ msgid ""
 "in the <code>main()</code> function by <code>gtk_widget_show_all()</code> to "
 "show the window and all the widgets it contains."
 msgstr ""
+"Como último paso, asegúrese de reemplazar la llamada <code>gtk_widget_show</"
+"code>, en la función <code>main()</code>, por <code>gtk_widget_show_all()</"
+"code>, para mostrar todos los widgets que contiene la ventana."
 
 #: C/image-viewer.c.page:148(p)
 msgid ""
@@ -3932,6 +4000,8 @@ msgid ""
 "Change the import line in <file>guitar_tuner.py</file>, just at the "
 "beginning to :"
 msgstr ""
+"Cambie la línea de importación en <file>afinador_guitarra.py</file>, justo "
+"al principio, por:"
 
 #: C/guitar-tuner.py.page:142(p)
 msgid ""
