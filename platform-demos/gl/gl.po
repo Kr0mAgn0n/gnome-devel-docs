@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
-"POT-Creation-Date: 2011-04-19 21:52+0000\n"
-"PO-Revision-Date: 2011-04-20 15:24+0200\n"
+"POT-Creation-Date: 2011-05-15 07:54+0000\n"
+"PO-Revision-Date: 2011-06-21 15:25+0200\n"
 "Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -445,6 +445,10 @@ msgid ""
 "records in the table and showing them on the <code>TextView</code> widget. "
 "Let's take a look at it:"
 msgstr ""
+"Despois de conectarse á base de datos, o construtor da nosa demostración "
+"chama ao método <code>selectData</code>. É responsábel de obter tódolos "
+"rexistros na táboa e para mostrarllas no widget <code>TextView</code>. "
+"Votémoslle unha ollada:"
 
 #: C/record-collection.js.page:227(p)
 msgid ""
@@ -452,12 +456,17 @@ msgid ""
 "function <code>execute_select_command</code> for that. It returns a "
 "<code>DataModel</code> object, which is later used to retrieve the rows."
 msgstr ""
+"Liña 2: A orde <code>SELECT</code>. Usamos a función global de GDA "
+"<code>execute_select_command</code> para iso. Devólve un obxecto "
+"<code>DataModel</code>, que máis tarde empregaremos para obter as filas."
 
 #: C/record-collection.js.page:228(p)
 msgid ""
 "Line 3: Create an <code>Iter</code> object, which is used to iterate over "
 "the <code>DataModel</code>'s records."
 msgstr ""
+"Liña 3: Crea un obxecto <code>Iter</code>, que se usa para iterar sobre os "
+"rexistros de <code>DataModel</code>."
 
 #: C/record-collection.js.page:229(p)
 msgid ""
@@ -466,10 +475,14 @@ msgid ""
 "contains the actual, retrieved data. Its <code>move_next</code> method "
 "returns <code>false</code> when it reaches the last record."
 msgstr ""
+"Liña 7: Iterar por tódolos rexistros e obtelos coa axuda do obxecto "
+"<code>Iter</code>. Neste punto a variábel <code>iter</code> contén os datos "
+"actualizados obtidos. O seu método <code>move_next</code> devolve "
+"<code>false</code> cando se chegue ao último rexistro."
 
 #: C/record-collection.js.page:231(p)
 msgid "Lines 8‒9: We do two things in each line:"
-msgstr ""
+msgstr "Liñas 8-9: fanse dúas cousas en cada liña:"
 
 #: C/record-collection.js.page:233(p)
 msgid ""
@@ -478,6 +491,10 @@ msgid ""
 "<code>SELECT</code> command returns only two columns, we are retrieving "
 "columns 0 and 1."
 msgstr ""
+"Use o método <code>get_value_at</code> de <code>Iter</code>, que só precisa "
+"un argumento: o número de columna que recuperar, comezando por 0. Xa que a "
+"orde <code>SELECT</code> só devolve dúas columnas, se está recuperando as "
+"columnas 0 e 1."
 
 #: C/record-collection.js.page:234(p)
 msgid ""
@@ -487,12 +504,20 @@ msgid ""
 "we are doing here, and we store the results in the variables <code>id_field</"
 "code> and <code>name_field</code>."
 msgstr ""
+"O método <code>get_value_at</code> devolve o campo no formato <code>GValue</"
+"code> de GLib. Unha forma sinxela de converter este formato a unha cadea é "
+"usando a función global de GDA <code>value_stringify</code>. Que é o facemos "
+"aquí, e almacenamos os resultados nas variábeis <code>id_field</code> e "
+"<code>name_field</code>."
 
 #: C/record-collection.js.page:237(p)
 msgid ""
 "Line 11: Concatenate the two fields to make one text line, separated by "
 "<code>\"=&gt;\"</code>, and store it in the <code>text</code> variable."
 msgstr ""
+"Liña 11: Concaténanse os dous campos para facer unha única liña de texto, "
+"separada por <code>\"=&gt;\"</code>, e almacenámolas na variábel <code>text</"
+"code>."
 
 #: C/record-collection.js.page:238(p)
 msgid ""
@@ -500,16 +525,21 @@ msgid ""
 "the <code>text</code> variable. In this line we just set the contents of the "
 "<code>TextView</code> with that variable."
 msgstr ""
+"Liña 14: Logo de que o bucle remate, temos tódolos rexistros formatados na "
+"variábel <code>text</code>. Nesta liña estabelecemos os contidos de "
+"<code>TextView</code> con dita variábel."
 
 #: C/record-collection.js.page:239(p)
 msgid ""
 "Line 15: Display the number of records in the table, making use of the "
 "<code>DataModel</code>'s <code>get_n_rows</code> method."
 msgstr ""
+"Liña 15: mostrar o número de rexistros na táboa, usando o método "
+"<code>get_n_rows</code> de <code>DataModel</code> <code>get_n_rows</code>."
 
 #: C/record-collection.js.page:244(title)
 msgid "Inserting"
-msgstr "Inserir"
+msgstr "Insertando"
 
 #: C/record-collection.js.page:245(p)
 msgid ""
@@ -519,6 +549,11 @@ msgid ""
 "<gui>Insert</gui> button's <code>clicked</code> signal to the method "
 "<code>_insertClicked</code>? Let's see the implementation of this method."
 msgstr ""
+"OK, sabemos como conectarse a unha base de datos e como seleccionar filas "
+"dunha táboa. Agora é tempo de facer un <code>INSERT</code> na táboa. Lembra "
+"arriba no método <code>setupWindow</code> que conectamos o sinal "
+"<code>clicked</code> do botón <gui>Insert</gui> ao método "
+"<code>_insertClicked</code>? Vexamos a implementación deste método."
 
 #: C/record-collection.js.page:266(p)
 msgid ""
@@ -530,6 +565,14 @@ msgid ""
 "dynamically, and it will be valid for the connection provider used (it will "
 "use the same SQL dialect the provider uses). Let's study the code:"
 msgstr ""
+"Aprendemos como usar as funcións de GDA de forma conveniente "
+"<code>execute_select_command</code> e <code>execute_non_select_command</"
+"code> para executar ordes SQL de forma rápida nunha base de datos. GDA "
+"permítelle construír unha declaración SQL de forma indirecta usando o seu "
+"obxecto <code>SqlBuilder</code>. Cales son os beneficios de isto? GDA xerará "
+"a declaración SQL de forma dinámica e será válida para o fornecedor de "
+"conexión usado (usarase o mesmo dialecto SQL que o fornecedor usa). "
+"Estudiemos o código:"
 
 #: C/record-collection.js.page:270(p)
 msgid ""
@@ -537,6 +580,9 @@ msgid ""
 "method <code>_validateFields</code> is really simple and you can read it in "
 "the full demo source code."
 msgstr ""
+"Liña 2-3: compróbase que o usuario completa tódolos campos. O código do "
+"método privato <code>_validateFields</code> é realmente sinxelo e pode lelo "
+"no código fonte completo da demostración."
 
 #: C/record-collection.js.page:271(p)
 msgid ""
@@ -544,6 +590,9 @@ msgid ""
 "as we want to show how to use the <code>SqlBuilder</code> object to build a "
 "SQL statement portable across databases."
 msgstr ""
+"Liña 5: A forma máis rápida é <code>INSERT</code>. Está descomentado xa que "
+"queremos ver como usar o obxecto <code>SqlBuilder</code> para construír unha "
+"declaración SQL portábel a través das bases de datos."
 
 #: C/record-collection.js.page:272(p)
 msgid ""
@@ -551,12 +600,17 @@ msgid ""
 "statement we are going to build. It can be <code>SELECT</code>, "
 "<code>UPDATE</code>, <code>INSERT</code> or <code>DELETE</code>."
 msgstr ""
+"Liña 7: crea o obxecto <code>SqlBilder</code>. Debemos pasar o tipo de "
+"declaración que queremos construír. Pode ser <code>SELECT</code>, "
+"<code>UPDATE</code>, <code>INSERT</code> ou <code>DELETE</code>."
 
 #: C/record-collection.js.page:273(p)
 msgid ""
 "Line 8: Set the name of the table on which the built statement will operate "
 "(it will generate <code>INSERT INTO demo</code>)"
 msgstr ""
+"Liña 8: estabelecer o nome da base de datos na que operará a sentencia "
+"construída (xerará <code>INSERT INTO demo</code>)"
 
 #: C/record-collection.js.page:274(p)
 msgid ""
@@ -564,16 +618,21 @@ msgid ""
 "statement. The first argument is the field name (as in the table). The "
 "second one is the value for that field."
 msgstr ""
+"Liñas 9-10: estabelecer os campos que formarán parte da sentenza e os seus "
+"valores. O primeiro campo é o nome do campo (como aparece na táboa). O "
+"segundo é o valor deste campo."
 
 #: C/record-collection.js.page:275(p)
 msgid ""
 "Line 11: Get the dynamically generated <code>Statement</code> object, which "
 "represents a SQL statement."
 msgstr ""
+"Liña 11: obter o obxecto <code>Statement</code> xerado dinamicamente, que "
+"representa unha sentenza SQL."
 
 #: C/record-collection.js.page:276(p)
 msgid "Line 12: Finally, execute the SQL statement (<code>INSERT</code>)."
-msgstr ""
+msgstr "Liña 12: finalmente, executar a sentenza SQL (<code>INSERT</code>)."
 
 #: C/record-collection.js.page:277(p)
 msgid ""
@@ -581,11 +640,15 @@ msgid ""
 "private method <code>_clearFields</code> is really simple and you can read "
 "it in the full demo source code."
 msgstr ""
+"Liña 14: limpar os campos id e nome na pantalla. O código do método privado "
+"<code>_clearFields</code> é moi sinxelo e pode lelo no código fonte completo "
+"da demostración."
 
 #: C/record-collection.js.page:278(p)
 msgid ""
 "Line 15: Refresh the view on the screen by doing another <code>SELECT</code>."
 msgstr ""
+"Liña 15: actualizar a vista na pantalla facendo outro <code>SELECT</code>."
 
 #: C/record-collection.js.page:280(p)
 msgid ""
@@ -595,6 +658,11 @@ msgid ""
 "devel/libgda/stable/\">GDA documentation</link> for more information about "
 "parameters."
 msgstr ""
+"Tamén pode usar parámetros mentres constrúe a sentenza. Usando obxectos e "
+"parámetros <code>SqlBuilder</code> será menos susceptíbel a ataques de "
+"inxección de SQL. Para obter información adicional sobre os parámetros, "
+"consulte a <link href=\"http://library.gnome.org/devel/libgda/stable/"
+"\">documentación de GDA</link>."
 
 #: C/record-collection.js.page:284(title) C/image-viewer.js.page:305(title)
 #: C/image-viewer.py.page:219(title) C/guitar-tuner.py.page:221(title)
@@ -606,6 +674,8 @@ msgid ""
 "All of the code you need should now be in place, so try running the code. "
 "You now have a database for your record collection!"
 msgstr ""
+"Todo o código que precisa agora está no seu lugar, polo que tente executar o "
+"código. Agora ten unha base de datos para a súa colección de rexistros!"
 
 #: C/record-collection.js.page:289(title) C/photo-wall.c.page:377(title)
 #: C/magic-mirror.vala.page:142(title) C/image-viewer.js.page:310(title)
@@ -621,12 +691,14 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"record-collection/record-collection.js\">reference code</link>."
 msgstr ""
+"Se ten problemas co titorial, compare o seu código con este <link href="
+"\"record-collection/record-collection.js\">código de referencia</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/photo-wall.c.page:76(None)
 msgid "@@image: 'media/photo-wall.png'; md5=f19590d97e8ec029cda3c44b769c11cd"
-msgstr ""
+msgstr "@@image: 'media/photo-wall.png'; md5=f19590d97e8ec029cda3c44b769c11cd"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -689,6 +761,10 @@ msgid ""
 "of the Clutter library to create a simple but attractive image viewing "
 "program."
 msgstr ""
+"Clutter é unha biblioteca para crear interfaces de usuario dinámicas usando "
+"OpenGL para a aceleración gráfica. Este exemplo demostra unha parte pequena, "
+"porén central, da biblioteca Clutter para crear un sinxelo, máis atractivo, "
+"programa de visualización de imaxes."
 
 #: C/photo-wall.c.page:38(p)
 msgid ""
@@ -698,6 +774,10 @@ msgid ""
 "path names. We will also use <code>GDir</code>, a utility for working with "
 "directories, to access our image directory and gather file paths."
 msgstr ""
+"Para axudarlle a alcanzar o seu destino usaremos tamén algunhas pezas comúns "
+"de GLib. A máis importante, usaremos <code>GSList</code>, unha lista ligada "
+"para manter os nosos <code>ClutterActor</code>s e os nomes de ruta de "
+"ficheiro."
 
 #: C/photo-wall.c.page:51(p)
 msgid ""
@@ -705,6 +785,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>photo-wall</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>Gtk+ (sinmple)</gui> desde a lapela <gui>C</gui>, e prema "
+"<gui>Adiante</gui>, e complete os detalles nas seguintes páxinas. Use "
+"<file>photo-wall</file> como nome do proxecto e cartafol."
 
 #: C/photo-wall.c.page:54(p)
 msgid ""
@@ -712,6 +795,10 @@ msgid ""
 "we will create the UI manually in this tutorial. Check the <link xref="
 "\"guitar-tuner.c\">Guitar-Tuner</link> tutorial using the interface builder."
 msgstr ""
+"Asegúrese que <gui>Usar GtkBuilder para a interface de usuario</gui> está "
+"desactivado xa que crearemos a UI manualmente neste titorial. Comprobe o "
+"titorial <link xref=\"guitar-tuner.c\">Guitar-Tuner</link> usando o "
+"construtor de interface."
 
 #: C/photo-wall.c.page:59(p)
 msgid ""
@@ -719,6 +806,9 @@ msgid ""
 "<em>clutter-1.0</em> from the list to include the Clutter library in your "
 "project."
 msgstr ""
+"Active <gui>Configurar paquetes externos</gui>. Na seguinte páxina "
+"seleccione <em>clutter-1.0</em> desde a lista para incluír a biblioteca "
+"Clutter no seu proxecto."
 
 #: C/photo-wall.c.page:63(p) C/image-viewer.c.page:49(p)
 #: C/guitar-tuner.c.page:54(p)
@@ -727,6 +817,9 @@ msgid ""
 "<file>src/main.c</file> from the <gui>Project</gui> or <gui>File</gui> tabs. "
 "You should see some code which starts with the lines:"
 msgstr ""
+"Prema <gui>Aplicar</gui> para crear o proxecto. Abra <file>src/main.c</file> "
+"desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. Debería ver "
+"algún código que comeza coas liñas:"
 
 #: C/photo-wall.c.page:72(title)
 msgid "A look at Photo Wall"
@@ -784,12 +877,17 @@ msgid ""
 "and transparency (alpha) values. The values range from 0-255. For "
 "transparency a value of 255 is opaque."
 msgstr ""
+"Liña 4: <code>ClutterColor</code> é definido estabelecendo o valor a "
+"vermello, verde, azul ou transparente (alfa). O rango de valores están entre "
+"0-255. Para a transparencia 255 é opaco."
 
 #: C/photo-wall.c.page:164(p)
 msgid ""
 "Line 7: You must initialize Clutter. If you forget to do this, you will get "
 "very strange errors. Be warned."
 msgstr ""
+"Liña 7: Debe inicializar Clutter. Se esqueceu isto, haberá moitos erros "
+"estraños. Está avisado."
 
 #: C/photo-wall.c.page:165(p)
 msgid ""
@@ -825,7 +923,7 @@ msgstr ""
 
 #: C/photo-wall.c.page:171(p)
 msgid "Line 32: Start the Clutter main loop."
-msgstr ""
+msgstr "Liña 32: inicia o bucle principal de Clutter."
 
 #: C/photo-wall.c.page:176(title)
 msgid "Setting up our image actors"
@@ -836,12 +934,16 @@ msgid ""
 "In Clutter, an actor is the most basic visual element. Basically, everything "
 "you see is an actor."
 msgstr ""
+"En Clutter, un actor é o elemento visual máis básico. Basicamente, todo o "
+"que ve é un actor."
 
 #: C/photo-wall.c.page:178(p)
 msgid ""
 "In this section, we are going to take a closer look at the loop used for "
 "setting up the <code>ClutterActor</code>s that will display our images."
 msgstr ""
+"Nesta sección, imos botar unha ollada máis polo miúdo ao búcle usado para "
+"configurar os <code>ClutterActor</code>s que mostrarán as nosas imaxes."
 
 #: C/photo-wall.c.page:196(p)
 msgid ""
@@ -899,12 +1001,16 @@ msgid ""
 "Let's take a short break from Clutter to see how we can get the file names "
 "from our image directory."
 msgstr ""
+"Botemos unha pequena ollada a Clutter para ver como obter os nomes dos "
+"ficheiros desde o noso cartafol de imaxes."
 
 #: C/photo-wall.c.page:239(p)
 msgid ""
 "Lines 5 and 12: This opens our directory or, if an error occured, returns "
 "after printing an error message."
 msgstr ""
+"Liñas 5 e 12: Isto abre o noso cartafol ou, se se produce un erro, devolve "
+"despois de imprimir unha mensaxe de erro."
 
 #: C/photo-wall.c.page:240(p)
 msgid ""
@@ -942,6 +1048,7 @@ msgstr ""
 #: C/photo-wall.c.page:271(p)
 msgid "At this point we've got a wall of images that are ready to be viewed."
 msgstr ""
+"Neste punto obteremos un muro de imaxes que están listas para ser mostradas."
 
 #: C/photo-wall.c.page:275(title)
 msgid "Reacting to the clicks"
@@ -1113,7 +1220,7 @@ msgstr ""
 #: C/image-viewer.c.page:214(title) C/guitar-tuner.vala.page:237(title)
 #: C/guitar-tuner.cpp.page:249(title) C/guitar-tuner.c.page:249(title)
 msgid "Build and run the application"
-msgstr ""
+msgstr "Construír e executar o aplicativo"
 
 #: C/photo-wall.c.page:370(p)
 msgid ""
@@ -1134,6 +1241,10 @@ msgid ""
 "gui></guiseq> to build everything again, then <guiseq><gui>Run</"
 "gui><gui>Execute</gui></guiseq> to start the application."
 msgstr ""
+"Cando teña que facer iso, prema <guiseq><gui>Construír</gui><gui>Construír "
+"proxecto</gui></guiseq> para construír todo de novo, logo "
+"<guiseq><gui>Executar</gui><gui>Executar</gui></guiseq> para iniciar o "
+"aplicativo."
 
 #: C/photo-wall.c.page:373(p)
 msgid ""
@@ -1141,12 +1252,17 @@ msgid ""
 "application in the dialog that appears. Finally, hit <gui>Run</gui> and "
 "enjoy!"
 msgstr ""
+"Se non o fixo aínda, seleccione o aplicativo <file>Debug/src/photo-wall</"
+"file> no diálogo que aparece. Finalmente, prema <gui>Executar</gui> e "
+"desfrute!"
 
 #: C/photo-wall.c.page:378(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"photo-wall/photo-wall.c\">reference code</link>."
 msgstr ""
+"Se ten problemas ao executar este titorial compare o seu código con este "
+"<link href=\"photo-wall/photo-wall.c\">código de referencia</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -1158,7 +1274,7 @@ msgstr ""
 
 #: C/message-board.c.page:9(desc)
 msgid "A simple program using WebKitGTK+ and the DOM."
-msgstr ""
+msgstr "Un programa sinxelo usando WebKitGTK+ e DOM."
 
 #: C/message-board.c.page:20(title)
 msgid "Message Board"
@@ -1182,6 +1298,10 @@ msgid ""
 "widgets and how to connect callback functions to signals. See <link xref="
 "\"image-viewer.c\"/> to learn the basics of GTK+."
 msgstr ""
+"Este titorial asume que vostede está familiarizado co linguaxe de "
+"programación C e ten coñecementos básicos de GTK+, incluíndo como crear e "
+"dispor widgets e como conectar funcións de callback a sinais. Vexa <link "
+"xref=\"image-viewer.c\"/> para aprender o básico de GTK+."
 
 #: C/message-board.c.page:42(p)
 msgid ""
@@ -1198,30 +1318,43 @@ msgid ""
 "of messages in HTML. Before you begin, you need to set up a project in "
 "Anjuta."
 msgstr ""
+"Neste titorial, vostede creará un taboleiro de mensaxes sinxelo usando "
+"WebKit. O taboleiro de mensaxes permitiralle inserir algún texto e engadilo "
+"a unha lista de mensaxes en HTML. Antes de comezar debe configurar un "
+"proxecto en Anjuta."
 
 #: C/message-board.c.page:53(p)
 msgid ""
 "In Anjuta, click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></"
 "guiseq> to open the new project assistant."
 msgstr ""
+"En Anjuta, prema <guiseq><gui>Ficheiro</gui><gui>Novo</gui><gui>Proxecto</"
+"gui></guiseq> para abrir un asistente de novo proxecto."
 
 #: C/message-board.c.page:55(p)
 msgid ""
 "Select <gui>GTK+ (simple)</gui> on the <gui>C</gui> tab, and click "
 "<gui>Forward</gui>."
 msgstr ""
+"Seleccione <gui>GTK+ (simple)</gui> na lapela <gui>C</gui> e prema "
+"<gui>Adiante</gui>."
 
 #: C/message-board.c.page:57(p)
 msgid ""
 "Fill out your details on the <gui>Basic information</gui> page. Use "
 "<input>message-board</input> for the project name. Click <gui>Forward</gui>."
 msgstr ""
+"Complete os detalles na páxina <gui>Información básica</gui>. Use "
+"<input>message-board</input> para o nome do proxecto. Prema <gui>Seguinte</"
+"gui>."
 
 #: C/message-board.c.page:60(p)
 msgid ""
 "Disable the <gui>Use GtkBuilder for user interface</gui> option as this "
 "tutorial builds the user-interface manually."
 msgstr ""
+"Desactive a opción <gui>Usar GtkBuilder para a interface de usuario</gui> xa "
+"que neste titorial construirase a interface de usuario de forma manual."
 
 #: C/message-board.c.page:63(p)
 msgid ""
@@ -1230,6 +1363,10 @@ msgid ""
 "gui>. Click <gui>Forward</gui>. On the <gui>Configure external packages</"
 "gui> page, check <gui>webkitgtk-3.0</gui>."
 msgstr ""
+"Debe dicirlle a Anjuta que está usando WebKitGTK+ neste proxecto. Na páxina "
+"de <gui>Opcións do proxecto</gui>, seleccione <gui>Configurar paquetes "
+"externos</gui>. Prema <gui>Seguinte</gui>. Na páxina <gui>Configurar "
+"paquetes externos</gui> marque <gui>webkitgtk-3.0</gui>."
 
 #: C/message-board.c.page:69(p)
 msgid ""
@@ -1261,10 +1398,13 @@ msgid ""
 "gui><gui>Execute</gui></guiseq> or just press <key>F3</key>. You should see "
 "an empty window appear."
 msgstr ""
+"Debería poder executar o programa. Prema <guiseq><gui>Executar</"
+"gui><gui>Executar</gui></guiseq> ou prema <key>F3</key>. Debería aparecer "
+"unha xanela baleira."
 
 #: C/message-board.c.page:90(title)
 msgid "Lay out your window and web view"
-msgstr ""
+msgstr "Dispor a súa xanela e a vista web"
 
 #: C/message-board.c.page:92(p)
 msgid ""
@@ -1273,6 +1413,10 @@ msgid ""
 "into a window. Find the function <code>create_window</code> and replace it "
 "with the following:"
 msgstr ""
+"Agora que pode mostrar unha xanela, é hora de comezar o traballo con webkit. "
+"Para este titorial, crearemos unha entrada de texto e unha vista web e "
+"empaquetarémolas nunha xanela. Busque a función <code>create_window</code> e "
+"substitúaa co seguinte:"
 
 #: C/message-board.c.page:132(p)
 msgid ""
@@ -1378,6 +1522,9 @@ msgid ""
 "to provide a <sys>file:</sys> URI if you add images or other features where "
 "you want to use relative URI references."
 msgstr ""
+"O URI base. Non o precisa neste exemplo sinxelo, pero podería fornecer unha "
+"URI <sys>file:</sys> se quere engadir imaxes ou outras características onde "
+"queira usar preferencias relativas a URI."
 
 #: C/message-board.c.page:193(p)
 msgid ""
@@ -1405,7 +1552,7 @@ msgstr ""
 
 #: C/message-board.c.page:211(title)
 msgid "Hook up signals"
-msgstr ""
+msgstr "Capturar sinais"
 
 #: C/message-board.c.page:213(p)
 msgid ""
@@ -1841,6 +1988,10 @@ msgid ""
 "workplace, where you can impress your friends and colleagues with an awesome "
 "application you just made in 15 minutes."
 msgstr ""
+"Isto é todo, acaba de crear un aplicativo completo para sacar fotos coa "
+"cámara web en menos de 15 minutos. Agora xa pode afeitar a barba, "
+"maquillarse un pouco e ordenar o seu espazo de traballo para impresionar aos "
+"seus amigos e colegas con un aplicativo feito en 15 minutos."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -1855,6 +2006,8 @@ msgid ""
 "A little bit more than a simple \"Hello world\" application - write an image "
 "viewer in GTK. Includes an introduction to the JavaScript language."
 msgstr ""
+"Un aplicativo máis completo que un simple «Ola Mundo» - escriba un visor de "
+"imaxes en GTK. Isto inclúe unha introdución ao linguaxe JavaScript."
 
 #: C/image-viewer.js.page:13(name) C/image-viewer.py.page:13(name)
 msgid "Jonh Wendell"
@@ -1874,18 +2027,20 @@ msgid ""
 "In this tutorial, we're going to write a very simple GTK application that "
 "loads and displays an image file. You will learn how to:"
 msgstr ""
+"Neste titorial, imos escribir un aplicativo GTK moi sinxelo que carga e "
+"mostra un ficheiro de imaxe. Vostede aprenderá a:"
 
 #: C/image-viewer.js.page:28(p)
 msgid "Write a basic GTK user interface in JavaScript"
-msgstr ""
+msgstr "Escribir unha interface de usuario GTK básica en JavaScript"
 
 #: C/image-viewer.js.page:29(p) C/image-viewer.py.page:29(p)
 msgid "Deal with events by connecting signals to signal handlers"
-msgstr ""
+msgstr "Xestionar eventos conectando sinais a xestores de sinais"
 
 #: C/image-viewer.js.page:30(p) C/image-viewer.py.page:30(p)
 msgid "Lay out GTK user interfaces using containers"
-msgstr ""
+msgstr "Dispoñer interfaces de usuario GTK usando contedores"
 
 #: C/image-viewer.js.page:31(p) C/image-viewer.py.page:31(p)
 msgid "Load and display image files"
@@ -1893,11 +2048,11 @@ msgstr "Cargar e mostrar ficheiros de imaxe"
 
 #: C/image-viewer.js.page:36(p)
 msgid "An installed copy of the <em>gjs</em> interpreter"
-msgstr ""
+msgstr "Unha copia instalada do intérprete <em>gjs</em>"
 
 #: C/image-viewer.js.page:37(p)
 msgid "Basic knowledge of any object-orientated programming language"
-msgstr ""
+msgstr "Coñecemento básico dunha linguaxe de programación orientada a obxectos"
 
 #: C/image-viewer.js.page:51(p)
 msgid ""
@@ -1905,6 +2060,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>JavaScript xenérico</gui> desde a lapela <gui>JS</gui>, "
+"prema <gui>Adiante</gui> e complete os seus detalles nas seguintes páxinas. "
+"Use <file>image-viewer</file> como nome do proxecto e cartafol."
 
 #: C/image-viewer.js.page:54(p)
 msgid ""
@@ -1912,10 +2070,13 @@ msgid ""
 "<file>src/main.js</file> from the <gui>Project</gui> or <gui>File</gui> "
 "tabs. It contains very basic example code."
 msgstr ""
+"Prema <gui>Aplicar</gui> e o proxecto será creado. Abra <file>src/main.js</"
+"file> desde a lapela <gui>Proxecto</gui> ou <gui>Ficheiros</gui>. Contén "
+"código de exemplo moi básico."
 
 #: C/image-viewer.js.page:61(title)
 msgid "JavaScript basics: Hello World"
-msgstr ""
+msgstr "Primeiros pasos en JavaScript: Ola mundo"
 
 #: C/image-viewer.js.page:62(p)
 msgid ""
@@ -1924,6 +2085,10 @@ msgid ""
 "programming language should be the Hello World program which can already be "
 "found in <file>main.js</file>:"
 msgstr ""
+"Antes de comezar a escribir o visor de imaxes faremos unha introdución á "
+"forma na que JavaScript se usa en GNOME. Por suposto, o primeiro contacto "
+"con calquera linguaxe de programación debería ser un programa Ola Mundo que "
+"pode atopar <file>main.js</file>:"
 
 #: C/image-viewer.js.page:63(code)
 #, no-wrap
@@ -1937,6 +2102,10 @@ msgid ""
 "argument <code>\"Hello world!\"</code>, which will be printed on the screen. "
 "Note that each line of code ends with a semicolon."
 msgstr ""
+"Isto debería ser natural se está familiarizado con calquera outra linguaxe "
+"de programación. A función <code>printi</code> chámase co argumento "
+"<code>«Ola Mundo»</code>, que se imprimirá en pantalla. Teña en conta que "
+"cada liña de código remata con un punto e coma."
 
 #: C/image-viewer.js.page:68(title)
 msgid "Classes in JavaScript"
@@ -1944,13 +2113,15 @@ msgstr "Clases en JavaScript"
 
 #: C/image-viewer.js.page:69(p)
 msgid "This is the standard way to define a class in JavaScript:"
-msgstr ""
+msgstr "Esta é a forma estándar de definir unha clase en JavaScript:"
 
 #: C/image-viewer.js.page:92(p)
 msgid ""
 "This defines a class called <code>MyClass</code>. Let's go through each part "
 "of the class definition:"
 msgstr ""
+"Isto define unha clase chamada <code>MyClass</code>. Vexa cada unha das "
+"partes da definición da clase:"
 
 #: C/image-viewer.js.page:95(p)
 msgid ""
@@ -2000,6 +2171,8 @@ msgid ""
 "Note how the class definition (prototype) is arranged; each function "
 "definition is separated by a comma."
 msgstr ""
+"Teña en conta como se ordena a definición da clase (prototipo); cada "
+"definición de función sepárase con unha coma."
 
 #: C/image-viewer.js.page:113(p)
 msgid "Now that MyClass has been defined, we can play with it:"
@@ -2029,7 +2202,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:136(p) C/image-viewer.py.page:89(p)
 msgid "Let's take a look at what's happening:"
-msgstr ""
+msgstr "Botemos unha ollada ao que está pasando:"
 
 #: C/image-viewer.js.page:139(p) C/image-viewer.py.page:92(p)
 msgid ""
@@ -2133,6 +2306,9 @@ msgid ""
 "You can find signal definitions for any object in the <link href=\"http://"
 "library.gnome.org/devel/gtk/stable/ch01.html\">GTK class reference</link>."
 msgstr ""
+"Pode atopar as definicións de sinais para calquera proxecto na <link href="
+"\"http://library.gnome.org/devel/gtk/stable/ch01.html\">clase GTK de "
+"referencia</link>."
 
 #: C/image-viewer.js.page:195(p)
 msgid ""
@@ -2186,7 +2362,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:211(title) C/image-viewer.py.page:125(title)
 msgid "Containers: Laying-out the user interface"
-msgstr ""
+msgstr "Contedores: deseñar a interface de usuario"
 
 #: C/image-viewer.js.page:212(p) C/image-viewer.py.page:126(p)
 msgid ""
@@ -2289,7 +2465,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:235(p) C/image-viewer.py.page:154(p)
 msgid "Now insert these two lines, below the two you just added:"
-msgstr ""
+msgstr "Agora escriba estas dúas liñas, embaixo das dúas que acaba de engadir:"
 
 #: C/image-viewer.js.page:239(p)
 msgid ""
@@ -2454,6 +2630,8 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"image-viewer/image-viewer.js\">reference code</link>."
 msgstr ""
+"Se ten problemas con este titorial, compare o seu código con este <link href="
+"\"image-viewer/image-viewer.js\">código de referencia</link>."
 
 #: C/image-viewer.js.page:315(title) C/image-viewer.py.page:229(title)
 #: C/image-viewer.cpp.page:217(title) C/image-viewer.c.page:225(title)
@@ -2468,6 +2646,7 @@ msgstr "Seguintes pasos"
 #: C/guitar-tuner.cpp.page:269(p) C/guitar-tuner.c.page:261(p)
 msgid "Here are some ideas for how you can extend this simple demonstration:"
 msgstr ""
+"Aquí hai algunhas ideas sobre como pode estender esta sinxela demostración:"
 
 #: C/image-viewer.js.page:319(p) C/image-viewer.py.page:233(p)
 #: C/image-viewer.cpp.page:221(p) C/image-viewer.c.page:229(p)
@@ -2482,6 +2661,8 @@ msgid ""
 "Apply random filters and effects to the image when it is loaded and allow "
 "the user to save the modified image."
 msgstr ""
+"Aplicar filtros aleatorios e efectos á imaxe cando se carga e permitir ao "
+"usuario gardar a imaxe modificada."
 
 #: C/image-viewer.js.page:323(p) C/image-viewer.py.page:237(p)
 #: C/image-viewer.cpp.page:225(p) C/image-viewer.c.page:233(p)
@@ -2489,6 +2670,8 @@ msgid ""
 "<link href=\"http://www.gegl.org/api.html\">GEGL</link> provides powerful "
 "image manipulation capabilities."
 msgstr ""
+"<link href=\"http://www.gegl.org/api.html\">GEGL</link> fornece capacidades "
+"moi potentes de manipulación de imaxes."
 
 #: C/image-viewer.js.page:326(p) C/image-viewer.py.page:240(p)
 #: C/image-viewer.cpp.page:228(p) C/image-viewer.c.page:236(p)
@@ -2496,6 +2679,8 @@ msgid ""
 "Allow the user to load images from network shares, scanners, and other more "
 "complicated sources."
 msgstr ""
+"Permitir ao usuario cargar imaxes desde recursos de rede compartidos, "
+"escáneres e outras fontes máis complicadas."
 
 #: C/image-viewer.js.page:327(p) C/image-viewer.py.page:241(p)
 #: C/image-viewer.cpp.page:229(p) C/image-viewer.c.page:237(p)
@@ -2511,6 +2696,8 @@ msgid ""
 "A little bit more than a simple \"Hello world\" application - write an image "
 "viewer in GTK."
 msgstr ""
+"Algo máis que un aplicativo sinxelo «Hola mundo» - escribir un visor de "
+"imaxes en GTK."
 
 #: C/image-viewer.py.page:28(p)
 msgid "Write a basic GTK user interface in Python"
@@ -2541,10 +2728,13 @@ msgid ""
 "<file>src/image_viewer.py</file> from the <gui>Project</gui> or <gui>File</"
 "gui> tabs. It contains very basic example code."
 msgstr ""
+"Prema <gui>Aplicar</gui> e crearase o proxecto. Abra <file>src/image_viewer."
+"py</file> desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. "
+"Contén un exemplo de código moi básico:"
 
 #: C/image-viewer.py.page:65(p)
 msgid "Let's see what a very basic Gtk application looks like in Python:"
-msgstr ""
+msgstr "Vexamos como é o máis básico dun aplicativo Gtk en Python:"
 
 #: C/image-viewer.py.page:95(p)
 msgid ""
@@ -2559,10 +2749,12 @@ msgid ""
 "Next, <code>destroy</code> is defined which just quits the application. It "
 "is called by the <code>destroy</code> signal connected above."
 msgstr ""
+"A continuación, <code>destroy</code> está definido só para saír do "
+"aplicativo. É chamado pola sinal <code>destroy</code> conectada enriba."
 
 #: C/image-viewer.py.page:104(p)
 msgid "The rest of the file does initialisation for Gtk and displays the GUI."
-msgstr ""
+msgstr "O resto do ficheiro inicializa Gtk e mostra o GUI."
 
 #: C/image-viewer.py.page:108(p)
 msgid ""
@@ -2689,11 +2881,11 @@ msgstr ""
 
 #: C/image-viewer.cpp.page:8(desc)
 msgid "A little bit more than a simple \"Hello world\" GTKmm application."
-msgstr ""
+msgstr "Un pouco máis que un simple aplicativo Gtkmm «Ola mundo»."
 
 #: C/image-viewer.cpp.page:26(p)
 msgid "Some basic concepts of C++/GObject programming"
-msgstr ""
+msgstr "Algúns conceptos básicos de programación de C++/GObject"
 
 #: C/image-viewer.cpp.page:27(p)
 msgid "How to write a Gtk application in C++"
@@ -2705,6 +2897,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>image-viewer</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>GTK+ (Simple)</gui> desde a lapela <gui>C++</gui>, prema "
+"<gui>Adiante</gui> e complete os detalles nas seguintes páxinas. Use "
+"<file>image-viewer</file> como nome do proxecto e cartafol."
 
 #: C/image-viewer.cpp.page:44(p)
 msgid ""
@@ -2713,6 +2908,10 @@ msgid ""
 "\"guitar-tuner.cpp\">Guitar-Tuner</link> tutorial if you want to learn how "
 "to use the interface builder."
 msgstr ""
+"Asegúrese que <gui>Usar GtkBuilder para a interface de usuario</gui> está "
+"desactivado xa que crearemos a UI manualmente neste titorial. Comprobe o "
+"titorial <link xref=\"guitar-tuner.cpp\">Guitar-Tuner</link> se quere "
+"aprender como usar o construtor de interface."
 
 #: C/image-viewer.cpp.page:49(p)
 msgid ""
@@ -2720,6 +2919,9 @@ msgid ""
 "<file>src/main.cc</file> from the <gui>Project</gui> or <gui>File</gui> "
 "tabs. You should see some code which starts with the lines:"
 msgstr ""
+"Prema <gui>Aplicar</gui> para crear o proxecto. Abra <file>src/main.cc</"
+"file> desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. Debería "
+"ver algún código que comeza coas liñas:"
 
 #: C/image-viewer.cpp.page:61(p)
 msgid ""
@@ -2740,6 +2942,8 @@ msgid ""
 "The <code>main</code> function creates a new (empty) window and sets the "
 "window title."
 msgstr ""
+"A función <code>main</code> crea unha xanela nova (e baleira) e estabelece o "
+"título da xanela."
 
 #: C/image-viewer.cpp.page:70(p)
 msgid ""
@@ -2755,6 +2959,9 @@ msgid ""
 "Press <gui>Execute</gui> on the next window that appears to configure a "
 "debug build. You only need to do this once, for the first build."
 msgstr ""
+"Prema <gui>Executar</gui> na seguinte xanela que aparece para configurar a "
+"compilación de depuración. Só precisa facer isto unha vez para a primeira "
+"compilación."
 
 #: C/image-viewer.cpp.page:81(title) C/image-viewer.c.page:82(title)
 msgid "Creating the user interface"
@@ -2893,12 +3100,17 @@ msgid ""
 "file> application in the dialog that appears. Finally, hit <gui>Run</gui> "
 "and enjoy!"
 msgstr ""
+"Se non o fixo aínda, seleccione o aplicativo <file>Debug/src/image-viewer</"
+"file> no diálogo que aparece. Finalmente, prema <gui>Executar</gui> e "
+"desfrute!"
 
 #: C/image-viewer.cpp.page:213(p)
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"image-viewer/image-viewer.cc\">reference code</link>."
 msgstr ""
+"Se ten problemas con este titorial, compare o seu código con este <link href="
+"\"image-viewer/image-viewer.cc\">código de referencia</link>."
 
 #: C/image-viewer.c.page:8(desc)
 msgid "A little bit more than a simple \"Hello world\" Gtk application."
@@ -2955,6 +3167,8 @@ msgid ""
 "The <code>create_window</code> function creates a new (empty) window and "
 "connects a signal to exit the application when that window is closed."
 msgstr ""
+"A función <code>create_window</code> crea unha xanela (baleira) nova e "
+"conecta un sinal para saír do aplicativo péchase esa xanela."
 
 #: C/image-viewer.c.page:67(p) C/guitar-tuner.vala.page:72(p)
 #: C/guitar-tuner.c.page:72(p)
@@ -3127,6 +3341,8 @@ msgid ""
 "Use Gtk+ and GStreamer to build a simple guitar tuner application for GNOME. "
 "Shows off how to use the interface designer."
 msgstr ""
+"Usar GTK+ y GStreamer para construír un sinxelo afinador de guitarra para "
+"GNOME. Mostra como usar o deseñador de interfaces."
 
 #: C/guitar-tuner.vala.page:21(title) C/guitar-tuner.py.page:21(title)
 #: C/guitar-tuner.cpp.page:21(title) C/guitar-tuner.c.page:21(title)
@@ -3167,6 +3383,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>GTK+ (Simple)</gui> desde a lapela <gui>Vala</gui>, prema "
+"<gui>Adiante</gui> e complete os detalles nas seguintes páxinas. Use "
+"<file>guitar-tunner</file> como nome do proxecto e cartafol."
 
 #: C/guitar-tuner.vala.page:50(p) C/guitar-tuner.c.page:50(p)
 msgid ""
@@ -3174,6 +3393,9 @@ msgid ""
 "next page, select <em>gstreamer-0.10</em> from the list to include the "
 "GStreamer library in your project."
 msgstr ""
+"Asegúrese que <gui>Configurar paquetes externos</gui> está seleccionada. Na "
+"seguinte páxina, seleccione <em>gstreamermm-0.10</em> da lista para incluír "
+"a biblioteca GStreamer no seu proxecto."
 
 #: C/guitar-tuner.vala.page:54(p)
 msgid ""
@@ -3181,6 +3403,9 @@ msgid ""
 "<file>src/guitar_tuner.vala</file> from the <gui>Project</gui> or <gui>File</"
 "gui> tabs. You should see some code which starts with the lines:"
 msgstr ""
+"Prema <gui>Aplicar</gui> e crearase o proxecto. Abra <file>src/guitar_tuner."
+"vala</file> desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. "
+"Debería ver algo de código que comece coas liñas:"
 
 #: C/guitar-tuner.vala.page:64(p)
 msgid ""
@@ -3269,6 +3494,9 @@ msgid ""
 "Repeat the above steps for the other buttons, adding the next 5 strings with "
 "the names <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em>."
 msgstr ""
+"Repita os pasos anteriores para o resto dos botóns, engadindo as 5 cordas "
+"restantes cos nomes <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em> e <em>e</"
+"em>."
 
 #: C/guitar-tuner.vala.page:109(p) C/guitar-tuner.py.page:108(p)
 #: C/guitar-tuner.c.page:112(p)
@@ -3276,6 +3504,8 @@ msgid ""
 "Save the UI design (by clicking <guiseq><gui>File</gui><gui>Save</gui></"
 "guiseq>) and keep it open."
 msgstr ""
+"Garde o deseño da IU (premendo <guiseq><gui>Ficheiro</gui><gui>Gardar</gui></"
+"guiseq>) e déixeo aberto."
 
 #: C/guitar-tuner.vala.page:115(title) C/guitar-tuner.c.page:118(title)
 msgid "Creating the signal handler"
@@ -3546,6 +3776,9 @@ msgid ""
 "<file>src/guitar_tuner.py</file> from the <gui>Project</gui> or <gui>File</"
 "gui> tabs. You should see some code which starts with the lines:"
 msgstr ""
+"Prema <gui>Aplicar</gui> e crearase o proxecto. Abra <file>src/guitar_tuner."
+"py</file> desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. "
+"Debería ver algo de código que comece coas liñas:"
 
 #: C/guitar-tuner.py.page:59(title)
 msgid "Run the code for the first time"
@@ -3758,12 +3991,16 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"guitar-tuner/guitar-tuner.py\">reference code</link>."
 msgstr ""
+"Se ten problemas ao executar este titorial compare o seu código con este "
+"<link href=\"guitar-tuner/guitar-tuner.py\">código de referencia</link>."
 
 #: C/guitar-tuner.cpp.page:8(desc)
 msgid ""
 "Use Gtkmm and GStreamermm to build a simple guitar tuner application for "
 "GNOME. Shows off how to use the interface designer."
 msgstr ""
+"Usar GTKmm y GStreamer para construír un sinxelo afinador de guitarra para "
+"GNOME. Mostra como usar o deseñador de interfaces."
 
 #: C/guitar-tuner.cpp.page:33(p)
 msgid "Basic knowledge of the C++ programming language"
@@ -3775,6 +4012,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>GTKmm (Simple)</gui> desde a lapela <gui>C++</gui>, prema "
+"<gui>Adiante</gui> e complete os detalles nas seguintes páxinas. Use "
+"<file>guitar-tunner</file> como nome do proxecto e cartafol."
 
 #: C/guitar-tuner.cpp.page:50(p)
 msgid ""
@@ -3789,6 +4029,9 @@ msgid ""
 "<file>src/main.cc</file> from the <gui>Project</gui> or <gui>File</gui> "
 "tabs. You should see some code which starts with the lines:"
 msgstr ""
+"Prema <gui>Rematar</gui> para crear o proxecto. Abra <file>src/main.cc</"
+"file> desde as lapelas <gui>Proxecto</gui> ou <gui>Ficheiro</gui>. Debería "
+"ver algún código que comeza coas liñas:"
 
 #: C/guitar-tuner.cpp.page:64(p)
 msgid ""
@@ -3984,6 +4227,8 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"guitar-tuner/guitar-tuner.cc\">reference code</link>."
 msgstr ""
+"Se ten problemas ao executar este titorial compare o seu código con este "
+"<link href=\"guitar-tuner/guitar-tuner.cc\">código de referencia</link>."
 
 #: C/guitar-tuner.cpp.page:260(title)
 msgid "Further Reading"
@@ -4008,6 +4253,9 @@ msgid ""
 "<gui>Forward</gui>, and fill out your details on the next few pages. Use "
 "<file>guitar-tuner</file> as project name and directory."
 msgstr ""
+"Seleccione <gui>GTK+ (Simple)</gui> desde a lapela <gui>C</gui>, prema "
+"<gui>Adiante</gui> e complete os detalles nas seguintes páxinas. Use "
+"<file>guitar-tunner</file> como nome do proxecto e cartafol."
 
 #: C/guitar-tuner.c.page:64(p)
 msgid ""
@@ -4051,6 +4299,8 @@ msgid ""
 "Insert the following line into <file>main.c</file>, just below the <code><!"
 "[CDATA[#include <gtk/gtk.h>]]></code> line:"
 msgstr ""
+"Inserte a seguinte lia en <file>main.c</file>, xusto a continuación da liña "
+"<code><![CDATA[#include <gtk/gtk.h>]]></code>:"
 
 #: C/guitar-tuner.c.page:148(p)
 msgid ""
@@ -4058,12 +4308,17 @@ msgid ""
 "initialize GStreamer; put the following code on the line above the "
 "<code>gtk_init</code> call in the <code>main</code> function:"
 msgstr ""
+"Isto inclúe a biblioteca GSTreamer. Tamén precisa unha liña para inicializar "
+"GStreamer; poña a seguinte liña de código antes da chamada <code>gtk_init</"
+"code> na función <code>main</code>:"
 
 #: C/guitar-tuner.c.page:150(p)
 msgid ""
 "Then, copy the following function into <file>main.c</file> above the empty "
 "<code>on_button_clicked</code> function:"
 msgstr ""
+"Despois, copie a seguinte función en <file>main.c</file> enriba da función "
+"<code>on_button_clicked</code> baleira:"
 
 #: C/guitar-tuner.c.page:177(p)
 msgid ""
@@ -4118,6 +4373,9 @@ msgid ""
 "<code>g_timeout_add</code>. Insert the following code <em>above</em> the "
 "<code>play_sound</code> function:"
 msgstr ""
+"Agora, escríbese o código da función <code>pipeline_stop</code>, chamada por "
+"<code>g_timeout_add</code>. Inserte o código seguinte <em>enriba</em> da "
+"función <code>play_sound</code>:"
 
 #: C/guitar-tuner.c.page:207(p)
 msgid ""
@@ -4125,6 +4383,9 @@ msgid ""
 "pipeline and <code>g_object_unref</code> unreferences the pipeline, "
 "destroying it and freeing its memory."
 msgstr ""
+"A chamada <code>gst_element_set_state</code> pausa a reprodución da tubería "
+"e <code>g_object_unref</code> desreferencia a tubería, destrúea e libera a "
+"súa memoria."
 
 #: C/guitar-tuner.c.page:212(p)
 msgid ""
@@ -4154,6 +4415,8 @@ msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"guitar-tuner/guitar-tuner.c\">reference code</link>."
 msgstr ""
+"Se ten problemas ao executar este titorial compare o seu código con este "
+"<link href=\"guitar-tuner/guitar-tuner.c\">código de referencia</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -4200,9 +4463,14 @@ msgid "Automatic installation"
 msgstr "Instalación automática"
 
 #: C/getting-ready.page:27(p)
+#, fuzzy
+#| msgid ""
+#| "On an up-to-date distribution you should be able to simply install the "
+#| "required packages by clicking on <link href=\"gnome-devtools.catalog"
+#| "\">Install now</link>."
 msgid ""
 "On an up-to-date distribution you should be able to simply install the "
-"required packages by clicking on <link href=\"gnome-devtools.catalog"
+"required packages by clicking on <link href=\"media/gnome-devtools.catalog"
 "\">Install now</link>."
 msgstr ""
 "Nunha distribución anovada debería poder instalar de forma sinxela os "
