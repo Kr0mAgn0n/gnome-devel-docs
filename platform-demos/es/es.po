@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Jorge González <jorgegonz@svn.gnome.org>, 2011.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Jorge González <jorgegonz@svn.gnome.org>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-06-05 11:43+0000\n"
-"PO-Revision-Date: 2011-06-07 13:51+0200\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-06-21 13:27+0000\n"
+"PO-Revision-Date: 2011-07-02 08:45+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -383,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
-"la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
+"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -1121,6 +1121,10 @@ msgid ""
 "we will only use the first argument, the <code>ClutterActor</code> that is "
 "actually clicked."
 msgstr ""
+"Líneas 1‒4: hay que asegurarse de que la función de retorno de llamada "
+"coincide con la firma requerida para la señal <code>button_clicked_event</"
+"code>. En este ejemplo, sólo se usará el primer argumento, el "
+"<code>ClutterActor</code> pulsado actualmente."
 
 #: C/photo-wall.c.page:322(p)
 msgid ""
@@ -1132,6 +1136,14 @@ msgid ""
 "can get the <code>x</code> and <code>y</code> values. See the Clutter "
 "documentation for other <code>ClutterEvent</code> types."
 msgstr ""
+"Unas pocas palabras sobre los argumentos que no se están usando en este "
+"ejemplo. El <code>ClutterEvent</code> es diferente dependiendo de qué evento "
+"se está manejando. Por ejemplo, un evento de clave produce un "
+"<code>ClutterKeyEvent</code> desde el que puede obtener la clave pulsada, "
+"entre otra información. Para eventos de pulsaciones del ratón, obtiene un "
+"<code>ClutterButtonEvent</code> con el que pueden obtener los valores "
+"<code>x</code> e <code>y</code>. Consulte la documentación de Clutter para "
+"obtener información sobre otros tipos de <code>ClutterEvent</code>."
 
 #: C/photo-wall.c.page:323(p)
 msgid ""
@@ -1151,6 +1163,10 @@ msgid ""
 "focus mode. We start out in wall mode so no image has focus. Thus, we set "
 "the flag to <code>FALSE</code> initially."
 msgstr ""
+"Línea 7: se establece un indicador estático para seguir el estado en el que "
+"se está: modo mural o modo de foco. Se inicia en modo mural, por lo que "
+"ninguna imagen tiene el foco. Por ello, el indicador se establece "
+"inicialmente a <code>FALSE</code>."
 
 #: C/photo-wall.c.page:328(p)
 msgid ""
@@ -1174,6 +1190,11 @@ msgid ""
 "properties from the current state(s) to the specified state(s). The "
 "arguments are as follows:"
 msgstr ""
+"Líneas 13‒19: llegar a este código significa que actualmente sólo una imagen "
+"tiene el foco, y se quiere volver al modo mural. La función "
+"<code>clutter_actor_animate</code> se usa para animar una o varias "
+"propiedades de un <code>ClutterActor</code> desde su estado actual al estado "
+"especificado. Los argumentos son como sigue:"
 
 #: C/photo-wall.c.page:331(p)
 msgid "The address of the <code>ClutterActor</code> to animate"
@@ -1201,6 +1222,9 @@ msgid ""
 "<code>x</code> value to the starting <code>x</code> value this "
 "<code>ClutterActor</code> was at before being brought into focus."
 msgstr ""
+"El resto de argumentos son parejas propiedad/valor. Aquí se quiere "
+"establecer el valor <code>x</code> al valor <code>x</code> inicial en el que "
+"estaba el <code>ClutterActor</code> antes de darle el foco."
 
 #: C/photo-wall.c.page:335(p)
 msgid ""
@@ -1241,6 +1265,9 @@ msgid ""
 "and are about to give a <code>ClutterActor</code> focus. Here we save the "
 "starting position so that we can return to it later."
 msgstr ""
+"Línea 24: llegar a esta línea de código significa que actualmente se está en "
+"el modo mural y se va a dar el foco a un <code>ClutterActor</code>. Aquí se "
+"guarda la posición inicial, por lo que se puede volver a ella más adelante."
 
 #: C/photo-wall.c.page:341(p)
 msgid ""
@@ -1251,12 +1278,21 @@ msgid ""
 "Clicking on the <code>ClutterActor</code> will return it to its starting "
 "position."
 msgstr ""
+"Línea 25: establecer la propiedad <code>reactive</code> del "
+"<code>ClutterActor</code> a <code>TRUE</code> hace que este "
+"<code>ClutterActor</code> reaccione a los eventos. En el estado «con foco», "
+"el único <code>ClutterActor</code> que se quiere que reciba eventos es el "
+"<code>ClutterActor</code> que se está viendo. Al pulsar sobre el "
+"<code>ClutterActor</code> volverá a su posición inicial."
 
 #: C/photo-wall.c.page:342(p)
 msgid ""
 "Lines 27‒33: This is similar to the above block of code. Notice that we are "
 "setting the the depth to raise it above the other images."
 msgstr ""
+"Líneas 27‒33: esto es similar al bloque de código anterior. Tenga en cuenta "
+"que se está estableciendo la profundidad para elevarlo por encima del resto "
+"de imágenes."
 
 #: C/photo-wall.c.page:343(p)
 msgid ""
@@ -1273,6 +1309,12 @@ msgid ""
 "stop events from being passed down, while <code>FALSE</code> will pass "
 "events down."
 msgstr ""
+"Como se ha mencionado anteriormente, los <code>ClutterActor</code> con "
+"valores de <code>depth</code> más altos recibirán eventos, pero pueden "
+"permitir que los <code>ClutterActor</code> que están por denajo de ellos "
+"también reciban eventos. Al devolver <code>TRUE</code> se dejarán de enviar "
+"eventos havia abajo, mientras que <code>FALSE</code> hará que los eventos "
+"pasen hacia abajo."
 
 #: C/photo-wall.c.page:346(p)
 msgid ""
@@ -1298,6 +1340,11 @@ msgid ""
 "that we've passed in the previous section. We want to cast these and store "
 "them for easy use."
 msgstr ""
+"Líneas 2‒5: la firma de esta función requiere dos <code>gpointer</code>. El "
+"primero es un puntero al <code>ClutterActor</code> contenido en la "
+"<code>GSList</code> y el otro es el indicador <code>is_focused</code> que se "
+"ha pasado en la sección anterior. Se quiere convertir su tipo («cast») y "
+"almacenarlos para que sea fácil usarlos."
 
 #: C/photo-wall.c.page:364(p)
 msgid ""
@@ -1325,6 +1372,15 @@ msgid ""
 "wall</file> directory. Make sure to put at least twelve images in the "
 "directory!"
 msgstr ""
+"Todo el código debería estar listo para ejecutarse. Todo lo que necesita son "
+"algunas imágenes para cargar. De manera predeterminada, las imágenes se "
+"cargan desde la carpeta <file>berlin_images</file>. Si quiere, puede cambiar "
+"la línea <code>#define IMAGE_DIR_PATH</code> del principio para que haga "
+"referencia a su carpeta de fotos, o crear una carpeta <file>berlin_images</"
+"file> pulsando en <guiseq><gui>Proyecto</gui><gui>Carpeta nueva...</gui></"
+"guiseq> y creando una carpeta <file>berlin_images</file> como subcarpeta de "
+"la carpeta <file>mural-fotos</file>. Asegúrese de poner al menos doce "
+"imágenes en la carpeta."
 
 #: C/photo-wall.c.page:372(p)
 msgid ""
@@ -1389,6 +1445,11 @@ msgid ""
 "widgets and how to connect callback functions to signals. See <link xref="
 "\"image-viewer.c\"/> to learn the basics of GTK+."
 msgstr ""
+"En este tutorial se asume que está familiarizado con el lenguaje de "
+"programación C y que tiene un conocimiento básico de GTK+, incluyendo cómo "
+"crear y colocar widgets y cómo conectar funciones de retorno de llamadas a "
+"señales. Consulte la <link xref=\"image-viewer.c\"/> para aprender las "
+"nociones básicas de GTK+."
 
 #: C/message-board.c.page:42(p)
 msgid ""
@@ -1397,6 +1458,10 @@ msgid ""
 "on the Internet, but also to create rich user interfaces that can be easily "
 "styled with CSS."
 msgstr ""
+"La plataforma GNOME incluye WebKitGTK+, construido sobre el potente marco de "
+"trabajo WebKit. WebKitGTK se usa en todo GNOME, no sólo para ver páginas web "
+"en Internet, sino también para crear interfaces de usuario enriquecidas a "
+"las que se pueden añadir estilos fácilmente con CSS."
 
 #: C/message-board.c.page:47(p)
 msgid ""
@@ -1405,6 +1470,10 @@ msgid ""
 "of messages in HTML. Before you begin, you need to set up a project in "
 "Anjuta."
 msgstr ""
+"En este tutorial, se creará un cuadro de mensajes sencillo usando WebKit. El "
+"cuadro de mensajes le permitirá introducir algún texto y añadirlo a una "
+"lista de mensajes en HTML. Antes de empezar, deberá configurar un proyecto "
+"en Anjuta."
 
 #: C/message-board.c.page:53(p)
 msgid ""
@@ -1446,6 +1515,10 @@ msgid ""
 "gui>. Click <gui>Forward</gui>. On the <gui>Configure external packages</"
 "gui> page, check <gui>webkitgtk-3.0</gui>."
 msgstr ""
+"Deberá indicar a Anjuta que va a usar WebKitGTK+ en este proyecto. En la "
+"página <gui>Opciones del proyecto</gui>, seleccione <gui>Configurar paquetes "
+"externos</gui>. Pulse <gui>Adelante</gui>. En la página <gui>Configurar "
+"paquetes externos</gui> seleccione <gui>webkitgtk-3.0</gui>."
 
 #: C/message-board.c.page:69(p)
 msgid ""
@@ -1456,6 +1529,12 @@ msgid ""
 "headers. After the line that includes <code>gtk/gtk.h</code>, add the "
 "following line:"
 msgstr ""
+"Cuando termine el asistente de creación de un nuevo proyecto, abra el "
+"archivo <file>src/main.c</file> desde la pestaña <gui>Proyecto</gui> o desde "
+"<gui>Archivo</gui>. Anjuta lo habrá rellenado con algo de código GTK+ básico "
+"de sus plantillas. Ya que está creando un proyecto WebKit, primero debe "
+"incluir las cabeceras de WebKit. Después de la línea que incluye <code>gtk/"
+"gtk.h</code>, añada la siguiente línea:"
 
 #: C/message-board.c.page:76(code)
 #, no-wrap
@@ -1470,6 +1549,11 @@ msgid ""
 "you will be asked for some configure options. Just accept the defaults and "
 "click <gui>Execute</gui>."
 msgstr ""
+"Verifique que todo funciona construyendo lo que tiene hasta ahora. Pulse "
+"<guiseq><gui>Construir</gui><gui>Construir proyecto</gui></guiseq> o "
+"simplemente pulse <keyseq><key>Mayús</key><key>F7</key></keyseq>. La primera "
+"vez que construya, se le pedirán algunas opciones de configuración. "
+"Simplemente acepte los valores predeterminados y pulse <gui>Ejecutar</gui>."
 
 #: C/message-board.c.page:84(p)
 msgid ""
@@ -1483,7 +1567,7 @@ msgstr ""
 
 #: C/message-board.c.page:90(title)
 msgid "Lay out your window and web view"
-msgstr ""
+msgstr "La disposición de la ventana y la vista web"
 
 #: C/message-board.c.page:92(p)
 msgid ""
@@ -1492,6 +1576,10 @@ msgid ""
 "into a window. Find the function <code>create_window</code> and replace it "
 "with the following:"
 msgstr ""
+"Ahora que puede mostrar una ventana, es el momento de empezar a trabajar con "
+"WebKit. Para este tutorial, se creará una entrada de texto y una vista web y "
+"ambas se empaquetarán en una ventana. Busque la función <code>create_window</"
+"code> y reemplácela con lo siguiente"
 
 #: C/message-board.c.page:132(p)
 msgid ""
@@ -1501,6 +1589,11 @@ msgid ""
 "is emitted when the window is closed. The <code>gtk_main_quit</code> "
 "function is part of GTK, and it quits the application."
 msgstr ""
+"Primero cree un objeto <code>GtkWindow</code> y establezca su título y su "
+"tamaño predeterminado. También puede conectar la función "
+"<code>gtk_main_quit</code> a la señal <code>delete-event</code>. La señal "
+"<code>delete-event</code> se emite cuando se cierra la ventana. La función "
+"<code>gtk_main_quit</code> es parte de GTK+, y sale de la aplicación."
 
 #: C/message-board.c.page:138(p)
 msgid ""
@@ -1510,6 +1603,11 @@ msgid ""
 "padding (in pixels) between each child, and the next line puts a six-pixel "
 "border around the entire thing."
 msgstr ""
+"Ahora cree una caja vertical y añádala a la ventana. Una ventana sólo puede "
+"contener un widget hijo, por lo que necesitará una caja para añadir varios "
+"widgets. El segundo argumento de <code>gtk_box_new</code> configura la "
+"cantidad de espacio (en píxeles) entre cada hijo, y la siguiente línea añade "
+"un borde de seis píxeles alrededor de la cosa completa."
 
 #: C/message-board.c.page:144(p)
 msgid ""
@@ -1608,6 +1706,13 @@ msgid ""
 "to call <code>gtk_widget_show_all</code>, such as when you want to "
 "dynamically hide and show some widgets in response to events."
 msgstr ""
+"Cada vez que añade un widget, debe llamar a la función "
+"<code>gtk_widget_show</code> sobre él para hacerlo visible. Si llama a "
+"<code>gtk_widget_show</code> en un contenedor de widgets como <code>GtkBox</"
+"code>, GTK+ mostrará automáticamente todos los widgets del contenedor, en "
+"cualquier nivel. Algunas veces no se quiere llamar a la función "
+"<code>gtk_widget_show_all</code>, como cuando se quieren ocultar o mostrar "
+"dinámicamente algunos objetos en respuesta a determinados eventos."
 
 #: C/message-board.c.page:201(p)
 msgid ""
@@ -1615,6 +1720,10 @@ msgid ""
 "Otherwise, none of the widgets you created will be visible. (The window is "
 "shown in the <code>main</code> function with <code>gtk_widget_show</code>.)"
 msgstr ""
+"Finalmente, debe llamar a la función <code>gtk_widget_show_all</code> sobre "
+"la caja. De otro modo, ninguno de los widgets que haya creado será visible. "
+"(La ventana se muestra en la función <code>main</code> con "
+"<code>gtk_widget_show</code>.)"
 
 #: C/message-board.c.page:205(p)
 msgid ""
@@ -1748,6 +1857,8 @@ msgid ""
 "Also, make sure to add variable declarations for <code>tmp</code> and "
 "<code>css</code> to the top of <code>create_window</code>."
 msgstr ""
+"Asegúrese de añadir declaraciones de variables para <code>tmp</code> y "
+"<code>css</code> a la parte superior de <code>create_window</code>."
 
 #: C/message-board.c.page:339(code)
 #, no-wrap
@@ -1796,6 +1907,10 @@ msgid ""
 "create a real application, you probably want to do a little bit more. Try "
 "adding features on your own. Here are a few ideas:"
 msgstr ""
+"Este tutorial le ha mostrado cómo crear una aplicación sencilla usando GTK+ "
+"y WebKit, incluyendo cómo mostrar un documento y manipular su contenido. "
+"Para crear una aplicación real, probablemente quiera hacer algo más. Pruebe "
+"a añadir características usted mismo. Aquí hay algunas ideas:"
 
 #: C/message-board.c.page:371(p)
 msgid ""
@@ -1811,6 +1926,9 @@ msgid ""
 "Try saving the HTML contents after each post, and loading the saved file (if "
 "it exists) on startup."
 msgstr ""
+"Ahora mismo, todos los mensajes se pierden al cerras el cuadro de mensajes. "
+"Pruebe a guardar el contenido HTML después de cada envío, y a cargar el "
+"archivo guardado (si existe) al inicio."
 
 #: C/message-board.c.page:381(p)
 msgid "Link to method to get HTML from DOM and to GIO APIs."
@@ -1978,6 +2096,8 @@ msgid ""
 "The two <code>using</code> lines import namespaces so we don't have to name "
 "them explicitly."
 msgstr ""
+"Las dos líneas <code>using</code> importan espacios de nombres, por lo que "
+"no hay que nombrarlas explícitamente."
 
 #: C/magic-mirror.vala.page:77(p)
 msgid ""
@@ -1985,6 +2105,10 @@ msgid ""
 "its title. Afterwards the window is shown and a signal is connected which "
 "quits the application if the window is closed. More on signals later on."
 msgstr ""
+"El constructor de la clase <code>Main</code> crea una ventana nueva y "
+"establece su título. Después se muestra la ventana y se conecta una señal "
+"que cierra la aplicación si se cierra la ventana. Se verán más señales más "
+"adelante."
 
 #: C/magic-mirror.vala.page:81(p)
 msgid ""
@@ -1994,6 +2118,12 @@ msgid ""
 "the GTK main loop, which runs the user interface and starts listening for "
 "events (like clicks and key presses)."
 msgstr ""
+"La función estática <code>main</code> se ejecuta de manera predeterminada "
+"cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
+"la clase «Main», la configuran y ejecutan la aplicación. La función "
+"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
+"interfaz de usuario y empieza a escuchar eventos (como pulsaciones y eventos "
+"de teclas)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.cpp.page:76(p)
 #: C/image-viewer.c.page:77(p) C/guitar-tuner.vala.page:79(p)
@@ -2003,6 +2133,9 @@ msgid ""
 "<guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press "
 "<keyseq><key>Shift</key><key>F7</key></keyseq>)."
 msgstr ""
+"Este código está listo para usarse, por lo que puede compilarlo pulsando "
+"<guiseq><gui>Construir</gui><gui>Construir proyecto</gui></guiseq> (o "
+"pulsando <keyseq><key>Mayús</key><key>F7</key></keyseq>)."
 
 #: C/magic-mirror.vala.page:86(p) C/guitar-tuner.vala.page:80(p)
 msgid ""
