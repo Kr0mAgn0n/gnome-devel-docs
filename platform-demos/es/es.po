@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-06-21 13:27+0000\n"
-"PO-Revision-Date: 2011-07-02 08:45+0200\n"
+"POT-Creation-Date: 2011-07-02 06:47+0000\n"
+"PO-Revision-Date: 2011-07-07 07:12+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1618,6 +1618,12 @@ msgid ""
 "case, you set the padding to zero, because you're allowing the box to handle "
 "all the padding."
 msgstr ""
+"Después, cree un objeto <code>GtkEntry</code> y empaquételo en una caja. Los "
+"argumentos tercero y cuarto de <code>gtk_box_pack_start</code> especifican "
+"que la entrada no debería coger ningún espacio adicional que tenga la caja. "
+"El cuarto es la cantidad de relleno que quiere alrededor de la entrada. En "
+"este caso, se establece el relleno a cero, ya que se está permitiendo que la "
+"caja maneje todo el relleno."
 
 #: C/message-board.c.page:151(p)
 msgid ""
@@ -1628,6 +1634,13 @@ msgid ""
 "<code>gtk_box_pack_start</code> to allow the scrolled window (and thus, the "
 "web view) to use any extra space available in the box."
 msgstr ""
+"Antes de añadir la vista web debe crear una ventana desplazada para ponerla "
+"dentro. La ventana desplazada contendrá barras de desplazamiento a la "
+"derecha y abajo cuando sea necesario, y evitará que la vista web abarque la "
+"pantalla entera. En este momento, se pasa <code>TRUE</code> y <code>TRUE</"
+"code> a <code>gtk_box_pack_start</code> para permitir que la ventana "
+"desplazada (y por lo tanto, la vista web) usen el espacio adicional "
+"disponible en la caja."
 
 #: C/message-board.c.page:158(p)
 msgid ""
@@ -1635,6 +1648,10 @@ msgid ""
 "window. Then load a very basic HTML page into the web view by calling "
 "<code>webkit_web_view_load_string</code> with the following arguments:"
 msgstr ""
+"Finalmente, cree una <code>WebKitWebView</code> y añádala a la ventana "
+"desplazada. Entonces cargue una página HTML muy simple en la vista web "
+"llamando a <code>webkit_web_view_load_string</code> con los siguientes "
+"argumentos:"
 
 #: C/message-board.c.page:164(code)
 #, no-wrap
@@ -1647,6 +1664,9 @@ msgid ""
 "code>, you have to use <code>WEBKIT_WEB_VIEW</code> to safely cast the "
 "object."
 msgstr ""
+"La vista en sí. Ya que <code>view</code> es de tipo <code>GtkWidget*</code>, "
+"debe usar <code>WEBKIT_WEB_VIEW</code> para convertir el tipo del objeto con "
+"seguridad."
 
 #: C/message-board.c.page:170(code)
 #, no-wrap
@@ -1696,6 +1716,9 @@ msgid ""
 "to provide a <sys>file:</sys> URI if you add images or other features where "
 "you want to use relative URI references."
 msgstr ""
+"El URI base. En este ejemplo no se necesita, pero puede querer proporcionar "
+"un URI <sys>file:</sys> si añade imágenes u otras características cuando "
+"quiera usar referencias a URI relativos."
 
 #: C/message-board.c.page:193(p)
 msgid ""
@@ -1731,6 +1754,9 @@ msgid ""
 "entry and a web view. It doesn't do anything yet because the text entry and "
 "the web view don't know anything about each other."
 msgstr ""
+"Construya y ejecute el cuadro de mensajes de nuevo. Debería ver una ventana "
+"con una entrada de texto y una vista web. Todavía no hace nada porque la "
+"entrada de texto y la vista web no saben nada la una acerca de la otra."
 
 #: C/message-board.c.page:211(title)
 msgid "Hook up signals"
@@ -1751,6 +1777,8 @@ msgid ""
 "You then have to actually define <code>entry_activate_cb</code>. Define it "
 "as follows, anywhere above <code>create_window</code>:"
 msgstr ""
+"Entonces se debe definir <code>entry_activate_cb</code>. Defínalo como "
+"quiera, en cualquier lugar por encima de <code>create_window</code>:"
 
 #: C/message-board.c.page:247(p)
 msgid ""
@@ -1774,7 +1802,7 @@ msgstr ""
 #: C/message-board.c.page:324(cite) C/message-board.c.page:381(cite)
 #: C/message-board.c.page:389(cite)
 msgid "shaunm"
-msgstr "shaunm"
+msgstr ""
 
 #: C/message-board.c.page:261(p)
 msgid "FIXME: Is this true? Does query_selector take CSS, CSSish, or what?"
@@ -2156,6 +2184,9 @@ msgid ""
 "The GStreamer multimedia framework is able to handle video from webcams. "
 "Let's add GStreamer to our application and so we can access the video stream."
 msgstr ""
+"El entorno multimedia de trabajo GStreamer es capaz de manejar vídeo desde "
+"cámaras web. Añada GStreamer a su aplicación y podrá acceder al flujo de "
+"vídeo."
 
 #: C/magic-mirror.vala.page:118(p)
 msgid ""
@@ -2187,6 +2218,8 @@ msgid ""
 "Compile and run it again. You will end up with two windows. In the next step "
 "we will integrate the video into the GTK+ window."
 msgstr ""
+"Compile y ejecute de nuevo. Acabará teniendo dos ventanas. En el siguiente "
+"paso, se integrará el vídeo en una ventana de GTK+."
 
 #: C/magic-mirror.vala.page:143(p)
 msgid ""
@@ -2197,6 +2230,12 @@ msgid ""
 "Window which involves some advanced techniques, and adds buttons to start/"
 "stop the picture."
 msgstr ""
+"Si tiene problemas con este tutorial, compare su código con este <link href="
+"\"magic-mirror/magic-mirror.vala\">código de referencia</link>. También hay "
+"una <link href=\"magic-mirror/magic-mirror-advanced.vala\">implemnetación "
+"más amplia</link> que empotra la ventana en una ventana GTK regular que "
+"implica algunas técnicas avanzadas, y añade botones para iniciar/parar la "
+"imagen."
 
 #: C/magic-mirror.vala.page:149(title) C/guitar-tuner.vala.page:248(title)
 msgid "Further reading"
@@ -2259,6 +2298,8 @@ msgid ""
 "In this tutorial, we're going to write a very simple GTK application that "
 "loads and displays an image file. You will learn how to:"
 msgstr ""
+"En este tutorial se va a escribir una aplicación GTK+ muy sencilla que carga "
+"un archivo e imagen y lo muestra. Aprenderá a:"
 
 #: C/image-viewer.js.page:28(p)
 msgid "Write a basic GTK user interface in JavaScript"
@@ -2270,7 +2311,7 @@ msgstr "Trabajar con eventos conectando señales a manejadores de señales"
 
 #: C/image-viewer.js.page:30(p) C/image-viewer.py.page:30(p)
 msgid "Lay out GTK user interfaces using containers"
-msgstr ""
+msgstr "La disposición de las interfaces de usuario usando contenedores"
 
 #: C/image-viewer.js.page:31(p) C/image-viewer.py.page:31(p)
 msgid "Load and display image files"
@@ -2307,7 +2348,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:61(title)
 msgid "JavaScript basics: Hello World"
-msgstr ""
+msgstr "JavaScript básico: hola mundo"
 
 #: C/image-viewer.js.page:62(p)
 msgid ""
@@ -2439,7 +2480,7 @@ msgstr ""
 
 #: C/image-viewer.js.page:136(p) C/image-viewer.py.page:89(p)
 msgid "Let's take a look at what's happening:"
-msgstr ""
+msgstr "Eche un vistazo a lo que está pasando:"
 
 #: C/image-viewer.js.page:139(p) C/image-viewer.py.page:92(p)
 msgid ""
@@ -2521,6 +2562,8 @@ msgid ""
 "This code is modular and can be split into multiple files easily. This makes "
 "it cleaner and easier to read."
 msgstr ""
+"El código es modular y se puede dividir el varios archivos fácilmente. Esto "
+"hace que sea más limpio y fácil de leer."
 
 #: C/image-viewer.js.page:180(title) C/image-viewer.py.page:113(title)
 msgid "Signals"
@@ -2551,13 +2594,16 @@ msgstr ""
 
 #: C/image-viewer.js.page:189(p)
 msgid "The syntax for connecting any signal to a function is:"
-msgstr ""
+msgstr "La sintaxis para conectar cualquier señal a una función es:"
 
 #: C/image-viewer.js.page:192(p)
 msgid ""
 "You can find signal definitions for any object in the <link href=\"http://"
 "library.gnome.org/devel/gtk/stable/ch01.html\">GTK class reference</link>."
 msgstr ""
+"Puede encontrar definiciones de señales para cualquier objeto en la <link "
+"href=\"http://library.gnome.org/devel/gtk/stable/ch01.html\">referencia de "
+"clases de GTK+</link>."
 
 #: C/image-viewer.js.page:195(p)
 msgid ""
@@ -2641,6 +2687,9 @@ msgid ""
 "integrated in <app>Anjuta</app> which makes UI design really easy. For this "
 "simple example, however, we will code everything manually."
 msgstr ""
+"Hay un diseñador de interfaces gráficas llamado <app>Glade</app> integrado "
+"en <app>Anjuta</app> que hace que el diseño de IU sea realmente fácil. Sin "
+"embargo, para este ejemplo, se va a codificar todo manualmente."
 
 #: C/image-viewer.js.page:217(p)
 msgid ""
@@ -2648,6 +2697,9 @@ msgid ""
 "the <code>_init</code> method, immediately above the <code>this.window.show</"
 "code> line:"
 msgstr ""
+"Añada la caja y los widgets a la ventana. Inserte el siguiente código en el "
+"método <code>_init</code>, justo debajo de la línea <code>this.window.show</"
+"code>:"
 
 #: C/image-viewer.js.page:221(p)
 msgid ""
@@ -2686,6 +2738,12 @@ msgid ""
 "stable/GtkBox.html#gtk-box-pack-start\"><code>pack_start</code></link> "
 "method."
 msgstr ""
+"La primera línea crea una <code>Gtk.Image</code> nueva llamada <code>image</"
+"code>, que se usará para mostrar un archivo de imagen. Entonces, se añade el "
+"widget de imagen (<em>packed</em>) al contenedor <code>main_box</code> "
+"usando el método <link href=\"http://library.gnome.org/devel/gtk/stable/"
+"GtkBox.html#gtk-box-pack-start\"><code>pack_start</code></link> de <code>Gtk."
+"Box</code>."
 
 #: C/image-viewer.js.page:232(p)
 msgid ""
@@ -2736,6 +2794,8 @@ msgstr ""
 msgid ""
 "Finally, we must change the <code>this.window.show ();</code> line to read:"
 msgstr ""
+"Por último, se debe cambiar la línea <code>this.window.show ();</code> para "
+"leer:"
 
 #: C/image-viewer.js.page:241(code)
 #, no-wrap
@@ -2789,7 +2849,7 @@ msgstr "const Lang = imports.lang;"
 
 #: C/image-viewer.js.page:256(title) C/image-viewer.py.page:174(title)
 msgid "Loading the image: Writing the signal's callback"
-msgstr ""
+msgstr "Cargar la imagen: escribir la llamada de retorno de la señal"
 
 #: C/image-viewer.js.page:257(p)
 msgid ""
@@ -2873,6 +2933,8 @@ msgid ""
 "In the final line of this method, we destroy the <gui>Open</gui> dialog "
 "because we don't need it any more."
 msgstr ""
+"En la última línea de este método se destruye el diálogo <gui>Abrir</gui> "
+"porque ya no se necesita."
 
 #: C/image-viewer.js.page:306(p)
 msgid ""
@@ -2910,6 +2972,8 @@ msgid ""
 "Have the user select a directory rather than a file, and provide controls to "
 "cycle through all of the images in a directory."
 msgstr ""
+"Haga que el usuario selecciona una carpeta en vez de un archivo, y "
+"proporcione controles para moverse por todas las imágenes de una carpeta."
 
 #: C/image-viewer.js.page:322(p) C/image-viewer.py.page:236(p)
 #: C/image-viewer.cpp.page:224(p) C/image-viewer.c.page:232(p)
@@ -3029,6 +3093,9 @@ msgid ""
 "the <code>__init__</code> method, immediately after the <code>window."
 "connect_after</code> line:"
 msgstr ""
+"Añada la caja y los widgets a la ventana. Inserte el siguiente código en el "
+"método <code>__init__</code>, justo debajo de la línea <code>window."
+"connect_after</code>:"
 
 #: C/image-viewer.py.page:139(p)
 msgid ""
@@ -3561,6 +3628,9 @@ msgid ""
 "In the final line of this method, we destroy the <gui>Open</gui> dialog "
 "because we don't need it any more. Destroying automatically hides the dialog."
 msgstr ""
+"Al final de la línea de este método, se destruye el diálogo <gui>Abrir</gui> "
+"porque ya no se necesita más. El diálogo se oculta automáticamente al "
+"destruirlo."
 
 #: C/image-viewer.c.page:221(p)
 msgid ""
