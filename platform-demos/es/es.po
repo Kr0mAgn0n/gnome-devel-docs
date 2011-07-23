@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-07-07 05:37+0000\n"
-"PO-Revision-Date: 2011-07-13 20:12+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-07-13 18:13+0000\n"
+"PO-Revision-Date: 2011-07-19 13:35+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -383,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -1771,6 +1771,13 @@ msgid ""
 "the entry. Add the following into <code>create_window</code>, anywhere after "
 "both <code>entry</code> and <code>view</code> have been defined:"
 msgstr ""
+"Ahora se quiere hacer que el cuadro <em>haga</em> algo cuando se introduce "
+"texto en la entrada de texto. Para hacer esto, conecte una función de "
+"llamada a la señal <code>activate</code> de <code>entry</code>. GTK+ emite "
+"la señal <code>activate</code> cuando el usuario pulsa <key>Intro</key> en "
+"la entrada. Añada lo siguiente en <code>create_window</code>, en cualquier "
+"lugar después de que <code>entry</code> y <code>view</code> se hayan "
+"definido:"
 
 #: C/message-board.c.page:224(p)
 msgid ""
@@ -1788,6 +1795,11 @@ msgid ""
 "and work very similarly to the DOM APIs you might already know from "
 "JavaScript."
 msgstr ""
+"Lo primero que hacer es obtener un objeto <code>WebKitDOMDocument</code> que "
+"representa el documento HTML mostrado en la <code>view</code>. Las clases "
+"DOM y los métodos de WebKit le permiten inspeccionar y manipular el "
+"documento HTML, y trabajar de manera similar a las API DOM que ya debería "
+"conocer de JavaScript."
 
 #: C/message-board.c.page:253(p)
 msgid ""
@@ -1797,6 +1809,11 @@ msgid ""
 "element in the document using CSS selectors. This keeps you from having to "
 "write tedious loops to traverse the document."
 msgstr ""
+"Una vez que tenga el documento, querrá obtener el elemento <code>body</code> "
+"para poder añadirle elementos <code>div</code>. La función "
+"<code>webkit_dom_document_query_selector</code> le permite encontrar un "
+"elemento en el documento usando selectores CSS. Esto le evita tener que "
+"escribir bucles tediosos para recorrer el documento."
 
 #: C/message-board.c.page:260(cite) C/message-board.c.page:272(cite)
 #: C/message-board.c.page:324(cite) C/message-board.c.page:381(cite)
@@ -1817,6 +1834,13 @@ msgid ""
 "the text entry. Because <code>gtk_entry_get_text</code> returns a "
 "<code>const gchar*</code>, you don't have to free the result."
 msgstr ""
+"Ahora, cree un elemento <code>div</code> que contenga el mensaje. Cada "
+"elemento que cree se debe adjuntar se debe adjuntar a un documento, por lo "
+"que la función para crear un elemento toma el <code>WebKitDOMDocument</code> "
+"como primer argumento. Debe entonces establecer el contenido del elemento "
+"con el contenido de la entrada de texto. Dado que <code>gtk_entry_get_text</"
+"code> devuelve un <code>const gchar*</code>, no tiene que liberar el "
+"resultado."
 
 #: C/message-board.c.page:273(p)
 msgid ""
@@ -1830,6 +1854,9 @@ msgid ""
 "out the text entry so you can type something new. Build and run the program "
 "again and test it for yourself."
 msgstr ""
+"Finalmente, añada el nuevo elemento <code>div</code> al cuerpo y limpie la "
+"salida de texto para poder escribir algo nuevo. Construya y ejecute el "
+"programa otra vez y pruébelo por su cuenta."
 
 #: C/message-board.c.page:284(title)
 msgid "Make it look better with CSS"
@@ -1844,6 +1871,12 @@ msgid ""
 "<code>style</code> attribute of the <code>div</code> elements. You could "
 "even programmatically construct it using the DOM APIs."
 msgstr ""
+"En este punto, su programa es completamente funcional, pero no es muy "
+"atractivo. Puede añadir estilos a la visualización de los mensajes con CSS, "
+"igual que puede hacer con una página web. Hay muchas maneras de incluir un "
+"CSS en la página: puede añadirlo al documento HTML inicial, añadirlo en "
+"línea usando el atributo <code>style</code> de los elementos <code>div</"
+"code> o puede incluso construirlo con programación usando las API DOM."
 
 #: C/message-board.c.page:293(p)
 msgid ""
@@ -1910,6 +1943,13 @@ msgid ""
 "sys> URI scheme doesn't specify where to find a file to load. Rather, it "
 "gives the entire contents of the file."
 msgstr ""
+"Un URI de datos empieza por <sys>data:</sys> y cierta información sobre el "
+"tipo de contenido y cómo se codifican los datos. Los datos reales siguen "
+"después de una coma, en este caso, codificados en Base64. A diferencia de "
+"otros esquemas de URI como <sys>http:</sys>, <sys>ftp:</sys>, y <sys>file:</"
+"sys>, the <sys>data:</sys>, el esquema del URI no especifica dónde encontrar "
+"un archivo que cargar. En vez de eso, ofrece el contenido completo del "
+"archivo."
 
 #: C/message-board.c.page:350(p)
 msgid ""
@@ -1927,6 +1967,9 @@ msgid ""
 "the end of the last section, except the messages will be nicely styled with "
 "a border and a subtle background gradient."
 msgstr ""
+"Construya y ejecute el programa de nuevo. Debería funcionar exactamente "
+"igual que al final de la última sección, excepto que los mensajes tendrán "
+"estilos con un borde y un degradado de fondo sutil."
 
 #: C/message-board.c.page:363(title)
 msgid "Learn more"
@@ -1951,6 +1994,10 @@ msgid ""
 "There is a wealth of CSS tutorials on the Internet, and just about "
 "everything you can do on the web, you can do in this application."
 msgstr ""
+"Si se siente cómo usando CSS, pruebe a cambiar el estilo de la visualización "
+"del mensaje. Es fácil iniciarse en CSS, pero cada vez es más potente. Hay "
+"una gran cantidad de tutoriales de CSS en Internet, y casi todo lo que se "
+"puede hacer en una página web, se puede hacer en esta aplicación."
 
 #: C/message-board.c.page:377(p)
 msgid ""
@@ -1973,6 +2020,10 @@ msgid ""
 "You'll probably want to create some additional child <code>div</code> "
 "elements with different classes that you can style in the CSS."
 msgstr ""
+"Si guarda sus mensajes durante mucho tiempo, empezará a preguntarse dónde "
+"los escribió. Añada una marca de tiempo a cada mensaje cuando se envía. "
+"Probablemente quiera crear algún elemento <code>div</code> hijo adicional "
+"con diferentes clases que puede modelar en el CSS."
 
 #: C/message-board.c.page:389(p)
 msgid "Link to strftime or something"
@@ -2152,10 +2203,9 @@ msgid ""
 msgstr ""
 "La función estática <code>main</code> se ejecuta de manera predeterminada "
 "cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
-"la clase «Main», la configuran y ejecutan la aplicación. La función "
-"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
-"interfaz de usuario y empieza a escuchar eventos (como pulsaciones y eventos "
-"de teclas)."
+"la clase «Main», la configuran y ejecutan la aplicación. La función <code>Gtk."
+"Main</code> inicia el bucle principal de GTK+, que ejecuta la interfaz de "
+"usuario y empieza a escuchar eventos (como pulsaciones y eventos de teclas)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.cpp.page:76(p)
 #: C/image-viewer.c.page:77(p) C/guitar-tuner.vala.page:79(p)
@@ -2276,6 +2326,11 @@ msgid ""
 "workplace, where you can impress your friends and colleagues with an awesome "
 "application you just made in 15 minutes."
 msgstr ""
+"Ya está, ha conseguido crear una aplicación de cámara web con todas las "
+"funciones de fotos en 15 minutos. Ahora puede afeitarse la barba o maquillar "
+"su bonita cara justo antes de tener un gran día en su trabajo, donde puede "
+"impresionar a sus amigos y colegas con una impresionante aplicación que ha "
+"hecho en 15 minutos."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2370,6 +2425,10 @@ msgid ""
 "programming language should be the Hello World program which can already be "
 "found in <file>main.js</file>:"
 msgstr ""
+"Antes de empezar a escribir el visor de imágenes, averigüe algo más sobre "
+"cómo se usa JavaScript en GNOME. Por supuesto que su primer contacto con un "
+"lenguaje de programación debe ser el programa «Hola mundo», que se puede "
+"encontrar en el archivo <file>main.js</file>:"
 
 #: C/image-viewer.js.page:63(code)
 #, no-wrap
@@ -2785,6 +2844,9 @@ msgid ""
 "run the program now you will see no changes at all (the <code>Gtk.Box</code> "
 "is a transparent container, so you can't see that it's there)."
 msgstr ""
+"De momento, la ventana sólo contiene una <code>Gtk.Box</code> vacía, y si "
+"ejecuta el programa ahora no verá ningún cambio (la <code>Gtk.Box</code> es "
+"un contenedor transparente, por lo que no puede que está ahí)."
 
 #: C/image-viewer.js.page:226(title) C/image-viewer.py.page:144(title)
 msgid "Packing: Adding widgets to the container"
@@ -2893,6 +2955,9 @@ msgid ""
 "so that the user can choose a picture. Once chosen, the picture should be "
 "loaded and shown in the image widget."
 msgstr ""
+"Cuando el usuario pulse en el botón <gui>Abrir</gui>, debe aparecer un "
+"diálogo en el que el usuario pueda elegir una imagen. una vez elegida, la "
+"imagen se debe cargar y mostrar en el widget de imagen."
 
 #: C/image-viewer.js.page:248(p)
 msgid ""
@@ -2933,7 +2998,7 @@ msgid ""
 msgstr ""
 "Ahora se puede crear el método <code>_openClicked()</code>. Inserte el "
 "siguiente código en el bloque de código de <code>ImageViewer.prototype</"
-"code>, después del método <code>_init</code (y no olvide la coma):"
+"code>, después del método <code>_init</code> (y no olvide la coma):"
 
 #: C/image-viewer.js.page:277(p) C/image-viewer.py.page:191(p)
 #: C/image-viewer.cpp.page:172(p) C/image-viewer.c.page:184(p)
@@ -2941,6 +3006,8 @@ msgid ""
 "This is a bit more complicated than anything we've attempted so far, so "
 "let's break it down:"
 msgstr ""
+"Esto es un poco más complicado que todo lo que se ha intentado hasta ahora, "
+"así que se puede desglosar:"
 
 #: C/image-viewer.js.page:280(p)
 msgid ""
@@ -2961,6 +3028,10 @@ msgid ""
 "(integer) value that is returned when the button is pressed: 0 for "
 "<gui>Cancel</gui> and 1 for <gui>Open</gui>."
 msgstr ""
+"Las dos siguientes líneas añaden los botones <gui>Cancelar</gui> y "
+"<gui>Abrir</gui> al diálogo. el segundo argumento del método "
+"<code>add_button</code> es el valor (entero) que se devuelve cuando se pulsa "
+"el botón: 0 para <gui>Cancelar</gui> y 1 para <gui>Abrir</gui>."
 
 #: C/image-viewer.js.page:284(p) C/image-viewer.py.page:198(p)
 #: C/image-viewer.cpp.page:182(p) C/image-viewer.c.page:196(p)
@@ -2978,6 +3049,9 @@ msgid ""
 "our case, we are using the <gui>Open</gui> button as default (which has the "
 "value 1)."
 msgstr ""
+"<code>set_default_response</code> determina qué botón se activará si el "
+"usuario hace una doble pulsación o presiona <key>Intro</key>. En este caso, "
+"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor «1»)."
 
 #: C/image-viewer.js.page:290(p) C/image-viewer.py.page:204(p)
 msgid ""
@@ -2996,6 +3070,11 @@ msgid ""
 "output> if the user clicked <gui>Cancel</gui>). The <code>if</code> "
 "statement tests for this."
 msgstr ""
+"<code>chooser.run</code> muestra el diálogo <gui>Abrir</gui> dialog. El "
+"diálogo esperará a que el usuario eliga una imagen; cuando lo haga, "
+"<code>chooser.run</code> devolverá el valor <output>1</output> (devolvería "
+"<output>0</output> si el usuario pulsara <gui>Cancelar</gui>). La sentencia "
+"<code>if</code> comprueba esto."
 
 #: C/image-viewer.js.page:295(p) C/image-viewer.py.page:209(p)
 msgid ""
@@ -3004,6 +3083,10 @@ msgid ""
 "the image selected by the user. The <code>Gtk.Image</code> will then load "
 "and display the chosen image."
 msgstr ""
+"Asumiendo que el usuario pulsó <gui>Abrir</gui>, la siguiente línea "
+"establece la propiedad <code>file</code> de la <code>Gtk.Image</code> al "
+"nombre del archivo de imagen seleccionada por el usuario. La <code>Gtk."
+"Image</code> cargará y mostrará la imagen elegida."
 
 #: C/image-viewer.js.page:298(p) C/image-viewer.py.page:212(p)
 msgid ""
@@ -3279,6 +3362,9 @@ msgid ""
 "That should be it; a fully-functioning image viewer (and a whistlestop tour "
 "of Python and Gtk) in not much time at all!"
 msgstr ""
+"Todo el código que necesita debe estar en su lugar, así que trate de "
+"ejecutar el código. Esto debería ser todo;un visor de imágenes completamente "
+"funcional (y un complete tour sobre Python y GTK+) en poco tiempo."
 
 #: C/image-viewer.py.page:225(p)
 msgid ""
@@ -3337,6 +3423,8 @@ msgid ""
 "This is a very basic C++ code setting up GTKmm. More details are given "
 "below; skip this list if you understand the basics:"
 msgstr ""
+"Esto es una configuración de código C++ usando GTKmm. Se ofrecen más "
+"detalles a continuación; omita esta lista si entiende los conceptos básicos:"
 
 #: C/image-viewer.cpp.page:64(p)
 msgid ""
@@ -3351,6 +3439,8 @@ msgid ""
 "The <code>main</code> function creates a new (empty) window and sets the "
 "window title."
 msgstr ""
+"La función <code>main</code> crea una ventana (vacía) nueva y establece el "
+"título de la ventana."
 
 #: C/image-viewer.cpp.page:70(p)
 msgid ""
@@ -3366,6 +3456,9 @@ msgid ""
 "Press <gui>Execute</gui> on the next window that appears to configure a "
 "debug build. You only need to do this once, for the first build."
 msgstr ""
+"Pulse <gui>Ejecutar</gui> en la siguiente ventana que aparece para "
+"configurar una construcción de depuración. Esto sólo necesita hacer una vez "
+"para la primera construcción."
 
 #: C/image-viewer.cpp.page:81(title) C/image-viewer.c.page:82(title)
 msgid "Creating the user interface"
@@ -3385,6 +3478,9 @@ msgid ""
 "an image, the image view widget itself and the box we will use as a "
 "container."
 msgstr ""
+"La primera línea crea los widgets que se quieren usar: un botón para abrir "
+"una imagen, el widget del visor de imágenes en sí y la caja que se usará "
+"como contenedor."
 
 #: C/image-viewer.cpp.page:122(p)
 msgid ""
@@ -3424,6 +3520,9 @@ msgid ""
 "button we mentioned before. Add this code before the <code>main</code> "
 "method."
 msgstr ""
+"Ahora se definirá el manejador de la señal <em>clicked</em> para el botón "
+"mencionado anteriormente. Añada este código antes del método <code>main</"
+"code>."
 
 #: C/image-viewer.cpp.page:174(p)
 msgid ""
