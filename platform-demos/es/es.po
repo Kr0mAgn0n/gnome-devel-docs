@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-08-20 12:18+0000\n"
-"PO-Revision-Date: 2011-08-21 21:15+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-08-21 19:17+0000\n"
+"PO-Revision-Date: 2011-08-24 16:28+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -383,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -1890,6 +1890,16 @@ msgid ""
 "demo, we'll use a trick called a data URI. First, define the CSS as a static "
 "string near the top of your file."
 msgstr ""
+"En este tutorial se adjuntará el CSS usando la propiedad <code>user-"
+"stylesheet-uri</code> del objeto <code>WebKitWebSetting</code> empotrado en "
+"la vista web. En una aplicación más completa, se podría querer guardar y "
+"cargar el archivo HTML. Mantener la información de estilo fuera del HTML "
+"actual significa que se puede cambiar el estilo completo de la aplicación "
+"sin tener que cambiar los archivos del usuario. Normalmente se instala un "
+"archivo junto con la aplicación, pero simplemente para mantener todo en un "
+"archivo en esta demostración, se usará un truco llamado URI de datos. En "
+"primer lugar, se define el CSS como una cadena estática cerca del principio "
+"del archivo."
 
 #: C/message-board.c.page:315(p)
 msgid ""
@@ -1960,6 +1970,12 @@ msgid ""
 "knows when to stop. And don't forget to free those temporary strings after "
 "you set the stylesheet property."
 msgstr ""
+"El código anterior primero codifica las definiciones CSS en Base64, y luego "
+"las combina con una cadena fija para crear una URI de datos. La función "
+"<code>g_strconcat</code> puede tomar cualquier número de argumentos de "
+"cadena y concatenarlos todos juntos, por lo que tiene que pasar <code>NULL</"
+"code> como argumento final para que sepa dónde parar. No olvide liberar esas "
+"cadenas temporales después de establecer la propiedad de la hoja de estilos."
 
 #: C/message-board.c.page:357(p)
 msgid ""
@@ -2038,6 +2054,13 @@ msgid ""
 "You could even override the context menu when you right-click on a message. "
 "These features involve exploring WebKit's DOM API more."
 msgstr ""
+"Este programa guarda los mensajes para siempre. Piense alguna manera para "
+"que el usuario pueda borrar mensajes. Tal vez quiera que los mensajes "
+"desaparezca automáticamente cuando son muy antiguos o después de que haya "
+"cierto número de mensajes por delante. O podría añadir un enlace en cada "
+"mensaje para borrarlo. También puede omitir el menú contextual cuando pulsa "
+"con el botón derecho sobe un mensaje. Esta características implican explorar "
+"más la API del DOM de WebKit."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2203,10 +2226,9 @@ msgid ""
 msgstr ""
 "La función estática <code>main</code> se ejecuta de manera predeterminada "
 "cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
-"la clase «Main», la configuran y ejecutan la aplicación. La función "
-"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
-"interfaz de usuario y empieza a escuchar eventos (como pulsaciones y eventos "
-"de teclas)."
+"la clase «Main», la configuran y ejecutan la aplicación. La función <code>Gtk."
+"Main</code> inicia el bucle principal de GTK+, que ejecuta la interfaz de "
+"usuario y empieza a escuchar eventos (como pulsaciones y eventos de teclas)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.cpp.page:76(p)
 #: C/image-viewer.c.page:77(p) C/guitar-tuner.vala.page:79(p)
@@ -2887,6 +2909,13 @@ msgid ""
 "there should be, in pixels, between the widget and its neighbors inside the "
 "<code>Gtk.Box</code> (<code>padding</code>)."
 msgstr ""
+"<code>pack_start</code> toma 4 argumentos: el widget que añadir a la "
+"<code>Gtk.Box</code> (<code>child</code>); indica si la <code>Gtk.Box</code> "
+"debe crecer a lo largo cuando se añade el widget nuevo (<code>expand</"
+"code>); indica si el widget nuevo debe tomar todo el espacio adicional "
+"creado si la <code>Gtk.Box</code> se hace más grande (<code>fill</code>); y "
+"cuánto espacio debe haber, en píxeles, entre el widget y los demás widgets "
+"dentro de la <code>Gtk.Box</code> (<code>padding</code>)."
 
 #: C/image-viewer.js.page:233(p) C/image-viewer.py.page:152(p)
 msgid ""
@@ -3049,9 +3078,9 @@ msgid ""
 "language."
 msgstr ""
 "Note que se está usando nombres de botones del <em>almacén</em> de GTK, en "
-"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar "
-"nombres del almacén es que las etiquetas de los botones ya estarán "
-"traducidas en el idioma del usuario."
+"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar nombres "
+"del almacén es que las etiquetas de los botones ya estarán traducidas en el "
+"idioma del usuario."
 
 #: C/image-viewer.js.page:287(p) C/image-viewer.py.page:201(p)
 msgid ""
@@ -3062,8 +3091,7 @@ msgid ""
 msgstr ""
 "<code>set_default_response</code> determina qué botón se activará si el "
 "usuario hace una doble pulsación o presiona <key>Intro</key>. En este caso, "
-"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor "
-"«1»)."
+"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor «1»)."
 
 #: C/image-viewer.js.page:290(p) C/image-viewer.py.page:204(p)
 msgid ""
@@ -3298,6 +3326,12 @@ msgid ""
 "<code>spacing</code> between the widgets is set to 5 pixels. The next line "
 "then adds the newly-created <code>Gtk.Box</code> to the window."
 msgstr ""
+"La primera línea crea una <code>Gtk.Box</code> llamada <code>box</code> y "
+"las siguientes líneas establecen dos de sus propiedades: la orientación "
+"(<code>orientation</code>) se establece a «vertical» (por lo que los widgets "
+"se colocan en columna), y el espaciado (<code>spacing</code>) entre los "
+"widgets se establece a 5 píxeles. La siguiente línea añade la <code>Gtk.Box</"
+"code> recién creada a la ventana."
 
 #: C/image-viewer.py.page:145(p)
 msgid ""
@@ -3348,6 +3382,9 @@ msgid ""
 "appear so that the user can choose a picture. Once chosen, the picture "
 "should be loaded and shown in the image widget."
 msgstr ""
+"Cuando el usuario pulse sobre el botón <gui>Abrir imagen...</gui>, debería "
+"aparece un diálogo en el que el usuario pueda elegir una imagen. una vez "
+"elegida, la imagen debería cargarse y mostrarse en el widget de imagen."
 
 #: C/image-viewer.py.page:165(p)
 msgid ""
@@ -3388,6 +3425,12 @@ msgid ""
 "save a file; and <code>transient_for</code>, which sets the parent window of "
 "the dialog."
 msgstr ""
+"La línea que empieza por <code>dialog</code> crea un diálogo <gui>Abrir</"
+"gui>, que el usuario puede utilizar para abrir archivos. Se establecen tres "
+"propiedades: el título del diálogo; la acción (tipo) del diálogo (es un "
+"diálogo «open», pero se podría haber usado <code>SAVE</code> si se quisiese "
+"guardar un archivo; y <code>transient_for</code>, que establecer la ventana "
+"padre del diálogo."
 
 #: C/image-viewer.py.page:207(p)
 msgid ""
@@ -3397,6 +3440,11 @@ msgid ""
 "if the user clicked <gui>Cancel</gui>). The <code>if</code> statement tests "
 "for this."
 msgstr ""
+"<code>dialog.run</code> muestra el diálogo <gui>Abrir</gui>. El diálogo "
+"esperará a que el usuario elija una imagen; cuando lo haga, <code>dialog."
+"run</code> devolverá el valor <output>1</output> (devolvería <output>0</"
+"output> si el usuario pulsara <gui>Cancelar</gui>). La sentencia <code>if</"
+"code> comprueba esto."
 
 #: C/image-viewer.py.page:220(p)
 msgid ""
@@ -3476,6 +3524,10 @@ msgid ""
 "and <code>iostream</code> (C++-STL) libraries. Functions from these "
 "libraries are used in the rest of the code."
 msgstr ""
+"Las tres líneas <code>#include</code> en la parte superior incluyen el "
+"<code>config</code> (definiciones últiles para construcción con autoconf), "
+"<code>gtkmm</code> (interfaz de usuario) y bibliotecas <code>iostream</code> "
+"(C++-STL). Las funciones de estas bibliotecas se usan en el resto del código."
 
 #: C/image-viewer.cpp.page:67(p)
 msgid ""
@@ -3492,6 +3544,11 @@ msgid ""
 "presses). As we give the window as an argument to that function, the "
 "application will automatically exit when that window is closed."
 msgstr ""
+"La llamada <code>kit::run()</code> inicia el bucle principal de GTKmm, que "
+"ejecutar la interfaz de usuario y empieza a escuchar eventos (como "
+"pulsaciones del ratón y/o del teclado). Como se ha pasado la ventana como "
+"argumento a estas función, la aplicación se cerrará automáticamente cuando "
+"se cierre la ventana."
 
 #: C/image-viewer.cpp.page:77(p) C/image-viewer.c.page:78(p)
 #: C/guitar-tuner.cpp.page:79(p) C/guitar-tuner.c.page:83(p)
@@ -3982,6 +4039,9 @@ msgid ""
 "and shows it. More details are given below; skip this list if you understand "
 "the basics:"
 msgstr ""
+"El código carga una ventana (vacía) desde el archivo de descripción de "
+"interfaz de usuario y la muestra. Se ofrecen más detalles a continuación; "
+"omita esta lista si entiende los conceptos básicos:"
 
 #: C/guitar-tuner.vala.page:71(p)
 msgid ""
@@ -4039,6 +4099,8 @@ msgid ""
 "Now, choose a <gui>GtkButton</gui> from the palette and put it into the "
 "first part of the box."
 msgstr ""
+"Ahora, elija un <gui>GtkButton</gui> de la paleta y póngalo en la primera "
+"parte de la caja."
 
 #: C/guitar-tuner.vala.page:100(p) C/guitar-tuner.py.page:99(p)
 #: C/guitar-tuner.c.page:103(p)
@@ -4371,6 +4433,10 @@ msgid ""
 "from the user interface description file and shows it. More details are "
 "given below; skip this list if you understand the basics:"
 msgstr ""
+"La mayor parte del código del archivo se usa como plantilla. Carga una "
+"ventana (vacía) desde el archivo de descripción de interfaz de usuario y la "
+"muestra. Se ofrecen más detalles a continuación; omita esta lista si "
+"entiende los conceptos básicos:"
 
 #: C/guitar-tuner.py.page:64(p)
 msgid ""
