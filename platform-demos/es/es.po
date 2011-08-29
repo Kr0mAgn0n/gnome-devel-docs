@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-08-24 18:11+0000\n"
-"PO-Revision-Date: 2011-08-28 11:11+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-08-28 09:13+0000\n"
+"PO-Revision-Date: 2011-08-29 18:20+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -383,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -2226,10 +2226,9 @@ msgid ""
 msgstr ""
 "La función estática <code>main</code> se ejecuta de manera predeterminada "
 "cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
-"la clase «Main», la configuran y ejecutan la aplicación. La función "
-"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
-"interfaz de usuario y empieza a escuchar eventos (como pulsaciones y eventos "
-"de teclas)."
+"la clase «Main», la configuran y ejecutan la aplicación. La función <code>Gtk."
+"Main</code> inicia el bucle principal de GTK+, que ejecuta la interfaz de "
+"usuario y empieza a escuchar eventos (como pulsaciones y eventos de teclas)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.cpp.page:76(p)
 #: C/image-viewer.c.page:77(p) C/guitar-tuner.vala.page:79(p)
@@ -2926,6 +2925,12 @@ msgid ""
 "one another. This makes handling window resizing much easier, and widgets "
 "should automatically take a sensible size in most situations."
 msgstr ""
+"Los contenedores (y los widgets) de GTK+ se expanden dinámicamente, si les "
+"deja, para rellenar el espacio disponible. No posicione widgets indicando "
+"unas coordenadas x-y precisas en la ventana; en lugar de eso, se posicionan "
+"relativos a otro. Esto hace que el manejo de la redimensión de las ventanas "
+"sea más fácil, y que los widgets tengan un tamaño sensible automática en la "
+"mayoría de las situaciones."
 
 #: C/image-viewer.js.page:234(p) C/image-viewer.py.page:153(p)
 msgid ""
@@ -2958,6 +2963,14 @@ msgid ""
 "window, the button size will remain the same, but the image size will "
 "increase, taking up all of the rest of the window."
 msgstr ""
+"Estas líneas son similares a las dos primeras, pero esta vez crean un "
+"<code>Gtk.Button</code> y lo añaden a la <code>main_box</code>. Tenga en "
+"cuenta que aquí se está estableciendo el argumento <code>expand</code> (el "
+"segundo) a <code>false</code>, mientras que para la <code>Gtk.Image</code> "
+"se estableció a <code>true</code>. Esto hará que la imagen tome todo el "
+"espacio disponible y que el botón tome sólo el espacio que necesite. Cuando "
+"se maximiza la ventana, el tamaño del botón será el mismo, pero el tamaño de "
+"la imagen aumentará junto con el resto de la ventana."
 
 #: C/image-viewer.js.page:240(p)
 msgid ""
@@ -3009,6 +3022,7 @@ msgstr ""
 "Gtk.Button</code> en la que se creó el botón:"
 
 #: C/image-viewer.js.page:251(p)
+#, fuzzy
 msgid ""
 "We are using the <em>Lang</em> JavaScript helper here. It allows us to "
 "connect a <em>class method</em> to the signal, rather than a plain function "
@@ -3017,6 +3031,12 @@ msgid ""
 "For it to work, you also need to put the following line at the top of the "
 "file:"
 msgstr ""
+"Aquí se está usando el JavaScript auxiliar <em>Lang</em>. Permite conectar "
+"un <em>método de clase</em> a la señal, en vez de una función normal (sin "
+"clase) que se haya usado anteriormente para señal <code>hide</code> de la "
+"ventana. No se preocupe por esto ahora, es sólo un detalle técnico. Para que "
+"funcione, debe poner también la siguiente línea en la parte superior del "
+"archivo:"
 
 #: C/image-viewer.js.page:252(code)
 #, no-wrap
@@ -3057,6 +3077,14 @@ msgid ""
 "the user from clicking on another area of the application until the dialog "
 "is closed."
 msgstr ""
+"La línea que comienza por <code>var chooser</code> crear un diálogo "
+"<gui>Abrir</gui>, que el usuario puede utilizar para elegir archivos. Se "
+"establecen cuatro propiedades: el título del diálogo, la acción (tipo) del "
+"diálogo (es un diálogo «open», pero se podría haber usado <code>SAVE</code> "
+"si la intención hubiese sido guardar un archivo; <code>transient_for</code>, "
+"que establece la ventana padre del diálogo; y <code>modal</code>, que si se "
+"establecer a <code>true</code> evita que el usuario pueda pulsar en otra "
+"área de la aplicación hasta que no se cierre el diálogo."
 
 #: C/image-viewer.js.page:283(p) C/image-viewer.py.page:197(p)
 msgid ""
@@ -3079,9 +3107,9 @@ msgid ""
 "language."
 msgstr ""
 "Note que se está usando nombres de botones del <em>almacén</em> de GTK, en "
-"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar "
-"nombres del almacén es que las etiquetas de los botones ya estarán "
-"traducidas en el idioma del usuario."
+"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar nombres "
+"del almacén es que las etiquetas de los botones ya estarán traducidas en el "
+"idioma del usuario."
 
 #: C/image-viewer.js.page:287(p) C/image-viewer.py.page:201(p)
 msgid ""
@@ -3092,8 +3120,7 @@ msgid ""
 msgstr ""
 "<code>set_default_response</code> determina qué botón se activará si el "
 "usuario hace una doble pulsación o presiona <key>Intro</key>. En este caso, "
-"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor "
-"«1»)."
+"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor «1»)."
 
 #: C/image-viewer.js.page:290(p) C/image-viewer.py.page:204(p)
 msgid ""
@@ -3103,6 +3130,12 @@ msgid ""
 "code> (which includes most image formats like PNG and JPEG) to the filter. "
 "Finally, we set this filter to be the <gui>Open</gui> dialog's filter."
 msgstr ""
+"Las tres líneas siguientes restringen el diálogo <gui>Abrir</gui> para que "
+"sólo muestre archivos que se puedan abrir con <code>Gtk.Image</code>. "
+"Primero se crea un objeto de filtro; luego se añaden los tipos de archivos "
+"soportados por el <code>Gdk.Pixbuf</code> (que incluye la mayoría de los "
+"formatos de imagen como PNG y JPEG) al filtro. Por último, se establece que "
+"este filtro sea el filtro del diálogo <gui>Abrir</gui>."
 
 #: C/image-viewer.js.page:293(p)
 msgid ""
@@ -3344,6 +3377,7 @@ msgstr ""
 "código justo debajo de la línea <code>window.add (box)</code>:"
 
 #: C/image-viewer.py.page:149(p)
+#, fuzzy
 msgid ""
 "The first line creates a new <code>Gtk.Image</code> called <code>image</"
 "code>, which will be used to display an image file. As we need that later on "
@@ -3354,6 +3388,14 @@ msgid ""
 "gtk/stable/GtkBox.html#gtk-box-pack-start\"><code>pack_start</code></link> "
 "method."
 msgstr ""
+"La primera línea crea una <code>Gtk.Image</code> llamada <code>image</code>, "
+"que se usará para mostrar un archivo de imagen. Como se necesitará más tarde "
+"en el manejador de la señal, se definirá como variable a nivel de clase. "
+"Deberá añadir <code>image = 0</code> al principio de la clase <code>GUI</"
+"code>. Entonces se añade el widget de imagen (<em>packed</em>) en el "
+"contenedor <code>box</code> usando el método <link href=\"http://library."
+"gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"
+"\"><code>pack_start</code></link> de GtkBox."
 
 #: C/image-viewer.py.page:151(p)
 msgid ""
@@ -3365,6 +3407,12 @@ msgid ""
 "be, in pixels, between the widget and its neighbors inside the <code>Gtk."
 "Box</code> (<code>padding</code>)."
 msgstr ""
+"<code>pack_start</code> toma 4 argumentos: el widget que añadir a la GtkBox "
+"(<code>child</code>); si la <code>Gtk.Box</code> debe crecer cuando añada el "
+"widget nuevo (<code>expand</code>); si el widget nuevo debe tomar todo el "
+"espacio adicional creado si la <code>Gtk.Box</code> crece (<code>fill</"
+"code>); y cuánto espacio debe haber, en píxeles, entre el widget y sus "
+"vecinos dentro de la <code>Gtk.Box</code> (<code>padding</code>)."
 
 #: C/image-viewer.py.page:159(p)
 msgid ""
@@ -3377,6 +3425,14 @@ msgid ""
 "button size will remain the same, but the image size will increase, taking "
 "up all of the rest of the window."
 msgstr ""
+"Estas líneas son similares a las dos primeras, pero esta vez crean un "
+"<code>Gtk.Button</code> y lo añaden a la <code>box</code>. Tenga en cuenta "
+"que se está estableciendo el argumento <code>expand</code> (el segundo) a "
+"<code>False</code>, mientras que para la <code>Gtk.Image</code> se "
+"estableció a <code>True</code>. Esto hará que la imagen tome todo el espacio "
+"disponible y que el botón tome sólo el espacio que necesite. Cuando se "
+"maximiza la ventana, el tamaño del botón será el mismo, pero el tamaño de la "
+"imagen aumentará junto con el resto de la ventana."
 
 #: C/image-viewer.py.page:164(p)
 msgid ""
@@ -3573,6 +3629,10 @@ msgid ""
 "and even other containers. Here we will use the simplest available "
 "container, a <code>Gtk::Box</code>:"
 msgstr ""
+"Ahora se dará vida a la ventana vacía. GTKmm organiza la interfaz de usuario "
+"con varios <code>Gtk::Container</code> que pueden contener otros widgets e "
+"incluso otros contenedores. Aquí se usará el contenedor más sencillo "
+"disponible, una <code>Gtk::Box</code>:"
 
 #: C/image-viewer.cpp.page:119(p)
 msgid ""
@@ -3593,6 +3653,13 @@ msgid ""
 "makes it much easier to have a layout that looks good in different window "
 "sizes. Next, the box is added to the window."
 msgstr ""
+"Las llamadas a <code>pack_start</code> añaden los dos widgets a la caja y "
+"definen su comportamiento. La imagen se expandirá en cualquier espacio "
+"disponible, mientras que el botón será tan grande como se necesite. Se dará "
+"cuenta de que no se establecen tamaños explícitos de los widgets. "
+"Generalmente, en GTKmm no se necesita ya que hace que sea mucho más sencillo "
+"tener una distribución que se ve bien con diferentes tamaños de la ventana. "
+"A continuación, se añade la caja a la ventana."
 
 #: C/image-viewer.cpp.page:128(p)
 msgid ""
@@ -3604,6 +3671,13 @@ msgid ""
 "clicked and to pass the image as an additional argument to that function. We "
 "will define the <em>callback</em> in the next section."
 msgstr ""
+"Se debe definir qué sucede cuando el usuario pulsa el botón. GTKmm usa el "
+"concepto de <em>señales</em>. Cuando se pulsa el botón, emite la señal "
+"<em>clicked</em>, que se puede conectar a laguna acción. Esto se ha hecho "
+"usando el método <code>signal_clicked().connect</code>, que indica a GTKmm "
+"que llame a la función <code>on_open_image</code> cuando se pulsa el botón y "
+"que pase la imagen como un argumento adicional a la función. El <em>retorno "
+"de la llamada</em> se definirá en la siguiente sección."
 
 #: C/image-viewer.cpp.page:133(p)
 msgid ""
@@ -3611,6 +3685,9 @@ msgid ""
 "code>. This is equivalent to using the <code>show()</code> method on all our "
 "widgets."
 msgstr ""
+"El último paso es mostrar todos los widgets en la ventana usando "
+"<code>show_all()</code>. Esto es equivalente a usar el método <code>show()</"
+"code> en cada uno de los widgets."
 
 #: C/image-viewer.cpp.page:141(title) C/image-viewer.c.page:147(title)
 msgid "Showing the image"
@@ -3632,6 +3709,9 @@ msgid ""
 "connecting the signal. Sometimes there are other arguments related to the "
 "signal, but <em>clicked</em> doesn't have any."
 msgstr ""
+"El argumento de la señal es el objeto de imagen que se pasa al conectar la "
+"señal. A veces hay otros argumentos relativos a la señal, pero <em>clicked</"
+"em> no tiene ninguno."
 
 #: C/image-viewer.cpp.page:176(p)
 msgid ""
@@ -3640,6 +3720,10 @@ msgid ""
 "title of the dialog and the type of dialog this should be. In our case, it "
 "is an <em>Open</em> dialog."
 msgstr ""
+"La siguiente línea interesante es en la que se crea el diálogo para elegir "
+"el archivo usando <code>Gtk::FileChooserDialog</code>. La función toma el "
+"título del diálogo y el tipo de diálogo que debe ser. En este caso, es un "
+"diálogo <em>Open</em>."
 
 #: C/image-viewer.cpp.page:181(p)
 msgid ""
@@ -3655,6 +3739,9 @@ msgid ""
 "identify the clicked button. We use predefined values provided by GTKmm "
 "here, too."
 msgstr ""
+"El segundo argumento del método <code>add_button()</code> es un valor para "
+"identificar el botón pulsado. Aquí también se usan valores predefinidos "
+"proporcionados por GTKmm."
 
 #: C/image-viewer.cpp.page:188(p)
 msgid ""
@@ -3664,12 +3751,21 @@ msgid ""
 "(which includes most image formats like PNG and JPEG) to the filter. "
 "Finally, we set this filter to be the <gui>Open</gui> dialog's filter."
 msgstr ""
+"Las dos líneas siguientes restringen el diálogo <gui>Abrir</gui> para que "
+"sólo muestre archivos que se puedan abrir con <code>Gtk::Image</code>. "
+"Primero se crea un objeto de filtro; luego se añaden los tipos de archivos "
+"soportados por el <code>Gdk::Pixbuf</code> (que incluye la mayoría de los "
+"formatos de imagen como PNG y JPEG) al filtro. Por último, se establece que "
+"este filtro sea el filtro del diálogo <gui>Abrir</gui>."
 
 #: C/image-viewer.cpp.page:189(p)
 msgid ""
 "<code>Glib::RefPtr</code> is a smart pointer used here, that makes sure that "
 "the filter is destroyed when there is no reference to it anymore."
 msgstr ""
+"<code>Glib::RefPtr</code> es un puntero inteligente usado aquí que se "
+"asegura de que el filtro se destruye cuando ya no se hace ninguna referencia "
+"a él."
 
 #: C/image-viewer.cpp.page:193(p)
 msgid ""
@@ -3679,6 +3775,11 @@ msgid ""
 "<code>Gtk::RESPONSE_CANCEL</code> if the user clicked <gui>Cancel</gui>). "
 "The <code>switch</code> statement tests for this."
 msgstr ""
+"<code>dialog.run</code> muestra el diálogo <gui>Abrir</gui>. El diálogo "
+"esperará a que el usuario seleccione una imagen; cuando lo haga, "
+"<code>dialog.run</code> devolverá el valor <code>Gtk::RESPONSE_ACCEPT</code> "
+"(devolvería <code>Gtk::RESPONSE_CANCEL</code> si el usuario pulsara "
+"<gui>Cancel</gui>). La sentencia <code>switch</code> comprueba esto."
 
 #: C/image-viewer.cpp.page:195(p)
 msgid ""
@@ -3694,6 +3795,10 @@ msgid ""
 "we don't need it any more. The dialog would be hidden anyway, as it is only "
 "a local variable and is destroyed (and as such hidden) when the scope ends."
 msgstr ""
+"En la última línea de este método se oculta el diálogo <gui>Abrir</gui> "
+"porque ya no se necesita más. El diálogo se ocultará de todos modos, ya que "
+"sólo es una variable local, y se destruye (y por lo tanto se oculta) cuando "
+"el ámbito termina."
 
 #: C/image-viewer.cpp.page:207(p) C/image-viewer.c.page:215(p)
 #: C/guitar-tuner.c.page:250(p)
@@ -3817,6 +3922,10 @@ msgid ""
 "even other containers. Here we will use the simplest available container, a "
 "<code>GtkBox</code>:"
 msgstr ""
+"Ahora se dará vida a la ventana vacía. GTK+ organiza la interfaz de usuario "
+"con varios <code>GtkContainer</code> que pueden contener otros widgets e "
+"incluso otros contenedores. Aquí se usará el contenedor más sencillo "
+"disponible, una <code>GtkBox</code>:"
 
 #: C/image-viewer.c.page:121(p)
 msgid ""
