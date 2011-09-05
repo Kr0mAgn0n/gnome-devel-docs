@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs master\n"
-"POT-Creation-Date: 2011-05-15 07:54+0000\n"
-"PO-Revision-Date: 2011-06-21 15:25+0200\n"
+"POT-Creation-Date: 2011-08-10 20:48+0000\n"
+"PO-Revision-Date: 2011-08-22 10:10+0200\n"
 "Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: C/index.page:7(name)
 msgid "GNOME Documentation Team"
-msgstr "Equipo de documentación de GNO"
+msgstr "Equipo de documentación de GNOME"
 
 #: C/index.page:8(email) C/record-collection.js.page:13(email)
 #: C/image-viewer.cpp.page:13(email) C/image-viewer.c.page:13(email)
@@ -896,18 +896,26 @@ msgid ""
 "defines from the previous section and the address of the <code>ClutterColor</"
 "code> we just defined."
 msgstr ""
+"Liñas 9-11: aquí é onde se obtén o <code>ClutterStage</code> predeterminado "
+"que forneceu <code>clutter_init</code>. Entón estabelécese o tamaño usando o "
+"definido na sección anterior e os enderezos do <code>ClutterColor</code> que "
+"xa están definidas."
 
 #: C/photo-wall.c.page:166(p)
 msgid ""
 "A <code>ClutterStage</code> is the top-level <code>ClutterActor</code> onto "
 "which other <code>ClutterActor</code>s are placed."
 msgstr ""
+"Un <code>CluterStage</code> é o nivel superior dun <code>ClutterActor</code> "
+"no que se localizan outros <code>ClutterActor</code>."
 
 #: C/photo-wall.c.page:168(p)
 msgid ""
 "Line 12: Here we call our function for getting the image file paths. We'll "
 "look at this in a bit."
 msgstr ""
+"Liña 12: aquí chámase á función para obter as rutas das imaxes. Isto verase "
+"en breve."
 
 #: C/photo-wall.c.page:169(p)
 msgid ""
@@ -915,11 +923,16 @@ msgid ""
 "the images and place them into their spot in the image wall. We will look at "
 "this in detail in the next section."
 msgstr ""
+"Liña 14-26: aquí é onde se configuran os <code>ClutterActor</code>, cárganse "
+"as imaxes e colócanse no seu sitio no mural de imaxes. Isto verase con máis "
+"detalle na seguinte sección."
 
 #: C/photo-wall.c.page:170(p)
 msgid ""
 "Line 29: Show the stage and <em>all its children</em>, meaning our images."
 msgstr ""
+"Liña 29: mostra o escenario e <em>todos os seus fillos</em>, é dicir, as "
+"imaxes."
 
 #: C/photo-wall.c.page:171(p)
 msgid "Line 32: Start the Clutter main loop."
@@ -962,10 +975,14 @@ msgid ""
 "access through our <code>GSList</code> node. The second argument is for "
 "error reporting but we are ignoring that to keep things short."
 msgstr ""
+"Liña 6: aquí é onde actualmente se crea o <code>ClutterActor</code> e "
+"localízase a imaxe no actor. O primeiro argumento é a ruta coa que se "
+"acceder ao nodo da <code>GSList</code>. O seguindo argumento é para informar "
+"dun error, pero ignórase para simplificar."
 
 #: C/photo-wall.c.page:200(p)
 msgid "Line 7: We'll look at this function in a later section."
-msgstr ""
+msgstr "Liña 7: esta función verase nunha sección posterior."
 
 #: C/photo-wall.c.page:202(p)
 msgid ""
@@ -982,6 +999,8 @@ msgid ""
 "Line 9: This adds our <code>ClutterActor</code> to a <code>GSList</code> so "
 "that we can later iterate over the <code>ClutterActor</code>s."
 msgstr ""
+"Liña 9: isto engade o <code>ClutterActor</code> a unha <code>GSList</code> "
+"que logo se poderá iterar sobre os <code>ClutterActor</code>."
 
 #: C/photo-wall.c.page:205(p)
 msgid ""
@@ -991,6 +1010,10 @@ msgid ""
 "<code>g_slist_reverse</code> because it faster than inserting many objects "
 "at the end of the list."
 msgstr ""
+"É interesante ter en conta que prefírese antepoñer os <code>ClutterActor</"
+"code> no lugar de anexalos, o que evita atravesar a lista en cada inserción. "
+"A miúdo verá <code>g_slist_prepend</code> seguido de <code>g_slist_reverse</"
+"code>, xa que é máis rápido que inserir varios obxectos ao final da lista."
 
 #: C/photo-wall.c.page:211(title)
 msgid "Loading the images"
@@ -1031,6 +1054,9 @@ msgid ""
 "We now take a look at the sizing and positioning of <code>ClutterActor</"
 "code>s and also readying the <code>ClutterActor</code> for user interaction."
 msgstr ""
+"Vote unha ollada ao tamaño e ao posicionamento dos <code>ClutterActor</code> "
+"e a como se deixa listo o <code>ClutterActor</code> para a interacción do "
+"usuario."
 
 #: C/photo-wall.c.page:265(p)
 msgid ""
@@ -1038,12 +1064,18 @@ msgid ""
 "<code>button-press-event</code> in our case. For Photo Wall, all "
 "<code>ClutterActor</code>s in the wall should initially be reactive."
 msgstr ""
+"Liña 7: configurar un actor como «reactivo» significa que reacciona aos "
+"eventos tales como <code>button-press-event</code> no noso caso. Para o "
+"mural de fotos, todos os <code>ClutterActor</code> do mural deben ser "
+"inicialmente reactivos."
 
 #: C/photo-wall.c.page:268(p)
 msgid ""
 "Line 9‒12: Now we connect the <code>button-press-event</code> to the "
 "<code>actor_clicked_cb</code> callback which we will look at next."
 msgstr ""
+"Liñas 9-12: agora conéctase o evento <code>button-press-evento</code> á "
+"chamada <code>actor_clicked_cb</code> que veremos máis adiante."
 
 #: C/photo-wall.c.page:271(p)
 msgid "At this point we've got a wall of images that are ready to be viewed."
@@ -1922,12 +1954,17 @@ msgid ""
 "The GStreamer multimedia framework is able to handle video from webcams. "
 "Let's add GStreamer to our application and so we can access the video stream."
 msgstr ""
+"O contorno multimedia de traballo de GStreamer é capaz de manexar vídeo "
+"desde cámara web. Engada GStreamer ao seu aplicativo e poderá acceder ao "
+"fluxo de vídeo."
 
 #: C/magic-mirror.vala.page:118(p)
 msgid ""
 "First we remove the window we created before because GStreamer will take "
 "care of showing the picture on screen."
 msgstr ""
+"Primeiro quítase a xanela creada anteriormente, xa que GStreamer encargarase "
+"de mostrar a imaxe na pantalla."
 
 #: C/magic-mirror.vala.page:122(p)
 msgid ""
@@ -1938,6 +1975,12 @@ msgid ""
 "code> we tell the GStreamer pipeline we just created to start playing. Easy, "
 "no?"
 msgstr ""
+"Agora vaise crear un elemento de GStreamer que accede á cámara web. Vaise a "
+"usar o elemento «Camerabin», que é un elemento de cámara todo en un capaz de "
+"facer fotos, vídeos, aplicar efectos e moito máis. Perfecto para o noso caso "
+"de uso. Con <code>this.camerabin.set_state (Gst.State.PLAYING)</code> "
+"indícase á túbería de GStreamer que se acaba de crear que empece a "
+"reproducir. Sinxelo, non?"
 
 #: C/magic-mirror.vala.page:129(p)
 msgid ""
@@ -1961,6 +2004,11 @@ msgid ""
 "Window which involves some advanced techniques, and adds buttons to start/"
 "stop the picture."
 msgstr ""
+"Se ten problemas con este titorial, compare o seu código con este <link href="
+"\"magic-mirror/magic-mirror.vala\">código de referencia</link>. Tamén hai "
+"unha <link href=\"magic-mirror/magic-mirror-advanced.vala\">implementación "
+"máis ampla</link> que incrusta a xanela nunha xanela GTK regular que implica "
+"algunhas técnicas avanzadas, e engade botóns para iniciar/deter a imaxe."
 
 #: C/magic-mirror.vala.page:149(title) C/guitar-tuner.vala.page:248(title)
 msgid "Further reading"
@@ -3823,6 +3871,8 @@ msgid ""
 "This code is ready to be used, so you can run it by clicking "
 "<guiseq><gui>Run</gui><gui>Execute</gui></guiseq>."
 msgstr ""
+"Este código está listo para o seu uso, polo que pode executalo premendo "
+"<guiseq><gui>Executar</gui><gui>Executar</gui></guiseq>."
 
 #: C/guitar-tuner.py.page:102(p) C/guitar-tuner.c.page:106(p)
 msgid ""
@@ -3910,6 +3960,8 @@ msgid ""
 "Next <code>pipeline.set_state</code> is used to start playback, by setting "
 "the state of the pipeline to playing (<code>Gst.State.PLAYING</code>)."
 msgstr ""
+"A seguinte <code>pipeline.set_state</code> úsase para iniciar a reprodución, "
+"estabelecendo o estado da tubería a reprodución (<code>Gst.State.PLAYING)."
 
 #: C/guitar-tuner.py.page:177(title) C/guitar-tuner.c.page:193(title)
 msgid "Stopping playback"
@@ -3931,6 +3983,9 @@ msgid ""
 "<code>GObject.timeout_add</code>. Insert the following code <em>above</em> "
 "the <code>play_sound</code> function:"
 msgstr ""
+"Agora, escríbese o código da función <code>pipeline_stop</code>, chamada por "
+"<code>GObject.timeout_add</code>. Inserte o código seguinte <em>enriba</em> "
+"da función <code>play_sound</code>:"
 
 #: C/guitar-tuner.py.page:185(p)
 msgid ""
@@ -3985,6 +4040,8 @@ msgid ""
 "All of the code should now be ready to go. Click <guiseq><gui>Run</"
 "gui><gui>Execute</gui></guiseq> to start the application. Enjoy!"
 msgstr ""
+"Todo o código debería estar listo. Prema <guiseq><gui>Executar</"
+"gui><gui>Executar</gui></guiseq> para iniciar o aplicativo. Góceo!"
 
 #: C/guitar-tuner.py.page:227(p)
 msgid ""
@@ -4078,6 +4135,9 @@ msgid ""
 "the labels <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em>, and <em>e</em> "
 "and the names <em>button_A</em>, etc."
 msgstr ""
+"Repita os pasos anteriores para o resto de botóns, engadindo as 5 cordas "
+"restantes coas etiquetas <em>A</em>, <em>D</em>, <em>G</em>, <em>B</em> e "
+"<em>e</em> e os nomes <em>botón_A</em>, etc."
 
 #: C/guitar-tuner.cpp.page:106(p)
 msgid ""
@@ -4103,6 +4163,9 @@ msgid ""
 "following line of code next to the <code>Gtk::Main kit(argc, argv);</code> "
 "line in <file>main.cc</file>:"
 msgstr ""
+"Para usar GStreamermm, débese inicializar. Isto faise engadindo a seguinte "
+"liña de código xunto á liña <code>Gtk::Main kit(argc, argv);</code> en "
+"<file>main.cc</file>:"
 
 #: C/guitar-tuner.cpp.page:126(code)
 #, no-wrap
@@ -4121,6 +4184,10 @@ msgid ""
 "<code>Sound</code>. We do that in <file>main.cc</file> in order to keep this "
 "example simple, whereas you might usually want to use a separate file:"
 msgstr ""
+"Para simplificar a xestión da tubería definiremos unha clase axudante "
+"<code>Sound</code>. Farémolo no ficheiro <file>main.cc</file> para manter "
+"este exemplo o máis simple posíbel, aínda que normalmente debería facerse "
+"nun ficheiro separado:"
 
 #: C/guitar-tuner.cpp.page:178(p)
 msgid "The code has the following purpose:"
@@ -4145,6 +4212,11 @@ msgid ""
 "As we don't want to have the annoying sound for ages, a timeout is set up to "
 "stop the pipeline after 200 ms by calling <code>stop_playing</code>."
 msgstr ""
+"<code>start_playing</code> estabelece o elemento orixe para reproducir unha "
+"frecuencia particular e logo iniciar unha tubería ao son que comece a "
+"reproducirse. Xa que non queremos un son estridente por anos estabeleceremos "
+"un temporizador de 200 ms para deter a reprodución chamando a "
+"<code>stop_playing</code>."
 
 #: C/guitar-tuner.cpp.page:189(p)
 msgid ""
@@ -4167,6 +4239,11 @@ msgid ""
 "tone to play. GTKmm makes that quite easy as we can easily bind information "
 "with the <em>sigc</em> library."
 msgstr ""
+"Queremos reproducir o son correcto cando o usuario prema un botón. Isto "
+"significa que temos que conectar o sinal que se dispara cando o usuario "
+"preme o botón. Tamén queremos fornecer información da función que se chamou "
+"a reprodución do tono. GTKmm fai isto moi doado a que podemos ligar de forma "
+"sinxela a información coa biblioteca <em>sigc</em>."
 
 #: C/guitar-tuner.cpp.page:203(p)
 msgid ""
@@ -4337,6 +4414,10 @@ msgid ""
 "to the <code>play_sound</code> function. This is just the frequency of the "
 "note in Hertz; some useful frequencies will be defined later on."
 msgstr ""
+"A chamada a <code>g_object_set</code> estabelecer a propiedade <code>freq</"
+"code> do elemento orixe a <code>frequency</code>, a cal se pasa como un "
+"argumento á función <code>play_sound</code>. Isto só é a frecuencia da nota "
+"en Hertz, algunhas das frecuencias máis útiles definiranse máis tarde."
 
 #: C/guitar-tuner.c.page:183(p)
 msgid ""
@@ -4393,6 +4474,10 @@ msgid ""
 "all, we need to know the frequencies for the six guitar strings, which are "
 "defined (at the top of <file>main.c</file>) as follows:"
 msgstr ""
+"Quérese reproducir o son correcto cando un usuario preme un botón. En "
+"primeiro lugar, precísase coñecer as frecuencias das seis cordas da "
+"guitarra, que están definidas (ao principio de <file>main.c</file>) da "
+"seguinte maneira:"
 
 #: C/guitar-tuner.c.page:244(p)
 msgid ""
