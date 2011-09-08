@@ -189,7 +189,7 @@ private void play_sound(double frequency)
     <p>Next, <code>sink.link</code> is used to connect the elements together, so the output of source (a tone) goes into the input of sink (which is then output to the sound card). <code>pipeline.set_state</code> is then used to start playback, by setting the state of the pipeline to playing (<code>Gst.State.PLAYING</code>).</p>
     </item>
     <item>
-    <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to add
+    <p>We don't want to play an annoying tone forever, so the last thing <code>play_sound</code> does is to
     add a <code>TimeoutSource</code>. This sets a timeout for stopping the sound; it waits for 200 milliseconds before 
     calling a signal handler defined inline that stops and destroys the pipeline. It returns <code>false</code> to 
     remove itself from the timeout, otherwise it would continue to be called every 200 ms.</p>
