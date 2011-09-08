@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-08-30 19:28+0000\n"
-"PO-Revision-Date: 2011-09-01 19:33+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-09-01 17:35+0000\n"
+"PO-Revision-Date: 2011-09-08 16:16+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -383,8 +383,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -2226,10 +2226,10 @@ msgid ""
 msgstr ""
 "La función estática <code>main</code> se ejecuta de manera predeterminada "
 "cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
-"la clase «Main», la configuran y ejecutan la aplicación. La función "
-"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
-"interfaz de usuario y empieza a escuchar eventos (como pulsaciones del ratón "
-"y del teclado)."
+"la clase «Main», la configuran y ejecutan la aplicación. La función <code>Gtk."
+"Main</code> inicia el bucle principal de GTK+, que ejecuta la interfaz de "
+"usuario y empieza a escuchar eventos (como pulsaciones del ratón y del "
+"teclado)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.cpp.page:76(p)
 #: C/image-viewer.c.page:77(p) C/guitar-tuner.vala.page:79(p)
@@ -3107,9 +3107,9 @@ msgid ""
 "language."
 msgstr ""
 "Note que se está usando nombres de botones del <em>almacén</em> de GTK, en "
-"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar "
-"nombres del almacén es que las etiquetas de los botones ya estarán "
-"traducidas en el idioma del usuario."
+"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar nombres "
+"del almacén es que las etiquetas de los botones ya estarán traducidas en el "
+"idioma del usuario."
 
 #: C/image-viewer.js.page:287(p) C/image-viewer.py.page:201(p)
 msgid ""
@@ -3120,8 +3120,7 @@ msgid ""
 msgstr ""
 "<code>set_default_response</code> determina qué botón se activará si el "
 "usuario hace una doble pulsación o presiona <key>Intro</key>. En este caso, "
-"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor "
-"«1»)."
+"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor «1»)."
 
 #: C/image-viewer.js.page:290(p) C/image-viewer.py.page:204(p)
 msgid ""
@@ -4305,6 +4304,9 @@ msgid ""
 "While the button is still selected, change the <gui>Label</gui> property in "
 "the <gui>Widgets</gui> tab to <gui>E</gui>. This will be the low E string."
 msgstr ""
+"Mientras el botón esté seleccionado, cambie la propiedad <gui>Etiqueta</gui> "
+"en la pestaña <gui>Widgets</gui> a <gui>E</gui>. Esta será la cuerda Mi "
+"grave."
 
 #: C/guitar-tuner.vala.page:103(p)
 msgid ""
@@ -4315,6 +4317,12 @@ msgid ""
 "<code>main_on_button_clicked</code> in the <gui>Handler</gui> column and "
 "press <key>Return</key>."
 msgstr ""
+"Cambie a la pestaña <gui>Señales</gui> (dentro de la pestaña <gui>Widgets</"
+"gui>) y busque la señal <code>clicked</code> del botón. Puede usar esto para "
+"conectar un manejador de señal al que se llamará cuando el usuario pulse el "
+"botón. Para hacer esto, pulse sobre la señal, escriba "
+"<code>main_on_button_clicked</code> en la columna <gui>Manejador</gui> y "
+"pulse <key>Intro</key>."
 
 #: C/guitar-tuner.vala.page:106(p) C/guitar-tuner.py.page:105(p)
 #: C/guitar-tuner.c.page:109(p)
@@ -4347,6 +4355,11 @@ msgid ""
 "this method is part of our <code>Main</code>. We need to add that function "
 "in the source file."
 msgstr ""
+"El el diseñador de interfaces se hizo que todos los botones llamaran a la "
+"misma función, <gui>on_button_clicked</gui> cuando se pulsasen. Ahora se "
+"escribe <gui>main_on_button_clicked</gui>, lo que indica al diseñador de "
+"interfaces que este método es parte de la función <code>Main</code>. Se debe "
+"añadir esta función al archivo de código fuente."
 
 #: C/guitar-tuner.vala.page:117(p)
 msgid ""
@@ -4356,6 +4369,12 @@ msgid ""
 "<gui>clicked</gui> signal and drag it into to the source file at the "
 "beginning of the class. The following code will be added to your source file:"
 msgstr ""
+"Para hacer esto, abra <file>guitar_tuner.vala</file> mientras el archivo de "
+"la interfaz de usuario está abierto. Cambie a la pestaña <gui>Señales</gui>, "
+"que ya ha usado para establecer el nombre de la señal. Ahora vaya a la fila "
+"en la que estableció la señal <gui>clicked</gui> y arrástrela al archivo de "
+"código fuente, al principio de la clase. Se añadirá el siguiente código a su "
+"archivo de código fuente:"
 
 #: C/guitar-tuner.vala.page:124(p)
 msgid ""
@@ -4365,6 +4384,11 @@ msgid ""
 "this is a signal handler that needs special treating while linking in order "
 "to be found at runtime."
 msgstr ""
+"El manejador de la señal sólo tiene un argumento: el <code>Gtk.Widget</code> "
+"que llama a la función (en este caso, siempre es un <code>Gtk.Button</"
+"code>). El resto de <code>[CCode (instance_pos=-1)]</code> indica al "
+"compilador que esto es un manejador de la señal que necesita un tratamiento "
+"especial al enlazar, para que se puede encontrar en tiempo de ejecución."
 
 #: C/guitar-tuner.vala.page:126(p) C/guitar-tuner.py.page:123(p)
 #: C/guitar-tuner.c.page:129(p)
@@ -4447,6 +4471,9 @@ msgid ""
 "We need to add a line to initialize GStreamer; put the following code on the "
 "line above the <code>Gtk.init</code> call in the <code>main</code> function:"
 msgstr ""
+"Se debe añadir una línea para inicializar GStreamer; ponga el siguiente "
+"código encima de la llamada a <code>Gtk.init</code>, en la función "
+"<code>main</code>:"
 
 #: C/guitar-tuner.vala.page:145(p)
 msgid ""
@@ -4466,6 +4493,14 @@ msgid ""
 "sink is named \"output\" and set to the <code>autoaudiosink</code> sink "
 "(default sound card output)."
 msgstr ""
+"Las cinco primeras líneas crean los elementos «fuente» y «sumidero» de "
+"GStreamer (<code>Gst.Element</code>), y un elemento de tubería (que se usará "
+"como contenedor de los otros dos elementos). Son variables de clase, por lo "
+"que se definen fuera del método. A la tubería se le asigna el nombre «note»; "
+"la fuente se llama «source» y se asocia a la fuente <code>audiotestsrc</code> "
+"y el sumidero se llama «output» y se asocia con el sumidero "
+"<code>autoaudiosink</code> (la salida de la tarjeta de sonido "
+"predeterminada)."
 
 #: C/guitar-tuner.vala.page:183(p)
 msgid ""
@@ -4501,6 +4536,11 @@ msgid ""
 "start playback, by setting the state of the pipeline to playing (<code>Gst."
 "State.PLAYING</code>)."
 msgstr ""
+"Ahora, el código <code>sink.link</code> se usa para conectar los elementos "
+"entre sí, por lo que la salida de la fuente (un tono) va a la entrada del "
+"sumidero (y entonces sale por la tarjeta de sonido). <code>pipeline."
+"set_state</code> se usa para iniciar la reproducción estableciendo el estado "
+"de la tubería a «playing» (<code>Gst.State.PLAYING</code>)."
 
 #: C/guitar-tuner.vala.page:192(p)
 msgid ""
@@ -4511,6 +4551,12 @@ msgid ""
 "pipeline. It returns <code>false</code> to remove itself from the timeout, "
 "otherwise it would continue to be called every 200 ms."
 msgstr ""
+"No se quiere reproducir un tono molesto para siempre, por lo que lo último "
+"que <code>play_sound</code> hace es añadir un <code>TimeoutSource</code>. "
+"Esto establece un tiempo de expiración para detener el sonido; espera 200 "
+"milisegundos antes de llamar a un manejador de la señal definido en línea y "
+"destruye la tubería. Devuelve<code>false</code> para quitarse a sí mismo del "
+"tiempo de expiración, ya que de otro modo, seguiría llamándose cada 200ms,"
 
 #: C/guitar-tuner.vala.page:203(title)
 msgid "Define the signal handler"
