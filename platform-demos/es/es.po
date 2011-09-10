@@ -2,20 +2,20 @@
 # Spanish translation for gnome-devel-docs.
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
-# Jorge González <jorgegonz@svn.gnome.org>, 2011.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Jorge González <jorgegonz@svn.gnome.org>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2011-09-08 16:22+0000\n"
-"PO-Revision-Date: 2011-09-10 11:25+0200\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-09-10 09:26+0000\n"
+"PO-Revision-Date: 2011-09-10 12:19+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/index.page:7(name)
@@ -4836,13 +4836,12 @@ msgstr ""
 "a su archivo de código fuente:"
 
 #: C/guitar-tuner.py.page:122(p)
-#, fuzzy
 msgid ""
 "This signal handler has two arguments: the usual Python class pointer, and "
 "the <code>Gtk.Button</code> that called the function."
 msgstr ""
-"El manejador de la señal tiene dos argumentos: el puntero de clase Python "
-"habitual, y el <code>Gtk.Button</code> que llamó a la función."
+"Este manejador de la señal tiene dos argumentos: el puntero de clase Python "
+"habitual y el <code>Gtk.Button</code> que llamó a la función."
 
 #: C/guitar-tuner.py.page:140(p)
 msgid ""
@@ -5111,16 +5110,15 @@ msgstr ""
 "el editor Anjuta para diseñar interfaces de usuario con GtkBuilder."
 
 #: C/guitar-tuner.cpp.page:74(p)
-#, fuzzy
 msgid ""
 "Afterwards it calls a few functions which set up and then run the "
 "application. The <code>kit.run</code> function starts the GTKmm main loop, "
 "which runs the user interface and starts listening for events (like clicks "
 "and key presses)."
 msgstr ""
-"Después llama a algunas funciones que configuran y ejecutan la aplicación. "
-"La función <code>kit.run</code> inicia el bucle principal de GTKmm, que "
-"ejecuta la interfaz de usuario y empieza a escuchar eventos (como "
+"Después llama a algunas funciones que configuran y después ejecutan la "
+"aplicación. La función <code>kit.run</code> inicia el bucle principal de "
+"GTKmm, que ejecuta la interfaz de usuario y empieza a escuchar eventos (como "
 "pulsaciones del ratón y del teclado)."
 
 #: C/guitar-tuner.cpp.page:99(p)
@@ -5247,6 +5245,11 @@ msgid ""
 "object, the memory is automatically freed once the <code>Sound</code> class "
 "is destroyed."
 msgstr ""
+"En <code>stop_playing</code> a la que se llama cuando ha transcurrido el "
+"tiempo, se detiene la tubería y como tal, ya no habrá ninguna salida de "
+"sonido. Ya que GStreamermm usa una referencia continua a traves del objeto "
+"<code>Glib::RefPtr</code>, la memoria se libera automáticamente una vez que "
+"la clase <code>Sound</code> se ha destruido."
 
 #: C/guitar-tuner.cpp.page:197(title)
 msgid "Connecting the signals"
@@ -5260,6 +5263,11 @@ msgid ""
 "tone to play. GTKmm makes that quite easy as we can easily bind information "
 "with the <em>sigc</em> library."
 msgstr ""
+"Se quiere reproducir el sonido correcto cuando el usuario pulsa un botón. Lo "
+"que significa que hay que conectar la señal disparada cuando el usuario "
+"pulsa el botón. También se quiere proporcionar información a la función "
+"llamada dependiendo del tono que reproducir. GTKmm hace que esto sea fácil "
+"ya que se puede vincular información con la biblioteca <em>sigc</em>."
 
 #: C/guitar-tuner.cpp.page:203(p)
 msgid ""
@@ -5513,6 +5521,12 @@ msgid ""
 "setting the state of the pipeline to playing (<code>GST_STATE_PLAYING</"
 "code>)."
 msgstr ""
+"Después, se usa <code>gst_element_link</code> para conectar los elementos de "
+"forma conjunta, de tal forma que la salida de <code>source</code> (un tono) "
+"va a la intrada de <code>sink</code> (que es después la salida de la tarjeta "
+"de sonido). <code>gst_element_set_state</code> se usa al iniciar la "
+"reproducción, configurando el estado de la tubería a reproduciendo "
+"(<code>GST_STATE_PLAYING</code>)."
 
 #: C/guitar-tuner.c.page:194(p)
 msgid ""
