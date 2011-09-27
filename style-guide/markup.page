@@ -1,0 +1,77 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:rev="http://projectmallard.org/experimental/review/"
+      type="topic"
+      id="markup">
+
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Standard snippets you should use when writing common instructions.</desc>
+</info>
+
+<title>Common instructions and markup</title>
+
+<p>Most documentation gives the same types of instruction in multiple places.
+Using common language and markup in these places makes your document more
+consistent and reduces the number of messages translators have to translate.</p>
+
+<comment>
+<cite date="2011-09-27">shaunm</cite>
+<p>"This requires administrative access..."</p>
+</comment>
+
+<links type="section"/>
+
+<section id="apps" rev:date="2011-09-27" rev:status="proposed">
+<title>Open an application</title>
+
+<p>When instructing the user to open an application, use the following:</p>
+
+<example>
+<code><![CDATA[
+<steps>
+  <item><p>Open <app>APP</app> from the <gui>Activities</gui> overview.</p></item>
+</steps>
+]]></code>
+<steps>
+  <item><p>Open <app><var>APP</var></app> from the <gui>Activities</gui> overview.</p></item>
+</steps>
+</example>
+
+</section> <!-- apps -->
+
+<section id="system-settings" rev:date="2011-09-27" rev:status="proposed">
+<title>Access system settings</title>
+
+<p>When instructing the user to open a panel in the system settings, use the following:</p>
+
+<example>
+<code><![CDATA[
+<steps>
+  <item><p>Click your name on the top bar and select <gui>System Settings</gui>.</p></item>
+  <item><p>Open <gui>PANEL</gui>.</p></item>
+</steps>
+]]></code>
+<steps>
+  <item><p>Click your name on the top bar and select <gui>System Settings</gui>.</p></item>
+  <item><p>Open <gui><var>PANEL</var></gui>.</p></item>
+</steps>
+</example>
+
+<p>If the panel contains a tabbed interface, instruct the user to select the appropriate
+tab in the second step:</p>
+
+<example>
+<code><![CDATA[
+<steps>
+  <item><p>Click your name on the top bar and select <gui>System Settings</gui>.</p></item>
+  <item><p>Open <gui>PANEL</gui> and select the <gui>TAB</gui> tab.</p></item>
+</steps>
+]]></code>
+<steps>
+  <item><p>Click your name on the top bar and select <gui>System Settings</gui>.</p></item>
+  <item><p>Open <gui><var>PANEL</var></gui> and select the <gui><var>TAB</var></gui> tab.</p></item>
+</steps>
+</example>
+</section> <!-- system-settings -->
+
+</page>
