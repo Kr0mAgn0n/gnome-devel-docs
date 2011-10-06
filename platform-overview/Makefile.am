@@ -24,4 +24,4 @@ DOC_PAGES =			\
 	webkit.page
 
 DOC_FIGURES =
-DOC_LINGUAS = cs de el es fr gl it ja oc pt_BR ru uk sl zh_CN
+DOC_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl zh_CN
