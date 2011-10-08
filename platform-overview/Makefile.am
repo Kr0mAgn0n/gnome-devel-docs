@@ -24,4 +24,9 @@ DOC_PAGES =			\
 	webkit.page
 
 DOC_FIGURES =
+
+DOC_INCLUDES=			\
+	cc-by-sa-3-0.xml	\
+	legal-fdl.xml
+
 DOC_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl zh_CN
