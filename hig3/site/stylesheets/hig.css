@@ -1,0 +1,425 @@
+@import url(reset.css);
+@import url(fonts.css);
+@import url(text.css);
+/* line 41, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+body {
+  width: 100%;
+  *zoom: 1;
+}
+/* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+body:before, body:after {
+  content: "";
+  display: table;
+}
+/* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+body:after {
+  clear: both;
+}
+
+/* line 14 */
+a {
+  color: #3465a4;
+}
+/* line 16 */
+a:hover {
+  color: #477ec4;
+}
+/* line 19 */
+a:active {
+  color: #284d7d;
+}
+
+/* line 24 */
+p {
+  margin-bottom: 1em;
+}
+
+/* line 28 */
+body {
+  font-family: Cantarell, Sans-Serif;
+  font-size: 11pt;
+  margin: 0;
+  padding: 0;
+  background: white url(../images/html-bg.png) 0 10px repeat-x;
+}
+
+/* line 36 */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 41 */
+h1, h2, h3, h4, h5, h6 {
+  color: #888a85;
+  margin: 2em 0 .8em;
+}
+/* line 44 */
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin: 0 0 .8em;
+}
+
+/* line 49 */
+h1 {
+  font-size: 200%;
+}
+
+/* line 51 */
+.punchline {
+  font-size: 200%;
+  color: #888a85;
+  font-family: Copse, Cantarell, Sans-Serif;
+  text-shadow: 0 1px 0 white;
+  -moz-text-shadow: 0 1px 0 white;
+  -webkit-text-shadow: 0 1px 0 white;
+}
+
+/* line 58 */
+.gnomelink {
+  width: 960px;
+  margin: 0 auto;
+}
+/* line 62 */
+.gnomelink > div {
+  background-color: #fff;
+  display: inline;
+  float: left;
+  width: 100px;
+  margin: 0 10px;
+  margin-left: 850px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 3px 2px #8fb3d9;
+  -moz-box-shadow: 0 3px 2px #8fb3d9;
+  -webkit-box-shadow: 0 3px 2px #8fb3d9;
+}
+/* line 68 */
+.gnomelink > div a {
+  display: block;
+  font-size: 80%;
+  padding-left: 18px;
+  margin: 6px 2px 2px 5px;
+  background: url(../images/favicon.png) no-repeat 0 0;
+  color: #222;
+  text-decoration: none;
+}
+/* line 76 */
+.gnomelink > div a:hover {
+  text-decoration: underline;
+}
+
+/* line 83 */
+.logo {
+  position: absolute;
+  width: 960px;
+  top: 70px;
+  left: 50%;
+  margin-left: -480px;
+  display: block;
+}
+/* line 91 */
+.logo img {
+  width: 170px;
+  height: auto;
+}
+
+/* line 97 */
+.main {
+  display: inline;
+  float: left;
+  width: 640px;
+  margin: 0 10px;
+}
+
+/* line 99 */
+.contain {
+  width: 960px;
+  margin: 4em auto 0;
+  overflow: hidden;
+}
+/* line 103 */
+.contain .sidebar {
+  display: inline;
+  float: left;
+  width: 280px;
+  margin: 0 10px;
+  /* SIDEBAR MENU */
+}
+/* line 106 */
+.contain .sidebar .menu {
+  margin: 200px 0 0;
+}
+/* line 108 */
+.contain .sidebar .menu ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  /* COLLAPSING MENU */
+}
+/* line 112 */
+.contain .sidebar .menu ul li {
+  margin: 0;
+  display: block;
+  margin: 0 0 .8em;
+  padding-left: 24px;
+}
+/* line 117 */
+.contain .sidebar .menu ul li.current a {
+  color: black;
+}
+/* line 119 */
+.contain .sidebar .menu ul li.current a:hover {
+  text-decoration: none;
+  cursor: default;
+}
+/* line 127 */
+.contain .sidebar .menu ul.collapsed > li {
+  margin-top: 2em;
+  padding: 0;
+}
+/* line 130 */
+.contain .sidebar .menu ul.collapsed > li a.expand {
+  background: url(../images/plus.png) no-repeat 4px 7px;
+}
+/* line 133 */
+.contain .sidebar .menu ul.collapsed > li > a {
+  display: block;
+  color: black;
+  padding-left: 24px;
+}
+/* line 138 */
+.contain .sidebar .menu ul.collapsed > li > a:hover {
+  text-decoration: none;
+}
+/* line 142 */
+.contain .sidebar .menu ul.collapsed > li:first-child {
+  margin-top: 0;
+}
+/* line 146 */
+.contain .sidebar .menu ul.collapsed > li ul {
+  margin-top: 1em;
+}
+/* line 148 */
+.contain .sidebar .menu ul.collapsed > li ul li {
+  padding: 0;
+}
+/* line 150 */
+.contain .sidebar .menu ul.collapsed > li ul li a {
+  padding-left: 24px;
+  color: #3465a4;
+}
+/* line 159 */
+.contain .sidebar .menu a {
+  text-decoration: none;
+}
+/* line 161 */
+.contain .sidebar .menu a:hover {
+  text-decoration: underline;
+}
+/* line 166 */
+.contain .sidebar .smalllogo {
+  display: block;
+  text-decoration: none;
+}
+/* line 169 */
+.contain .sidebar .smalllogo + .menu {
+  margin: 25px 0 0;
+}
+/* line 172 */
+.contain .sidebar .smalllogo img {
+  width: 170px;
+  height: auto;
+}
+/* line 176 */
+.contain .sidebar .smalllogo .punchline {
+  font-size: 115%;
+  margin-top: 8px;
+}
+/* line 179 */
+.contain .main {
+  display: inline;
+  float: left;
+  width: 640px;
+  margin: 0 10px;
+}
+
+/* line 183 */
+.columns {
+  display: block;
+  width: 660px;
+  margin: 0 -10px;
+  *zoom: 1;
+}
+/* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+.columns:before, .columns:after {
+  content: "";
+  display: table;
+}
+/* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+.columns:after {
+  clear: both;
+}
+/* line 186 */
+.columns img {
+  display: inline;
+  float: left;
+  width: 340px;
+  margin: 0 10px;
+  margin-bottom: 1em;
+  float: right;
+}
+/* line 192 */
+.columns p {
+  display: inline;
+  float: left;
+  width: 280px;
+  margin: 0 10px;
+  margin-bottom: 1em;
+}
+
+/* line 198 */
+.blurb {
+  display: inline;
+  float: left;
+  width: 280px;
+  margin: 0 10px;
+}
+
+/* line 202 */
+.menumobile {
+  display: none;
+}
+
+/* line 203 */
+.footer {
+  display: none;
+}
+
+/* MOBILE VERSION BELOW */
+@media screen and (max-width: 960px) {
+  /* line 209 */
+  .gnomelink {
+    display: none;
+  }
+
+  /* line 212 */
+  .blurb {
+    display: block;
+    width: 100%;
+    margin: 0 -1.042%;
+    *zoom: 1;
+  }
+  /* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+  .blurb:before, .blurb:after {
+    content: "";
+    display: table;
+  }
+  /* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+  .blurb:after {
+    clear: both;
+  }
+
+  /* line 215 */
+  .logo {
+    position: static;
+    margin: 20px auto;
+    width: 94%;
+    overflow: hidden;
+  }
+  /* line 220 */
+  .logo img {
+    width: 100px;
+    height: auto;
+  }
+  /* line 224 */
+  .logo div {
+    margin: .5em 0 0;
+    font-size: 120%;
+  }
+
+  /* line 230 */
+  .columns {
+    display: block;
+    width: 100%;
+    margin: 0 -1.042%;
+    *zoom: 1;
+  }
+  /* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+  .columns:before, .columns:after {
+    content: "";
+    display: table;
+  }
+  /* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+  .columns:after {
+    clear: both;
+  }
+  /* line 233 */
+  .columns img {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin-bottom: 1em;
+  }
+  /* line 238 */
+  .columns p {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin-bottom: 1em;
+  }
+
+  /* line 244 */
+  .contain {
+    width: 97.917%;
+    margin: 0 auto;
+  }
+  /* line 247 */
+  .contain .menu {
+    display: none;
+  }
+  /* line 248 */
+  .contain .main {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+  }
+  /* line 249 */
+  .contain .sidebar {
+    margin: 0;
+  }
+  /* line 251 */
+  .contain .sidebar .smalllogo {
+    position: static;
+    display: block;
+    margin: 20px auto;
+    width: 94%;
+    overflow: hidden;
+  }
+  /* line 257 */
+  .contain .sidebar .smalllogo img {
+    width: 100px;
+    height: auto;
+  }
+  /* line 261 */
+  .contain .sidebar .smalllogo div {
+    margin: .5em 0 0;
+    font-size: 120%;
+  }
+
+  /* line 268 */
+  .menumobile {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+  }
+
+  /* line 270 */
+  .footer {
+@inlude column(16);
+  }
+}
