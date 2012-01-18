@@ -199,8 +199,97 @@ h1 { font-size: 200%;  }
   @include column(5);
   }
 
-.menumobile { display: none; }
-.footer { display: none; }
+hr.footerart {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  width: 925;
+  height: 116px;
+  background: url(../images/footer-art.png) no-repeat bottom center;
+}
+
+#footer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background-color: #d3d7cf;
+  overflow: hidden;
+  position: inline;
+  
+  &.fixedfooter {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .copy {
+   @include column(16);
+   margin-top: 2em;
+   margin-bottom: 2em;
+   font-size: 80%;
+  }
+  
+  .navmenu {
+    @include row(16);
+    margin: 0; //not included in a grid column, thus no need for negative margins
+    line-height: 200%;
+    h3 {
+      font-size: 110%;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #444;
+        text-decoration: underline;
+      }
+    }
+    .direct {
+      @include column(4,16);
+      ul {
+        display: block;
+        margin-bottom: 2em;
+        padding: 0;
+        
+        li {
+          display: block;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+    .nested {
+      @include column(12,16);
+      ul.collapsed {
+        @include row(12);
+        margin-bottom: 0;
+        a {
+          color: $c-header;
+          font-size: 105%;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        li {
+          @include column(4,12);
+          ul li {
+            margin: 0;
+            a {
+              color: #fff;
+              text-decoration: none;
+              &:hover {
+                color: #444;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 /* MOBILE VERSION BELOW */
 @media screen and (max-width: 960px) {
@@ -265,7 +354,54 @@ h1 { font-size: 200%;  }
       }
     }
   }
-  .menumobile { @include column(16); }  
   
-  .footer { @inlude column(16);  }
+  hr.footerart {
+    width: 96%;
+    margin: 0 auto;
+    background-size: contain;
+  }
+  
+  #footer {
+    @inlude column(16);
+    
+    .navmenu {
+      font-size: 130%;
+      line-height: 300%;
+      h3 {
+        margin: 2em 0 1em;
+      }
+      @include column(16);
+      li {
+        @include column(16);
+      }
+      .direct {
+        @include column(16);
+        margin: 0;
+      }
+      .nested {
+        @include column(16);
+        margin: 0;
+        ul.collapsed {
+          @include column(16);
+          margin: 0;
+          li {
+            @include column(16);
+            margin: 0;
+            ul li {
+              display: block;
+              float: none;
+              width: 100%;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    
+    .copy {
+      @include column(16);
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+  }
 }

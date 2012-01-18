@@ -15,3 +15,8 @@ configuration.preview_server_host = "localhost"
 # Default is an empty hash
 # http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html#options
 # configuration.haml_options = {}
+ configuration.haml_options = {
+   :format => :html5,
+#   :encoding => :utf8,
+   :attr_wrapper => '"'
+ }

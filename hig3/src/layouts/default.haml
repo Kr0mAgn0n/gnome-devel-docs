@@ -1,10 +1,11 @@
-!!!
+!!! 5
 %html
   %head
     %title GNOME Human Interface Guidelines
     = stylesheets :hig, :media => "screen"
     = javascripts('jquery', 'hig')
     %meta{:name=>"viewport", :content=> "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{:charset=>"UTF-8"}
   %body
     .gnomelink
       %div
@@ -18,7 +19,16 @@
           = partial('menu')
       %article.main
         = yield
-    %section.menumobile
-      = partial('menu')
-    %section.footer
-      = partial('footer')
+    %hr.footerart
+    #footer
+      .contain
+        = partial('menu')
+        .copy
+          %p
+            Copyright &copy; 2005&mdash;2012 The GNOME Project
+          %p
+            Free to share and remix: 
+            %a{:href => "http://creativecommons.org/licenses/by/3.0/"} Creative Commons CC-BY.
+            Optimised for standards. Hosted by 
+            %a{:href => "http://canonical.com"} Canonical
+            Powered by WordPress. 
