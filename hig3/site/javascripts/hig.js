@@ -33,7 +33,8 @@ $(document).ready(function () {
   var $items = $(".sidebar .collapsed>li>a");
 
   $items.expander();  
-  $(window).resize(positionFooter).resize();
+  //expand menu if the page is active
+  $items.siblings("ul").find('li.current').parents('li').find('a').click();
 
   //preventFOUT();
 });

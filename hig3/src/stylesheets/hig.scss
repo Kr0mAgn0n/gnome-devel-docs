@@ -134,7 +134,8 @@ h1 { font-size: 200%;  }
             }
             &>a {
               display: block;
-              color: black;
+              color: #666;
+              font-weight: bold;
               padding-left: 24px;
               cursor: pointer;
               &:hover {
@@ -152,6 +153,15 @@ h1 { font-size: 200%;  }
                 a {
                   padding-left: 24px;
                   color: $c-link;
+                }
+                &.current {
+                  a {
+                    cursor: default;
+                    color: black;
+                    &:hover {
+                      text-decoration: none;
+                    }
+                  }
                 }
               }
             }
