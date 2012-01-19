@@ -41,7 +41,6 @@ body {
   margin: 0;
   padding: 0;
   background: white url(../images/html-bg.png) 0 10px repeat-x;
-  background: white url(../images/grid.png) top center repeat-y;
 }
 
 /* line 36 */
@@ -176,68 +175,82 @@ h1 {
 }
 /* line 127 */
 .contain .sidebar .menu ul.collapsed > li {
-  margin-top: 2em;
   padding: 0;
 }
-/* line 130 */
+/* line 129 */
 .contain .sidebar .menu ul.collapsed > li a.expand {
+  background: url(../images/minus.png) no-repeat 4px 7px;
+}
+/* line 132 */
+.contain .sidebar .menu ul.collapsed > li a.collapse {
   background: url(../images/plus.png) no-repeat 4px 7px;
 }
-/* line 133 */
+/* line 135 */
 .contain .sidebar .menu ul.collapsed > li > a {
   display: block;
-  color: black;
+  color: #666;
+  font-weight: bold;
   padding-left: 24px;
+  cursor: pointer;
 }
-/* line 138 */
+/* line 141 */
 .contain .sidebar .menu ul.collapsed > li > a:hover {
   text-decoration: none;
 }
-/* line 142 */
+/* line 145 */
 .contain .sidebar .menu ul.collapsed > li:first-child {
   margin-top: 0;
 }
-/* line 146 */
+/* line 149 */
 .contain .sidebar .menu ul.collapsed > li ul {
   margin-top: 1em;
 }
-/* line 148 */
+/* line 151 */
 .contain .sidebar .menu ul.collapsed > li ul li {
   padding: 0;
 }
-/* line 150 */
+/* line 153 */
 .contain .sidebar .menu ul.collapsed > li ul li a {
   padding-left: 24px;
   color: #3465a4;
 }
-/* line 159 */
+/* line 158 */
+.contain .sidebar .menu ul.collapsed > li ul li.current a {
+  cursor: default;
+  color: black;
+}
+/* line 161 */
+.contain .sidebar .menu ul.collapsed > li ul li.current a:hover {
+  text-decoration: none;
+}
+/* line 171 */
 .contain .sidebar .menu a {
   text-decoration: none;
 }
-/* line 161 */
+/* line 173 */
 .contain .sidebar .menu a:hover {
   text-decoration: underline;
 }
-/* line 166 */
+/* line 178 */
 .contain .sidebar .smalllogo {
   display: block;
   text-decoration: none;
 }
-/* line 169 */
+/* line 181 */
 .contain .sidebar .smalllogo + .menu {
   margin: 25px 0 0;
 }
-/* line 172 */
+/* line 184 */
 .contain .sidebar .smalllogo img {
   width: 170px;
   height: auto;
 }
-/* line 176 */
+/* line 188 */
 .contain .sidebar .smalllogo .punchline {
   font-size: 115%;
   margin-top: 8px;
 }
-/* line 179 */
+/* line 191 */
 .contain .main {
   display: inline;
   float: left;
@@ -245,7 +258,7 @@ h1 {
   margin: 0 10px;
 }
 
-/* line 183 */
+/* line 195 */
 .columns {
   display: block;
   width: 660px;
@@ -261,7 +274,7 @@ h1 {
 .columns:after {
   clear: both;
 }
-/* line 186 */
+/* line 198 */
 .columns img {
   display: inline;
   float: left;
@@ -270,7 +283,7 @@ h1 {
   margin-bottom: 1em;
   float: right;
 }
-/* line 192 */
+/* line 204 */
 .columns p {
   display: inline;
   float: left;
@@ -279,7 +292,7 @@ h1 {
   margin-bottom: 1em;
 }
 
-/* line 198 */
+/* line 210 */
 .blurb {
   display: inline;
   float: left;
@@ -287,38 +300,59 @@ h1 {
   margin: 0 10px;
 }
 
-/* line 202 */
+/* line 214 */
+hr.footerart {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  width: 925;
+  height: 116px;
+  background: url(../images/footer-art.png) no-repeat bottom center;
+}
+
+/* line 225 */
+#footerpositioner {
+  margin: 2em 0 0;
+  padding: 0;
+  width: 100%;
+}
+/* line 229 */
+#footerpositioner.fixedfooter {
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 235 */
 #footer {
   margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
+  background-color: #d3d7cf;
   overflow: hidden;
   position: inline;
 }
-/* line 211 */
-#footer.fixedfooter {
-  position: absolute;
-  bottom: 0;
-}
-/* line 216 */
+/* line 245 */
 #footer .copy {
-  margin-bottom: 2em;
-}
-/* line 219 */
-#footer .copy p {
   display: inline;
   float: left;
   width: 940px;
   margin: 0 10px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 80%;
 }
-/* line 224 */
+/* line 252 */
 #footer .navmenu {
   display: block;
   width: 960px;
   margin: 0 -10px;
   *zoom: 1;
+  display: none;
   margin: 0;
+  line-height: 200%;
 }
 /* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
 #footer .navmenu:before, #footer .navmenu:after {
@@ -329,79 +363,112 @@ h1 {
 #footer .navmenu:after {
   clear: both;
 }
-/* line 227 */
-#footer .navmenu ul {
-  display: inline;
-  float: left;
-  width: 220px;
-  margin: 0 10px;
-  background-color: rgba(0, 0, 0, 0.05);
+/* line 257 */
+#footer .navmenu li.current a {
+  color: black !important;
+  cursor: default;
 }
-/* line 231 */
+/* line 260 */
+#footer .navmenu li.current a:hover {
+  text-decoration: none !important;
+}
+/* line 264 */
 #footer .navmenu h3 {
+  font-size: 110%;
+}
+/* line 267 */
+#footer .navmenu a {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 270 */
+#footer .navmenu a:hover {
+  color: #444;
+  text-decoration: underline;
+}
+/* line 275 */
+#footer .navmenu .direct {
   display: inline;
   float: left;
   width: 220px;
   margin: 0 10px;
 }
-/* line 234 */
-#footer .navmenu ul.collapsed {
-  background-color: rgba(255, 0, 0, 0.4);
+/* line 277 */
+#footer .navmenu .direct ul {
+  display: block;
+  margin-bottom: 2em;
+  padding: 0;
+}
+/* line 282 */
+#footer .navmenu .direct ul li {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+/* line 289 */
+#footer .navmenu .nested {
+  display: inline;
+  float: left;
+  width: 700px;
+  margin: 0 10px;
+}
+/* line 291 */
+#footer .navmenu .nested ul.collapsed {
   display: block;
   width: 720px;
   margin: 0 -10px;
   *zoom: 1;
+  margin-bottom: 0;
+}
+/* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+#footer .navmenu .nested ul.collapsed:before, #footer .navmenu .nested ul.collapsed:after {
+  content: "";
+  display: table;
+}
+/* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
+#footer .navmenu .nested ul.collapsed:after {
+  clear: both;
+}
+/* line 294 */
+#footer .navmenu .nested ul.collapsed a {
+  color: #888a85;
+  font-size: 105%;
+}
+/* line 297 */
+#footer .navmenu .nested ul.collapsed a:hover {
+  text-decoration: none;
+}
+/* line 301 */
+#footer .navmenu .nested ul.collapsed li {
+  display: inline;
+  float: left;
+  width: 220px;
+  margin: 0 10px;
+  margin-bottom: 2em;
+}
+/* line 304 */
+#footer .navmenu .nested ul.collapsed li ul li {
   margin: 0;
 }
-/* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
-#footer .navmenu ul.collapsed:before, #footer .navmenu ul.collapsed:after {
-  content: "";
-  display: table;
+/* line 306 */
+#footer .navmenu .nested ul.collapsed li ul li a {
+  color: #fff;
+  text-decoration: none;
 }
-/* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
-#footer .navmenu ul.collapsed:after {
-  clear: both;
-}
-/* line 238 */
-#footer .navmenu ul.collapsed ul {
-  display: block;
-  width: 240px;
-  margin: 0 -10px;
-  *zoom: 1;
-  background-color: blue;
-}
-/* line 27, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
-#footer .navmenu ul.collapsed ul:before, #footer .navmenu ul.collapsed ul:after {
-  content: "";
-  display: table;
-}
-/* line 31, /home/jimmac/src/cvs/gnome/gnome-devel-docs/hig3/src/stylesheets/grid.scss */
-#footer .navmenu ul.collapsed ul:after {
-  clear: both;
-}
-/* line 241 */
-#footer .navmenu ul.collapsed ul li {
-  display: inline;
-  float: left;
-  width: 220px;
-  margin: 0 10px;
-}
-/* line 245 */
-#footer .navmenu ul.collapsed > li {
-  display: inline;
-  float: left;
-  width: 220px;
-  margin: 0 10px;
+/* line 309 */
+#footer .navmenu .nested ul.collapsed li ul li a:hover {
+  color: #444;
+  text-decoration: underline;
 }
 
 /* MOBILE VERSION BELOW */
 @media screen and (max-width: 960px) {
-  /* line 256 */
+  /* line 325 */
   .gnomelink {
     display: none;
   }
 
-  /* line 259 */
+  /* line 328 */
   .blurb {
     display: block;
     width: 100%;
@@ -418,25 +485,25 @@ h1 {
     clear: both;
   }
 
-  /* line 262 */
+  /* line 331 */
   .logo {
     position: static;
     margin: 20px auto;
     width: 94%;
     overflow: hidden;
   }
-  /* line 267 */
+  /* line 336 */
   .logo img {
     width: 100px;
     height: auto;
   }
-  /* line 271 */
+  /* line 340 */
   .logo div {
     margin: .5em 0 0;
     font-size: 120%;
   }
 
-  /* line 277 */
+  /* line 346 */
   .columns {
     display: block;
     width: 100%;
@@ -452,7 +519,7 @@ h1 {
   .columns:after {
     clear: both;
   }
-  /* line 280 */
+  /* line 349 */
   .columns img {
     display: inline;
     float: left;
@@ -460,7 +527,7 @@ h1 {
     margin: 0 1.042%;
     margin-bottom: 1em;
   }
-  /* line 285 */
+  /* line 354 */
   .columns p {
     display: inline;
     float: left;
@@ -469,27 +536,27 @@ h1 {
     margin-bottom: 1em;
   }
 
-  /* line 291 */
+  /* line 360 */
   .contain {
     width: 97.917%;
     margin: 0 auto;
   }
-  /* line 294 */
+  /* line 363 */
   .contain .menu {
     display: none;
   }
-  /* line 295 */
+  /* line 364 */
   .contain .main {
     display: inline;
     float: left;
     width: 97.917%;
     margin: 0 1.042%;
   }
-  /* line 296 */
+  /* line 365 */
   .contain .sidebar {
     margin: 0;
   }
-  /* line 298 */
+  /* line 367 */
   .contain .sidebar .smalllogo {
     position: static;
     display: block;
@@ -497,19 +564,95 @@ h1 {
     width: 94%;
     overflow: hidden;
   }
-  /* line 304 */
+  /* line 373 */
   .contain .sidebar .smalllogo img {
     width: 100px;
     height: auto;
   }
-  /* line 308 */
+  /* line 377 */
   .contain .sidebar .smalllogo div {
     margin: .5em 0 0;
     font-size: 120%;
   }
 
-  /* line 316 */
+  /* line 385 */
+  hr.footerart {
+    width: 96%;
+    margin: 0 auto;
+    background-size: contain;
+  }
+
+  /* line 391 */
   #footer {
 @inlude column(16);
+  }
+  /* line 394 */
+  #footer .navmenu {
+    font-size: 130%;
+    line-height: 300%;
+    margin-bottom: 2em;
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+  }
+  /* line 398 */
+  #footer .navmenu h3 {
+    margin: 2em 0 1em;
+  }
+  /* line 402 */
+  #footer .navmenu li {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+  }
+  /* line 405 */
+  #footer .navmenu .direct {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin: 0;
+  }
+  /* line 409 */
+  #footer .navmenu .nested {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin: 0;
+  }
+  /* line 412 */
+  #footer .navmenu .nested ul.collapsed {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin: 0;
+  }
+  /* line 415 */
+  #footer .navmenu .nested ul.collapsed li {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin: 0;
+  }
+  /* line 418 */
+  #footer .navmenu .nested ul.collapsed li ul li {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  /* line 429 */
+  #footer .copy {
+    display: inline;
+    float: left;
+    width: 97.917%;
+    margin: 0 1.042%;
+    margin-top: 2em;
+    margin-bottom: 2em;
   }
 }

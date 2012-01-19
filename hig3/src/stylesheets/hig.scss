@@ -223,7 +223,7 @@ hr.footerart {
 }
 
 #footerpositioner {
-  margin: 0;
+  margin: 2em 0 0;
   padding: 0;
   width: 100%;
   &.fixedfooter {
@@ -251,8 +251,16 @@ hr.footerart {
   
   .navmenu {
     @include row(16);
+    display: none;
     margin: 0; //not included in a grid column, thus no need for negative margins
     line-height: 200%;
+    li.current a {
+      color: black !important;
+      cursor: default;
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
     h3 {
       font-size: 110%;
     }
@@ -292,6 +300,7 @@ hr.footerart {
         }
         li {
           @include column(4,12);
+          margin-bottom: 2em;
           ul li {
             margin: 0;
             a {

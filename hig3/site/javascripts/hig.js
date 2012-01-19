@@ -37,6 +37,11 @@ $(document).ready(function () {
   $items.siblings("ul").find('li.current').parents('li').find('a').click();
 
   //preventFOUT();
+  //footer menu hidden for landing page !mobile
+  //shown for all else
+  if (window.location.pathname != '/') {
+    $('#footer .navmenu').show();
+  }
 });
 $(window).ready(function () {
   //run _after_ images have been loaded as well.
