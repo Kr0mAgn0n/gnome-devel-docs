@@ -1,5 +1,7 @@
 # Default is 3000
 # configuration.preview_server_port = 3000
+
+require 'haml/helpers/typography'
  
 # Default is localhost
 #configuration.preview_server_host = "kratos"
