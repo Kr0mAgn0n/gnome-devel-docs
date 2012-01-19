@@ -125,16 +125,18 @@ h1 { font-size: 200%;  }
         /* COLLAPSING MENU */
         &.collapsed {
           &>li {
-            margin-top: 2em;
             padding: 0;
             a.expand {
+              background: url(../images/minus.png) no-repeat 4px 7px;
+            }
+            a.collapse {
               background: url(../images/plus.png) no-repeat 4px 7px;
             }
             &>a {
               display: block;
               color: black;
               padding-left: 24px;
-              
+              cursor: pointer;
               &:hover {
                 text-decoration: none;
               }
@@ -210,6 +212,16 @@ hr.footerart {
   background: url(../images/footer-art.png) no-repeat bottom center;
 }
 
+#footerpositioner {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  &.fixedfooter {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
 #footer {
   margin: 0;
   padding: 0;
@@ -219,11 +231,7 @@ hr.footerart {
   overflow: hidden;
   position: inline;
   
-  &.fixedfooter {
-    position: absolute;
-    bottom: 0;
-  }
-  
+ 
   .copy {
    @include column(16);
    margin-top: 2em;
@@ -367,6 +375,7 @@ hr.footerart {
     .navmenu {
       font-size: 130%;
       line-height: 300%;
+      margin-bottom: 2em;
       h3 {
         margin: 2em 0 1em;
       }
