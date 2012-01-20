@@ -331,7 +331,6 @@ hr.footerart {
 @mixin menubutton() {
   display: block;
   text-align: center;
-  @include text-shadow(0,1px,2px,rgba(0,0,0,0.6));
   padding: .5em;
   border: 1px solid darken($c-footer,20%);
   @include border-radius(0.5em);
@@ -340,7 +339,6 @@ hr.footerart {
   margin-bottom: 4px;
   &:hover {
     border: 1px solid darken($c-footer,30%);
-    @include no-text-shadow();
   }
   &:active {
     @include gradient-vertical(darken($c-footer,10%), darken($c-footer,5%));
@@ -424,6 +422,11 @@ hr.footerart {
       font-size: 130%;
       line-height: 300%;
       margin-bottom: 2em;
+
+
+      .nested ul.collapsed li ul li.current a,  .direct ul li.current a {
+        @include gradient-vertical(darken($c-footer,10%), darken($c-footer,5%));
+      }
       h3 {
         margin: 2em 0 1em;
       }
