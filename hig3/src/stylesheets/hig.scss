@@ -10,6 +10,7 @@ $columns: 16;
 
 $c-link: #3465a4;
 $c-header: #888a85;
+$c-footer: #d3d7cf;
 
 a { 
   color: $c-link;
@@ -241,7 +242,7 @@ hr.footerart {
   padding: 0;
   border: 0;
   width: 100%;
-  background-color: #d3d7cf;
+  background-color: $c-footer;
   overflow: hidden;
   position: inline;
   
@@ -269,7 +270,9 @@ hr.footerart {
       font-size: 110%;
     }
     a {
-      color: #fff;
+      font-weight: normal;
+      color: #666;
+      @include text-shadow(0,1px,0,rgba(255,255,255,0.6));
       text-decoration: none;
       &:hover {
         color: #444;
@@ -298,6 +301,7 @@ hr.footerart {
         a {
           color: $c-header;
           font-size: 105%;
+          font-weight: bold;
           &:hover {
             text-decoration: none;
           }
@@ -308,7 +312,9 @@ hr.footerart {
           ul li {
             margin: 0;
             a {
-              color: #fff;
+              font-weight: normal;
+              color: #666;
+              @include text-shadow(0,1px,0,rgba(255,255,255,0.6));
               text-decoration: none;
               &:hover {
                 color: #444;
@@ -319,6 +325,25 @@ hr.footerart {
         }
       }
     }
+  }
+}
+
+@mixin menubutton() {
+  display: block;
+  text-align: center;
+  @include text-shadow(0,1px,2px,rgba(0,0,0,0.6));
+  padding: .5em;
+  border: 1px solid darken($c-footer,20%);
+  @include border-radius(0.5em);
+  background-color: darken($c-footer, 5%);
+  @include gradient-vertical(lighten($c-footer,5%), darken($c-footer, 8%));
+  margin-bottom: 4px;
+  &:hover {
+    border: 1px solid darken($c-footer,30%);
+    @include no-text-shadow();
+  }
+  &:active {
+    @include gradient-vertical(darken($c-footer,10%), darken($c-footer,5%));
   }
 }
 
@@ -405,10 +430,13 @@ hr.footerart {
       @include column(16);
       li {
         @include column(16);
+        width: 100%;
       }
       .direct {
         @include column(16);
         margin: 0;
+
+        a { @include menubutton(); }
       }
       .nested {
         @include column(16);
@@ -416,14 +444,20 @@ hr.footerart {
         ul.collapsed {
           @include column(16);
           margin: 0;
+          width: 100%;
           li {
             @include column(16);
             margin: 0;
-            ul li {
-              display: block;
-              float: none;
+            width: 100%;
+            ul {
               width: 100%;
-              margin: 0;
+              li {
+                display: block;
+                float: none;
+                width: 100%;
+                margin: 0;
+                a { @include menubutton(); }
+              }
             }
           }
         }
@@ -437,3 +471,5 @@ hr.footerart {
     }
   }
 }
+
+
