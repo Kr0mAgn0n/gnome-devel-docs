@@ -15,6 +15,7 @@ DOC_PAGES =			\
 	gio.page		\
 	gstreamer.page		\
 	gtk.page		\
+	gupnp.page		\
 	help.page		\
 	index.page		\
 	keyring.page		\
@@ -29,4 +30,4 @@ DOC_INCLUDES=			\
 	cc-by-sa-3-0.xml	\
 	legal-fdl.xml
 
-DOC_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl zh_CN
+DOC_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl sv zh_CN
