@@ -37,22 +37,22 @@ DOC_FIGURES = \
 	media/magic-mirror.png			\
 	$(demo_sources)
 
-DOC_ENTITIES =
-
-DOC_PAGES =			\
-	getting-ready.page	\
-	guitar-tuner.c.page	\
-	guitar-tuner.cpp.page   \
-	guitar-tuner.py.page    \
-	guitar-tuner.vala.page  \
-	image-viewer.c.page	\
-	image-viewer.cpp.page   \
-	image-viewer.py.page    \
-	image-viewer.js.page	\
-	magic-mirror.vala.page	\
-	message-board.c.page	\
-	photo-wall.c.page	\
-	record-collection.js.page	\
-	index.page
+DOC_PAGES =				\
+	audio-player.vala.page		\
+	getting-ready.page		\
+	guitar-tuner.c.page		\
+	guitar-tuner.cpp.page   	\
+	guitar-tuner.py.page    	\
+	guitar-tuner.vala.page  	\
+	image-viewer.c.page		\
+	image-viewer.cpp.page   	\
+	image-viewer.js.page		\
+	image-viewer.py.page    	\
+	image-viewer.vala.page		\
+	index.page			\
+	magic-mirror.vala.page		\
+	message-board.c.page		\
+	photo-wall.c.page		\
+	record-collection.js.page
 
 dist-hook: doc-dist-hook
