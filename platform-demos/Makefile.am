@@ -5,14 +5,16 @@ DOC_ID = gnome-devel-demos
 DOC_LINGUAS = ca de el es fr gl
 
 demo_sources = \
+	audio-player/audio-player.vala \
 	guitar-tuner/guitar-tuner.c \
 	guitar-tuner/guitar-tuner.cc \
 	guitar-tuner/guitar-tuner.py \
 	guitar-tuner/guitar-tuner.vala \
 	image-viewer/image-viewer.c \
 	image-viewer/image-viewer.cc \
-	image-viewer/image-viewer.py \
 	image-viewer/image-viewer.js \
+	image-viewer/image-viewer.py \
+	image-viewer/image-viewer.vala \
 	magic-mirror/magic-mirror.vala \
 	magic-mirror/magic-mirror-advanced.vala \
 	message-board/message-board.c \
@@ -28,7 +30,9 @@ DOC_FIGURES = \
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
 	media/image-viewer.png			\
+	media/message-board.ogv			\
 	media/photo-wall.png			\
+	media/photo-wall-focused.png		\
 	media/record-collection.png		\
 	media/magic-mirror.png			\
 	$(demo_sources)
