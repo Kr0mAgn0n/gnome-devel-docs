@@ -5,6 +5,7 @@
     <link href="/stylesheets/hig.css" media="screen" rel="stylesheet" type="text/css">
     <script language="javascript" src="javascripts/jquery.js" type="text/javascript"></script><script language="javascript" src="javascripts/hig.js" type="text/javascript"></script>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div class="gnomelink">
@@ -12,12 +13,12 @@
         <a href="http://www.gnome.org">GNOME.org</a>
       </div>
     </div>
-    <div class="logo">
-      <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
-      <div class="punchline">Human Interface Guidelines</div>
-    </div>
     <div class="contain">
       <aside class="sidebar">
+        <a class="smalllogo" href="/">
+          <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
+          <div class="punchline">Human Interface Guidelines</div>
+        </a>
         <div class="menu">
           <div class="navmenu">
             <span class="direct">
@@ -28,7 +29,7 @@
                 <li class="first"><a href="design_principles.html">Principles</a></li>
                 <li><a href="design_strategies.html">Design Strategies</a></li>
                 <li><a href="system_shell.html">System Shell</a></li>
-                <li><a href="visual_layout.html">Visual Layout</a></li>
+                <li class="current"><a href="visual_layout.html">Visual Layout</a></li>
                 <li><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
                 <li><a href="keyboard_input.html">Keyboard Input</a></li>
@@ -130,26 +131,84 @@
         </div>
       </aside>
       <article class="main">
-        <img alt="Devices" src="images/devices.png">
+        <h1>
+          Visual&nbsp;Layout
+        </h1>
         <div class="note">
-          This is draft content for the next version of
-          <a href="http://design.gnome.org">GNOME Human Interface Guidelines.</a>
+          This is draft content for the next version&nbsp;of
+          <a href="http://design.gnome.org"><span class="gnome">GNOME</span> Human Interface&nbsp;Guidelines.</a>
         </div>
-        <div class="blurb">
-          <h2>
-            Design Guidelines
-          </h2>
-          A small set of pages containing essential design
-          <a href="design_principles.html">advice and rules.</a>
+        A clean layout is crucial to creating a smooth visual flow of information for the user and a beautiful aesthetic. The positioning of controls and content on the screen conveys important information and makes your application easy to&nbsp;understand.
+        <div class="note">
+          Further information on layout can be found in the individual design patterns that make up the HIG. The Grid and List patterns describe how to organize layouts of content, for&nbsp;example.
         </div>
-        <div class="blurb">
-          <h2>
-            Design Patterns
-          </h2>
-          A larger collection of building blocks that you can use to design your
-          <a href="basics-appmenu.html">application.</a>
-          The design patterns include a variety of different design elements that you can utilise. Some patterns describe individual user interface components, such as check boxes or lists. Others describe more complex arrangements of components.
-        </div>
+        <h2>
+          General&nbsp;Guidance
+        </h2>
+        <ul>
+          <li>
+            Keep visual complexity low by using ample whitespace. Ensure that the visual elements in your interface are not placed too tightly together so that they have space to breathe. This will ensure that your application feels light and elegant. It will also ensure that people using it can easily understand the information that is being presented to&nbsp;them.
+          </li>
+          <li>
+            Communicate that visual elements and controls are related by placing them close to one another. Groups of visual elements can be distinguished by separating them using spacing, for&nbsp;instance.
+          </li>
+          <li>
+            Minimize the number of alignment points in your window or view. An alignment point is an imaginary vertical or horizontal line through your window that touches the edge of one or more labels or controls in the window. The fewer alignment points, the cleaner and simpler your layout will appear, and the easier it will be for people to&nbsp;understand.
+          </li>
+          <li>
+            Align content and controls in your layout exactly. The eye is very sensitive to aligned and unaligned objects. If nothing lines up with anything else, it will be very hard for someone to scan the contents and find the information he/she wants. Two things do not quite line up are equally&nbsp;distracting.
+          </li>
+          <li>
+            Be consistent. Use the same amounts of spacing and component sizes. Reuse the same amounts of spacing&nbsp;throughout.
+          </li>
+        </ul>
+        <h2>
+          Layout&nbsp;Schemas
+        </h2>
+        <ul>
+          <li>
+            Organize windows and views from top-to-bottom and left-to-right. This is the direction that people from western locales tend to read an interface, so that the items at the top-left will be encountered&nbsp;first.
+          </li>
+        </ul>
+        FIXME: Visual order&nbsp;diagram
+        <ul>
+          <li>
+            This ordering gives interfaces a hierarchy: those components that are viewed first are perceived to have priority over those that come after them. For this reason, you should place dominant controls above and to the left of the controls and content that they affect. In [[Design/HIG/PrimaryWindows|Primary Windows]], this can be typically be achieved by using a [[Design/HIG/PrimaryToolbar|Primary&nbsp;Toolbar]].
+          </li>
+        </ul>
+        FIXME: Alignment points&nbsp;diagram
+        <ul>
+          <li>
+            Utilise the key <span class="gnome">GNOME 3</span> alignment points. The <span class="gnome">GNOME 3</span> top panel provides three alignment points that you can use to create layouts that are in harmony with the <span class="gnome">GNOME 3</span> shell and are consistent with other <span class="gnome">GNOME 3</span>&nbsp;applications.
+          </li>
+        </ul>
+        <h2>
+          Laying Out Groups of&nbsp;Controls
+        </h2>
+        FIXME: Spacing&nbsp;diagram
+        <ul>
+          <li>
+            As a basic rule of thumb, leave space between elements in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated components, leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is recommended between the contents of a dialog window and the window&nbsp;borders.
+          </li>
+        </ul>
+        FIXME: Justification&nbsp;diagram
+        <ul>
+          <li>
+            Right justification within groups or the overall window looks good. If the combination of controls in your layout do not permit this arrangement, left justification should be&nbsp;used.
+          </li>
+          <li>
+            Indent group members 12 pixels to denote hierarchy and&nbsp;association.
+          </li>
+          <li>
+            When a user is scanning a complex preferences dialog consisting of many labels and corresponding check boxes, text fields, and drop-down combination boxes, it is easy to see how she can quickly become hindered by poor layout in the visual&nbsp;design.
+          </li>
+          <li>
+            Right justification is particularly appropriate if control labels greatly differ in length - this will ensure that the controls do not end up too far away from their corresponding&nbsp;labels.
+          </li>
+          <li>
+            Avoid using frames with visible borders to separate groups of controls - use spacing and headers&nbsp;instead.
+          </li>
+        </ul>
       </article>
     </div>
     <div id="footerpositioner">
@@ -165,7 +224,7 @@
                 <li class="first"><a href="design_principles.html">Principles</a></li>
                 <li><a href="design_strategies.html">Design Strategies</a></li>
                 <li><a href="system_shell.html">System Shell</a></li>
-                <li><a href="visual_layout.html">Visual Layout</a></li>
+                <li class="current"><a href="visual_layout.html">Visual Layout</a></li>
                 <li><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
                 <li><a href="keyboard_input.html">Keyboard Input</a></li>

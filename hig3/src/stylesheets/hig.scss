@@ -11,6 +11,9 @@ $columns: 16;
 $c-link: #3465a4;
 $c-header: #888a85;
 $c-footer: #d3d7cf;
+$c-note: #E5D693;
+$c-important: #f25252;
+$c-border: #ccc;
 
 a { 
   color: $c-link;
@@ -48,6 +51,62 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 { font-size: 200%;  }
+
+table {
+  border: 1px solid $c-border;
+  min-width: 80%;
+  
+  tr {
+    th {
+      text-align: left;
+      color: #999;
+      padding: .6em .8em 1em .8em;
+      font-size: 90%;
+    }
+    td {
+      padding: .6em .8em;
+    }
+  }
+}
+
+.shortcut {
+  display: inline-block;
+  min-width: 4em;
+  text-align: center;
+  background-color: lighten($c-border, 15%);
+  @include gradient-vertical(lighten($c-border,20%),lighten($c-border,5%));
+  @include text-shadow(0,1px,0,#fff);
+  border: 1px solid $c-border;
+  padding: .2em .5em;
+  font-size: 80%;
+  @include box-shadow(0,1px,1px,rgba(0,0,0,0.5));
+  @include border-radius(3px);
+}
+
+.note {
+  background-color: $c-note;
+  @include gradient-vertical(lighten($c-note,25%), lighten($c-note, 20%));
+  border: 1px solid $c-note;
+  padding: 1em;
+  @include box-shadow(0,1px, 2px, $c-note);
+  box-shadow: 0 1px 2px $c-note, 0 1px rgba(255, 255, 255, 0.4) inset;
+  @include border-radius(5px);
+  margin: .5em 0 2em 0;
+}
+
+.important {
+  color: #fff;
+  @include text-shadow(0,1px,1px,rgba(0,0,0,0.7));
+  font-weight: bold;
+  background-color: $c-important;
+  @include gradient-vertical(lighten($c-important,25%), lighten($c-important, 20%));
+  border: 1px solid $c-important;
+  padding: 1em;
+  @include box-shadow(0,1px, 2px, $c-note);
+  box-shadow: 0 1px 2px $c-important, 0 1px rgba(255, 255, 255, 0.4) inset;
+  @include border-radius(5px);
+  margin: .5em 0 2em 0;
+}
 
 .punchline {
   font-size: 200%;
@@ -160,7 +219,7 @@ h1 { font-size: 200%;  }
                 a {
                   padding-left: 24px;
                   color: $c-link;
-                  outlien: none;
+                  outline: none;
                 }
                 &.current {
                   a {

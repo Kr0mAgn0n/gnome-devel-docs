@@ -5,6 +5,7 @@
     <link href="/stylesheets/hig.css" media="screen" rel="stylesheet" type="text/css">
     <script language="javascript" src="javascripts/jquery.js" type="text/javascript"></script><script language="javascript" src="javascripts/hig.js" type="text/javascript"></script>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div class="gnomelink">
@@ -12,12 +13,12 @@
         <a href="http://www.gnome.org">GNOME.org</a>
       </div>
     </div>
-    <div class="logo">
-      <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
-      <div class="punchline">Human Interface Guidelines</div>
-    </div>
     <div class="contain">
       <aside class="sidebar">
+        <a class="smalllogo" href="/">
+          <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
+          <div class="punchline">Human Interface Guidelines</div>
+        </a>
         <div class="menu">
           <div class="navmenu">
             <span class="direct">
@@ -29,7 +30,7 @@
                 <li><a href="design_strategies.html">Design Strategies</a></li>
                 <li><a href="system_shell.html">System Shell</a></li>
                 <li><a href="visual_layout.html">Visual Layout</a></li>
-                <li><a href="writing_style.html">Writing Style</a></li>
+                <li class="current"><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
                 <li><a href="keyboard_input.html">Keyboard Input</a></li>
                 <li class="last"><a href="pointer_and_touch_input.html">Pointer and Touch Input</a></li>
@@ -130,26 +131,176 @@
         </div>
       </aside>
       <article class="main">
-        <img alt="Devices" src="images/devices.png">
+        <h1>
+          Writing&nbsp;Style
+        </h1>
         <div class="note">
-          This is draft content for the next version of
-          <a href="http://design.gnome.org">GNOME Human Interface Guidelines.</a>
+          This is draft content for the next version&nbsp;of
+          <a href="http://design.gnome.org"><span class="gnome">GNOME</span> Human Interface&nbsp;Guidelines.</a>
         </div>
-        <div class="blurb">
-          <h2>
-            Design Guidelines
-          </h2>
-          A small set of pages containing essential design
-          <a href="design_principles.html">advice and rules.</a>
-        </div>
-        <div class="blurb">
-          <h2>
-            Design Patterns
-          </h2>
-          A larger collection of building blocks that you can use to design your
-          <a href="basics-appmenu.html">application.</a>
-          The design patterns include a variety of different design elements that you can utilise. Some patterns describe individual user interface components, such as check boxes or lists. Others describe more complex arrangements of components.
-        </div>
+        Text is an important part of user interfaces. Take the time to ensure that any text that is presented to users is clearly written and easy to understand. Text also has an important visual role; it is important to ensure that you use the correct sizes, weights and positioning in order to produce a beautiful and effective&nbsp;interface.
+        <h2>
+          Writing Text for Your User&nbsp;Interface
+        </h2>
+        <p>
+          Ensuring that text is quick and easy to understand is an important part of designing your&nbsp;application.
+        </p>
+        <ul>
+          <li>
+            Keep text short and to the point. This improves speed of comprehension for the user. It also reduces the expansion of text when translated (remember that translated English text can expand up to 30% in some&nbsp;languages).
+          </li>
+          <li>
+            Do not shorten your text to the point of losing meaning, however. A three-word label that provides clear information is better than a one-word label that is ambiguous or vague. Try to find the fewest possible words to satisfactorily convey the meaning of your&nbsp;label.
+          </li>
+          <li>
+            Ensure that you use language that is familiar to your users and that is specific to the context of your application. Avoid using technical terminology or terminology from the underlying&nbsp;system.
+          </li>
+          <li>
+            Use the standard <span class="gnome">GNOME</span> terms when referring to parts of the user interface, such as ‘pointer’ and ‘window’. You can find a full list of these in the <span class="gnome">GNOME</span> Documentation Style Guide, Recommended&nbsp;Terminology.
+          </li>
+          <li>
+            Avoid repetition where possible. Remember the context of the text you are writing and try to avoid having the repetitive use of the same phrases and terms in the same view or&nbsp;window.
+          </li>
+        </ul>&nbsp;<h2>
+          Labels
+        </h2>
+        <p>
+          Labels are the text that accompanies individual controls in your interface. Some controls have them placed alongside, such as switches, checkboxes and radio buttons. Others, such as menu items and buttons, have the label placed directly on the control&nbsp;itself.
+        </p>
+        <ul>
+          <li>
+            Use the recommended standard labels for menu items, where they exist. Do not use synonyms such as Exit instead of&nbsp;Quit.
+          </li>
+          <li>
+            Ensure that a label with a mnemonic is associated with the control it&nbsp;labels.
+          </li>
+          <li>
+            If a label precedes the control or text that it refers to, use a lighter color [needs specific guidance on which color to use. do we have named colors yet?] to differentiate it (this rule does not apply to headings). In these cases a colon at the end of the label is not&nbsp;necessary.
+          </li>
+        </ul>&nbsp;<h2>
+          Capitalization
+        </h2>
+        <p>
+          Two styles of capitalization are used in <span class="gnome">GNOME</span> user interface elements: header capitalization and sentence&nbsp;capitalization.
+        </p>
+        <h2>
+          Header&nbsp;Capitalization
+        </h2>
+        <p>
+          Capitalize all words in the element, with the following&nbsp;exceptions:
+          <ul>
+            <li>
+              Articles: a, an,&nbsp;the.
+            </li>
+            <li>
+              Conjunctions of three or fewer letters: and, but, for, not, so, yet&nbsp;...
+            </li>
+            <li>
+              Prepositions of three or fewer letters: at, for, by, in, to&nbsp;...
+            </li>
+          </ul>
+        </p>
+        <p>
+          Use&nbsp;for:
+        </p>
+        <ul>
+          <li>
+            Button&nbsp;labels
+          </li>
+          <li>
+            Column heading&nbsp;labels
+          </li>
+          <li>
+            Group box or frame&nbsp;labels
+          </li>
+          <li>
+            Menu&nbsp;items
+          </li>
+          <li>
+            Menu items in&nbsp;applications
+          </li>
+          <li>
+            Menu titles in&nbsp;applications
+          </li>
+          <li>
+            Tabbed notebook&nbsp;titles
+          </li>
+          <li>
+            Titlebar&nbsp;labels
+          </li>
+          <li>
+            Webpage titles and navigational&nbsp;elements
+          </li>
+        </ul>
+        <h2>
+          Sentence&nbsp;Capitalization
+        </h2>
+        <p>
+          Capitalize the first letter of the first word, and any other words normally capitalized in sentences, such as application&nbsp;names.
+        </p>
+        <p>
+          Use&nbsp;for:
+        </p>
+        <ul>
+          <li>
+            Check box&nbsp;labels
+          </li>
+          <li>
+            Dialog&nbsp;messages
+          </li>
+          <li>
+            Drop-down combination box&nbsp;labels
+          </li>
+          <li>
+            Drop-down list box&nbsp;labels
+          </li>
+          <li>
+            Field&nbsp;labels
+          </li>&nbsp;<li>
+            Filenames
+          </li>
+          <li>
+            Graphic equivalent text: for example, Alt text on web&nbsp;pages
+          </li>
+          <li>
+            Items in drop-down combination boxes, drop-down list boxes, and list&nbsp;boxes
+          </li>
+          <li>
+            List box&nbsp;labels
+          </li>
+          <li>
+            Radio button&nbsp;labels
+          </li>
+          <li>
+            Slider&nbsp;labels
+          </li>
+          <li>
+            Spin box&nbsp;labels
+          </li>
+          <li>
+            Text box&nbsp;labels
+          </li>&nbsp;<li>
+            Tooltips
+          </li>
+        </ul>
+        <h2>
+          Text&nbsp;Styles
+        </h2>
+        <ul>
+          <li>
+            If you are presenting different kinds of text based information closely together, use different sizes weights and colours to differentiate them. (Be sure to consult the relevant design patterns for further guidance on&nbsp;this.)
+          </li>
+          <li>
+            Do not use more than two or three different text styles in your application. Too many textsizes, colors and weights will make the interface look complex, making it unattractive and difficult to&nbsp;understand.
+          </li>
+          <li>
+            Do not use graphical backdrops or "watermarks" behind text. These interfere with the contrast between the text and its background. This can cause difficulty for users with visual impairments, who will therefore normally choose themes that always use plain&nbsp;backdrops.
+          </li>
+        </ul>&nbsp;<h2>
+          Comments
+        </h2>
+        <p></p>
+        Should perhaps mention the potential for confusion with 'disabled' controls when discussing uses of text color. Maybe the 'consult design patterns for further guidance' is supposed to address&nbsp;that...
       </article>
     </div>
     <div id="footerpositioner">
@@ -166,7 +317,7 @@
                 <li><a href="design_strategies.html">Design Strategies</a></li>
                 <li><a href="system_shell.html">System Shell</a></li>
                 <li><a href="visual_layout.html">Visual Layout</a></li>
-                <li><a href="writing_style.html">Writing Style</a></li>
+                <li class="current"><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
                 <li><a href="keyboard_input.html">Keyboard Input</a></li>
                 <li class="last"><a href="pointer_and_touch_input.html">Pointer and Touch Input</a></li>

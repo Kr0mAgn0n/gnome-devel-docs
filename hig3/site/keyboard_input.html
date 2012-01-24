@@ -5,6 +5,7 @@
     <link href="/stylesheets/hig.css" media="screen" rel="stylesheet" type="text/css">
     <script language="javascript" src="javascripts/jquery.js" type="text/javascript"></script><script language="javascript" src="javascripts/hig.js" type="text/javascript"></script>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div class="gnomelink">
@@ -12,12 +13,12 @@
         <a href="http://www.gnome.org">GNOME.org</a>
       </div>
     </div>
-    <div class="logo">
-      <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
-      <div class="punchline">Human Interface Guidelines</div>
-    </div>
     <div class="contain">
       <aside class="sidebar">
+        <a class="smalllogo" href="/">
+          <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
+          <div class="punchline">Human Interface Guidelines</div>
+        </a>
         <div class="menu">
           <div class="navmenu">
             <span class="direct">
@@ -31,7 +32,7 @@
                 <li><a href="visual_layout.html">Visual Layout</a></li>
                 <li><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
-                <li><a href="keyboard_input.html">Keyboard Input</a></li>
+                <li class="current"><a href="keyboard_input.html">Keyboard Input</a></li>
                 <li class="last"><a href="pointer_and_touch_input.html">Pointer and Touch Input</a></li>
               </ul>
             </span>
@@ -130,26 +131,196 @@
         </div>
       </aside>
       <article class="main">
-        <img alt="Devices" src="images/devices.png">
+        <h1>
+          Keyboard&nbsp;Input
+        </h1>
         <div class="note">
-          This is draft content for the next version of
-          <a href="http://design.gnome.org">GNOME Human Interface Guidelines.</a>
+          This is draft content for the next version&nbsp;of
+          <a href="http://design.gnome.org"><span class="gnome">GNOME</span> Human Interface&nbsp;Guidelines.</a>
         </div>
-        <div class="blurb">
-          <h2>
-            Design Guidelines
-          </h2>
-          A small set of pages containing essential design
-          <a href="design_principles.html">advice and rules.</a>
+        <p>
+          Keyboards are a common input device for those using <span class="gnome">GNOME 3</span>, so it is important that you design your application with them in mind. The keyboard can be a quick and effective effective input method. Allowing people to use a keyboard instead of a pointing device can save them time and effort and can be convenient for many operations. The keyboard is also important for visually-impaired people or those with mobility&nbsp;impairments.
+        </p>
+        <div class="important">
+          Search is an important part of the way that people interact with <span class="gnome">GNOME 3</span>. Make sure that you are familiar with the search design pattern and follow it wherever it is&nbsp;relevant.
         </div>
-        <div class="blurb">
-          <h2>
-            Design Patterns
-          </h2>
-          A larger collection of building blocks that you can use to design your
-          <a href="basics-appmenu.html">application.</a>
-          The design patterns include a variety of different design elements that you can utilise. Some patterns describe individual user interface components, such as check boxes or lists. Others describe more complex arrangements of components.
-        </div>
+        <h2>
+          Keyboard&nbsp;Navigation
+        </h2>
+        <p>
+          Ensure that all the functionality provided by your application can be accessed using a keyboard, including toolbars, links and buttons. Trying to use your application only with a keyboard is a great way to test&nbsp;this.
+        </p>
+        <ul>
+          <li>
+            The tab key is the standard way of navigating through a <span class="gnome">GNOME</span> user interface using the keyboard. Make sure that all the parts of your application can be accessed in this&nbsp;manner.
+          </li>
+          <li>
+            Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order. In Western locales, this is normally left to right and top to&nbsp;bottom.
+          </li>
+          <li>
+            Ensure correct tab order for controls whose enabled state is dependent on check box, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a check box, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the&nbsp;button.
+          </li>
+        </ul>
+        <h2>
+          Access&nbsp;Keys
+        </h2>
+        <p>
+          Access keys allow someone to operate labelled controls by using the Alt modifier&nbsp;key.
+        </p>
+        <ul>
+          <li>
+            Give all labelled components an access key (underlined letter), with the exception of toolbar controls which would use up too many access key&nbsp;combinations.
+          </li>
+          <li>
+            Choose access keys to be as easy to remember as possible. Normally, this means using the first letter of the label. However, in complex windows, the choice can become more difficult. Here are some simple&nbsp;rules:
+          </li>
+          <li>
+            Assign access keys to the most frequently-used controls first. If it's not clear which controls will be the most frequently used, assign access keys from left to right, top to bottom (for Western&nbsp;locales).
+          </li>
+          <li>
+            Use the first letter of the label, or of one of its other words if it has more than one. If another letter provides a better association (e.g. "x" in Extra Large) however, consider using that letter&nbsp;instead.
+          </li>
+          <li>
+            If the first letter is not available, choose an easy to remember consonant from the label, for example, "p" in&nbsp;Replace.
+          </li>
+          <li>
+            If no such consonants are available, choose any available vowel from the&nbsp;label.
+          </li>
+          <li>
+            If duplication of access keys in a window is unavoidable, you should still refrain from duplicating the access keys for any of these buttons that appear in the same window: OK, Cancel, Close, Apply or&nbsp;Help.
+          </li>
+          <li>
+            It is better not to assign access keys to "thin" letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y) unless it is unavoidable. The underline does not show up very well on those characters in some&nbsp;fonts.
+          </li>
+          <li>
+            Applications using a non-Roman writing system in conjunction with a standard keyboard can have control labels prefixed with Roman characters as access&nbsp;keys.
+          </li>
+        </ul>
+        <h2>
+          Shortcut&nbsp;Keys
+        </h2>
+        <p>
+          Shortcut keys are a good way to provide quick and convenient access to common operations. Be sure to use the standard <span class="gnome">GNOME</span> shortcut keys (see below) if your application supports those functions. This ensures consistency between <span class="gnome">GNOME</span> applications and aids&nbsp;discoverability.
+        </p>
+        <p>
+          Guidance on assigning your own shortcut&nbsp;keys:
+        </p>
+        <ul>
+          <li>
+            Try and be consistent with other <span class="gnome">GNOME</span> applications, particularly the core applications, and take the time to find out what shortcut keys they have&nbsp;defined.
+          </li>
+          <li>
+            Only assign shortcut keys to the most commonly-used actions in your application. Do not try to assign a shortcut keys to&nbsp;everything.
+          </li>
+          <li>
+            Do not use any of the standard <span class="gnome">GNOME</span> shortcut keys for your own purposes, even if your application doesn't support those functions. This helps reinforce consistency between all <span class="gnome">GNOME</span>&nbsp;applications.
+          </li>
+          <li>
+            Use Ctrl+letter in preference to other combinations when choosing new shortcut keys and Shift+Ctrl+letter for functions that reverse or extend another function. For example, Ctrl+Z and Shift+Ctrl+Z for Undo and&nbsp;Redo.
+          </li>
+          <li>
+            Choose new shortcut keys to be as mnemonic as possible, as these will be easier to learn and remember. For example, Ctrl+E would be a good shortcut for a menu item called Edit&nbsp;Page.
+          </li>
+          <li>
+            Shortcuts that can be easily used with one hand are preferable for common operations, but try not to assign awkward reaches for shortcuts that may be frequently&nbsp;used.
+          </li>
+          <li>
+            Do not use Alt+key combinations for shortcut keys, as these may conflict with window manager shortcuts or access&nbsp;keys.
+          </li>
+        </ul>
+        <h2>
+          Standard <span class="gnome">GNOME</span> Shortcut&nbsp;Keys
+        </h2>
+        <p>
+          Include these where you&nbsp;can:
+        </p>
+        <table>
+          <tr>&nbsp;<th>
+              Function
+            </th>&nbsp;<th>
+              Shortcut
+            </th>&nbsp;<th>
+              Description
+            </th>
+          </tr>
+          <tr>&nbsp;<td>
+              New
+            </td>
+            <td>&nbsp;<span class="shortcut">
+                Ctrl+N
+              </span>
+            </td>
+            <td>
+              Create a new&nbsp;document
+            </td>
+          </tr>
+          <tr>&nbsp;<td>
+              Open
+            </td>
+            <td>&nbsp;<span class="shortcut">
+                Ctrl+O
+              </span>
+            </td>
+            <td>
+              Open a&nbsp;document
+            </td>
+          </tr>
+          <tr>&nbsp;<td>
+              Save
+            </td>
+            <td>&nbsp;<span class="shortcut">
+                Ctrl+S
+              </span>
+            </td>
+            <td>
+              Save the current&nbsp;document
+            </td>
+          </tr>
+          <tr>&nbsp;<td>
+              …
+            </td>
+            <td>&nbsp;<span class="shortcut">
+                Ctrl+…
+              </span>
+            </td>&nbsp;<td>
+              …
+            </td>
+          </tr>
+        </table>
+        <h2>
+          System Reserved Shortcut&nbsp;Keys
+        </h2>
+        <p>
+          These ones are&nbsp;ours.
+        </p>
+        <table>
+          <tr>&nbsp;<th>
+              Function
+            </th>&nbsp;<th>
+              Shortcut
+            </th>&nbsp;<th>
+              Description
+            </th>
+          </tr>
+          <tr>&nbsp;<td>
+              …
+            </td>&nbsp;<td>
+              …
+            </td>&nbsp;<td>
+              …
+            </td>
+          </tr>
+        </table>&nbsp;<h2>
+          Comments
+        </h2>
+        <ul>
+          <li>
+            Other prominent shortcuts that should be mentioned here: F11 - fullscreen, Ctrl-X/Ctrl-C/Ctrl-V for&nbsp;cut/copy/paste
+          </li>
+          <li>
+            I'd really like to see some guidance on global shortcuts here - people have a tendency to write small things that hide in the statusbar and install global shortcuts to make something happen. We should really advise against that, since global shortcuts are a scarce resource. If a global shortcut is needed at all, it "'must"' be coordinated with the rest of the system by integrating in the keyboard shortcuts control-center&nbsp;functionality.
+          </li>
+        </ul>
       </article>
     </div>
     <div id="footerpositioner">
@@ -168,7 +339,7 @@
                 <li><a href="visual_layout.html">Visual Layout</a></li>
                 <li><a href="writing_style.html">Writing Style</a></li>
                 <li><a href="color.html">Color</a></li>
-                <li><a href="keyboard_input.html">Keyboard Input</a></li>
+                <li class="current"><a href="keyboard_input.html">Keyboard Input</a></li>
                 <li class="last"><a href="pointer_and_touch_input.html">Pointer and Touch Input</a></li>
               </ul>
             </span>

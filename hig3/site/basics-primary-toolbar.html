@@ -5,6 +5,7 @@
     <link href="/stylesheets/hig.css" media="screen" rel="stylesheet" type="text/css">
     <script language="javascript" src="javascripts/jquery.js" type="text/javascript"></script><script language="javascript" src="javascripts/hig.js" type="text/javascript"></script>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div class="gnomelink">
@@ -12,12 +13,12 @@
         <a href="http://www.gnome.org">GNOME.org</a>
       </div>
     </div>
-    <div class="logo">
-      <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
-      <div class="punchline">Human Interface Guidelines</div>
-    </div>
     <div class="contain">
       <aside class="sidebar">
+        <a class="smalllogo" href="/">
+          <img alt="Gnome logo" class="foot" src="images/gnome-logo.png">
+          <div class="punchline">Human Interface Guidelines</div>
+        </a>
         <div class="menu">
           <div class="navmenu">
             <span class="direct">
@@ -46,7 +47,7 @@
                   </a>
                   <ul>
                     <li class="first"><a href="basics-appmenu.html">Application Menu</a></li>
-                    <li><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
+                    <li class="current"><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
                     <li><a href="basics-primary-windows.html">Primary Windows</a></li>
                     <li><a href="basics-notifications.html">Notifications</a></li>
                     <li><a href="basics-content-area.html">Content Area</a></li>
@@ -130,26 +131,61 @@
         </div>
       </aside>
       <article class="main">
-        <img alt="Devices" src="images/devices.png">
+        <h1>Primary&nbsp;Toolbars</h1>
         <div class="note">
-          This is draft content for the next version of
-          <a href="http://design.gnome.org">GNOME Human Interface Guidelines.</a>
+          This is draft content for the next version&nbsp;of
+          <a href="http://design.gnome.org"><span class="gnome">GNOME</span> Human Interface&nbsp;Guidelines.</a>
         </div>
-        <div class="blurb">
-          <h2>
-            Design Guidelines
-          </h2>
-          A small set of pages containing essential design
-          <a href="design_principles.html">advice and rules.</a>
-        </div>
-        <div class="blurb">
-          <h2>
-            Design Patterns
-          </h2>
-          A larger collection of building blocks that you can use to design your
-          <a href="basics-appmenu.html">application.</a>
-          The design patterns include a variety of different design elements that you can utilise. Some patterns describe individual user interface components, such as check boxes or lists. Others describe more complex arrangements of components.
-        </div>
+        <p>
+          A horizontal toolbar that is located at the top of a window, beneath its titlebar (in windowed&nbsp;mode).
+        </p>
+        <img alt="Primary toolbar example" src="images/figures/primary-toolbar-example.png">
+        <h2>
+          When to&nbsp;use
+        </h2>
+        <p>
+          A primary toolbar should be used within&nbsp;any
+          <a href="basics-primary-windows.html">primary&nbsp;window</a>&nbsp;.
+        </p>&nbsp;<h2>
+          Guidance
+        </h2>
+        <ul>
+          <li>
+            The primary toolbar should contain the dominant controls in the window - the controls contained within the toolbar should be for key operations that affect the content&nbsp;below.
+          </li>
+          <li>
+            Keep the toolbar contents to a minimum - work to ensure that a small amount of essential functionality is&nbsp;included
+          </li>
+          <li>
+            Arrange the toolbar contents according to the three alignment points described in [[Design/HIG/VisualLayout|the Visual Layout guidelines]] - left, centre and right&nbsp;alignment
+          </li>
+          <li>
+            The most dominant controls should be left&nbsp;aligned
+          </li>
+          <li>
+            Controls relating to filtering should be centre&nbsp;aligned
+          </li>
+          <li>
+            Follow the lead of the core <span class="gnome">GNOME 3</span> applications and repeat the conventions that they establish. Place common toolbar elements, such as [[Design/HIG/CheckMarkButtons|Check Mark Buttons]], [[Design/HIG/FilterButtons|Filter Buttons]] and [[Design/HIG/BackButtons|Back Buttons]] in consistent&nbsp;positions.
+          </li>
+          <li>
+            The content of a primary toolbar can update based on the context. When using multiple [[Design/HIG/Views|Views]], you should add and remove controls depending on which view is being&nbsp;displayed.
+          </li>
+        </ul>
+        <h2>
+          Maximizing&nbsp;Windows
+        </h2>
+        <p>
+          If the window containing the toolbar is a maximizing window (see [[Design/HIG/PrimaryWindows|Primary Windows]]), the Primary Toolbar needs to have certain&nbsp;features:
+        </p>
+        <ul>
+          <li>
+            The content name/title should be displayed, so that the window's titlebar can be dispensed with. This can either be done either by placing a text label in the toolbar, or by including a control which indicates the content that is displayed below, such as filter buttons. The latter approach can be seen in the core Music&nbsp;application.
+          </li>
+          <li>
+            Dragging the toolbar down while the window is maximized should unmaximize&nbsp;it
+          </li>
+        </ul>
       </article>
     </div>
     <div id="footerpositioner">
@@ -183,7 +219,7 @@
                   </a>
                   <ul>
                     <li class="first"><a href="basics-appmenu.html">Application Menu</a></li>
-                    <li><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
+                    <li class="current"><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
                     <li><a href="basics-primary-windows.html">Primary Windows</a></li>
                     <li><a href="basics-notifications.html">Notifications</a></li>
                     <li><a href="basics-content-area.html">Content Area</a></li>
