@@ -47,10 +47,10 @@
                   </a>
                   <ul>
                     <li class="first"><a href="basics-appmenu.html">Application Menu</a></li>
-                    <li class="current"><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
+                    <li><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
                     <li><a href="basics-primary-windows.html">Primary Windows</a></li>
                     <li><a href="basics-notifications.html">Notifications</a></li>
-                    <li><a href="basics-content-area.html">Content Area</a></li>
+                    <li class="current"><a href="basics-content-area.html">Content Area</a></li>
                     <li class="last"><a href="basics-sidebar-list.html">Sidebar List</a></li>
                   </ul>
                 </li>
@@ -136,56 +136,136 @@
           This is draft content for the next version&nbsp;of
           <a href="http://design.gnome.org"><span class="gnome">GNOME</span> Human Interface&nbsp;Guidelines.</a>
         </div>
+        <h1 id="grid-view">
+          Grid&nbsp;View
+        </h1>
         <p>
-          A horizontal toolbar that is located at the top of a window, beneath its titlebar (in windowed&nbsp;mode).
+          An area that contains a grid of images that represent individual items of content. Each item typically has a label beneath it. A scrollbar enables the grid to be moved up and down when the number of items becomes too big for the available&nbsp;space.
         </p>
-        <img alt="Primary toolbar example" src="images/figures/primary-toolbar-example.png">
         <h2>
           When to&nbsp;use
         </h2>
         <p>
-          A primary toolbar should be used within&nbsp;any
-          <a href="basics-primary-windows.html">primary&nbsp;window</a>&nbsp;.
+          The grid view is one of the principal ways of presenting bodies of content in <span class="gnome">GNOME 3</span> applications. It can be used to present relatively small numbers of items or very large numbers. Examples of the grid view can be seen in the Documents, Music, Clocks and Boxes&nbsp;apps.
+        </p>
+        <div class="columns">
+          <img alt="Content grid" src="images/figures/content-grid.png">
+          <p>
+            Since the grid view utilises an image for each item it presents, it is best suited to content that has a visual component. It is also well suited to content where each item has an image that is specific to it, rather than having images that are shared by multiple items of&nbsp;content.
+          </p>
+        </div>
+        <p>
+          As a general design strategy, it is worth thinking about ways in which you can generate unique images for each of the content items that you want to present. Unique images vastly help identification and can bring life to what would otherwise be a dull or uninteresting application. <span class="gnome">GNOME</span> Clocks is an excellent example of this - by marrying each world clock with an image of a city, it aids identification and provides a richer experience than would be enabled by text and numbers&nbsp;only.
         </p>&nbsp;<h2>
-          Guidance
-        </h2>
-        <ul>
-          <li>
-            The primary toolbar should contain the dominant controls in the window - the controls contained within the toolbar should be for key operations that affect the content&nbsp;below.
-          </li>
-          <li>
-            Keep the toolbar contents to a minimum - work to ensure that a small amount of essential functionality is&nbsp;included
-          </li>
-          <li>
-            Arrange the toolbar contents according to the three alignment points described in [[Design/HIG/VisualLayout|the Visual Layout guidelines]] - left, centre and right&nbsp;alignment
-          </li>
-          <li>
-            The most dominant controls should be left&nbsp;aligned
-          </li>
-          <li>
-            Controls relating to filtering should be centre&nbsp;aligned
-          </li>
-          <li>
-            Follow the lead of the core <span class="gnome">GNOME 3</span> applications and repeat the conventions that they establish. Place common toolbar elements, such as [[Design/HIG/CheckMarkButtons|Check Mark Buttons]], [[Design/HIG/FilterButtons|Filter Buttons]] and [[Design/HIG/BackButtons|Back Buttons]] in consistent&nbsp;positions.
-          </li>
-          <li>
-            The content of a primary toolbar can update based on the context. When using multiple [[Design/HIG/Views|Views]], you should add and remove controls depending on which view is being&nbsp;displayed.
-          </li>
-        </ul>
-        <h2>
-          Maximizing&nbsp;Windows
+          Guidelines
         </h2>
         <p>
-          If the window containing the toolbar is a maximizing window&nbsp;(see
-          <a href="basics-primary-windows.html">primary&nbsp;windows</a>
-          ), the Primary Toolbar needs to have certain&nbsp;features:
+          Be consistent with the implementations found in the core <span class="gnome">GNOME 3</span> applications. Ensure that the layout of the grid is the&nbsp;same.
+        </p>
+        <div class="columns">
+          <img alt="Grid spacing" src="images/figures/grid-spacing.png">
+          <ul>
+            <li>
+              Order the items in the grid according to what will be most useful to people using your application, as well as conventions for the type of application that you&nbsp;designing.
+            </li>
+            <li>
+              Selecting an item in the grid will typically switch to a dedicated view of&nbsp;it.
+            </li>
+            <li>
+              Use&nbsp;chunking.
+            </li>
+            <li>
+              The standard [[Design/HIG/Search|search]] design pattern should be used to allow people to filter the content of the&nbsp;grid.
+            </li>
+          </ul>
+        </div>&nbsp;<h2>
+          Elaborations
+        </h2>
+        <p>
+          The grid view is a flexible pattern that can be elaborated depending on your requirements. The following are a number of optional additions to the grid pattern that can be&nbsp;used:
         </p>
         <ul>
           <li>
-            The content name/title should be displayed, so that the window's titlebar can be dispensed with. This can either be done either by placing a text label in the toolbar, or by including a control which indicates the content that is displayed below, such as filter buttons. The latter approach can be seen in the core Music&nbsp;application.
+            Use&nbsp;the
+            <a href="selectmode-checkmark.html">checkmark&nbsp;selection</a>
+            mechanism if it is necessary to provide the ability to select and modify items within the&nbsp;grid.
           </li>
           <li>
-            Dragging the toolbar down while the window is maximized should unmaximize&nbsp;it
+            If the items in the grid have several useful properties, an&nbsp;alternative
+            <a href="#list-view">list&nbsp;view</a>
+            can be provided. Switching between a grid and list view is typically facilitated by a set of radio button items in&nbsp;the
+            <a href="basics-appmenu.html">app&nbsp;menu</a>&nbsp;.
+          </li>
+          <li>
+            Grid views can contain&nbsp;collections.
+          </li>
+          <li>
+            "Emblems" can indicate a variety of states, including whether an item is being&nbsp;shared.
+          </li>
+          <li>
+            Grid items can display a range of "status information", such as progress or whether they are active. This is particularly useful if the items in the grid have dynamic properties. <span class="gnome">GNOME</span> Boxes provides examples of a number of these states displayed within the grid design&nbsp;pattern.
+          </li>
+          <li>
+            Inactivity can be indicated by&nbsp;…
+          </li>
+          <li>
+            Progress can be indicated by&nbsp;…
+          </li>
+        </ul>
+        <h1 id="list-view">
+          List&nbsp;View
+        </h1>
+        <p>
+          An area that is populated by a list of items. A list can incorporate multiple columns of both text and images. The list can be vertically scrolled and can be filtered by using search&nbsp;functionality.
+        </p>
+        <h2>
+          When to&nbsp;use
+        </h2>
+        <p>
+          List views can be used to present and give access to bodies of content. They are appropriate if content items have a name or other text-based&nbsp;identifier.
+        </p>
+        <div class="columns">
+          <img alt="Content list" src="images/figures/content-list.png">
+          <p>
+            List views often&nbsp;accompany
+            <a href="#grid-view">grid&nbsp;views</a>
+            and offer a different perspective on the content that they present. In particular, a list view allows additional information about each item of content through the use of multiple columns of&nbsp;text.
+          </p>
+        </div>&nbsp;<h2>
+          Guidelines
+        </h2>
+        <p>
+          Be consistent with the list views found in the core <span class="gnome">GNOME 3</span>&nbsp;applications.
+        </p>
+        <img alt="List spacing" src="images/figures/list-spacing.png">
+        <div id="ul">
+          <li>
+            Specify the width of each column according to the anticipated length of its contents, but also ensure that the most important columns are prominent within the overall&nbsp;layout.
+          </li>
+          <li>
+            Provide a search facility in order to allow people to filter the contents of the list. See the [[Design/HIG/Search|search design pattern]] for more information on&nbsp;this.
+          </li>
+          <li>
+            Combine scrolling with chunking when there are a high number of items in the list&nbsp;view.
+          </li>
+          <li>
+            Selecting an item from the list will typically open&nbsp;it.
+          </li>
+          <li>
+            Ensure that you follow the guidelines on using&nbsp;[[/Design/HIG/TextAndLabels|text]].
+          </li>
+          <li>
+            When presenting multiple columns of text, use color to draw attention to the most important column. Making the text of less important columns lighter will make the list easier to&nbsp;read.
+          </li>
+        </div>&nbsp;<h2>
+          Elaborations
+        </h2>
+        <p>
+          Like grid views, list views can be combined with additional design&nbsp;patterns:
+        </p>
+        <ul>
+          <li>
+            <a href="selectmode-checkmark.html">checkmark&nbsp;selector</a>
           </li>
         </ul>
       </article>
@@ -221,10 +301,10 @@
                   </a>
                   <ul>
                     <li class="first"><a href="basics-appmenu.html">Application Menu</a></li>
-                    <li class="current"><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
+                    <li><a href="basics-primary-toolbar.html">Primary Toolbar</a></li>
                     <li><a href="basics-primary-windows.html">Primary Windows</a></li>
                     <li><a href="basics-notifications.html">Notifications</a></li>
-                    <li><a href="basics-content-area.html">Content Area</a></li>
+                    <li class="current"><a href="basics-content-area.html">Content Area</a></li>
                     <li class="last"><a href="basics-sidebar-list.html">Sidebar List</a></li>
                   </ul>
                 </li>
