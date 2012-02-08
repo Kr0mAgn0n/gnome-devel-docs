@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#c"/>
-  
+
     <desc>Use Gtk+ and GStreamer to build a simple guitar tuner application for GNOME. Shows off how to use the interface designer.</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2010-12-02" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -44,10 +44,10 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Continue</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
-    <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
+    <p>Make sure that <gui>Configure external packages</gui> is switched <gui>ON</gui>. On the next page, select
        <em>gstreamer-0.10</em> from the list to include the GStreamer library in your project.</p>
     </item>
     <item>
@@ -62,7 +62,7 @@
 <section id="build">
   <title>Build the code for the first time</title>
   <p>C is a rather verbose language, so don't be surprised that the file contains quite a lot of code. Most of it is template code. It loads an (empty) window from the user interface description file and shows it. More details are given below; skip this list if you understand the basics:</p>
-  
+
   <list>
   <item>
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtk</code> (user interface) and <code>gi18n</code> (internationalization) libraries. Functions from these libraries are used in the rest of the code.</p>
@@ -117,8 +117,8 @@ six strings) and the orientation to vertical.</p>
 <section id="signal">
   <title>Creating the signal handler</title>
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. We need to add that function in the source file.</p>
-  <p>To do this, open <file>main.c</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the 
-<gui>clicked</gui> signal and drag it into to the source file at a 
+  <p>To do this, open <file>main.c</file> while the user interface file is still open. Switch to the <gui>Signals</gui> tab, which you already used to set the signal name. Now take the row where you set the
+<gui>clicked</gui> signal and drag it into to the source file at a
 position that is outside any function. The following code will be added to your source file:</p>
 <code mime="text/x-csrc"><![CDATA[
 void on_button_clicked (GtkWidget* button, gpointer user_data)
@@ -142,13 +142,13 @@ void on_button_clicked (GtkWidget* button, gpointer user_data)
 <section id="pipeline">
   <title>Set up the pipeline</title>
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
-  
+
   <p>Insert the following line into <file>main.c</file>, just below the <code><![CDATA[#include <gtk/gtk.h>]]></code> line:</p>
   <code mime="text/x-csrc"><![CDATA[#include <gst/gst.h>]]></code>
   <p>This includes the GStreamer library. You also need to add a line to initialize GStreamer; put the following code on the line above the <code>gtk_init</code> call in the <code>main</code> function:</p>
   <code><![CDATA[gst_init (&argc, &argv);]]></code>
   <p>Then, copy the following function into <file>main.c</file> above the empty <code>on_button_clicked</code> function:</p>
-  <code mime="text/x-csrc"><![CDATA[static void 
+  <code mime="text/x-csrc"><![CDATA[static void
 play_sound (gdouble frequency)
 {
 	GstElement *source, *sink;
@@ -162,7 +162,7 @@ play_sound (gdouble frequency)
 
 	/* set frequency */
 	g_object_set (source, "freq", frequency, NULL);
-	
+
 	gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
 	gst_element_link (source, sink);
 
@@ -171,7 +171,7 @@ play_sound (gdouble frequency)
 	/* stop it after 500ms */
 	g_timeout_add (LENGTH, (GSourceFunc) pipeline_stop, pipeline);
 }]]></code>
-  
+
   <steps>
     <item>
     <p>The first five lines create source and sink GStreamer elements (<code>GstElement</code>), and a pipeline element (which will be used as a container for the other two elements). The pipeline is given the name "note"; the source is named "source" and is set to the <code>audiotestsrc</code> source; and the sink is named "output" and set to the <code>autoaudiosink</code> sink (default sound card output).</p>
@@ -186,7 +186,7 @@ play_sound (gdouble frequency)
     <p>Next, <code>gst_element_link</code> is used to connect the elements together, so the output of <code>source</code> (a tone) goes into the input of <code>sink</code> (which is then output to the sound card). <code>gst_element_set_state</code> is then used to start playback, by setting the state of the pipeline to playing (<code>GST_STATE_PLAYING</code>).</p>
     </item>
   </steps>
-  
+
 </section>
 
 <section id="stop">
@@ -201,7 +201,7 @@ pipeline_stop (GstElement* pipeline)
 {
 	gst_element_set_state (pipeline, GST_STATE_PAUSED);
 	g_object_unref (pipeline);
-	
+
 	return FALSE;
 }]]></code>
   <p>The call to <code>gst_element_set_state</code> pauses the playback of the pipeline and <code>g_object_unref</code> unreferences the pipeline, destroying it and freeing its memory.</p>

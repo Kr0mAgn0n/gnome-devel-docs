@@ -48,7 +48,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>photo-wall</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (simple)</gui> from the <gui>C</gui> tab, click <gui>Continue</gui>, and fill out your details on the next few pages. Use <file>photo-wall</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will
@@ -120,7 +120,7 @@ static Position origin = {0, 0};
 <section id="code">
   <title>Jumping into the code</title>
   <p>We will start by taking a look at the <code>main()</code> function as a whole. Then we'll discuss the other code sections in detail.
-  Change the <file>src/main.c</file> to contain this <code>main()</code> function. You can delete the 
+  Change the <file>src/main.c</file> to contain this <code>main()</code> function. You can delete the
   <code>create_window()</code> function as we don't need it in this example.</p>
   <code mime="text/x-csrc" style="numbered"><![CDATA[
 int
@@ -227,7 +227,7 @@ load_image_path_names()
     const gchar *filename = g_dir_read_name(dir);
     while(filename)
     {
-        if(g_str_has_suffix(filename, ".jpg") || g_str_has_suffix(filename, ".png")) 
+        if(g_str_has_suffix(filename, ".jpg") || g_str_has_suffix(filename, ".png"))
         {
             gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
             img_path_list = g_slist_prepend(img_path_list, path);
@@ -367,7 +367,7 @@ foreach_set_focus_state(gpointer data, gpointer user_data)
 
 <section id="run">
   <title>Build and run the application</title>
-  <p>All of the code should now be ready to go. 
+  <p>All of the code should now be ready to go.
   All you need now is some pictures to load. By default, the pictures are loaded from a <file>berlin_images</file> directory. If you want, you can change the <code>#define IMAGE_DIR_PATH</code> line near the top to refer to your photo directory, or create a <file>berlin_images</file> directory by clicking <guiseq><gui>Project</gui><gui>New Directory...</gui></guiseq> and creating a <file>berlin_images</file> directory as a subdirectory of the <file>photo-wall</file> directory. Make sure to put at least twelve images in the directory! <!--You can download the example images <link href="photo-wall/berlin_images/">here</link> (<link href="photo-wall/CREDITS">credits</link>).--></p>
   <p>When you have done that, click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
   <p>If you haven't already done so, choose the <file>Debug/src/photo-wall</file> application in the dialog that appears. Finally, hit <gui>Run</gui> and enjoy!</p>

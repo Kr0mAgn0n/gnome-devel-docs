@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#c"/>
-    
+
     <desc>A little bit more than a simple "Hello world" Gtk application.</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2011-03-18" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -15,7 +15,7 @@
     <credit type="author">
       <name>Johannes Schmid</name>
       <email>jhs@gnome.org</email>
-    </credit>    
+    </credit>
   </info>
 
 <title>Image Viewer</title>
@@ -38,7 +38,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+    <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>C</gui> tab, click <gui>Continue</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will
@@ -57,7 +57,7 @@
 <section id="build">
   <title>Build the code for the first time</title>
   <p>C is a rather verbose language, so don't be surprised that the file contains quite a lot of code. Most of it is template code. It loads an (empty) window and shows it. More details are given below; skip this list if you understand the basics:</p>
-  
+
   <list>
   <item>
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtk</code> (user interface) and <code>gi18n</code> (internationalization) libraries. Functions from these libraries are used in the rest of the code.</p>
@@ -109,10 +109,10 @@ create_window (void)
 
 	/* Show open dialog when opening a file */
 	g_signal_connect (button, "clicked", G_CALLBACK (on_open_image), image);
-	
+
 	/* Exit when the window is closed */
 	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
-	
+
 	return window;
 }
 ]]></code>
@@ -145,7 +145,7 @@ create_window (void)
 
 <section id="image">
 <title>Showing the image</title>
-<p>We will now define the signal handler for the <em>clicked</em> signal or the 
+<p>We will now define the signal handler for the <em>clicked</em> signal or the
 button we mentioned before. Add this code before the <code>create_window()</code>
 method.</p>
 <code mime="text/x-csrc"><![CDATA[
@@ -165,12 +165,12 @@ on_open_image (GtkButton* button, gpointer user_data)
 	gtk_file_filter_add_pixbuf_formats (filter);
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (dialog),
 	                             filter);
-	
+
 	switch (gtk_dialog_run (GTK_DIALOG (dialog)))
 	{
 		case GTK_RESPONSE_ACCEPT:
 		{
-			gchar *filename = 
+			gchar *filename =
 				gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
 			gtk_image_set_from_file (GTK_IMAGE (image), filename);
 			break;
@@ -183,11 +183,11 @@ on_open_image (GtkButton* button, gpointer user_data)
 ]]></code>
   <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
   <list>
-    <item><p>The first argument of the signal is always the widget that sent the signal. Sometimes 
+    <item><p>The first argument of the signal is always the widget that sent the signal. Sometimes
     other arguments related to the signal come after that, but <em>clicked</em> doesn't have any. Next is
     the <code>user_data</code> argument which is a pointer to the data we passed when connecting the signal.
     In this case it is our <code>GtkImage</code> object.</p>
-    </item> 
+    </item>
     <item>
       <p>The next interesting line is where the dialog for choosing the file is created using
       <code>gtk_file_chooser_dialog_new</code>. The function takes the title of the dialog, the
