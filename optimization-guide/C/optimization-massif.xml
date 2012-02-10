@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter>
     <title>Using <application>Massif</application> for Profiling Memory Use in GNOME Software</title>
-    
+
     <para>
-        This article describes how to use the <application>Massif</application> heap profiler with GNOME applications. We describe how to invoke, interpret, and act on the output of <application>Massif</application>. The <application>Same GNOME</application> game is used as an example.
+        This article describes how to use the <application>Massif</application> heap profiler with GNOME applications. We describe how to invoke, interpret, and act on the output of <application>Massif</application>. The <application>Swell Foop</application> game is used as an example.
     </para>
 
     <sect1 id="optimization-massif-TBL-intro">
@@ -31,10 +31,10 @@
         </para>
         <programlisting>
 valgrind --tool=massif --depth=5  --alloc-fn=g_malloc --alloc-fn=g_realloc --alloc-fn=g_try_malloc \
-         --alloc-fn=g_malloc0 --alloc-fn=g_mem_chunk_alloc same-gnome
+         --alloc-fn=g_malloc0 --alloc-fn=g_mem_chunk_alloc swell-foop
         </programlisting>
         <para>
-            <application>Same GNOME</application> is the program we will be using as an example. Be warned that, since valgrind emulates the CPU, it will run <emphasis>very</emphasis> slowly. You will also need a lot of memory.
+            <application>Swell Foop</application> is the program we will be using as an example. Be warned that, since valgrind emulates the CPU, it will run <emphasis>very</emphasis> slowly. You will also need a lot of memory.
         </para>
     </sect1>
     <sect1 id="optimization-massif-TBL-interpreting-results">
@@ -46,7 +46,7 @@ valgrind --tool=massif --depth=5  --alloc-fn=g_malloc --alloc-fn=g_realloc --all
             The text file is arranged as a hierarchy of sections, at the top is a list of the worst memory users arranged in order of decreasing spacetime. Below this are further sections, each breaking the results down into finer detail as you proceed down the call-stack. To illustrate this we will use the output of the command above.
         </para>
         <figure id="optimization-massif-FIG-output-unoptimized">
-            <title><application>Massif</application> output for the unoptimized version of the <application>Same GNOME</application> program.</title>
+            <title><application>Massif</application> output for the unoptimized version of the <application>Swell Foop</application> program.</title>
             <mediaobject>
                 <imageobject>
                     <imagedata fileref="figures/massif-before.png" format="PNG" />
@@ -54,13 +54,13 @@ valgrind --tool=massif --depth=5  --alloc-fn=g_malloc --alloc-fn=g_realloc --all
             </mediaobject>
         </figure>
         <para>
-            <xref linkend="optimization-massif-FIG-output-unoptimized" /> shows a typical postscript output from <application>Massif</application>. This is the result you would get from playing a single game of <application>Same GNOME</application> (version 2.8.0) and then quitting. The postscript file will have a name like <filename>massif.12345.ps</filename> and the text file will be called <filename>massif.12345.txt</filename>. The number in the middle is the process ID of the program that was examined. If you actually try this example you will find two versions of each file, with slightly different numbers, this is because <application>Same GNOME</application> starts a second process and <application>Massif</application> follows that too. We will ignore this second process, it consumes very little memory.
+            <xref linkend="optimization-massif-FIG-output-unoptimized" /> shows a typical postscript output from <application>Massif</application>. This is the result you would get from playing a single game of <application>Swell Foop</application> (version 2.8.0) and then quitting. The postscript file will have a name like <filename>massif.12345.ps</filename> and the text file will be called <filename>massif.12345.txt</filename>. The number in the middle is the process ID of the program that was examined. If you actually try this example you will find two versions of each file, with slightly different numbers, this is because <application>Swell Foop</application> starts a second process and <application>Massif</application> follows that too. We will ignore this second process, it consumes very little memory.
         </para>
         <para>
             At the top of the graph we see a large yellow band labelled gdk_pixbuf_new. This seems like an ideal candidate for optimization, but we will need to use the text file to find out what is calling gdk_pixbuf_new. The top of the text file will look something like this:
         </para>
         <programlisting>
-Command: ./same-gnome 
+Command: ./swell-foop
 
 == 0 ===========================
 Heap allocation functions accounted for 90.4% of measured spacetime
@@ -86,14 +86,14 @@ Context accounted for 28.8% of measured spacetime
   0x6C285E: gdk_pixbuf_new_from_file (in /usr/lib/libgdk_pixbuf-2.0.so.0.400.9)
 
 Called from:
-  27.8% : 0x804C1A3: load_scenario (same-gnome.c:463)
+  27.8% : 0x804C1A3: load_scenario (swell-foop.c:463)
 
     0.9% : 0x3E8095E: (within /usr/lib/libgnomeui-2.so.0.792.0)
 
   and 1 other insignificant place
         </programlisting>
         <para>
-            The first line tells us we are now four levels deep into the stack. Below it is a listing of the function calls that leads from here to gdk_pixbuf_new. Finally there is a list of functions that are at the next level down and call these functions. There are, of course, also entries for levels 1, 2, and 3, but this is the first level to reach right down through the GDK code to the <application>Same GNOME</application> code. From this listing, we can see instantly that the problem code is load_scenario.
+            The first line tells us we are now four levels deep into the stack. Below it is a listing of the function calls that leads from here to gdk_pixbuf_new. Finally there is a list of functions that are at the next level down and call these functions. There are, of course, also entries for levels 1, 2, and 3, but this is the first level to reach right down through the GDK code to the <application>Swell Foop</application> code. From this listing, we can see instantly that the problem code is load_scenario.
         </para>
         <para>
             Now that we know what part of our code is using all the spacetime we can look at it and find out why. It turns out that the load_scenario is loading a pixbuf from file and then never freeing that memory. Having identified the problem code, we can start to fix it.
@@ -105,10 +105,10 @@ Called from:
             Reducing spacetime consumption is good, but there are two ways of reducing it and they are not equal. You can either reduce the amount of memory allocated, or reduce the amount of time it is allocated for. Consider for a moment a model system with only two processes running. Both processes use up almost all the physical RAM and if they overlap at all then the system will swap and everything will slow down. Obviously if we reduce the memory usage of each process by a factor of two then they can peacefully coexist without the need for swapping. If instead we reduce the time the memory is allocated by a factor of two then the two programs can coexist, but only as long as their periods of high memory use don't overlap. So it is better to reduce the amount of memory allocated.
         </para>
         <para>
-            Unfortunately, the choice of optimization is also constrained by the needs of the program. The size of the pixbuf data in <application>Same GNOME</application> is determined by the size of the game's graphics and cannot be easily reduced. However, the amount of time it spends loaded into memory can be drastically reduced. <xref linkend="optimization-massif-FIG-output-optimized" /> shows the <application>Massif</application> analysis of <application>Same GNOME</application> after being altered to dispose of the pixbufs once the images have been loaded into the X server.
+            Unfortunately, the choice of optimization is also constrained by the needs of the program. The size of the pixbuf data in <application>Swell Foop</application> is determined by the size of the game's graphics and cannot be easily reduced. However, the amount of time it spends loaded into memory can be drastically reduced. <xref linkend="optimization-massif-FIG-output-optimized" /> shows the <application>Massif</application> analysis of <application>Swell Foop</application> after being altered to dispose of the pixbufs once the images have been loaded into the X server.
         </para>
         <figure id="optimization-massif-FIG-output-optimized">
-            <title><application>Massif</application> output for the optimized <application>Same GNOME</application> program.</title>
+            <title><application>Massif</application> output for the optimized <application>Swell Foop</application> program.</title>
             <mediaobject>
                 <imageobject>
                     <imagedata fileref="figures/massif-after.png" />
@@ -122,7 +122,7 @@ Called from:
             Can we do better ? A quick examination of <application>Massif</application>'s text output reveals: g_strdup to be the new major offender.
         </para>
         <programlisting>
-Command: ./same-gnome 
+Command: ./swell-foop
 
 == 0 ===========================
 Heap allocation functions accounted for 87.6% of measured spacetime
@@ -165,7 +165,7 @@ Called from:
             There are a couple of things to watch out for: Firstly, spacetime is only reported as a percentage, you have to compare it to the overall size of the program to decide if the amount of memory is worth pursuing. The graph, with its kilobyte vertical axis, is good for this.
         </para>
         <para>
-            Secondly, <application>Massif</application> only takes into account the memory used by your own program. Resources like pixmaps are stored in the X server and aren't considered by <application>Massif</application>. In the <application>Same GNOME</application> example we have actually only moved the memory consumption from client-side pixbufs to server-side pixmaps. Even though we cheated there are performance gains. Keeping the image data in the X server makes the graphics routines quicker and removes a lot of inter-process communication. Also, the pixmaps will be stored in a native graphics format which is often more compact than the 32-bit RGBA format used by gdk_pixbuf. To measure the effect of pixmaps, and other X resources use the <ulink type="http" url="http://www.freedesktop.org/Software/xrestop">xrestop</ulink> program.
+            Secondly, <application>Massif</application> only takes into account the memory used by your own program. Resources like pixmaps are stored in the X server and aren't considered by <application>Massif</application>. In the <application>Swell Foop</application> example we have actually only moved the memory consumption from client-side pixbufs to server-side pixmaps. Even though we cheated there are performance gains. Keeping the image data in the X server makes the graphics routines quicker and removes a lot of inter-process communication. Also, the pixmaps will be stored in a native graphics format which is often more compact than the 32-bit RGBA format used by gdk_pixbuf. To measure the effect of pixmaps, and other X resources use the <ulink type="http" url="http://www.freedesktop.org/Software/xrestop">xrestop</ulink> program.
         </para>
     </sect1>
 </chapter>
