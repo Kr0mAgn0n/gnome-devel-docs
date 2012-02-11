@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#vala"/>
-    
+
     <desc>A little bit more than a simple "Hello world" Gtk application.</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2011-03-18" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -20,15 +20,26 @@
       <name>Philip Chimento</name>
       <email>philip.chimento@gmail.com</email>
     </credit>
+    <credit type="editor">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+    </credit>
   </info>
 
 <title>Image Viewer</title>
-
 <synopsis>
-  <p>In this tutorial, you will learn:</p>
+  <p>In this tutorial you will create an application which opens and displays an image file. You will learn:</p>
+  <list type="numbered">
+    <item><p>How to set up a basic project using the <link xref="getting-ready">Anjuta IDE</link>.</p></item>
+    <item><p>How to write a <link href="http://developer.gnome.org/platform-overview/stable/gtk">Gtk application</link> in Vala</p></item>
+    <item><p>Some basic concepts of <link href="http://developer.gnome.org/gobject/stable/">GObject</link> programming</p></item>
+
+  </list>
+  <p>You'll need the following to be able to follow this tutorial:</p>
   <list>
-    <item><p>Some basic concepts of GObject programming</p></item>
-    <item><p>How to write a Gtk application in Vala</p></item>
+    <item><p>Basic knowledge of the <link href="https://live.gnome.org/Vala/Tutorial">Vala</link> programming language.</p></item>
+    <item><p>An installed copy of <app>Anjuta</app>.</p></item>
+    <item><p>You may find the <link href="http://valadoc.org/gtk+-3.0/">gtk+-3.0</link></p> API Reference useful, although it is not necessary to follow the tutorial.</item>
   </list>
 </synopsis>
 
@@ -36,85 +47,119 @@
 
 <section id="anjuta">
   <title>Create a project in Anjuta</title>
-  <p>Before you start coding, you'll need to set up a new project in Anjuta. 
-  This will create all of the files you need to build and run the code later on. 
+  <p>Before you start coding, you'll need to set up a new project in Anjuta.
+  This will create all of the files you need to build and run the code later on.
   It's also useful for keeping everything together.</p>
   <steps>
     <item>
-      <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+      <p>Start <app>Anjuta</app> and click <gui>Create a new project</gui> or <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-      <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. 
+      <p>Choose <gui>Gtk+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages.
       Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
     <item>
-      <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will create the UI manually in this tutorial. 
-      Check the <link xref="guitar-tuner.vala">Guitar-Tuner</link> tutorial if you want to learn how to use the interface builder.</p>
+      <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will create the UI manually in this tutorial.</p>
+     <note><p>
+      You will learn how to use the interface builder in the <link xref="guitar-tuner.vala">Guitar-Tuner</link> tutorial.</p></note>
     </item>
     <item>
-      <p>Click <gui>Apply</gui> and the project will be created for you. 
-      Open <file>src/main.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs. 
-      You should see some code which starts with the lines:</p>
+      <p>Click <gui>Apply</gui> and the project will be created for you.
+      Open <file>src/main.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs.
+      You will see this code:</p>
       <code mime="text/x-valasrc"><![CDATA[
 using GLib;
-using Gtk;]]></code>
+using Gtk;
+
+public class Main : Object
+{
+
+	public Main ()
+	{
+		Window window = new Window();
+		window.set_title ("Hello World");
+		window.show_all();
+		window.destroy.connect(on_destroy);
+	}
+
+	[CCode (instance_pos = -1)]
+	public void on_destroy (Widget window)
+	{
+		Gtk.main_quit();
+	}
+
+	static int main (string[] args)
+	{
+		Gtk.init (ref args);
+		var app = new Main ();
+
+		Gtk.main ();
+
+		return 0;
+	}
+}]]></code>
     </item>
   </steps>
 </section>
 
 <section id="build">
   <title>Build the code for the first time</title>
-  <p>The code loads an (empty) window from the user interface description file and shows it. 
+  <p>The code loads an (empty) window from the user interface description file and shows it.
   More details are given below; skip this list if you understand the basics:</p>
-  
+
   <list>
     <item>
       <p>The two <code>using</code> lines at the top import namespaces so we don't have to name them explicitly.</p>
     </item>
     <item>
-      <p>The constructor of the <code>Main</code> class creates a new (empty) window and connects a signal to exit the application when that window is closed.</p>
-      <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. 
+      <p>The constructor of the <code>Main</code> class creates a new (empty) window and connects a <link href="https://live.gnome.org/Vala/SignalsAndCallbacks">signal</link> to exit the application when that window is closed.</p>
+      <p>Connecting signals is how you define what happens when you push a button, or when some other event happens.
       Here, the <code>destroy</code> function is called (and quits the app) when you close the window.</p>
     </item>
     <item>
       <p>The <code>static main</code> function is run by default when you start a Vala application.
       It calls a few functions which create the <code>Main</code> class, set up and then run the application.
-      The <code>Gtk.main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+      The <link href="http://valadoc.org/gtk+-3.0/Gtk.main.html"><code>Gtk.main</code></link> function starts the GTK <link href="http://en.wikipedia.org/wiki/Event_loop">main loop</link>, which runs the user interface and starts listening for events (like clicks and key presses).</p>
     </item>
   </list>
 
   <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>).</p>
-  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Execute</gui> to configure the build directory. 
+  <p>Change the <gui>Configuration</gui> to <gui>Default</gui> and then press <gui>Execute</gui> to configure the build directory.
   You only need to do this once, for the first build.</p>
 </section>
 
 <section id="ui">
   <title>Creating the user interface</title>
-  <p>Now we will bring life into the empty window. 
-  GTK organizes the user interface with <code>Gtk.Container</code>s that can contain other widgets and even other containers. 
-  Here we will use the simplest available container, a <code>Gtk.Box</code>. 
-  Add the following lines to the top of the <code>Main</code> class instead of the constructor that is already there:</p>
+  <p>Now we will bring life into the empty window.
+  GTK organizes the user interface with <link href="http://www.valadoc.org/gtk+-2.0/Gtk.Container.html"><code>Gtk.Container</code></link>s that can contain other widgets and even other containers.
+  Here we will use the simplest available container, a <link href="http://unstable.valadoc.org/gtk+-2.0/Gtk.Box.html"><code>Gtk.Box</code></link>.</p>
+
+<p>Add the following lines to the top of the <code>Main</code> class:</p>
   <code mime="text/x-valasrc"><![CDATA[
 private Window window;
 private Image image;
-	
+]]></code>
+
+<p>Now replace the current constructor with the one below:</p>
+<code mime="text/x-valasrc"><![CDATA[
+
 public Main () {
 
 	window = new Window ();
 	window.set_title ("Image Viewer in Vala");
-	
+
 	// Set up the UI
 	var box = new Box (Orientation.VERTICAL, 5);
 	var button = new Button.with_label ("Open image");
 	image = new Image ();
-	
+
 	box.pack_start (image, true, true, 0);
 	box.pack_start (button, false, false, 0);
 	window.add (box);
-	
+
 	// Show open dialog when opening a file
 	button.clicked.connect (on_open_image);
-	
+
 	window.show_all ();
 	window.destroy.connect (main_quit);
 }
@@ -125,34 +170,39 @@ public Main () {
       We declare them up here so that they are accessible throughout the class instead of only in the method where they are created.</p>
     </item>
     <item>
-      <p>The first lines of the constructor are similar to the lines that were already there to create the empty window.
+      <p>The first lines of the constructor create the empty window.
       The next lines create the widgets we want to use: a button for opening up an image, the image view widget itself and the box we will use as a container.</p>
     </item>
     <item>
-      <p>The calls to <code>pack_start</code> add the two widgets to the box and define their behaviour.
+      <p>The calls to <link href="http://unstable.valadoc.org/gtk+-2.0/Gtk.Box.pack_start.html"><code>pack_start</code></link> add the two widgets to the box and define their behaviour.
       The image will expand into any available space whereas the button will just be as big as needed.
       You will notice that we don't set explicit sizes on the widgets.
       In GTK this is usually not needed as it makes it much easier to have a layout that looks good in different window sizes.
       Next, the box is added to the window.</p>
     </item>
     <item>
-      <p>We need to define what happens when the user clicks on the button. GTK uses the concept of <em>signals</em>. 
-      When the button is clicked, it fires the <code>clicked</code> signal, which we can connect to some action. 
-      This is done using the <code>connect</code> method of the button's <code>clicked</code> signal, which tells GTK to call the <code>on_image_open</code> method when the button is clicked.
+      <p>We need to define what happens when the user clicks on the button. GTK uses the concept of <em>signals</em>.</p>
+      <p>
+      When the <link href="http://valadoc.org/gtk+-3.0/Gtk.Button.html">button</link> is clicked, it fires the <link href="http://valadoc.org/gtk+-3.0/Gtk.Button.clicked.html"><code>clicked</code></link> signal, which we can connect to some action (defined in a <link href="https://live.gnome.org/Vala/SignalsAndCallbacks">callback</link> method).
+      </p>
+      <p>
+      This is done using the <code>connect</code> method of the button's <code>clicked</code> signal, which in this case tells GTK to call the (yet undefined) <code>on_image_open</code> callback method when the button is clicked.
       We will define the <em>callback</em> in the next section.
+      </p>
+      <p>
       In the callback, we need to access the <code>window</code> and <code>image</code> widgets, which is why we defined them as private members at the top of our class.</p>
     </item>
     <item>
-      <p>The last <code>connect</code> call makes sure that the application exits when the window is closed. 
-      The code generated by Anjuta called an <code>on_destroy</code> method which called <code>Gtk.main_quit</code>, but just connecting our signal to <code>main_quit</code> directly is easier. You can delete the <code>on_destroy</code> method.</p>
+      <p>The last <code>connect</code> call makes sure that the application exits when the window is closed.
+      The code generated by Anjuta called an <code>on_destroy</code> callback method which called <link href="http://www.valadoc.org/gtk+-2.0/Gtk.main_quit.html"><code>Gtk.main_quit</code></link>, but just connecting our signal to <code>main_quit</code> directly is easier. You can delete the <code>on_destroy</code> method.</p>
     </item>
   </steps>
 </section>
 
 <section id="image">
   <title>Showing the image</title>
-  <p>We will now define the signal handler for the <code>clicked</code> signal for the 
-button we mentioned before. 
+  <p>We will now define the signal handler for the <code>clicked</code> signal for the
+button we mentioned before.
   Add this code after the constructor:</p>
   <code mime="text/x-valasrc"><![CDATA[
 [CCode (instance_pos = -1)]
@@ -165,8 +215,8 @@ public void on_open_image (Button self) {
 	                                    Stock.CANCEL, ResponseType.CANCEL);
 	filter.add_pixbuf_formats ();
 	dialog.add_filter (filter);
-	
-	switch (dialog.run ()) 
+
+	switch (dialog.run ())
 	{
 		case ResponseType.ACCEPT:
 			var filename = dialog.get_filename ();
@@ -178,43 +228,53 @@ public void on_open_image (Button self) {
 	dialog.destroy ();
 }
 ]]></code>
-  <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
+  <p>This is a bit complicated, so let's break it down:</p>
+  <note><p>A signal handler is a type of callback method that is called when a signal is emitted.  Here the terms are used interchangeably.</p></note>
   <list>
     <item>
-      <p>The first argument of the signal is always the widget that sent the signal. 
+      <p>The first argument of the callback method is always the widget that sent the signal.
       Sometimes other arguments related to the signal come after that, but <em>clicked</em> doesn't have any.</p>
-    </item> 
+      <p>In this case the <code>button</code> sent the <code>clicked</code> signal, which is connected to the <code>on_open_image</code> callback method:</p>
+<code mime="text/x-valasrc"><![CDATA[
+        button.clicked.connect (on_open_image);
+]]></code>
+
+  <p>The <code>on_open_image</code> method takes the button that emitted the signal as an argument:   </p>
+ <code mime="text/x-valasrc"><![CDATA[
+        public void on_open_image (Button self)
+]]></code>
+    </item>
     <item>
       <p>The next interesting line is where the dialog for choosing the file is created.
-      <code>FileChooserDialog</code>'s constructor takes the title of the dialog, the parent window of the dialog and several options like the number of buttons and their corresponding values.</p>
-      <p>Notice that we are using <em>stock</em> button names from Gtk, instead of manually typing "Cancel" or "Open". 
+      <link href="http://www.valadoc.org/gtk+-3.0/Gtk.FileChooserDialog.html"><code>FileChooserDialog</code></link>'s constructor takes the title of the dialog, the parent window of the dialog and several options like the number of buttons and their corresponding values.</p>
+      <p>Notice that we are using <link href="http://unstable.valadoc.org/gtk+-3.0/Gtk.Stock.html"><em>stock</em></link> button names from Gtk, instead of manually typing "Cancel" or "Open".
       The advantage of using stock names is that the button labels will already be translated into the user's language.</p>
     </item>
     <item>
-      <p>The next two lines restrict the <gui>Open</gui> dialog to only display files which can be opened by GtkImage. 
-      A filter object is created first; we then add all kinds of files supported by <code>Gdk.Pixbuf</code> (which includes most image formats like PNG and JPEG) to the filter.
+      <p>The next two lines restrict the <gui>Open</gui> dialog to only display files which can be opened by <em>GtkImage</em>. GtkImage is a widget which displays an image.
+      A filter object is created first; we then add all kinds of files supported by <link href="http://www.valadoc.org/gdk-pixbuf-2.0/Gdk.Pixbuf.html"><code>Gdk.Pixbuf</code></link> (which includes most image formats like PNG and JPEG) to the filter.
       Finally, we set this filter to be the <gui>Open</gui> dialog's filter.</p>
     </item>
     <item>
-      <p><code>dialog.run</code> displays the <gui>Open</gui> dialog. 
-      The dialog will wait for the user to choose an image; when they do, <code>dialog.run</code> will return the value <code>ResponseType.ACCEPT</code> (it would return <code>ResponseType.CANCEL</code> if the user clicked <gui>Cancel</gui>).
+      <p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.Dialog.run.html"><code>dialog.run</code></link> displays the <gui>Open</gui> dialog.
+      The dialog will wait for the user to choose an image; when they do, <code>dialog.run</code> will return the <link href="http://www.valadoc.org/gtk+-3.0/Gtk.ResponseType.html">ResponseType</link> value <code>ResponseType.ACCEPT</code> (it would return <code>ResponseType.CANCEL</code> if the user clicked <gui>Cancel</gui>).
       The <code>switch</code> statement tests for this.</p>
     </item>
     <item>
-      <p>Assuming that the user did click <gui>Open</gui>, the next lines get the filename of the image selected by the user, and tell the <code>Gtk.Image</code> to load and display the selected image.</p>
+      <p>Assuming that the user did click <gui>Open</gui>, the next lines get the filename of the image selected by the user, and tell the <code>GtkImage</code> widget to load and display the selected image.</p>
     </item>
     <item>
-      <p>In the final line of this method, we destroy the <gui>Open</gui> dialog because we don't need it any more.
-      Destroying automatically hides the dialog.</p>
+      <p>In the final line of this method, we destroy the <gui>Open</gui> dialog because we don't need it any more.</p>
+      <p>Destroying automatically hides the dialog.</p>
     </item>
   </list>
 </section>
 
 <section id="run">
   <title>Build and run the application</title>
-  <p>All of the code should now be ready to go. 
+  <p>All of the code should now be ready to go.
   Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> to build everything again, and then <guiseq><gui>Run</gui><gui>Execute</gui></guiseq> to start the application.</p>
-  <p>If you haven't already done so, choose the <file>src/image-viewer</file> application in the dialog that appears. 
+  <p>If you haven't already done so, choose the <file>src/image-viewer</file> application in the dialog that appears.
   Finally, hit <gui>Run</gui> and enjoy!</p>
 </section>
 
@@ -227,6 +287,7 @@ public void on_open_image (Button self) {
   <title>Next steps</title>
   <p>Here are some ideas for how you can extend this simple demonstration:</p>
   <list>
+  <item><p>Set it up so that when the window opens it is of a specific size to start off with. For example, 200 X 200 pixels.</p></item>
    <item>
      <p>Have the user select a directory rather than a file, and provide controls to cycle through all of the images in a directory.</p>
    </item>
