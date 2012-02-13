@@ -1,0 +1,45 @@
+%h1
+  Primary Windows
+
+.note
+  This is draft content for the next version of 
+  %a{:href => 'http://design.gnome.org'} GNOME Human Interface Guidelines.
+
+%p
+  Primary windows are the principal container for application interfaces. If its primary window(s) is closed any supplementary windows, such as [[Design/HIG/UtilityWindows|Utility Windows]] and [[Design/HIG/Dialogs|Dialogs]], will also close. Closing an application's primary windows will typically stop that application from functioning altogether.
+
+%p
+  The top of a primary window is headed by a titlebar that contains a centered window title and a close button in the right-hand corner.
+%p
+  Primary windows can contain a wide variety of content and control elements. They can also contain multiple [[Design/HIG/Views|views]] that can be navigated between.
+
+%h2
+  When to Use
+%p
+  Primary windows are a standard part of GNOME 3 applications, and most applications will utilise one or more of them. The exception to this is applications that are always presented in full screen mode, such as games.
+
+%h2
+  Guidance
+%p
+  Give the window a short, informative title. Since window titles can be truncated, ensure that the most important part of the title is at the beginning.
+%p
+  There are two types of primary windows:
+
+%ol
+  %li
+    Maximizing - these are the standard variety of primary window, and are used by application that allow the browsing, viewing or editing of content.
+    %ul
+      %li
+        The window is maximized by default and loses its titlebar when maximized
+      %li
+        The window title should be a short description of the window's content, and should not include the application name
+      %li
+        Maximizing primary windows will typically (though not always) contain a [[Design/HIG/PrimaryToolbar|Primary Toolbar]]. Primary windows can also present multiple [[Design/HIG/Views|views]] or be split according to the [[Design/Hig/ListPane|List Pane]] design pattern. See the other design patterns and existing applications for examples of how your primary windows can be structured.
+  %li
+    Non-maximizing - these are relatively uncommon and are best suited to small utility applications that might want to be used in conjunction with other primary windows.
+    %ul
+      %li
+        The window is not maximized by default and should not lose its titlebar when maximized
+      %li
+        The window title should be the application name
+

@@ -1,0 +1,49 @@
+%h1 Primary Toolbars
+
+.note
+  This is draft content for the next version of 
+  %a{:href => 'http://design.gnome.org'} GNOME Human Interface Guidelines.
+  
+%p
+  A horizontal toolbar that is located at the top of a window, beneath its titlebar (in windowed mode).
+=img "figures/primary-toolbar-example.png"
+  
+%h2
+  When to use
+
+%p
+  A primary toolbar should be used within any 
+  =link "primary window", "basics-primary-windows.html"
+  \.
+%h2
+  Guidance
+
+%ul
+  %li
+    The primary toolbar should contain the dominant controls in the window - the controls contained within the toolbar should be for key operations that affect the content below.
+  %li
+    Keep the toolbar contents to a minimum - work to ensure that a small amount of essential functionality is included
+  %li
+    Arrange the toolbar contents according to the three alignment points described in [[Design/HIG/VisualLayout|the Visual Layout guidelines]] - left, centre and right alignment
+  %li
+    The most dominant controls should be left aligned
+  %li
+    Controls relating to filtering should be centre aligned
+  %li
+    Follow the lead of the core GNOME 3 applications and repeat the conventions that they establish. Place common toolbar elements, such as [[Design/HIG/CheckMarkButtons|Check Mark Buttons]], [[Design/HIG/FilterButtons|Filter Buttons]] and [[Design/HIG/BackButtons|Back Buttons]] in consistent positions.
+  %li
+    The content of a primary toolbar can update based on the context. When using multiple [[Design/HIG/Views|Views]], you should add and remove controls depending on which view is being displayed.
+
+%h2
+  Maximizing Windows
+
+%p
+  If the window containing the toolbar is a maximizing window (see 
+  =link "primary windows", "basics-primary-windows.html"
+  ), the Primary Toolbar needs to have certain features:
+
+%ul
+  %li
+    The content name/title should be displayed, so that the window's titlebar can be dispensed with. This can either be done either by placing a text label in the toolbar, or by including a control which indicates the content that is displayed below, such as filter buttons. The latter approach can be seen in the core Music application.
+  %li
+    Dragging the toolbar down while the window is maximized should unmaximize it

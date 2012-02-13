@@ -1,0 +1,72 @@
+%h1
+  Visual Layout
+
+.note
+  This is draft content for the next version of 
+  %a{:href => 'http://design.gnome.org'} GNOME Human Interface Guidelines.
+  
+A clean layout is crucial to creating a smooth visual flow of information for the user and a beautiful aesthetic. The positioning of controls and content on the screen conveys important information and makes your application easy to understand.
+
+.note
+  Further information on layout can be found in the individual design patterns that make up the HIG. The Grid and List patterns describe how to organize layouts of content, for example.
+
+%h2
+  General Guidance
+
+%ul
+  %li
+    Keep visual complexity low by using ample whitespace. Ensure that the visual elements in your interface are not placed too tightly together so that they have space to breathe. This will ensure that your application feels light and elegant. It will also ensure that people using it can easily understand the information that is being presented to them.
+
+  %li
+    Communicate that visual elements and controls are related by placing them close to one another. Groups of visual elements can be distinguished by separating them using spacing, for instance.
+
+  %li
+    Minimize the number of alignment points in your window or view. An alignment point is an imaginary vertical or horizontal line through your window that touches the edge of one or more labels or controls in the window. The fewer alignment points, the cleaner and simpler your layout will appear, and the easier it will be for people to understand.
+
+  %li
+    Align content and controls in your layout exactly. The eye is very sensitive to aligned and unaligned objects. If nothing lines up with anything else, it will be very hard for someone to scan the contents and find the information he/she wants. Two things do not quite line up are equally distracting.
+
+  %li
+    Be consistent. Use the same amounts of spacing and component sizes. Reuse the same amounts of spacing throughout.
+
+%h2
+  Layout Schemas
+
+%ul
+  %li
+    Organize windows and views from top-to-bottom and left-to-right. This is the direction that people from western locales tend to read an interface, so that the items at the top-left will be encountered first.
+
+FIXME: Visual order diagram
+
+%ul
+  %li
+    This ordering gives interfaces a hierarchy: those components that are viewed first are perceived to have priority over those that come after them. For this reason, you should place dominant controls above and to the left of the controls and content that they affect. In [[Design/HIG/PrimaryWindows|Primary Windows]], this can be typically be achieved by using a [[Design/HIG/PrimaryToolbar|Primary Toolbar]].
+
+FIXME: Alignment points diagram
+
+%ul
+  %li
+    Utilise the key GNOME 3 alignment points. The GNOME 3 top panel provides three alignment points that you can use to create layouts that are in harmony with the GNOME 3 shell and are consistent with other GNOME 3 applications.
+
+%h2
+  Laying Out Groups of Controls
+
+FIXME: Spacing diagram
+
+%ul
+  %li
+    As a basic rule of thumb, leave space between elements in increments of 6 pixels, going up as the relationship between related elements becomes more distant. For example, between icon labels and associated graphics within an icon, 6 pixels are adequate. Between labels and associated components, leave 12 horizontal pixels. For vertical spacing between groups of components, 18 pixels is adequate. A general padding of 12 pixels is recommended between the contents of a dialog window and the window borders.
+
+FIXME: Justification diagram
+
+%ul
+  %li
+    Right justification within groups or the overall window looks good. If the combination of controls in your layout do not permit this arrangement, left justification should be used.
+  %li
+    Indent group members 12 pixels to denote hierarchy and association.
+  %li
+    When a user is scanning a complex preferences dialog consisting of many labels and corresponding check boxes, text fields, and drop-down combination boxes, it is easy to see how she can quickly become hindered by poor layout in the visual design.
+  %li
+    Right justification is particularly appropriate if control labels greatly differ in length - this will ensure that the controls do not end up too far away from their corresponding labels.
+  %li
+    Avoid using frames with visible borders to separate groups of controls - use spacing and headers instead.
