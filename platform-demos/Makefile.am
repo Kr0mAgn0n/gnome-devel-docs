@@ -39,9 +39,11 @@ DOC_FIGURES = \
 
 DOC_PAGES =				\
 	audio-player.vala.page		\
+	beginner.vala.page		\
 	bug-filing.page			\
 	documentation.page		\
 	getting-ready.page		\
+	getting-started.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
 	guitar-tuner.py.page		\
