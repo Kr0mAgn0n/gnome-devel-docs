@@ -1,0 +1,53 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="entry.js">
+  <info>
+  <link type="guide" xref="beginner.js#samples"/>
+    <revision version="0.1" date="2012-02-19" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc></desc>
+  </info>
+
+  <title>Entry</title>
+  
+  <media type="image" mime="image/png" src="media/entry.png"/>
+  <p>This an entry widget</p>
+  
+      <code mime="text/javascript" style="numbered"><![CDATA[
+#!/usr/bin/gjs
+Gtk = imports.gi.Gtk;
+Gtk.init(null, 0);
+myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
+myW.title = "TestForm";
+myW.connect("destroy", function(){Gtk.main_quit()});
+grid = new Gtk.Grid();
+myW.add(grid);
+
+var entry = new Gtk.Entry({text: "Write something here"});
+entry.set_width_chars(50);
+var label = new Gtk.Label({label: "This is an etry widget: "});
+var connectionbutton = new Gtk.Button({label: "It's contents are connected to the label after this button"});
+this.resultlabel = new Gtk.Label({
+  label: "The contents of the entry will be here after you click the button"
+});
+connectionbutton.connect("clicked", function(widget, event) {
+  var whatWasTyped = entry.get_text();
+  this.resultlabel.set_text(whatWasTyped); 
+});
+
+grid.attach(label, 1, 1, 1, 1);
+grid.attach_next_to(entry,label,1,1,1);
+grid.attach_next_to(connectionbutton,label,3,1,1);
+grid.attach_next_to(resultlabel,entry,3,1,1);
+
+myW.show_all();
+Gtk.main();
+]]></code>
+
+</page>
