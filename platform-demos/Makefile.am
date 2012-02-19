@@ -39,20 +39,23 @@ DOC_FIGURES = \
 
 DOC_PAGES =				\
 	audio-player.vala.page		\
+	bug-filing.page			\
+	documentation.page		\
 	getting-ready.page		\
 	guitar-tuner.c.page		\
-	guitar-tuner.cpp.page   	\
-	guitar-tuner.py.page    	\
-	guitar-tuner.vala.page  	\
+	guitar-tuner.cpp.page		\
+	guitar-tuner.py.page		\
+	guitar-tuner.vala.page		\
 	image-viewer.c.page		\
-	image-viewer.cpp.page   	\
+	image-viewer.cpp.page		\
 	image-viewer.js.page		\
-	image-viewer.py.page    	\
+	image-viewer.py.page		\
 	image-viewer.vala.page		\
 	index.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	photo-wall.c.page		\
-	record-collection.js.page
+	record-collection.js.page	\
+	translate.page
 
 dist-hook: doc-dist-hook
