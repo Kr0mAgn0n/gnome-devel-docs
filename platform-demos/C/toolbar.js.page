@@ -1,0 +1,51 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="toolbar.js">
+  <info>
+    <link type="guide" xref="beginner.js#samples"/>
+    <revision version="0.1" date="2012-02-20" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A toolbar widget which is connected to a Dialog widget</desc>
+  </info>
+
+  <title>Toolbar widget</title>
+
+  <media type="image" mime="image/png" src="media/toolbar.png"/>
+  <p>Toolbar is a widget that may contain either text or stock icons. In this sample we use stock icons.</p>
+  
+      <code mime="text/javascript" style="numbered"><![CDATA[
+#!/usr/bin/gjs
+Gtk = imports.gi.Gtk;
+Gtk.init(null, 0);
+
+myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL, default_width: 200});
+myW.title = "Toolbar";
+myW.connect("destroy", function(){Gtk.main_quit()});
+var grid = new Gtk.Grid({border_width:10});
+myW.add(grid);
+var toolbar = new Gtk.Toolbar();
+toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
+toolbar.set_style(Gtk.ToolbarStyle.ICONS);
+var buttonOpen = new Gtk.ToolButton.new_from_stock(Gtk.STOCK_OPEN);
+toolbar.set_hexpand(true);
+buttonOpen.connect("clicked", function() {
+  var dialog = new Gtk.Dialog({title:"Dialog", deletable: true});
+  dialog.add_button(Gtk.STOCK_OK, -7);
+  dialog.show_all();
+  dialog.run();
+  dialog.destroy();
+});
+toolbar.insert(buttonOpen, 0)
+grid.attach(toolbar,1,1,1,1);
+
+myW.show_all();
+Gtk.main();]]></code>
+<p>In this sample we use the following widgets: <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>, <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link>, <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Toolbar.html">Gtk.Toolbar</link>, <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.ToolButton.html">Gtk.ToolButton</link>, <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Dialog.html">Gtk.Dialog</link>.</p>
+
+</page>
