@@ -35,6 +35,7 @@ DOC_FIGURES = \
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/record-collection.png		\
+	media/toolbar.png		\
 	media/magic-mirror.png			\
 	$(demo_sources)
 
@@ -61,6 +62,7 @@ DOC_PAGES =				\
 	index.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
+	toolbar.js.page		\
 	photo-wall.c.page		\
 	record-collection.js.page	\
 	translate.page
