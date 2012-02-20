@@ -24,6 +24,7 @@ demo_sources = \
 
 DOC_FIGURES = \
 	media/ubuntu.png			\
+	media/entry.png			\
 	media/fedora.png			\
 	media/opensuse.png			\
 	media/guitar-tuner.png			\
@@ -42,12 +43,15 @@ DOC_PAGES =				\
 	beginner.vala.page		\
 	bug-filing.page			\
 	documentation.page		\
+	beginner.js.page  \
+	entry.js.page\
 	getting-ready.page		\
 	getting-started.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
+	helloWorld.js.page  \
 	image-viewer.c.page		\
 	image-viewer.cpp.page		\
 	image-viewer.js.page		\

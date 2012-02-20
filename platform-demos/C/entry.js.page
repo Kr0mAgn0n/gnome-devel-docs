@@ -11,32 +11,39 @@
       <years>2012</years>
     </credit>
 
-    <desc></desc>
+    <desc>How to make an entry widget and connect its contents to a label</desc>
   </info>
 
-  <title>Entry</title>
+  <title>Entry widget</title>
   
   <media type="image" mime="image/png" src="media/entry.png"/>
-  <p>This an entry widget</p>
+  <p>This an entry widget. An entry widget is a container that you can type in to. </p>
   
       <code mime="text/javascript" style="numbered"><![CDATA[
 #!/usr/bin/gjs
 Gtk = imports.gi.Gtk;
 Gtk.init(null, 0);
+
 myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-myW.title = "TestForm";
+myW.title = "Entry";
 myW.connect("destroy", function(){Gtk.main_quit()});
 grid = new Gtk.Grid();
 myW.add(grid);
 
+//create the entry widget
 var entry = new Gtk.Entry({text: "Write something here"});
 entry.set_width_chars(50);
-var label = new Gtk.Label({label: "This is an etry widget: "});
-var connectionbutton = new Gtk.Button({label: "It's contents are connected to the label after this button"});
+//create the first label
+var label = new Gtk.Label({label: "Entry widget: "});
+//create the button for connecting
+var connectionbutton = new Gtk.Button({label: "Click to update label"});
+//create the label for updating the entrys information
 this.resultlabel = new Gtk.Label({
-  label: "The contents of the entry will be here after you click the button"
+  label: "Entry contents go here after the click"
 });
+//create a connection between the button and the result label
 connectionbutton.connect("clicked", function(widget, event) {
+  //getting the text from the entry widget and updating the label
   var whatWasTyped = entry.get_text();
   this.resultlabel.set_text(whatWasTyped); 
 });
@@ -44,10 +51,7 @@ connectionbutton.connect("clicked", function(widget, event) {
 grid.attach(label, 1, 1, 1, 1);
 grid.attach_next_to(entry,label,1,1,1);
 grid.attach_next_to(connectionbutton,label,3,1,1);
-grid.attach_next_to(resultlabel,entry,3,1,1);
-
-myW.show_all();
-Gtk.main();
-]]></code>
+grid.attach_next_to(resultlabel,entry,3,1,1);myW.show_all();
+Gtk.main();]]></code>
 
 </page>
