@@ -43,8 +43,9 @@ DOC_PAGES =				\
 	beginner.vala.page		\
 	bug-filing.page			\
 	documentation.page		\
-	beginner.js.page  \
-	entry.js.page\
+	desktop.js.page		\
+	beginner.js.page		\
+	entry.js.page		\
 	getting-ready.page		\
 	getting-started.vala.page	\
 	guitar-tuner.c.page		\
