@@ -1,0 +1,401 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="demo-message-board.c">
+
+  <info>
+
+    <link type="guide" xref="demos#c"/>
+
+    <desc>A simple program using WebKitGTK+ and the DOM.</desc>
+
+    <revision pkgversion="0.1" version="0.1" date="2010-12-06" status="draft"/>
+    <credit type="author copyright">
+      <name>Shaun McCance</name>
+      <email>shaunm@gnome.org</email>
+      <years>2010</years>
+    </credit>
+
+  </info>
+
+<title>Message Board</title>
+
+<synopsis>
+  <p>In this tutorial, you will learn:</p>
+  <list style="compact">
+    <item><p>How to display a web page with WebKit.</p></item>
+    <item><p>How to manipulate the contents of a web page using WebKit's DOM
+    functions.</p></item>
+  </list>
+  <p>This tutorial assumes you are familiar with the C programming language
+  and have a basic understanding of GTK+, including how to create and place
+  widgets and how to connect callback functions to signals. See <link
+  xref="image-viewer.c"/> to learn the basics of GTK+.</p>
+</synopsis>
+
+<media type="video" mime="video/ogg" src="media/message-board.ogv"/>
+
+<e:links type="section" xmlns:e="http://projectmallard.org/experimental/"/>
+
+<section id="create">
+  <title>Create a project in Anjuta</title>
+
+  <p>The GNOME platform includes WebKitGTK+, built on top of the powerful
+  WebKit HTML framework. WebKit is used throughout GNOME, not just to view
+  web pages on the Internet, but also to create rich user interfaces that
+  can be easily styled with CSS.</p>
+
+  <p>In this tutorial, you will create a simple message board using WebKit.
+  The message board will allow you to enter some text and have it added to a
+  list of messages in HTML. Before you begin, you need to set up a project in
+  Anjuta.</p>
+
+  <steps>
+    <item><p>In Anjuta, click <guiseq><gui>File</gui><gui>New</gui>
+    <gui>Project</gui></guiseq> to open the new project assistant.</p></item>
+    <item><p>Select <gui>GTK+ (simple)</gui> on the <gui>C</gui> tab,
+    and click <gui>Continue</gui>.</p></item>
+    <item><p>Fill out your details on the <gui>Basic information</gui> page.
+    Use <input>message-board</input> for the project name.
+    Click <gui>Continue</gui>.</p></item>
+    <item><p>Disable the <gui>Use GtkBuilder for user interface</gui> option as
+    this tutorial builds the user-interface manually.</p>
+    </item>
+    <item><p>You need to tell Anjuta you're using WebKitGTK+ on this project.
+    On the <gui>Project options</gui> page, select <gui>Configure external
+    packages</gui>. Click <gui>Continue</gui>. On the <gui>Configure external
+    packages</gui> page, check <gui>webkitgtk-3.0</gui>.</p></item>
+  </steps>
+
+  <p>After you finish the new project assistant, open the file
+  <file>src/main.c</file> from either the <gui>Project</gui> or the
+  <gui>File</gui> tab. Anjuta will have filled this in with some basic
+  GTK+ code from its templates. Since you are creating a WebKit project,
+  you first need to include the WebKit headers. After the line that
+  includes <code>gtk/gtk.h</code>, add the following line:</p>
+
+  <code>#include &lt;webkit/webkit.h></code>
+
+  <p>Verify that everything works by building what you have so far.
+  Click <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> or
+  just press <keyseq><key>Shift</key><key>F7</key></keyseq>. The first
+  time you build, you will be asked for some configure options. Just
+  accept the defaults and click <gui>Execute</gui>.</p>
+
+  <p>You should now be able to run the program. Click <guiseq>
+  <gui>Run</gui><gui>Execute</gui></guiseq> or just press <key>F3</key>.
+  You should see an empty window appear.</p>
+</section>
+
+<section id="webview">
+  <title>Lay out your window and web view</title>
+
+  <p>Now that you can show a window, it's time to start working with WebKit.
+  For this tutorial, you'll create a text entry and a web view and pack
+  them both into a window. Find the function <code>create_window</code> and
+  replace it with the following:</p>
+
+<code style="numbered" mime="text/C"><![CDATA[
+static GtkWidget*
+create_window (void)
+{
+    GtkWidget *window, *box, *scroll, *view, *entry;
+
+    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_default_size (GTK_WINDOW (window), 400, 400);
+    gtk_window_set_title (GTK_WINDOW (window), "Message Board");
+    g_signal_connect (window, "delete-event", G_CALLBACK (gtk_main_quit), NULL);
+
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+    gtk_container_set_border_width (GTK_CONTAINER (box), 6);
+    gtk_container_add (GTK_CONTAINER (window), box);
+
+    entry = gtk_entry_new ();
+    gtk_box_pack_start (GTK_BOX (box), entry, FALSE, FALSE, 0);
+
+    scroll = gtk_scrolled_window_new (NULL, NULL);
+    g_object_set (scroll, "shadow-type", GTK_SHADOW_IN, NULL);
+    gtk_box_pack_start (GTK_BOX (box), scroll, TRUE, TRUE, 0);
+
+    view = webkit_web_view_new ();
+    gtk_container_add (GTK_CONTAINER (scroll), view);
+    webkit_web_view_load_string (WEBKIT_WEB_VIEW (view),
+                                 "<html><body></body></html>",
+                                 "text/html",
+                                 "UTF-8",
+                                 NULL);
+
+    gtk_widget_show_all (GTK_WIDGET (box));
+    return window;
+}
+]]></code>
+
+  <p>You first create a <code>GtkWindow</code> object and set its title and
+  default size. You also connect the <code>gtk_main_quit</code> function to the
+  <code>delete-event</code> signal. The <code>delete-event</code> signal is
+  emitted when the window is closed. The <code>gtk_main_quit</code> function is
+  part of GTK, and it quits the application.</p>
+
+  <p>You then create a vertical box and add it to the window. A window can only
+  hold a single child widget, so you need to use a box to add multiple widgets.
+  The second argument to <code>gtk_box_new</code> sets the amount of padding
+  (in pixels) between each child, and the next line puts a six-pixel border
+  around the entire thing.</p>
+
+  <p>You next create a <code>GtkEntry</code> object and pack it into the box.
+  The third and fourth arguments to <code>gtk_box_pack_start</code> specify that
+  the entry shouldn't take up any extra space the box has available. The fourth
+  argument is the amount of padding you want around the entry. In this case,
+  you set the padding to zero, because you're allowing the box to handle all
+  the padding.</p>
+
+  <p>Before you add a web view, you have to create a scrolled window to put it
+  inside of. The scrolled window will place scrollbars on the right and bottom
+  when necessary, and prevent your web view from filling your entire screen.
+  This time, you pass <code>TRUE</code> and <code>TRUE</code> to
+  <code>gtk_box_pack_start</code> to allow the scrolled window (and thus, the
+  web view) to use any extra space available in the box.</p>
+
+  <p>Finally, you create a <code>WebKitWebView</code> and add it to the scrolled
+  window. Then load a very basic HTML page into the web view by calling
+  <code>webkit_web_view_load_string</code> with the following arguments:</p>
+
+  <terms>
+    <item>
+      <title><code>WEBKIT_WEB_VIEW (view)</code></title>
+      <p>The view itself. Because <code>view</code> is typed as a
+      <code>GtkWidget*</code>, you have to use <code>WEBKIT_WEB_VIEW</code>
+      to safely cast the object.</p>
+    </item>
+    <item>
+      <title><code>"&lt;html>&lt;body>&lt;/body>&lt;/html>"</code></title>
+      <p>The simplest HTML file you could possibly write.</p>
+    </item>
+    <item>
+      <title><code>"text/html"</code></title>
+      <p>The MIME type of the content you provided. In this case, you're
+      using plain HTML.</p>
+    </item>
+    <item>
+      <title><code>"UTF-8"</code></title>
+      <p>The character encoding of the content you provided. Although you only
+      used ASCII characters, it's a good idea to specify UTF-8. UTF-8 is used
+      as the default encoding throughout the GNOME platform.</p>
+    </item>
+    <item>
+      <title><code>NULL</code></title>
+      <p>The base URI. You don't need it in this simple example, but you might
+      want to provide a <sys>file:</sys> URI if you add images or other features
+      where you want to use relative URI references.</p>
+    </item>
+  </terms>
+
+  <note style="sidebar">
+    <p>Every time you add a widget, you have to call <code>gtk_widget_show</code>
+    on it for it to be visible. If you call <code>gtk_widget_show_all</code> on
+    a container widget like a <code>GtkBox</code>, GTK+ will automatically show
+    all the widgets inside the container, to any depth. Sometimes you don't
+    want to call <code>gtk_widget_show_all</code>, such as when you want to
+    dynamically hide and show some widgets in response to events.</p>
+  </note>
+
+  <p>Finally, you have to call <code>gtk_widget_show_all</code> on the box.
+  Otherwise, none of the widgets you created will be visible. (The window is
+  shown in the <code>main</code> function with <code>gtk_widget_show</code>.)</p>
+
+  <p>Build and run the message board again. You should see a window with a text
+  entry and a web view. It doesn't do anything yet because the text entry and
+  the web view don't know anything about each other.</p>
+</section>
+
+<section id="signals">
+  <title>Hook up signals</title>
+
+  <p>Now you want to make the message board actually <em>do</em> something
+  when you enter text into the text entry. To do this, connect a callback
+  function to the <code>activate</code> signal of <code>entry</code>. GTK+
+  emits the <code>activate</code> signal whenever the user presses
+  <key>Enter</key> in the entry. Add the following into <code>create_window</code>,
+  anywhere after both <code>entry</code> and <code>view</code> have been defined:</p>
+
+<code><![CDATA[
+g_signal_connect (entry, "activate", G_CALLBACK (entry_activate_cb), view);
+]]></code>
+
+  <p>You then have to actually define <code>entry_activate_cb</code>. Define
+  it as follows, anywhere above <code>create_window</code>:</p>
+
+<code style="numbered"><![CDATA[
+static void
+entry_activate_cb (GtkEntry *entry, WebKitWebView *view)
+{
+    WebKitDOMDocument *document;
+    WebKitDOMElement *body, *div;
+
+    document = webkit_web_view_get_dom_document (view);
+    body = webkit_dom_document_query_selector (document, "body", NULL);
+    div = webkit_dom_document_create_element (document, "div", NULL);
+    webkit_dom_node_set_text_content (WEBKIT_DOM_NODE (div),
+                                      gtk_entry_get_text (entry),
+                                      NULL);
+    webkit_dom_node_append_child (WEBKIT_DOM_NODE (body),
+                                  WEBKIT_DOM_NODE (div),
+                                  NULL);
+    gtk_entry_set_text (entry, "");
+}
+]]></code>
+
+  <p>The first thing you do is get a <code>WebKitDOMDocument</code> object
+  that represents the HTML document displayed in <code>view</code>. The DOM
+  classes and methods in WebKit allow you to inspect and manipulate the HTML
+  document, and work very similarly to the DOM APIs you might already know
+  from JavaScript.</p>
+
+  <p>Once you have the document, you want to get the <code>body</code> element
+  so that you can add <code>div</code> elements to it. The
+  <code>webkit_dom_document_query_selector</code> function lets you find an
+  element in the document using CSS selectors. This keeps you from having to
+  write tedious loops to traverse the document.</p>
+
+  <comment>
+    <cite>shaunm</cite>
+    <p>FIXME: Is this true? Does query_selector take CSS, CSSish, or what?</p>
+  </comment>
+
+  <p>Next, you create a new <code>div</code> element to hold the message. Every
+  element you create has to be attached to a document, so the function to create
+  an element takes the <code>WebKitDOMDocument</code> as its first arguments.
+  You then set the text content of the element to the contents of the text entry.
+  Because <code>gtk_entry_get_text</code> returns a <code>const gchar*</code>,
+  you don't have to free the result.</p>
+
+  <comment>
+    <cite>shaunm</cite>
+    <p>Not passing the GError**, but we should give it a quick mention and
+    link to somewhere that explains how GError-handling works.</p>
+  </comment>
+
+  <p>Finally, you append the new <code>div</code> element to the body and
+  clear out the text entry so you can type something new. Build and run the
+  program again and test it for yourself.</p>
+</section>
+
+
+<section id="css">
+  <title>Make it look better with CSS</title>
+
+  <p>At this point, your program is completely functional, but not very pretty.
+  You can style the message display with CSS, just like you can with any other
+  HTML page. There are many ways you could attach some CSS to the page: You
+  could add it in the initial HTML document. You could inline it in the
+  <code>style</code> attribute of the <code>div</code> elements. You could
+  even programmatically construct it using the DOM APIs.</p>
+
+  <p>In this tutorial, you'll attach the CSS using the <code>user-stylesheet-uri</code>
+  property of the <code>WebKitWebSetting</code> object attached to your web view.
+  In a more complete application, you would want to save and load your HTML file.
+  Keeping the style information outside the actual HTML means that you can change
+  the styling completely within your application, without having to change users'
+  files. You would normally just install a file along with your application, but
+  just to keep everything in one file for this demo, we'll use a trick called a
+  data URI. First, define the CSS as a static string near the top of your file.</p>
+
+<code><![CDATA[
+static const guchar CSS[] =
+"body { margin: 0; padding: 0; }\n"
+"div { "
+" -webkit-border-radius: 2px;"
+" background: -webkit-gradient(linear, 0% 100%, 0% 0%,"
+" from(#f1f1f1), to(white));"
+" border: solid 1px #c6c6c6;"
+" -webkit-box-shadow: 0px 0px 2px #c6c6c6;"
+" margin: 12px; padding: 6px;"
+"}";
+]]></code>
+
+  <p>All you have in this example are <code>div</code> elements inside a
+  <code>body</code> element. If you created more complicated HTML, you could
+  use whatever CSS is necessary. In fact, if you're comfortable with CSS, you
+  should trying changing this to something you like better.</p>
+
+  <p>To apply the CSS, you set the <code>user-stylesheet-uri</code> in the
+  <code>create_window</code> function, anywhere after <code>view</code> has
+  already been defined.</p>
+
+  <comment><cite>shaunm</cite><p>g_base64_encode has bad args</p></comment>
+
+<code><![CDATA[
+tmp = g_base64_encode (CSS, strlen((gchar *) CSS));
+css = g_strconcat ("data:text/css;charset=utf-8;base64,",
+                   tmp, NULL);
+g_object_set (webkit_web_view_get_settings (WEBKIT_WEB_VIEW (view)),
+              "user-stylesheet-uri", css, NULL);
+g_free (css);
+g_free (tmp);
+]]></code>
+
+  <p>Also, make sure to add variable declarations for <code>tmp</code>
+  and <code>css</code> to the top of <code>create_window</code>.</p>
+
+<code>
+gchar *tmp, *css;
+</code>
+
+ <p>A data URI starts with <sys>data:</sys> and some information about
+ the content type and how the data is encoded. The actual data follows after
+ a comma, in this case encoded in Base64. Unlike other URI schemes like
+ <sys>http:</sys>, <sys>ftp:</sys>, and <sys>file:</sys>, the <sys>data:</sys>
+ URI scheme doesn't specify where to find a file to load. Rather, it gives
+ the entire contents of the file.</p>
+
+ <p>The code above first encodes your CSS definitions in Base64, then
+ combines that with a fixed string to create a data URI. The
+ <code>g_strconcat</code> function can take any number of string arguments
+ and concatenate them all together, so you have to pass <code>NULL</code>
+ as the final argument so it knows when to stop. And don't forget to free
+ those temporary strings after you set the stylesheet property.</p>
+
+ <p>Build and run the program again. It should now work exactly the same
+ as at the end of the last section, except the messages will be nicely
+ styled with a border and a subtle background gradient.</p>
+</section>
+
+<section id="more">
+  <title>Learn more</title>
+
+  <p>This tutorial showed you how to create a basic application using GTK+
+  and WebKit, including showing a document and manipulating its contents.
+  To create a real application, you probably want to do a little bit more.
+  Try adding features on your own. Here are a few ideas:</p>
+
+  <list>
+    <item><p>If you're comfortable with CSS, try changing the style of the
+    message display. CSS is easy to get started with, but increasingly more
+    powerful. There is a wealth of CSS tutorials on the Internet, and just
+    about everything you can do on the web, you can do in this
+    application.</p></item>
+
+    <item><p>Right now, you lose all your messages whenever you close the
+    message board. Try saving the HTML contents after each post, and loading
+    the saved file (if it exists) on startup.</p>
+    <comment>
+      <cite>shaunm</cite><p>Link to method to get HTML from DOM and to
+      GIO APIs.</p>
+    </comment></item>
+
+    <item><p>If you keep your messages around for a long time, you'll start
+    wondering when you posted them. Add a timestamp to each message when it's
+    posted. You'll probably want to create some additional child <code>div</code>
+    elements with different classes that you can style in the CSS.</p>
+    <comment><cite>shaunm</cite><p>Link to strftime or something</p></comment>
+    </item>
+
+    <item><p>This program keeps messages around forever. Think about ways
+    you could allow the user to delete messages. Perhaps you want messages
+    to disappear automatically after they're too old, or after there are a
+    certain number of messages before them. Or you could add a link in each
+    message to delete it. You could even override the context menu when you
+    right-click on a message. These features involve exploring WebKit's DOM
+    API more.</p></item>
+  </list>
+</section>
+</page>
