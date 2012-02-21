@@ -48,7 +48,6 @@ DOC_PAGES =				\
 	beginner.js.page		\
 	entry.js.page		\
 	getting-ready.page		\
-	getting-started.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
 	guitar-tuner.py.page		\
