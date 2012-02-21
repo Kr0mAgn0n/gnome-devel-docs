@@ -42,10 +42,10 @@ class GUI:
 		if dialog.run() == 1:
 			self.image.set_from_file(dialog.get_filename())
 		dialog.destroy()
-	
+
 def main():
 	app = GUI()
 	Gtk.main()
-		
+
 if __name__ == "__main__":
     sys.exit(main())
