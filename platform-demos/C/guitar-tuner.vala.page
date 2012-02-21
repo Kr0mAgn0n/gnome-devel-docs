@@ -198,14 +198,13 @@ private void play_sound(double frequency)
   <p>To do this, in the user interface file (guitar_tuner.ui) select one of the buttons by clicking on it, then open <file>guitar_tuner.vala</file> (by clicking on the tab in the center). Switch to the <gui>Signals</gui> tab on the right, which you used to set the signal name. Now take the row where you set the
 <gui>clicked</gui> signal and drag and drop it into to the source file at the beginning of the class. The following code will be added to your source file:</p>
 <code mime="text/x-valasrc"><![CDATA[
-[CCode (instance_pos=-1)]
 public void on_button_clicked (Gtk.Button sender) {
 
 }]]></code>
 
  <note><p>You can also just type the code at the beginning of the class instead of using the drag and drop.</p></note>
-  <p>This signal handler has only one argument: the <link href="http://valadoc.org/gtk+-3.0/Gtk.Widget.html"><code>Gtk.Widget</code></link> that called the function (in our case, always a <link href="http://valadoc.org/gtk+-3.0/Gtk.Button.html"><code>Gtk.Button</code></link>). The additonal <code>[CCode (instance_pos=-1)]</code> tells the compiler that this is a signal handler
-that needs special treating while linking in order to be found at runtime.</p>
+  <p>This signal handler has only one argument: the <link href="http://valadoc.org/gtk+-3.0/Gtk.Widget.html"><code>Gtk.Widget</code></link> that called the function (in our case, always a <link href="http://valadoc.org/gtk+-3.0/Gtk.Button.html"><code>Gtk.Button</code></link>).
+</p>
 </section>
 
 
