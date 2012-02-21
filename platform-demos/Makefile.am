@@ -24,6 +24,7 @@ demo_sources = \
 
 DOC_FIGURES = \
 	media/ubuntu.png			\
+	media/button.png			\
 	media/entry.png			\
 	media/fedora.png			\
 	media/opensuse.png			\
@@ -43,6 +44,7 @@ DOC_PAGES =				\
 	audio-player.vala.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
+	button.js.page			\
 	documentation.page		\
 	desktop.js.page		\
 	beginner.js.page		\

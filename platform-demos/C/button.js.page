@@ -1,0 +1,41 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="button.js">
+  <info>
+    <link type="guide" xref="beginner.js#samples"/>
+    <revision version="0.1" date="2012-02-21" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A button widget which is connected to a progress bar</desc>
+  </info>
+
+  <title>Button widget</title>
+
+  <media type="image" mime="image/png" src="media/button.png"/>
+  <p>A button widget connected to a progress bar.</p>
+  
+      <code mime="text/javascript" style="numbered"><![CDATA[
+#!/usr/bin/gjs
+Gtk = imports.gi.Gtk;
+Gtk.init(null, 0);
+myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
+myW.title = "Button";
+myW.connect("destroy", function(){Gtk.main_quit()});
+grid = new Gtk.Grid();
+myW.add(grid);
+this.pbar = new Gtk.ProgressBar();
+function foo(){
+  this.pbar.pulse();
+}
+var button = new Gtk.Button({label: "Button"});
+button.connect("clicked", foo);
+grid.attach(button, 1, 1, 1, 1);
+grid.attach_next_to(pbar, button, 3,1,1);
+myW.show_all();
+Gtk.main();]]></code>
+</page>
