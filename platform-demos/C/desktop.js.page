@@ -15,8 +15,8 @@
   </info>
 
   <title>helloWorld.desktop</title>
-      <p>Running applications from the Terminal is useful at the beginning of the application making process. To have a fully working <link href= "http://library.gnome.org/admin/system-admin-guide/stable/mimetypes-9.html.en">application integration</link> in GNOME 3 requires a desktop launcher. For this you need to create a  <file>.desktop</file> file. The .desktop file describes the application name, the used icon and various integration bits. A deeper insight to  <file>.desktop</file> file can be found <link href= "http://developer.gnome.org/desktop-entry-spec/"> here </link>. </p>
-    <p>The example shows you the minimum requirements for a  <code>.desktop</code> file. </p>
+      <p>Running applications from the Terminal is useful at the beginning of the application making process. To have a fully working <link href= "http://library.gnome.org/admin/system-admin-guide/stable/mimetypes-9.html.en">application integration</link> in GNOME 3 requires a desktop launcher. For this you need to create a  <file>.desktop</file> file. The .desktop file describes the application name, the used icon and various integration bits. A deeper insight to <file>.desktop</file> file can be found <link href= "http://developer.gnome.org/desktop-entry-spec/">here</link>.</p>
+    <p>The example shows you the minimum requirements for a <code>.desktop</code> file.</p>
     <code mime="text/desktop" style="numbered"><![CDATA[
   [Desktop Entry]
   Version=1.0
@@ -33,11 +33,11 @@
     <list>
       <item><p>Line 4: Name of the application</p></item>
       <item><p>Line 5: Specifies a short description of the item</p></item>
-      <item><p>Line 6: Specifies a command to execute when you choose the item from the menu. In this example exec just tels where to find the <code>helloworld.js</code> file and the file takes care of the rest.</p></item>
+      <item><p>Line 6: Specifies a command to execute when you choose the item from the menu. In this example exec just tells where to find the <code>helloworld.js</code> file and the file takes care of the rest.</p></item>
       <item><p>Line 8: Specifies whether the command in the Exec key runs in a terminal window.</p></item>
     </list>
     <p>If you want your  <code>.desktop</code> file to exist as a part of the system, copy your  <code>.desktop</code> file to this directory: ~/.local/share/applications</p>
-    <p> To put your application to the right category you need to add the necessary categories to the Categories line. More information on the different categories can be found in the<link href = "http://standards.freedesktop.org/menu-spec/latest/apa.html"> menu spec</link>.</p>
+    <p> To put your application to the right category you need to add the necessary categories to the Categories line. More information on the different categories can be found in the <link href = "http://standards.freedesktop.org/menu-spec/latest/apa.html">menu spec</link>.</p>
     <p>In this example I used an existing icon. For a custom icon you need to have a .svg file of your icon, store it to /usr/share/icons/hicolor/scalable/apps. Write the name of your icon file to the .desktop file, on line 7. More information on icons in: <link href="http://library.gnome.org/admin/system-admin-guide/stable/themes-11.html.en"> Installing Icons for Themes </link>, <link href="https://live.gnome.org/GnomeGoals/AppIcon">Installing Icons for Themes</link> and <link href="http://freedesktop.org/wiki/Specifications/icon-theme-spec">on freedesktop.org: Specifications/icon-theme-spec</link>.</p>
     <p>After you have finished writing the .desktop file you must change it's permissions to allow executing file as program. To do that, go to the folder containing the .desktop file. Right click the .desktop file, choose properties and tab permissions and place a check on the box after Execute:</p>
 
