@@ -74,4 +74,31 @@ tab in the second step:</p>
 </example>
 </section> <!-- system-settings -->
 
+<section id="install" rev:date="2012-02-29" rev:status="proposed">
+<title>Install a package</title>
+
+<p>When the user may need to install a package to complete some task, use the following:</p>
+
+<example>
+<code><![CDATA[
+<note style="info package">
+  <p>You must have the <sys>PACKAGE</sys> package installed to use FUNCTIONALITY.</p>
+  <if:choose xmlns:if="http://projectmallard.org/if/1.0/">
+    <if:when test="action:install">
+      <p><link action="install:PACKAGE" style="button">Install PACKAGE</link></p>
+    </if:when>
+  </if:choose>
+</note>
+]]></code>
+<note style="info package">
+  <p>You must have the <sys>PACKAGE</sys> package installed to use FUNCTIONALITY.</p>
+  <if:choose xmlns:if="http://projectmallard.org/if/1.0/">
+    <if:when test="target:html">
+      <p><link action="install:PACKAGE" style="button">Install PACKAGE</link></p>
+    </if:when>
+  </if:choose>
+</note>
+</example>
+</section> <!-- install -->
+
 </page>
