@@ -43,7 +43,7 @@ ImageViewer.prototype = {
   }
 }
 
-Gtk.init (0, null);
+Gtk.init (null, null);
 
 var iv = new ImageViewer ();
 
