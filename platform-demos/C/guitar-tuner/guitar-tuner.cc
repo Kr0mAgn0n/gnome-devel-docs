@@ -1,12 +1,8 @@
 /* -*- Mode: C++; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 
 #include <gtkmm.h>
-#include <iostream>
 #include <gstreamermm.h>
-
-#ifdef ENABLE_NLS
-#  include <libintl.h>
-#endif
+#include <iostream>
 
 /* For testing purposes, use the local (not installed) ui file */
 /* #define UI_FILE PACKAGE_DATA_DIR"/guitar_tuner_cpp/ui/guitar_tuner_cpp.ui" */
@@ -81,7 +77,7 @@ main(int argc, char *argv[])
 	builder->get_widget("main_window", main_win);
 
 	Sound sound;
-	Gtk::Button* button;
+	Gtk::Button* button = 0;
 	
 	builder->get_widget("button_E", button);
 	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
@@ -102,9 +98,7 @@ main(int argc, char *argv[])
 	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              1318.5, &sound));
 	
-	if (main_win)
-	{
-		kit.run(*main_win);
-	}
+	kit.run(*main_win);
+
 	return 0;
 }
