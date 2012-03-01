@@ -5,7 +5,7 @@
   <info>
     <link type="guide" xref="index#cpp"/>
     
-    <desc>A little bit more than a simple "Hello world" GTKmm application.</desc>
+    <desc>A little bit more than a simple "Hello world" gtkmm application.</desc>
     
     <revision pkgversion="0.1" version="0.1" date="2011-03-18" status="review"/>
     <credit type="author">
@@ -38,7 +38,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>GTKmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
+    <p>Choose <gui>gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>image-viewer</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Use GtkBuilder for user interface</gui> is disabled as we will
@@ -58,7 +58,7 @@
 
 <section id="build">
   <title>Build the code for the first time</title>
-  <p>This is a very basic C++ code setting up GTKmm. More details are given below; skip this list if you understand the basics:</p>  
+  <p>This is a very basic C++ code setting up gtkmm. More details are given below; skip this list if you understand the basics:</p>  
   <list>
   <item>
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtkmm</code> (user interface) and <code>iostream</code> (C++-STL) libraries. Functions from these libraries are used in the rest of the code.</p>
@@ -67,7 +67,7 @@
     <p>The <code>main</code> function creates a new (empty) window and sets the window title.</p>
    </item>
    <item>
-    <p>The <code>kit::run()</code> call starts the GTKmm main loop, which runs the user interface and starts listening for events (like clicks and key presses). As we give the window
+    <p>The <code>kit::run()</code> call starts the gtkmm main loop, which runs the user interface and starts listening for events (like clicks and key presses). As we give the window
     as an argument to that function, the application will automatically exit when 
     that window is closed.</p>
    </item>
@@ -79,7 +79,7 @@
 
 <section id="ui">
 <title>Creating the user interface</title>
-<p>Now we will bring life into the empty window. GTKmm organizes the user interface
+<p>Now we will bring life into the empty window. gtkmm organizes the user interface
 with <code>Gtk::Container</code>s that can contain other widgets and even other containers. Here we
 will use the simplest available container, a <code>Gtk::Box</code>:</p>
 <code mime="text/x-csrc"><![CDATA[
@@ -117,12 +117,12 @@ main (int argc, char *argv[])
     <item>
     <p>The calls to <code>pack_start</code> add the two widgets to the box and define their behaviour. The image will
     expand into any available space while the button will just be as big as needed. You will notice that we don't set
-    explicit sizes on the widgets. In GTKmm this is usually not needed as it makes it much easier to have a layout that
+    explicit sizes on the widgets. In gtkmm this is usually not needed as it makes it much easier to have a layout that
     looks good in different window sizes. Next, the box is added to the window.</p>
     </item>
     <item>
-    <p>We need to define what happens when the user clicks on the button. GTKmm uses the concept of <em>signals</em>. When the button is clicked, it fires the <em>clicked</em> signal, which we can connect to some action. This is done using the <code>signal_clicked().connect</code>
-    method which tells GTKmm to call the <code>on_open_image</code> function when the button is clicked. We will define the <em>callback</em> in the next section.</p>
+    <p>We need to define what happens when the user clicks on the button. gtkmm uses the concept of <em>signals</em>. When the button is clicked, it fires the <em>clicked</em> signal, which we can connect to some action. This is done using the <code>signal_clicked().connect</code>
+    method which tells gtkmm to call the <code>on_open_image</code> function when the button is clicked. We will define the <em>callback</em> in the next section.</p>
     </item>
     <item>
     <p>The last step is to show all widgets in the window using
@@ -178,7 +178,7 @@ on_open_image ()
     <p>The next two lines add an <em>Open</em> and a <em>Close</em> button to the dialog.</p>
     <p>Notice that we are using <em>stock</em> button names from Gtk, instead of manually typing "Cancel" or "Open". The advantage of using stock names is that the button labels will already be translated into the user's language.</p>
     <p>The second argument to the <code>add_button()</code> method is a value to identify
-    the clicked button. We use predefined values provided by GTKmm here, too.
+    the clicked button. We use predefined values provided by gtkmm here, too.
     </p>
     </item>
     <item>
