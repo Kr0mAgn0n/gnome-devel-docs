@@ -5,7 +5,7 @@
   <info>
     <link type="guide" xref="index#cpp"/>
   
-    <desc>Use gtkmm and GStreamermm to build a simple guitar tuner application for GNOME. Shows off how to use the interface designer.</desc>
+    <desc>Use Gtkmm and GStreamermm to build a simple guitar tuner application for GNOME. Shows off how to use the interface designer.</desc>
     
     <revision pkgversion="0.1" version="0.1" date="2011-03-17" status="review"/>
     <credit type="author">
@@ -44,7 +44,7 @@
     <p>Start Anjuta and click <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
     </item>
     <item>
-    <p>Choose <gui>gtkmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
+    <p>Choose <gui>GTKmm (Simple)</gui> from the <gui>C++</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages. Use <file>guitar-tuner</file> as project name and directory.</p>
    	</item>
     <item>
     <p>Make sure that <gui>Configure external packages</gui> is selected. On the next page, select
@@ -61,7 +61,7 @@
 
 <section id="build">
   <title>Build the code for the first time</title>
-  <p>This is a very basic C++ code setting up gtkmm. More details are given below; 
+  <p>This is a very basic C++ code setting up Gtkmm. More details are given below; 
   skip this list if you understand the basics:</p>
   <list>
   <item>
@@ -71,7 +71,7 @@
     <p>The <code>main</code> function creates a new window by opening a GtkBuilder file (<file>src/guitar-tuner.ui</file>, defined a few lines above) and then displaying it in a window. The GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
    </item>
    <item>
-    <p>Afterwards it calls a few functions which set up and then run the application. The <code>kit.run</code> function starts the gtkmm main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+    <p>Afterwards it calls a few functions which set up and then run the application. The <code>kit.run</code> function starts the GTKmm main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
    </item>
   </list>
 
@@ -197,7 +197,7 @@ bool Sound::stop_playing()
   <title>Connecting the signals</title>
   <p>We want to play the correct sound when the user clicks a button. That means that we have to connect
   to the signal that is fired when the user clicks the button. We also want to provide information to the
-  called function which tone to play. gtkmm makes that quite easy as we can easily bind information with the <em>sigc</em>
+  called function which tone to play. GTKmm makes that quite easy as we can easily bind information with the <em>sigc</em>
   library.</p> 
   
   <p>The function that is called when the user clicks a button can be pretty simple, as
@@ -259,8 +259,8 @@ button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_b
 <section id="further">
   <title>Further Reading</title>
   <p>Many of the things shown above are explained in detail in the 
-  <link href="http://library.gnome.org/devel/gtkmm-tutorial/stable/">gtkmm book</link> which also
-  covers a lot more key concept for using the full power of gtkmm. You might also be interested
+  <link href="http://library.gnome.org/devel/gtkmm-tutorial/stable/">GTKmm book</link> which also
+  covers a lot more key concept for using the full power of GTKmm. You might also be interested
   in the <link href="http://library.gnome.org/devel/gstreamermm/">GStreamermm reference documentation</link>.</p>
 </section>
 
