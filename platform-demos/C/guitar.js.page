@@ -1,0 +1,232 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="guitar.js">
+  <info>
+    <link type="guide" xref="index#js"/>
+    <revision version="0.1" date="2012-03-09" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Use Gtk+ and GStreamer to build a simple guitar tuner application for GNOME.</desc>
+  </info>
+
+  <title>2 Guitar Tuner</title>
+  
+    <synopsis>
+      <p>In this tutorial we'll construct a small application, Guitar Tuner, using JavaScript and GTK+ and GStreamer. To do and run all the code examples yourself, you need an editor to write code in, terminal and GNOME 3. or higher installed into your computer.</p>
+   <list> 
+      <item><p> <link xref="#gstreamer">GStreamer pipelines</link> </p></item>
+      <item><p> <link xref="#script">Script for running the application</link> </p></item>
+      <item><p> <link xref="#imports">Libraries to import</link> </p></item>
+      <item><p> <link xref="#mainwindow">Creating the main window for the application</link> </p></item>
+      <item><p> <link xref="#buttons">Buttons for the tunes</link> </p></item>
+      <item><p> <link xref="#playSound">Making the sounds with GStreamer</link> </p></item>
+      <item><p> <link xref="#connecting">Connecting buttons to playSound</link> </p></item>
+      <item><p> <link xref="#guitarjs">The whole program</link> </p></item>
+      <item><p> <link xref="#terminal">Running the application form Terminal</link> </p></item>
+    </list> 
+  </synopsis>
+  <p>After reading this tutorial, you should see this in your screen:</p>
+  <media type="image" mime="image/png" src="media/guitarJs.png"/>
+  <section id="gstreamer">
+    <title>GStreamer pipelines</title>
+    <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
+    <p>Conceptually, GStreamer works as follows: You create a <em>pipeline</em> containing several processing elements going from the <em>source</em> to the <em>sink</em> (output). The source can be an image file, a video, or a music file, for example, and the output could be a widget or the soundcard.</p>
+    <p>Between source and sink, you can apply various filters and converters to handle effects, format conversions and so on. Each element of the pipeline has properties which can be used to change its behaviour.</p>
+    <media type="image" mime="image/png" src="media/guitar-tuner-pipeline.png">
+      <p>An example GStreamer pipeline.</p>
+    </media>
+  </section>
+  <section id="script">
+    <title>Script for running the application</title>
+    <code mime="text/javascript" style="numbered"><![CDATA[
+  #!/usr/bin/gjs]]></code>
+    <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program  
+    </p>
+  </section>
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="text/javascript" style="numbered"><![CDATA[
+var Gtk = imports.gi.Gtk;
+var Gst = imports.gi.Gst;
+
+const Mainloop = imports.mainloop;]]></code>
+    <p>In order to have a working program we need to import a few GObject Introspection -libraries to our use. For working UI, we need Gtk and for Gstreamer to work we need Gst. These are imported in the beginning so we have them at use everywhere. Also in the beginning we import a construct Mainloop to handle the timeout to be used with the tuning sounds.</p>
+    </section>
+  <section id="mainwindow">
+    <title>Creating the main window for the application</title> 
+    <code mime="text/javascript" style="numbered"><![CDATA[
+Gtk.init(null, 0);
+Gst.init(null, 0);
+
+var guitarwindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL, border_width: 100});
+guitarwindow.title = "Guitar Tuner";
+guitarwindow.connect("destroy", function(){Gtk.main_quit()});
+
+guitarwindow.show();
+Gtk.main();]]></code>
+    <p>Importing Gtk and Gst is not enough, we need to initialize them in order to get them working. When Gtk and Gst are up and running we need to create the window for the application. Later we are going to put all the buttons for making sounds inside this window. In order to get the window showing, we need to tell it to show and we need also to run the code with the Gtk.main() </p>
+  </section>
+  <section id="buttons">
+   <title>Buttons for the tunes</title>
+   <code mime="text/javascript" style="numbered"><![CDATA[
+var guitar_box = new Gtk.ButtonBox ({orientation: Gtk.Orientation.VERTICAL, spacing: 10});
+
+var E = new Gtk.Button({label: "E"});
+var A = new Gtk.Button({label: "A"});
+var D = new Gtk.Button({label: "D"});
+var G = new Gtk.Button({label: "G"});
+var B = new Gtk.Button({label: "B"});
+var e = new Gtk.Button({label: "e"});
+
+guitar_box.add(E);
+guitar_box.add(A);
+guitar_box.add(D);
+guitar_box.add(G);
+guitar_box.add(B);
+guitar_box.add(e);
+
+guitarwindow.add(guitar_box);
+
+guitar_box.show_all();]]></code>
+   <p>Because Gtk.Window can only contain a single widget, we need to create something under it to be able to add all the necessary buttons inside it. In this example we use Buttonbox. After creating the Buttonbox we create buttons with necessary labels. After we have the buttons we need to add them to the Buttonbox and the Buttonbox must be added to the Gtk.Window and everything in the Buttonbox must be shown.</p>
+   <p>After this stage you should have a window appearing to your screen showing 6 buttons. Right now the buttons don't do anything and we shall address that issue later. Before we can connect the button signals to something we need to code that something first. </p>
+  </section>
+  <section id="playSound">
+   <title>Making the sounds with GStreamer</title>
+   <code mime="text/javascript" style="numbered"><![CDATA[
+var frequencies = {E: 369.23, A: 440,	D: 587.33,	G: 783.99,	B: 987.77,	e: 1318.5}
+
+function playSound(frequency){
+  var pipeline = new Gst.Pipeline({name: "note"});
+  var source = new Gst.ElementFactory.make("audiotestsrc","source");
+  var sink = new Gst.ElementFactory.make("autoaudiosink","output");
+  
+  source.set_property('freq', frequency);
+  pipeline.add(source);
+  pipeline.add(sink);
+  source.link(sink);
+  pipeline.set_state(Gst.State.PLAYING);
+
+  Mainloop.timeout_add(500, function () { 
+    pipeline.set_state(Gst.State.PAUSED);
+	  return false;
+  });	
+}]]></code>
+   <p>The first thing we need to do is decide what tunes we want to make when we push a button. The frequencies list takes care of that. After that we get to actually making the sounds with the function playSound. For function playSound we give as an input a frequency (that we just defined in the frequencies variable). First thing we need to construct is a pipeline, a source and a sink. For the source we set the frequency. To the pipeline we add both the source and the sink and then we tell it to keep playing. As a last thing we use the const Mainloop to get the pipeline to pause after a 500ms.  </p>
+   <p>Now we have the method of playing a tune when clicking a button. Next well make the conncetions between pushing a button and playing the correct sound from that button.</p>
+  </section>
+  <section id="connecting">
+   <title>Connecting buttons to playSound</title>
+   <code mime="text/javascript" style="numbered"><![CDATA[
+E.connect("clicked", function() {
+  playSound(frequencies.E);
+});
+A.connect("clicked", function(){
+  playSound(frequencies.A);
+});
+D.connect("clicked", function(){
+  playSound(frequencies.D);
+});
+G.connect("clicked", function(){
+  playSound(frequencies.G);
+});
+B.connect("clicked", function(){
+  playSound(frequencies.B);
+});
+e.connect("clicked", function(){
+  playSound(frequencies.e);
+});]]></code>
+   <p>The method of connecting button clicks to playSound with the correct tune is by using the connect method of the button widget. So we yelp-check validate *pagechoose a button to be connected and type E.connect("clicked", function(){playSound(frequencies.E);}); The connect tells that when pushing E, something should happen. The "clicked" tells the type of something happening to E and then in the function(){}; we the playSound happen with the correct tune that should be associated to the button.</p>
+  </section>
+  <section id="guitarjs">
+    <title>The whole program</title>
+    <p>So this is what all the parts combined looks like. When running this code, you should be able to tune your guitar(if you have correctly calibrated speakers).</p>
+      <code mime="text/javascript" style="numbered"><![CDATA[
+#!/usr/bin/gjs
+var Gtk = imports.gi.Gtk;
+var Gst = imports.gi.Gst;
+
+const Mainloop = imports.mainloop;
+
+Gtk.init(null, 0);
+Gst.init(null, 0);
+
+var guitarwindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL, border_width: 100});
+guitarwindow.title = "Guitar Tuner";
+guitarwindow.connect("destroy", function(){Gtk.main_quit()});
+
+var guitar_box = new Gtk.ButtonBox ({orientation: Gtk.Orientation.VERTICAL, spacing: 10});
+
+var E = new Gtk.Button({label: "E"});
+var A = new Gtk.Button({label: "A"});
+var D = new Gtk.Button({label: "D"});
+var G = new Gtk.Button({label: "G"});
+var B = new Gtk.Button({label: "B"});
+var e = new Gtk.Button({label: "e"});
+
+var frequencies = {E: 369.23, A: 440,	D: 587.33,	G: 783.99,	B: 987.77,	e: 1318.5}
+
+
+function playSound(frequency){
+  var pipeline = new Gst.Pipeline({name: "note"});
+
+  var source = new Gst.ElementFactory.make("audiotestsrc","source");
+  var sink = new Gst.ElementFactory.make("autoaudiosink","output");
+    
+  source.set_property('freq', frequency);
+  pipeline.add(source);
+  pipeline.add(sink);
+  source.link(sink);
+  pipeline.set_state(Gst.State.PLAYING);
+
+  Mainloop.timeout_add(500, function () { 
+    pipeline.set_state(Gst.State.PAUSED);
+	  return false;
+});	
+}
+
+E.connect("clicked", function() {
+  playSound(frequencies.E);
+});
+A.connect("clicked", function(){
+  playSound(frequencies.A);
+});
+D.connect("clicked", function(){
+  playSound(frequencies.D);
+});
+G.connect("clicked", function(){
+  playSound(frequencies.G);
+});
+B.connect("clicked", function(){
+  playSound(frequencies.B);
+});
+e.connect("clicked", function(){
+  playSound(frequencies.e);
+});
+
+guitar_box.add(E);
+guitar_box.add(A);
+guitar_box.add(D);
+guitar_box.add(G);
+guitar_box.add(B);
+guitar_box.add(e);
+
+guitarwindow.add(guitar_box);
+
+guitar_box.show_all();
+guitarwindow.show();
+Gtk.main();]]></code>
+  </section>
+
+<section id="terminal">
+  <title>Running the application form Terminal</title>
+  <p>To run this application open Terminal, go to the folder where your application is stored and then run</p> <screen> <output style="prompt">$ </output><input> GJS_PATH=`pwd` gjs guitarTuner.js</input> </screen>
+    </section>
+  
+ 
+</page>

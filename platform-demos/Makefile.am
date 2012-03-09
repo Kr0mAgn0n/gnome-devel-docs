@@ -28,9 +28,11 @@ DOC_FIGURES = \
 	media/entry.png			\
 	media/fedora.png			\
 	media/opensuse.png			\
+	media/guitarJs.png			\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
+	media/helloWorldJs.png		\
 	media/image-viewer.png			\
 	media/message-board.ogv			\
 	media/photo-wall.png			\
@@ -52,6 +54,7 @@ DOC_PAGES =				\
 	getting-ready.page		\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
+	guitar.js.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  \
@@ -65,7 +68,7 @@ DOC_PAGES =				\
 	message-board.c.page		\
 	toolbar.js.page		\
 	photo-wall.c.page		\
-	record-collection.js.page	\
-	translate.page
+	record-collection.js.page		\
+	translate.page		
 
 dist-hook: doc-dist-hook
