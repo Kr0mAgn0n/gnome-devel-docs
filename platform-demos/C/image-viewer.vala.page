@@ -82,7 +82,6 @@ public class Main : Object
 		window.destroy.connect(on_destroy);
 	}
 
-	[CCode (instance_pos = -1)]
 	public void on_destroy (Widget window)
 	{
 		Gtk.main_quit();
@@ -205,7 +204,6 @@ public Main () {
 button we mentioned before.
   Add this code after the constructor:</p>
   <code mime="text/x-valasrc"><![CDATA[
-[CCode (instance_pos = -1)]
 public void on_open_image (Button self) {
 	var filter = new FileFilter ();
 	var dialog = new FileChooserDialog ("Open image",

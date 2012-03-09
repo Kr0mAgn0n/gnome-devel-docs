@@ -3,16 +3,10 @@
 #include <gtkmm.h>
 #include <iostream>
 
-#include "config.h"
-
-
-#ifdef ENABLE_NLS
-#  include <libintl.h>
-#endif
-
+Gtk::Image* image = 0;
 
 static void
-on_open_image (Gtk::Image* image)
+on_open_image ()
 {
 	Gtk::FileChooserDialog dialog("Open image",
 	                              Gtk::FILE_CHOOSER_ACTION_OPEN);
@@ -24,9 +18,13 @@ on_open_image (Gtk::Image* image)
 	Glib::RefPtr<Gtk::FileFilter> filter =
 		Gtk::FileFilter::create();
 	filter->add_pixbuf_formats();
+	filter->set_name("Images");
 	dialog.add_filter (filter);
 
-	switch (dialog.run())
+	const int response = dialog.run();
+	dialog.hide();
+
+	switch (response)
 	{
 		case Gtk::RESPONSE_ACCEPT:
 			image->set(dialog.get_filename());
@@ -34,7 +32,6 @@ on_open_image (Gtk::Image* image)
 		default:
 			break;
 	}
-	dialog.hide();
 }
 
 int
@@ -42,26 +39,24 @@ main (int argc, char *argv[])
 {
 	Gtk::Main kit(argc, argv);
 
-	Gtk::Window* main_win = new Gtk::Window(Gtk::WINDOW_TOPLEVEL);
-	main_win->set_title ("image-viewer-cpp");
+	Gtk::Window main_win;
+	main_win.set_title ("image-viewer-cpp");
 
-	Gtk::Box* box = new Gtk::Box();
+	Gtk::Box* box = Gtk::manage(new Gtk::Box());
 	box->set_orientation (Gtk::ORIENTATION_VERTICAL);
-	box->set_spacing(5);
-	main_win->add(*box);
+	box->set_spacing(6);
+	main_win.add(*box);
 
-	Gtk::Image* image = new Gtk::Image();
+	image = Gtk::manage(new Gtk::Image());
 	box->pack_start (*image, true, true);
 	
-	Gtk::Button* button = new Gtk::Button("Open Image…");
-	button->signal_clicked().connect (sigc::bind<Gtk::Image*>(sigc::ptr_fun(&on_open_image), image));
+	Gtk::Button* button = Gtk::manage(new Gtk::Button("Open Image…"));
+	button->signal_clicked().connect (
+		sigc::ptr_fun(&on_open_image));
 	box->pack_start (*button, false, false);
-	
-	main_win->show_all();
-	
-	if (main_win)
-	{
-		kit.run(*main_win);
-	}
+
+	main_win.show_all_children();
+	kit.run(main_win);
+
 	return 0;
 }

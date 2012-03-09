@@ -1,0 +1,91 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="overview-communication">
+  <info>
+    <revision version="0.1" date="2012-02-19" status="stub"/>
+    <link type="guide" xref="index#overview" />
+
+    <credit type="author copyright">
+      <name>Phil Bull</name>
+      <email>philbull@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Instant messaging, networking, social media, email, and calendaring support.</desc>
+  </info>
+
+<title>Communication and social networking</title>
+
+<list>
+ <item>
+  <p><em style="strong">Connect to instant messaging and social networking services</em></p>
+ </item>
+ <item>
+  <p><em style="strong">Set up multi-protocol connections with web services or other clients</em></p>
+ </item>
+ <item>
+  <p><em style="strong">Handle mail, online contacts and calendar services</em></p>
+ </item>
+</list>
+
+<p>Get your users connected and communicating with their friends and contacts through instant messaging, social media, and email. GNOME's extensive communications stack gives you high-level, abstracted access to complicated instant messaging and email protocols. For more specialised communication needs, there's access to the nuts and bolts through lower level APIs too.</p>
+
+<media type="image" mime="image/png" src="test_comm1.png" width="65%">
+ <p>Empathy instant messaging client</p>
+</media>
+
+<section id="what">
+ <title>What can you do?</title>
+ 
+ <p>For <em style="strong">connecting to instant messaging services</em>, use <em style="strong"><link xref="telepathy">Telepathy</link></em>. It provides a powerful framework for interacting with the user's instant messaging contacts, and has support for a wide range of messaging protocols. With Telepathy, all accounts and connections are handled by a <link xref="d-bus">D-Bus</link> session service that's deeply integrated into GNOME. Applications can tie into this service to communicate with contacts.</p>
+  
+ <p>Create multi-player games or collaborative editors that integrate with the desktop-wide instant messaging services. With the <em style="strong"><link xref="telepathy#tubes">Telepathy Tubes</link></em> API, you can <em style="strong">tunnel an arbitrary protocol</em> over modern instant messaging protocols like Jabber to create interactive applications.</p>
+
+ <p>Allow users to see other people they can chat with, and find printers, shared files, and shared music collections as soon as they connect to a network. The <em style="strong"><link xref="avahi">Avahi</link></em> API provides <em style="strong">service discovery</em> on a local network via the mDNS/DNS-SD protocol suite. It's compatible with similar technology found in MacOS X and Windows.</p>
+
+ <p>Handle users' local and online address books and calendars with <em style="strong"><link xref="eds">Evolution Data Server</link></em> (EDS). It provides a way of storing account information and interacting with </p>
+
+ <p>With <em style="strong"><link xref="eds">Folks</link></em>, you will have access to a single API for handling social networking, chat, email, and audio/video communications. </p>
+ 
+</section>
+
+<section id="samples">
+ <title>Code samples</title>
+ <list>
+  <item><p>Change the IM status</p></item>
+  <item><p>Fetch a contact from a Gmail address book</p></item>
+  <item><p>Scan the network for zeroconf printers</p></item>
+  <item><p>Something with Telepathy Tubes</p></item>
+  <item><p><link xref="samples#communication">More...</link></p></item>
+ </list>
+</section>
+
+<section id="realworld">
+ <title>Real-world examples</title>
+ 
+ <comment>
+  <cite>Phil Bull</cite>
+  <p>Need to use better links than these.</p>
+ </comment>
+ 
+ <p>You can see lots of real-world applications of the GNOME communications technologies in open source projects, like the examples given below.</p>
+ <list>
+  <item>
+   <p><em style="strong">Empathy</em> is an instant messaging app with support for a wide range of messaging services. It uses Telepathy to handle connections, presence, and contact information for all of the protocols that it supports.</p>
+   <p>(<link href="https://live.gnome.org/Empathy">Website</link> | <link href="http://staz.be/tup/2009-06/Capture-Conversations.png">Screenshot</link> | <link href="http://git.gnome.org/browse/empathy/tree/">Empathy source code</link> )</p>
+  </item>
+  
+  <item>
+   <p>With Telepathy Tubes support, the <em style="strong">GNOME Games</em> collection was able to add multi-player gaming support through the Jabber protocol.</p>
+   <p>(<link href="https://live.gnome.org/GnomeGames/">Website</link> | <link href="https://live.gnome.org/glChess?action=AttachFile&amp;do=get&amp;target=glchess3d.png">Screenshot</link> | <link href="http://git.gnome.org/browse/gnome-games/tree/glchess/src">GLChess online multiplayer code</link> )</p>
+  </item>
+  
+  <item>
+   <p>Avahi support allows users of the <em style="strong">Rhythmbox</em> music player to see shared music collections on their local network, using DAAP.</p>
+   <p>(<link href="http://projects.gnome.org/rhythmbox/">Website</link> | <link href="http://skss.learnfree.eu/wp-content/uploads/2009/05/rhythmbox_daap_3.png">Screenshot</link> | <link href="http://git.gnome.org/browse/rhythmbox/tree/plugins/daap">DAAP Code</link> )</p>
+  </item>
+ </list>
+
+</section>
+
+</page>
