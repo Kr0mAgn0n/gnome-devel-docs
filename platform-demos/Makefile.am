@@ -40,6 +40,7 @@ DOC_FIGURES = \
 	media/record-collection.png		\
 	media/toolbar.png		\
 	media/magic-mirror.png			\
+	media/weatherAppJs.png			\
 	$(demo_sources)
 
 DOC_PAGES =				\
@@ -69,6 +70,10 @@ DOC_PAGES =				\
 	toolbar.js.page		\
 	photo-wall.c.page		\
 	record-collection.js.page		\
-	translate.page		
+	translate.page		\
+	weatherApp.js.page		\
+	weatherAppMain.js.page		\
+	weatherAutotools.js.page		\
+	weatherGeonames.js.page
 
 dist-hook: doc-dist-hook
