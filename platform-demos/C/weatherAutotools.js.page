@@ -1,0 +1,150 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="weatherAutotools.js">
+  <info>
+    <link type="guide" xref="weatherApp.js#main" group="#last"/>
+    <revision version="0.1" date="2012-03-09" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc></desc>
+  </info>
+
+  <title>Autotools and Icons</title>
+  <synopsis>
+    <p>In this part of the guide well construct the autotools and custom icons needed for weather application to be a seamless part of your desktop. To write and run all the code examples yourself, you need an editor to write code in, Terminal and GNOME 3 or higher installed into your computer. In this guide we we'll go through the following parts:</p>
+      
+    <list>
+      <item><p><link xref="#autotools"> Autotools</link></p></item>
+      <item><p><link xref="#icons">Custom icons for your application</link></p></item>
+    </list> 
+  </synopsis>
+  
+
+
+  <section id ="autotools">
+  <title>Autotools and necessary files</title>
+  <p>Having more than one file in your folder makes using autotools a bit tricky. You need the .desktop file, autogen.sh, Makefile.am, configure.ac and as a new file: myapp.sh.in file. Hacking the autotools file is a complicated field. More information can be found in many different sources, <link href="http://en.wikipedia.org/wiki/GNU_build_system">the wikipedia article</link> provides a good overwiev on the subject.  
+  </p> 
+    <list>
+      <item><p>weatherapp.desktop</p></item>
+      <item><p>weatherapp.sh.in</p></item>
+      <item><p>Makefile.am</p></item>
+      <item><p>configure.ac</p></item>
+      <item><p>autogen.sh</p></item>          
+    </list>
+    <p>weatherapp.desktop</p>
+    <code mime="text/.desktop" style="numbered"><![CDATA[
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Weather app
+Comment=Weather showing application
+Exec=weatherapp.sh
+Icon=application-default-icon
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;]]></code>
+    <p>The thing to notice in this file is that the Exec line will make this .desktop file work only after running all the other makefiles. Weatherapp.sh is a small shell script created with the weatherapp.sh.in.</p>
+
+    <p>weatherapp.sh.in</p>
+    <code mime="text/sh.in" style="numbered"><![CDATA[
+#!/bin/sh
+export GJS_PATH=@bindir@
+gjs @bindir@/weatherapp.js]]></code>
+    <p>This file is a template to the file Makefile will do to be run from .desktop.</p>
+
+    <p>Makefile.am</p>
+    <code mime="text/am" style="numbered"><![CDATA[
+# The actual runnable program is set to the SCRIPTS primitive. Prefix bin_ tells where to copy this
+bin_SCRIPTS = weatherapp.js geonames.js weatherapp.sh
+# List of files to be distributed
+EXTRA_DIST=  \
+    $(bin_SCRIPTS) \
+    $(private_icons)	\
+	  $(NULL)
+
+CLEANFILES =
+
+# The desktop files    
+desktopdir = $(datadir)/applications
+desktop_DATA =weatherapp.desktop
+
+# convenience command for doing Makefile variable substitutions in non-Makefile
+# files (scripts, service files, etc.)
+do_subst = sed -e 's|@abs_top_srcdir[@]|$(abs_top_srcdir)|g' \
+               -e 's|@abs_top_builddir[@]|$(abs_top_builddir)|g' \
+               -e 's|@localedir[@]|$(localedir)|g' \
+               -e 's|@bindir[@]|$(bindir)|g' \
+               -e 's|@libexecdir[@]|$(libexecdir)|g' \
+	       -e 's|@pkglibdir[@]|$(pkglibdir)|g' \
+	       -e 's|@pkgdatadir[@]|$(pkgdatadir)|g' \
+	       -e 's|@have_libnotify[@]|$(HAVE_LIBNOTIFY)|g' \
+	       -e 's|@have_libsoup[@]|$(HAVE_LIBSOUP)|g' \
+	       -e 's|@have_cheese[@]|$(HAVE_CHEESE)|g'
+
+weatherapp.sh: weatherapp.sh.in
+	$(AM_V_GEN) $(do_subst) $< > $@
+	chmod +x $@
+	
+CLEANFILES += weatherapp.sh
+EXTRA_DIST += weatherapp.sh.in
+
+#the application icon
+appicondir=$(datadir)/icons/hicolor/scalable/apps
+appicon_DATA=weather-icon.svg
+
+#icons in the application
+NULL =
+
+private_icons = \
+	weather-clear.svg \
+  weather-few-clouds.svg \
+  weather-fog.svg \
+  weather-icon.svg \
+  weather-overcast.svg \
+  weather-showers.svg \
+  weather-showers-scattered.svg \
+  weather-snow.svg \
+  $(NULL)
+  
+install-icons:
+	for icon in $(private_icons); do \
+		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/; \
+		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(pkgdatadir)/icons/; \
+	done
+	
+install-data-local: install-icons]]></code>
+    <p>This needs a bit more explaining. Compared to the HelloWorld Makefile.am this has changed quite a bit. Lets go through all the new blocks:</p>
+    <p>bin_scripts are the files that are needed to run your application. In thin case they are the first two files are the program itself and the third is the script that launches the application.</p>
+    <p>EXTRA_DIST are the files that are to be distributed</p>
+    <p>do_subst block is bits and pieces that need to be where they are</p>
+    <p>after the comment #icons in the application there are all the icons that are used by the program. For them to be useful you need to install the icons in correct places and that is done byt the install-icons: bit</p>
+
+    <p>configure.ac</p>
+    <code mime="text/ac" style="numbered"><![CDATA[
+dnl This file is processed by autoconf to create a configure script
+AC_INIT([Weather App], 1.0)
+AM_INIT_AUTOMAKE([1.10 no-define foreign])
+AC_CONFIG_FILES(Makefile)
+AC_OUTPUT]]></code>
+    <p>autohen.sh</p>
+    <code mime="text/sh" style="numbered"><![CDATA[
+#!/bin/sh
+# This will run autoconf, automake, etc. for us
+autoreconf --force --install]]></code>
+  </section>
+  <section id="icons">
+  <title>Custom icons for your application</title>
+  <p>When thinking about custom icons a good rule of thumb is: do you expect to see that icon used elsewhere or is it private to your app? If the first (e.g. the icons in the desktop file that are shown by the shell) then you need /usr/share/hicolor, otherwise (e.g. the weather icons of your app) /usr/share/$application/bla/bla</p>
+  <p>Using autotools you have to make some changes to your .desktop and Makefile.am files. In the desktop file you change the Icon's name  Icon=weather-icon. In the Makefile.am file you add these two lines to the end of your application #the application icon</p>
+  <p>appicondir=$(datadir)/icons/hicolor/scalable/apps</p>
+  <p>appicon_DATA=weather-icon.svg</p> 
+  </section>
+
+</page>
