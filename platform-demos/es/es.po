@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-03-09 18:11+0000\n"
-"PO-Revision-Date: 2012-03-11 19:26+0100\n"
+"POT-Creation-Date: 2012-03-12 15:20+0000\n"
+"PO-Revision-Date: 2012-03-12 17:44+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,521 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
+
+#: C/weatherGeonames.js.page:9(name) C/weatherAutotools.js.page:9(name)
+#: C/weatherAppMain.js.page:9(name) C/weatherApp.js.page:9(name)
+#: C/toolbar.js.page:9(name) C/helloWorld.js.page:9(name)
+#: C/guitar.js.page:9(name) C/entry.js.page:9(name) C/beginner.js.page:9(name)
+#: C/desktop.js.page:9(name) C/button.js.page:9(name)
+msgid "Susanna Huhtanen"
+msgstr "Susanna Huhtanen"
+
+#: C/weatherGeonames.js.page:10(email) C/weatherAutotools.js.page:10(email)
+#: C/weatherAppMain.js.page:10(email) C/weatherApp.js.page:10(email)
+#: C/toolbar.js.page:10(email) C/helloWorld.js.page:10(email)
+#: C/guitar.js.page:10(email) C/entry.js.page:10(email)
+#: C/beginner.js.page:10(email) C/desktop.js.page:10(email)
+#: C/button.js.page:10(email)
+msgid "ihmis.suski@gmail.com"
+msgstr "ihmis.suski@gmail.com"
+
+#: C/weatherGeonames.js.page:11(years) C/weatherAutotools.js.page:11(years)
+#: C/weatherAppMain.js.page:11(years) C/weatherApp.js.page:11(years)
+#: C/toolbar.js.page:11(years) C/helloWorld.js.page:11(years)
+#: C/guitar.js.page:11(years) C/entry.js.page:11(years)
+#: C/beginner.js.page:11(years) C/desktop.js.page:11(years)
+#: C/button.js.page:11(years)
+msgid "2012"
+msgstr "2012"
+
+#: C/weatherGeonames.js.page:17(title)
+msgid "Local library geoNames"
+msgstr "Biblioteca local geoNames"
+
+#: C/weatherGeonames.js.page:19(p)
+#, fuzzy
+#| msgid ""
+#| "In this tutorial we'll construct a small application, Hello World, using "
+#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
+#| "need an editor to write code in, Terminal and GNOME 3 or higher installed "
+#| "into your computer. In this tutorial we'll go through the following parts:"
+msgid ""
+"In this part of the guide well construct the local library geoNames using "
+"asynchronous calls. Weather information in this example is fetched from "
+"geonames.org and the application is using the <link href=\"http://en."
+"wikipedia.org/wiki/List_of_airports_by_ICAO_code:_E\">ICAO codes </link> to "
+"place your weather request. To write and run all the code examples yourself, "
+"you need an editor to write code in, Terminal and GNOME 3 or higher "
+"installed into your computer. In this guide we we'll go through the "
+"following parts:"
+msgstr ""
+"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
+"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
+"editor en el que escribir el código, una terminal y GNOME 3 o superior "
+"instalado en su equipo."
+
+#: C/weatherGeonames.js.page:22(link) C/weatherGeonames.js.page:30(title)
+msgid "Local library for getting the weather"
+msgstr ""
+
+#: C/weatherGeonames.js.page:23(link)
+msgid "Creating function geoNames"
+msgstr "Crear la función geoNames"
+
+#: C/weatherGeonames.js.page:24(link)
+msgid "Methods for geoNames"
+msgstr "Métodos para geoNames"
+
+#: C/weatherGeonames.js.page:25(link) C/weatherGeonames.js.page:100(title)
+msgid "geonames.js"
+msgstr "geonames.js"
+
+#: C/weatherGeonames.js.page:31(p)
+msgid "For this we need a new file that will be our local library."
+msgstr ""
+
+#: C/weatherGeonames.js.page:37(p)
+msgid ""
+"In the first lines we'll import and initialize the libraries we need to use "
+"in this local library. Soup handles all the requests we have to make with "
+"http."
+msgstr ""
+
+#: C/weatherGeonames.js.page:41(title)
+msgid "Creating function GeoNames"
+msgstr "Crear la función geoNames"
+
+#: C/weatherGeonames.js.page:51(p)
+msgid ""
+"Here we create the function GeoNames that will handle getting weather for "
+"us. JavaScript allows us to create functions that have little inside at "
+"first and later expand them. This will be done inside the GeoNames.prototype "
+"curly braces{}"
+msgstr ""
+
+#: C/weatherGeonames.js.page:55(title)
+msgid "Methods for GeoNames"
+msgstr "Métodos para geoNames"
+
+#: C/weatherGeonames.js.page:95(p)
+msgid ""
+"The first method for GeoNames is getWeather and the second getIcon. In "
+"getWeather we make a http request with soup, handle errors and then parse "
+"the information from the request to form we can use it. In getIcon we simply "
+"compare the results we got from getWeather to the switch we have in order to "
+"get the icon matching current weather. Now that we have our local library "
+"ready, it's time to make use of it."
+msgstr ""
+
+#: C/weatherGeonames.js.page:101(p)
+msgid ""
+"Here is the entire code for our local library. The main program file calls "
+"this asynchronously."
+msgstr ""
+
+#: C/weatherAutotools.js.page:17(title) C/weatherApp.js.page:28(link)
+msgid "Autotools and Icons"
+msgstr "Autotools e iconos"
+
+#: C/weatherAutotools.js.page:19(p)
+#, fuzzy
+#| msgid ""
+#| "In this tutorial we'll construct a small application, Hello World, using "
+#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
+#| "need an editor to write code in, Terminal and GNOME 3 or higher installed "
+#| "into your computer. In this tutorial we'll go through the following parts:"
+msgid ""
+"In this part of the guide well construct the autotools and custom icons "
+"needed for weather application to be a seamless part of your desktop. To "
+"write and run all the code examples yourself, you need an editor to write "
+"code in, Terminal and GNOME 3 or higher installed into your computer. In "
+"this guide we we'll go through the following parts:"
+msgstr ""
+"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
+"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
+"editor en el que escribir el código, una terminal y GNOME 3 o superior "
+"instalado en su equipo."
+
+#: C/weatherAutotools.js.page:22(link)
+msgid "Autotools"
+msgstr "Autotools"
+
+#: C/weatherAutotools.js.page:23(link) C/weatherAutotools.js.page:143(title)
+#| msgid "Tutorial for a hello world application"
+msgid "Custom icons for your application"
+msgstr "Iconos personalizados para su aplicación"
+
+#: C/weatherAutotools.js.page:30(title)
+msgid "Autotools and necessary files"
+msgstr "Autotools y archivos necesarios"
+
+#: C/weatherAutotools.js.page:31(p)
+msgid ""
+"Having more than one file in your folder makes using autotools a bit tricky. "
+"You need the .desktop file, autogen.sh, Makefile.am, configure.ac and as a "
+"new file: myapp.sh.in file. Hacking the autotools file is a complicated "
+"field. More information can be found in many different sources, <link href="
+"\"http://en.wikipedia.org/wiki/GNU_build_system\">the wikipedia article</"
+"link> provides a good overwiev on the subject."
+msgstr ""
+
+#: C/weatherAutotools.js.page:34(p) C/weatherAutotools.js.page:40(p)
+#| msgid "helloWorld.desktop"
+msgid "weatherapp.desktop"
+msgstr "weatherapp.desktop"
+
+#: C/weatherAutotools.js.page:35(p) C/weatherAutotools.js.page:55(p)
+msgid "weatherapp.sh.in"
+msgstr "weatherapp.sh.in"
+
+#: C/weatherAutotools.js.page:36(p) C/weatherAutotools.js.page:62(p)
+msgid "Makefile.am"
+msgstr "Makefile.am"
+
+#: C/weatherAutotools.js.page:37(p) C/weatherAutotools.js.page:129(p)
+msgid "configure.ac"
+msgstr "configure.ac"
+
+#: C/weatherAutotools.js.page:38(p)
+msgid "autogen.sh"
+msgstr "autogen.sh"
+
+#: C/weatherAutotools.js.page:53(p)
+msgid ""
+"The thing to notice in this file is that the Exec line will make this ."
+"desktop file work only after running all the other makefiles. Weatherapp.sh "
+"is a small shell script created with the weatherapp.sh.in."
+msgstr ""
+
+#: C/weatherAutotools.js.page:60(p)
+msgid ""
+"This file is a template to the file Makefile will do to be run from .desktop."
+msgstr ""
+
+#: C/weatherAutotools.js.page:123(p)
+msgid ""
+"This needs a bit more explaining. Compared to the HelloWorld Makefile.am "
+"this has changed quite a bit. Lets go through all the new blocks:"
+msgstr ""
+
+#: C/weatherAutotools.js.page:124(p)
+msgid ""
+"bin_scripts are the files that are needed to run your application. In thin "
+"case they are the first two files are the program itself and the third is "
+"the script that launches the application."
+msgstr ""
+
+#: C/weatherAutotools.js.page:125(p)
+msgid "EXTRA_DIST are the files that are to be distributed"
+msgstr "EXTRA_DIST son los archivos que se deben distribuir"
+
+#: C/weatherAutotools.js.page:126(p)
+msgid "do_subst block is bits and pieces that need to be where they are"
+msgstr ""
+
+#: C/weatherAutotools.js.page:127(p)
+msgid ""
+"after the comment #icons in the application there are all the icons that are "
+"used by the program. For them to be useful you need to install the icons in "
+"correct places and that is done byt the install-icons: bit"
+msgstr ""
+
+#: C/weatherAutotools.js.page:136(p)
+msgid "autohen.sh"
+msgstr "autohen.sh"
+
+#: C/weatherAutotools.js.page:144(p)
+msgid ""
+"When thinking about custom icons a good rule of thumb is: do you expect to "
+"see that icon used elsewhere or is it private to your app? If the first (e."
+"g. the icons in the desktop file that are shown by the shell) then you need /"
+"usr/share/hicolor, otherwise (e.g. the weather icons of your app) /usr/share/"
+"$application/bla/bla"
+msgstr ""
+
+#: C/weatherAutotools.js.page:145(p)
+msgid ""
+"Using autotools you have to make some changes to your .desktop and Makefile."
+"am files. In the desktop file you change the Icon's name Icon=weather-icon. "
+"In the Makefile.am file you add these two lines to the end of your "
+"application #the application icon"
+msgstr ""
+
+#: C/weatherAutotools.js.page:146(p)
+msgid "appicondir=$(datadir)/icons/hicolor/scalable/apps"
+msgstr "appicondir=$(datadir)/icons/hicolor/scalable/apps"
+
+#: C/weatherAutotools.js.page:147(p)
+msgid "appicon_DATA=weather-icon.svg"
+msgstr "appicon_DATA=weather-icon.svg"
+
+#: C/weatherAppMain.js.page:17(title) C/weatherApp.js.page:26(link)
+#| msgid "The whole program"
+msgid "The main program file"
+msgstr "El archivo del programa principal"
+
+#: C/weatherAppMain.js.page:19(p)
+#, fuzzy
+#| msgid ""
+#| "In this tutorial we'll construct a small application, Hello World, using "
+#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
+#| "need an editor to write code in, Terminal and GNOME 3 or higher installed "
+#| "into your computer. In this tutorial we'll go through the following parts:"
+msgid ""
+"In this part of the guide well construct the main program file of the "
+"weather application. To write and run all the code examples yourself, you "
+"need an editor to write code in, Terminal and GNOME 3 or higher installed "
+"into your computer. In this part we we'll go through the following parts:"
+msgstr ""
+"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
+"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
+"editor en el que escribir el código, una terminal y GNOME 3 o superior "
+"instalado en su equipo."
+
+#: C/weatherAppMain.js.page:21(link) C/weatherAppMain.js.page:31(title)
+#: C/helloWorld.js.page:21(link) C/helloWorld.js.page:33(title)
+#: C/guitar.js.page:23(link) C/guitar.js.page:45(title)
+msgid "Script for running the application"
+msgstr "Script para ejecutar la aplicación"
+
+#: C/weatherAppMain.js.page:22(link) C/weatherAppMain.js.page:39(title)
+#: C/helloWorld.js.page:22(link) C/helloWorld.js.page:41(title)
+#: C/guitar.js.page:24(link) C/guitar.js.page:52(title)
+msgid "Libraries to import"
+msgstr "Bibliotecas que importar"
+
+#: C/weatherAppMain.js.page:23(link) C/weatherAppMain.js.page:47(title)
+#: C/helloWorld.js.page:23(link) C/helloWorld.js.page:48(title)
+#: C/guitar.js.page:25(link) C/guitar.js.page:61(title)
+msgid "Creating the main window for the application"
+msgstr "Crear la ventana principal de la aplicación"
+
+#: C/weatherAppMain.js.page:24(link) C/weatherAppMain.js.page:62(title)
+msgid "Adding a grid and all the necessary widgets to it"
+msgstr ""
+
+#: C/weatherAppMain.js.page:25(link) C/weatherAppMain.js.page:93(title)
+msgid "Requesting the weather information asynchronously"
+msgstr ""
+
+#: C/weatherAppMain.js.page:26(link)
+msgid "Connecting signals to button and entry.\"&gt;"
+msgstr ""
+
+#: C/weatherAppMain.js.page:27(link)
+msgid "weatherapp.js"
+msgstr "weatherapp.js"
+
+#: C/weatherAppMain.js.page:34(p)
+#| msgid ""
+#| "This line tells how to run the script. It needs to be the first line of "
+#| "the code and it needs to be executable. To get the execution rights go to "
+#| "terminal and run in right folder: chmod +x scriptname. Or you can use the "
+#| "graphical filemanager. Just go to the right folder where your code is, "
+#| "right click you code file, choose properties, click the permissions tab "
+#| "and check the box for allow executing file as a program"
+msgid ""
+"This line tells how to run the script. It needs to be the first line of the "
+"code and it needs to be executable. To get the execution rights go to "
+"Terminal and run in right folder: chmod +x scriptname. Or you can use the "
+"graphical filemanager. Just go to the right folder where your code is, right "
+"click you code file, choose properties, click the permissions tab and check "
+"the box for allow executing file as a program"
+msgstr ""
+"Esta línea indica cómo ejecutar el script. Debe ser la primera línea del "
+"código y debe ser ejecutable. Para obtener permisos de ejecución vaya a la "
+"terminal y ejecute lo siguiente en la carpeta adecuada: chmod +x "
+"nombrescript. También puede usar el gestor de archivo. Simplemente vaya a la "
+"carpeta donde está el código, pulse con el botón derecho sobre el archivo de "
+"código y elija «Propiedades», pulse en la pestaña «Permisos» y marque la "
+"casilla para permitir ejecutar el archivo como un programa."
+
+#: C/weatherAppMain.js.page:43(p)
+#, fuzzy
+#| msgid ""
+#| "In order to have a working program we need to import a GObject "
+#| "Introspection -library to our use. For working UI, we need Gtk. Gtk is "
+#| "imported in the beginning so we have it in our use everywhere."
+msgid ""
+"In order to have a working program we need to import a GObject Introspection "
+"-library to our use. For working UI, we need Gtk. Gtk is imported in the "
+"beginning so we have it in our use everywhere. We also import our own local "
+"JavaScript library geonames to our use here."
+msgstr ""
+"Para que el programa funcione se debe importar una biblioteca de "
+"introspección de GObject. Para que funcione la IU se necesita GTK+, que se "
+"importa al inicio, por lo que está en uso en todos los sitios."
+
+#: C/weatherAppMain.js.page:89(p)
+msgid ""
+"In this section we create the grid we are going to use for positioning the "
+"widgets. All the buttons, labels and entrys are initialized and placed on "
+"the grid. As seen from the placing of the different widgets, they don't need "
+"to be related only to one widget. At this point some of the labels don't "
+"have any content. The content for those widgets is applied later. If you run "
+"the application at this stage, you have the UI ready, but the widgets are "
+"not connected to anything. For this we need to first build the weather "
+"searching local library, and then get the information we need "
+"asynchronously. When we have our local library ready we can connect it to "
+"the necessary widgets."
+msgstr ""
+
+#: C/weatherAppMain.js.page:119(p)
+msgid ""
+"This function is dedicated for calling for the weather information and "
+"updating labels and icons accordingly. In the beginning of the function we "
+"get the user input for the search. So here for the first time we use our own "
+"library and assign it to variable GeoNames. While assigning WeatherService "
+"we give it the station. The firs thing we do with GeoNames is to request "
+"weather. Everything after GeoNames.getWeather(function(error, weather) "
+"happens only if we either get an error message or weather information. If "
+"either doesn't come, the rest of the program works as normal, so main_Quit "
+"works."
+msgstr ""
+
+#: C/weatherAppMain.js.page:123(title)
+#, fuzzy
+#| msgid "Connecting buttons to playSound"
+msgid "Connecting signals to button and entry."
+msgstr "Conectar los botones a playSound"
+
+#: C/weatherAppMain.js.page:136(p)
+msgid ""
+"And finally we have the connections that make the whole application run as "
+"it should. We connect both the entry and the button to do the same thing, "
+"getting the weather. So it doesn't matter weather you press enter of click "
+"the search button."
+msgstr ""
+
+#: C/weatherAppMain.js.page:140(title)
+msgid "Weatherapp.js"
+msgstr "Weatherapp.js"
+
+#: C/weatherAppMain.js.page:141(p)
+msgid "Weatherapp.js file looks like this:"
+msgstr "El archivo Weatherapp.js se parece a esto:"
+
+#: C/weatherAppMain.js.page:227(p)
+msgid "Running until you have all the autotools files ready. :"
+msgstr ""
+
+#: C/weatherAppMain.js.page:229(output) C/helloWorld.js.page:98(output)
+#: C/guitar.js.page:228(output)
+msgid "$"
+msgstr "$"
+
+#: C/weatherAppMain.js.page:229(input)
+#| msgid "GJS_PATH=`pwd` gjs helloWorld.js"
+msgid "GJS_PATH=`pwd` gjs weatherapp.js"
+msgstr "GJS_PATH=`pwd` gjs weatherapp.js"
+
+#: C/weatherAppMain.js.page:230(p)
+msgid ""
+"Use this command on terminal while developing your modules. When calling "
+"your program in this manner it knows where to find your custom JSlibraries, "
+"in this case geonames.js."
+msgstr ""
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/weatherApp.js.page:33(None)
+#| msgid "@@image: 'media/fedora.png'; md5=19add55f4349fd9e90f3a50b344ba626"
+msgid "@@image: 'media/weatherAppJs.png'; md5=1fe859ac4854273d72ea8fc9203639b2"
+msgstr ""
+"@@image: 'media/weatherAppJs.png'; md5=1fe859ac4854273d72ea8fc9203639b2"
+
+#: C/weatherApp.js.page:14(desc)
+msgid ""
+"How to plan an application that uses asynchronous calls. Asynchronous calls "
+"will be presented through a weather application."
+msgstr ""
+
+#: C/weatherApp.js.page:19(title)
+#, fuzzy
+#| msgid "Run the application"
+msgid "4 Weather Application"
+msgstr "Ejecutar la aplicación"
+
+#: C/weatherApp.js.page:21(p)
+#, fuzzy
+#| msgid ""
+#| "In this tutorial we'll construct a small application, Hello World, using "
+#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
+#| "need an editor to write code in, Terminal and GNOME 3 or higher installed "
+#| "into your computer. In this tutorial we'll go through the following parts:"
+msgid ""
+"In this guide well construct a weather application using asynchronous calls. "
+"Weather information in this example is fetched from geonames.org and the "
+"application is using the <link href=\"http://en.wikipedia.org/wiki/"
+"List_of_airports_by_ICAO_code:_E\">ICAO codes </link> to place your weather "
+"request. To write and run all the code examples yourself, you need an editor "
+"to write code in, Terminal and GNOME 3 or higher installed into your "
+"computer. In this guide we we'll go through the following parts:"
+msgstr ""
+"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
+"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
+"editor en el que escribir el código, una terminal y GNOME 3 o superior "
+"instalado en su equipo."
+
+#: C/weatherApp.js.page:24(link) C/weatherApp.js.page:36(title)
+#| msgid "Creating the user interface"
+msgid "Planning the graphical user interface"
+msgstr "Planificar la interfaz gráfica de usuario"
+
+#: C/weatherApp.js.page:25(link) C/weatherApp.js.page:40(title)
+msgid "Asynchronous calls"
+msgstr "Llamadas asíncronas"
+
+#: C/weatherApp.js.page:27(link)
+msgid "Local library GeoNames"
+msgstr "Biblioteca local GeoNames"
+
+#: C/weatherApp.js.page:32(p) C/helloWorld.js.page:30(p)
+#: C/guitar.js.page:33(p)
+msgid "After reading this tutorial, you should see this in your screen:"
+msgstr "Después de leer este tutorial, debería ver esto en su pantalla:"
+
+#: C/weatherApp.js.page:37(p)
+msgid ""
+"Structuring an application for GNOME 3 means you will be using <link href="
+"\"http://developer.gnome.org/platform-overview/stable/gtk\">GTK+</link>. The "
+"most important thing is to remember that the main window will only accept "
+"one widget. You must plan your structure accordingly (this example is using "
+"Gtk.Grid). A useful method is to draw out the main window and place every "
+"widget needed inside that box. By looking at an image of your future "
+"application it is easier to tell what are the relations between widgets. For "
+"example Gtk.Grid places your widgets in relation to other widgets, so after "
+"the first widget is in place, placing widgets can be done in relation to any "
+"widget on the grid."
+msgstr ""
+
+#: C/weatherApp.js.page:41(p)
+msgid ""
+"With many programming languages, all operations are run synchronously - you "
+"tell the program to do something, and it will wait until that action "
+"completes before proceeding. This is however bad for graphical user "
+"interfaces, as then the whole application will be frozen while the program "
+"waits for the operation. Going asynchronous (async) helps here. With async "
+"calls, your UI won't be blocked with any requests. Async calls make your "
+"application more flexible and better equipped to handle situations when "
+"calls take more time than expected or for some reason get jammed. Async "
+"calls can be used for example file system I/O and for slower calculations in "
+"the background."
+msgstr ""
+
+#: C/weatherApp.js.page:44(p)
+msgid ""
+"In this example we have to get data from geonames.org. While we do that we "
+"want the rest of our program to continue. If we wouldn't get any information "
+"from geonames.org for the lack of internet connection and this would be a "
+"synchronous application we would never get to the point where our main_quit"
+"() is processed correctly and the application would have to killed from "
+"Terminal."
+msgstr ""
+
+#: C/weatherApp.js.page:47(title)
+msgid "The different parts of the program"
+msgstr "Las diferentes partes del programa"
 
 #: C/translate.page:10(name) C/index.page:22(name)
 #: C/image-viewer.vala.page:24(name) C/guitar-tuner.vala.page:20(name)
@@ -155,7 +670,6 @@ msgid "jhs@gnome.org"
 msgstr "jhs@gnome.org"
 
 #: C/record-collection.js.page:21(title)
-#| msgid "Record Collection"
 msgid "3 Record Collection"
 msgstr "3. Colección de música"
 
@@ -420,8 +934,8 @@ msgstr ""
 "<code>cnc_string</code>: la cadena de conexión. Puede cambiar de un "
 "proveedor a otro. La sintaxis de SQLite es: <code>DB_DIR=<var>PATH</var>;"
 "DB_NAME=<var>FILENAME</var></code>. En esta demostración se accederá a una "
-"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en "
-"cuenta la llamada a la función <code>get_home_dir</code> de GLib)."
+"base de datos llamada «gnome_demo» en la carpeta del usaurio (tenga en cuenta "
+"la llamada a la función <code>get_home_dir</code> de GLib)."
 
 #: C/record-collection.js.page:190(p)
 msgid ""
@@ -1454,26 +1968,6 @@ msgstr ""
 msgid "@@image: 'media/toolbar.png'; md5=65d00f92e142de153e3a3e95a89603ae"
 msgstr "@@image: 'media/toolbar.png'; md5=65d00f92e142de153e3a3e95a89603ae"
 
-#: C/toolbar.js.page:9(name) C/helloWorld.js.page:9(name)
-#: C/guitar.js.page:9(name) C/entry.js.page:9(name) C/beginner.js.page:9(name)
-#: C/desktop.js.page:9(name) C/button.js.page:9(name)
-msgid "Susanna Huhtanen"
-msgstr "Susanna Huhtanen"
-
-#: C/toolbar.js.page:10(email) C/helloWorld.js.page:10(email)
-#: C/guitar.js.page:10(email) C/entry.js.page:10(email)
-#: C/beginner.js.page:10(email) C/desktop.js.page:10(email)
-#: C/button.js.page:10(email)
-msgid "ihmis.suski@gmail.com"
-msgstr "ihmis.suski@gmail.com"
-
-#: C/toolbar.js.page:11(years) C/helloWorld.js.page:11(years)
-#: C/guitar.js.page:11(years) C/entry.js.page:11(years)
-#: C/beginner.js.page:11(years) C/desktop.js.page:11(years)
-#: C/button.js.page:11(years)
-msgid "2012"
-msgstr "2012"
-
 #: C/toolbar.js.page:14(desc)
 msgid "A toolbar widget which is connected to a Dialog widget"
 msgstr "Un widget de barra de herramientas conectado a un widget de diálogo"
@@ -2337,10 +2831,10 @@ msgid ""
 msgstr ""
 "La función estática <code>main</code> se ejecuta de manera predeterminada "
 "cuando inicia una aplicación en Vala. Llama a unas pocas funciones que crean "
-"la clase «Main», la configuran y ejecutan la aplicación. La función "
-"<code>Gtk.Main</code> inicia el bucle principal de GTK+, que ejecuta la "
-"interfaz de usuario y empieza a escuchar eventos (como pulsaciones del ratón "
-"y del teclado)."
+"la clase «Main», la configuran y ejecutan la aplicación. La función <code>Gtk."
+"Main</code> inicia el bucle principal de GTK+, que ejecuta la interfaz de "
+"usuario y empieza a escuchar eventos (como pulsaciones del ratón y del "
+"teclado)."
 
 #: C/magic-mirror.vala.page:85(p) C/image-viewer.vala.page:125(p)
 #: C/image-viewer.cpp.page:76(p) C/image-viewer.c.page:77(p)
@@ -2581,8 +3075,8 @@ msgid ""
 "You may find the <link href=\"http://valadoc.org/gtk+-3.0/\">gtk+-3.0</link> "
 "API Reference useful, although it is not necessary to follow the tutorial."
 msgstr ""
-"Puede que la referencia de la API de <link href=\"http://valadoc.org/gtk"
-"+-3.0/\">gtk+-3.0</link> le resulte útil, aunque no es necesaria para seguir "
+"Puede que la referencia de la API de <link href=\"http://valadoc.org/gtk+-"
+"3.0/\">gtk+-3.0</link> le resulte útil, aunque no es necesaria para seguir "
 "el tutorial."
 
 #: C/image-viewer.vala.page:55(p) C/guitar-tuner.vala.page:48(p)
@@ -3518,9 +4012,9 @@ msgid ""
 "language."
 msgstr ""
 "Note que se está usando nombres de botones del <em>almacén</em> de GTK, en "
-"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar "
-"nombres del almacén es que las etiquetas de los botones ya estarán "
-"traducidas en el idioma del usuario."
+"lugar de escribir manualmente «Cancelar» o «Abrir». La ventaja de usar nombres "
+"del almacén es que las etiquetas de los botones ya estarán traducidas en el "
+"idioma del usuario."
 
 #: C/image-viewer.py.page:201(p) C/image-viewer.js.page:287(p)
 msgid ""
@@ -3531,8 +4025,7 @@ msgid ""
 msgstr ""
 "<code>set_default_response</code> determina qué botón se activará si el "
 "usuario hace una doble pulsación o presiona <key>Intro</key>. En este caso, "
-"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor "
-"«1»)."
+"se usa el botón <gui>Abrir</gui> como predeterminado (que tiene el valor «1»)."
 
 #: C/image-viewer.py.page:204(p) C/image-viewer.js.page:290(p)
 msgid ""
@@ -4361,17 +4854,17 @@ msgstr ""
 "del almacén de GTK+, en vez de escribir manualmente «Cancelar» o «Abrir». La "
 "ventaja de usar nombres del almacén es que las etiquetas de los botones ya "
 "están traducidas al idioma del usuario. El segundo argumento del método "
-"«add_button()» es un valor para identificar el botón pulsado. Aquí también "
-"se usan valores predefinidos, proporcionados por GTKmm. Las dos líneas "
+"«add_button()» es un valor para identificar el botón pulsado. Aquí también se "
+"usan valores predefinidos, proporcionados por GTKmm. Las dos líneas "
 "siguientes restringen el diálogo «Abrir» para que sólo muestre los archivos "
 "que se pueden abrir con «Gtk::image». Primero se crea un filtro de objetos; "
 "luego se añaden al filtro todos los tipos de archivos soportados por Gdk::"
 "Pixbuf (que incluye la mayoría de formatos de imagen como PNG y JPG). Por "
 "último, se asocia este filtro con el diálogo «Abrir». Glib::RefPtr es un "
 "puntero inteligente usado aquí para asegurarse de que el filtro se destruye "
-"cuando ya no se hace referencia a él. «dialog.run» muestra el diálogo "
-"«Abrir». El diálogo esperará a que el usuario elija una imagen; cuando lo "
-"haga, «dialog.run» devolverá el valor Gtk::RESPONSE_ACCEPT (devolvería Gtk::"
+"cuando ya no se hace referencia a él. «dialog.run» muestra el diálogo «Abrir». "
+"El diálogo esperará a que el usuario elija una imagen; cuando lo haga, "
+"«dialog.run» devolverá el valor Gtk::RESPONSE_ACCEPT (devolvería Gtk::"
 "RESPONSE_CANCEL si el usuario pulsara «Cancelar»). La sentencia «switch» "
 "comprueba esto. Se oculta el diálogo «Abrir» ya que no se necesita más. El "
 "diálogo se ocultaría de todos modos, ya que sólo es una variable local, y se "
@@ -4666,11 +5159,6 @@ msgid "Hello World"
 msgstr "Hola mundo"
 
 #: C/helloWorld.js.page:19(p)
-#| msgid ""
-#| "In this tutorial we'll construct a small application, Hello World, using "
-#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
-#| "need an editor to write code in, terminal and GNOME 3 or higher installed "
-#| "into your computer."
 msgid ""
 "In this tutorial we'll construct a small application, Hello World, using "
 "JavaScript and GTK+. To do and run all the code examples yourself, you need "
@@ -4682,25 +5170,7 @@ msgstr ""
 "editor en el que escribir el código, una terminal y GNOME 3 o superior "
 "instalado en su equipo."
 
-#: C/helloWorld.js.page:21(link) C/helloWorld.js.page:33(title)
-#: C/guitar.js.page:23(link) C/guitar.js.page:45(title)
-#| msgid "Designing the application"
-msgid "Script for running the application"
-msgstr "Script para ejecutar la aplicación"
-
-#: C/helloWorld.js.page:22(link) C/helloWorld.js.page:41(title)
-#: C/guitar.js.page:24(link) C/guitar.js.page:52(title)
-msgid "Libraries to import"
-msgstr "Bibliotecas que importar"
-
-#: C/helloWorld.js.page:23(link) C/helloWorld.js.page:48(title)
-#: C/guitar.js.page:25(link) C/guitar.js.page:61(title)
-#| msgid "Line 4: Name of the application"
-msgid "Creating the main window for the application"
-msgstr "Crear la ventana principal de la aplicación"
-
 #: C/helloWorld.js.page:24(link) C/helloWorld.js.page:65(title)
-#| msgid "Closing the window"
 msgid "Label for the window"
 msgstr "Etiqueta para la ventana"
 
@@ -4710,13 +5180,8 @@ msgstr "helloWorld.js"
 
 #: C/helloWorld.js.page:26(link) C/helloWorld.js.page:97(title)
 #: C/guitar.js.page:30(link) C/guitar.js.page:227(title)
-#| msgid "Run the application"
 msgid "Running the application form Terminal"
 msgstr "Ejecutar la aplicación desde la terminal"
-
-#: C/helloWorld.js.page:30(p) C/guitar.js.page:33(p)
-msgid "After reading this tutorial, you should see this in your screen:"
-msgstr "Después de leer este tutorial, debería ver esto en su pantalla:"
 
 #: C/helloWorld.js.page:36(p) C/guitar.js.page:48(p)
 msgid ""
@@ -4753,8 +5218,7 @@ msgid ""
 msgstr ""
 "Después de importar GTK+, se debe inicializar. Después de inicializar GTK+ "
 "se puede empezar a construir la primera ventana. Esto se hace creando una "
-"variable llamada «mywindow» y asignándole una  «Gtk.Window» de tipo "
-"«TOPLEVEL»."
+"variable llamada «mywindow» y asignándole una  «Gtk.Window» de tipo «TOPLEVEL»."
 
 #: C/helloWorld.js.page:61(p)
 msgid ""
@@ -4814,10 +5278,6 @@ msgid ""
 msgstr ""
 "Para ejecutar esta aplicación ,abra una terminal, vaya a la carpeta donde "
 "está la aplicación y ejecute"
-
-#: C/helloWorld.js.page:98(output) C/guitar.js.page:228(output)
-msgid "$"
-msgstr "$"
 
 #: C/helloWorld.js.page:98(input)
 msgid "GJS_PATH=`pwd` gjs helloWorld.js"
@@ -4914,9 +5374,9 @@ msgstr ""
 #: C/guitar-tuner.vala.page:54(p)
 msgid ""
 "Make sure that <gui>Configure external packages</gui> is switched <gui>ON</"
-"gui>. On the next page, select <link href=\"http://valadoc.org/"
-"gstreamer-0.10/index.htm\"><em>gstreamer-0.10</em></link> from the list to "
-"include the GStreamer library in your project. Click <gui>Continue</gui>"
+"gui>. On the next page, select <link href=\"http://valadoc.org/gstreamer-"
+"0.10/index.htm\"><em>gstreamer-0.10</em></link> from the list to include the "
+"GStreamer library in your project. Click <gui>Continue</gui>"
 msgstr ""
 "Asegúrese de que <gui>Configurar paquetes externos</gui> está <gui>activada</"
 "gui>. En la siguiente página, seleccione <link href=\"http://valadoc.org/"
@@ -5234,8 +5694,8 @@ msgstr ""
 "gstreamer-0.10/Gst.Pipeline.html\">elemento de tubería</link> (que se usará "
 "como contenedor de los otros dos elementos). Son variables de clase, por lo "
 "que se definen fuera del método. A la tubería se le asigna el nombre «note»; "
-"la fuente se llama «source» y se asocia a la fuente <code>audiotestsrc</"
-"code> y el sumidero se llama «output» y se asocia con el sumidero "
+"la fuente se llama «source» y se asocia a la fuente <code>audiotestsrc</code> "
+"y el sumidero se llama «output» y se asocia con el sumidero "
 "<code>autoaudiosink</code> (la salida de la tarjeta de sonido "
 "predeterminada)."
 
@@ -5276,11 +5736,11 @@ msgid ""
 "Next, <link href=\"http://valadoc.org/gstreamer-0.10/Gst.Element.link.html"
 "\"><code>sink.link</code></link> is used to connect the elements together, "
 "so the output of source (a tone) goes into the input of sink (which is then "
-"output to the sound card). <link href=\"http://www.valadoc.org/"
-"gstreamer-0.10/Gst.Element.set_state.html\"><code>pipeline.set_state</code></"
-"link> is then used to start playback, by setting the <link href=\"http://www."
-"valadoc.org/gstreamer-0.10/Gst.State.html\">state of the pipeline</link> to "
-"playing (<code>Gst.State.PLAYING</code>)."
+"output to the sound card). <link href=\"http://www.valadoc.org/gstreamer-"
+"0.10/Gst.Element.set_state.html\"><code>pipeline.set_state</code></link> is "
+"then used to start playback, by setting the <link href=\"http://www.valadoc."
+"org/gstreamer-0.10/Gst.State.html\">state of the pipeline</link> to playing "
+"(<code>Gst.State.PLAYING</code>)."
 msgstr ""
 "Ahora, el código <link href=\"http://valadoc.org/gstreamer-0.10/Gst.Element."
 "link.html\"><code>sink.link</code></link> se usa para conectar los elementos "
@@ -5989,16 +6449,10 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/guitar.js.page:34(None)
-#| msgid ""
-#| "@@image: 'media/guitar-tuner-pipeline.png'; "
-#| "md5=5adc952909d92af5dae6954781b4ad5f"
 msgid "@@image: 'media/guitarJs.png'; md5=35e615e0f5e293671d00c5c414ac2f6b"
 msgstr "@@image: 'media/guitarJs.png'; md5=35e615e0f5e293671d00c5c414ac2f6b"
 
 #: C/guitar.js.page:14(desc)
-#| msgid ""
-#| "Use Gtk+ and GStreamer to build a simple guitar tuner application for "
-#| "GNOME. Shows off how to use the interface designer."
 msgid ""
 "Use Gtk+ and GStreamer to build a simple guitar tuner application for GNOME."
 msgstr ""
@@ -6006,11 +6460,6 @@ msgstr ""
 "GNOME."
 
 #: C/guitar.js.page:20(p)
-#| msgid ""
-#| "In this tutorial we'll construct a small application, Hello World, using "
-#| "JavaScript and GTK+. To do and run all the code examples yourself, you "
-#| "need an editor to write code in, terminal and GNOME 3 or higher installed "
-#| "into your computer."
 msgid ""
 "In this tutorial we'll construct a small application, Guitar Tuner, using "
 "JavaScript and GTK+ and GStreamer. To do and run all the code examples "
@@ -6119,7 +6568,6 @@ msgid ""
 msgstr ""
 
 #: C/guitar.js.page:228(input)
-#| msgid "GJS_PATH=`pwd` gjs helloWorld.js"
 msgid "GJS_PATH=`pwd` gjs guitarTuner.js"
 msgstr "GJS_PATH=`pwd` gjs guitarTuner.js"
 
@@ -7066,10 +7514,9 @@ msgstr ""
 "Si quiere <link href=\"https://live.gnome.org/DocumentationProject/Tasks/"
 "DeveloperDocs\">contribuir al desarrollo de los <app>Tutoriales del "
 "desarrollador de GNOME</app></link>, puede ponerse en contacto con los "
-"desarrolladores usando <link href=\"https://cbe005.chat.mibbit.com/?url=irc"
-"%3A%2F%2Firc.gnome.org%2Fdocs\">irc</link>, o mediante la <link href="
-"\"http://mail.gnome.org/mailman/listinfo/gnome-doc-devel-list\">lista "
-"decorreo</link>."
+"desarrolladores usando <link href=\"https://cbe005.chat.mibbit.com/?url=irc%"
+"3A%2F%2Firc.gnome.org%2Fdocs\">irc</link>, o mediante la <link href=\"http://"
+"mail.gnome.org/mailman/listinfo/gnome-doc-devel-list\">lista decorreo</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
