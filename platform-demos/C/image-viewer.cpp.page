@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#cpp"/>
-    
+
     <desc>A little bit more than a simple "Hello world" GTKmm application.</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2011-03-18" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -15,7 +15,7 @@
     <credit type="author">
       <name>Johannes Schmid</name>
       <email>jhs@gnome.org</email>
-    </credit>    
+    </credit>
   </info>
 
 <title>Image Viewer</title>
@@ -58,7 +58,7 @@
 
 <section id="build">
   <title>Build the code for the first time</title>
-  <p>This is a very basic C++ code setting up GTKmm. More details are given below; skip this list if you understand the basics:</p>  
+  <p>This is a very basic C++ code setting up GTKmm. More details are given below; skip this list if you understand the basics:</p>
   <list>
   <item>
     <p>The three <code>#include</code> lines at the top include the <code>config</code> (useful autoconf build defines), <code>gtkmm</code> (user interface) and <code>iostream</code> (C++-STL) libraries. Functions from these libraries are used in the rest of the code.</p>
@@ -68,7 +68,7 @@
    </item>
    <item>
     <p>The <code>kit::run()</code> call starts the GTKmm main loop, which runs the user interface and starts listening for events (like clicks and key presses). As we give the window
-    as an argument to that function, the application will automatically exit when 
+    as an argument to that function, the application will automatically exit when
     that window is closed.</p>
    </item>
   </list>
@@ -98,7 +98,7 @@ main (int argc, char *argv[])
 
 	image = Gtk::manage(new Gtk::Image());
 	box->pack_start (*image, true, true);
-	
+
 	Gtk::Button* button = Gtk::manage(new Gtk::Button("Open Image…"));
 	button->signal_clicked().connect (
 		sigc::ptr_fun(&on_open_image));
@@ -134,7 +134,7 @@ main (int argc, char *argv[])
 
 <section id="show">
 <title>Showing the image</title>
-<p>We will now define the signal handler for the <em>clicked</em> signal or the 
+<p>We will now define the signal handler for the <em>clicked</em> signal or the
 button we mentioned before. Add this code before the <code>main</code>
 method.</p>
 <code mime="text/x-csrc"><![CDATA[
@@ -171,6 +171,7 @@ on_open_image ()
 ]]></code>
   <p>This is a bit more complicated than anything we've attempted so far, so let's break it down:</p>
   <list>
+      <item>
       <p>The dialog for choosing the file is created using the
       <code>Gtk::FileChooserDialog</code> constructor. This takes the title and type of the dialog. In our case, it is an <em>Open</em> dialog.</p>
     </item>
