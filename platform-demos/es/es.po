@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-03-12 15:20+0000\n"
-"PO-Revision-Date: 2012-03-12 17:44+0100\n"
+"POT-Creation-Date: 2012-03-12 16:45+0000\n"
+"PO-Revision-Date: 2012-03-16 18:14+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,6 @@ msgid "Local library geoNames"
 msgstr "Biblioteca local geoNames"
 
 #: C/weatherGeonames.js.page:19(p)
-#, fuzzy
 #| msgid ""
 #| "In this tutorial we'll construct a small application, Hello World, using "
 #| "JavaScript and GTK+. To do and run all the code examples yourself, you "
@@ -65,14 +64,18 @@ msgid ""
 "installed into your computer. In this guide we we'll go through the "
 "following parts:"
 msgstr ""
-"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
-"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
-"editor en el que escribir el código, una terminal y GNOME 3 o superior "
-"instalado en su equipo."
+"En esta parte de la guía se construirá la biblioteca local geoNames usando "
+"llamadas asíncronas. En este ejemplo, la información del clima se obtiene de "
+"geonames.org y la aplicación usa los <link href=\"http://en.wikipedia.org/"
+"wiki/List_of_airports_by_ICAO_code:_E\">códigos ICAO</link> para responder a "
+"las peticiones. Para escribir y ejecutar todos los ejemplos de código "
+"necesita un editor de texto en el que escribir el código, una terminal y "
+"GNOME 3 o superior instalado en su equipo. En esta guía se verán las "
+"siguientes partes:"
 
 #: C/weatherGeonames.js.page:22(link) C/weatherGeonames.js.page:30(title)
 msgid "Local library for getting the weather"
-msgstr ""
+msgstr "Biblioteca local para obtener el clima"
 
 #: C/weatherGeonames.js.page:23(link)
 msgid "Creating function geoNames"
@@ -89,6 +92,7 @@ msgstr "geonames.js"
 #: C/weatherGeonames.js.page:31(p)
 msgid "For this we need a new file that will be our local library."
 msgstr ""
+"Para esto se necesita un archivo nueva que será nuestra biblioteca local."
 
 #: C/weatherGeonames.js.page:37(p)
 msgid ""
@@ -96,6 +100,9 @@ msgid ""
 "in this local library. Soup handles all the requests we have to make with "
 "http."
 msgstr ""
+"En las primeras líneas se importan y se inicializan las bibliotecas que "
+"necesitamos usar en esta biblioteca local. Soup maneja todas las peticiones "
+"que se hagan con http."
 
 #: C/weatherGeonames.js.page:41(title)
 msgid "Creating function GeoNames"
@@ -108,6 +115,9 @@ msgid ""
 "first and later expand them. This will be done inside the GeoNames.prototype "
 "curly braces{}"
 msgstr ""
+"Aquí se crea la función GenoNames, que manejará la obtención del clima. "
+"JavaScript permite crear funciones sencillas al principio para ampliarlas "
+"más tarde. Esto se hará dentro de las llaves de GeoNames.prototype."
 
 #: C/weatherGeonames.js.page:55(title)
 msgid "Methods for GeoNames"
@@ -122,19 +132,26 @@ msgid ""
 "get the icon matching current weather. Now that we have our local library "
 "ready, it's time to make use of it."
 msgstr ""
+"El primer método de GeoNames es getWeather, y el segundo es getIcon. En "
+"getWeather se realiza una solicitud http con soup, se gestionan los errores "
+"y se analiza la información de la solicitud para saber que se puede usar. En "
+"getIcon simplemente se comparan los resultados obtenidos en getWeather con "
+"el selector para obtener el icono que representa el clima actual. Ahora que "
+"la biblioteca local está lista, es el momento de usarla."
 
 #: C/weatherGeonames.js.page:101(p)
 msgid ""
 "Here is the entire code for our local library. The main program file calls "
 "this asynchronously."
 msgstr ""
+"Aquí está el código completo de la biblioteca. El archivo de programa "
+"principal la llama de manera asíncrona."
 
 #: C/weatherAutotools.js.page:17(title) C/weatherApp.js.page:28(link)
 msgid "Autotools and Icons"
 msgstr "Autotools e iconos"
 
 #: C/weatherAutotools.js.page:19(p)
-#, fuzzy
 #| msgid ""
 #| "In this tutorial we'll construct a small application, Hello World, using "
 #| "JavaScript and GTK+. To do and run all the code examples yourself, you "
@@ -147,17 +164,18 @@ msgid ""
 "code in, Terminal and GNOME 3 or higher installed into your computer. In "
 "this guide we we'll go through the following parts:"
 msgstr ""
-"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
-"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
-"editor en el que escribir el código, una terminal y GNOME 3 o superior "
-"instalado en su equipo."
+"En esta parte de la guía se construirán las «autotools» y los iconos "
+"necesarios para la aplicación del clima para que sea una parte integral de "
+"su escritorio. Para escribir y ejecutar todos los ejemplos de código "
+"necesita un editor de texto en el que escribir el código, una terminal y "
+"GNOME 3 o superior instalado en su equipo. En esta guía se verán las "
+"siguientes partes:"
 
 #: C/weatherAutotools.js.page:22(link)
 msgid "Autotools"
 msgstr "Autotools"
 
 #: C/weatherAutotools.js.page:23(link) C/weatherAutotools.js.page:143(title)
-#| msgid "Tutorial for a hello world application"
 msgid "Custom icons for your application"
 msgstr "Iconos personalizados para su aplicación"
 
@@ -174,9 +192,14 @@ msgid ""
 "\"http://en.wikipedia.org/wiki/GNU_build_system\">the wikipedia article</"
 "link> provides a good overwiev on the subject."
 msgstr ""
+"Tener más de un archivo en la carpeta complica un poco el uso de autotools. "
+"Necesita los archivos .desktop, autogen.sh, Makefile.am, configure.ac y un "
+"archivo nuevo: myapp.sh.in. Hackear el archivo de autotools es complicado. "
+"Puede encontrar más información en diferentes fuentes; <link href=\"http://"
+"en.wikipedia.org/wiki/GNU_build_system\">este artículo de la wikipedia</"
+"link> proporciona una visión general de este tema."
 
 #: C/weatherAutotools.js.page:34(p) C/weatherAutotools.js.page:40(p)
-#| msgid "helloWorld.desktop"
 msgid "weatherapp.desktop"
 msgstr "weatherapp.desktop"
 
@@ -266,12 +289,10 @@ msgid "appicon_DATA=weather-icon.svg"
 msgstr "appicon_DATA=weather-icon.svg"
 
 #: C/weatherAppMain.js.page:17(title) C/weatherApp.js.page:26(link)
-#| msgid "The whole program"
 msgid "The main program file"
 msgstr "El archivo del programa principal"
 
 #: C/weatherAppMain.js.page:19(p)
-#, fuzzy
 #| msgid ""
 #| "In this tutorial we'll construct a small application, Hello World, using "
 #| "JavaScript and GTK+. To do and run all the code examples yourself, you "
@@ -283,10 +304,11 @@ msgid ""
 "need an editor to write code in, Terminal and GNOME 3 or higher installed "
 "into your computer. In this part we we'll go through the following parts:"
 msgstr ""
-"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
-"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
-"editor en el que escribir el código, una terminal y GNOME 3 o superior "
-"instalado en su equipo."
+"En esta parte de la guía se construirá el archivo del programa principal de "
+"la aplicación del clima. Para escribir y ejecutar todos los ejemplos de "
+"código necesita un editor de texto en el que escribir el código, una "
+"terminal y GNOME 3 o superior instalado en su equipo. En esta guía se verán "
+"las siguientes partes:"
 
 #: C/weatherAppMain.js.page:21(link) C/weatherAppMain.js.page:31(title)
 #: C/helloWorld.js.page:21(link) C/helloWorld.js.page:33(title)
@@ -308,7 +330,7 @@ msgstr "Crear la ventana principal de la aplicación"
 
 #: C/weatherAppMain.js.page:24(link) C/weatherAppMain.js.page:62(title)
 msgid "Adding a grid and all the necessary widgets to it"
-msgstr ""
+msgstr "Añadir una rejilla y todos los widgets necesarios en ella"
 
 #: C/weatherAppMain.js.page:25(link) C/weatherAppMain.js.page:93(title)
 msgid "Requesting the weather information asynchronously"
@@ -323,13 +345,6 @@ msgid "weatherapp.js"
 msgstr "weatherapp.js"
 
 #: C/weatherAppMain.js.page:34(p)
-#| msgid ""
-#| "This line tells how to run the script. It needs to be the first line of "
-#| "the code and it needs to be executable. To get the execution rights go to "
-#| "terminal and run in right folder: chmod +x scriptname. Or you can use the "
-#| "graphical filemanager. Just go to the right folder where your code is, "
-#| "right click you code file, choose properties, click the permissions tab "
-#| "and check the box for allow executing file as a program"
 msgid ""
 "This line tells how to run the script. It needs to be the first line of the "
 "code and it needs to be executable. To get the execution rights go to "
@@ -347,7 +362,6 @@ msgstr ""
 "casilla para permitir ejecutar el archivo como un programa."
 
 #: C/weatherAppMain.js.page:43(p)
-#, fuzzy
 #| msgid ""
 #| "In order to have a working program we need to import a GObject "
 #| "Introspection -library to our use. For working UI, we need Gtk. Gtk is "
@@ -360,7 +374,8 @@ msgid ""
 msgstr ""
 "Para que el programa funcione se debe importar una biblioteca de "
 "introspección de GObject. Para que funcione la IU se necesita GTK+, que se "
-"importa al inicio, por lo que está en uso en todos los sitios."
+"importa al inicio, por lo que está en uso en todos los sitios. También se "
+"importa la biblioteca local en JavaScript geonames para usarla aquí."
 
 #: C/weatherAppMain.js.page:89(p)
 msgid ""
@@ -421,7 +436,6 @@ msgid "$"
 msgstr "$"
 
 #: C/weatherAppMain.js.page:229(input)
-#| msgid "GJS_PATH=`pwd` gjs helloWorld.js"
 msgid "GJS_PATH=`pwd` gjs weatherapp.js"
 msgstr "GJS_PATH=`pwd` gjs weatherapp.js"
 
@@ -435,7 +449,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/weatherApp.js.page:33(None)
-#| msgid "@@image: 'media/fedora.png'; md5=19add55f4349fd9e90f3a50b344ba626"
 msgid "@@image: 'media/weatherAppJs.png'; md5=1fe859ac4854273d72ea8fc9203639b2"
 msgstr ""
 "@@image: 'media/weatherAppJs.png'; md5=1fe859ac4854273d72ea8fc9203639b2"
@@ -447,13 +460,11 @@ msgid ""
 msgstr ""
 
 #: C/weatherApp.js.page:19(title)
-#, fuzzy
 #| msgid "Run the application"
 msgid "4 Weather Application"
-msgstr "Ejecutar la aplicación"
+msgstr "4 Aplicación del clima"
 
 #: C/weatherApp.js.page:21(p)
-#, fuzzy
 #| msgid ""
 #| "In this tutorial we'll construct a small application, Hello World, using "
 #| "JavaScript and GTK+. To do and run all the code examples yourself, you "
@@ -468,13 +479,16 @@ msgid ""
 "to write code in, Terminal and GNOME 3 or higher installed into your "
 "computer. In this guide we we'll go through the following parts:"
 msgstr ""
-"En este tutorial se construirá una pequeña aplicación, «Hola mundo», usando "
-"JavaScript y GTK+. Para escribirla y poder ejecutar el código, necesitará un "
-"editor en el que escribir el código, una terminal y GNOME 3 o superior "
-"instalado en su equipo."
+"En esta parte de la guía se construirá una aplicación del clima usando "
+"llamadas asíncronas. En este ejemplo, la información del clima se obtiene de "
+"geonames.org y la aplicación usa los <link href=\"http://en.wikipedia.org/"
+"wiki/List_of_airports_by_ICAO_code:_E\">códigos ICAO</link> para responder a "
+"las peticiones. Para escribir y ejecutar todos los ejemplos de código "
+"necesita un editor de texto en el que escribir el código, una terminal y "
+"GNOME 3 o superior instalado en su equipo. En esta guía se verán las "
+"siguientes partes:"
 
 #: C/weatherApp.js.page:24(link) C/weatherApp.js.page:36(title)
-#| msgid "Creating the user interface"
 msgid "Planning the graphical user interface"
 msgstr "Planificar la interfaz gráfica de usuario"
 
