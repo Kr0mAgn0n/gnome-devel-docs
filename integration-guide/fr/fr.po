@@ -1,14 +1,16 @@
 # French translation of integration-guide.
-# Copyright (C) 2009 Free Software Foundation, Inc.
+# Copyright (C) 2009-2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-devel-docs
 # documentation package.
+# Claude Paroz <claude@2xlibre.net>, 2009
+# Bruno Brouard <annoa.b@gmail.com>, 2012
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: integration-guide-fr\n"
-"POT-Creation-Date: 2009-02-15 00:54+0000\n"
-"PO-Revision-Date: 2009-03-27 21:45+0100\n"
-"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"POT-Creation-Date: 2012-03-26 18:53+0000\n"
+"PO-Revision-Date: 2012-03-28 12:26+0200 \n"
+"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -486,10 +488,18 @@ msgstr ""
 "dans ce fichier et les utilise pour :"
 
 #: C/integration-guide.xml:332(para)
-msgid "put the application in the <guimenu>Main Menu</guimenu>."
-msgstr "positionner l'application dans le <guimenu>menu principal</guimenu>,"
+msgid ""
+"put the application in the <guimenu>Main Menu</guimenu>. To find a list of "
+"valid categories, take a look into FreeDesktop.org's <ulink url=\"http://"
+"standards.freedesktop.org/menu-spec/latest/\">Desktop Menu Specification</"
+"ulink>."
+msgstr ""
+"placer l'application dans le <guimenu>Menu principal</guimenu>. Pour trouver "
+"une liste des catégories valides, regardez les <ulink url=\"http://standards."
+"freedesktop.org/menu-spec/latest/\">Spéficications du menu du bureau</ulink> "
+"de FreeDesktop.org."
 
-#: C/integration-guide.xml:335(para)
+#: C/integration-guide.xml:340(para)
 msgid ""
 "list the application in the <application>Run Application...</application> "
 "dialog"
@@ -497,24 +507,24 @@ msgstr ""
 "lister l'application dans la boîte de dialogue <application>Lancer une "
 "application</application>,"
 
-#: C/integration-guide.xml:339(para)
+#: C/integration-guide.xml:344(para)
 msgid "create appropriate launchers in the menu or on the desktop."
 msgstr "créer les lanceurs adéquats dans le menu ou sur le bureau,"
 
-#: C/integration-guide.xml:342(para)
+#: C/integration-guide.xml:347(para)
 msgid "associate the name and description of the application."
 msgstr "associer le nom à la description de l'application, "
 
-#: C/integration-guide.xml:345(para)
+#: C/integration-guide.xml:350(para)
 msgid "use the appropriate icon."
 msgstr "utiliser l'icône appropriée,"
 
-#: C/integration-guide.xml:348(para)
+#: C/integration-guide.xml:353(para)
 msgid "recognize the MIME types it supports for opening files."
 msgstr ""
 "reconnaître les types MIME pris en charge pour l'ouverture des fichiers."
 
-#: C/integration-guide.xml:352(para)
+#: C/integration-guide.xml:357(para)
 msgid ""
 "To add a menu entry for your application, create a desktop file. It should "
 "have a unique filename, and there are no length limits so avoid "
@@ -533,7 +543,7 @@ msgstr ""
 "comme « societetoto peintre pro.desktop ». Le fichier doit être codé en UTF-8 "
 "et doit ressembler au modèle suivant :"
 
-#: C/integration-guide.xml:374(para)
+#: C/integration-guide.xml:378(para)
 msgid ""
 "These desktop files contain metadata about your application, and play a "
 "central role in integrating the program with the GNOME and other standards "
@@ -548,7 +558,7 @@ msgstr ""
 "que le nom de votre application puisse apparaître dans la langue maternelle "
 "de l'utilisateur."
 
-#: C/integration-guide.xml:394(para)
+#: C/integration-guide.xml:398(para)
 msgid ""
 "Note that the <literal>~/.local/share/applications</literal> location is not "
 "monitored by versions of GNOME prior to version 2.10 or on Fedora Core "
@@ -568,7 +578,7 @@ msgstr ""
 "donc pour un maximum de compatibilité avec les bureaux existants, placez le "
 "fichier aux deux emplacements."
 
-#: C/integration-guide.xml:407(para)
+#: C/integration-guide.xml:411(para)
 msgid ""
 "Note that the KDE Desktop requires one to run <command>kbuildsycoca</"
 "command> to force a refresh of the menus."
@@ -576,7 +586,7 @@ msgstr ""
 "Notez qu'avec le bureau KDE, il est nécessaire de lancer la commande "
 "<command>kbuildsycoca</command> pour forcer la mise à jour des menus."
 
-#: C/integration-guide.xml:383(para)
+#: C/integration-guide.xml:387(para)
 msgid ""
 "Place this file in the <literal>/usr/share/applications</literal> directory "
 "so that it is accessible by everyone, or in <literal>~/.local/share/"
@@ -595,7 +605,7 @@ msgstr ""
 "ces répertoires, donc une simple copie du fichier au bon emplacement est "
 "suffisant pour le faire enregistrer par le bureau. <placeholder-1/>"
 
-#: C/integration-guide.xml:437(para)
+#: C/integration-guide.xml:441(para)
 msgid ""
 "Each working desktop file needs to follow the same format. A minimal example "
 "of a desktop file is shown in <xref linkend=\"ex-sample-desktop-file\"/>. "
@@ -617,7 +627,7 @@ msgstr ""
 "seconde moitié est la <firstterm>valeur</firstterm>. Pour chaque ligne, une "
 "explication est fournie dans le <xref linkend=\"tb-desktop-file\"/>."
 
-#: C/integration-guide.xml:452(para)
+#: C/integration-guide.xml:456(para)
 msgid ""
 "Other than the first line identifying the desktop file, the order of the "
 "lines is not important. In <xref linkend=\"ex-sample-desktop-file\"/>, the "
@@ -629,7 +639,7 @@ msgstr ""
 "desktop-file\"/>, la ligne <command>Type=Application</command> pourrait être "
 "la seconde, la cinquème ou la dernière ligne sans incidence sur le résultat."
 
-#: C/integration-guide.xml:461(para)
+#: C/integration-guide.xml:465(para)
 msgid ""
 "However, the keys are case sensitive. <command>Type=Application</command> is "
 "not the same as <command>type=Application</command> or "
@@ -639,11 +649,11 @@ msgstr ""
 "command> n'est pas identique à <command>type=Application</command> ou "
 "<command>TYPE=Application</command>."
 
-#: C/integration-guide.xml:470(title)
+#: C/integration-guide.xml:474(title)
 msgid "Sample desktop file"
 msgstr "Exemple de fichier desktop"
 
-#: C/integration-guide.xml:471(screen)
+#: C/integration-guide.xml:475(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -666,23 +676,23 @@ msgstr ""
 "Icon=programme.png\n"
 "Terminal=false\n"
 
-#: C/integration-guide.xml:484(title)
+#: C/integration-guide.xml:488(title)
 msgid "Line by line explanation"
 msgstr "Explication ligne par ligne"
 
-#: C/integration-guide.xml:491(entry)
+#: C/integration-guide.xml:495(entry)
 msgid "Line"
 msgstr "Ligne"
 
-#: C/integration-guide.xml:492(entry)
+#: C/integration-guide.xml:496(entry)
 msgid "Description"
 msgstr "Description"
 
-#: C/integration-guide.xml:498(command)
+#: C/integration-guide.xml:502(command)
 msgid "[Desktop Entry]"
 msgstr "[Desktop Entry]"
 
-#: C/integration-guide.xml:499(entry)
+#: C/integration-guide.xml:503(entry)
 msgid ""
 "The first line of every desktop file and the section header to identify the "
 "block of key value pairs associated with the desktop. Necessary for the "
@@ -692,19 +702,19 @@ msgstr ""
 "section identifiant le bloc de paires clé-valeur associé au bureau. Elle est "
 "nécessaire pour que le bureau reconnaisse le fichier de manière correcte."
 
-#: C/integration-guide.xml:505(command)
+#: C/integration-guide.xml:509(command)
 msgid "Type=Application"
 msgstr "Type=Application"
 
-#: C/integration-guide.xml:508(command)
+#: C/integration-guide.xml:512(command)
 msgid "Link"
 msgstr "Link"
 
-#: C/integration-guide.xml:509(command)
+#: C/integration-guide.xml:513(command)
 msgid "Directory"
 msgstr "Directory"
 
-#: C/integration-guide.xml:506(entry)
+#: C/integration-guide.xml:510(entry)
 msgid ""
 "Tells the desktop that this desktop file pertains to an application. Other "
 "valid values for this key are <placeholder-1/> and <placeholder-2/>."
@@ -712,62 +722,62 @@ msgstr ""
 "Indique au bureau que ce fichier desktop est du type application. Les autres "
 "valeurs possibles pour cette clé sont <placeholder-1/> et <placeholder-2/>."
 
-#: C/integration-guide.xml:512(command)
+#: C/integration-guide.xml:516(command)
 msgid "Encoding=UTF-8"
 msgstr "Encoding=UTF-8"
 
-#: C/integration-guide.xml:513(entry)
+#: C/integration-guide.xml:517(entry)
 msgid "Describes the encoding of the entries in this desktop file."
 msgstr "Indique le codage du contenu de ce fichier desktop."
 
-#: C/integration-guide.xml:517(command)
+#: C/integration-guide.xml:521(command)
 msgid "Name=Sample Application Name"
 msgstr "Name=Nom de l'application exemple"
 
-#: C/integration-guide.xml:518(entry)
+#: C/integration-guide.xml:522(entry)
 msgid "Names of your application for the main menu and any launchers."
 msgstr "Nom de l'application pour le menu principal et tous les lanceurs."
 
-#: C/integration-guide.xml:521(command)
+#: C/integration-guide.xml:525(command)
 msgid "Comment=A sample application"
 msgstr "Comment=Une application exemple"
 
-#: C/integration-guide.xml:522(entry)
+#: C/integration-guide.xml:526(entry)
 msgid "Describes the application. Used as a tooltip."
 msgstr "Décrit l'application et est utilisé comme infobulle."
 
-#: C/integration-guide.xml:525(command)
+#: C/integration-guide.xml:529(command)
 msgid "Exec=application"
 msgstr "Exec=programme"
 
-#: C/integration-guide.xml:526(entry)
+#: C/integration-guide.xml:530(entry)
 msgid ""
 "The command that starts this application from a shell. It can have arguments."
 msgstr ""
 "La commande qui lance l'application à partir d'un shell. Elle peut posséder "
 "des paramètres."
 
-#: C/integration-guide.xml:530(command)
+#: C/integration-guide.xml:534(command)
 msgid "Icon=application.png"
 msgstr "Icon=programme.png"
 
-#: C/integration-guide.xml:531(entry)
+#: C/integration-guide.xml:535(entry)
 msgid "The icon name associated with this application."
 msgstr "Le nom de l'icône associée à l'application."
 
-#: C/integration-guide.xml:534(command)
+#: C/integration-guide.xml:538(command)
 msgid "Terminal=false"
 msgstr "Terminal=false"
 
-#: C/integration-guide.xml:535(entry)
+#: C/integration-guide.xml:539(entry)
 msgid "Describes whether application should run in a terminal."
 msgstr "Indique si l'application doit s'exécuter dans un terminal."
 
-#: C/integration-guide.xml:543(title)
+#: C/integration-guide.xml:547(title)
 msgid "Starting your application"
 msgstr "Lancement du programme"
 
-#: C/integration-guide.xml:544(para)
+#: C/integration-guide.xml:548(para)
 msgid ""
 "If your application can take command line arguments, you can signify that by "
 "using the fields as shown in <xref linkend=\"tb-exec-params\"/>."
@@ -776,56 +786,56 @@ msgstr ""
 "pouvez indiquer ceux-ci en utilisant les champs montrés dans la <xref "
 "linkend=\"tb-exec-params\"/>."
 
-#: C/integration-guide.xml:551(title)
+#: C/integration-guide.xml:555(title)
 msgid "Exec variables"
 msgstr "Variables pour l'exécution"
 
-#: C/integration-guide.xml:558(entry)
+#: C/integration-guide.xml:562(entry)
 msgid "Add..."
 msgstr "Ajouter..."
 
-#: C/integration-guide.xml:559(entry)
+#: C/integration-guide.xml:563(entry)
 msgid "Accepts..."
 msgstr "Correspond à..."
 
-#: C/integration-guide.xml:565(command) C/integration-guide.xml:583(command)
+#: C/integration-guide.xml:569(command) C/integration-guide.xml:587(command)
 msgid "%f"
 msgstr "%f"
 
-#: C/integration-guide.xml:566(entry)
+#: C/integration-guide.xml:570(entry)
 msgid "a single filename."
 msgstr "Un nom de fichier unique."
 
-#: C/integration-guide.xml:569(command) C/integration-guide.xml:588(command)
+#: C/integration-guide.xml:573(command) C/integration-guide.xml:592(command)
 msgid "%F"
 msgstr "%F"
 
-#: C/integration-guide.xml:570(entry)
+#: C/integration-guide.xml:574(entry)
 msgid "multiple filenames."
 msgstr "Plusieurs noms de fichier."
 
-#: C/integration-guide.xml:573(command) C/integration-guide.xml:977(literal)
-#: C/integration-guide.xml:980(literal)
+#: C/integration-guide.xml:577(command) C/integration-guide.xml:981(literal)
+#: C/integration-guide.xml:984(literal)
 msgid "%u"
 msgstr "%u"
 
-#: C/integration-guide.xml:574(entry)
+#: C/integration-guide.xml:578(entry)
 msgid "a single URL."
 msgstr "Une URL unique."
 
-#: C/integration-guide.xml:577(command)
+#: C/integration-guide.xml:581(command)
 msgid "%U"
 msgstr "%U"
 
-#: C/integration-guide.xml:578(entry)
+#: C/integration-guide.xml:582(entry)
 msgid "multiple URLs."
 msgstr "Plusieurs URL."
 
-#: C/integration-guide.xml:581(command)
+#: C/integration-guide.xml:585(command)
 msgid "%d"
 msgstr "%d"
 
-#: C/integration-guide.xml:582(entry)
+#: C/integration-guide.xml:586(entry)
 msgid ""
 "a single directory. Used in conjunction with <placeholder-1/> to locate a "
 "file."
@@ -833,11 +843,11 @@ msgstr ""
 "Un répertoire unique. Utilisé conjointement à <placeholder-1/> pour "
 "localiser un fichier."
 
-#: C/integration-guide.xml:586(command)
+#: C/integration-guide.xml:590(command)
 msgid "%D"
 msgstr "%D"
 
-#: C/integration-guide.xml:587(entry)
+#: C/integration-guide.xml:591(entry)
 msgid ""
 "multiple directories. Used in conjunction with <placeholder-1/> to locate "
 "files."
@@ -845,44 +855,44 @@ msgstr ""
 "Plusieurs répertoires.  Utilisé conjointement à <placeholder-1/> pour "
 "localiser des fichiers."
 
-#: C/integration-guide.xml:591(command)
+#: C/integration-guide.xml:595(command)
 msgid "%n"
 msgstr "%n"
 
-#: C/integration-guide.xml:592(entry)
+#: C/integration-guide.xml:596(entry)
 msgid "a single filename without a path."
 msgstr "Nom de fichier unique sans chemin."
 
-#: C/integration-guide.xml:595(command)
+#: C/integration-guide.xml:599(command)
 msgid "%N"
 msgstr "%N"
 
-#: C/integration-guide.xml:596(entry)
+#: C/integration-guide.xml:600(entry)
 msgid "multiple filenames without paths."
 msgstr "Plusieurs noms de fichier sans chemin."
 
-#: C/integration-guide.xml:599(command)
+#: C/integration-guide.xml:603(command)
 msgid "%k"
 msgstr "%k"
 
-#: C/integration-guide.xml:600(entry)
+#: C/integration-guide.xml:604(entry)
 msgid "a URI or local filename of the location of the desktop file."
 msgstr ""
 "Un URI ou un nom de fichier local indiquant l'emplacement du fichier desktop."
 
-#: C/integration-guide.xml:604(command)
+#: C/integration-guide.xml:608(command)
 msgid "%v"
 msgstr "%v"
 
-#: C/integration-guide.xml:605(entry)
+#: C/integration-guide.xml:609(entry)
 msgid "the name of the Device entry."
 msgstr "Nom du dispositif d'entrée."
 
-#: C/integration-guide.xml:614(title)
+#: C/integration-guide.xml:618(title)
 msgid "Foreign languages"
 msgstr "Langues étrangères"
 
-#: C/integration-guide.xml:616(para)
+#: C/integration-guide.xml:620(para)
 msgid ""
 "To create localized names and comments, additional lines for each locale "
 "need to be added. For example, to add a Swedish version of the comment, add "
@@ -892,15 +902,15 @@ msgstr ""
 "pour chaque version traduite doivent être ajoutées. Par exemple, pour "
 "ajouter une version suédoise du commentaire, ajouter la ligne suivante :"
 
-#: C/integration-guide.xml:623(command)
+#: C/integration-guide.xml:627(command)
 msgid "Comment[sv]=Exempelprogramnamn"
 msgstr "Comment[sv]=Exempelprogramnamn"
 
-#: C/integration-guide.xml:628(para)
+#: C/integration-guide.xml:632(para)
 msgid "There is no limit to the number of translations in the file."
 msgstr "Il n'y a aucune limite au nombre de traductions dans le fichier."
 
-#: C/integration-guide.xml:633(para)
+#: C/integration-guide.xml:637(para)
 msgid ""
 "Since maintaining a long list of translations in a file is cumbersome, a "
 "better way to create these translations is to use the <application>intltool</"
@@ -914,12 +924,12 @@ msgstr ""
 "<application>intltool-extract</application> et de <application>intltool-"
 "merge</application> pour plus d'informations."
 
-#: C/integration-guide.xml:646(title) C/integration-guide.xml:690(title)
-#: C/integration-guide.xml:793(title) C/integration-guide.xml:876(title)
+#: C/integration-guide.xml:650(title) C/integration-guide.xml:694(title)
+#: C/integration-guide.xml:797(title) C/integration-guide.xml:880(title)
 msgid "References"
 msgstr "Références"
 
-#: C/integration-guide.xml:648(para)
+#: C/integration-guide.xml:652(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/desktop-entry-spec/latest/"
 "index.html\">Desktop Entry Specification</ulink> — Specifications for "
@@ -929,11 +939,11 @@ msgstr ""
 "index.html\">Spécification des entrées desktop</ulink> — Spécifications pour "
 "la création d'un fichier desktop."
 
-#: C/integration-guide.xml:658(title)
+#: C/integration-guide.xml:662(title)
 msgid "Installing icons"
 msgstr "Installation d'icônes"
 
-#: C/integration-guide.xml:660(para)
+#: C/integration-guide.xml:664(para)
 msgid ""
 "In <xref linkend=\"ex-sample-desktop-file\"/>, we have specified the icon "
 "for this application as <filename><replaceable>application.png</"
@@ -945,7 +955,7 @@ msgstr ""
 "<filename><replaceable>programme.png</replaceable></filename>. Afin que cela "
 "fonctionne, il faut placer ce fichier icône dans le bon répertoire."
 
-#: C/integration-guide.xml:668(para)
+#: C/integration-guide.xml:672(para)
 msgid ""
 "The desktop looks for icons in the selected theme directory of <filename>/"
 "usr/share/icons/</filename>. Application icons should be available at least "
@@ -962,7 +972,7 @@ msgstr ""
 "programme dans le thème sélectionné. Si vous possédez des icônes à thème, "
 "placez-les dans les répertoires appropriés."
 
-#: C/integration-guide.xml:678(para)
+#: C/integration-guide.xml:682(para)
 msgid ""
 "To better visually integrate with the GNOME desktop, while keeping your "
 "application look native when run under KDE, Windows XP or Mac OS X, follow "
@@ -979,7 +989,7 @@ msgstr ""
 "conception d'icônes dont les couleurs, l'éclairage et les tailles. Quelques "
 "flux de travaux et des tutoriels en vidéo sont également fournis."
 
-#: C/integration-guide.xml:692(para)
+#: C/integration-guide.xml:696(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/icon-theme-spec/icon-theme-"
 "spec-latest.html\">Icon Theme Specification</ulink> — Describes how to "
@@ -989,7 +999,7 @@ msgstr ""
 "spec-latest.html\">Spécification de thème d'icônes</ulink> — Décrit comment "
 "installer et concevoir des icônes en respectant un thème."
 
-#: C/integration-guide.xml:699(para)
+#: C/integration-guide.xml:703(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/icon-naming-spec/latest/"
 "\">Icon Naming Specification</ulink> — Provides a canonical naming scheme "
@@ -999,7 +1009,7 @@ msgstr ""
 "\">Spécification pour la dénomination des icônes</ulink> — Fournit un schéma "
 "canonique pour la dénomination des fichiers icône."
 
-#: C/integration-guide.xml:706(para)
+#: C/integration-guide.xml:710(para)
 msgid ""
 "<ulink url=\"http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines"
 "\">Tango Style Guidelines</ulink> — Provides description on how to design "
@@ -1010,12 +1020,12 @@ msgstr ""
 "manière de concevoir artistiquement des icônes propres et « multi-"
 "plateformes »."
 
-#: C/integration-guide.xml:715(title)
+#: C/integration-guide.xml:719(title)
 msgid "Adding MIME types"
 msgstr "Ajout de types MIME"
 
 # "
-#: C/integration-guide.xml:717(para)
+#: C/integration-guide.xml:721(para)
 msgid ""
 "If your application can open specific MIME types, you need to let the "
 "desktop know in the desktop file. For example, if your application can "
@@ -1027,12 +1037,12 @@ msgstr ""
 "application accepte les fichiers <acronym>PNG</acronym>, ajoutez la ligne "
 "suivante dans votre fichier desktop :"
 
-#: C/integration-guide.xml:725(screen)
+#: C/integration-guide.xml:729(screen)
 #, no-wrap
 msgid "MimeType=image/png"
 msgstr "MimeType=image/png"
 
-#: C/integration-guide.xml:728(para)
+#: C/integration-guide.xml:732(para)
 msgid ""
 "Additional Mime types can be added by separating the different types with "
 "semicolons."
@@ -1040,7 +1050,7 @@ msgstr ""
 "Des types MIME supplémentaires peuvent être ajoutés en séparant les "
 "différents types par des points-virgules."
 
-#: C/integration-guide.xml:733(para)
+#: C/integration-guide.xml:737(para)
 msgid ""
 "The system already knows of a large number of MIME types. However, if you "
 "are creating one of your own, you need to register your MIME type into the "
@@ -1054,23 +1064,23 @@ msgstr ""
 "</filename>, créez un fichier <acronym>XML</acronym> respectant le format de "
 "l'<xref linkend=\"ex-mime-xml\"/>."
 
-#: C/integration-guide.xml:743(title)
+#: C/integration-guide.xml:747(title)
 msgid "Sample file for registering a new MIME type"
 msgstr "Exemple de fichier pour enregistrer un nouveau type MIME"
 
-#: C/integration-guide.xml:747(replaceable)
+#: C/integration-guide.xml:751(replaceable)
 msgid "example"
 msgstr "exemple"
 
-#: C/integration-guide.xml:750(replaceable)
+#: C/integration-guide.xml:754(replaceable)
 msgid "search-string"
 msgstr "chaine_de_recherche"
 
-#: C/integration-guide.xml:752(replaceable)
+#: C/integration-guide.xml:756(replaceable)
 msgid "newextension"
 msgstr "nouvelle_extension"
 
-#: C/integration-guide.xml:744(screen)
+#: C/integration-guide.xml:748(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1097,7 +1107,7 @@ msgstr ""
 "   &lt;/mime-type&gt;\n"
 "&lt;/mime-info&gt;\n"
 
-#: C/integration-guide.xml:758(para)
+#: C/integration-guide.xml:762(para)
 msgid ""
 "In this example, replace the example MIME type with the name of your MIME "
 "type. The <firstterm>magic</firstterm> section searches files for the search "
@@ -1109,7 +1119,7 @@ msgstr ""
 "chaîne de recherche pour faire l'identification. La ligne <firstterm>glob</"
 "firstterm> utilise le suffixe des noms de fichiers pour l'identification."
 
-#: C/integration-guide.xml:767(para)
+#: C/integration-guide.xml:771(para)
 msgid ""
 "Because the <command>magic</command> command forces the computer to open the "
 "files to search for the string, the <command>glob</command> command is "
@@ -1119,7 +1129,7 @@ msgstr ""
 "les fichiers pour rechercher la chaîne, la commande <command>glob</command> "
 "est préférable."
 
-#: C/integration-guide.xml:774(para)
+#: C/integration-guide.xml:778(para)
 msgid ""
 "Once your new MIME type is adequately described in the file, run the "
 "following in a shell:"
@@ -1127,12 +1137,12 @@ msgstr ""
 "Une fois que votre nouveau type MIME est correctement décrit dans le "
 "fichier, tapez ce qui suit dans un terminal :"
 
-#: C/integration-guide.xml:780(screen)
+#: C/integration-guide.xml:784(screen)
 #, no-wrap
 msgid "update-mime-database /usr/share/mime"
 msgstr "update-mime-database /usr/share/mime"
 
-#: C/integration-guide.xml:784(para)
+#: C/integration-guide.xml:788(para)
 msgid ""
 "For more information on choosing a good MIME extension and to register your "
 "MIME type, go to the <ulink url=\"http://www.iana.org/cgi-bin/mediatypes.pl"
@@ -1142,7 +1152,7 @@ msgstr ""
 "MIME et d'enregistrer votre type MIME, consultez le site de l'<ulink url="
 "\"http://www.iana.org/cgi-bin/mediatypes.pl\">IANA</ulink>."
 
-#: C/integration-guide.xml:795(para)
+#: C/integration-guide.xml:799(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/shared-mime-info-spec/latest/"
 "\">Shared MIME Info Specification</ulink> — Describes the MIME registration "
@@ -1152,11 +1162,11 @@ msgstr ""
 "\">Spécification des informations MIME partagées</ulink> — Décrit en détails "
 "le système de déclaration MIME."
 
-#: C/integration-guide.xml:808(title)
+#: C/integration-guide.xml:812(title)
 msgid "Deeper Integration with the Desktop"
 msgstr "Intégration plus complète avec le Bureau"
 
-#: C/integration-guide.xml:810(para)
+#: C/integration-guide.xml:814(para)
 msgid ""
 "This chapter contains a list of things which you can do to make your "
 "application have better integration with GNOME than the absolute minimum. "
@@ -1175,11 +1185,11 @@ msgstr ""
 "utilitaire pour la création de vignettes pour permettre au gestionnaire de "
 "fichiers de GNOME de créer des vignettes spécifiques à votre programme."
 
-#: C/integration-guide.xml:822(title)
+#: C/integration-guide.xml:826(title)
 msgid "Startup notification"
 msgstr "Notification au démarrage"
 
-#: C/integration-guide.xml:824(para)
+#: C/integration-guide.xml:828(para)
 msgid ""
 "Although the fields shown in <xref linkend=\"desktop-files\"/> provide "
 "enough information for the desktop to recognize your application, there are "
@@ -1192,7 +1202,7 @@ msgstr ""
 "particulier. L'un de ces champs est celui de la <firstterm>notification au "
 "démarrage</firstterm>."
 
-#: C/integration-guide.xml:832(para)
+#: C/integration-guide.xml:836(para)
 msgid ""
 "When startup notification is set, the panel and cursor notifies the user "
 "that the application has started. When the application appears onscreen, the "
@@ -1203,7 +1213,7 @@ msgstr ""
 "l'application apparaît à l'écran, le tableau de bord et le curseur "
 "retournent dans leur état normal."
 
-#: C/integration-guide.xml:838(para)
+#: C/integration-guide.xml:842(para)
 msgid ""
 "To let the launcher know your application supports startup notification, add "
 "the following line to your desktop file:"
@@ -1212,11 +1222,11 @@ msgstr ""
 "notification du démarrage, ajoutez la ligne suivante à votre fichier "
 "desktop :"
 
-#: C/integration-guide.xml:844(command)
+#: C/integration-guide.xml:848(command)
 msgid "StartupNotify=true"
 msgstr "StartupNotify=true"
 
-#: C/integration-guide.xml:849(para)
+#: C/integration-guide.xml:853(para)
 msgid ""
 "This command in the desktop file enables the desktop to use whatever startup "
 "notification is built in to either your application or your toolkit. Most "
@@ -1234,7 +1244,7 @@ msgstr ""
 "notification au démarrage</ulink> vous explique en détail ce dont vous avez "
 "besoin pour la mettre en place vous-même."
 
-#: C/integration-guide.xml:861(para)
+#: C/integration-guide.xml:865(para)
 msgid ""
 "Regardless of toolkit, there is one type of application where you would have "
 "to manually handle feedback. Applications with remoting capabilities (where "
@@ -1256,7 +1266,7 @@ msgstr ""
 "application>, la documentation de <function>gdk_notify_startup_complete()</"
 "function> contient quelques informations supplémentaires."
 
-#: C/integration-guide.xml:878(para)
+#: C/integration-guide.xml:882(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/startup-notification-spec/"
 "startup-notification-latest.txt\">Startup Notification Protocol</ulink> — "
@@ -1268,11 +1278,11 @@ msgstr ""
 "ulink> — Décrit de manière très détaillée comment la notification au "
 "démarrage est mise en place dans le système X Window."
 
-#: C/integration-guide.xml:889(title)
+#: C/integration-guide.xml:893(title)
 msgid "Installing a Thumbnailer Program"
 msgstr "Installation d'un générateur de vignettes"
 
-#: C/integration-guide.xml:891(para)
+#: C/integration-guide.xml:895(para)
 msgid ""
 "The GNOME file manager, Nautilus, can display little thumbnails tailored for "
 "each file instead of generic icons in its file lists. For example, a word "
@@ -1293,7 +1303,7 @@ msgstr ""
 "simples."
 
 #. FIXME: screenshot of Nautilus showing thumbnails
-#: C/integration-guide.xml:905(para)
+#: C/integration-guide.xml:909(para)
 msgid ""
 "A <firstterm>thumbnailer</firstterm> is a program with no user interface "
 "that takes a file and a pixel size as inputs, and it writes a thumbnail for "
@@ -1310,7 +1320,7 @@ msgstr ""
 "et les générateurs de vignettes est enregistrée comme une série de clés "
 "GConf."
 
-#: C/integration-guide.xml:915(para)
+#: C/integration-guide.xml:919(para)
 msgid ""
 "For each MIME type which you want to handle, you have to create a pair of "
 "GConf keys:"
@@ -1318,16 +1328,16 @@ msgstr ""
 "Pour chaque type MIME que vous souhaitez prendre en charge, vous devez créer "
 "une paire de clés GConf :"
 
-#: C/integration-guide.xml:922(replaceable)
-#: C/integration-guide.xml:934(replaceable)
+#: C/integration-guide.xml:926(replaceable)
+#: C/integration-guide.xml:938(replaceable)
 msgid "application@x-foo"
 msgstr "application@x-toto"
 
-#: C/integration-guide.xml:922(literal)
+#: C/integration-guide.xml:926(literal)
 msgid "/desktop/gnome/thumbnailers/<placeholder-1/>/enable"
 msgstr "/desktop/gnome/thumbnailers/<placeholder-1/>/enable"
 
-#: C/integration-guide.xml:924(para)
+#: C/integration-guide.xml:928(para)
 msgid ""
 "Type: boolean. Determines whether this thumbnailer will be run. You can "
 "enable or disable each individual thumbnailer. When you install a new "
@@ -1339,11 +1349,11 @@ msgstr ""
 "Lorsque vous installez un nouveau générateur de vignettes, vous devez "
 "évidement définir la valeur de cette clé à <symbol>true</symbol> (vrai)."
 
-#: C/integration-guide.xml:934(literal)
+#: C/integration-guide.xml:938(literal)
 msgid "/desktop/gnome/thumbnailers/<placeholder-1/>/command"
 msgstr "/desktop/gnome/thumbnailers/<placeholder-1/>/command"
 
-#: C/integration-guide.xml:936(para)
+#: C/integration-guide.xml:940(para)
 msgid ""
 "Type: string. The command which GNOME will use when it needs to generate a "
 "thumbnail for a file of type <replaceable>application@x-foo</replaceable>. "
@@ -1356,7 +1366,7 @@ msgstr ""
 "toto-vignette %i %o %s</literal> ». Voir ci-dessous pour une explication des "
 "symboles pourcentage."
 
-#: C/integration-guide.xml:949(para)
+#: C/integration-guide.xml:953(para)
 msgid ""
 "That is, each MIME type requires two GConf keys (<literal>enable</literal> "
 "and <literal>command</literal>) under the same path. The path name can be "
@@ -1375,7 +1385,7 @@ msgstr ""
 "format/enable</literal> et <literal>/desktop/gnome/thumbnailers/image@x-mon-"
 "format/command</literal>."
 
-#: C/integration-guide.xml:961(para)
+#: C/integration-guide.xml:965(para)
 msgid ""
 "Within the <literal>command</literal> key, GNOME will look for percent "
 "sequences and substitute them with actual values:"
@@ -1383,17 +1393,17 @@ msgstr ""
 "Dans la clé <literal>command</literal>, GNOME cherche les séquences avec "
 "pourcentage et les remplace par leur valeur réelle :"
 
-#: C/integration-guide.xml:970(literal) C/integration-guide.xml:981(literal)
+#: C/integration-guide.xml:974(literal) C/integration-guide.xml:985(literal)
 msgid "%i"
 msgstr "%i"
 
-#: C/integration-guide.xml:971(entry)
+#: C/integration-guide.xml:975(entry)
 msgid "Input file name. This is the file that your thumbnailer needs to read."
 msgstr ""
 "Nom du fichier d'entrée. C'est le fichier que votre générateur de vignettes "
 "doit lire."
 
-#: C/integration-guide.xml:978(entry)
+#: C/integration-guide.xml:982(entry)
 msgid ""
 "Input URI. If your thumbnailer can handle URIs instead of plain file names, "
 "use <placeholder-1/> instead of <placeholder-2/>."
@@ -1402,11 +1412,11 @@ msgstr ""
 "URI au lieu des noms de fichiers standards, utilisez <placeholder-1/> au "
 "lieu de <placeholder-2/>."
 
-#: C/integration-guide.xml:985(literal)
+#: C/integration-guide.xml:989(literal)
 msgid "%o"
 msgstr "%o"
 
-#: C/integration-guide.xml:986(entry)
+#: C/integration-guide.xml:990(entry)
 msgid ""
 "Output file name. This is where your thumbnailer should write the thumbnail "
 "image in PNG format."
@@ -1414,15 +1424,15 @@ msgstr ""
 "Nom du fichier de sortie. C'est sous ce nom que votre générateur de "
 "vignettes doit écrire l'image vignette au format PNG."
 
-#: C/integration-guide.xml:992(literal)
+#: C/integration-guide.xml:996(literal)
 msgid "%s"
 msgstr "%s"
 
-#: C/integration-guide.xml:996(literal)
+#: C/integration-guide.xml:1000(literal)
 msgid "128"
 msgstr "128"
 
-#: C/integration-guide.xml:993(entry)
+#: C/integration-guide.xml:997(entry)
 msgid ""
 "Size of the thumbnail as a single integer. For example, if this gets "
 "substituted with <placeholder-1/>, it means that your thumbnailer should "
@@ -1432,7 +1442,7 @@ msgstr ""
 "s'agit de <placeholder-1/>, cela signifie que votre programme de création de "
 "vignettes doit fournir une image pas plus grande que 128x128 pixels."
 
-#: C/integration-guide.xml:1005(para)
+#: C/integration-guide.xml:1009(para)
 msgid ""
 "Either of <literal>%i</literal> and <literal>%u</literal> must appear in "
 "your command, and <literal>%o</literal> is also mandatory. The <literal>%s</"
@@ -1444,11 +1454,11 @@ msgstr ""
 "<literal>%s</literal> est optionnel mais il est recommandé que votre "
 "générateur de vignettes y prête attention."
 
-#: C/integration-guide.xml:1014(title)
+#: C/integration-guide.xml:1018(title)
 msgid "Additional information"
 msgstr "Informations supplémentaires"
 
-#: C/integration-guide.xml:1016(para)
+#: C/integration-guide.xml:1020(para)
 msgid ""
 "As an additional configuration parameter, you can turn on the boolean key "
 "<literal>/desktop/gnome/thumbnailers/disable_all</literal> to disable the "
@@ -1458,11 +1468,11 @@ msgstr ""
 "booléenne <literal>/desktop/gnome/thumbnailers/disable_all</literal> pour "
 "désactiver la génération de toutes les vignettes."
 
-#: C/integration-guide.xml:1032(title)
+#: C/integration-guide.xml:1036(title)
 msgid "Integration Checklist"
 msgstr "Liste de contrôle pour l'intégration"
 
-#: C/integration-guide.xml:1034(para)
+#: C/integration-guide.xml:1038(para)
 msgid ""
 "This appendix provides a checklist of the various tasks presented through "
 "this guide. You can use the checklist to ensure that your software is "
@@ -1475,12 +1485,12 @@ msgstr ""
 "très élémentaire et également comme ressource pour planifier la continuation "
 "de votre travail d'intégration."
 
-#: C/integration-guide.xml:1044(para)
+#: C/integration-guide.xml:1048(para)
 msgid "Does your application appear in the menus of the GNOME Panel?"
 msgstr ""
 "Est-ce que votre programme apparaît dans les menus du tableau de bord GNOME ?"
 
-#: C/integration-guide.xml:1049(para)
+#: C/integration-guide.xml:1053(para)
 msgid ""
 "Does your application have an icon for the panel menus or the desktop? If "
 "so, does it have multiple pre-rendered sizes and a scalable <acronym>SVG</"
@@ -1490,7 +1500,7 @@ msgstr ""
 "bord ou du bureau ? Dans ce cas, possèdent-elles des tailles pré-rendues et "
 "une version <acronym>SVG</acronym> redimensionnable ?"
 
-#: C/integration-guide.xml:1056(para)
+#: C/integration-guide.xml:1060(para)
 msgid ""
 "If your application can load or save files, does it register the MIME types "
 "that it can handle?"
@@ -1498,13 +1508,13 @@ msgstr ""
 "Si votre programme peut charger et enregistrer des fichiers, est-ce que les "
 "types MIME gérés sont enregistrés ?"
 
-#: C/integration-guide.xml:1062(para)
+#: C/integration-guide.xml:1066(para)
 msgid "Does your application provide MIME icons for the file manager?"
 msgstr ""
 "Est-ce que votre programme fournit des icônes MIME pour le gestionnaire de "
 "fichiers ?"
 
-#: C/integration-guide.xml:1068(para)
+#: C/integration-guide.xml:1072(para)
 msgid ""
 "Does your application support startup notification, so that GNOME can "
 "display feedback to the user while your application is being launched?"
@@ -1513,7 +1523,7 @@ msgstr ""
 "que GNOME puisse fournir un retour à l'utilisateur pendant que l'application "
 "est chargée ?"
 
-#: C/integration-guide.xml:1075(para)
+#: C/integration-guide.xml:1079(para)
 msgid ""
 "If your application creates \"printable\" documents, does it install a "
 "thumbnailer for use by the file manager?"
@@ -1521,11 +1531,11 @@ msgstr ""
 "Si votre programme crée des documents « imprimables », est-ce qu'il installe "
 "un générateur de vignettes utilisable par le gestionnaire de fichiers ?"
 
-#: C/integration-guide.xml:1084(title)
+#: C/integration-guide.xml:1088(title)
 msgid "Acknowledgments"
 msgstr "Remerciements"
 
-#: C/integration-guide.xml:1086(para)
+#: C/integration-guide.xml:1090(para)
 msgid ""
 "Many thanks to Jakub Steiner for providing a beautiful CSS stylesheet for "
 "the HTML version of this guide!"
@@ -1533,9 +1543,10 @@ msgstr ""
 "Un grand merci à Jakub Steiner pour avoir fourni une très belle feuille de "
 "style CSS pour la version HTML de ce guide !"
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/integration-guide.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 "Bruno Brouard <annoa.b@gmail.com>, 2009\n"
 "Claude Paroz <claude@2xlibre.net>, 2009"
+
