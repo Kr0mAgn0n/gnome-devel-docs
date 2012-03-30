@@ -48,6 +48,7 @@ DOC_PAGES =				\
 	beginner.vala.page		\
 	bug-filing.page			\
 	button.js.page			\
+	button.vala.page
 	documentation.page		\
 	desktop.js.page		\
 	beginner.js.page		\
@@ -68,6 +69,7 @@ DOC_PAGES =				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	toolbar.js.page		\
+	toolabar.vala.page		\
 	photo-wall.c.page		\
 	record-collection.js.page		\
 	translate.page		\
