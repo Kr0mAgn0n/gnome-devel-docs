@@ -55,7 +55,7 @@ Gtk.init(null, 0);
 var mywindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
 mywindow.title = "Hello World!";
 mywindow.connect("destroy", function(){Gtk.main_quit()});
-</code>
+]]></code>
     <p>After importing Gtk, we need to initialize it. After that, we can start building our first window. We do this by creating a variable called mywindow and assigning it a new Gtk.Window of type TOPLEVEL.</p> <p>After setting up our first window we'll give the window a property called title. The title can be any string you want it to be. To be on the safe side, it's best to stick to UTF-8 encoding.</p> <p>The next thing we need to do for our application is connect the close button that's automatically generated along with the window to the close functionality. That happens with the method connect(). When the close button is pressed it gives out the signal "destroy", so in this part we're connecting the "destroy" signal to function(){Gtk.main_quit()}, which does the actual closing.</p><p>Now we have a window that has a title and a working "close" button. Let's add the actual "Hello, world" text.</p>
     </section>
     
