@@ -1,0 +1,50 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="window.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#windows"/>
+    <revision version="0.1" date="2012-04-07" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A toplevel window which can contain other widgets.</desc>
+  </info>
+
+  <title>Window</title>
+  <media type="image" mime="image/png" src="media/window.png"/>
+  <p>A toplevel window with destroy signal hooked up.</p>
+  
+      <code mime="text/x-vala" style="numbered"><![CDATA[
+using Gtk;
+
+int main (string[] args) {
+
+    init (ref args);
+
+    var window = new Window ();
+    window.title = "Welcome to GNOME";
+
+    //window.border_width = 10;
+    //window.window_position = WindowPosition.CENTER;
+    //window.set_default_size (250, 50);
+
+    /*The destroy signal is emitted when the x
+      in the top right of the window is clicked. Here,
+      the signal is connected to main_quit, causing
+      the program to exit the main_loop.*/
+    window.destroy.connect (main_quit);
+
+    window.show ();
+
+    Gtk.main ();
+    return 0;
+}
+]]></code>
+<p>
+  In this sample we used the following widget: <link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Window">Gtk.Window</link> and the following enum: <link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.WindowPosition">Gtk.WindowPosition</link>.
+</p>
+</page>
