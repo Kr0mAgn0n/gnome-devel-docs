@@ -28,16 +28,23 @@ int main (string[] args) {
     var window = new Window ();
     window.title = "Welcome to GNOME";
 
+    /*
+     The following 3 lines are included here to introduce
+     you to ways you can adjust the toplevel window to suit
+     your needs. Uncomment them to see what they do.
+     */
     //window.border_width = 10;
+    //window.set_default_size (350, 70);
     //window.window_position = WindowPosition.CENTER;
-    //window.set_default_size (250, 50);
 
     /*The destroy signal is emitted when the x
-      in the top right of the window is clicked. Here,
-      the signal is connected to main_quit, causing
-      the program to exit the main_loop.*/
+      in the top right of the window is clicked.*/
     window.destroy.connect (main_quit);
 
+    /*The show () method only shows the widget it is called on.
+      If the widget has children (for example a label or a button,
+      the method show_all () should be used to show the widget and
+       the child widgets.*/
     window.show ();
 
     Gtk.main ();
@@ -45,6 +52,17 @@ int main (string[] args) {
 }
 ]]></code>
 <p>
-  In this sample we used the following widget: <link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Window">Gtk.Window</link> and the following enum: <link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.WindowPosition">Gtk.WindowPosition</link>.
+  In this sample we used the following:
 </p>
+<list>
+  <item><p>The widget <link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Window">Gtk.Window</link></p></item>
+
+  <item><p>The enum <link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.WindowPosition">Gtk.WindowPosition</link></p></item>
+
+  <item><p>The method <link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Window.set_default_size">set_default_size</link></p></item> 
+
+  <item><p><link href="http://valadoc.org/#!api=gtk+-3.0/Gtk.Container.border_width">border_width</link></p></item>
+
+  <item><p><link href="http://valadoc.org/#!api=gtk+-3.0/Gtk.Window.window_position">window_position</link></p></item>
+</list>
 </page>
