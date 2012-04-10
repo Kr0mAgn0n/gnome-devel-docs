@@ -24,7 +24,7 @@ demo_sources = \
 
 DOC_FIGURES = \
 	media/ubuntu.png			\
-	media/button.png			\
+	media/button_with_progress_bar.png	\
 	media/entry.png			\
 	media/fedora.png			\
 	media/opensuse.png			\
