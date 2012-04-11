@@ -1,0 +1,58 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="dialog.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#windows"/>
+    <revision version="0.1" date="2012-04-07" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A popup window</desc>
+  </info>
+
+  <title>Dialog</title>
+  <media type="image" mime="image/png" src="media/dialog.png"/>
+  <p>More specific description of this particular example.</p>
+  
+      <code mime="text/x-vala" style="numbered"><![CDATA[
+using Gtk;
+
+void on_response (int response_id) {
+
+    /*To see the int value of the ResponseType*/
+    print ("response is %d\n", response_id);
+    
+    main_quit ();
+}
+int main (string[] args) {
+
+    init (ref args);
+
+    var dialog = new Dialog.with_buttons ("A Gtk+ Dialog", null, 0, Stock.OK, ResponseType.OK, null);
+    var content_area = dialog.get_content_area ();
+    var label = new Label ("This demonstrates a dialog with a label");
+    
+    content_area.add (label);
+    dialog.response.connect (on_response);
+    dialog.show_all ();
+
+    Gtk.main ();
+    return 0;
+}
+]]></code>
+
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Dialog">Gtk.Dialog</link></p></item>
+  <item><p><link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Dialog.Dialog.with_buttons">Gtk.Dialog.with_buttons</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.Label">Gtk.Label</link></p></item>
+  <item><p><link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Dialog.get_content_area">get_content_area</link></p></item>
+  <item><p><link xref="response-type"/></p></item>
+</list>
+</page>
