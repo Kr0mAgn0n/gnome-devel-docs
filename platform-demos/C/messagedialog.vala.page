@@ -1,0 +1,59 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="messagedialog.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#windows"/>
+    <revision version="0.1" date="2012-04-07" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A message window</desc>
+  </info>
+
+  <title>MessageDialog</title>
+  <media type="image" mime="image/png" src="media/messagedialog.png"/>
+  <p>A modal message dialog which can cause the world to explode.</p>
+  
+      <code mime="text/x-vala" style="numbered"><![CDATA[
+void dialog_response (int response_id) {
+	switch (response_id) {
+		case Gtk.ResponseType.OK:
+			print ("*boom*\n");
+			break;
+		case Gtk.ResponseType.CANCEL:
+			print ("good choice\n");
+			break;
+		case Gtk.ResponseType.DELETE_EVENT:
+			print ("dialog closed or cancelled\n");
+			break;
+	}
+
+	Gtk.main_quit ();
+}
+
+int main (string[] args) {
+
+	Gtk.init (ref args);
+
+	var messagedialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO, Gtk.ButtonsType.OK_CANCEL, "This action will cause the universe to stop existing.");
+
+	messagedialog.response.connect (dialog_response);
+
+ 	messagedialog.show ();
+
+	Gtk.main ();
+
+	return 0;
+}
+]]></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="">thing1</link></p></item>
+</list>
+</page>

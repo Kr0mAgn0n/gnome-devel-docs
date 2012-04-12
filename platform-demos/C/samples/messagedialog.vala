@@ -18,7 +18,8 @@ int main (string[] args) {
 
 	Gtk.init (ref args);
 
-	var messagedialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO, Gtk.ButtonsType.OK_CANCEL, "This action will cause the universe to stop existing.");
+	var messagedialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.OK_CANCEL, "This action will cause the universe to stop existing.");
+
 	messagedialog.response.connect (dialog_response);
 
  	messagedialog.show ();
