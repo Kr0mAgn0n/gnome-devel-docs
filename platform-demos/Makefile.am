@@ -8,6 +8,7 @@ demo_sources = \
 	audio-player/audio-player.vala \
 	guitar-tuner/guitar-tuner.c \
 	guitar-tuner/guitar-tuner.cc \
+	guitar-tuner/guitar-tuner.js \
 	guitar-tuner/guitar-tuner.py \
 	guitar-tuner/guitar-tuner.vala \
 	image-viewer/image-viewer.c \
@@ -24,39 +25,45 @@ demo_sources = \
 
 DOC_FIGURES = \
 	media/ubuntu.png			\
+	media/button.png			\
 	media/button_with_progress_bar.png	\
-	media/entry.png			\
+	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
-	media/guitarJs.png			\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
 	media/helloWorldJs.png		\
 	media/image-viewer.png			\
+	media/magic-mirror.png			\
 	media/message-board.ogv			\
+	media/messagedialog.png			\
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/record-collection.png		\
 	media/toolbar.png		\
 	media/magic-mirror.png			\
 	media/weatherAppJs.png			\
+	media/window.png
 	$(demo_sources)
 
 DOC_PAGES =				\
 	audio-player.vala.page		\
+	beginner.c.page			\
+	beginner.js.page		\
+	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
 	button.js.page			\
-	button.vala.page
-	documentation.page		\
+	button.vala.page		\
 	desktop.js.page		\
-	beginner.js.page		\
+	dialog.vala.page		\
+	documentation.page		\
 	entry.js.page		\
 	getting-ready.page		\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
-	guitar.js.page		\
+	guitar-tuner.js.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  \
@@ -68,14 +75,15 @@ DOC_PAGES =				\
 	index.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
+	messagedialog.vala.page		\
 	toolbar.js.page		\
-	toolabar.vala.page		\
 	photo-wall.c.page		\
 	record-collection.js.page		\
 	translate.page		\
 	weatherApp.js.page		\
 	weatherAppMain.js.page		\
 	weatherAutotools.js.page		\
-	weatherGeonames.js.page
+	weatherGeonames.js.page		\
+	window.vala.page
 
 dist-hook: doc-dist-hook

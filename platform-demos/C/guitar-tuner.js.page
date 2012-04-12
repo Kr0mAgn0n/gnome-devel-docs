@@ -1,6 +1,6 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide" style="task"
-      id="guitar.js">
+      id="guitar-tuner.js">
   <info>
     <link type="guide" xref="index#js"/>
     <revision version="0.1" date="2012-03-09" status="stub"/>
@@ -31,7 +31,7 @@
     </list> 
   </synopsis>
   <p>After reading this tutorial, you should see this in your screen:</p>
-  <media type="image" mime="image/png" src="media/guitarJs.png"/>
+  <media type="image" mime="image/png" src="media/guitar-tuner.png"/>
   <section id="gstreamer">
     <title>GStreamer pipelines</title>
     <p>GStreamer is GNOME's multimedia framework &#x2014; you can use it for playing, recording, and processing video, audio, webcam streams and the like. Here, we'll be using it to produce single-frequency tones.</p>
@@ -227,6 +227,11 @@ Gtk.main();]]></code>
   <title>Running the application form Terminal</title>
   <p>To run this application open Terminal, go to the folder where your application is stored and then run</p> <screen> <output style="prompt">$ </output><input> GJS_PATH=`pwd` gjs guitarTuner.js</input> </screen>
     </section>
+
+<section id="impl">
+ <title>Reference Implementation</title>
+ <p>If you run into problems with the tutorial, compare your code with this <link href="guitar-tuner/guitar-tuner.js">reference code</link>.</p>
+</section>
   
  
 </page>
