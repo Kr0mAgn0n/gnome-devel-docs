@@ -5,22 +5,22 @@ DOC_ID = gnome-devel-demos
 DOC_LINGUAS = ca de el es fr gl
 
 demo_sources = \
-	audio-player/audio-player.vala \
-	guitar-tuner/guitar-tuner.c \
-	guitar-tuner/guitar-tuner.cc \
-	guitar-tuner/guitar-tuner.js \
-	guitar-tuner/guitar-tuner.py \
-	guitar-tuner/guitar-tuner.vala \
-	image-viewer/image-viewer.c \
-	image-viewer/image-viewer.cc \
-	image-viewer/image-viewer.js \
-	image-viewer/image-viewer.py \
-	image-viewer/image-viewer.vala \
-	magic-mirror/magic-mirror.vala \
+	audio-player/audio-player.vala 		\
+	guitar-tuner/guitar-tuner.c 		\
+	guitar-tuner/guitar-tuner.cc 		\
+	guitar-tuner/guitar-tuner.js 		\
+	guitar-tuner/guitar-tuner.py 		\
+	guitar-tuner/guitar-tuner.vala 		\
+	image-viewer/image-viewer.c 		\	
+	image-viewer/image-viewer.cc 		\
+	image-viewer/image-viewer.js 		\
+	image-viewer/image-viewer.py 		\
+	image-viewer/image-viewer.vala 		\
+	magic-mirror/magic-mirror.vala 		\
 	magic-mirror/magic-mirror-advanced.vala \
-	message-board/message-board.c \
-	photo-wall/photo-wall.c \
-	record-collection/record-collection.js \
+	message-board/message-board.c 		\
+	photo-wall/photo-wall.c 		\		
+	record-collection/record-collection.js 	\
 	media/gnome-devtools.catalog
 
 DOC_FIGURES = \
@@ -33,7 +33,7 @@ DOC_FIGURES = \
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
-	media/helloWorldJs.png		\
+	media/helloWorldJs.png			\
 	media/image-viewer.png			\
 	media/magic-mirror.png			\
 	media/message-board.ogv			\
@@ -41,10 +41,10 @@ DOC_FIGURES = \
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/record-collection.png		\
-	media/toolbar.png		\
+	media/toolbar.png			\
 	media/magic-mirror.png			\
 	media/weatherAppJs.png			\
-	media/window.png
+	media/window.png			\
 	$(demo_sources)
 
 DOC_PAGES =				\
@@ -56,17 +56,17 @@ DOC_PAGES =				\
 	bug-filing.page			\
 	button.js.page			\
 	button.vala.page		\
-	desktop.js.page		\
+	desktop.js.page			\
 	dialog.vala.page		\
 	documentation.page		\
-	entry.js.page		\
+	entry.js.page			\
 	getting-ready.page		\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
 	guitar-tuner.js.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
-	helloWorld.js.page  \
+	helloWorld.js.page  		\
 	image-viewer.c.page		\
 	image-viewer.cpp.page		\
 	image-viewer.js.page		\
@@ -76,13 +76,13 @@ DOC_PAGES =				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
-	toolbar.js.page		\
+	toolbar.js.page			\
 	photo-wall.c.page		\
-	record-collection.js.page		\
-	translate.page		\
+	record-collection.js.page	\
+	translate.page			\
 	weatherApp.js.page		\
 	weatherAppMain.js.page		\
-	weatherAutotools.js.page		\
+	weatherAutotools.js.page	\
 	weatherGeonames.js.page		\
 	window.vala.page
 
