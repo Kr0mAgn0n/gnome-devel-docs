@@ -1,5 +1,3 @@
-using Gtk;
-
 /*callback for the "clicked" signal.*/
 void button_clicked_cb () {
 	stdout.printf ("You clicked the button!\n");
@@ -8,16 +6,16 @@ void button_clicked_cb () {
 
 int main (string[] args) {
 
-	init (ref args);
+	Gtk.init (ref args);
 
-	var window = new Window ();
+	var window = new Gtk.Window ();
 	window.title = "GNOME Button";
 	window.set_default_size (250,50);
 
-	var button = new Button.with_label ("Click Me");
+	var button = new Gtk.Button.with_label ("Click Me");
 	window.add (button);
 
-	window.window_position = WindowPosition.CENTER;
+	window.window_position = Gtk.WindowPosition.CENTER;
 
 	/* The "clicked" signal is emitted when the
 	   button is clicked.  The signal is connected to
@@ -29,7 +27,7 @@ int main (string[] args) {
 	  The destroy signal is connected to the
 	  main_quit method, which destroys the window
 	  and exits the program.*/
-	window.destroy.connect (main_quit);
+	window.destroy.connect (Gtk.main_quit);
 
 	window.show_all ();
 

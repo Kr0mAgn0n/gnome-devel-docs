@@ -1,10 +1,8 @@
-using Gtk;
-
 int main (string[] args) {
 
-	init (ref args);
+	Gtk.init (ref args);
 
-	var window = new Window ();
+	var window = new Gtk.Window ();
 	window.title = "Welcome to GNOME";
 
 	/*
@@ -14,11 +12,11 @@ int main (string[] args) {
 	 */
 	//window.border_width = 10;
 	//window.set_default_size (350, 70);
-	//window.window_position = WindowPosition.CENTER;
+	//window.window_position = Gtk.WindowPosition.CENTER;
 
 	/*The destroy signal is emitted when the x
 	  in the top right of the window is clicked.*/
-	window.destroy.connect (main_quit);
+	window.destroy.connect (Gtk.main_quit);
 
 	/*The show () method only shows the widget it is called on.
       If the widget has children (for example a label or a button,
