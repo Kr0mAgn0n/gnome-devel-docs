@@ -24,12 +24,13 @@ demo_sources = \
 	media/gnome-devtools.catalog
 
 DOC_FIGURES = \
-	media/ubuntu.png			\
+	media/aboutdialog.png			\
 	media/button.png			\
 	media/button_with_progress_bar.png	\
 	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
+	media/GtkApplication.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -42,12 +43,13 @@ DOC_FIGURES = \
 	media/photo-wall-focused.png		\
 	media/record-collection.png		\
 	media/toolbar.png			\
-	media/magic-mirror.png			\
+	media/ubuntu.png			\
 	media/weatherAppJs.png			\
 	media/window.png			\
 	$(demo_sources)
 
 DOC_PAGES =				\
+	aboutdialog.vala.page		\
 	audio-player.vala.page		\
 	beginner.c.page			\
 	beginner.js.page		\
@@ -61,6 +63,7 @@ DOC_PAGES =				\
 	documentation.page		\
 	entry.js.page			\
 	getting-ready.page		\
+	GtkApplication.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
 	guitar-tuner.js.page		\
