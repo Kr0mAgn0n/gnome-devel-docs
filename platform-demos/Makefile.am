@@ -27,6 +27,7 @@ DOC_FIGURES = \
 	media/aboutdialog.png			\
 	media/button.png			\
 	media/button_with_progress_bar.png	\
+	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
