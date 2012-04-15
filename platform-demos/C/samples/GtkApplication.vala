@@ -8,14 +8,14 @@ public class Window : Gtk.ApplicationWindow {
 		Object (application: app, title: "GtkApplication Example");
 
 		var label = new Gtk.Label ("Hello GtkApplication!");
-		add (label);
+		this.add (label);
 
 		var about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
-		add_action (about_action);
+		this.add_action (about_action);
 
-		set_default_size (400, 200);
-		show_all ();
+		this.set_default_size (400, 200);
+		this.show_all ();
 	}
 
 	void about () {
@@ -45,11 +45,11 @@ public class Application : Gtk.Application {
 		var menu = new Menu ();
 		menu.append ("About", "win.about");
 		menu.append ("Quit", "app.quit");
-		app_menu = menu;
+		this.app_menu = menu;
 
 		var quit_action = new SimpleAction ("quit", null);
-		quit_action.activate.connect (quit);
-		add_action (quit_action);
+		quit_action.activate.connect (this.quit);
+		this.add_action (quit_action);
 	}
 
 	public Application () {

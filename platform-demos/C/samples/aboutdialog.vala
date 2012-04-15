@@ -6,12 +6,12 @@
 public class Window : Gtk.ApplicationWindow {
 	public Window (Application app) {
 		Object (application: app, title: "AboutDialog Example");
-		set_default_size (400, 200);
+		this.set_default_size (400, 200);
 		var button = new Gtk.Button.with_label ("About");
 		button.clicked.connect (about_clicked);
-		add (button);
+		this.add (button);
 
-		show_all ();
+		this.show_all ();
 	}
 
 	void about_clicked () {

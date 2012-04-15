@@ -14,7 +14,6 @@
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
-      <years></years>
     </credit>
 
 
@@ -24,21 +23,19 @@
   <title>AboutDialog</title>
   <media type="image" mime="image/png" src="media/aboutdialog.png"/>
   <p>An AboutDialog example using Gtk.Application</p>
+  <note><p><em style="bold">You need to be running Gtk3.4 or later for this to work</em></p></note>
   
       <code mime="text/x-vala" style="numbered"><![CDATA[
-/*** You need to be running Gtk3.4 or later for this to work ***/
-
 //A window in the application
 public class Window : Gtk.ApplicationWindow {
 	public Window (Application app) {
 		Object (application: app, title: "AboutDialog Example");
-		set_default_size (400, 200);
-
+		this.set_default_size (400, 200);
 		var button = new Gtk.Button.with_label ("About");
 		button.clicked.connect (about_clicked);
-		add (button);
+		this.add (button);
 
-		show_all ();
+		this.show_all ();
 	}
 
 	void about_clicked () {
@@ -76,6 +73,9 @@ int main (string[] args) {
   In this sample we used the following:
 </p>
 <list>
-  <item><p><link href="">thing1</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.Application">Gtk.Application</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.ApplicationWindow">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.valadoc.org/#!api=gtk+-3.0/Gtk.Window.set_default_size">set_default_size</link></p></item>
+  <item><p><link href="http://www.valadoc.org/#!api=gtk+-2.0/Gtk.Button.Button.with_label">Gtk.Button.with_label</link></p></item>
 </list>
 </page>

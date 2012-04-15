@@ -20,29 +20,38 @@
   </info>
 
   <title>ApplicationWindow</title>
-  <media type="image" mime="image/png" src="media/GtkApplication.png"/>
-  <note style="bug"><p>
-    This program will not compile until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed.
-  </p></note>
+  <table>
+    <tr>
+      <td>
+        <media type="image" mime="image/png" src="media/GtkApplication.png"/>
+      </td>
+      <td>
+        <note style="important">
+          <p><em style="strong">You need to be running Gtk+-3.4 or later for this to work</em></p>
+        </note>
+        <note style="bug"><p>
+           This program will not compile until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed.
+        </p></note>
+     </td>
+    </tr>
+  </table>
   <p>A demonstration of the menu integration.</p>
   
       <code mime="text/x-vala" style="numbered"><![CDATA[
-/*** You need to be running Gtk+-3.4 or later for this to work ***/
-
 //A window in the application
 public class Window : Gtk.ApplicationWindow {
 	public Window (Application app) {
 		Object (application: app, title: "GtkApplication Example");
 
 		var label = new Gtk.Label ("Hello GtkApplication!");
-		add (label);
+		this.add (label);
 
 		var about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
-		add_action (about_action);
+		this.add_action (about_action);
 
-		set_default_size (400, 200);
-		show_all ();
+		this.set_default_size (400, 200);
+		this.show_all ();
 	}
 
 	void about () {
@@ -72,11 +81,11 @@ public class Application : Gtk.Application {
 		var menu = new Menu ();
 		menu.append ("About", "win.about");
 		menu.append ("Quit", "app.quit");
-		app_menu = menu;
+		this.app_menu = menu;
 
 		var quit_action = new SimpleAction ("quit", null);
-		quit_action.activate.connect (quit);
-		add_action (quit_action);
+		quit_action.activate.connect (this.quit);
+		this.add_action (quit_action);
 	}
 
 	public Application () {
@@ -93,6 +102,11 @@ int main (string[] args) {
   In this sample we used the following:
 </p>
 <list>
-  <item><p><link href="">thing1</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.Application">Gtk.Application</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.ApplicationWindow">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gio-2.0/GLib.Menu.Menu">Menu</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gio-2.0/GLib.Menu.append">append</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gio-2.0/GLib.SimpleAction">SimpleAction</link></p></item>
+  <item><p><link href="http://www.valadoc.org/#!api=gio-2.0/GLib.ActionMap.add_action">add_action</link></p></item>
 </list>
 </page>
