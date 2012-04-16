@@ -4,7 +4,7 @@ var Gtk = imports.gi.Gtk;
 Gtk.init(null, 0);
 
 // Create window and give it a name
-// You can't call it "window" as that name is a JavaScript word.
+// You can't call it "window" as that name is a JavaScript keyword.
 var sampleWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
 sampleWindow.title = "Welcome to GNOME";
 
