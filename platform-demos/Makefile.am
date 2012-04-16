@@ -88,6 +88,7 @@ DOC_PAGES =				\
 	weatherAppMain.js.page		\
 	weatherAutotools.js.page	\
 	weatherGeonames.js.page		\
+	window.js.page			\
 	window.vala.page
 
 dist-hook: doc-dist-hook
