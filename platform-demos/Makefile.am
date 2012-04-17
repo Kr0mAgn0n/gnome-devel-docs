@@ -26,11 +26,11 @@ demo_sources = \
 DOC_FIGURES = \
 	media/aboutdialog.png			\
 	media/button.png			\
-	media/button_with_progress_bar.png	\
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
+	media/grid.png				\
 	media/GtkApplication.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
@@ -53,7 +53,6 @@ DOC_PAGES =				\
 	aboutdialog.vala.page		\
 	audio-player.vala.page		\
 	beginner.c.page			\
-	beginner.js.page		\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
@@ -64,6 +63,7 @@ DOC_PAGES =				\
 	documentation.page		\
 	entry.js.page			\
 	getting-ready.page		\
+	grid.js.page			\
 	GtkApplication.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\

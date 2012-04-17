@@ -1,8 +1,8 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide" style="task"
-      id="button.js">
+      id="grid.js">
   <info>
-    <link type="guide" xref="beginner.js#buttons"/>
+    <link type="guide" xref="beginner.js#layout"/>
     <revision version="0.1" date="2012-02-21" status="stub"/>
 
     <credit type="author copyright">
@@ -11,12 +11,12 @@
       <years>2012</years>
     </credit>
 
-    <desc>A button widget which is connected to a progress bar</desc>
+    <desc>Pack widgets in rows and columns</desc>
   </info>
 
-  <title>Button widget</title>
+  <title>Grid widget</title>
 
-  <media type="image" mime="image/png" src="media/button_with_progress_bar.png"/>
+  <media type="image" mime="image/png" src="media/grid.png"/>
   <p>A button widget connected to a progress bar.</p>
   
       <code mime="text/javascript" style="numbered"><![CDATA[
@@ -24,7 +24,7 @@
 Gtk = imports.gi.Gtk;
 Gtk.init(null, 0);
 myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-myW.title = "Button";
+myW.title = "A Gtk.Grid";
 myW.connect("destroy", function(){Gtk.main_quit()});
 grid = new Gtk.Grid();
 myW.add(grid);
