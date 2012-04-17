@@ -53,10 +53,10 @@ DOC_PAGES =				\
 	aboutdialog.vala.page		\
 	audio-player.vala.page		\
 	beginner.c.page			\
+	beginner.js.page		\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
-	button.js.page			\
 	button.vala.page		\
 	desktop.js.page			\
 	dialog.vala.page		\
