@@ -9,8 +9,6 @@ DOC_FIGURES =						\
 	figures/badfocus1.png				\
 	figures/badfocus2.png				\
 	figures/badfocus3.png				\
-	figures/colour_and_arrows.png			\
-	figures/colour_only.png				\
 	figures/depend1a.png				\
 	figures/depend1.png				\
 	figures/depend2a.png				\
