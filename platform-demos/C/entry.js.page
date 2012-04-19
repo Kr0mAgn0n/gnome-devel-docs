@@ -15,10 +15,10 @@
   </info>
 
   <title>Entry widget</title>
-  
+
   <media type="image" mime="image/png" src="media/entry.png"/>
   <p>This an entry widget. An entry widget is a container that you can type in to. </p>
-  
+
       <code mime="text/javascript" style="numbered"><![CDATA[
 #!/usr/bin/gjs
 Gtk = imports.gi.Gtk;
@@ -46,7 +46,7 @@ this.resultlabel = new Gtk.Label({
 connectionbutton.connect("clicked", function(widget, event) {
   //getting the text from the entry widget and updating the label
   var whatWasTyped = entry.get_text();
-  this.resultlabel.set_text(whatWasTyped); 
+  this.resultlabel.set_text(whatWasTyped);
 });
 
 grid.attach(label, 1, 1, 1, 1);
@@ -55,10 +55,10 @@ grid.attach_next_to(connectionbutton,label,3,1,1);
 grid.attach_next_to(resultlabel,entry,3,1,1);myW.show_all();
 Gtk.main();]]></code>
 <p>In this sample we use the following widgets:
-<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>, 
-<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link>, 
-<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Entry.html">Gtk.Entry</link>, 
-<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link>, 
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Entry.html">Gtk.Entry</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link>,
 <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link>.</p>
 
 </page>

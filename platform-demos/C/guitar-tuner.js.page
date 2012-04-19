@@ -15,10 +15,10 @@
   </info>
 
   <title>2 Guitar Tuner</title>
-  
+
     <synopsis>
       <p>In this tutorial we'll construct a small application, Guitar Tuner, using JavaScript and GTK+ and GStreamer. To do and run all the code examples yourself, you need an editor to write code in, terminal and GNOME 3. or higher installed into your computer.</p>
-   <list> 
+   <list>
       <item><p> <link xref="#gstreamer">GStreamer pipelines</link> </p></item>
       <item><p> <link xref="#script">Script for running the application</link> </p></item>
       <item><p> <link xref="#imports">Libraries to import</link> </p></item>
@@ -28,7 +28,7 @@
       <item><p> <link xref="#connecting">Connecting buttons to playSound</link> </p></item>
       <item><p> <link xref="#guitarjs">The whole program</link> </p></item>
       <item><p> <link xref="#terminal">Running the application form Terminal</link> </p></item>
-    </list> 
+    </list>
   </synopsis>
   <p>After reading this tutorial, you should see this in your screen:</p>
   <media type="image" mime="image/png" src="media/guitar-tuner.png"/>
@@ -45,7 +45,7 @@
     <title>Script for running the application</title>
     <code mime="text/javascript" style="numbered"><![CDATA[
   #!/usr/bin/gjs]]></code>
-    <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program  
+    <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program
     </p>
   </section>
   <section id="imports">
@@ -58,7 +58,7 @@ const Mainloop = imports.mainloop;]]></code>
     <p>In order to have a working program we need to import a few GObject Introspection -libraries to our use. For working UI, we need Gtk and for Gstreamer to work we need Gst. These are imported in the beginning so we have them at use everywhere. Also in the beginning we import a construct Mainloop to handle the timeout to be used with the tuning sounds.</p>
     </section>
   <section id="mainwindow">
-    <title>Creating the main window for the application</title> 
+    <title>Creating the main window for the application</title>
     <code mime="text/javascript" style="numbered"><![CDATA[
 Gtk.init(null, 0);
 Gst.init(null, 0);
@@ -105,14 +105,14 @@ function playSound(frequency){
   var pipeline = new Gst.Pipeline({name: "note"});
   var source = new Gst.ElementFactory.make("audiotestsrc","source");
   var sink = new Gst.ElementFactory.make("autoaudiosink","output");
-  
+
   source.set_property('freq', frequency);
   pipeline.add(source);
   pipeline.add(sink);
   source.link(sink);
   pipeline.set_state(Gst.State.PLAYING);
 
-  Mainloop.timeout_add(500, function () { 
+  Mainloop.timeout_add(500, function () {
     pipeline.set_state(Gst.State.PAUSED);
 	  return false;
   });	
@@ -177,14 +177,14 @@ function playSound(frequency){
 
   var source = new Gst.ElementFactory.make("audiotestsrc","source");
   var sink = new Gst.ElementFactory.make("autoaudiosink","output");
-    
+
   source.set_property('freq', frequency);
   pipeline.add(source);
   pipeline.add(sink);
   source.link(sink);
   pipeline.set_state(Gst.State.PLAYING);
 
-  Mainloop.timeout_add(500, function () { 
+  Mainloop.timeout_add(500, function () {
     pipeline.set_state(Gst.State.PAUSED);
 	  return false;
 });	
@@ -232,6 +232,6 @@ Gtk.main();]]></code>
  <title>Reference Implementation</title>
  <p>If you run into problems with the tutorial, compare your code with this <link href="guitar-tuner/guitar-tuner.js">reference code</link>.</p>
 </section>
-  
- 
+
+
 </page>

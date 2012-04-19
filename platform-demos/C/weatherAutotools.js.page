@@ -17,25 +17,25 @@
   <title>Autotools and Icons</title>
   <synopsis>
     <p>In this part of the guide well construct the autotools and custom icons needed for weather application to be a seamless part of your desktop. To write and run all the code examples yourself, you need an editor to write code in, Terminal and GNOME 3 or higher installed into your computer. In this guide we we'll go through the following parts:</p>
-      
+
     <list>
       <item><p><link xref="#autotools"> Autotools</link></p></item>
       <item><p><link xref="#icons">Custom icons for your application</link></p></item>
-    </list> 
+    </list>
   </synopsis>
-  
+
 
 
   <section id ="autotools">
   <title>Autotools and necessary files</title>
-  <p>Having more than one file in your folder makes using autotools a bit tricky. You need the .desktop file, autogen.sh, Makefile.am, configure.ac and as a new file: myapp.sh.in file. Hacking the autotools file is a complicated field. More information can be found in many different sources, <link href="http://en.wikipedia.org/wiki/GNU_build_system">the wikipedia article</link> provides a good overwiev on the subject.  
-  </p> 
+  <p>Having more than one file in your folder makes using autotools a bit tricky. You need the .desktop file, autogen.sh, Makefile.am, configure.ac and as a new file: myapp.sh.in file. Hacking the autotools file is a complicated field. More information can be found in many different sources, <link href="http://en.wikipedia.org/wiki/GNU_build_system">the wikipedia article</link> provides a good overwiev on the subject.
+  </p>
     <list>
       <item><p>weatherapp.desktop</p></item>
       <item><p>weatherapp.sh.in</p></item>
       <item><p>Makefile.am</p></item>
       <item><p>configure.ac</p></item>
-      <item><p>autogen.sh</p></item>          
+      <item><p>autogen.sh</p></item>
     </list>
     <p>weatherapp.desktop</p>
     <code mime="text/.desktop" style="numbered"><![CDATA[
@@ -71,7 +71,7 @@ EXTRA_DIST=  \
 
 CLEANFILES =
 
-# The desktop files    
+# The desktop files
 desktopdir = $(datadir)/applications
 desktop_DATA =weatherapp.desktop
 
@@ -112,7 +112,7 @@ private_icons = \
   weather-showers-scattered.svg \
   weather-snow.svg \
   $(NULL)
-  
+
 install-icons:
 	for icon in $(private_icons); do \
 		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/; \
@@ -144,7 +144,7 @@ autoreconf --force --install]]></code>
   <p>When thinking about custom icons a good rule of thumb is: do you expect to see that icon used elsewhere or is it private to your app? If the first (e.g. the icons in the desktop file that are shown by the shell) then you need /usr/share/hicolor, otherwise (e.g. the weather icons of your app) /usr/share/$application/bla/bla</p>
   <p>Using autotools you have to make some changes to your .desktop and Makefile.am files. In the desktop file you change the Icon's name  Icon=weather-icon. In the Makefile.am file you add these two lines to the end of your application #the application icon</p>
   <p>appicondir=$(datadir)/icons/hicolor/scalable/apps</p>
-  <p>appicon_DATA=weather-icon.svg</p> 
+  <p>appicon_DATA=weather-icon.svg</p>
   </section>
 
 </page>

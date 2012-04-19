@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#cpp"/>
-  
+
     <desc>Use GTKmm and GStreamermm to build a simple guitar tuner application for GNOME. Shows off how to use the interface designer.</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2011-03-17" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -61,7 +61,7 @@
 
 <section id="build">
   <title>Build the code for the first time</title>
-  <p>This is a very basic C++ code setting up GTKmm. More details are given below; 
+  <p>This is a very basic C++ code setting up GTKmm. More details are given below;
   skip this list if you understand the basics:</p>
   <list>
   <item>
@@ -125,9 +125,9 @@ six strings) and the orientation to vertical.</p>
   <code>Gtk::Main kit(argc, argv);</code> line in <file>main.cc</file>:</p>
   <p><code>	Gst::init (argc, argv);</code></p>
   <p>While we are on it, also make sure that the <file>gstreamermm.h</file> is included in <file>main.cc</file> properly.</p>
-  
+
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
-  
+
   <p>To simplify the handling of the pipeline we will define a helper class <code>Sound</code>. We do
   that in <file>main.cc</file> in order to keep this example simple, whereas you might usually want
   to use a separate file:</p>
@@ -174,8 +174,8 @@ bool Sound::stop_playing()
 	return false;
 }
 ]]></code>
- 
-  <p>The code has the following purpose:</p>  
+
+  <p>The code has the following purpose:</p>
   <steps>
     <item>
     <p>In the constructor, source and sink GStreamer elements (<code>Gst::Element</code>) are created, and a pipeline element (which will be used as a container for the other two elements). The pipeline is given the name "note"; the source is named "source" and is set to the <code>audiotestsrc</code> source; and the sink is named "output" and set to the <code>autoaudiosink</code> sink (default sound card output). After the elements have been added to the pipeline and linked together, the pipeline is ready to run.</p>
@@ -190,7 +190,7 @@ bool Sound::stop_playing()
     any sound output anymore. As GStreamermm uses reference counting through the <code>Glib::RefPtr</code> object, the memory
     is automatically freed once the <code>Sound</code> class is destroyed.</p>
     </item>
-  </steps> 
+  </steps>
 </section>
 
 <section id="signals">
@@ -198,8 +198,8 @@ bool Sound::stop_playing()
   <p>We want to play the correct sound when the user clicks a button. That means that we have to connect
   to the signal that is fired when the user clicks the button. We also want to provide information to the
   called function which tone to play. GTKmm makes that quite easy as we can easily bind information with the <em>sigc</em>
-  library.</p> 
-  
+  library.</p>
+
   <p>The function that is called when the user clicks a button can be pretty simple, as
   all the interesting stuff is done in the helper class now:</p>
   <code mime="text/x-csrc"><![CDATA[
@@ -212,8 +212,8 @@ on_button_clicked(double frequency, Sound* sound)
   <p>It only calls the helper class we defined before to play the correct frequencies. With some more
   clever code we would also have been able to directly connect to the class without using the function
   but we will leave that to use as an exercise.</p>
-  
-  <p>The code to set up the signals should be added to the <code>main()</code> function just after the 
+
+  <p>The code to set up the signals should be added to the <code>main()</code> function just after the
   <code>builder->get_widget("main_window", main_win);</code> line:</p>
   <code mime="text/x-csrc"><![CDATA[
 Sound sound;
@@ -234,7 +234,7 @@ button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_b
 	</item>
 	<item>
 	<p>Finally we connect the <em>clicked</em> signal. This isn't fully straightforward because this is done in a fully type-safe
-	way and we actually want to pass the frequency and our helper class to the signal handler. 
+	way and we actually want to pass the frequency and our helper class to the signal handler.
 	<code>sigc::ptr_fun(&amp;on_button_clicked)</code> creates a <em>slot</em> for the <code>on_button_clicked</code> method
 	we defined above. With <code>sigc::bind</code> we are able to pass additional arguments to the slot and in this
 	case we pass the frequency (as double) and our helper class.</p>
@@ -242,7 +242,7 @@ button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_b
   </steps>
   <p>Now that we have set up the <em>E</em> button we also need to connect the other buttons according to their frequencies:
   440 for A,  587.33 for D, 783.99 for G, 987.77 for B and 1318.5 for the high E. This is done in the same way, just passing
-  a different frequency to the handler.</p> 
+  a different frequency to the handler.</p>
 </section>
 
 <section id="run">
@@ -258,7 +258,7 @@ button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_b
 
 <section id="further">
   <title>Further Reading</title>
-  <p>Many of the things shown above are explained in detail in the 
+  <p>Many of the things shown above are explained in detail in the
   <link href="http://library.gnome.org/devel/gtkmm-tutorial/stable/">GTKmm book</link> which also
   covers a lot more key concept for using the full power of GTKmm. You might also be interested
   in the <link href="http://library.gnome.org/devel/gstreamermm/">GStreamermm reference documentation</link>.</p>

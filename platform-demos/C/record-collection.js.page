@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#js"/>
-    
+
     <desc>Create a small database application for ordering your music collection</desc>
-    
+
     <revision pkgversion="0.1" version="0.1" date="2011-02-22" status="review"/>
     <credit type="author">
       <name>GNOME Documentation Project</name>
@@ -15,7 +15,7 @@
     <credit type="author">
       <name>Johannes Schmid</name>
       <email>jhs@gnome.org</email>
-    </credit>    
+    </credit>
   </info>
 
 <title>3 Record Collection</title>
@@ -104,7 +104,7 @@ Gtk.main ();]]></code>
   <code mime="text/javascript" style="numbered"><![CDATA[
   setupWindow: function () {
     this.window = new Gtk.Window ({title: "Data Access Demo", height_request: 350});
-    this.window.connect ("delete-event", function () { 
+    this.window.connect ("delete-event", function () {
       Gtk.main_quit();
       return true;
       });
@@ -250,7 +250,7 @@ Gtk.main ();]]></code>
     if (!this._validateFields ())
       return;
 
-    // Gda.execute_non_select_command (this.connection, 
+    // Gda.execute_non_select_command (this.connection,
     //   "insert into demo values ('" + this.id_entry.text + "', '" + this.name_entry.text + "')");
 
     var b = new Gda.SqlBuilder ({stmt_type:Gda.SqlStatementType.INSERT});

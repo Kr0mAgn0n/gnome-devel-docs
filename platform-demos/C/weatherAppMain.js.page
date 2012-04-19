@@ -16,7 +16,7 @@
 
   <title>The main program file</title>
   <synopsis>
-    <p>In this part of the guide well construct the main program file of the weather application. To write and run all the code examples yourself, you need an editor to write code in, Terminal and GNOME 3 or higher installed into your computer. In this part we we'll go through the following parts:</p> 
+    <p>In this part of the guide well construct the main program file of the weather application. To write and run all the code examples yourself, you need an editor to write code in, Terminal and GNOME 3 or higher installed into your computer. In this part we we'll go through the following parts:</p>
     <list>
       <item><p> <link xref="#script">Script for running the application</link> </p></item>
       <item><p> <link xref="#imports">Libraries to import</link> </p></item>
@@ -25,16 +25,16 @@
       <item><p> <link xref="#asynccall">Requesting the weather information asynchronously</link></p></item>
       <item><p> <link xref="#connectingbuttons">Connecting signals to button and entry."></link></p></item>
       <item><p> <link xref="#weatherapp.js">weatherapp.js</link></p></item>
-    </list> 
+    </list>
   </synopsis>
   <section id="script">
     <title>Script for running the application</title>
     <code mime="text/javascript" style="numbered"><![CDATA[
   #!/usr/bin/gjs]]></code>
-    <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to Terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program  
+    <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to Terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program
     </p>
   </section>
-  
+
   <section id="imports">
     <title>Libraries to import</title>
     <code mime="text/javascript" style="numbered"><![CDATA[
@@ -44,7 +44,7 @@ const WeatherService = imports.geonames;]]></code>
     </section>
 
    <section id="mainwindow">
-    <title>Creating the main window for the application</title> 
+    <title>Creating the main window for the application</title>
     <code mime="text/javascript" style="numbered"><![CDATA[
 // Initialize the gtk
 Gtk.init(null, 0);
@@ -69,7 +69,7 @@ var weatherIcon = new Gtk.Image();
 
 //Set some labels to your window
 var label1 = new Gtk.Label({label: ""});
-var label2 = new Gtk.Label({label: "Looking in the sky..."});   
+var label2 = new Gtk.Label({label: "Looking in the sky..."});
 var label3 = new Gtk.Label({label: ""});
 
 var entry = new Gtk.Entry();
@@ -88,7 +88,7 @@ grid.attach_next_to(weatherIcon,label2,1,1,1)
 ]]></code>
     <p>In this section we create the grid we are going to use for positioning the widgets. All the buttons, labels and entrys are initialized and placed on the grid. As seen from the placing of the different widgets, they don't need to be related only to one widget. At this point some of the labels don't have any content. The content for those widgets is applied later. If you run the application at this stage, you have the UI ready, but the widgets are not connected to anything. For this we need to first build the weather searching local library, and then get the information we need asynchronously. When we have our local library ready we can connect it to the necessary widgets.</p>
   </section>
- 
+
      <section id="asynccall">
   <title>Requesting the weather information asynchronously</title>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -99,11 +99,11 @@ function getWeatherForStation() {
 
   GeoNames.getWeather(function(error, weather) {
     //this here works bit like signals. This code will be run when we have weather.
-    if (error) { 
+    if (error) {
       label2.set_text("Suggested ICAO station does not exist Try EFHF");
     return; }
     weatherIcon.file = GeoNames.getIcon(weather);
-    
+
     label1.set_text("Temperature is " + weather.weatherObservation.temperature + " degrees.");
     if (weather.weatherObservation.weatherCondition !== "n/a"){
       label2.set_text("Looks like there is " + weather.weatherObservation.weatherCondition + " in the sky.");
@@ -118,7 +118,7 @@ function getWeatherForStation() {
 ]]></code>
   <p>This function is dedicated for calling for the weather information and updating labels and icons accordingly. In the beginning of the function we get the user input for the search. So here for the first time we use our own library and assign it to variable GeoNames. While assigning WeatherService we give it the station. The firs thing we do with GeoNames is to request weather. Everything after GeoNames.getWeather(function(error, weather) happens only if we either get an error message or weather information. If either doesn't come, the rest of the program works as normal, so main_Quit works.</p>
   </section>
-  
+
   <section id="connectingbuttons">
   <title>Connecting signals to button and entry.</title>
   <code mime="text/javascript" style="numbered"><![CDATA[
@@ -134,8 +134,8 @@ button1.connect("clicked", function(){
   getWeatherForStation();
 });]]></code>
   <p>And finally we have the connections that make the whole application run as it should. We connect both the entry and the button to do the same thing, getting the weather. So it doesn't matter weather you press enter of click the search button.</p>
-  </section>  
-  
+  </section>
+
   <section id ="weatherapp.js">
   <title>Weatherapp.js</title>
   <p> Weatherapp.js file looks like this:</p>
@@ -162,7 +162,7 @@ var weatherIcon = new Gtk.Image();
 
 //Set some labels to your window
 var label1 = new Gtk.Label({label: ""});
-var label2 = new Gtk.Label({label: "Looking in the sky..."});   
+var label2 = new Gtk.Label({label: "Looking in the sky..."});
 var label3 = new Gtk.Label({label: ""});
 
 var grid = new Gtk.Grid();
@@ -196,11 +196,11 @@ function getWeatherForStation() {
 
   GeoNames.getWeather(function(error, weather) {
     //this here works bit like signals. This code will be run when we have weather.
-    if (error) { 
+    if (error) {
       label2.set_text("Suggested ICAO station does not exist Try EFHF");
     return; }
     weatherIcon.file = GeoNames.getIcon(weather);
-    
+
     label1.set_text("Temperature is " + weather.weatherObservation.temperature + " degrees.");
     if (weather.weatherObservation.weatherCondition !== "n/a"){
       label2.set_text("Looks like there is " + weather.weatherObservation.weatherCondition + " in the sky.");
