@@ -1,0 +1,56 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="button.js">
+  <info>
+    <link type="guide" xref="beginner.js#buttons"/>
+    <revision version="0.1" date="2012-04-19" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A button which can be connected to other widgets</desc>
+  </info>
+
+  <title>Button</title>
+  <media type="image" mime="image/png" src="media/button.png"/>
+  <p>A button widget that changes its label when you click it.</p>
+  
+      <code mime="text/javascript" style="numbered"><![CDATA[
+]]>#!/usr/bin/gjs
+
+// Initialize GTK
+var Gtk = imports.gi.Gtk;
+Gtk.init(null, 0);
+
+// Create and set up the window
+var buttonWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
+buttonWindow.title = "GNOME Button";
+buttonWindow.set_default_size (250,50);
+buttonWindow.connect("destroy", function(){Gtk.main_quit()});
+
+// Create the button and add it to the window
+var theButton = new Gtk.Button ({label: "Click me"});
+buttonWindow.add (theButton);
+
+/* Say what to do when the button is clicked
+   You can connect it to more useful things if you like.
+   Note that it uses the same syntax as line 11, above.
+   Instead of saying what to do when we get a "destroy"
+   signal from the window, we're saying what to do when
+   we get a "clicked" signal from the button. */
+var clicks = 0;
+theButton.connect ("clicked", function () {
+	clicks++;
+	this.theButton.set_label("Number of clicks: " + clicks + "!");
+});
+
+// Show the window and the widget inside it, and start the application
+buttonWindow.show_all();
+Gtk.main();</code>
+<p>
+  In this sample we used the following widgets: <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link>, <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>
+</p>
+</page>
