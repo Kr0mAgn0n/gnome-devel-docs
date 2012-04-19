@@ -57,6 +57,7 @@ DOC_PAGES =				\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
+	button.js.page			\
 	button.vala.page		\
 	desktop.js.page			\
 	dialog.vala.page		\
