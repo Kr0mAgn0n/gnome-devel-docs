@@ -32,7 +32,6 @@ DOC_FIGURES = \
 	media/opensuse.png			\
 	media/grid.png				\
 	media/GtkApplication.png		\
-	media/GtkApplicationWindow.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\

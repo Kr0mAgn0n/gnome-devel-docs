@@ -1,6 +1,6 @@
 public class MyWindow : Gtk.ApplicationWindow {
 	internal MyWindow (MyApplication app) {
-		Object (application: app, title: "My Application");
+		Object (application: app, title: "Welcome to GNOME");
 	}
 }
 
