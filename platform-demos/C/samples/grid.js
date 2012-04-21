@@ -2,7 +2,7 @@
 Gtk = imports.gi.Gtk;
 Gtk.init(null, 0);
 myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-myW.title = "A Gtk.Grid";
+myW.title = "A Grid Example";
 myW.connect("destroy", function(){Gtk.main_quit()});
 grid = new Gtk.Grid();
 myW.add(grid);
