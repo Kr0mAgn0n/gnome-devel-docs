@@ -1,0 +1,49 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="GtkApplicationWindow.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#windows"/>
+    <revision version="0.1" date="2012-04-07" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>GtkWindow subclass with GtkApplication support</desc>
+  </info>
+
+  <title>Application Window</title>
+  <media type="image" mime="image/png" src="media/GtkApplicationWindow.png"/>
+  <p>The simplest GtkApplication Window</p>
+
+      <code mime="text/x-vala" style="numbered"><![CDATA[
+public class MyWindow : Gtk.ApplicationWindow {
+	internal MyWindow (MyApplication app) {
+		Object (application: app, title: "My Application");
+	}
+}
+
+public class MyApplication : Gtk.Application {
+	protected override void activate () {
+		new MyWindow (this).show ();
+	}
+
+	internal MyApplication () {
+		Object (application_id: "org.example.MyApplication");
+	}
+}
+
+public int main (string[] args) {
+	return new MyApplication ().run (args);
+}
+]]></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://references.valadoc.org/gtk+-3.0/Gtk.Application.html.content.tpl">Gtk.Application</link></p></item>
+  <item><p><link href="http://references.valadoc.org/#!api=gtk+-3.0/Gtk.ApplicationWindow">Gtk.ApplicationWindow</link></p></item>
+</list>
+</page>
