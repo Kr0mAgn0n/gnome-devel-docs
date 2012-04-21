@@ -1,0 +1,65 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="grid.py">
+  <info>
+    <link type="guide" xref="beginner.py#layout"/>
+    <revision version="0.1" date="2012-02-21" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Pack widgets in rows and columns</desc>
+  </info>
+
+  <title>Grid widget</title>
+
+  <media type="image" mime="image/png" src="media/grid.png"/>
+  <p>A button widget connected to a progress bar.</p>
+
+      <code mime="text/javascript" style="numbered"><![CDATA[
+from gi.repository import Gtk
+import sys
+
+class GridWindow(Gtk.ApplicationWindow):
+    def __init__(self, app):
+        Gtk.Window.__init__(self, title="Grid Example", application=app)
+
+        grid = Gtk.Grid()
+        button = Gtk.Button(label="Button")
+  
+        self.add(grid)
+        grid.attach(button, 1, 1, 1, 1)
+        self.progress_bar = Gtk.ProgressBar()
+        grid.attach_next_to(self.progress_bar, button, 3, 1, 1)
+
+        button.connect("clicked", self.button_clicked_cb)
+
+    def button_clicked_cb(self, widget):
+        self.progress_bar.pulse()
+
+class GridApplication(Gtk.Application):
+    def __init__(self):
+        Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
+
+    def do_activate(self):
+	win = GridWindow(self)
+	win.show_all()
+
+app = GridApplication()
+exit_status = app.run(sys.argv)
+sys.exit(exit_status)
+]]></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkGrid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkProgressBar.html">Gtk.ProgressBar</link></p></item>
+  <item><p><link href="button.py.page">Gtk.Button</link></p></item>
+</list>
+</page>

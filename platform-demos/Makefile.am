@@ -65,6 +65,7 @@ DOC_PAGES =				\
 	entry.js.page			\
 	getting-ready.page		\
 	grid.js.page			\
+	grid.py.page			\
 	GtkApplication.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
