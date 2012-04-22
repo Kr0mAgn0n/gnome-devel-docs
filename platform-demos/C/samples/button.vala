@@ -1,36 +1,32 @@
-/*callback for the "clicked" signal.*/
-void button_clicked_cb () {
-	stdout.printf ("You clicked the button!\n");
-	//TODO: add a modal window
+public class MyWindow : Gtk.ApplicationWindow {
+	void reverse_label (Gtk.Button button) {
+		button.label = button.label.reverse ();
+	}
+
+	internal MyWindow (MyApplication app) {
+		Object (application: app, title: "GNOME Button");
+
+		var button = new Gtk.Button.with_label ("Click Me");
+		button.clicked.connect (reverse_label);
+                button.show ();
+
+                this.window_position = Gtk.WindowPosition.CENTER;
+                this.set_default_size (250,50);
+		this.add (button);
+
+	}
 }
 
-int main (string[] args) {
+public class MyApplication : Gtk.Application {
+	protected override void activate () {
+		new MyWindow (this).show ();
+	}
 
-	Gtk.init (ref args);
+	internal MyApplication () {
+		Object (application_id: "org.example.MyApplication");
+	}
+}
 
-	var window = new Gtk.Window ();
-	window.title = "GNOME Button";
-	window.set_default_size (250,50);
-
-	var button = new Gtk.Button.with_label ("Click Me");
-	window.add (button);
-
-	window.window_position = Gtk.WindowPosition.CENTER;
-
-	/* The "clicked" signal is emitted when the
-	   button is clicked.  The signal is connected to
-	   the button_clicked_cb method defined above.*/
-	button.clicked.connect (button_clicked_cb);
-
-	/*The "destroy" signal is emitted when the x
-	  in the top right of the window is clicked.
-	  The destroy signal is connected to the
-	  main_quit method, which destroys the window
-	  and exits the program.*/
-	window.destroy.connect (Gtk.main_quit);
-
-	window.show_all ();
-
-	Gtk.main ();
-	return 0;
+public int main (string[] args) {
+	return new MyApplication ().run (args);
 }
