@@ -92,6 +92,7 @@ DOC_PAGES =				\
 	weatherAutotools.js.page	\
 	weatherGeonames.js.page		\
 	window.js.page			\
+	window.py.page			\
 	window.vala.page
 
 dist-hook: doc-dist-hook
