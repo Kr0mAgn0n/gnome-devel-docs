@@ -1,0 +1,59 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="window.c">
+  <info>
+    <link type="guide" xref="beginner.c#windows"/>
+    <revision version="0.1" date="2012-04-07" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A toplevel window which can contain other widgets</desc>
+  </info>
+
+  <title>Window</title>
+  <media type="image" mime="image/png" src="media/window.png"/>
+  <p>A minimal GtkApplication.</p>
+
+      <code mime="text/x-csrc" style="numbered"><![CDATA[
+#include <gtk/gtk.h>
+
+static void
+activate (GtkApplication *app,
+          gpointer        user_data)
+{
+  GtkWidget *window;
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+
+  gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
+  gtk_window_set_title (GTK_WINDOW (window), "Hello GNOME");
+
+  gtk_widget_show_all (GTK_WIDGET (window));
+}
+
+int
+main (int argc, char **argv)
+{
+  GtkApplication *app;
+  int status;
+
+  app = gtk_application_new ("org.gtk.example",G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+  return status;
+}
+]]></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+
+</list>
+</page>

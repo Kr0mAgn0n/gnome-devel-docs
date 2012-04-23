@@ -91,6 +91,7 @@ DOC_PAGES =				\
 	weatherAppMain.js.page		\
 	weatherAutotools.js.page	\
 	weatherGeonames.js.page		\
+	window.c.page			\
 	window.js.page			\
 	window.py.page			\
 	window.vala.page
