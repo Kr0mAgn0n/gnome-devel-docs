@@ -23,9 +23,14 @@
   <table>
     <tr>
       <td>
-        <media type="image" mime="image/png" src="media/GtkApplication.png"/>
+        <media type="image" mime="image/png" src="media/GtkApplication2.png"/>
       </td>
-      <td>
+       <td>
+        <media type="image" mime="image/png" src="media/GtkApplication1.png"/>
+      </td>
+     </tr>
+     <tr>
+     <td>
         <note style="important">
           <p><em style="strong">You need to be running Gtk+-3.4 or later for this to work</em></p>
         </note>
@@ -84,7 +89,7 @@ public class Application : Gtk.Application {
 		this.app_menu = menu;
 
 		var quit_action = new SimpleAction ("quit", null);
-		quit_action.activate.connect (this.quit);
+		//quit_action.activate.connect (this.quit);
 		this.add_action (quit_action);
 	}
 
