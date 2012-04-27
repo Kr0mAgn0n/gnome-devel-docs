@@ -23,8 +23,8 @@ public class MyApplication : Gtk.Application {
 	}
 
 	const ActionEntry[] action_entries = {
-		{ "new", new_window },
-		{ "quit", quit }
+		{ "new", new_window } /*,
+		{ "quit", quit }*/
 	};
 
 	internal MyApplication () {
