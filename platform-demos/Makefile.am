@@ -26,6 +26,7 @@ demo_sources = \
 	samples/dialog.vala			\
 	samples/grid.py				\
 	samples/GtkApplicationWindow.vala	\
+	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/window.c			\
 	samples/window.py			\
@@ -47,6 +48,7 @@ DOC_FIGURES = \
 	media/guitar-tuner-pipeline.png		\
 	media/helloWorldJs.png			\
 	media/image-viewer.png			\
+	media/label.png				\
 	media/magic-mirror.png			\
 	media/message-board.ogv			\
 	media/messagedialog.png			\
@@ -94,6 +96,7 @@ DOC_PAGES =				\
 	image-viewer.vala.page		\
 	index.page			\
 	js.page				\
+	label.vala.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
