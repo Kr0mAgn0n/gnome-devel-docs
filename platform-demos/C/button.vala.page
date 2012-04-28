@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="button.vala">
   <info>
@@ -19,40 +20,9 @@
   <media type="image" mime="image/png" src="media/button.png"/>
   <p>A button widget connected to a simple callback function.</p>
 
-      <code mime="text/x-vala" style="numbered"><![CDATA[
-public class MyWindow : Gtk.ApplicationWindow {
-	void reverse_label (Gtk.Button button) {
-		button.label = button.label.reverse ();
-	}
-
-	internal MyWindow (MyApplication app) {
-		Object (application: app, title: "GNOME Button");
-
-		var button = new Gtk.Button.with_label ("Click Me");
-		button.clicked.connect (reverse_label);
-                button.show ();
-
-                this.window_position = Gtk.WindowPosition.CENTER;
-                this.set_default_size (250,50);
-		this.add (button);
-
-	}
-}
-
-public class MyApplication : Gtk.Application {
-	protected override void activate () {
-		new MyWindow (this).show ();
-	}
-
-	internal MyApplication () {
-		Object (application_id: "org.example.MyApplication");
-	}
-}
-
-public int main (string[] args) {
-	return new MyApplication ().run (args);
-}
-]]></code>
+<code mime="text/x-vala" style="numbered">
+<xi:include href="samples/button.vala" parse="text"><xi:fallback/></xi:include>
+</code>
 <p>
   In this sample we used the following:
   <link xref="GtkApplicationWindow.vala">Gtk.ApplicationWindow</link>,

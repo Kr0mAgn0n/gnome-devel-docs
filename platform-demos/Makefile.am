@@ -22,6 +22,7 @@ demo_sources = \
 	photo-wall/photo-wall.c 		\		
 	record-collection/record-collection.js 	\
 	samples/aboutdialog_GMenu.vala		\
+	samples/button.vala			\
 	samples/dialog.vala			\
 	samples/GtkApplicationWindow.vala	\
 	samples/window.vala			\
