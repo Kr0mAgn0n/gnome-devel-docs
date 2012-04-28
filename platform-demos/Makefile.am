@@ -68,6 +68,8 @@ DOC_PAGES =				\
 	bug-filing.page			\
 	button.js.page			\
 	button.vala.page		\
+	c.page				\
+	cpp.page			\
 	desktop.js.page			\
 	dialog.vala.page		\
 	documentation.page		\
@@ -89,13 +91,16 @@ DOC_PAGES =				\
 	image-viewer.py.page		\
 	image-viewer.vala.page		\
 	index.page			\
+	js.page				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
 	toolbar.js.page			\
 	photo-wall.c.page		\
+	py.page				\
 	record-collection.js.page	\
 	translate.page			\
+	vala.page			\
 	weatherApp.js.page		\
 	weatherAppMain.js.page		\
 	weatherAutotools.js.page	\
