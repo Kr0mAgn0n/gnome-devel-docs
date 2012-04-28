@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="messagedialog.vala">
   <info>
@@ -18,42 +19,9 @@
   <media type="image" mime="image/png" src="media/messagedialog.png"/>
   <p>A modal message dialog which can cause the world to explode.</p>
 
-      <code mime="text/x-vala" style="numbered"><![CDATA[
-void dialog_response (int response_id) {
-	switch (response_id) {
-		case Gtk.ResponseType.OK:
-			print ("*boom*\n");
-			break;
-		case Gtk.ResponseType.CANCEL:
-			print ("good choice\n");
-			break;
-		case Gtk.ResponseType.DELETE_EVENT:
-			print ("dialog closed or cancelled\n");
-			break;
-	}
-
-	Gtk.main_quit ();
-}
-
-int main (string[] args) {
-
-	Gtk.init (ref args);
-
-	var messagedialog = new Gtk.MessageDialog (null,
-						   Gtk.DialogFlags.MODAL,
-                                                   Gtk.MessageType.INFO,
-                                                   Gtk.ButtonsType.OK_CANCEL,
-                                                   "This action will cause the universe to stop existing.");
-
-	messagedialog.response.connect (dialog_response);
-
- 	messagedialog.show ();
-
-	Gtk.main ();
-
-	return 0;
-}
-]]></code>
+<code mime="text/x-vala" style="numbered">
+<xi:include href="samples/messagedialog.vala" parse="text"><xi:fallback/></xi:include>
+</code>
 <p>
   In this sample we used the following:
 </p>
