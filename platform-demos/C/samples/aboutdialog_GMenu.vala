@@ -1,7 +1,3 @@
-//Note to self: Python and JS need to import Glib for the menu
-
-/*** You need to be running Gtk+-3.4 or later for this to work ***/
-
 //A window in the application
 public class Window : Gtk.ApplicationWindow {
 	public Window (Application app) {

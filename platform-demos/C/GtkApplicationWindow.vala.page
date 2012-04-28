@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="GtkApplicationWindow.vala">
   <info>
@@ -16,29 +17,11 @@
 
   <title>Application Window</title>
   <media type="image" mime="image/png" src="media/window.png"/>
-  <p>The simplest GtkApplication Window</p>
+  <p>The simplest GtkApplication Window which can support Menus.</p>
 
-      <code mime="text/x-vala" style="numbered"><![CDATA[
-public class MyWindow : Gtk.ApplicationWindow {
-	internal MyWindow (MyApplication app) {
-		Object (application: app, title: "Welcome to GNOME");
-	}
-}
-
-public class MyApplication : Gtk.Application {
-	protected override void activate () {
-		new MyWindow (this).show ();
-	}
-
-	internal MyApplication () {
-		Object (application_id: "org.example.MyApplication");
-	}
-}
-
-public int main (string[] args) {
-	return new MyApplication ().run (args);
-}
-]]></code>
+<code mime="text/x-vala" style="numbered">
+<xi:include href="samples/GtkApplicationWindow.vala" parse="text"><xi:fallback/></xi:include>
+</code>
 <p>
   In this sample we used the following:
 </p>

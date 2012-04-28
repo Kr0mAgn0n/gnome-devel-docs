@@ -21,10 +21,14 @@ demo_sources = \
 	message-board/message-board.c 		\
 	photo-wall/photo-wall.c 		\		
 	record-collection/record-collection.js 	\
+	samples/aboutdialog_GMenu.vala		\
+	samples/dialog.vala			\
+	samples/GtkApplicationWindow.vala	\
+	samples/window.vala			\
 	media/gnome-devtools.catalog
 
 DOC_FIGURES = \
-	media/aboutdialog.png			\
+	media/aboutdialog_GMenu.png		\
 	media/button.png			\
 	media/dialog.png			\
 	media/entry.png				\
@@ -51,7 +55,7 @@ DOC_FIGURES = \
 	$(demo_sources)
 
 DOC_PAGES =				\
-	aboutdialog.vala.page		\
+	aboutdialog_GMenu.vala.page	\
 	audio-player.vala.page		\
 	beginner.c.page			\
 	beginner.js.page		\
