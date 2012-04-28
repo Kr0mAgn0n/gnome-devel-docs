@@ -24,6 +24,7 @@ demo_sources = \
 	samples/aboutdialog_GMenu.vala		\
 	samples/button.vala			\
 	samples/dialog.vala			\
+	samples/grid.py				\
 	samples/GtkApplicationWindow.vala	\
 	samples/window.py			\
 	samples/window.vala			\
