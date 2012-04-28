@@ -26,6 +26,7 @@ demo_sources = \
 	samples/dialog.vala			\
 	samples/grid.py				\
 	samples/GtkApplicationWindow.vala	\
+	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
 	media/gnome-devtools.catalog
