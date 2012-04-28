@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="GtkApplication.vala">
   <info>
@@ -23,10 +24,10 @@
   <table>
     <tr>
       <td>
-        <media type="image" mime="image/png" src="media/GtkApplication2.png"/>
+        <media type="image" mime="image/png" height="200" src="media/GtkApplication2.png"/>
       </td>
        <td>
-        <media type="image" mime="image/png" src="media/GtkApplication1.png"/>
+        <media type="image" mime="image/png" height="200" src="media/GtkApplication1.png"/>
       </td>
      </tr>
      <tr>
@@ -35,74 +36,16 @@
           <p><em style="strong">You need to be running Gtk+-3.4 or later for this to work</em></p>
         </note>
         <note style="bug"><p>
-           This program will not compile until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed.
+           This program will not compile with the quit action connected until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed. Therefore, the problematic line has been commented out.
         </p></note>
      </td>
     </tr>
   </table>
   <p>A demonstration of the menu integration.</p>
 
-      <code mime="text/x-vala" style="numbered"><![CDATA[
-//A window in the application
-public class Window : Gtk.ApplicationWindow {
-	public Window (Application app) {
-		Object (application: app, title: "GtkApplication Example");
-
-		var label = new Gtk.Label ("Hello GtkApplication!");
-		this.add (label);
-
-		var about_action = new SimpleAction ("about", null);
-		about_action.activate.connect (about);
-		this.add_action (about_action);
-
-		this.set_default_size (400, 200);
-		this.show_all ();
-	}
-
-	void about () {
-		string[] authors = { "GNOME Documentation Team", null };
-		string[] documenters = { "GNOME Documentation Team", null };
-
-		Gtk.show_about_dialog (this,
-	                       "program-name", ("GtkApplication Example"),
-	                       "copyright", ("Copyright \xc2\xa9 2012 GNOME Documentation Team"),
-	                       "authors", authors,
-	                       "documenters", documenters,
-	                       "website", "http://developer.gnome.org",
-	                       "website-label", ("GNOME Developer Website"),
-	                       null);
-	}
-}
-
-//This is the Application
-public class Application : Gtk.Application {
-	protected override void activate () {
-		new Window (this);
-	}
-
-	protected override void startup () {
-		base.startup ();
-
-		var menu = new Menu ();
-		menu.append ("About", "win.about");
-		menu.append ("Quit", "app.quit");
-		this.app_menu = menu;
-
-		var quit_action = new SimpleAction ("quit", null);
-		//quit_action.activate.connect (this.quit);
-		this.add_action (quit_action);
-	}
-
-	public Application () {
-		Object (application_id: "org.example.application");
-	}
-}
-
-//main function creates Application and runs it
-int main (string[] args) {
-	return new Application ().run (args);
-}
-]]></code>
+<code mime="text/x-vala" style="numbered">
+<xi:include href="samples/aboutdialog_GMenu.vala" parse="text"><xi:fallback/></xi:include>
+</code>
 <p>
   In this sample we used the following:
 </p>
