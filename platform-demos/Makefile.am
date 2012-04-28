@@ -85,6 +85,7 @@ DOC_PAGES =				\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  		\
+	helloworldautotools.js.page	\
 	image-viewer.c.page		\
 	image-viewer.cpp.page		\
 	image-viewer.js.page		\
