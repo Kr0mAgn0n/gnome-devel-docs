@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="window.py">
   <info>
@@ -14,22 +15,13 @@
     <desc>A toplevel window which can contain other widgets</desc>
   </info>
 
-  <title>Generic widget</title>
+  <title>Window</title>
   <media type="image" mime="image/png" src="media/window.png"/>
   <p>A minimal Gtk+ Application.</p>
 
-      <code mime="text/x-python" style="numbered"><![CDATA[
-from gi.repository import Gtk
-import sys
-
-class MyApp(Gtk.Application):
-    def do_activate(self):
-        window = Gtk.Window(application = self)
-        window.set_title("Welcome to GNOME")
-        window.show_all()
-
-MyApp(application_id = "org.example.whatever").run(sys.argv)
-]]></code>
+      <code mime="text/x-python" style="numbered">
+<xi:include href="samples/window.py" parse="text"><xi:fallback/></xi:include>
+</code>
 <p>
   In this sample we used the following:
 </p>
