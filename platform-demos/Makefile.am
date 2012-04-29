@@ -24,6 +24,7 @@ demo_sources = \
 	samples/aboutdialog_GMenu.vala		\
 	samples/button.vala			\
 	samples/dialog.vala			\
+	samples/gmenu.c				\
 	samples/grid.py				\
 	samples/GtkApplicationWindow.c		\
 	samples/GtkApplicationWindow.vala	\
@@ -41,6 +42,7 @@ DOC_FIGURES = \
 	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
+	media/gmenu.png				\
 	media/grid.png				\
 	media/GtkApplication1.png		\
 	media/GtkApplication2.png		\
@@ -80,6 +82,7 @@ DOC_PAGES =				\
 	entry.js.page			\
 	getting-ready.page		\
 	grid.js.page			\
+	gmenu.c.page			\
 	grid.py.page			\
 	GtkApplication.vala.page	\
 	GtkApplicationWindow.c.page	\
