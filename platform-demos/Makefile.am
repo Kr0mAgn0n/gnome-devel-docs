@@ -81,8 +81,8 @@ DOC_PAGES =				\
 	getting-ready.page		\
 	grid.js.page			\
 	grid.py.page			\
-	GtkApplication.c.page		\
 	GtkApplication.vala.page	\
+	GtkApplicationWindow.c.page	\
 	GtkApplicationWindow.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
