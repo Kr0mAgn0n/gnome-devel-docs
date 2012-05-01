@@ -1,7 +1,7 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
-      id="GtkApplication.vala">
+      id="gmenu.vala">
   <info>
     <link type="guide" xref="beginner.vala#menu-combo-toolbar"/>
     <revision version="0.1" date="2012-04-07" status="stub"/>
@@ -17,31 +17,18 @@
       <email>tiffany.antopolski@gmail.com</email>
     </credit>
 
-    <desc>A Gtk.Application with a GMenu</desc>
+    <desc>A simple implementation of GMenuModel</desc>
   </info>
 
-  <title>Application with GMenu</title>
-  <table>
-    <tr>
-      <td>
-        <media type="image" mime="image/png" height="200" src="media/GtkApplication2.png"/>
-      </td>
-       <td>
-        <media type="image" mime="image/png" height="200" src="media/GtkApplication1.png"/>
-      </td>
-     </tr>
-     <tr>
-     <td>
-        <note style="important">
-          <p><em style="strong">You need to be running Gtk+-3.4 or later for this to work</em></p>
-        </note>
-        <note style="bug"><p>
-           This program will not compile with the quit action connected until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed. Therefore, the problematic line has been commented out.
-        </p></note>
-     </td>
-    </tr>
-  </table>
-  <p>A demonstration of the menu integration.</p>
+  <title>GMenu</title>
+    <media type="image" mime="image/png" height="200" src="media/gmenu.vala.png"/>
+    <note style="important">
+       <p><em style="strong">You need to be running Gtk+-3.4 or later for this to work</em></p>
+    </note>
+    <note style="bug">
+      <p>This program will not compile with the quit action connected until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed. Therefore, the problematic line has been commented out.</p>
+    </note>
+    <p>A GtkApplication with a simple GMenu and SimpleActions</p>
 
 <code mime="text/x-vala" style="numbered">
 <xi:include href="samples/aboutdialog_GMenu.vala" parse="text"><xi:fallback/></xi:include>

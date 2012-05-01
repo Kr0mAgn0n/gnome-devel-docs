@@ -43,11 +43,10 @@ DOC_FIGURES = \
 	media/entry.png				\
 	media/fedora.png			\
 	media/opensuse.png			\
-	media/gmenu.png				\
+	media/gmenu.c.png			\
 	media/gmenu.py.png			\
+	media/gmenu.vala.png			\
 	media/grid.png				\
-	media/GtkApplication1.png		\
-	media/GtkApplication2.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -86,8 +85,8 @@ DOC_PAGES =				\
 	grid.js.page			\
 	gmenu.c.page			\
 	gmenu.py.page			\
+	gmenu.vala.page			\
 	grid.py.page			\
-	GtkApplication.vala.page	\
 	GtkApplicationWindow.c.page	\
 	GtkApplicationWindow.vala.page	\
 	guitar-tuner.c.page		\
