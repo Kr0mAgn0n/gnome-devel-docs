@@ -28,6 +28,7 @@ demo_sources = \
 	samples/gmenu.py			\
 	samples/grid.py				\
 	samples/GtkApplicationWindow.c		\
+        samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.vala	\
 	samples/label.vala			\
 	samples/messagedialog.vala		\
@@ -88,6 +89,7 @@ DOC_PAGES =				\
 	gmenu.vala.page			\
 	grid.py.page			\
 	GtkApplicationWindow.c.page	\
+	GtkApplicationWindow.js.page	\
 	GtkApplicationWindow.vala.page	\
 	guitar-tuner.c.page		\
 	guitar-tuner.cpp.page		\
