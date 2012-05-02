@@ -1,25 +1,42 @@
 #!/usr/bin/gjs
 
-var Gtk = imports.gi.Gtk;
-Gtk.init(null, 0);
+const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
 
-// Create window and give it a name
-// You can't call it "window" as that name is a JavaScript keyword.
-var sampleWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-sampleWindow.title = "Welcome to GNOME";
+const Application = new Lang.Class ({
+    Name: 'Application',
+   
+    //create the application
+    _init: function () {
+        this.application = new Gtk.Application ({
+            application_id: 'org.example.myapp',
+            flags: Gio.ApplicationFlags.FLAGS_NONE
+        });
 
-/* The "destroy" signal is sent out when you click the X button.
-   Here, we connect that signal to the GTK+ function to close the window. */
-sampleWindow.connect("destroy", function(){Gtk.main_quit()});
+       this.application.connect('activate', Lang.bind(this, this._onActivate));
+    },
 
-/* Here are a few ways we can customize our window.
-   Try uncommenting them or changing their values! */
-// sampleWindow.set_default_size (400,200);
-// sampleWindow.set_has_resize_grip (false);
-// sampleWindow.set_opacity (0.5);
-// sampleWindow.maximize ();
+    //callback function for 'activate' signal
+    _onActivate: function () {
 
-// If the window has widgets in it, you'll want to use show_all() instead.
-sampleWindow.show();
+        MyWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
+        MyWindow.title = "Welcome to GNOME";
 
-Gtk.main();
+       /* Here are a few ways we can customize our window.
+       Try uncommenting them or changing their values! */
+        //MyWindow.set_default_size (400,200);
+        //MyWindow.set_has_resize_grip (false);
+        //MyWindow.set_opacity (0.5);
+        //MyWindow.maximize ();
+
+        //show the window and all child widgets (none in this case)
+        MyWindow.show_all();
+        this.application.add_window(MyWindow);
+    }
+});
+
+//run the application
+let app = new Application ();
+app.application.run (ARGV);

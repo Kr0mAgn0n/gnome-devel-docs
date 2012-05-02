@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="window.js">
   <info>
@@ -15,36 +16,25 @@
   </info>
 
   <title>Window</title>
-  <media type="image" mime="image/png" src="media/window.png"/>
-  <p>A plain window, without other widgets added to it.</p>
-
-      <code mime="text/javascript" style="numbered"><![CDATA[
-]]>#!/usr/bin/gjs
-
-var Gtk = imports.gi.Gtk;
-Gtk.init(null, 0);
-
-// Create window and give it a name
-// You can't call it "window" as that name is a JavaScript keyword.
-var sampleWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-sampleWindow.title = "Welcome to GNOME";
-
-/* The "destroy" signal is sent out when you click the X button.
-   Here, we connect that signal to the GTK+ function to close the window. */
-sampleWindow.connect("destroy", function(){Gtk.main_quit()});
-
-/* Here are a few ways we can customize our window.
-   Try uncommenting them or changing their values! */
-// sampleWindow.set_default_size (400,200);
-// sampleWindow.set_has_resize_grip (false);
-// sampleWindow.set_opacity (0.5);
-// sampleWindow.maximize ();
-
-// If the window has widgets in it, you'll want to use show_all() instead.
-sampleWindow.show();
-
-Gtk.main();</code>
+<table>
+  <tr>
+    <td>
+      <media type="image" mime="image/png" src="media/window.png"/>
+      <p>A minimal GtkApplication</p>
+    </td>
+    <td>
+      <p>Use <link href="GtkApplicationWindow.js.page">ApplicationWindow</link> if you need GMenu support.</p>
+    </td>
+  </tr>
+</table>
+      <code mime="text/javascript" style="numbered">
+<xi:include href="samples/window.js" parse="text"><xi:fallback/></xi:include></code>
 <p>
-  In this sample we used the following widget: <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>
+In this example we used the following:
 </p>
+<list>
+<item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+<item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link></p></item>
+</list>
+
 </page>
