@@ -29,7 +29,6 @@ class MyApplication(Gtk.Application):
 
         menu = Gio.Menu()
         menu.append("New", "app.new")
-        menu.append ("Awesome", "app.awesome")
         menu.append ("About", "app.about")
         menu.append("Quit", "app.quit")
         self.set_app_menu (menu)
