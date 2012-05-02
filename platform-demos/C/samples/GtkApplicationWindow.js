@@ -21,8 +21,8 @@ const Application = new Lang.Class ({
     },
 
     //create the UI (in this case it's just the ApplicationWindow
-    _buildUI: function (app) {
-        this._window = new Gtk.ApplicationWindow  ({ application: app,
+    _buildUI: function () {
+        this._window = new Gtk.ApplicationWindow  ({ application: this.application,
                                                    window_position: Gtk.WindowPosition.CENTER,
                                                    title: "Welcome to GNOME" });
 
@@ -39,8 +39,8 @@ const Application = new Lang.Class ({
     },
 
     //callback function for 'startup' signal
-    _onStartup: function (app) {
-        this._buildUI (app);
+    _onStartup: function () {
+        this._buildUI ();
     }
 });
 
