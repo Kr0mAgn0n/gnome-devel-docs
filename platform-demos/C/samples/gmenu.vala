@@ -1,7 +1,7 @@
 //A window in the application
 public class Window : Gtk.ApplicationWindow {
 	public Window (Application app) {
-		Object (application: app, title: "AboutDialog Example");
+		Object (application: app, title: "Gmenu Example");
 
 		var about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
@@ -11,17 +11,7 @@ public class Window : Gtk.ApplicationWindow {
 	}
 
 	void about () {
-		string[] authors = { "GNOME Documentation Team", null };
-		string[] documenters = { "GNOME Documentation Team", null };
-
-		Gtk.show_about_dialog (this,
-	                       "program-name", ("GtkApplication Example"),
-	                       "copyright", ("Copyright \xc2\xa9 2012 GNOME Documentation Team"),
-	                       "authors", authors,
-	                       "documenters", documenters,
-	                       "website", "http://developer.gnome.org",
-	                       "website-label", ("GNOME Developer Website"),
-	                       null);
+		print ("This does nothing.  It is only a demonstration\n");
 	}
 }
 

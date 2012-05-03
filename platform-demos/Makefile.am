@@ -21,12 +21,13 @@ demo_sources = \
 	message-board/message-board.c 		\
 	photo-wall/photo-wall.c 		\		
 	record-collection/record-collection.js 	\
-	samples/aboutdialog_GMenu.vala		\
+	samples/aboutdialog.vala		\
 	samples/button.vala			\
 	samples/dialog.vala			\
 	samples/gmenu.c				\
 	samples/gmenu.js			\
 	samples/gmenu.py			\
+	samples/gmenu.vala			\
 	samples/grid.py				\
 	samples/GtkApplicationWindow.c		\
         samples/GtkApplicationWindow.js		\
@@ -70,7 +71,7 @@ DOC_FIGURES = \
 	$(demo_sources)
 
 DOC_PAGES =				\
-	aboutdialog_GMenu.vala.page	\
+	aboutdialog.vala.page		\
 	audio-player.vala.page		\
 	beginner.c.page			\
 	beginner.js.page		\
