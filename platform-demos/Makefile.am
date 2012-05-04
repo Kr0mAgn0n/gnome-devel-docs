@@ -24,6 +24,7 @@ demo_sources = \
 	samples/aboutdialog.vala		\
 	samples/button.vala			\
 	samples/dialog.vala			\
+	samples/entry.vala			\
 	samples/gmenu.c				\
 	samples/gmenu.js			\
 	samples/gmenu.py			\
@@ -53,6 +54,7 @@ DOC_FIGURES = \
 	media/gmenu.py.png			\
 	media/gmenu.vala.png			\
 	media/grid.png				\
+	media/grid_with_entry.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -87,8 +89,9 @@ DOC_PAGES =				\
 	desktop.js.page			\
 	dialog.vala.page		\
 	documentation.page		\
-	entry.js.page			\
+	entry.vala.page			\
 	getting-ready.page		\
+	grid_with_entry.js.page		\
 	grid.js.page			\
 	gmenu.c.page			\
 	gmenu.js.page			\
