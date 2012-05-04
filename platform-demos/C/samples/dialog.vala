@@ -1,45 +1,49 @@
-//This is the application
-public class MyApplication : Gtk.Application {
-	public MyApplication () {
-		Object (application_id: "org.example.dialog");
-	}
-	
-	void on_response (Gtk.Dialog dialog, int response_id) {
-		/*To see the int value of the ResponseType*/
-		print ("response is %d\n", response_id);
+public class MyWindow : Gtk.ApplicationWindow {
 
-		dialog.destroy ();
-	}
+        void on_response (Gtk.Dialog dialog, int response_id) {
+                /*To see the int value of the ResponseType*/
+                print ("response is %d\n", response_id);
+
+                dialog.destroy ();
+        }
 
 	void on_button_click (Gtk.Button button) {
-		var window = button.get_toplevel () as Gtk.Window;
-		var dialog = new Gtk.Dialog.with_buttons ("A Gtk+ Dialog", window,
-		                                          Gtk.DialogFlags.MODAL,
-		                                          Gtk.Stock.OK, 
-		                                          Gtk.ResponseType.OK, null);
-		var content_area = dialog.get_content_area (); 
-		var label = new Gtk.Label ("This demonstrates a dialog with a label");
+                var dialog = new Gtk.Dialog.with_buttons ("A Gtk+ Dialog", this,
+                                                          Gtk.DialogFlags.MODAL,
+                                                          Gtk.Stock.OK,
+                                                          Gtk.ResponseType.OK, null);
 
-		content_area.add (label);
-		dialog.response.connect (on_response);
-		dialog.show_all ();
+                var content_area = dialog.get_content_area ();
+                var label = new Gtk.Label ("This demonstrates a dialog with a label");
+
+                content_area.add (label);
+                dialog.response.connect (on_response);
+                dialog.show_all ();
 	}
 
-	public override void activate () {
-		var window = new Gtk.Window ();
-		window.set_default_size (200, 50);
+	internal MyWindow (MyApplication app) {
+		Object (application: app, title: "GNOME Button");
 
-		var button = new Gtk.Button.from_stock (Gtk.Stock.OK);
+		var button = new Gtk.Button.with_label ("Click Me");
 		button.clicked.connect (on_button_click);
-		window.add (button);
+                button.show ();
 
-		this.add_window (window);
-		window.show_all ();
+                this.window_position = Gtk.WindowPosition.CENTER;
+                this.set_default_size (250,50);
+		this.add (button);
 	}
 }
 
-//The main function creates the application and runs it.
-int main (string[] args) {
-	var app = new MyApplication ();
-	return app.run (args);
+public class MyApplication : Gtk.Application {
+	protected override void activate () {
+		new MyWindow (this).show ();
+	}
+
+	internal MyApplication () {
+		Object (application_id: "org.example.MyApplication");
+	}
+}
+
+public int main (string[] args) {
+	return new MyApplication ().run (args);
 }
