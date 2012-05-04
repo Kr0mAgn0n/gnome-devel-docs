@@ -4,7 +4,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		var image = new Gtk.Image ();
 		image.set_from_file ("gnome-image.png");
-                this.add (image);
+		this.add (image);
 		this.set_default_size (300, 300);
 
 		this.show_all ();
