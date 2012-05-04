@@ -33,6 +33,7 @@ demo_sources = \
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
+	samples/image.vala			\
 	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/window.c			\
@@ -56,6 +57,7 @@ DOC_FIGURES = \
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
 	media/helloWorldJs.png			\
+	media/image.png				\
 	media/image-viewer.png			\
 	media/label.png				\
 	media/magic-mirror.png			\
@@ -104,6 +106,7 @@ DOC_PAGES =				\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  		\
 	helloworldautotools.js.page	\
+	image.vala.page			\
 	image-viewer.c.page		\
 	image-viewer.cpp.page		\
 	image-viewer.js.page		\
