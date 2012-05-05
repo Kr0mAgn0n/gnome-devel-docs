@@ -30,6 +30,7 @@ demo_sources = \
 	samples/gmenu.py			\
 	samples/gmenu.vala			\
 	samples/grid.py				\
+	samples/grid.vala			\
 	samples/GtkApplicationWindow.c		\
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
@@ -93,6 +94,7 @@ DOC_PAGES =				\
 	getting-ready.page		\
 	grid_with_entry.js.page		\
 	grid.js.page			\
+	grid.vala.page			\
 	gmenu.c.page			\
 	gmenu.js.page			\
 	gmenu.py.page			\
