@@ -23,8 +23,8 @@ class GridApplication(Gtk.Application):
         Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
 
     def do_activate(self):
-	win = GridWindow(self)
-	win.show_all()
+        win = GridWindow(self)
+        win.show_all()
 
 app = GridApplication()
 exit_status = app.run(sys.argv)

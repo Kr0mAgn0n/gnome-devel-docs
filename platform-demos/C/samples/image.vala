@@ -6,14 +6,12 @@ public class MyWindow : Gtk.ApplicationWindow {
 		image.set_from_file ("gnome-image.png");
 		this.add (image);
 		this.set_default_size (300, 300);
-
-		this.show_all ();
 	}
 }
 
 public class MyApplication : Gtk.Application {
 	protected override void activate () {
-		new MyWindow (this).show ();
+		new MyWindow (this).show_all ();
 	}
 
 	internal MyApplication () {

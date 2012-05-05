@@ -94,6 +94,7 @@ DOC_PAGES =				\
 	getting-ready.page		\
 	grid_with_entry.js.page		\
 	grid.js.page			\
+	grid.py.page			\
 	grid.vala.page			\
 	gmenu.c.page			\
 	gmenu.js.page			\
