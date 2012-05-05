@@ -1,21 +1,33 @@
+from gi.repository import GLib
 from gi.repository import Gtk
+from gi.repository import Gio
+import sys
 
-class ButtonWindow(Gtk.Window):
-
+class MyWindow(Gtk.ApplicationWindow):
+    def __init__(self, app):
+        Gtk.Window.__init__(self, title="GNOME Button", application=app)
+        
+class MyButton(Gtk.Button):
     def __init__(self):
-        Gtk.Window.__init__(self, title="GNOME Button")
+        Gtk.Button.__init__(self, label="Click me", stock=None, use_underline=True)
+
+    def do_clicked(self):
+        print "You clicked me!"
+
+class MyApplication(Gtk.Application):
+    def __init__(self):
+        Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
         
-        self.set_default_size(250, 50)
-        self.set_position(Gtk.WindowPosition.CENTER)
-        
-        self.button = Gtk.Button(label="Click me")
-        self.button.connect("clicked", self.button_clicked)
-        self.add(self.button)
-    
-    def button_clicked(self, widget):
-        print "\"Click me\" button was clicked"
-        
-win = ButtonWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()
+    def do_activate(self):
+        win = MyWindow(self)
+        win.set_default_size(250, 50)
+        win.set_position(Gtk.WindowPosition.CENTER)        
+        win.add(MyButton())
+        win.show_all()
+
+    def do_startup (self):
+        Gtk.Application.do_startup (self)
+
+app = MyApplication()
+exit_status = app.run(sys.argv)
+sys.exit(exit_status)
