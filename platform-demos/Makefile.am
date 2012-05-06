@@ -22,6 +22,7 @@ demo_sources = \
 	photo-wall/photo-wall.c 		\		
 	record-collection/record-collection.js 	\
 	samples/aboutdialog.vala		\
+	samples/button.py			\
 	samples/button.vala			\
 	samples/dialog.vala			\
 	samples/entry.vala			\
@@ -35,9 +36,11 @@ demo_sources = \
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
+	samples/image.py			\
 	samples/image.vala			\
 	samples/label.vala			\
 	samples/messagedialog.vala		\
+	samples/progressbar.vala		\
 	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
@@ -68,6 +71,7 @@ DOC_FIGURES = \
 	media/messagedialog.png			\
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
+	media/progressbar.ogv			\
 	media/record-collection.png		\
 	media/toolbar.png			\
 	media/ubuntu.png			\
@@ -83,7 +87,7 @@ DOC_PAGES =				\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
-	button.js.page			\
+	button.py.page			\
 	button.vala.page		\
 	c.page				\
 	cpp.page			\
@@ -112,6 +116,7 @@ DOC_PAGES =				\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  		\
 	helloworldautotools.js.page	\
+	image.py.page			\
 	image.vala.page			\
 	image-viewer.c.page		\
 	image-viewer.cpp.page		\
@@ -126,6 +131,7 @@ DOC_PAGES =				\
 	messagedialog.vala.page		\
 	toolbar.js.page			\
 	photo-wall.c.page		\
+	progressbar.vala.page		\
 	py.page				\
 	record-collection.js.page	\
 	translate.page			\
