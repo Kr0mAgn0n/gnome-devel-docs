@@ -131,7 +131,7 @@ DOC_PAGES =				\
 	image-viewer.vala.page		\
 	index.page			\
 	js.page				\
-	label.python.page		\
+	label.py.page			\
 	label.vala.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
