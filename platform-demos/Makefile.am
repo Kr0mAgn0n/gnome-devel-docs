@@ -38,6 +38,7 @@ demo_sources = \
 	samples/GtkApplicationWindow.vala	\
 	samples/image.py			\
 	samples/image.vala			\
+	samples/label.py			\
 	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
@@ -127,6 +128,7 @@ DOC_PAGES =				\
 	image-viewer.vala.page		\
 	index.page			\
 	js.page				\
+	label.python.page		\
 	label.vala.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
