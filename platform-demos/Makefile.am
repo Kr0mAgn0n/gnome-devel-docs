@@ -41,6 +41,7 @@ demo_sources = \
 	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
+	samples/spinner.vala			\
 	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
@@ -73,6 +74,7 @@ DOC_FIGURES = \
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
 	media/record-collection.png		\
+	media/spinner.png			\
 	media/toolbar.png			\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
@@ -129,6 +131,7 @@ DOC_PAGES =				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
+	spinner.vala.page		\
 	toolbar.js.page			\
 	photo-wall.c.page		\
 	progressbar.vala.page		\
