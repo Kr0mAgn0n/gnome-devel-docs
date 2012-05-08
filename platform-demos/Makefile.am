@@ -43,6 +43,7 @@ demo_sources = \
 	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
+	samples/statusbar.vala			\
 	samples/spinner.vala			\
 	samples/toolbar.vala			\
 	samples/window.c			\
@@ -79,6 +80,7 @@ DOC_FIGURES = \
 	media/progressbar.ogv			\
 	media/record-collection.png		\
 	media/spinner.png			\
+	media/statusbar.png			\
 	media/toolbar.png			\
 	media/toolbar2.png			\
 	media/ubuntu.png			\
@@ -139,6 +141,7 @@ DOC_PAGES =				\
 	message-board.c.page		\
 	messagedialog.vala.page		\
 	spinner.vala.page		\
+	statusbar.vala.page		\
 	toolbar.js.page			\
 	photo-wall.c.page		\
 	progressbar.vala.page		\
