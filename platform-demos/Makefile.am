@@ -44,6 +44,7 @@ demo_sources = \
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
 	samples/spinner.vala			\
+	samples/toolbar.vala			\
 	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
@@ -79,6 +80,7 @@ DOC_FIGURES = \
 	media/record-collection.png		\
 	media/spinner.png			\
 	media/toolbar.png			\
+	media/toolbar2.png			\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
 	media/window.png			\
@@ -142,6 +144,7 @@ DOC_PAGES =				\
 	progressbar.vala.page		\
 	py.page				\
 	record-collection.js.page	\
+	toolbar.vala.page		\
 	translate.page			\
 	vala.page			\
 	weatherApp.js.page		\
