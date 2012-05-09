@@ -45,8 +45,8 @@ demo_sources = \
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
 	samples/radiobutton.vala		\
-	samples/statusbar.vala			\
 	samples/spinner.vala			\
+	samples/statusbar.vala			\
 	samples/toolbar.vala			\
 	samples/window.c			\
 	samples/window.py			\
@@ -61,7 +61,6 @@ DOC_FIGURES = \
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
-	media/opensuse.png			\
 	media/gmenu.c.png			\
 	media/gmenu.js.png			\
 	media/gmenu.py.png			\
@@ -78,6 +77,7 @@ DOC_FIGURES = \
 	media/magic-mirror.png			\
 	media/message-board.ogv			\
 	media/messagedialog.png			\
+	media/opensuse.png			\
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
@@ -102,19 +102,19 @@ DOC_PAGES =				\
 	bug-filing.page			\
 	button.py.page			\
 	button.vala.page		\
+	c.page				\
 	checkbutton.vala.page		\
 	combobox.vala.page		\
-	c.page				\
 	cpp.page			\
 	desktop.js.page			\
 	dialog.vala.page		\
 	documentation.page		\
 	entry.vala.page			\
 	getting-ready.page		\
-	grid_with_entry.js.page		\
 	grid.js.page			\
 	grid.py.page			\
 	grid.vala.page			\
+	grid_with_entry.js.page		\
 	gmenu.c.page			\
 	gmenu.js.page			\
 	gmenu.py.page			\
@@ -145,14 +145,14 @@ DOC_PAGES =				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
-	radiobutton.vala.page		\
-	spinner.vala.page		\
-	statusbar.vala.page		\
-	toolbar.js.page			\
 	photo-wall.c.page		\
 	progressbar.vala.page		\
 	py.page				\
+	radiobutton.vala.page		\
 	record-collection.js.page	\
+	spinner.vala.page		\
+	statusbar.vala.page		\
+	toolbar.js.page			\
 	toolbar.vala.page		\
 	translate.page			\
 	vala.page			\
