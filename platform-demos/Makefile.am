@@ -47,6 +47,7 @@ demo_sources = \
 	samples/radiobutton.vala		\
 	samples/spinner.vala			\
 	samples/statusbar.vala			\
+	samples/togglebutton.vala		\
 	samples/toolbar.vala			\
 	samples/window.c			\
 	samples/window.py			\
@@ -85,6 +86,7 @@ DOC_FIGURES = \
 	media/record-collection.png		\
 	media/spinner.png			\
 	media/statusbar.png			\
+	media/togglebutton.png			\
 	media/toolbar.png			\
 	media/toolbar2.png			\
 	media/ubuntu.png			\
@@ -152,6 +154,7 @@ DOC_PAGES =				\
 	record-collection.js.page	\
 	spinner.vala.page		\
 	statusbar.vala.page		\
+	togglebutton.vala.page		\
 	toolbar.js.page			\
 	toolbar.vala.page		\
 	translate.page			\
