@@ -24,6 +24,7 @@ demo_sources = \
 	samples/aboutdialog.vala		\
 	samples/button.py			\
 	samples/button.vala			\
+	samples/checkbutton.vala		\
 	samples/combobox.vala			\
 	samples/dialog.vala			\
 	samples/entry.vala			\
@@ -54,6 +55,7 @@ demo_sources = \
 DOC_FIGURES = \
 	media/aboutdialog_GMenu.png		\
 	media/button.png			\
+	media/checkbutton.png			\
 	media/combobox.png			\
 	media/dialog.png			\
 	media/entry.png				\
@@ -98,6 +100,7 @@ DOC_PAGES =				\
 	bug-filing.page			\
 	button.py.page			\
 	button.vala.page		\
+	checkbutton.vala.page		\
 	combobox.vala.page		\
 	c.page				\
 	cpp.page			\
