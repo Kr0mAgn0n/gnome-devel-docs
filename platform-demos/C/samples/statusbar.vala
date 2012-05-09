@@ -9,7 +9,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		statusbar = new Gtk.Statusbar ();
         	context_id = statusbar.get_context_id ("example");
 		
-		statusbar.push (context_id, "Waiting for you do to something...");
+		statusbar.push (context_id, "Waiting for you to do something...");
 
 		//set the default size of the window		
 		this.set_default_size (200, 100);
@@ -37,8 +37,8 @@ public class MyWindow : Gtk.ApplicationWindow {
 		button.clicked.connect(button_clicked_cb);
 	}
 
-	/* Since the key-press-event is a signal emitted the window, we don't need to connect it
-	to a callback function.  We can just override key_press_event. */
+	/* Since the key-press-event is a signal received by the window, we don't need to connect 
+	the window to a callback function.  We can just override key_press_event. */
 	protected override bool key_press_event (Gdk.EventKey event) {		
 		statusbar.push (context_id, Gdk.keyval_name(event.keyval) + " key was pressed.");
 		return true;

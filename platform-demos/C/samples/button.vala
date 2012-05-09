@@ -8,12 +8,11 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		var button = new Gtk.Button.with_label ("Click Me");
 		button.clicked.connect (reverse_label);
-                button.show ();
+		button.show ();
 
-                this.window_position = Gtk.WindowPosition.CENTER;
-                this.set_default_size (250,50);
+		this.window_position = Gtk.WindowPosition.CENTER;
+		this.set_default_size (250,50);
 		this.add (button);
-
 	}
 }
 
