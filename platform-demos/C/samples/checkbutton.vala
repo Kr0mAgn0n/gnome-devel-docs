@@ -7,7 +7,7 @@ class MyWindow : Gtk.ApplicationWindow {
 		this.border_width = 10;
 	
 		var checkbutton = new Gtk.CheckButton.with_label ("Show Title");
-		(checkbutton as Gtk.ToggleButton).toggled.connect (toggled_cb);
+		checkbutton.toggled.connect (toggled_cb);
 		this.add (checkbutton);
 		checkbutton.set_active (true);
 		checkbutton.show ();
