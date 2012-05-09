@@ -44,6 +44,7 @@ demo_sources = \
 	samples/label.vala			\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
+	samples/radiobutton.vala		\
 	samples/statusbar.vala			\
 	samples/spinner.vala			\
 	samples/toolbar.vala			\
@@ -80,6 +81,7 @@ DOC_FIGURES = \
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
+	media/radiobutton.png			\
 	media/record-collection.png		\
 	media/spinner.png			\
 	media/statusbar.png			\
@@ -143,6 +145,7 @@ DOC_PAGES =				\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.vala.page		\
+	radiobutton.vala.page		\
 	spinner.vala.page		\
 	statusbar.vala.page		\
 	toolbar.js.page			\
