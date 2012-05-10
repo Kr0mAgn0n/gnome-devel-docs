@@ -50,6 +50,7 @@ demo_sources = \
 	samples/switch.vala			\
 	samples/togglebutton.vala		\
 	samples/toolbar.vala			\
+	samples/treeview_simple_liststore.vala 	\
 	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
@@ -92,6 +93,7 @@ DOC_FIGURES = \
 	media/togglebutton.png			\
 	media/toolbar.png			\
 	media/toolbar2.png			\
+	media/treeview_simple_liststore.png	\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
 	media/window.png			\
@@ -161,6 +163,7 @@ DOC_PAGES =				\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
 	toolbar.vala.page		\
+	treeview_simple_liststore.vala.page	\
 	translate.page			\
 	vala.page			\
 	weatherApp.js.page		\
