@@ -1,26 +1,45 @@
-//A window in the application
+/* A window in the application. */
 public class Window : Gtk.ApplicationWindow {
+
+	/* Constructor */
 	public Window (Application app) {
 		Object (application: app, title: "Gmenu Example");
 
 		var about_action = new SimpleAction ("about", null);
-		about_action.activate.connect (about);
+
+		/* Connect the 'activate' signal to the 
+		 * signal handler (aka. callback).
+		 */
+		about_action.activate.connect (this.about_cb);
+
+		/* Add the action to this window. */
 		this.add_action (about_action);
 
-		this.show_all ();
+		this.show ();
 	}
 
-	void about () {
-		print ("This does nothing.  It is only a demonstration\n");
+	/* Signal handler for 'activate' signal of the SimpleAction. */
+	void about_cb () {
+		print ("This does nothing.  It is only a demonstration.\n");
 	}
 }
 
-//This is the Application
+/* This is the Application. */
 public class Application : Gtk.Application {
+
+	/* Constructor */
+	public Application () {
+		Object (application_id: "org.example.application");
+	}
+
+	/* Override the 'activate' signal of GLib.Application. */
 	protected override void activate () {
+
+		/* Create a new window for this application. */
 		new Window (this);
 	}
 
+	/* Override the 'startup' signal of GLib.Application. */
 	protected override void startup () {
 		base.startup ();
 
@@ -34,12 +53,10 @@ public class Application : Gtk.Application {
 		this.add_action (quit_action);
 	}
 
-	public Application () {
-		Object (application_id: "org.example.application");
-	}
+
 }
 
-//main function creates Application and runs it
+/* main function creates Application and runs it. */
 int main (string[] args) {
 	return new Application ().run (args);
 }

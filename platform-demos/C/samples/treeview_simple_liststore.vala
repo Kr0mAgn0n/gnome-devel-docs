@@ -27,8 +27,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 	enum Column {
 		FIRSTNAME, 
 		LASTNAME, 
-		PHONE,
-		WEIGHT
+		PHONE
 	}
 
 	internal TreeViewSimpleListStore (MyApplication app) {
@@ -54,11 +53,10 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 	}
 
 	void setup_treeview (Gtk.TreeView view) {
-        	var listmodel = new Gtk.ListStore (4, 
+        	var listmodel = new Gtk.ListStore (3, 
                                                    typeof (string), 
                                                    typeof (string),
-                                                   typeof (string),
-                                                   typeof (int));
+                                                   typeof (string));
 			view.set_model (listmodel);
 
 			var cell = new Gtk.CellRendererText ();
@@ -68,13 +66,13 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 		 	 *  700 is bold.
 		 	 */
 			cell.set ("weight_set", true);
+                        cell.set ("weight", 700);
  
 			/*columns*/
 			view.insert_column_with_attributes (-1,
                                                             "First Name",
                                                             cell, "text",
-                                                            Column.FIRSTNAME,
-                                                            "weight", Column.WEIGHT);
+                                                            Column.FIRSTNAME);
 
 			view.insert_column_with_attributes (-1, 
                                                             "Last Name",
@@ -93,8 +91,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 			listmodel.set (iter, Column.FIRSTNAME,
                                        phonebook[i].firstname,
                                        Column.LASTNAME, phonebook[i].lastname,
-                                       Column.PHONE, phonebook[i].phone,
-                                       Column.WEIGHT, 700);
+                                       Column.PHONE, phonebook[i].phone);
 		}
 	}
 
@@ -131,3 +128,4 @@ class MyApplication : Gtk.Application {
 int main (string[] args) {
 	return new MyApplication ().run (args);
 }
+
