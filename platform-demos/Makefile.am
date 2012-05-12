@@ -11,7 +11,7 @@ demo_sources = \
 	guitar-tuner/guitar-tuner.js 		\
 	guitar-tuner/guitar-tuner.py 		\
 	guitar-tuner/guitar-tuner.vala 		\
-	image-viewer/image-viewer.c 		\	
+	image-viewer/image-viewer.c 		\
 	image-viewer/image-viewer.cc 		\
 	image-viewer/image-viewer.js 		\
 	image-viewer/image-viewer.py 		\
