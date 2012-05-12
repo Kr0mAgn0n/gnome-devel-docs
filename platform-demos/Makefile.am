@@ -118,15 +118,14 @@ DOC_PAGES =				\
 	documentation.page		\
 	entry.vala.page			\
 	getting-ready.page		\
-	grid.js.page			\
-	grid.py.page			\
-	grid.vala.page			\
-	grid_with_entry.js.page		\
 	gmenu.c.page			\
 	gmenu.js.page			\
 	gmenu.py.page			\
 	gmenu.vala.page			\
+	grid.js.page			\
 	grid.py.page			\
+	grid.vala.page			\
+	grid_with_entry.js.page		\
 	GtkApplicationWindow.c.page	\
 	GtkApplicationWindow.js.page	\
 	GtkApplicationWindow.py.page	\
