@@ -28,6 +28,7 @@ class MyWindow(Gtk.ApplicationWindow):
             print "good choice"
         elif response_id == Gtk.ResponseType.DELETE_EVENT:
             print "dialog closed or cancelled"
+        widget.destroy()
  
     def message_cb(self, action, parameter):
         messagedialog = Gtk.MessageDialog (self, 
