@@ -24,8 +24,10 @@ demo_sources = \
 	samples/aboutdialog.vala		\
 	samples/button.py			\
 	samples/button.vala			\
+	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
 	samples/combobox.vala			\
+	samples/dialog.py			\
 	samples/dialog.vala			\
 	samples/entry.vala			\
 	samples/gmenu.c				\
@@ -42,6 +44,7 @@ demo_sources = \
 	samples/image.vala			\
 	samples/label.py			\
 	samples/label.vala			\
+	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
 	samples/radiobutton.vala		\
@@ -110,10 +113,12 @@ DOC_PAGES =				\
 	button.py.page			\
 	button.vala.page		\
 	c.page				\
+	checkbutton.py.page		\
 	checkbutton.vala.page		\
 	combobox.vala.page		\
 	cpp.page			\
 	desktop.js.page			\
+	dialog.py.page			\
 	dialog.vala.page		\
 	documentation.page		\
 	entry.vala.page			\
@@ -150,6 +155,7 @@ DOC_PAGES =				\
 	label.vala.page			\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
+	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	photo-wall.c.page		\
 	progressbar.vala.page		\
