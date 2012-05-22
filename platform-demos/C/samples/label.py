@@ -6,11 +6,9 @@ import sys
 class MyWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
-        
-class MyLabel(Gtk.Label):
-    def __init__(self):
-        Gtk.Label.__init__(self)
-        self.set_text("Hello GNOME!")
+        label = Gtk.Label()
+        label.set_text("Hello GNOME!")
+        self.add(label)
         
 class MyApplication(Gtk.Application):
     def __init__(self):
@@ -20,7 +18,6 @@ class MyApplication(Gtk.Application):
         win = MyWindow(self)
         win.set_default_size(200, 100)
         win.set_position(Gtk.WindowPosition.CENTER)
-        win.add(MyLabel())
         win.show_all()
 
     def do_startup(self):
