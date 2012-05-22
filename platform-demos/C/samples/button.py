@@ -6,12 +6,12 @@ import sys
 class MyWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.Window.__init__(self, title="GNOME Button", application=app)
-        
-class MyButton(Gtk.Button):
-    def __init__(self):
-        Gtk.Button.__init__(self, label="Click me", stock=None, use_underline=True)
+        button = Gtk.Button()
+        button.set_label("Click me")        
+        button.connect("clicked", self.do_clicked)
+        self.add(button)
 
-    def do_clicked(self):
+    def do_clicked(self, button):
         print "You clicked me!"
 
 class MyApplication(Gtk.Application):
@@ -22,7 +22,6 @@ class MyApplication(Gtk.Application):
         win = MyWindow(self)
         win.set_default_size(250, 50)
         win.set_position(Gtk.WindowPosition.CENTER)        
-        win.add(MyButton())
         win.show_all()
 
     def do_startup (self):
