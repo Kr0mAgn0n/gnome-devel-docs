@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-05-14 11:12+0000\n"
-"PO-Revision-Date: 2012-05-16 14:01+0200\n"
+"POT-Creation-Date: 2012-05-16 12:02+0000\n"
+"PO-Revision-Date: 2012-05-22 10:25+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -562,7 +562,6 @@ msgid "Requesting the weather information asynchronously"
 msgstr "Solicitar la información meteorológica de manera asíncrona"
 
 #: C/weatherAppMain.js.page:26(link)
-#| msgid "Connecting buttons to playSound"
 msgid "Connecting signals to button and entry.\"&gt;"
 msgstr "Conectar las señales a un botón y a una entrada"
 
@@ -635,6 +634,16 @@ msgid ""
 "either doesn't come, the rest of the program works as normal, so main_Quit "
 "works."
 msgstr ""
+"Esta función se dedica a llamar a la información meteorológica y a "
+"actualizar las etiquetas y los iconos correctamente. Al principio de la "
+"función, se obtiene la entrada del usuario para la búsqueda. Por lo tanto, "
+"la primera vez se usa la biblioteca propia y se asigna a la variable "
+"GeoNames. Al asignar WeatherService se da la estación. Lo primero que se "
+"hace con GeoNames es solicitar el tiempo. Todo lo que sucede después de "
+"GeoNames.getWeather(function(error, weather) ocurre sólo si se obtiene un "
+"mensaje de error o información del tiempo incorrecta. Si no pasa nada de "
+"esto, el resto del programa funciona de manera normal, por lo que «main_Quit» "
+"funciona."
 
 #: C/weatherAppMain.js.page:123(title)
 msgid "Connecting signals to button and entry."
@@ -647,6 +656,10 @@ msgid ""
 "getting the weather. So it doesn't matter weather you press enter of click "
 "the search button."
 msgstr ""
+"Finalmente se tienen las conexiones que hacen que la aplicación completa "
+"funcione como debería. Se han conectado la entrada y el botón para que hagan "
+"la misma cosa, obtener el tiempo. Por lo tanto, no importa si pulsa el botón "
+"o si pulsa «Intro»."
 
 #: C/weatherAppMain.js.page:140(title)
 msgid "Weatherapp.js"
@@ -5909,10 +5922,6 @@ msgid ""
 msgstr ""
 
 #: C/helloWorld.js.page:59(p)
-#| msgid ""
-#| "After importing Gtk, we need to initialize it. After initializing Gtk we "
-#| "can start building our first window. We do this by creating a variable "
-#| "mywindow and assign it a new Gtk.Window of type TOPLEVEL."
 msgid ""
 "After importing Gtk, we need to initialize it. After that, we can start "
 "building our first window. We do this by creating a variable called mywindow "
@@ -5923,10 +5932,6 @@ msgstr ""
 "variable llamada «mywindow» y asignándole una «Gtk.Window» de tipo «TOPLEVEL»."
 
 #: C/helloWorld.js.page:59(p)
-#| msgid ""
-#| "After setting up our first window we'll give the window a property called "
-#| "title. Title can be any string you want it to be, to be on the safe side "
-#| "it is good to stick to UTF-8 encoding."
 msgid ""
 "After setting up our first window we'll give the window a property called "
 "title. The title can be any string you want it to be. To be on the safe "
@@ -8060,6 +8065,9 @@ msgid ""
 "href=\"https://bugzilla.gnome.org/show_bug.cgi?id=674090\">Bug #674090</"
 "link> is fixed. Therefore, the problematic line has been commented out."
 msgstr ""
+"Este programa no compilará con la opción de «salir» conectada hasta que se "
+"resuelva el <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=674090"
+"\">error nº 674090</link>. Por lo tanto, esa línea se ha comentado"
 
 #: C/gmenu.vala.page:31(p) C/gmenu.py.page:20(p) C/gmenu.js.page:20(p)
 #: C/gmenu.c.page:20(p)
@@ -8292,6 +8300,8 @@ msgstr "Diálogo"
 #: C/dialog.vala.page:20(p)
 msgid "A dialog with the response signal hooked up to a callback function."
 msgstr ""
+"Un diálogo con la señal de respuesta enlazada a una función de retorno de "
+"llamada."
 
 #: C/dialog.vala.page:29(link)
 msgid "Gtk.Dialog"
