@@ -14,7 +14,7 @@ class MyWindow(Gtk.ApplicationWindow):
         button.show()
         
     def on_button_click(self, *args):
-        dialog = Gtk.Dialog("A Gtk+ Dialog", self, Gtk.DialogFlags.DESTROY_WITH_PARENT)
+        dialog = Gtk.Dialog("A Gtk+ Dialog", self, Gtk.DialogFlags.MODAL)
         dialog.add_button(button_text="OK", response_id=Gtk.ResponseType.OK)
         # otherwise, we can add buttons as
         # dialog.add_button(button_text="Another button", response_id=42)
@@ -28,6 +28,7 @@ class MyWindow(Gtk.ApplicationWindow):
         
     def on_response(self, widget, response_id):
         print "response_id is", response_id
+        widget.destroy()
                 
 class MyApplication(Gtk.Application):
     def __init__(self):
