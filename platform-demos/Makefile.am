@@ -53,6 +53,7 @@ demo_sources = \
 	samples/spinner.vala			\
 	samples/statusbar.vala			\
 	samples/switch.vala			\
+	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
 	samples/toolbar.vala			\
 	samples/treeview_simple_liststore.vala 	\
@@ -169,6 +170,7 @@ DOC_PAGES =				\
 	spinner.vala.page		\
 	statusbar.vala.page		\
 	switch.vala.page		\
+	togglebutton.py.page		\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
 	toolbar.vala.page		\
