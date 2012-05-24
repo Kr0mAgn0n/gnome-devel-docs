@@ -48,6 +48,7 @@ demo_sources = \
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
+	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
 	samples/spinner.vala			\
 	samples/statusbar.vala			\
@@ -162,6 +163,7 @@ DOC_PAGES =				\
 	photo-wall.c.page		\
 	progressbar.vala.page		\
 	py.page				\
+	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
 	spinner.vala.page		\
