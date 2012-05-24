@@ -8,12 +8,14 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_default_size(300, 100)
         self.set_border_width(10)
 
+        # a single line entry
         name_box = Gtk.Entry()
+        # sends a signal when the Enter key is pressed
         name_box.connect("activate", self.cb_activate)
 
         self.add(name_box)
 
-    # the button operates on the window
+    # the content of the entry is used to write in the terminal
     def cb_activate(self, entry):
 		name = entry.get_text()
 		print "\nHello " + name + "!\n"
