@@ -30,6 +30,7 @@ demo_sources = \
 	samples/combobox.vala			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
+	samples/entry.py			\
 	samples/entry.vala			\
 	samples/gmenu.c				\
 	samples/gmenu.js			\
@@ -125,6 +126,7 @@ DOC_PAGES =				\
 	dialog.py.page			\
 	dialog.vala.page		\
 	documentation.page		\
+	entry.py.page			\
 	entry.vala.page			\
 	getting-ready.page		\
 	gmenu.c.page			\
