@@ -19,7 +19,7 @@ demo_sources = \
 	magic-mirror/magic-mirror.vala 		\
 	magic-mirror/magic-mirror-advanced.vala \
 	message-board/message-board.c 		\
-	photo-wall/photo-wall.c 		\		
+	photo-wall/photo-wall.c 		\
 	record-collection/record-collection.js 	\
 	samples/aboutdialog.py			\
 	samples/aboutdialog.vala		\
@@ -52,6 +52,7 @@ demo_sources = \
 	samples/progressbar.vala		\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
+	samples/spinner.py              \
 	samples/spinner.vala			\
 	samples/statusbar.vala			\
 	samples/switch.py			\
@@ -173,6 +174,7 @@ DOC_PAGES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
+    spinner.py.page         \
 	spinner.vala.page		\
 	statusbar.vala.page		\
 	switch.py.page			\
