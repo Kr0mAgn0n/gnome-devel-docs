@@ -174,7 +174,7 @@ DOC_PAGES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
-    spinner.py.page         \
+	spinner.py.page		        \
 	spinner.vala.page		\
 	statusbar.vala.page		\
 	switch.py.page			\
