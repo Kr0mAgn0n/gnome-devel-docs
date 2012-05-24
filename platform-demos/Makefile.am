@@ -46,6 +46,7 @@ demo_sources = \
 	samples/image.vala			\
 	samples/label.py			\
 	samples/label.vala			\
+	samples/linkbutton.py			\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/progressbar.vala		\
@@ -85,6 +86,7 @@ DOC_FIGURES = \
 	media/image.png				\
 	media/image-viewer.png			\
 	media/label.png				\
+	media/linkbutton.png			\
 	media/magic-mirror.png			\
 	media/message-board.ogv			\
 	media/messagedialog.png			\
@@ -160,6 +162,7 @@ DOC_PAGES =				\
 	js.page				\
 	label.py.page			\
 	label.vala.page			\
+	linkbutton.py.page		\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.py.page		\
