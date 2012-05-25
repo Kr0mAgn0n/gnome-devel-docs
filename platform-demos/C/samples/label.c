@@ -9,7 +9,7 @@ activate (GtkApplication *app,
   GtkWidget *window;
   GtkWidget *label;
 
-  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  window = gtk_application_window_new (app);
   label = gtk_label_new("Hello GNOME!");
 
   gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
@@ -36,5 +36,3 @@ main (int argc, char **argv)
   g_object_unref (app);
   return status;
 }
-
-
