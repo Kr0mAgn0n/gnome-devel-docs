@@ -44,6 +44,7 @@ demo_sources = \
 	samples/GtkApplicationWindow.vala	\
 	samples/image.py			\
 	samples/image.vala			\
+	samples/label.c				\
 	samples/label.py			\
 	samples/label.vala			\
 	samples/linkbutton.py			\
@@ -161,6 +162,7 @@ DOC_PAGES =				\
 	image-viewer.vala.page		\
 	index.page			\
 	js.page				\
+	label.c.page			\
 	label.py.page			\
 	label.vala.page			\
 	linkbutton.py.page		\
