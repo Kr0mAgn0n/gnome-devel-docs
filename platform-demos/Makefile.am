@@ -51,6 +51,7 @@ demo_sources = \
 	samples/linkbutton.py			\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
+	samples/progressbar.py			\
 	samples/progressbar.vala		\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
@@ -173,6 +174,7 @@ DOC_PAGES =				\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	photo-wall.c.page		\
+	progressbar.py.page		\
 	progressbar.vala.page		\
 	py.page				\
 	radiobutton.py.page		\
