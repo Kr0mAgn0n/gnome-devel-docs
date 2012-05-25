@@ -57,6 +57,7 @@ demo_sources = \
 	samples/radiobutton.vala		\
 	samples/spinner.py              \
 	samples/spinner.vala			\
+	samples/statusbar.py			\
 	samples/statusbar.vala			\
 	samples/switch.py			\
 	samples/switch.vala			\
@@ -182,6 +183,7 @@ DOC_PAGES =				\
 	record-collection.js.page	\
 	spinner.py.page		        \
 	spinner.vala.page		\
+	statusbar.py.page		\
 	statusbar.vala.page		\
 	switch.py.page			\
 	switch.vala.page		\
