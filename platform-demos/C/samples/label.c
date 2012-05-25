@@ -10,15 +10,15 @@ activate (GtkApplication *app,
   GtkWidget *label;
 
   window = gtk_application_window_new (app);
-  label = gtk_label_new("Hello GNOME!");
+  label = gtk_label_new ("Hello GNOME!");
 
   gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
   gtk_window_set_title (GTK_WINDOW (window), "Welcome to GNOME");
   gtk_window_set_default_size (GTK_WINDOW (window), 200,100);
 
-  gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
-  gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(label));
+  gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+  gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET (label));
 
   gtk_widget_show_all (GTK_WIDGET (window));
 }
