@@ -55,6 +55,7 @@ demo_sources = \
 	samples/progressbar.vala		\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
+	samples/scale.py              \
 	samples/spinner.py              \
 	samples/spinner.vala			\
 	samples/statusbar.py			\
@@ -101,6 +102,7 @@ DOC_FIGURES = \
 	media/progressbar.ogv			\
 	media/radiobutton.png			\
 	media/record-collection.png		\
+	media/scale.png			\
 	media/spinner.png			\
 	media/statusbar.png			\
 	media/switch_on.png			\
@@ -181,6 +183,7 @@ DOC_PAGES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
+	scale.py.page		        \
 	spinner.py.page		        \
 	spinner.vala.page		\
 	statusbar.py.page		\
