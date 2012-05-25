@@ -10,8 +10,7 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_border_width(20)
 
         # a new checkbutton with a label, connected with the callback
-        button1 = Gtk.RadioButton.new(None)
-        button1.set_label("Button 1")
+        button1 = Gtk.RadioButton(label="Button 1")
         button1.connect("toggled", self.toggled_cb)
 
         # another way to create a button - in the same group as button1
@@ -25,7 +24,7 @@ class MyWindow(Gtk.ApplicationWindow):
         button3.connect("toggled", self.toggled_cb)
         button3.set_active(False)
 
-        # DO NOT use new_with_label, it gives a segmentation fault
+        # DO NOT use new_with_label, it gives a segmentation fault!
 
         # a grid to place the buttons
         grid = Gtk.Grid.new()
