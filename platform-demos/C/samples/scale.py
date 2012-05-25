@@ -46,7 +46,7 @@ class MyWindow(Gtk.ApplicationWindow):
         self.scale1 = h_scale
         self.scale2 = v_scale
 
-    # any signal from the keyboard is signaled to the statusbar
+    # any signal from the scales is signaled to the statusbar
     # onto which we push a new status
     def scale_moved(self, event):
         self.bar.push(self.id,
