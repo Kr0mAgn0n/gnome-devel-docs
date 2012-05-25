@@ -42,6 +42,7 @@ demo_sources = \
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
+	samples/image.c				\
 	samples/image.py			\
 	samples/image.vala			\
 	samples/label.c				\
@@ -153,6 +154,7 @@ DOC_PAGES =				\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page  		\
 	helloworldautotools.js.page	\
+	image.c.page			\
 	image.py.page			\
 	image.vala.page			\
 	image-viewer.c.page		\
