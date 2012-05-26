@@ -46,6 +46,7 @@ demo_sources = \
 	samples/image.py			\
 	samples/image.vala			\
 	samples/label.c				\
+	samples/label.js			\
 	samples/label.py			\
 	samples/label.vala			\
 	samples/linkbutton.py			\
@@ -171,6 +172,7 @@ DOC_PAGES =				\
 	index.page			\
 	js.page				\
 	label.c.page			\
+	label.js.page			\
 	label.py.page			\
 	label.vala.page			\
 	linkbutton.py.page		\
