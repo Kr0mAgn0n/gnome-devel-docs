@@ -23,6 +23,7 @@ demo_sources = \
 	record-collection/record-collection.js 	\
 	samples/aboutdialog.py			\
 	samples/aboutdialog.vala		\
+	samples/button.js			\
 	samples/button.py			\
 	samples/button.vala			\
 	samples/checkbutton.py			\
@@ -128,6 +129,7 @@ DOC_PAGES =				\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
+	button.js.page			\
 	button.py.page			\
 	button.vala.page		\
 	c.page				\
