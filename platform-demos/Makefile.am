@@ -65,6 +65,7 @@ demo_sources = \
 	samples/statusbar.vala			\
 	samples/switch.py			\
 	samples/switch.vala			\
+	samples/textview.py			\
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
 	samples/toolbar.vala			\
@@ -111,6 +112,7 @@ DOC_FIGURES = \
 	media/statusbar.png			\
 	media/switch_on.png			\
 	media/switch_off.png			\
+	media/textview.png			\
 	media/togglebutton.png			\
 	media/toolbar.png			\
 	media/toolbar2.png			\
@@ -197,6 +199,7 @@ DOC_PAGES =				\
 	statusbar.vala.page		\
 	switch.py.page			\
 	switch.vala.page		\
+	textview.py.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
