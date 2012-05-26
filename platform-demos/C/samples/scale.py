@@ -20,7 +20,7 @@ class MyWindow(Gtk.ApplicationWindow):
         h_scale.connect("value-changed", self.scale_moved)
 
         # a vertical scale
-        v_scale = Gtk.VScale(adjustment=ad2)
+        v_scale = Gtk.Scale(orientation=Gtk.Orientation.VERTICAL, adjustment=ad2)
 
         v_scale.connect("value-changed", self.scale_moved)
 
