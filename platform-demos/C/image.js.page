@@ -1,0 +1,34 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="image.js">
+  <info>
+    <link type="guide" xref="beginner.js#display-widgets"/>
+    <revision version="0.1" date="2012-05-24" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget displaying an image</desc>
+  </info>
+
+  <title>Image</title>
+  <media type="image" mime="image/png" src="media/image.png"/>
+  <p>This GtkApplication displays an image file from the current directory.</p>
+  <note><p>
+    If the image file isn't loaded successfully, the image will contain a "broken image" icon.  The <file>filename.png</file> needs to be in the current directory for this code to work.  Use your favorite picture!
+  </p></note>
+
+<code mime="text/javascript" style="numbered"><xi:include href="samples/image.js" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Image.html">Gtk.Image</link></p></item>
+</list>
+</page>
