@@ -1,31 +1,68 @@
 #!/usr/bin/gjs
 
-// Initialize GTK
-var Gtk = imports.gi.Gtk;
-Gtk.init(null, 0);
+const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
 
-// Create and set up the window
-var buttonWindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-buttonWindow.title = "GNOME Button";
-buttonWindow.set_default_size (250,50);
-buttonWindow.connect("destroy", function(){Gtk.main_quit()});
+const ButtonExample = new Lang.Class ({
+	Name: 'Button Example',
 
-// Create the button and add it to the window
-var theButton = new Gtk.Button ({label: "Click me"});
-buttonWindow.add (theButton);
+	/* Create the application itself
+	   This boilerplate code is needed to build any GTK+ application. */
+        _init: function () {
+   	     this.application = new Gtk.Application ({
+  	          application_id: 'org.example.jsbutton',
+  	          flags: Gio.ApplicationFlags.FLAGS_NONE
+   	     });
 
-/* Say what to do when the button is clicked
-   You can connect it to more useful things if you like.
-   Note that it uses the same syntax as line 11, above.
-   Instead of saying what to do when we get a "destroy"
-   signal from the window, we're saying what to do when
-   we get a "clicked" signal from the button. */
-var clicks = 0;
-theButton.connect ("clicked", function () {
-	clicks++;
-	this.theButton.set_label("Number of clicks: " + clicks + "!");
+	// Connect 'activate' and 'startup' signals to the callback functions
+	this.application.connect('activate', Lang.bind(this, this._onActivate));
+	this.application.connect('startup', Lang.bind(this, this._onStartup));
+	},
+
+	// Callback function for 'activate' signal presents windows when active
+	_onActivate: function () {
+		this._window.present ();
+	},
+
+	// Callback function for 'startup' signal initializes menus and builds the UI
+	_onStartup: function () {
+		this._buildUI ();
+	},
+
+
+
+
+	// Build the application's UI
+	_buildUI: function () {
+
+		// Create the application window
+        	this._window = new Gtk.ApplicationWindow  ({ application: this.application,
+                                                     	     window_position: Gtk.WindowPosition.CENTER,
+                                                     	     title: "GNOME Button",
+                                                     	     default_height: 50,
+                                                     	     default_width: 250 });
+
+		// Create the button
+		this.Button = new Gtk.Button ({label: "Click Me"});
+		this._window.add (this.Button);
+
+		// Bind it to a function that says what to do when the button is clicked
+		this.Button.connect ("clicked", Lang.bind(this, this._clickHandler));
+
+       	 	// Show the window and all child widgets
+       	 	this._window.show_all();
+	},
+
+	// Here's the function that says what happens when the button is clicked
+	_clickHandler: function () {
+		this.Button.set_label ("Clicked!");
+	}
+
+
 });
 
-// Show the window and the widget inside it, and start the application
-buttonWindow.show_all();
-Gtk.main();
+// Run the application
+let app = new ButtonExample ();
+app.application.run (ARGV);
