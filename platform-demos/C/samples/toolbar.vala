@@ -1,101 +1,141 @@
-public class MyToolbar : Gtk.Toolbar {
-
-	Gtk.ApplicationWindow window;
+/* This is the Window */
+class MyWindow : Gtk.ApplicationWindow {
+	
+	/* Instance variables belonging to the window */
+	Gtk.Toolbar toolbar;
 	Gtk.ToolButton new_button;
 	Gtk.ToolButton open_button;
 	Gtk.ToolButton undo_button;
 	Gtk.ToolButton fullscreen_button;
 	Gtk.ToolButton leave_fullscreen_button;
 	bool window_is_fullscreen = false;
- 
-	public MyToolbar (MyWindow window) {
 
-		this.window = window;
-	
-		this.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-		
-		new_button = new Gtk.ToolButton.from_stock (Gtk.Stock.NEW);
-		new_button.is_important = true; //decides whether to show the label
-		this.add (new_button);
-		new_button.show ();
-		new_button.clicked.connect (on_new_clicked);
-
-	  	open_button = new Gtk.ToolButton.from_stock (Gtk.Stock.OPEN);
-        	open_button.is_important = true;
-        	this.add (open_button);
-		open_button.clicked.connect (on_open_clicked);
-
-      		undo_button = new Gtk.ToolButton.from_stock (Gtk.Stock.UNDO);
-		undo_button.is_important = true;
-		this.add (undo_button);
-		undo_button.clicked.connect (on_undo_clicked);
-
-		fullscreen_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FULLSCREEN);
-		fullscreen_button.is_important = true;
-		this.add (fullscreen_button);
-		fullscreen_button.clicked.connect (on_toggle_fullscreen);
-	
-		leave_fullscreen_button = new Gtk.ToolButton.from_stock (Gtk.Stock.LEAVE_FULLSCREEN);
-		leave_fullscreen_button.is_important = true;
-		leave_fullscreen_button.clicked.connect (on_toggle_fullscreen);
-	}
-
-	void on_new_clicked () {
-		print ("You clicked the \"New\" ToolButton.\n");
-	}
-	
-	void on_open_clicked () {
-			print ("You clicked the \"Open\" ToolButton.\n");
-	}
-	
-	void on_undo_clicked () {
-			print ("You clicked the \"Undo\" ToolButton.\n");
-	}
-
-	void on_toggle_fullscreen (Gtk.ToolButton toolbutton) {
-		if (window_is_fullscreen) {
-			this.window.unfullscreen ();
-			window_is_fullscreen = false;
-			this.remove (toolbutton);
-			this.add (fullscreen_button);
-			fullscreen_button.show ();
-		}
-		else {
-			this.window.fullscreen ();
-			window_is_fullscreen = true;
-			this.remove (toolbutton);
-			this.add (leave_fullscreen_button);
-			leave_fullscreen_button.show ();
-		}
-	}
-}
-
-class MyWindow : Gtk.ApplicationWindow {
-	
+	/* Contstructor */	
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "Toolbar Example");
 
 		this.set_default_size (400, 200);
 		var grid = new Gtk.Grid ();
 		this.add (grid);
+		grid.show ();
 
-		MyToolbar toolbar = new MyToolbar (this);
+		create_toolbar ();
 		toolbar.set_hexpand (true);
 		grid.attach (toolbar, 1, 1, 1, 1);
 		toolbar.show ();
+
+		/* create the "undo" window action action */
+		var undo_action = new SimpleAction ("undo", null);
+		undo_action.activate.connect (undo_callback);
+		this.add_action (undo_action);
+
+		/* create the "fullscreen" window action */
+		var fullscreen_action = new SimpleAction ("fullscreen", null);
+		fullscreen_action.activate.connect (fullscreen_callback);
+		this.add_action (fullscreen_action);
+	}
+
+	/* This function creates the toolbar, its  ToolButtons,
+	 * and assigns the actions names to the ToolButtons.*/
+	void create_toolbar () {
+
+		toolbar = new Gtk.Toolbar ();	
+		toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
+		
+		new_button = new Gtk.ToolButton.from_stock (Gtk.Stock.NEW);
+		new_button.is_important = true; //decides whether to show the label
+		toolbar.add (new_button);
+		new_button.show ();
+		new_button.action_name = "app.new";
+
+	  	open_button = new Gtk.ToolButton.from_stock (Gtk.Stock.OPEN);
+        	open_button.is_important = true;
+        	toolbar.add (open_button);
+		open_button.show ();
+		open_button.action_name = "app.open";
+
+      		undo_button = new Gtk.ToolButton.from_stock (Gtk.Stock.UNDO);
+		undo_button.is_important = true;
+		toolbar.add (undo_button);
+		undo_button.show ();
+		undo_button.action_name = "win.undo";
+
+		fullscreen_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FULLSCREEN);
+		fullscreen_button.is_important = true;
+		toolbar.add (fullscreen_button);
+		fullscreen_button.show ();
+		fullscreen_button.action_name = "win.fullscreen";
+	
+		leave_fullscreen_button = new Gtk.ToolButton.from_stock (Gtk.Stock.LEAVE_FULLSCREEN)
+;
+		leave_fullscreen_button.is_important = true;
+		toolbar.add (leave_fullscreen_button);
+		
+		leave_fullscreen_button.action_name = "win.fullscreen";
+	}
+
+	void undo_callback () {
+			print ("You clicked \"Undo\".\n");
+	}
+
+	void fullscreen_callback () {
+		if (window_is_fullscreen) {
+			this.unfullscreen ();
+			window_is_fullscreen = false;
+			leave_fullscreen_button.hide ();
+			fullscreen_button.show ();
+		}
+		else {
+			this.fullscreen ();
+			window_is_fullscreen = true;
+			fullscreen_button.hide ();
+			leave_fullscreen_button.show ();
+		}
 	}
 }
 
+/* This is the application */
 class MyApplication : Gtk.Application {
 	protected override void activate () {
-		new MyWindow (this).show_all ();
+		new MyWindow (this).show ();
 	}
 
+	protected override void startup () {
+		base.startup ();
+		
+		/* Create the "new" action and add it to the app*/
+		var new_action = new SimpleAction ("new", null);
+		new_action.activate.connect (new_callback);
+		this.add_action (new_action);
+
+		/* Create the "open" action, and add it to the app */
+		var open_action = new SimpleAction ("open", null);
+		open_action.activate.connect (open_callback);
+		this.add_action (open_action);
+
+		/* You could also add the action to the app menu
+		 * if you wanted to.
+		 */
+		//var menu = new Menu ();
+		//menu.append ("New", "app.new");
+		//this.app_menu = menu;
+	}
+
+	void new_callback () {
+		print ("You clicked \"New\".\n");
+	}
+
+	void open_callback () {
+			print ("You clicked \"Open\".\n");
+	}
+
+	/* Constructor */	
 	internal MyApplication () {
 		Object (application_id: "org.example.toolbar");
 	}
 }
 
+/* The main function creates the application and runs it. */
 int main (string[] args) {
 	return new MyApplication ().run (args);
 }
