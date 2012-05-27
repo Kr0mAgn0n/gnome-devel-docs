@@ -1,9 +1,10 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="grid.js">
   <info>
     <link type="guide" xref="beginner.js#layout"/>
-    <revision version="0.1" date="2012-02-21" status="stub"/>
+    <revision version="0.1" date="2012-05-26" status="draft"/>
 
     <credit type="author copyright">
       <name>Susanna Huhtanen</name>
@@ -15,27 +16,18 @@
   </info>
 
   <title>Grid widget</title>
-
   <media type="image" mime="image/png" src="media/grid.png"/>
-  <p>A button widget connected to a progress bar.</p>
+  <p>A button widget connected to a progress bar, inside of a grid which handles the layout.</p>
 
-      <code mime="text/javascript" style="numbered"><![CDATA[
-#!/usr/bin/gjs
-Gtk = imports.gi.Gtk;
-Gtk.init(null, 0);
-myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-myW.title = "Grid example";
-myW.connect("destroy", function(){Gtk.main_quit()});
-grid = new Gtk.Grid();
-myW.add(grid);
-this.pbar = new Gtk.ProgressBar();
-function foo(){
-  this.pbar.pulse();
-}
-var button = new Gtk.Button({label: "Button"});
-button.connect("clicked", foo);
-grid.attach(button, 1, 1, 1, 1);
-grid.attach_next_to(pbar, button, 3,1,1);
-myW.show_all();
-Gtk.main();]]></code>
+<code mime="text/javascript" style="numbered"><xi:include href="samples/grid.js" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link></p></item>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.ProgressBar.html">Gtk.ProgressBar</link></p></item>
+</list>
 </page>
