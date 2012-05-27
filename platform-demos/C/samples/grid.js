@@ -43,7 +43,7 @@ const GridExample = new Lang.Class ({
                                                      	     title: "Grid Example"});
 
 		// Create the grid
-		this.Grid = new Gtk.Grid;
+		this.Grid = new Gtk.Grid ();
 
 		// Create the widgets inside the grid
 		this.progressBar = new Gtk.ProgressBar ();
