@@ -4,7 +4,8 @@ import sys
 class MyWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.Window.__init__(self, title="SpinButton Example", application=app)
-        self.set_default_size(200, 150)
+        self.set_default_size(210, 70)
+        self.set_border_width(5)
 
         # an adjustment (initial value, min value, max value,
         # step increment - press cursor keys or +/- buttons to see!,
@@ -14,32 +15,28 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a spin button for integers (digits=0)
         spin = Gtk.SpinButton(adjustment=ad, climb_rate=1, digits=0)
+        # as wide as possible
+        spin.set_hexpand(True)
 
         spin.connect("value-changed", self.spin_selected)
 
-        # the statusbar (the context_id is not shown in the UI but it is needed)
-        statusbar = Gtk.Statusbar()
-        context_id = statusbar.get_context_id("example")
-        # a new message onto the statusbar's stack
-        statusbar.push(context_id, "Give me a number...")
+        # a label
+        label = Gtk.Label()
+        label.set_text("Choose a number")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
-        grid.set_row_homogeneous(True)
         grid.attach(spin, 1, 1, 1, 1)
-        grid.attach(statusbar, 1, 2, 2, 1)
+        grid.attach(label, 1, 2, 2, 1)
 
         self.add(grid)
 
-        self.bar = statusbar
-        self.id = context_id
+        self.label = label
         self.spin = spin
 
-    # the signal of the spinbutton is signaled to the statusbar
-    # onto which we push a new status
+    # the signal of the spinbutton is signaled to the label the text of which is changed
     def spin_selected(self, event):
-        self.bar.push(self.id,
-                      "The number you selected is " + str(self.spin.get_value_as_int()) + ".")
+        self.label.set_text("The number you selected is " + str(self.spin.get_value_as_int()) + ".")
         return True
 
 class MyApplication(Gtk.Application):
