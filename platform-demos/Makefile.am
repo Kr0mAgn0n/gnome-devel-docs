@@ -5,22 +5,22 @@ DOC_ID = gnome-devel-demos
 DOC_LINGUAS = ca de el es fr gl
 
 demo_sources = \
-	audio-player/audio-player.vala 		\
-	guitar-tuner/guitar-tuner.c 		\
-	guitar-tuner/guitar-tuner.cc 		\
-	guitar-tuner/guitar-tuner.js 		\
-	guitar-tuner/guitar-tuner.py 		\
-	guitar-tuner/guitar-tuner.vala 		\
-	image-viewer/image-viewer.c 		\
-	image-viewer/image-viewer.cc 		\
-	image-viewer/image-viewer.js 		\
-	image-viewer/image-viewer.py 		\
-	image-viewer/image-viewer.vala 		\
-	magic-mirror/magic-mirror.vala 		\
+	audio-player/audio-player.vala		\
+	guitar-tuner/guitar-tuner.c		\
+	guitar-tuner/guitar-tuner.cc		\
+	guitar-tuner/guitar-tuner.js		\
+	guitar-tuner/guitar-tuner.py		\
+	guitar-tuner/guitar-tuner.vala		\
+	image-viewer/image-viewer.c		\
+	image-viewer/image-viewer.cc		\
+	image-viewer/image-viewer.js		\
+	image-viewer/image-viewer.py		\
+	image-viewer/image-viewer.vala		\
+	magic-mirror/magic-mirror.vala		\
 	magic-mirror/magic-mirror-advanced.vala \
-	message-board/message-board.c 		\
-	photo-wall/photo-wall.c 		\
-	record-collection/record-collection.js 	\
+	message-board/message-board.c		\
+	photo-wall/photo-wall.c			\
+	record-collection/record-collection.js	\
 	samples/aboutdialog.py			\
 	samples/aboutdialog.vala		\
 	samples/button.js			\
@@ -51,16 +51,17 @@ demo_sources = \
 	samples/label.py			\
 	samples/label.vala			\
 	samples/linkbutton.py			\
+	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/progressbar.py			\
 	samples/progressbar.vala		\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
-	samples/scale.py              \
-	samples/scrolledwindow.py              \
-	samples/spinbutton.py              \
-	samples/spinner.py              \
+	samples/scale.py			\
+	samples/scrolledwindow.py		\
+	samples/spinbutton.py			\
+	samples/spinner.py			\
 	samples/spinner.vala			\
 	samples/statusbar.py			\
 	samples/statusbar.vala			\
@@ -70,7 +71,7 @@ demo_sources = \
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
 	samples/toolbar.vala			\
-	samples/treeview_simple_liststore.vala 	\
+	samples/treeview_simple_liststore.vala	\
 	samples/window.c			\
 	samples/window.py			\
 	samples/window.vala			\
@@ -107,8 +108,8 @@ DOC_FIGURES = \
 	media/progressbar.ogv			\
 	media/radiobutton.png			\
 	media/record-collection.png		\
-	media/scale.png			\
-	media/scrolledwindow.png			\
+	media/scale.png				\
+	media/scrolledwindow.png		\
 	media/spinbutton.png			\
 	media/spinner.png			\
 	media/statusbar.png			\
@@ -165,7 +166,7 @@ DOC_PAGES =				\
 	guitar-tuner.js.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
-	helloWorld.js.page  		\
+	helloWorld.js.page		\
 	helloworldautotools.js.page	\
 	image.c.page			\
 	image.py.page			\
@@ -184,6 +185,7 @@ DOC_PAGES =				\
 	linkbutton.py.page		\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
+	messagedialog.js.page		\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	photo-wall.c.page		\
@@ -193,10 +195,10 @@ DOC_PAGES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
-	scale.py.page		        \
-	scrolledwindow.py.page		        \
-	spinbutton.py.page		        \
-	spinner.py.page		        \
+	scale.py.page			\
+	scrolledwindow.py.page		\
+	spinbutton.py.page		\
+	spinner.py.page			\
 	spinner.vala.page		\
 	statusbar.py.page		\
 	statusbar.vala.page		\
