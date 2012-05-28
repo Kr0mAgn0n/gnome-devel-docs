@@ -27,7 +27,7 @@ const Application = new Lang.Class ({
                                                    title: "Welcome to GNOME" });
 
         //uncommenting the line below will change the window size
-        //this._window.set_size_request(600, 400);
+        //this._window.set_default_size(600, 400);
 
         //show the window and all child widgets (none in this case)
         this._window.show_all();
