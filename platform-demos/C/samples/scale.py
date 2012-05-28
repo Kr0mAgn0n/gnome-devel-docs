@@ -5,6 +5,7 @@ class MyWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Scale Example", application=app)
         self.set_default_size(400, 300)
+        self.set_border_width(5)
 
         # two adjustments (initial value, min value, max value,
         # step increment - press cursor keys to see!,
@@ -16,42 +17,42 @@ class MyWindow(Gtk.ApplicationWindow):
         # an horizontal scale
         h_scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL, adjustment=ad1)
         h_scale.set_digits(0)
+        # that can expand horizontally if there is space in the grid (see below)
+        h_scale.set_hexpand(True)
+        # that is aligned at the top of the space allowed in the grid (see below)
+        h_scale.set_valign(Gtk.Align.START)
 
         h_scale.connect("value-changed", self.scale_moved)
 
         # a vertical scale
         v_scale = Gtk.Scale(orientation=Gtk.Orientation.VERTICAL, adjustment=ad2)
+        # that can expand vertically if there is space in the grid (see below)
+        v_scale.set_vexpand(True)
 
         v_scale.connect("value-changed", self.scale_moved)
 
-        # the statusbar (the context_id is not shown in the UI but it is needed)
-        statusbar = Gtk.Statusbar()
-        context_id = statusbar.get_context_id("example")
-        # pushed a new message onto the statusbar's stack
-        statusbar.push(context_id, "Move around the scales...")
+        # a label
+        label = Gtk.Label()
+        label.set_text("Move around the scales...")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
         grid.set_column_spacing(10)
         grid.set_column_homogeneous(True)
-        grid.set_row_homogeneous(True)
         grid.attach(h_scale, 1, 1, 1, 1)
         grid.attach_next_to(v_scale, h_scale, Gtk.PositionType.RIGHT, 1, 1)
-        grid.attach(statusbar, 1, 2, 2, 1)
+        grid.attach(label, 1, 2, 2, 1)
 
         self.add(grid)
 
-        self.bar = statusbar
-        self.id = context_id
+        self.label = label
         self.scale1 = h_scale
         self.scale2 = v_scale
 
-    # any signal from the scales is signaled to the statusbar
-    # onto which we push a new status
+    # any signal from the scales is signaled to the label the text of which is changed
     def scale_moved(self, event):
-        self.bar.push(self.id,
-                      "Horizontal scale is " + str(int(self.scale1.get_value())) +
-                      "; vertical scale is " + str(self.scale2.get_value()) + ".")
+        self.label.set_text("Horizontal scale is " + str(int(self.scale1.get_value())) +
+                            "; vertical scale is " + str(self.scale2.get_value()) + ".")
         return True
 
 class MyApplication(Gtk.Application):
