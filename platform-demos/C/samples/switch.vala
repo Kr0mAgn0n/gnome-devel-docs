@@ -7,7 +7,7 @@ class MyWindow : Gtk.ApplicationWindow {
 
 		this.set_default_size (300, 100);
 		this.border_width = 10;
-	
+
 		var label = new Gtk.Label ("Title");
 		switcher = new Gtk.Switch ();
 

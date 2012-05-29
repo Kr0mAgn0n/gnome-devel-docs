@@ -1,6 +1,6 @@
 /* A window in the application */
 public class MyWindow : Gtk.ApplicationWindow {
-	
+
 	/* The constructor of the window */
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "GNOME Button");
@@ -12,15 +12,14 @@ public class MyWindow : Gtk.ApplicationWindow {
 		this.window_position = Gtk.WindowPosition.CENTER;
 		this.set_default_size (250,50);
 		this.add (button);
-	}	
+	}
 
 	/* The callback function connected to the 
 	 * 'clicked' signal of the button.
-	 */	
+	 */
 	void reverse_label (Gtk.Button button) {
 		button.label = button.label.reverse ();
 	}
-
 }
 
 /* This is the application. */

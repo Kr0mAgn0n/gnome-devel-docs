@@ -5,13 +5,13 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "Statusbar Example");
-		
+
 		statusbar = new Gtk.Statusbar ();
-        	context_id = statusbar.get_context_id ("example");
+		context_id = statusbar.get_context_id ("example");
 		
 		statusbar.push (context_id, "Waiting for you to do something...");
 
-		//set the default size of the window		
+		//set the default size of the window
 		this.set_default_size (200, 100);
 		
 		var grid = new Gtk.Grid ();
@@ -23,7 +23,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		var button = new Gtk.Button.with_label ("click me.");
 		grid.attach_next_to (button, label, Gtk.PositionType.RIGHT, 1, 1);
 		button.show ();
-			
+
 		grid.attach (statusbar, 1, 2, 2, 1);
 		statusbar.show ();
 

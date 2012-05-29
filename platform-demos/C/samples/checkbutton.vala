@@ -1,13 +1,13 @@
 /* A window in the application */
 class MyWindow : Gtk.ApplicationWindow {
-	
+
 	/* The constructor */
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "CheckButton Example");
 
 		this.set_default_size (300, 100);
 		this.border_width = 10;
-	
+
 		var checkbutton = new Gtk.CheckButton.with_label ("Show Title");
 
 		/* Connect the checkbutton to the 

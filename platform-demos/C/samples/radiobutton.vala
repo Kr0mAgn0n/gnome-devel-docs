@@ -25,7 +25,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		//Add the button to the window.
 		this.add (grid);
-		
+
 		//Connect the signal handlers (aka. callback functions) to the buttons.
 		button1.toggled.connect (button_toggled_cb);
 		button2.toggled.connect (button_toggled_cb);

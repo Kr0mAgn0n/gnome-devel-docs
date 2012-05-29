@@ -11,7 +11,7 @@ public class Window : Gtk.ApplicationWindow {
 		this.add_action (about_action);
 		this.show_all ();
 	}
-	
+
 	/* This is the callback function connected to the 'activate' signal 
 	 * of the SimpleAction about_action.
 	 */
@@ -20,13 +20,13 @@ public class Window : Gtk.ApplicationWindow {
 		string[] documenters = { "GNOME Documentation Team", null };
 
 		Gtk.show_about_dialog (this,
-	                       "program-name", ("GtkApplication Example"),
-	                       "copyright", ("Copyright \xc2\xa9 2012 GNOME Documentation Team"),
-	                       "authors", authors,
-	                       "documenters", documenters,
-	                       "website", "http://developer.gnome.org",
-	                       "website-label", ("GNOME Developer Website"),
-	                       null);
+                               "program-name", ("GtkApplication Example"),
+                               "copyright", ("Copyright \xc2\xa9 2012 GNOME Documentation Team"),
+                               "authors", authors,
+                               "documenters", documenters,
+                               "website", "http://developer.gnome.org",
+                               "website-label", ("GNOME Developer Website"),
+                               null);
 	}
 }
 

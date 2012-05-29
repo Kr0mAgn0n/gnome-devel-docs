@@ -1,7 +1,7 @@
 /* A window in the application */
 class MyWindow : Gtk.ApplicationWindow {
 
-	/* An instance array of linux distributions belonging to this window. */	
+	/* An instance array of linux distributions belonging to this window. */
 	string[] distros = {"Select distribution", "Fedora", "Mint", "Suse"};
 
 	/* This enum makes the code more readable when we refer to 
@@ -11,7 +11,7 @@ class MyWindow : Gtk.ApplicationWindow {
 		DISTRO
 	}
 
-	/* Constructor */	
+	/* Constructor */
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "Welcome to GNOME");
 
@@ -39,8 +39,8 @@ class MyWindow : Gtk.ApplicationWindow {
 		 * to the signal handler (aka. callback function.
 		 */
 		combobox.changed.connect (this.item_changed);
-	
-		/* Add the combobox to this window */	
+
+		/* Add the combobox to this window */
 		this.add (combobox);
 		combobox.show ();
 	}
@@ -65,14 +65,12 @@ class MyApplication : Gtk.Application {
 	 * which is inherited by Gtk.Application.
 	 */
 	protected override void activate () {
-	
+
 		/* Create the window of this application
 		 * and show it.
 		 */
 		new MyWindow (this).show ();
 	}
-
-
 }
 
 /* main creates and runs the application */

@@ -13,7 +13,7 @@ activate (GtkApplication *app,
   gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
   gtk_window_set_title (GTK_WINDOW (window), "Welcome to GNOME");
   gtk_window_set_default_size (GTK_WINDOW (window), 300, 300);//may have to change size
-  
+
   image = gtk_image_new_from_file ("gnome-image.png");
 
   gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET (image));

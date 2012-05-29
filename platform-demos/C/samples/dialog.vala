@@ -4,7 +4,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 	/* Constructor */
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "GNOME Button");
-   
+
 		this.window_position = Gtk.WindowPosition.CENTER;
 		this.set_default_size (250,50);
 		

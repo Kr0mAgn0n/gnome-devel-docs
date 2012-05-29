@@ -53,45 +53,41 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 	}
 
 	void setup_treeview (Gtk.TreeView view) {
-        	var listmodel = new Gtk.ListStore (3, 
-                                                   typeof (string), 
-                                                   typeof (string),
-                                                   typeof (string));
-			view.set_model (listmodel);
+		var listmodel = new Gtk.ListStore (3, typeof (string),
+                                              typeof (string),
+                                              typeof (string));
+		view.set_model (listmodel);
 
-			var cell = new Gtk.CellRendererText ();
+		var cell = new Gtk.CellRendererText ();
 
-			/* 'weight' refers to font boldness.  
-		 	 *  400 is normal.
-		 	 *  700 is bold.
-		 	 */
-			cell.set ("weight_set", true);
-                        cell.set ("weight", 700);
- 
-			/*columns*/
-			view.insert_column_with_attributes (-1,
-                                                            "First Name",
-                                                            cell, "text",
-                                                            Column.FIRSTNAME);
+		/* 'weight' refers to font boldness.  
+		 *  400 is normal.
+		 *  700 is bold.
+		 */
+		cell.set ("weight_set", true);
+		cell.set ("weight", 700);
 
-			view.insert_column_with_attributes (-1, 
-                                                            "Last Name",
-                                                            new Gtk.CellRendererText (),
-                                                            "text", Column.LASTNAME);
+		/*columns*/
+		view.insert_column_with_attributes (-1, "First Name",
+                                                cell, "text",
+                                                Column.FIRSTNAME);
 
-			view.insert_column_with_attributes (-1, 
-                                                            "Phone Number",
-                                                            new Gtk.CellRendererText (),
-                                                            "text", Column.PHONE);
+		view.insert_column_with_attributes (-1, "Last Name",
+                                                new Gtk.CellRendererText (),
+                                                "text", Column.LASTNAME);
+
+		view.insert_column_with_attributes (-1, "Phone Number",
+                                                new Gtk.CellRendererText (),
+                                                "text", Column.PHONE);
 
 		/* Insert the phonebook into the ListStore */
-		Gtk.TreeIter iter;	
-		for (int i = 0; i < phonebook.length; i++) {	
+		Gtk.TreeIter iter;
+		for (int i = 0; i < phonebook.length; i++) {
 			listmodel.append (out iter);
 			listmodel.set (iter, Column.FIRSTNAME,
-                                       phonebook[i].firstname,
-                                       Column.LASTNAME, phonebook[i].lastname,
-                                       Column.PHONE, phonebook[i].phone);
+                                 phonebook[i].firstname,
+                                 Column.LASTNAME, phonebook[i].lastname,
+                                 Column.PHONE, phonebook[i].phone);
 		}
 	}
 
