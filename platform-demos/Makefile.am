@@ -29,6 +29,7 @@ demo_sources = \
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
 	samples/combobox.vala			\
+	samples/dialog.js			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
 	samples/entry.py			\
@@ -50,6 +51,7 @@ demo_sources = \
 	samples/label.js			\
 	samples/label.py			\
 	samples/label.vala			\
+	samples/linkbutton.js			\
 	samples/linkbutton.py			\
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
@@ -141,6 +143,7 @@ DOC_PAGES =				\
 	combobox.vala.page		\
 	cpp.page			\
 	desktop.js.page			\
+	dialog.js.page			\
 	dialog.py.page			\
 	dialog.vala.page		\
 	documentation.page		\
@@ -178,6 +181,7 @@ DOC_PAGES =				\
 	label.js.page			\
 	label.py.page			\
 	label.vala.page			\
+	linkbutton.js.page		\
 	linkbutton.py.page		\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
