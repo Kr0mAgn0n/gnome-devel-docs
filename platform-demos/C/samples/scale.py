@@ -33,7 +33,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a label
         label = Gtk.Label()
-        label.set_text("Move around the scales...")
+        label.set_text("Move the scale handles...")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
