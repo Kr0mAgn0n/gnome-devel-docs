@@ -34,7 +34,7 @@ const Application = new Lang.Class ({
     },
 
     _showNew: function() {
-	print ("This doesn't do anything. It is only a demonstration.");
+    print ("This doesn't do anything. It is only a demonstration.");
     },
 
     _showAbout: function() {

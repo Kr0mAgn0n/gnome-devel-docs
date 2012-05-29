@@ -7,14 +7,14 @@ const Lang = imports.lang;
 
 const Application = new Lang.Class ({
     Name: 'Application',
-   
+
     //create the application
     _init: function () {
         this.application = new Gtk.Application ({
             application_id: 'org.example.myapp',
             flags: Gio.ApplicationFlags.FLAGS_NONE
         });
-       
+
        //connect to 'activate' and 'startup' signals to the callback functions
        this.application.connect('activate', Lang.bind(this, this._onActivate));
        this.application.connect('startup', Lang.bind(this, this._onStartup));
