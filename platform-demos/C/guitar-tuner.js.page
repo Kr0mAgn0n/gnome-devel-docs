@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide" style="task"
       id="guitar-tuner.js">
@@ -115,7 +116,7 @@ function playSound(frequency){
   Mainloop.timeout_add(500, function () {
     pipeline.set_state(Gst.State.PAUSED);
 	  return false;
-  });	
+  });
 }]]></code>
    <p>The first thing we need to do is decide what tunes we want to make when we push a button. The frequencies list takes care of that. After that we get to actually making the sounds with the function playSound. For function playSound we give as an input a frequency (that we just defined in the frequencies variable). First thing we need to construct is a pipeline, a source and a sink. For the source we set the frequency. To the pipeline we add both the source and the sink and then we tell it to keep playing. As a last thing we use the const Mainloop to get the pipeline to pause after a 500ms.  </p>
    <p>Now we have the method of playing a tune when clicking a button. Next well make the conncetions between pushing a button and playing the correct sound from that button.</p>
@@ -187,7 +188,7 @@ function playSound(frequency){
   Mainloop.timeout_add(500, function () {
     pipeline.set_state(Gst.State.PAUSED);
 	  return false;
-});	
+});
 }
 
 E.connect("clicked", function() {

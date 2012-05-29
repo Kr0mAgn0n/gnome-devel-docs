@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic" style="task"
       id="weatherAutotools.js">
@@ -91,7 +92,7 @@ do_subst = sed -e 's|@abs_top_srcdir[@]|$(abs_top_srcdir)|g' \
 weatherapp.sh: weatherapp.sh.in
 	$(AM_V_GEN) $(do_subst) $< > $@
 	chmod +x $@
-	
+
 CLEANFILES += weatherapp.sh
 EXTRA_DIST += weatherapp.sh.in
 
@@ -118,7 +119,7 @@ install-icons:
 		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/; \
 		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(pkgdatadir)/icons/; \
 	done
-	
+
 install-data-local: install-icons]]></code>
     <p>This needs a bit more explaining. Compared to the HelloWorld Makefile.am this has changed quite a bit. Lets go through all the new blocks:</p>
     <p>bin_scripts are the files that are needed to run your application. In thin case they are the first two files are the program itself and the third is the script that launches the application.</p>
