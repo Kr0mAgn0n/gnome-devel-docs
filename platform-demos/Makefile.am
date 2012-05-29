@@ -90,7 +90,6 @@ DOC_FIGURES = \
 	media/gmenu.py.png			\
 	media/gmenu.vala.png			\
 	media/grid.png				\
-	media/grid_with_entry.png		\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -117,7 +116,6 @@ DOC_FIGURES = \
 	media/switch_off.png			\
 	media/textview.png			\
 	media/togglebutton.png			\
-	media/toolbar.png			\
 	media/toolbar2.png			\
 	media/treeview_simple_liststore.png	\
 	media/ubuntu.png			\
@@ -153,10 +151,8 @@ DOC_PAGES =				\
 	gmenu.js.page			\
 	gmenu.py.page			\
 	gmenu.vala.page			\
-	grid.js.page			\
 	grid.py.page			\
 	grid.vala.page			\
-	grid_with_entry.js.page		\
 	GtkApplicationWindow.c.page	\
 	GtkApplicationWindow.js.page	\
 	GtkApplicationWindow.py.page	\
@@ -207,7 +203,6 @@ DOC_PAGES =				\
 	textview.py.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
-	toolbar.js.page			\
 	toolbar.vala.page		\
 	treeview_simple_liststore.vala.page	\
 	translate.page			\
