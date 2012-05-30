@@ -3,7 +3,6 @@ from gi.repository import Gtk
 from gi.repository import Gio
 import sys
  
- 
 # This is the window
 class MyWindow(Gtk.ApplicationWindow):
  
@@ -38,7 +37,6 @@ class MyWindow(Gtk.ApplicationWindow):
                                            "This action will cause the universe to stop existing.")
         messagedialog.connect("response", self.dialog_response)
         messagedialog.show()
- 
  
 class MyApplication(Gtk.Application):
     def __init__(self):

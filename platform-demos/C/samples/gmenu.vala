@@ -60,4 +60,3 @@ public class Application : Gtk.Application {
 int main (string[] args) {
 	return new Application ().run (args);
 }
-

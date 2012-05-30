@@ -1,6 +1,5 @@
 #include <gtk/gtk.h>
 
-
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
@@ -21,7 +20,6 @@ activate (GtkApplication *app,
   gtk_widget_show_all (GTK_WIDGET (window));
 }
 
-
 int
 main (int argc, char **argv)
 {
@@ -34,5 +32,3 @@ main (int argc, char **argv)
   g_object_unref (app);
   return status;
 }
-
-

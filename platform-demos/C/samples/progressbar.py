@@ -18,7 +18,6 @@ class MyWindow(Gtk.ApplicationWindow):
         # (the bar moves)
         self.source_id = GLib.timeout_add(100, self.pulse)
 
-
     # any signal from the keyboard controls if the progressbar stops/starts
     def do_key_press_event(self, event):
         # if the bar has been stopped (and source_id == 0 - see below),

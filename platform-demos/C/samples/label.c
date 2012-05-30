@@ -1,6 +1,4 @@
-
 #include <gtk/gtk.h>
-
 
 static void
 activate (GtkApplication *app,
@@ -22,7 +20,6 @@ activate (GtkApplication *app,
 
   gtk_widget_show_all (GTK_WIDGET (window));
 }
-
 
 int
 main (int argc, char **argv)

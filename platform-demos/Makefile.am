@@ -76,6 +76,7 @@ demo_sources = \
 	samples/toolbar.vala			\
 	samples/treeview_simple_liststore.vala	\
 	samples/window.c			\
+	samples/window.js			\
 	samples/window.py			\
 	samples/window.vala			\
 	media/gnome-devtools.catalog

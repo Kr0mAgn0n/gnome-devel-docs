@@ -124,4 +124,3 @@ class MyApplication : Gtk.Application {
 int main (string[] args) {
 	return new MyApplication ().run (args);
 }
-

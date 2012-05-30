@@ -31,8 +31,6 @@ const MessageExample = new Lang.Class ({
         this._buildUI ();
     },
 
-
-
     // Build the application menu, including the button that calls the dialog
     _initMenus: function() {
         let menu = new Gio.Menu();
@@ -56,8 +54,6 @@ const MessageExample = new Lang.Class ({
         this.application.add_action(quitAction);
     },
 
-
-
     // Build the application's UI, including the MessageDialog
     _buildUI: function () {
 
@@ -75,8 +71,6 @@ const MessageExample = new Lang.Class ({
                 this._window.show_all();
     },
 
-
-
     _showMessageDialog: function () {
 
         // Create a modal MessageDialog whose parent is the window
@@ -89,8 +83,6 @@ const MessageExample = new Lang.Class ({
         this._messageDialog.connect ("response", Lang.bind(this, this._response_cb));
         this._messageDialog.show();
     },
-
-
 
     // Callback function (aka signal handler) for the response signal
     _response_cb: function (messagedialog, response_id) {
@@ -109,7 +101,6 @@ const MessageExample = new Lang.Class ({
         }
             this._messageDialog.destroy();
     }
-
 
 });
 

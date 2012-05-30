@@ -48,7 +48,6 @@ const LinkButtonExample = new Lang.Class ({
     // Show the window and all child widgets
     this._window.show_all();
     },
-
 });
 
 // Run the application

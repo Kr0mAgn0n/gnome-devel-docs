@@ -31,9 +31,6 @@ const ButtonExample = new Lang.Class ({
         this._buildUI ();
     },
 
-
-
-
     // Build the application's UI
     _buildUI: function () {
 
@@ -59,8 +56,6 @@ const ButtonExample = new Lang.Class ({
     _clickHandler: function () {
         this.Button.set_label ("Clicked!");
     }
-
-
 });
 
 // Run the application
