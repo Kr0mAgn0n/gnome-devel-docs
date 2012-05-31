@@ -73,6 +73,7 @@ demo_sources = \
 	samples/textview.py			\
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
+	samples/toolbar.js			\
 	samples/toolbar.vala			\
 	samples/treeview_simple_liststore.vala	\
 	samples/window.c			\
@@ -210,6 +211,7 @@ DOC_PAGES =				\
 	textview.py.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
+	toolbar.js.page			\
 	toolbar.vala.page		\
 	treeview_simple_liststore.vala.page	\
 	translate.page			\
