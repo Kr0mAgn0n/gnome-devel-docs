@@ -32,7 +32,7 @@ const AboutDialogExample = new Lang.Class({
     },
 
     // Build the application's UI
-    _buildUI: function()
+    _buildUI: function(){
         // Create the application window
         this._window = new Gtk.ApplicationWindow({ application: this.application,
                                                    window_position: Gtk.WindowPosition.CENTER,
