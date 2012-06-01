@@ -55,6 +55,7 @@ demo_sources = \
 	samples/label.js			\
 	samples/label.py			\
 	samples/label.vala			\
+	samples/linkbutton.c			\
 	samples/linkbutton.js			\
 	samples/linkbutton.py			\
 	samples/messagedialog.js		\
@@ -191,6 +192,7 @@ DOC_PAGES =				\
 	label.js.page			\
 	label.py.page			\
 	label.vala.page			\
+	linkbutton.c.page		\
 	linkbutton.js.page		\
 	linkbutton.py.page		\
 	magic-mirror.vala.page		\
