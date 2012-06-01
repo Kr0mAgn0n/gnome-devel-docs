@@ -1,6 +1,5 @@
 #include <gtk/gtk.h>
 
-
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
@@ -12,7 +11,7 @@ activate (GtkApplication *app,
 
   gtk_window_set_title (GTK_WINDOW (window), "GNOME LinkButton");
   gtk_window_set_default_size (GTK_WINDOW (window), 250, 50);
-  
+
   linkbutton = gtk_link_button_new ("Link to GNOME live!");
   gtk_link_button_set_uri (GTK_LINK_BUTTON(linkbutton), "http://live.gnome.org");
 
@@ -20,8 +19,6 @@ activate (GtkApplication *app,
 
   gtk_widget_show_all (window);
 }
-
-
 
 int
 main (int argc, char **argv)
