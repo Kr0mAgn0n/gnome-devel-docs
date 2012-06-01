@@ -67,6 +67,7 @@ demo_sources = \
 	samples/radiobutton.vala		\
 	samples/scale.py			\
 	samples/scrolledwindow.py		\
+	samples/separator.py		\
 	samples/spinbutton.py			\
 	samples/spinner.py			\
 	samples/spinner.vala			\
@@ -118,6 +119,7 @@ DOC_FIGURES = \
 	media/record-collection.png		\
 	media/scale.png				\
 	media/scrolledwindow.png		\
+	media/separator.png		\
 	media/spinbutton.png			\
 	media/spinner.png			\
 	media/statusbar.png			\
@@ -209,6 +211,7 @@ DOC_PAGES =				\
 	record-collection.js.page	\
 	scale.py.page			\
 	scrolledwindow.py.page		\
+	separator.py.page		\
 	spinbutton.py.page		\
 	spinner.py.page			\
 	spinner.vala.page		\
