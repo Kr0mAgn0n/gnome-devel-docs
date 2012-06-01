@@ -24,6 +24,7 @@ demo_sources = \
 	samples/aboutdialog.js			\
 	samples/aboutdialog.py			\
 	samples/aboutdialog.vala		\
+	samples/button.c			\
 	samples/button.js			\
 	samples/button.py			\
 	samples/button.vala			\
@@ -140,6 +141,7 @@ DOC_PAGES =				\
 	beginner.py.page		\
 	beginner.vala.page		\
 	bug-filing.page			\
+	button.c.page			\
 	button.js.page			\
 	button.py.page			\
 	button.vala.page		\
