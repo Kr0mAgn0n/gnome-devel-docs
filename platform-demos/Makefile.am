@@ -31,6 +31,7 @@ demo_sources = \
 	samples/checkbutton.c			\
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
+	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/dialog.js			\
 	samples/dialog.py			\
@@ -154,6 +155,7 @@ DOC_PAGES =				\
 	checkbutton.c.page		\
 	checkbutton.py.page		\
 	checkbutton.vala.page		\
+	combobox.py.page		\
 	combobox.vala.page		\
 	cpp.page			\
 	desktop.js.page			\
