@@ -63,9 +63,9 @@ const DialogExample = new Lang.Class ({
         this._message = new Gtk.Label ({label: "This demonstrates a dialog with a label"});
         this._contentArea.add (this._message);
 
-        // Create the dialog's action area, which contains a button
+        // Create the dialog's action area, which contains a stock OK button
         this._actionArea = this._dialog.get_action_area();
-        this._OKButton = new Gtk.Button ({label: "OK"});
+        this._OKButton = new Gtk.Button.new_from_stock (Gtk.STOCK_OK);
         this._actionArea.add (this._OKButton);
 
         // Connect the button to the function that handles what it does
