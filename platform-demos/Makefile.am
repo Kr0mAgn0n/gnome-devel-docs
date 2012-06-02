@@ -81,6 +81,7 @@ demo_sources = \
 	samples/togglebutton.vala		\
 	samples/toolbar.js			\
 	samples/toolbar.vala			\
+	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
 	samples/window.c			\
 	samples/window.js			\
@@ -226,6 +227,7 @@ DOC_PAGES =				\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
 	toolbar.vala.page		\
+	treeview_simple_liststore.py.page	\
 	treeview_simple_liststore.vala.page	\
 	translate.page			\
 	vala.page			\
