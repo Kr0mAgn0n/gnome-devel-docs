@@ -31,6 +31,7 @@ demo_sources = \
 	samples/checkbutton.c			\
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
+	samples/colorbutton.py			\
 	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/combobox_multicolumn.py		\
@@ -95,6 +96,7 @@ DOC_FIGURES = \
 	media/aboutdialog_GMenu.png		\
 	media/button.png			\
 	media/checkbutton.png			\
+	media/colorbutton.png			\
 	media/combobox.png			\
 	media/combobox_multicolumn.png			\
 	media/dialog.png			\
@@ -157,6 +159,7 @@ DOC_PAGES =				\
 	checkbutton.c.page		\
 	checkbutton.py.page		\
 	checkbutton.vala.page		\
+	colorbutton.py.page		\
 	combobox.py.page		\
 	combobox.vala.page		\
 	combobox_multicolumn.py.page	\
