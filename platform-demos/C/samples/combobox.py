@@ -44,7 +44,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.treeview_simple_liststore")
+        Gtk.Application.__init__(self, application_id="org.example.combobox")
 
     def do_activate(self):
         win = MyWindow(self)
