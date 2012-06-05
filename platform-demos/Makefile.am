@@ -33,7 +33,7 @@ demo_sources = \
 	samples/checkbutton.vala		\
 	samples/combobox.py			\
 	samples/combobox.vala			\
-	samples/combobox_multicolumn.vala			\
+	samples/combobox_multicolumn.py		\
 	samples/dialog.js			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
@@ -159,7 +159,7 @@ DOC_PAGES =				\
 	checkbutton.vala.page		\
 	combobox.py.page		\
 	combobox.vala.page		\
-	combobox_multicolumn.vala.page		\
+	combobox_multicolumn.py.page	\
 	cpp.page			\
 	desktop.js.page			\
 	dialog.js.page			\
