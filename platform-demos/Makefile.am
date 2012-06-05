@@ -44,6 +44,7 @@ demo_sources = \
 	samples/gmenu.js			\
 	samples/gmenu.py			\
 	samples/gmenu.vala			\
+	samples/grid.c				\
 	samples/grid.js				\
 	samples/grid.py				\
 	samples/grid.vala			\
@@ -176,6 +177,7 @@ DOC_PAGES =				\
 	gmenu.js.page			\
 	gmenu.py.page			\
 	gmenu.vala.page			\
+	grid.c.page			\
 	grid.js.page			\
 	grid.py.page			\
 	grid.vala.page			\
