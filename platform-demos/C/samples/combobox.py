@@ -38,7 +38,7 @@ class MyWindow(Gtk.ApplicationWindow):
     def on_changed(self, combo):
         # if the row selected is not the first one, write its value on the terminal
         if combo.get_active() != 0:
-			print "You chose " + str(distros[combo.get_active()][0]) +"\n"
+            print "You chose " + str(distros[combo.get_active()][0]) +"."
         return True
 
 
