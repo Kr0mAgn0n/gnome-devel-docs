@@ -39,8 +39,8 @@ const GridExample = new Lang.Class ({
 
         // Create the application window
             this._window = new Gtk.ApplicationWindow  ({ application: this.application,
-                                                              window_position: Gtk.WindowPosition.CENTER,
-                                                              title: "Grid Example"});
+                                                         window_position: Gtk.WindowPosition.CENTER,
+                                                         title: "Grid Example"});
 
         // Create the grid
         this.Grid = new Gtk.Grid ();
