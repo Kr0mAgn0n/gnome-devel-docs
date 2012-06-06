@@ -38,6 +38,7 @@ demo_sources = \
 	samples/dialog.js			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
+	samples/entry.js			\
 	samples/entry.py			\
 	samples/entry.vala			\
 	samples/gmenu.c				\
@@ -68,16 +69,19 @@ demo_sources = \
 	samples/progressbar.js			\
 	samples/progressbar.py			\
 	samples/progressbar.vala		\
+	samples/radiobutton.c			\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
 	samples/scale.py			\
 	samples/scrolledwindow.py		\
-	samples/separator.py		\
+	samples/separator.py			\
 	samples/spinbutton.py			\
+	samples/spinner.js			\
 	samples/spinner.py			\
 	samples/spinner.vala			\
 	samples/statusbar.py			\
 	samples/statusbar.vala			\
+	samples/switch.c			\
 	samples/switch.py			\
 	samples/switch.vala			\
 	samples/textview.py			\
@@ -99,7 +103,7 @@ DOC_FIGURES = \
 	media/checkbutton.png			\
 	media/colorbutton.png			\
 	media/combobox.png			\
-	media/combobox_multicolumn.png			\
+	media/combobox_multicolumn.png		\
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
@@ -127,7 +131,7 @@ DOC_FIGURES = \
 	media/record-collection.png		\
 	media/scale.png				\
 	media/scrolledwindow.png		\
-	media/separator.png		\
+	media/separator.png			\
 	media/spinbutton.png			\
 	media/spinner.png			\
 	media/statusbar.png			\
@@ -170,6 +174,7 @@ DOC_PAGES =				\
 	dialog.py.page			\
 	dialog.vala.page		\
 	documentation.page		\
+	entry.js.page			\
 	entry.py.page			\
 	entry.vala.page			\
 	getting-ready.page		\
@@ -219,6 +224,7 @@ DOC_PAGES =				\
 	progressbar.py.page		\
 	progressbar.vala.page		\
 	py.page				\
+	radiobutton.c.page		\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
@@ -226,10 +232,12 @@ DOC_PAGES =				\
 	scrolledwindow.py.page		\
 	separator.py.page		\
 	spinbutton.py.page		\
+	spinner.js.page			\
 	spinner.py.page			\
 	spinner.vala.page		\
 	statusbar.py.page		\
 	statusbar.vala.page		\
+	switch.c.page			\
 	switch.py.page			\
 	switch.vala.page		\
 	textview.py.page		\
