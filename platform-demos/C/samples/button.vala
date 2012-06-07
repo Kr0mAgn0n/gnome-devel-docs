@@ -14,7 +14,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		this.add (button);
 	}
 
-	/* The callback function connected to the 
+	/* The callback function connected to the
 	 * 'clicked' signal of the button.
 	 */
 	void reverse_label (Gtk.Button button) {

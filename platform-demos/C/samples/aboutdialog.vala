@@ -12,10 +12,10 @@ public class Window : Gtk.ApplicationWindow {
 		this.show_all ();
 	}
 
-	/* This is the callback function connected to the 'activate' signal 
+	/* This is the callback function connected to the 'activate' signal
 	 * of the SimpleAction about_action.
 	 */
-	void about_cb () {
+	void about_cb (SimpleAction simple, Variant? parameter) {
 		string[] authors = { "GNOME Documentation Team", null };
 		string[] documenters = { "GNOME Documentation Team", null };
 

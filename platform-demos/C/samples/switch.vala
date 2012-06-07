@@ -1,7 +1,5 @@
 class MyWindow : Gtk.ApplicationWindow {
 
-	Gtk.Switch switcher;
-
 	internal MyWindow (MyApplication app) {
 		Object (application: app, title: "Switch Example");
 
@@ -9,7 +7,7 @@ class MyWindow : Gtk.ApplicationWindow {
 		this.border_width = 10;
 
 		var label = new Gtk.Label ("Title");
-		switcher = new Gtk.Switch ();
+		var switcher = new Gtk.Switch ();
 
 		switcher.set_active (true);
 
@@ -23,8 +21,8 @@ class MyWindow : Gtk.ApplicationWindow {
 		this.add (grid);
 	}
 
-	void switcher_cb () {
-		if (switcher.get_active())
+	void switcher_cb (Object switcher, ParamSpec pspec) {
+		if ((switcher as Gtk.Switch).get_active())
 			this.set_title ("Switch Example");
 		else
 			this.set_title ("");

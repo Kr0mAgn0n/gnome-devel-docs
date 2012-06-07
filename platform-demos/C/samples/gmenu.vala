@@ -19,7 +19,7 @@ public class Window : Gtk.ApplicationWindow {
 	}
 
 	/* Signal handler for 'activate' signal of the SimpleAction. */
-	void about_cb () {
+	void about_cb (SimpleAction simple, Variant? parameter) {
 		print ("This does nothing.  It is only a demonstration.\n");
 	}
 }
@@ -52,8 +52,6 @@ public class Application : Gtk.Application {
 		//quit_action.activate.connect (this.quit);
 		this.add_action (quit_action);
 	}
-
-
 }
 
 /* main function creates Application and runs it. */

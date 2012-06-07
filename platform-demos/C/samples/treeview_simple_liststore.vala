@@ -2,7 +2,7 @@ public class PhoneBookEntry {
 	public string firstname;
 	public string lastname;
 	public string phone;
-	
+
 	public PhoneBookEntry (string f, string l, string p) {
 		this.firstname = f;
 		this.lastname = l;
@@ -12,7 +12,6 @@ public class PhoneBookEntry {
 
 class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 
-	Gtk.TreeSelection selection;
 	Gtk.Label label;
 
 	PhoneBookEntry[] phonebook = {
@@ -43,12 +42,12 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 		label = new Gtk.Label ("");
 
 		var grid = new Gtk.Grid ();
-	
+
 		grid.attach (view, 0, 0, 1, 1);
 		grid.attach (label, 0, 1, 1, 1);
 		this.add (grid);
-	
-		selection = view.get_selection ();
+
+		var selection = view.get_selection ();
 		selection.changed.connect (this.on_changed);
 	}
 
@@ -60,7 +59,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 
 		var cell = new Gtk.CellRendererText ();
 
-		/* 'weight' refers to font boldness.  
+		/* 'weight' refers to font boldness.
 		 *  400 is normal.
 		 *  700 is bold.
 		 */
@@ -91,7 +90,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 		}
 	}
 
-	void on_changed () {
+	void on_changed (Gtk.TreeSelection selection) {
 		Gtk.TreeModel model;
 		Gtk.TreeIter iter;
 		string name;

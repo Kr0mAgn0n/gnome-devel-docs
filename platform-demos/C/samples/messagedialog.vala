@@ -29,15 +29,15 @@ public class Window : Gtk.ApplicationWindow {
 			dialog.destroy();
 	}
 
-	void message () {
+	void message (SimpleAction simple, Variant? parameter) {
 		var messagedialog = new Gtk.MessageDialog (this,
-						           Gtk.DialogFlags.MODAL,
-		                                           Gtk.MessageType.WARNING,
-                                                           Gtk.ButtonsType.OK_CANCEL,
-	                                                   "This action will cause the universe to stop existing.");
+                            Gtk.DialogFlags.MODAL,
+                            Gtk.MessageType.WARNING,
+                            Gtk.ButtonsType.OK_CANCEL,
+                            "This action will cause the universe to stop existing.");
 
 		messagedialog.response.connect (dialog_response);
- 		messagedialog.show ();
+		messagedialog.show ();
 	}
 }
 
