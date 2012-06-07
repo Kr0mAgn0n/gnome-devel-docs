@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="textview.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#multiline"/>
+    <revision version="0.1" date="2012-06-07" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Widget which displays a GtkTextBuffer</desc>
+  </info>
+
+  <title>TextView widget</title>
+     <note style="sidebar"><p>If we press "enter", we have a new line.</p>
+     <p>If we press "enter" more times then there are lines in the default sized window, then a vertical scrollbar appears.</p>
+     <p>If we write a long sentence, the text will wrap breaking lines between words.</p>
+     <p>If we have a loooooooooooooooooooooooooooooooooooong word, a horizontal scrollbar will appear.</p></note>
+
+    <media type="image" mime="image/png" src="media/textview.png"/>
+    <p>This is an example of Gtk.TextView</p>
+
+<code mime="text/x-vala" style="numbered"><xi:include href="samples/textview.vala" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.TextBuffer.html">Gtk.TextBuffer</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.TextView.html">Gtk.TextView</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.ScrolledWindow.html">Gtk.ScrolledWindow</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.WrapMode.html">Gtk.WrapMode</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.PolicyType.html">Gtk.PolicyType</link></p></item>
+</list>
+</page>

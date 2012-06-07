@@ -87,6 +87,7 @@ demo_sources = \
 	samples/switch.py			\
 	samples/switch.vala			\
 	samples/textview.py			\
+	samples/textview.vala			\
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
 	samples/toolbar.js			\
@@ -245,6 +246,7 @@ DOC_PAGES =				\
 	switch.py.page			\
 	switch.vala.page		\
 	textview.py.page		\
+	textview.vala.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
