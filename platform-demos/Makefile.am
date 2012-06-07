@@ -63,6 +63,7 @@ demo_sources = \
 	samples/linkbutton.c			\
 	samples/linkbutton.js			\
 	samples/linkbutton.py			\
+	samples/linkbutton.vala			\
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
@@ -214,6 +215,7 @@ DOC_PAGES =				\
 	linkbutton.c.page		\
 	linkbutton.js.page		\
 	linkbutton.py.page		\
+	linkbutton.vala.page		\
 	magic-mirror.vala.page		\
 	message-board.c.page		\
 	messagedialog.js.page		\
