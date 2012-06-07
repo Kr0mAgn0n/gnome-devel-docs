@@ -74,6 +74,7 @@ demo_sources = \
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
 	samples/scale.py			\
+	samples/scale.vala			\
 	samples/scrolledwindow.py		\
 	samples/separator.py			\
 	samples/spinbutton.py			\
@@ -231,6 +232,7 @@ DOC_PAGES =				\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
 	scale.py.page			\
+	scale.vala.page			\
 	scrolledwindow.py.page		\
 	separator.py.page		\
 	spinbutton.py.page		\
