@@ -77,6 +77,7 @@ demo_sources = \
 	samples/scale.py			\
 	samples/scale.vala			\
 	samples/scrolledwindow.py		\
+	samples/scrolledwindow.py		\
 	samples/separator.py			\
 	samples/spinbutton.py			\
 	samples/spinbutton.vala			\
@@ -239,6 +240,7 @@ DOC_PAGES =				\
 	scale.py.page			\
 	scale.vala.page			\
 	scrolledwindow.py.page		\
+	scrolledwindow.vala.page	\
 	separator.py.page		\
 	spinbutton.py.page		\
 	spinbutton.vala.page		\
