@@ -15,14 +15,14 @@ public class MyWindow : Gtk.ApplicationWindow {
 		var grid = new Gtk.Grid ();
 		var label = new Gtk.Label ("Press any key or ");
 
-		grid.attach (label, 1, 1, 1, 1);
+		grid.attach (label, 0, 0, 1, 1);
 		label.show ();
 
 		var button = new Gtk.Button.with_label ("click me.");
 		grid.attach_next_to (button, label, Gtk.PositionType.RIGHT, 1, 1);
 		button.show ();
 
-		grid.attach (statusbar, 1, 2, 2, 1);
+		grid.attach (statusbar, 0, 1, 2, 1);
 		statusbar.show ();
 
 		grid.set_column_spacing (5);

@@ -20,7 +20,7 @@ class MyWindow : Gtk.ApplicationWindow {
 
 		create_toolbar ();
 		toolbar.set_hexpand (true);
-		grid.attach (toolbar, 1, 1, 1, 1);
+		grid.attach (toolbar, 0, 0, 1, 1);
 		toolbar.show ();
 
 		/* create the "undo" window action action */

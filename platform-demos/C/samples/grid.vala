@@ -13,7 +13,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		button.show ();
 
 		this.add(grid);
-		grid.attach(button, 1, 1, 1, 1);
+		grid.attach(button, 0, 1, 1, 1);
 		grid.attach_next_to (progress_bar, button, Gtk.PositionType.BOTTOM, 1, 1);
 		grid.show ();
 	}
