@@ -72,11 +72,11 @@ class MyWindow : Gtk.ApplicationWindow {
 		leave_fullscreen_button.action_name = "win.fullscreen";
 	}
 
-	void undo_callback () {
+	void undo_callback (SimpleAction simple, Variant? parameter) {
 			print ("You clicked \"Undo\".\n");
 	}
 
-	void fullscreen_callback () {
+	void fullscreen_callback (SimpleAction simple, Variant? parameter) {
 		if ((this.get_window ().get_state () & Gdk.WindowState.FULLSCREEN) != 0) {
 			this.unfullscreen ();
 			leave_fullscreen_button.hide ();
@@ -117,11 +117,11 @@ class MyApplication : Gtk.Application {
 		//this.app_menu = menu;
 	}
 
-	void new_callback () {
+	void new_callback (SimpleAction action, Variant? parameter) {
 		print ("You clicked \"New\".\n");
 	}
 
-	void open_callback () {
+	void open_callback (SimpleAction action, Variant? parameter) {
 			print ("You clicked \"Open\".\n");
 	}
 
