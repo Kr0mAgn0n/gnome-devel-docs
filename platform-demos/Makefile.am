@@ -32,6 +32,7 @@ demo_sources = \
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
 	samples/colorbutton.py			\
+	samples/colorbutton.vala		\
 	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/combobox_multicolumn.py		\
@@ -169,6 +170,7 @@ DOC_PAGES =				\
 	checkbutton.py.page		\
 	checkbutton.vala.page		\
 	colorbutton.py.page		\
+	colorbutton.vala.page		\
 	combobox.py.page		\
 	combobox.vala.page		\
 	combobox_multicolumn.py.page	\
