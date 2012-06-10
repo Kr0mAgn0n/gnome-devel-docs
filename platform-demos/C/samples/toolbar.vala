@@ -39,7 +39,7 @@ class MyWindow : Gtk.ApplicationWindow {
 	void create_toolbar () {
 		toolbar = new Gtk.Toolbar ();
 		toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-		
+
 		new_button = new Gtk.ToolButton.from_stock (Gtk.Stock.NEW);
 		new_button.is_important = true; //decides whether to show the label
 		toolbar.add (new_button);
@@ -68,7 +68,7 @@ class MyWindow : Gtk.ApplicationWindow {
 ;
 		leave_fullscreen_button.is_important = true;
 		toolbar.add (leave_fullscreen_button);
-		
+
 		leave_fullscreen_button.action_name = "win.fullscreen";
 	}
 
@@ -123,11 +123,6 @@ class MyApplication : Gtk.Application {
 
 	void open_callback (SimpleAction action, Variant? parameter) {
 			print ("You clicked \"Open\".\n");
-	}
-
-	/* Constructor */	
-	internal MyApplication () {
-		Object (application_id: "org.example.toolbar");
 	}
 }
 
