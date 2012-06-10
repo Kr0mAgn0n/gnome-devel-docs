@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="toolbar_builder.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#menu-combo-toolbar"/>
+    <link type="seealso" xref="toolbar.vala"/>
+    <link type="seealso" xref="grid.vala"/>
+    <revision version="0.1" date="2012-05-08" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A bar of buttons</desc>
+  </info>
+
+  <title>Toolbar created using Glade</title>
+
+  <media type="image" mime="image/png" src="media/toolbar.png"/>
+  <p>This example is similar to <link xref="toolbar.vala"/>, except we use Glade to create the toolbar in an XML ui file.</p>
+
+  <p>
+  To create the toolbar using the <link href="http://glade.gnome.org/">Glade Interface Designer</link>:
+  </p>
+  <steps>
+    <item><p>Open Glade, and save the file as <file>toolbar_builder.ui</file></p>
+         <media type="image" src="media/glade_ui.png" width="900">
+           Screenshot of Glade ui
+         </media>
+    </item>
+
+    <item><p>Under <gui>Containers</gui> on the left hand side, right click on the toolbar icon and select <gui>Add widget as toplevel</gui>.</p>
+          <media type="image" src="media/glade_select_toolbar.png">
+           Screenshot of toolbar icon in Glade ui
+         </media>
+    </item>
+
+    <item><p>Under the <gui>General</gui> tab on the bottom right, change the <gui>Name</gui> to <input>toolbar</input> and <gui>Show Arrow</gui> to <gui>No</gui>.</p>
+          <media type="image" src="media/glade_toolbar_general.png">
+           Screenshot of General tab
+          </media>
+    </item>
+
+    <item><p>Under the <gui>Common</gui> tab, set <gui>Horizontal Expand</gui> to <gui>Yes</gui>.</p>
+         <media type="image" src="media/glade_toolbar_common.png">
+              Screenshot of Common tab
+          </media>
+     </item>
+
+     <item><p>Right click on the toolbar in the top right and select <gui>Edit</gui>.  The <gui>Tool Bar Editor</gui> window will appear.</p>
+         <media type="image" src="media/glade_toolbar_edit.png">
+             Screenshot of where to right click to edit toolbar.
+          </media>
+   </item>
+
+   <item><p>We want to add 5 ToolButtons: New, Open, Undo, Fullscreen and Leave Fullscreen.  First, we will add the New ToolButton.
+     </p>
+     <steps>
+       <item><p>Under <gui>Hierarchy</gui> tab, click <gui>Add</gui>.</p></item>
+       <item><p>Change the name of the ToolItem to <input>new_button</input>.</p></item>
+       <item><p>Scroll down and set <gui>Is important</gui> to <gui>Yes</gui>.  This will cause the label of the ToolButton to be shown, when you view the toolbar.</p></item>
+       <item><p>Enter the <gui>action name</gui>: <input>app.new</input>.</p></item>
+       <item><p>Change the <gui>Label</gui> to <input>New</input>.</p></item>
+       <item><p>Select the <gui>New</gui> Stock Id from the drop down menu, or type <input>gtk-new</input>.</p></item>
+     </steps>
+     <p>
+    Repeat the above steps for the remaining ToolButtons, with the following properties:
+  </p>
+  <table frame="all" rules="rows">
+    <thead>
+      <tr>
+        <td><p>Name</p></td>
+        <td><p>Is important</p></td>
+        <td><p>action name</p></td>
+        <td><p>Label</p></td>
+        <td><p>Stock Id</p></td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p>open_button</p></td>
+      <td><p>Yes</p></td>
+      <td><p>app.open</p></td>
+      <td><p>Open</p></td>
+      <td><p>gtk-open</p></td>
+    </tr>
+    <tr>
+      <td><p>undo_button</p></td>
+      <td><p>Yes</p></td>
+      <td><p>win.undo</p></td>
+      <td><p>Undo</p></td>
+      <td><p>gtk-undo</p></td>
+    </tr>
+    <tr>
+      <td><p>fullscreen_button</p></td>
+      <td><p>Yes</p></td>
+      <td><p>win.fullscreen</p></td>
+      <td><p>Fullscreen</p></td>
+      <td><p>gtk-fullscreen</p></td>
+    </tr>
+    <tr>
+      <td><p>leave_fullscreen_button</p></td>
+      <td><p>Yes</p></td>
+      <td><p>win.fullscreen</p></td>
+      <td><p>Leave Fullscreen</p></td>
+      <td><p>gtk-leave-fullscreen</p></td>
+    </tr>
+    </tbody>
+</table>
+          <media type="image" src="media/glade_toolbar_editor.png">
+
+          </media>
+    </item>
+
+    <item><p>Close the <gui>Tool Bar Editor</gui>.</p>
+   </item>
+
+   <item><p>When our program will first start, we don't want the <gui>Leave Fullscreen</gui> ToolButton to be visible, since the application will not be in fullscreen mode.  You can set this in the <gui>Common</gui> tab, by clicking the <gui>Visible</gui> property to <gui>No</gui>.  The ToolButton will still appear in the interface designer, but will behave correctly when the file is loaded into your program code.</p>
+          <media type="image" src="media/glade_visible_no.png">
+                 Setting the visible property to No
+          </media>
+   </item>
+
+    <item><p>Save your work, and close Glade.</p>
+   </item>
+
+   <item><p>The XML file created by Glade is shown below. This is the description of the toolbar.  At the time of this writing, the option to add the class Gtk.STYLE_CLASS_PRIMARY_TOOLBAR in the Glade Interface did not exist.  We can manually add this to the XML file.  To do this, add the following XML code at line 9 of <file>toolbar_builder.ui</file>:</p>
+   <code><![CDATA[
+  <style>
+     <class name="primary-toolbar"/>
+  </style>
+  ]]></code>
+  <p>If you do not add this, the program will still work fine.  The resulting toolbar will however look slightly different then the screenshot at the top of this page.</p>
+   </item>
+</steps>
+  <code mime="text" style="numbered"><xi:include href="samples/toolbar_builder.ui" parse="text"><xi:fallback/></xi:include></code>
+
+  <p>We now create the code below, which adds the toolbar from the file we just created.</p>
+<code mime="text/x-vala" style="numbered"><xi:include href="samples/toolbar_builder.vala" parse="text"><xi:fallback/></xi:include></code>
+
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.Toolbar.html">Gtk.Toolbar</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.ToolButton.html">Gtk.Toolbutton</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.Stock.html">Gtk.Stock</link></p></item>
+</list>
+
+</page>

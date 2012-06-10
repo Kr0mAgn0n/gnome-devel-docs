@@ -96,6 +96,8 @@ demo_sources = \
 	samples/toolbar.js			\
 	samples/toolbar.py			\
 	samples/toolbar.vala			\
+	samples/toolbar_builder.ui		\
+	samples/toolbar_builder.vala		\
 	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
 	samples/window.c			\
@@ -114,6 +116,13 @@ DOC_FIGURES = \
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
+	media/glade_select_toolbar.png		\
+	media/glade_toolbar_common.png		\
+	media/glade_toolbar_edit.png		\
+	media/glade_toolbar_editor.png		\
+	media/glade_toolbar_general.png		\
+	media/glade_ui.png			\
+	media/glade_visible_no.png		\
 	media/gmenu.c.png			\
 	media/gmenu.js.png			\
 	media/gmenu.py.png			\
@@ -259,6 +268,7 @@ DOC_PAGES =				\
 	toolbar.js.page			\
 	toolbar.py.page			\
 	toolbar.vala.page		\
+	toolbar_builder.vala.page	\
 	treeview_simple_liststore.py.page	\
 	treeview_simple_liststore.vala.page	\
 	translate.page			\
