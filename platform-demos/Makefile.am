@@ -155,7 +155,7 @@ DOC_FIGURES = \
 	media/switch_off.png			\
 	media/textview.png			\
 	media/togglebutton.png			\
-	media/toolbar2.png			\
+	media/toolbar.png			\
 	media/treeview_simple_liststore.png	\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
