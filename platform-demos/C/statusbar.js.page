@@ -144,7 +144,7 @@ const StatusbarExample = new Lang.Class({
     <p>Here we create the Gtk.Statusbar, and push a message to it to start off with. Then we give it its own narrow frame at the bottom of the window.</p>
     <p>Every message needs to have a context id, which is an integer value you can get from the statusbar with the get_context_id() function. Its only parameter is the string value you use to describe that particular context id. Normally, you'll get a new context id for different kinds of messages, so that you can use the remove() function to remove a specific message and not just the most recent one on the stack. This is a simple example with only one kind of message, though, so we're just using one for everything.</p>
     <p>We use the push() function to push a new message onto the stack. Its first parameter is the context id, and its second is the message.</p>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="text/javascript"><![CDATA[
         // Assemble the frames into the paned interface
         this._panes.pack1 (this._topFrame, true, false);
         this._panes.pack2 (this._barFrame, false, false);
