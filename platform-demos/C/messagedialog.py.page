@@ -20,11 +20,17 @@
   <media type="image" mime="image/png" src="media/messagedialog.png"/>
   <p>A message dialog which prints messages on the terminal, depending on your choices.</p>
 
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
   <code mime="text/x-python" style="numbered"><xi:include href="samples/messagedialog.py" parse="text"><xi:fallback/></xi:include></code>
 
-  <p>
-    Useful methods for a MessageDialog widget:
-  </p>
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a MessageDialog widget</title>
   <list>
     <item><p>In the constructor of MessageDialog we could set flags as <code>Gtk.DialogFlags.DESTROY_WITH_PARENT</code> (to destroy the messagedialog window when its parent window is destroyed) or as <code>Gtk.DialogFlags.MODAL</code> (no interaction with other windows of the application).</p></item>
     <item><p>In the constructor of MessageDialog we could set type as any of <code>Gtk.MessageType.INFO, Gtk.MessageType.WARNING, Gtk.MessageType.QUESTION, Gtk.MessageType.ERROR, Gtk.MessageType.OTHER</code> depending on what type of message we want.</p></item>
@@ -38,6 +44,10 @@ messagedialog.set_image(image)</code>
     <p>where <code>Gtk.STOCK_CAPS_LOCK_WARNING</code> is any image from <link href="http://developer.gnome.org/gtk3/3.4/gtk3-Stock-Items.html">Stock Items</link>. We could also set any image as in the Image widget, as <code>image.set_from_file("filename.png")</code>.</p></item>
     <item><p><code>format_secondary_text("some secondary message")</code> sets a secondary message. The primary text becomes bold.</p></item>
   </list>
+  </section>
+
+  <section id="references">
+  <title>References</title>
   <p>
     In this sample we used the following:
   </p>
@@ -50,4 +60,5 @@ messagedialog.set_image(image)</code>
     <item><p><link href="http://developer.gnome.org/gio/stable/GMenu.html">GMenu</link></p></item>
     <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
   </list>
+  </section>
 </page>

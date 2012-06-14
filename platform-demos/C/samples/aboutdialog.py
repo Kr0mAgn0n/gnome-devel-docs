@@ -16,7 +16,7 @@ class MyWindow(Gtk.ApplicationWindow):
         # add the action to the application
         app.add_action(about_action)
 
-    # callback function for the signal "about" from the action in the menu of the main window
+    # callback function for the about_action's "activate" signal
     def about_cb(self, action, parameter):
         # a  Gtk.AboutDialog
         aboutdialog = Gtk.AboutDialog()
