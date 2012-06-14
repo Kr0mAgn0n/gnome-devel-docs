@@ -3,25 +3,26 @@ from gi.repository import Gtk
 import sys
 
 class MyWindow(Gtk.ApplicationWindow):
+    # a window
     def __init__(self, app):
         Gtk.Window.__init__(self, title="ProgressBar Example", application=app)
         self.set_default_size(220, 20)
 
         # a progressbar
-        progress_bar = Gtk.ProgressBar()
-        self.add(progress_bar)
+        self.progress_bar = Gtk.ProgressBar()
+        # add the progressbar to the window
+        self.add(self.progress_bar)
 
-        self.bar = progress_bar
-
-        # the method pulse is called each 100 milliseconds
+        # the method self.pulse is called each 100 milliseconds
         # and self.source_id is set to be the ID of the event source
-        # (the bar moves)
+        # (i.e. the bar changes position every 100 milliseconds)
         self.source_id = GLib.timeout_add(100, self.pulse)
 
+    # event handler
     # any signal from the keyboard controls if the progressbar stops/starts
     def do_key_press_event(self, event):
-        # if the bar has been stopped (and source_id == 0 - see below),
-        # turn it back on
+        # if the progressbar has been stopped (therefore source_id == 0 - see
+        # "else" below), turn it back on
         if (self.source_id == 0):
             self.source_id = GLib.timeout_add(100, self.pulse)
         # if the bar is moving, remove the source with the ID of source_id
@@ -29,16 +30,19 @@ class MyWindow(Gtk.ApplicationWindow):
         else:
             GLib.source_remove(self.source_id)
             self.source_id = 0
+        # stop the signal emission
         return True
 
-    # the progressbar is in "activity mode"
+    # source function
+    # the progressbar is in "activity mode" when this method is called
     def pulse(self):
-        self.bar.pulse()
+        self.progress_bar.pulse()
+        # call the function again
         return True
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.spinner")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
