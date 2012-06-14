@@ -29,6 +29,7 @@ demo_sources = \
 	samples/button.py			\
 	samples/button.vala			\
 	samples/checkbutton.c			\
+	samples/checkbutton.js			\
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
 	samples/colorbutton.py			\
@@ -181,6 +182,7 @@ DOC_PAGES =				\
 	button.vala.page		\
 	c.page				\
 	checkbutton.c.page		\
+	checkbutton.js.page		\
 	checkbutton.py.page		\
 	checkbutton.vala.page		\
 	colorbutton.py.page		\
