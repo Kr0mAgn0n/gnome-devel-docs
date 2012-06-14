@@ -40,6 +40,7 @@ demo_sources = \
 	samples/dialog.js			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
+	samples/entry.c				\
 	samples/entry.js			\
 	samples/entry.py			\
 	samples/entry.vala			\
@@ -197,6 +198,7 @@ DOC_PAGES =				\
 	dialog.py.page			\
 	dialog.vala.page		\
 	documentation.page		\
+	entry.c.page			\
 	entry.js.page			\
 	entry.py.page			\
 	entry.vala.page			\
