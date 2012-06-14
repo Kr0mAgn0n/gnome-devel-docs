@@ -82,6 +82,7 @@ demo_sources = \
 	samples/separator.py			\
 	samples/spinbutton.py			\
 	samples/spinbutton.vala			\
+	samples/spinner.c			\
 	samples/spinner.js			\
 	samples/spinner.py			\
 	samples/spinner.vala			\
@@ -258,6 +259,7 @@ DOC_PAGES =				\
 	separator.py.page		\
 	spinbutton.py.page		\
 	spinbutton.vala.page		\
+	spinner.c.page			\
 	spinner.js.page			\
 	spinner.py.page			\
 	spinner.vala.page		\
