@@ -26,8 +26,8 @@
     Useful methods for a Dialog widget:
   </p>
   <list>
-    <item><p>Instead of <code>dialog.set_modal(True)</code> we could have <code>dialog.set_modal(False)</code> followed by <code>dialog.set_destroy_with_parent(True)</code> that would destroy the dialog window if the main window is closed.</p></item>
-    <item><p><code>dialog.add_button(button_text="The Answer", response_id=42)</code>, where <code>42</code> is any integer, is an alternative to <code>dialog.add_button(button_text="text", response_id=Gtk.ResponseType.RESPONSE)</code>, where <code>RESPONSE</code> could be one of <code>OK, CANCEL, CLOSE, YES, NO, APPLY, HELP</code>, which in turn correspond to the integers <code>-5, -6,..., -11</code>.</p></item>
+    <item><p>Instead of <code>set_modal(True)</code> we could have <code>set_modal(False)</code> followed by <code>set_destroy_with_parent(True)</code> that would destroy the dialog window if the main window is closed.</p></item>
+    <item><p><code>add_button(button_text="The Answer", response_id=42)</code>, where <code>42</code> is any integer, is an alternative to <code>add_button(button_text="text", response_id=Gtk.ResponseType.RESPONSE)</code>, where <code>RESPONSE</code> could be one of <code>OK, CANCEL, CLOSE, YES, NO, APPLY, HELP</code>, which in turn correspond to the integers <code>-5, -6,..., -11</code>.</p></item>
   </list>
   <p>
     In this sample we used the following:

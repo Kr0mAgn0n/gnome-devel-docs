@@ -28,15 +28,15 @@
   <list>
     <item><p>In the constructor of MessageDialog we could set flags as <code>Gtk.DialogFlags.DESTROY_WITH_PARENT</code> (to destroy the messagedialog window when its parent window is destroyed) or as <code>Gtk.DialogFlags.MODAL</code> (no interaction with other windows of the application).</p></item>
     <item><p>In the constructor of MessageDialog we could set type as any of <code>Gtk.MessageType.INFO, Gtk.MessageType.WARNING, Gtk.MessageType.QUESTION, Gtk.MessageType.ERROR, Gtk.MessageType.OTHER</code> depending on what type of message we want.</p></item>
-    <item><p>In the constructor of MessageDialog we could set buttons as any of <code>Gtk.ButtonsType.NONE, Gtk.ButtonsType.OK, Gtk.ButtonsType.CLOSE, Gtk.ButtonsType.CANCEL, Gtk.ButtonsType.YES_NO, Gtk.ButtonsType.OK_CANCEL</code>, or any button using <code>messagedialog.add_button()</code> as in Gtk.Dialog.</p></item>
+    <item><p>In the constructor of MessageDialog we could set buttons as any of <code>Gtk.ButtonsType.NONE, Gtk.ButtonsType.OK, Gtk.ButtonsType.CLOSE, Gtk.ButtonsType.CANCEL, Gtk.ButtonsType.YES_NO, Gtk.ButtonsType.OK_CANCEL</code>, or any button using <code>add_button()</code> as in Gtk.Dialog.</p></item>
     <item><p>We could substitute the default image of the MessageDialog with another image using</p>
-    <code mime="text/x-python" style="numbered">
+    <code mime="text/x-python">
 image = Gtk.Image()
 image.set_from_stock(Gtk.STOCK_CAPS_LOCK_WARNING, Gtk.IconSize.DIALOG)
 image.show()
 messagedialog.set_image(image)</code>
     <p>where <code>Gtk.STOCK_CAPS_LOCK_WARNING</code> is any image from <link href="http://developer.gnome.org/gtk3/3.4/gtk3-Stock-Items.html">Stock Items</link>. We could also set any image as in the Image widget, as <code>image.set_from_file("filename.png")</code>.</p></item>
-    <item><p><code>messagedialog.format_secondary_text("some secondary message")</code> sets a secondary message. The primary text becomes bold.</p></item>
+    <item><p><code>format_secondary_text("some secondary message")</code> sets a secondary message. The primary text becomes bold.</p></item>
   </list>
   <p>
     In this sample we used the following:
