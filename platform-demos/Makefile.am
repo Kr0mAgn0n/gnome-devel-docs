@@ -74,6 +74,7 @@ demo_sources = \
 	samples/progressbar.py			\
 	samples/progressbar.vala		\
 	samples/radiobutton.c			\
+	samples/radiobutton.js			\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
 	samples/scale.py			\
@@ -149,6 +150,7 @@ DOC_FIGURES = \
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
 	media/radiobutton.png			\
+	media/radiobuttontravel.png		\
 	media/record-collection.png		\
 	media/scale.png				\
 	media/scrolledwindow.png		\
@@ -251,6 +253,7 @@ DOC_PAGES =				\
 	progressbar.vala.page		\
 	py.page				\
 	radiobutton.c.page		\
+	radiobutton.js.page		\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
