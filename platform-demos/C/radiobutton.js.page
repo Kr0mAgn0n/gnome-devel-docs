@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="radiobutton.js">
+  <info>
+    <link type="guide" xref="beginner.js#buttons"/>
+    <revision version="0.1" date="2012-06-15" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Only one can be selected at a time</desc>
+  </info>
+
+  <title>RadioButton</title>
+  <media type="image" mime="image/png" src="media/radiobuttontravel.png"/>
+  <p>RadioButtons are named after old-style car radios, which had buttons for switching between channel presets. Because the radio could only be tuned to one station at a time, only one button could be pressed in at a time; if you pressed a new one, the one that was already pressed in would pop back out. That's how these buttons work, too.</p>
+  <p>Each RadioButton needs a text label and a group. Only one button in a group can be selected at a time. You don't name each group; you just set new RadioButtons to be part of the same group as an existing one. If you create a new one outside of a group, it automatically creates a new group for it to be part of.</p>
+    <links type="section" />
+
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="text/javascript"><![CDATA[
+#!/usr/bin/gjs
+
+const Gio = imports.gi.Gio;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
+]]></code>
+    <p>These are the libraries we need to import for this application to run. Remember that the line which tells GNOME that we're using Gjs always needs to go at the start.</p>
+    </section>
+
+  <section id="applicationwindow">
+    <title>Creating the application window</title>
+    <code mime="text/javascript"><![CDATA[
+const RadioButtonExample = new Lang.Class({
+    Name: 'RadioButton Example',
+
+    // Create the application itself
+    _init: function() {
+        this.application = new Gtk.Application({
+            application_id: 'org.example.jsradiobutton',
+            flags: Gio.ApplicationFlags.FLAGS_NONE
+        });
+
+    // Connect 'activate' and 'startup' signals to the callback functions
+    this.application.connect('activate', Lang.bind(this, this._onActivate));
+    this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    // Callback function for 'activate' signal presents window when active
+    _onActivate: function() {
+        this._window.present();
+    },
+
+    // Callback function for 'startup' signal builds the UI
+    _onStartup: function() {
+        this._buildUI ();
+    },
+]]></code>
+    <p>All the code for this sample goes in the RadioButtonExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
+    <code mime="text/javascript"><![CDATA[
+    // Build the application's UI
+    _buildUI: function() {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            border_width: 20,
+            title: "Travel Planning"});
+]]></code>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link href="GtkApplicationWindow.js.page">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+  </section>
+
+  <section id="button">
+    <title>Creating the radiobuttons</title>
+    <code mime="text/javascript"><![CDATA[
+        // Create a label for the first group of buttons
+        this._placeLabel = new Gtk.Label ({label: "Where would you like to travel to?"});
+]]></code>
+
+    <p>We use a <link href="label.js.page">Gtk.Label</link> to set each group of RadioButtons apart. Nothing will stop you from putting RadioButtons from all different groups wherever you want, so if you want people to know which ones go together you need to organize things accordingly.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create three radio buttons three different ways
+        this._place1 = new Gtk.RadioButton ({label: "The Beach"});
+
+        this._place2 = Gtk.RadioButton.new_from_widget (this._place1);
+        this._place2.set_label ("The Moon");
+
+        this._place3 = Gtk.RadioButton.new_with_label_from_widget (this._place1, "Antarctica");
+        // this._place3.set_active (true);
+]]></code>
+
+    <p>Here are three different ways to create RadioButtons. The first is the usual way, where we create a new Gtk.RadioButton and assign its properties at the same time. The second and third use functions which automatically handle some of the properties; new_from_widget takes a single argument, the RadioButton that you want to put this new one in the same group as. Meanwhile, new_with_label_from_widget takes that and the RadioButton's label at the same time.</p>
+    <p>The first RadioButton in a group is the one that's selected by default. Try uncommenting the last line in this sample code to see how you can set a different one to be the default selection.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a label for the second group of buttons
+        this._thingLabel = new Gtk.Label ({label: "And what would you like to bring?" });
+
+        // Create three more radio buttons
+        this._thing1 = new Gtk.RadioButton ({label: "Penguins" });
+        this._thing2 = new Gtk.RadioButton ({label: "Sunscreen", group: this._thing1 });
+        this._thing3 = new Gtk.RadioButton ({label: "A spacesuit", group: this._thing1 });
+]]></code>
+    <p>Here we create the label for the second group of buttons, and then create them all the same way.</p>
+    </section>
+
+    <section id="ui">
+    <title>Creating the rest of the user interface</title>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a stock OK button
+        this._okButton = new Gtk.Button ({
+            label: 'gtk-ok',
+            use_stock: 'true',
+            halign: Gtk.Align.END });
+
+        // Connect the button to the function which handles clicking it
+        this._okButton.connect ('clicked', Lang.bind (this, this._okClicked));
+]]></code>
+    <p>This code creates a <link href="button.js.page">Gtk.Button</link> and binds it to a function which will show people a silly message when they click OK, depending on which RadioButtons were selected.</p>
+    <p>To make sure the button's "OK" label shows up properly in every language that GNOME is translated into, remember to use one of Gtk's <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html">stock button types.</link></p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a grid to put the "place" items in
+        this._places = new Gtk.Grid ();
+
+        // Attach the "place" items to the grid
+        this._places.attach (this._placeLabel, 0, 0, 1, 1);
+        this._places.attach (this._place1, 0, 1, 1, 1);
+        this._places.attach (this._place2, 0, 2, 1, 1);
+        this._places.attach (this._place3, 0, 3, 1, 1);
+
+        // Create a grid to put the "thing" items in
+        this._things = new Gtk.Grid ({ margin_top: 50 });
+
+        // Attach the "thing" items to the grid
+        this._things.attach (this._thingLabel, 0, 0, 1, 1);
+        this._things.attach (this._thing1, 0, 1, 1, 1);
+        this._things.attach (this._thing2, 0, 2, 1, 1);
+        this._things.attach (this._thing3, 0, 3, 1, 1);
+
+        // Create a grid to put everything in
+        this._grid = new Gtk.Grid ({
+            halign: Gtk.Align.CENTER,
+            valign: Gtk.Align.CENTER,
+            margin_left: 40,
+            margin_right: 50 });
+
+        // Attach everything to the grid
+        this._grid.attach (this._places, 0, 0, 1, 1);
+        this._grid.attach (this._things, 0, 1, 1, 1);
+        this._grid.attach (this._okButton, 0, 2, 1, 1);
+
+        // Add the grid to the window
+        this._window.add (this._grid);
+]]></code>
+    <p>We use a separate <link href="grid.js.page">Gtk.Grid</link> to organize each group of radio buttons. This way we can change the layout with less fuss later on. The second Grid has a margin on top, to visually separate the two sets of choices.</p>
+    <p>After we've organized them, we put them into a third, master Grid, along with the OK button. Then we attach that to the window.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+]]></code>
+
+    <p>Finally, we tell the window and everything inside it to become visible when the application is run.</p>
+
+  </section>
+
+  <section id="function">
+    <title>Function which handles your selection</title>
+    <code mime="text/javascript"><![CDATA[
+    _okClicked: function () {
+
+        // Create a popup that shows a silly message
+        this._travel = new Gtk.MessageDialog ({
+            transient_for: this._window,
+            modal: true,
+            message_type: Gtk.MessageType.OTHER,
+            buttons: Gtk.ButtonsType.OK,
+            text: this._messageText() });
+
+        // Show the popup
+        this._travel.show();
+
+        // Bind the OK button to the function that closes the popup
+        this._travel.connect ("response", Lang.bind (this, this._clearTravelPopUp));
+
+    },
+]]></code>
+    <p>When you click OK, a <link href="messagedialog.js.page">Gtk.MessageDialog</link> appears. This function creates and displays the popup window, then binds its OK button to a function that closes it. What text appears in the popup depends on the _messageText() function, which returns a different value depending on which set of options you chose.</p>
+
+    <code mime="text/javascript"><![CDATA[
+    _messageText: function() {
+
+        // Create a silly message for the popup depending on what you selected
+        var stringMessage = "";
+
+        if (this._place1.get_active()) {
+
+            if (this._thing1.get_active())
+                stringMessage = "Penguins love the beach, too!";
+
+            else if (this._thing2.get_active())
+                stringMessage = "Make sure to put on that sunscreen!";
+
+            else stringMessage = "Are you going to the beach in space?";
+
+        }
+
+        else if (this._place2.get_active()) {
+
+            if (this._thing1.get_active())
+                stringMessage = "The penguins will take over the moon!";
+
+            else if (this._thing2.get_active())
+                stringMessage = "A lack of sunscreen will be the least of your problems!";
+
+            else stringMessage = "You'll probably want a spaceship, too!";
+        }
+
+        else if (this._place3.get_active()) {
+
+            if (this._thing1.get_active())
+                stringMessage = "The penguins will be happy to be back home!";
+
+            else if (this._thing2.get_active())
+                stringMessage = "Antarctic sunbathing may be hazardous to your health!";
+
+            else stringMessage = "Try bringing a parka instead!";
+        }
+
+        return stringMessage;
+
+    },
+]]></code>
+    <p>The get_active() method is how we can tell which RadioButton's pressed in. This function returns a different silly message depending on which set of buttons was pressed. Its return value is used as the MessageDialog's text property.</p>
+
+    <code mime="text/javascript"><![CDATA[
+    _clearTravelPopUp: function () {
+
+        this._travel.destroy();
+
+    }
+
+});
+]]></code>
+    <p>This function is called when the MessageDialog's OK button is pressed. It simply makes the popup go away.</p>
+
+    <code mime="text/javascript"><![CDATA[
+// Run the application
+let app = new RadioButtonExample ();
+app.application.run (ARGV);
+]]></code>
+    <p>Finally, we create a new instance of the finished RadioButtonExample class, and set the application running.</p>
+  </section>
+
+  <section id="complete">
+    <title>Complete code sample</title>
+<code mime="text/javascript" style="numbered"><xi:include href="samples/radiobutton.js" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="in-depth">
+    <title>In-depth documentation</title>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.RadioButton.html">Gtk.RadioButton</link></p></item>
+</list>
+  </section>
+</page>
