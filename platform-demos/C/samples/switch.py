@@ -1,17 +1,20 @@
-from gi.repository import GLib
 from gi.repository import Gtk
 import sys
 
 class MyWindow(Gtk.ApplicationWindow):
+    # a window
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Switch Example", application=app)
         self.set_default_size(300, 100)
         self.set_border_width(10)
 
-        # a switch, turned on by default, sends the signal notify::active
-        switcher = Gtk.Switch()
-        switcher.set_active(True)
-        switcher.connect("notify::active", self.activate_cb)
+        # a switch
+        switch = Gtk.Switch()
+        # turned on by default
+        switch.set_active(True)
+        # connect the signal notify::active emitted by the switch
+        # to the callback function activate_cb
+        switch.connect("notify::active", self.activate_cb)
 
         # a label
         label = Gtk.Label()
@@ -21,21 +24,25 @@ class MyWindow(Gtk.ApplicationWindow):
         grid = Gtk.Grid()
         grid.set_column_spacing (10);
         grid.attach (label, 0, 0, 1, 1);
-        grid.attach (switcher, 1, 0, 1, 1);
+        grid.attach (switch, 1, 0, 1, 1);
 
+        # add the grid to the window
         self.add(grid)
 
-    # the switch operates on the title of the window. Since the signal is
-    # notify::active we need the argument 'active'
+    # Callback function. Since the signal is notify::active
+    # we need the argument 'active'
     def activate_cb(self, button, active):
+        # if the button (i.e. the switch) is active, set the title
+        # of the window to "Switch Example"
         if button.get_active():
             self.set_title("Switch Example")
+        # else, set it to "" (empty string)
         else:
             self.set_title("")
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.spinner")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)

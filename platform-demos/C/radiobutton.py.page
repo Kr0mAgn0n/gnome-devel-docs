@@ -23,13 +23,29 @@
   <media type="image" mime="image/png" src="media/radiobutton.png"/>
   <p>Three RadioButtons. You can see in the terminal if they are turned off or on.</p>
 
-<code mime="text/x-python" style="numbered"><xi:include href="samples/radiobutton.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkGrid.html">GtkGrid</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkRadioButton.html">GtkRadioButton</link></p></item>
-</list>
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/radiobutton.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a RadioButton widget</title>
+    <p>For an explanation of signals and callback functions, see <link href="signals-callbacks.py.page">this page</link>.</p>
+
+    <p>Instead of <code>button1 = Gtk.RadioButton(label="Button 1")</code> we could create the button and label it with</p>
+    <code>
+button1 = Gtk.RadioButton()
+button1.set_label("Button 1").</code>
+    <p>On the other hand, we cannot create the button as <code>button1.new_with_label("Button 1")</code> - it gives a segmentation error.</p>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkGrid.html">GtkGrid</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkRadioButton.html">GtkRadioButton</link></p></item>
+    </list>
+  </section>
 </page>

@@ -1,6 +1,4 @@
-from gi.repository import GLib
 from gi.repository import Gtk
-from gi.repository import Gio
 import sys
 
 class MyWindow(Gtk.ApplicationWindow):
@@ -9,42 +7,56 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_default_size(250, 100)
         self.set_border_width(20)
 
-        # a new checkbutton with a label, connected with the callback
+        # a new radiobutton with a label
         button1 = Gtk.RadioButton(label="Button 1")
+        # connect the signal "toggled" emitted by the radiobutton
+        # with the callback function toggled_cb
         button1.connect("toggled", self.toggled_cb)
 
-        # another way to create a button - in the same group as button1
+        # another radiobutton, in the same group as button1
         button2 = Gtk.RadioButton.new_from_widget(button1)
+        # with label "Button 2"
         button2.set_label("Button 2")
+        # connect the signal "toggled" emitted by the radiobutton
+        # with the callback function toggled_cb
         button2.connect("toggled", self.toggled_cb)
+        # set button2 not active by default
         button2.set_active(False)
 
-        # yet another way
+        # another radiobutton, in the same group as button1,
+        # with label "Button 3"
         button3 = Gtk.RadioButton.new_with_label_from_widget(button1, "Button 3")
+        # connect the signal "toggled" emitted by the radiobutton
+        # with the callback function toggled_cb
         button3.connect("toggled", self.toggled_cb)
+        # set button3 not active by default
         button3.set_active(False)
-
-        # DO NOT use new_with_label, it gives a segmentation fault!
 
         # a grid to place the buttons
         grid = Gtk.Grid.new()
         grid.attach(button1, 0, 0, 1, 1);
         grid.attach(button2, 0, 1, 1, 1);
         grid.attach(button3, 0, 2, 1, 1);
-
+        # add the grid to the window
         self.add(grid)
 
+    # callback function
     def toggled_cb(self, button):
+        # a string to describe the state of the button
         state = "unknown"
+        # whenever the button is turned on, state is on
         if button.get_active():
             state = "on"
+        # else state is off
         else:
             state = "off"
-        print button.get_label() + " was turned " + state + "\n"
+        # whenever the function is called (a button is turned on or off)
+        # print on the terminal which button was turned on/off
+        print button.get_label() + " was turned " + state
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)

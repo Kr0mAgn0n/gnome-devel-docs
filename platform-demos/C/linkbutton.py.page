@@ -21,14 +21,26 @@
   <media type="image" mime="image/png" src="media/linkbutton.png"/>
   <p>A button that links to a web page.</p>
 
-<code mime="text/x-python" style="numbered">
-<xi:include href="samples/linkbutton.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkLinkButton.html">GtkLinkButton</link></p></item>
-</list>
+  <section id="code">
+    <title>Code used to generate this example</title>
 
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/linkbutton.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+  <section id="methods">
+    <title>Useful methods for a LinkButton widget</title>
+    <list>
+      <item><p><code>get_visited()</code> returns the 'visited' state (<code>True</code> or <code>False</code>) of the URI where the LinkButton points. The button becomes visited when it is clicked.</p></item>
+      <item><p><code>set_visited(True)</code> sets the 'visited' state of the URI where the LinkButton points as <code>True</code> (analogously for <code>False</code>).</p></item>
+      <item><p>Each time the button is clicked, the signal <code>"activate-link"</code> is emitted. For an explanation of signals and callback functions, see <link href="signals-callbacks.py.page">this page</link>.</p></item>
+    </list>
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkLinkButton.html">GtkLinkButton</link></p></item>
+    </list>
+  </section>
 </page>
