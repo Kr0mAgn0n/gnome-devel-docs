@@ -37,6 +37,7 @@ demo_sources = \
 	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/combobox_multicolumn.py		\
+	samples/dialog.c			\
 	samples/dialog.js			\
 	samples/dialog.py			\
 	samples/dialog.vala			\
@@ -196,6 +197,7 @@ DOC_PAGES =				\
 	combobox_multicolumn.py.page	\
 	cpp.page			\
 	desktop.js.page			\
+	dialog.c.page			\
 	dialog.js.page			\
 	dialog.py.page			\
 	dialog.vala.page		\
