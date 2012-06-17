@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="togglebutton.js">
+  <info>
+    <link type="guide" xref="beginner.js#buttons"/>
+    <revision version="0.1" date="2012-06-16" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Stays pressed until you click it again</desc>
+  </info>
+
+  <title>ToggleButton</title>
+  <media type="image" mime="image/png" src="media/togglebutton.png"/>
+  <p>A ToggleButton is like a normal <link xref="button.js">Button,</link> except that it stays pressed in when you click it. You can use it like an on/off switch, to control things like the <link xref="spinner.js">Spinner</link> in this example.</p>
+  <p>A ToggleButton's get_active method returns true if it's pressed in, and false if it's not. Its set_active method is used if you want to change its state without needing to click on it. When it changes state from pressed in to popped out and vice-versa, it sends out the "toggled" signal, which you can connect to a function to do something.</p>
+    <links type="section" />
+
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="text/javascript"><![CDATA[
+#!/usr/bin/gjs
+
+const Gio = imports.gi.Gio;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
+]]></code>
+    <p>These are the libraries we need to import for this application to run. Remember that the line which tells GNOME that we're using Gjs always needs to go at the start.</p>
+    </section>
+
+  <section id="applicationwindow">
+    <title>Creating the application window</title>
+    <code mime="text/javascript"><![CDATA[
+const ToggleButtonExample = new Lang.Class({
+    Name: 'ToggleButton Example',
+
+    // Create the application itself
+    _init: function() {
+        this.application = new Gtk.Application({
+            application_id: 'org.example.jstogglebutton',
+            flags: Gio.ApplicationFlags.FLAGS_NONE
+        });
+
+    // Connect 'activate' and 'startup' signals to the callback functions
+    this.application.connect('activate', Lang.bind(this, this._onActivate));
+    this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    // Callback function for 'activate' signal presents window when active
+    _onActivate: function() {
+        this._window.present();
+    },
+
+    // Callback function for 'startup' signal builds the UI
+    _onStartup: function() {
+        this._buildUI ();
+    },
+]]></code>
+    <p>All the code for this sample goes in the RadioButtonExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
+    <code mime="text/javascript"><![CDATA[
+    // Build the application's UI
+    _buildUI: function() {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            default_height: 300,
+            default_width: 300,
+            border_width: 30,
+            title: "ToggleButton Example"});
+]]></code>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+  </section>
+
+  <section id="togglebutton">
+    <title>Creating the ToggleButton and other widgets</title>
+    <code mime="text/javascript"><![CDATA[
+        // Create the spinner that the button stops and starts
+        this._spinner = new Gtk.Spinner ({hexpand: true, vexpand: true});
+]]></code>
+
+    <p>We want this <link xref="spinner.js">Spinner</link> to expand vertically and horizontally, to take up as much space as possible inside the window.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create the togglebutton that starts and stops the spinner
+        this._toggleButton = new Gtk.ToggleButton ({label: "Start/Stop"});
+        this._toggleButton.connect ('toggled', Lang.bind (this, this._onToggle));
+]]></code>
+
+    <p>Creating a ToggleButton is a lot like creating a normal <link xref="button.js">Button.</link> The biggest difference is that you're handling a "toggled" signal instead of a "clicked" signal. This code binds the _onToggle function to that signal, so that it's called whenever our ToggleButton is toggled.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a grid and put everything in it
+        this._grid = new Gtk.Grid ({
+            row_homogeneous: false,
+            row_spacing: 15});
+        this._grid.attach (this._spinner, 0, 0, 1, 1);
+        this._grid.attach (this._toggleButton, 0, 1, 1, 1);
+]]></code>
+    <p>Here we create a simple <link xref="grid.js">Grid</link> to organize everything in, then attach the Spinner and ToggleButton to it.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Add the grid to the window
+        this._window.add (this._grid);
+
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+]]></code>
+    <p>Now we add the Grid to the Window, and tell the Window to show itself and its child widgets when the application is started.</p>
+    </section>
+
+    <section id="toggled">
+    <title>Making something happen when the ToggleButton is toggled</title>
+
+    <code mime="text/javascript"><![CDATA[
+    _onToggle: function() {
+
+        // Start or stop the spinner
+        if (this._toggleButton.get_active ())
+            this._spinner.start ();
+        else this._spinner.stop ();
+
+    }
+
+});
+]]></code>
+    <p>Whenever someone toggles the button, this function checks what its state is afterwards using get_active and starts or stops the spinner accordingly. We want it to spin only while the button is pressed in, so if get_active returns true we start the spinner. Otherwise, we tell it to stop.</p>
+
+    <code mime="text/javascript"><![CDATA[
+// Run the application
+let app = new ToggleButtonExample ();
+app.application.run (ARGV);
+]]></code>
+    <p>Finally, we create a new instance of the finished RadioButtonExample class, and set the application running.</p>
+  </section>
+
+  <section id="complete">
+    <title>Complete code sample</title>
+<code mime="text/javascript" style="numbered"><xi:include xref="samples/togglebutton.js" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="in-depth">
+    <title>In-depth documentation</title>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Spinner.html">Gtk.Spinner</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ToggleButton.html">Gtk.ToggleButton</link></p></item>
+</list>
+  </section>
+</page>
