@@ -5,7 +5,6 @@ public class MyApplication : Gtk.Application {
 	protected override void activate () {
 		var window = new Gtk.ApplicationWindow (this);
 		window.set_title ("ProgressBar Example");
-		window.set_position (Gtk.WindowPosition.CENTER);
 		window.set_default_size (220, 20);
 
 		progress_bar = new Gtk.ProgressBar ();
@@ -15,20 +14,18 @@ public class MyApplication : Gtk.Application {
 		double fraction = 0.0;
 		progress_bar.set_fraction (fraction);
 		GLib.Timeout.add (500, fill);
-		this.quit ();
 	}
 
 	bool fill () {
-                double fraction = progress_bar.get_fraction ();
-		fraction += 0.1; //increase by 10%
+		double fraction = progress_bar.get_fraction (); //get current progress
+		fraction += 0.1; //increase by 10% each time this function is called
 
 		progress_bar.set_fraction (fraction);
 
-                /* This function is only called by GLib.Timeout.add while it returns true; */
+		/* This function is only called by GLib.Timeout.add while it returns true; */
 		if (fraction < 1.0)
 			return true;	
-		else progress_bar.set_fraction (0.0);
-		return true;
+		return false;
 	}
 }
 
