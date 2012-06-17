@@ -150,6 +150,7 @@ DOC_FIGURES = \
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
+	media/progressbar_fill.ogv		\
 	media/radiobutton.png			\
 	media/radiobuttontravel.png		\
 	media/record-collection.png		\

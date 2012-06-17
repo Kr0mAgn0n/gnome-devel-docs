@@ -1,44 +1,34 @@
-public class MyWindow : Gtk.ApplicationWindow {
-
-	Gtk.ProgressBar progress_bar;
-	uint source_id;
-
-	internal MyWindow (MyApplication app) {
-		Object (application: app, title: "ProgressBar Example");
-		this.set_default_size (220, 20);
-		
-		progress_bar = new Gtk.ProgressBar ();
-		this.add (progress_bar);
-		progress_bar.show ();
-
-		source_id = GLib.Timeout.add (100, pulse);
-	}
-
-	protected override bool key_press_event (Gdk.EventKey event) {
-		if (source_id == 0)
-			source_id = GLib.Timeout.add (100, pulse);
-		else {
-			GLib.Source.remove (source_id);
-			source_id = 0;
-		}
-		return true;
-	}
-
-	bool pulse () {
-		progress_bar.pulse ();
-		return true;
-	}
-}
-
 public class MyApplication : Gtk.Application {
 
+	Gtk.ProgressBar progress_bar;
+
 	protected override void activate () {
-		MyWindow window = new MyWindow (this);
-		window.show ();
+		var window = new Gtk.ApplicationWindow (this);
+		window.set_title ("ProgressBar Example");
+		window.set_position (Gtk.WindowPosition.CENTER);
+		window.set_default_size (220, 20);
+
+		progress_bar = new Gtk.ProgressBar ();
+		window.add (progress_bar);
+		window.show_all ();
+
+		double fraction = 0.0;
+		progress_bar.set_fraction (fraction);
+		GLib.Timeout.add (500, fill);
+		this.quit ();
 	}
 
-	internal MyApplication () {
-		Object (application_id: "org.example.ProgressBar");
+	bool fill () {
+                double fraction = progress_bar.get_fraction ();
+		fraction += 0.1; //increase by 10%
+
+		progress_bar.set_fraction (fraction);
+
+                /* This function is only called by GLib.Timeout.add while it returns true; */
+		if (fraction < 1.0)
+			return true;	
+		else progress_bar.set_fraction (0.0);
+		return true;
 	}
 }
 
