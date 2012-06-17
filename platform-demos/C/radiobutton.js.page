@@ -74,7 +74,7 @@ const RadioButtonExample = new Lang.Class({
             border_width: 20,
             title: "Travel Planning"});
 ]]></code>
-    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link href="GtkApplicationWindow.js.page">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
   </section>
 
   <section id="button">
@@ -84,7 +84,7 @@ const RadioButtonExample = new Lang.Class({
         this._placeLabel = new Gtk.Label ({label: "Where would you like to travel to?"});
 ]]></code>
 
-    <p>We use a <link href="label.js.page">Gtk.Label</link> to set each group of RadioButtons apart. Nothing will stop you from putting RadioButtons from all different groups wherever you want, so if you want people to know which ones go together you need to organize things accordingly.</p>
+    <p>We use a <link xref="label.js">Gtk.Label</link> to set each group of RadioButtons apart. Nothing will stop you from putting RadioButtons from all different groups wherever you want, so if you want people to know which ones go together you need to organize things accordingly.</p>
 
     <code mime="text/javascript"><![CDATA[
         // Create three radio buttons three different ways
@@ -125,7 +125,7 @@ const RadioButtonExample = new Lang.Class({
         // Connect the button to the function which handles clicking it
         this._okButton.connect ('clicked', Lang.bind (this, this._okClicked));
 ]]></code>
-    <p>This code creates a <link href="button.js.page">Gtk.Button</link> and binds it to a function which will show people a silly message when they click OK, depending on which RadioButtons were selected.</p>
+    <p>This code creates a <link xref="button.js">Gtk.Button</link> and binds it to a function which will show people a silly message when they click OK, depending on which RadioButtons were selected.</p>
     <p>To make sure the button's "OK" label shows up properly in every language that GNOME is translated into, remember to use one of Gtk's <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html">stock button types.</link></p>
 
     <code mime="text/javascript"><![CDATA[
@@ -162,7 +162,7 @@ const RadioButtonExample = new Lang.Class({
         // Add the grid to the window
         this._window.add (this._grid);
 ]]></code>
-    <p>We use a separate <link href="grid.js.page">Gtk.Grid</link> to organize each group of radio buttons. This way we can change the layout with less fuss later on. The second Grid has a margin on top, to visually separate the two sets of choices.</p>
+    <p>We use a separate <link xref="grid.js">Gtk.Grid</link> to organize each group of radio buttons. This way we can change the layout with less fuss later on. The second Grid has a margin on top, to visually separate the two sets of choices.</p>
     <p>After we've organized them, we put them into a third, master Grid, along with the OK button. Then we attach that to the window.</p>
 
     <code mime="text/javascript"><![CDATA[
@@ -196,7 +196,7 @@ const RadioButtonExample = new Lang.Class({
 
     },
 ]]></code>
-    <p>When you click OK, a <link href="messagedialog.js.page">Gtk.MessageDialog</link> appears. This function creates and displays the popup window, then binds its OK button to a function that closes it. What text appears in the popup depends on the _messageText() function, which returns a different value depending on which set of options you chose.</p>
+    <p>When you click OK, a <link xref="messagedialog.js">Gtk.MessageDialog</link> appears. This function creates and displays the popup window, then binds its OK button to a function that closes it. What text appears in the popup depends on the _messageText() function, which returns a different value depending on which set of options you chose.</p>
 
     <code mime="text/javascript"><![CDATA[
     _messageText: function() {
