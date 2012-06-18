@@ -14,7 +14,7 @@ class MyWindow(Gtk.ApplicationWindow):
         # add the button to the window
         self.add(button)
 
-    # callbck function for the signal "clicked" of the button in the parent window
+    # callback function for the signal "clicked" of the button in the parent window
     def on_button_click(self, widget):
         # create a Gtk.Dialog
         dialog = Gtk.Dialog()
