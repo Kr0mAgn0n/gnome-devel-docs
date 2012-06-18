@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="strings.py">
+
+<info>
+  <link type="guide" xref="py"/>
+  <revision version="0.1" date="2012-06-16" status="draft"/>
+
+  <desc>An explanation of how to deal with strings in Python and GTK+, especially when they involve Unicode.</desc>
+  <credit type="author copyright">
+    <name>Sebastian P&#246;lsterl</name>
+    <email>sebp@k-d-w.org</email>
+    <years>2011</years>
+  </credit>
+  <credit type="editor">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012</years>
+  </credit>
+</info>
+
+<title>Strings</title>
+
+<section id="definitions">
+<title>Definitions</title>
+
+<p>Conceptionally, a <em>string</em> is a list of <em>characters</em> such as 'A', 'B', 'C' or '&#200;'. Characters are abstract representations and their meaning depends on the language and context they are used in. The <em>Unicode standard</em> describes how characters are represented by <em>code points</em>. For example the characters above are represented with the code points U+0041, U+0042, U+0043, and U+00C9, respectively. Basically, code points are numbers in the range from 0 to 0x10FFFF.</p>
+
+<p>The representation of a string as a list of code points is abstract. In order to convert this abstract representation into a sequence of bytes the Unicode string must be <em>encoded</em>. The simplest from of encoding is ASCII and is performed as follows:</p>
+
+<list>
+  <item><p>If the code point is strictly less than 128, each byte is the same as the value of the code point.</p></item>
+  <item><p>If the code point is 128 or greater, the Unicode string can’t be represented in this encoding. (Python raises a <sys>UnicodeEncodeError</sys> exception in this case.)</p></item>
+</list>
+
+<p>Although ASCII encoding is simple to apply it can only encode for 128 different characters which is hardly enough. One of the most commonly used encodings that addresses this problem is UTF-8 (it can handle any Unicode code point). UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit numbers are used in the encoding.</p>
+
+</section>
+
+<section id="python">
+<title>Strings in Python</title>
+
+<p>Python 2 comes with two different kinds of objects that can be used to represent strings, <code>str</code> and <code>unicode</code>. Instances of <code>unicode</code> are used to express Unicode strings, whereas instances of the <code>str</code> type are byte representations (the encoded string). Under the hood, Python represents Unicode strings as either 16- or 32-bit integers, depending on how the Python interpreter was compiled.</p>
+
+<code><![CDATA[
+>>> unicode_string = u"Fu\u00dfb\u00e4lle"
+>>> print unicode_string
+Fußbälle
+]]></code>
+
+<p>Unicode strings can be converted to 8-bit strings with <code>unicode.encode()</code>. Python’s 8-bit strings have a <code>str.decode()</code> method that interprets the string using the given encoding (that is, it is the inverse of the <code>unicode.encode()</code>):</p>
+
+<code><![CDATA[
+>>> type(unicode_string)
+<type 'unicode'>
+>>> unicode_string.encode("utf-8")
+'Fu\xc3\x9fb\xc3\xa4lle'
+>>> utf8_string = unicode_string.encode("utf-8")
+>>> type(utf8_string)
+<type 'str'>
+>>> unicode_string == utf8_string.decode("utf-8")
+True]]></code>
+
+<p>Unfortunately, Python 2.x allows you to mix <code>unicode</code> and <code>str</code> if the 8-bit string happened to contain only 7-bit (ASCII) bytes, but would get <sys>UnicodeDecodeError</sys> if it contained non-ASCII values.</p>
+
+</section>
+
+<section id="gtk">
+<title>Unicode in GTK+</title>
+
+<p>GTK+ uses UTF-8 encoded strings for all text. This means that if you call a method that returns a string you will always obtain an instance of the <code>str</code> type. The same applies to methods that expect one or more strings as parameter, they must be UTF-8 encoded. However, for convenience PyGObject will automatically convert any unicode instance to str if supplied as argument:</p>
+
+<code><![CDATA[
+>>> from gi.repository import Gtk
+>>> label = Gtk.Label()
+>>> unicode_string = u"Fu\u00dfb\u00e4lle"
+>>> label.set_text(unicode_string)
+>>> txt = label.get_text()
+>>> type(txt)
+<type 'str'>]]></code>
+
+<p>Furthermore:</p>
+
+<code><![CDATA[
+>>> txt == unicode_string]]></code>
+
+<p>would return <code>False</code>, with the warning <code>__main__:1: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal</code> (<code>Gtk.Label.get_text()</code> will always return a <code>str</code> instance; therefore, <code>txt</code> and <code>unicode_string</code> are not equal).</p>
+
+<p>This is especially important if you want to internationalize your program using <link href="http://docs.python.org/library/gettext.html"><code>gettext</code></link>. You have to make sure that <code>gettext</code> will return UTF-8 encoded 8-bit strings for all languages. In general it is recommended to not use <code>unicode</code> objects in GTK+ applications at all and only use UTF-8 encoded <code>str</code> objects since GTK+ does not fully integrate with <code>unicode</code> objects.</p>
+
+</section>
+
+<section id="references">
+<title>References</title>
+
+<p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/unicode.html">How To Deal With Strings - The Python GTK+ 3 Tutorial</link> (includes also a discussion on Python 3)</p>
+
+</section>
+
+</page>
