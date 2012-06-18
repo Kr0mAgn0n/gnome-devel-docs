@@ -268,6 +268,7 @@ DOC_PAGES =				\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
+	signals-callbacks.py.page		\
 	spinbutton.py.page		\
 	spinbutton.vala.page		\
 	spinner.c.page			\
@@ -277,6 +278,7 @@ DOC_PAGES =				\
 	statusbar.js.page		\
 	statusbar.py.page		\
 	statusbar.vala.page		\
+	strings.py.page		\
 	switch.c.page			\
 	switch.py.page			\
 	switch.vala.page		\
