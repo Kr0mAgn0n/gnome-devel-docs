@@ -1,39 +1,26 @@
 #include <gtk/gtk.h>
 
-/*Global variable used to keep track of the progressbar's state*/
-guint sourceID;
 
-
-/*A function that pulses the progressbar once each time it is called*/
 static gboolean
-pulse (gpointer   user_data)
+fill (gpointer   user_data)
 {
   GtkWidget *progress_bar = user_data;
 
-  gtk_progress_bar_pulse (GTK_PROGRESS_BAR (progress_bar));
+  /*Get the current progress*/
+  gdouble fraction;
+  fraction = gtk_progress_bar_get_fraction (GTK_PROGRESS_BAR (progress_bar));
+
+  /*Increase the bar by 10% each time this function is called*/
+  fraction += 0.1;
+
+  /*Fill in the bar with the new fraction*/
+  gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progress_bar), fraction);
+
+  /*Ensures that the fraction stays below 1.0*/
+  if (fraction < 1.0) 
+    return TRUE;
   
-  return TRUE;
-}
-
-
-
-/*A function that causes the progressbar to start pulsing, or stop, according
-to how many key-press-events have taken place*/
-static gboolean
-key_press_event (GtkWidget *widget,
-                 GdkEvent *event,
-                 gpointer user_data)
-{
-  GtkWidget *progress_bar = user_data;
-
-  if (sourceID == 0) 
-     sourceID = g_timeout_add (100, pulse, GTK_PROGRESS_BAR (progress_bar));
-  else {
-     g_source_remove (sourceID);
-     sourceID = 0;
-  }
-
-  return TRUE;
+  return FALSE;
 }
 
 
@@ -45,6 +32,8 @@ activate (GtkApplication *app,
   GtkWidget *window;
   GtkWidget *progress_bar;
 
+  gdouble fraction = 0.0;
+
   /*Create a window with a title, and a default size*/
   window = gtk_application_window_new (app);
   gtk_window_set_title (GTK_WINDOW (window), "ProgressBar Example");
@@ -54,14 +43,11 @@ activate (GtkApplication *app,
   progress_bar = gtk_progress_bar_new ();
   gtk_container_add (GTK_CONTAINER (window), progress_bar);
 
-  /*Use the created pulse function every 100 milliseconds*/
-  sourceID = g_timeout_add (100, pulse, GTK_PROGRESS_BAR (progress_bar));
+  /*Fill in the given fraction of the bar. Has to be between 0.0-1.0 inclusive*/
+  gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progress_bar), fraction);
 
-  /*connecting the key-press signal to the callback*/
-  g_signal_connect (GTK_WINDOW (window), 
-                    "key-press-event", 
-                    G_CALLBACK (key_press_event), 
-                    progress_bar);
+  /*Use the created fill function every 500 milliseconds*/
+  g_timeout_add (500, fill, GTK_PROGRESS_BAR (progress_bar));
  
   gtk_widget_show_all (window);
 }
