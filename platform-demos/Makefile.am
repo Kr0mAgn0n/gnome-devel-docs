@@ -98,6 +98,7 @@ demo_sources = \
 	samples/textview.py			\
 	samples/textview.vala			\
 	samples/togglebutton.c			\
+	samples/togglebutton.js			\
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
 	samples/toolbar.js			\
@@ -280,6 +281,7 @@ DOC_PAGES =				\
 	textview.py.page		\
 	textview.vala.page		\
 	togglebutton.c.page		\
+	togglebutton.js.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
 	toolbar.js.page			\
