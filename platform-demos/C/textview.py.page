@@ -5,10 +5,17 @@
       id="textview.py">
   <info>
     <link type="guide" xref="beginner.py#multiline"/>
+    <link type="seealso" xref="strings.py" />
     <link type="seealso" xref="scrolledwindow.py"/>
-    <revision version="0.1" date="2012-05-26" status="draft"/>
+    <revision version="0.2" date="2012-06-19" status="draft"/>
 
     <credit type="author copyright">
+      <name>Sebastian P&#246;lsterl</name>
+      <email>sebp@k-d-w.org</email>
+      <years>2011</years>
+    </credit>
+
+    <credit type="author copyright editor">
       <name>Marta Maria Casetti</name>
       <email>mmcasetti@gmail.com</email>
       <years>2012</years>
@@ -18,24 +25,77 @@
   </info>
 
   <title>TextView</title>
-  <media type="image" mime="image/png" src="media/textview.png"/>
-  <p>The text reads:</p>
-  <p>This is an example of Gtk.TextView.</p>
+
+  <note style="sidebar"><p>This is an example of Gtk.TextView.</p>
   <p>If we press "enter", we have a new line.</p>
   <p>But we can also have a new line if we write a long sentence (the text will wrap breaking lines between words).</p>
   <p>If we have a loooooooooooooooooooooooooooooooooooong</p>
   <p>(that was long)</p>
-  <p>word, an horizontal scrollbar will appear.</p>
+  <p>word, an horizontal scrollbar will appear.</p></note>
 
-<code mime="text/x-python" style="numbered"><xi:include href="samples/textview.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextView.html">GtkTextView</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextBuffer.html">GtkTextBuffer</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextTag.html">GtkTextTag</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScrolledWindow.html">GtkScrolledWindow</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
-</list>
+  <media type="image" mime="image/png" src="media/textview.png"/>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/textview.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a TextView widget</title>
+  <p>An explanation of how to deal with strings and Unicode (and a recap of what these things are) can be found <link xref="strings.py.page">here</link>.</p>
+  <p>A <code>Gtk.TextView</code> displays the text stored in a <code>Gtk.TextBuffer</code>. However, most text manipulation is accomplished with iterators, represented by a <code>Gtk.TextIter</code> - a position between two characters in the text buffer. Iterators are not valid indefinitely; whenever the buffer is modified in a way that affects the contents of the buffer, all outstanding iterators become invalid. Because of this, iterators can’t be used to preserve positions across buffer modifications. To preserve a position, we use a <code>Gtk.TextMark</code>, that can be set visible with <code>visible(True)</code>. A text buffer contains two built-in marks; an "insert" mark (the position of the cursor) and the "selection_bound" mark. Both of them can be retrieved, using <code>Gtk.TextBuffer.get_insert()</code> and <code>Gtk.TextBuffer.get_selection_bound()</code>, respectively.</p>
+  <p>Methods for a TextView widget:</p>
+  <list>
+    <item><p>The TextView widget is by default editable. If you prefer otherwise, use <code>set_editable(False)</code>. If the buffer has no editable text, it might be a good idea to use <code>set_cursor_visible(False)</code> as well.</p></item>
+    <item><p>The justification of the text is set with <code>set_justification(Gtk.Justification.JUSTIFICATION)</code> where <code>JUSTIFICATION</code> is one of <code>LEFT, RIGHT, CENTER, FILL</code>.</p></item>
+    <item><p>The line wrapping of the text is set with <code>set_wrap_mode(Gtk.WrapMode.WRAP)</code> where <code>WRAP</code> is one of <code>NONE</code> (the text area is made wider), <code>CHAR</code> (break lines anywhere the cursor can appear), <code>WORD</code> (break lines between words), <code>WORD_CHAR</code> (break lines between words, but if that is not enough between characters).</p></item>
+  </list>
+  <p>Methods for a TextBuffer widget:</p>
+  <list>
+    <item><p><code>get_insert()</code> returns the <code>Gtk.TextMark</code> that represents the cursor, that is the insertion point.</p></item>
+    <item><p><code>get_selection_bound()</code> returns the <code>Gtk.TextMark</code> that represents the selection bound.</p></item>
+    <item><p><code>set_text("some text", length)</code> where <code>length</code> is a positive integer or <code>-1</code>, sets the content of the buffer as the first <code>length</code> characters of the <code>"some text"</code> text. If <code>length</code> is omitted or <code>-1</code>, the text is inserted completely. The content of the buffer, if there is any, is destroyed.</p></item>
+    <item><p><code>insert(iter, "some text", length)</code> where <code>iter</code> is a text iterator and <code>length</code> is a positive integer or <code>-1</code>, inserts in the buffer at <code>iter</code> the first <code>length</code> characters of the <code>"some text"</code> text. If <code>length</code> is omitted or <code>-1</code>, the text is inserted completely.</p></item>
+    <item><p><code>insert_at_cursor("some text", length)</code> does the same as <code>insert(iter, "some text", length)</code>, with the current cursor taken as <code>iter</code>.</p></item>
+    <item><p><code>create_mark("mark_name", iter, left_gravity)</code> where <code>iter</code> is a <code>Gtk.TextIter</code> and <code>left_gravity</code> is a boolean, creates a <code>Gtk.TextMark</code> at the position of <code>iter</code>. If <code>"mark_name"</code> is <code>None</code>, the mark is anonymous; otherwise, the mark can be retrieved by name using <code>get_mark()</code>. If a mark has left gravity, and text is inserted at the mark’s current location, the mark will be moved to the left of the newly-inserted text. If <code>left_gravity</code> is omitted, it defaults to <code>False</code>.
+</p></item>
+    <item><p>To specify that some text in the buffer should have specific formatting, you must define a tag to hold that formatting information, and then apply that tag to the region of text using <code>create_tag("tag name", property)</code> and <code>apply_tag(tag, start_iter, end_iter)</code> as in, for instance:</p>
+      <code>
+tag = textbuffer.create_tag("orange_bg", background="orange")
+textbuffer.apply_tag(tag, start_iter, end_iter)</code>
+     <p>The following are some of the common styles applied to text:</p>
+      <list>
+        <item><p>Background colour ("foreground" property)</p></item>
+        <item><p>Foreground colour ("background" property)</p></item>
+        <item><p>Underline ("underline" property)</p></item>
+        <item><p>Bold ("weight" property)</p></item>
+        <item><p>Italics ("style" property)</p></item>
+        <item><p>Strikethrough ("strikethrough" property)</p></item>
+        <item><p>Justification ("justification" property)</p></item>
+        <item><p>Size ("size" and "size-points" properties)</p></item>
+        <item><p>Text wrapping ("wrap-mode" property)</p></item>
+      </list>
+    <p>You can also delete particular tags later using <code>remove_tag()</code> or delete all tags in a given region by calling <code>remove_all_tags()</code>.</p></item>
+  </list>
+  <p>Methods for a TextIter widget</p>
+  <list>
+    <item><p><code>forward_search(needle, flags, limit)</code> searches forward for <code>needle</code>. The search will not continue past the <code>Gtk.TextIter</code> limit. The <code>flags</code> can be set to one of the following, or any combination of it by concatenating them with the bitwise-OR operator <code>|</code>: <code>0</code> (the match must be exact); <code>Gtk.TextSearchFlags.VISIBLE_ONLY</code> (the match may have invisible text interspersed in needle); <code>Gtk.TextSearchFlags.TEXT_ONLY</code> (the match may have pixbufs or child widgets mixed inside the matched range); <code>Gtk.TextSearchFlags.CASE_INSENSITIVE</code> (the text will be matched regardless of what case it is in). The method returns a tuple containing a <code>Gtk.TextIter</code> pointing to the start and to the first character after the match; if no match is found, <code>None</code> is returned.</p></item>
+    <item><p><code>backward_search(needle, flags, limit)</code> does the same as <code>forward_search()</code>, but moving backwards.</p></item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextView.html">GtkTextView</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextBuffer.html">GtkTextBuffer</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTextTag.html">GtkTextTag</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScrolledWindow.html">GtkScrolledWindow</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
+  </list>
+  </section>
 </page>

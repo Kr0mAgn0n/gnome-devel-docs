@@ -1,6 +1,4 @@
-from gi.repository import GLib
 from gi.repository import Gtk
-from gi.repository import Gio
 import sys
 
 class MyWindow(Gtk.ApplicationWindow):
@@ -8,7 +6,7 @@ class MyWindow(Gtk.ApplicationWindow):
         Gtk.Window.__init__(self, title="TextView Example", application=app)
         self.set_default_size(300, 450)
 
-        # a scrollbar for the child widget (that is, the textview)
+        # a scrollbar for the child widget (that is going to be the textview)
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_border_width(5)
         # we scroll only if needed
@@ -29,7 +27,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
