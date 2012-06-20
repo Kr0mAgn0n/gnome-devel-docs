@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="scale.js">
+  <info>
+    <link type="guide" xref="beginner.js#entry"/>
+    <revision version="0.1" date="2012-06-20" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A slider which corresponds to a numerical value</desc>
+  </info>
+
+  <title>Scale</title>
+  <media type="image" mime="image/png" src="media/scalepenguins.png"/>
+  <p>A Scale is a horizontal or vertical slider, that represents a value inside a numerical range. When you create a new Scale, you set what its default position is, what the numbers at the top and bottom of the range are, and things like how much it moves up or down when you click on the Scale to either side of the knob. To keep from having to type all that in every time you create a new Scale, you can create an object called an Adjustment which keeps track of all that, then tell each new Scale to use that Adjustment.</p>
+  <p>This scale is a simple widget that lets you adjust the size of an iceberg that penguins live on. The number of penguins on the iceberg is the product of the values of the two sliders. Try playing with them and seeing what happens.</p>
+    <links type="section" />
+
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="text/javascript"><![CDATA[
+#!/usr/bin/gjs
+
+const Gio = imports.gi.Gio;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
+]]></code>
+    <p>These are the libraries we need to import for this application to run. Remember that the line which tells GNOME that we're using Gjs always needs to go at the start.</p>
+    </section>
+
+  <section id="applicationwindow">
+    <title>Creating the application window</title>
+    <code mime="text/javascript"><![CDATA[
+const ScaleExample = new Lang.Class({
+    Name: 'Scale Example',
+
+    // Create the application itself
+    _init: function() {
+        this.application = new Gtk.Application({
+            application_id: 'org.example.jsscale'
+        });
+
+    // Connect 'activate' and 'startup' signals to the callback functions
+    this.application.connect('activate', Lang.bind(this, this._onActivate));
+    this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    // Callback function for 'activate' signal presents window when active
+    _onActivate: function() {
+        this._window.present();
+    },
+
+    // Callback function for 'startup' signal builds the UI
+    _onStartup: function() {
+        this._buildUI ();
+    },
+]]></code>
+    <p>All the code for this sample goes in the ScaleExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
+    <code mime="text/javascript"><![CDATA[
+    // Build the application's UI
+    _buildUI: function() {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            border_width: 20,
+            title: "Birds on a Floe"});
+]]></code>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+  </section>
+
+  <section id="button">
+    <title>Creating the scales</title>
+    <code mime="text/javascript"><![CDATA[
+        // Create the horizontal scale
+        this._hScale = Gtk.Scale.new_with_range (Gtk.Orientation.HORIZONTAL, 0.0, 100.0, 5.0);
+        this._hScale.set_valign (Gtk.Align.START);
+        this._hScale.set_value (50);
+        this._hScale.set_digits (0);
+        // this._hScale.set_draw_value (false);
+]]></code>
+
+    <p>The new_with_range method is one way to create a new Scale widget. The parameters it takes are a <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Orientation.html">Gtk.Orientation</link>, the minimum value, the maximum value, and the increment for a single step. After that we use the Scale's methods to set its starting value, and how many decimal places it runs to. We also set its vertical alignment in this case, to control where it appears in the window.</p>
+    <p>We can use the set_draw_value method to tell it whether or not to show the number next to the sliding scale. It's commented out in this example.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a master adjustment to use for the vertical (or any other) scale
+        this._adjustment = new Gtk.Adjustment ({
+            value: 95,
+            lower: 0,
+            upper: 100,
+            step_increment: 5,
+            page_increment: 10 });
+]]></code>
+
+    <p>An Adjustment is an object we can use to simplify things when creating a new Scale. The Adjustment's "value" property is what the Scale's default value is, while "upper" and "lower" make the high and low ends of the numerical range. Meanwhile, the increment values show how much the slider moves when you do things like click on it.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a vertical scale using the adjustment we just made
+        this._vScale = new Gtk.Scale ({
+            orientation: Gtk.Orientation.VERTICAL,
+            adjustment: this._adjustment,
+            digits: 0,
+            // draw_value: false,
+            margin_left: 10 });
+]]></code>
+
+    <p>Here we create a new Scale object using _adjustment as its "adjustment" property. This is a great shortcut. We still have to tell it to round off the decimal place, though. Note that the draw_value property is commented out; this is how you tell it not to show the number next to the Scale when you're creating one this way.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create the label that shows the product of the two values
+        this._product = (this._hScale.get_value() * this._vScale.get_value());
+        this._label = new Gtk.Label ({
+            label: (String(this._product) + " penguins on the iceberg."),
+            height_request: 200,
+            width_request: 200,
+            wrap: true});
+
+        // Connect the two scales to functions which recalculate the label
+        this._hScale.connect ("value-changed", Lang.bind (this, this._recalc));
+        this._vScale.connect ("value-changed", Lang.bind (this, this._recalc));
+]]></code>
+
+    <p>We can use the get_value method to find out the numerical value a Scale is set at. We can then do whatever we want with it, including multiply the two Scales' values together and have a <link xref="label.js">Label</link> show us the product. We set the label's text to wrap around, because we're having it display a silly message too.</p>
+    <p>After we create the Label, we connect the two Scales' "value-changed" signals to _recalc, a function that will recalculate the number of penguins on the iceberg and come up with a new message.</p>
+
+    <code mime="text/javascript"><![CDATA[
+        // Create a grid to arrange things in
+        this._UIGrid = new Gtk.Grid ({
+            halign: Gtk.Align.CENTER,
+            valign: Gtk.Align.CENTER,
+            margin_top: 20,
+            margin_left: 20});
+
+        // Attach everything to the grid
+        this._UIGrid.attach (this._label, 0, 0, 1, 1);
+        this._UIGrid.attach (this._hScale, 0, 1, 1, 1);
+        this._UIGrid.attach (this._vScale, 1, 0, 1, 1);
+]]></code>
+    <p>Here we create a <link xref="grid.js">Grid</link> to put everything in, then attach all our widgets to it. Note that here and on some of the widgets themselves we're using margins to keep things neatly spaced.</p>
+    <code mime="text/javascript"><![CDATA[
+        // Add the grid to the window
+        this._window.add (this._UIGrid);
+
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+]]></code>
+    <p>Finally, we add the Grid to the window, then tell the window to show itself and all the widgets inside of it.</p>
+    </section>
+
+    <section id="scales-handler">
+    <title>Function which handles the scales' values changing</title>
+
+    <code mime="text/javascript"><![CDATA[
+    _recalc: function() {
+
+        // Figure out what the product of the two scales' values is
+        var product = (this._hScale.get_value() * this._vScale.get_value());
+
+        // Create a blank comment line in case there isn't a silly comment to make
+        var comment = "";
+
+        // Make a silly comment based on the number of penguins
+        if (product > 9000) {
+            comment = "It's over 9000!";
+        }
+        else if (product < 1000 && product > 0) {
+            comment = "They're getting lonely.";
+        }
+        else if (product == 0) {
+            comment = "They're all gone ...";
+        }
+        else comment = "";
+
+        // Set ._label's new text
+        this._label.set_label (String (product) + " penguins on the iceberg. " + comment);
+
+    }
+
+});
+]]></code>
+    <p>Remember, we can get a Scale's value using its get_value method. Here we simply recalculate what the product of the two values is after one of the Scales is moved, add in a silly message depending on how many penguins are left, and change the wording on _label to show the new number and message.</p>
+
+    <code mime="text/javascript"><![CDATA[
+// Run the application
+let app = new ScaleExample ();
+app.application.run (ARGV);
+]]></code>
+    <p>Finally, we create a new instance of the finished ScaleExample class, and set the application running.</p>
+  </section>
+
+  <section id="complete">
+    <title>Complete code sample</title>
+<code mime="text/javascript" style="numbered"><xi:include href="samples/scale.js" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="in-depth">
+    <title>In-depth documentation</title>
+<list>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Adjustment.html">Gtk.Adjustment</link></p></item>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Scale.html">Gtk.Scale</link></p></item>
+</list>
+  </section>
+</page>
