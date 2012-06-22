@@ -20,13 +20,28 @@
   <media type="image" mime="image/png" src="media/scrolledwindow.png"/>
   <p>An image in a scrolled window.</p>
 
-<code mime="text/x-python" style="numbered"><xi:include href="samples/scrolledwindow.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScrolledWindow.html">GtkScrolledWindow</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkImage.html">GtkImage</link></p></item>
-</list>
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/scrolledwindow.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  <section id="methods">
+    <title>Useful methods for a ScrolledWindow widget</title>
+    <list>
+      <item><p><code>set_policy(hscrollbar_policy, vscrollbar_policy)</code> where each of the arguments is one of <code>Gtk.Policy.AUTOMATIC, Gtk.Policy.ALWAYS, Gtk.Policy.NEVER</code> regulates whether the horizontal and vertical scrollbars should appear: with <code>AUTOMATIC</code> they appear only if needed, <code>ALWAYS</code> and <code>NEVER</code> are self-explanatory.</p></item>
+      <item><p><code>add_with_viewport(widget)</code> is used to add the Gtk.Widget <code>widget</code> without native scrolling capabilities inside the window.</p></item>
+      <item><p><code>set_placement(window_placement)</code> sets the placement of the contents with respect to the scrollbars for the scrolled window. The options for the argument are <code>Gtk.CornerType.TOP_LEFT</code> (default: the scrollbars are on the bottom and on the right of the window), <code>Gtk.CornerType.TOP_RIGHT, Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT</code>.</p></item>
+      <item><p><code>set_hadjustment(adjustment)</code> and <code>set_vadjustment(adjustment)</code> set the Gtk.Adjustment <code>adjustment</code>. This is the representation of a value with a lower and upper bound, together with step and page increments, and a page size, and it is constructed as <code>Gtk.Adjustment(value, lower, upper, step_increment, page_increment, page_size)</code> where the fields are of type <code>float</code>. (Note that <code>step_increment</code> is not used in this case, it can be set to <code>0</code>.)</p></item>
+    </list>
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScrolledWindow.html">GtkScrolledWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkImage.html">GtkImage</link></p></item>
+    </list>
+  </section>
 </page>

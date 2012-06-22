@@ -1,6 +1,4 @@
-from gi.repository import GLib
 from gi.repository import Gtk
-from gi.repository import Gio
 import sys
 
 class MyWindow(Gtk.ApplicationWindow):
@@ -18,14 +16,15 @@ class MyWindow(Gtk.ApplicationWindow):
         image = Gtk.Image()
         image.set_from_file("gnome-image.png")
 
-        # we add the scrollbar to the image
+        # add the image to the scrolledwindow
         scrolled_window.add_with_viewport(image)
 
+        # add the scrolledwindow to the window
         self.add(scrolled_window)
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.gtk.example.grid")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
