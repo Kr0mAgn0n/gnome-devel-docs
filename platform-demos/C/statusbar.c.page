@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="statusbar.c">
+  <info>
+    <link type="guide" xref="beginner.c#buttons"/>
+    <link type="seealso" xref="grid.c"/>
+    <link type="seealso" xref="button.c"/>
+    
+
+    <revision version="0.1" date="2012-06-22" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Monica Kochofar</name>
+      <email>monicakochofar@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Report messages of minor importance to the user</desc>
+  </info>
+
+  <title>Statusbar</title>
+
+  <media type="image" mime="image/png" src="media/statusbar3.png"/>
+  <p>This statusbar is used to demonstrate how messages are stacked in a last-in-first-out order. The message on the top of the stack is always the one displayed.</p>
+
+      <code mime="text/x-csrc" style="numbered">
+<xi:include href="samples/statusbar.c" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkStatusbar.htmll">GtkStatusBar</link></p></item>
+  <item><p><link href="http://developer.gnome.org/glib/stable/glib-String-Utility-Functions.html#g-snprintf">String Utility Functions</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkGrid.html">GtkGrid</link></p></item>
+</list>
+</page>

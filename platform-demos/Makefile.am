@@ -91,6 +91,7 @@ demo_sources = \
 	samples/spinner.js			\
 	samples/spinner.py			\
 	samples/spinner.vala			\
+	samples/statusbar.c			\
 	samples/statusbar.js			\
 	samples/statusbar.py			\
 	samples/statusbar.vala			\
@@ -165,6 +166,7 @@ DOC_FIGURES = \
 	media/spinner.png			\
 	media/statusbar.png			\
 	media/statusbar2.png			\
+	media/statusbar3.png			\
 	media/switch_on.png			\
 	media/switch_off.png			\
 	media/textview.png			\
@@ -278,6 +280,7 @@ DOC_PAGES =				\
 	spinner.js.page			\
 	spinner.py.page			\
 	spinner.vala.page		\
+	statusbar.c.page		\
 	statusbar.js.page		\
 	statusbar.py.page		\
 	statusbar.vala.page		\
