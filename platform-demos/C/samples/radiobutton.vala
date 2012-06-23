@@ -13,7 +13,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		//Create a RadioButton with a label, and add it to the same group as button1.
 		var button2 = new Gtk.RadioButton.with_label (button1.get_group(),"Button 2");
-		
+
 		//Create a RadioButton with a label, adding it to button1's group.
 		var button3 = new Gtk.RadioButton.with_label_from_widget (button1, "Button 3");
 

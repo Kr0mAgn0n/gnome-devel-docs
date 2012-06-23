@@ -7,7 +7,7 @@ public class Window : Gtk.ApplicationWindow {
 
 		var about_action = new SimpleAction ("about", null);
 
-		/* Connect the 'activate' signal to the 
+		/* Connect the 'activate' signal to the
 		 * signal handler (aka. callback).
 		 */
 		about_action.activate.connect (this.about_cb);

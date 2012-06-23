@@ -5,7 +5,7 @@ public class Application : Gtk.Application {
 	public Application () {
 		Object (application_id: "org.example.window");
 	}
-	
+
 	/* Override the 'activate' signal of GLib.Application,
 	 * which is inherited by Gtk.Application. */
 	public override void activate () {

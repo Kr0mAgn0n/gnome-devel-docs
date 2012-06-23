@@ -29,7 +29,7 @@ public class MyApplication : Gtk.Application {
 	internal MyApplication () {
 		Object (application_id: "org.example.MyApplication");
 	}
-	
+
 	/* Override the activate signal of GLib.Application */
 	protected override void activate () {
 		new MyWindow (this).show ();

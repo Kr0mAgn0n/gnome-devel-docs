@@ -31,7 +31,7 @@ class MyWindow : Gtk.ApplicationWindow {
 
 class MyApplication : Gtk.Application {
 	protected override void activate () {
-		
+
 		var window = new MyWindow (this);
 		window.show_all (); //show all the things
 	}

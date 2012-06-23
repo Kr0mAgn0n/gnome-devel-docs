@@ -32,7 +32,7 @@ public class Window : Gtk.ApplicationWindow {
 
 /* This is the Application */
 public class Application : Gtk.Application {
-	
+
 	/* Here we override the activate signal of GLib.Application */
 	protected override void activate () {
 		new Window (this);
@@ -40,7 +40,7 @@ public class Application : Gtk.Application {
 
 	/* Here we override the startup signal of GLib.Application */
 	protected override void startup () {
-		
+
 		base.startup ();
 
 		var menu = new Menu ();

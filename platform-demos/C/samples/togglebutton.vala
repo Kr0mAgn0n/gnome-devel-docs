@@ -16,7 +16,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		/*ToggleButton*/
 		var togglebutton = new Gtk.ToggleButton.with_label ("Start/Stop");
 		togglebutton.toggled.connect (toggled_cb);
-		
+
 		/*Grid*/
 		var grid = new Gtk.Grid ();
 		grid.set_row_homogeneous (false);

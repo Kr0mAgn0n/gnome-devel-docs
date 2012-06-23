@@ -4,7 +4,7 @@ class MyWindow : Gtk.ApplicationWindow {
 	/* An instance array of linux distributions belonging to this window. */
 	string[] distros = {"Select distribution", "Fedora", "Mint", "Suse"};
 
-	/* This enum makes the code more readable when we refer to 
+	/* This enum makes the code more readable when we refer to
 	 * the column as Column.DISTRO, instead of just 0.
 	 */
 	enum Column {
@@ -35,7 +35,7 @@ class MyWindow : Gtk.ApplicationWindow {
 		/* Set the first item in the list to be selected (active). */
 		combobox.set_active (0);
 
-		/* Connect the 'changed' signal of the combobox 
+		/* Connect the 'changed' signal of the combobox
 		 * to the signal handler (aka. callback function.
 		 */
 		combobox.changed.connect (this.item_changed);

@@ -24,7 +24,7 @@ public class MyApplication : Gtk.Application {
 
 		/* This function is only called by GLib.Timeout.add while it returns true; */
 		if (fraction < 1.0)
-			return true;	
+			return true;
 		return false;
 	}
 }

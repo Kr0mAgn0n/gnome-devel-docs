@@ -8,7 +8,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		this.set_default_size (200, 200);
 		this.border_width = 30;
-		
+
 		spinner = new Gtk.Spinner ();
 
 		this.add (spinner);

@@ -24,8 +24,8 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 	};
 
 	enum Column {
-		FIRSTNAME, 
-		LASTNAME, 
+		FIRSTNAME,
+		LASTNAME,
 		PHONE
 	}
 
@@ -38,7 +38,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 		var view = new Gtk.TreeView ();
 		this.setup_treeview (view);
 		view.expand = true;
-		
+
 		label = new Gtk.Label ("");
 
 		var grid = new Gtk.Grid ();
@@ -98,7 +98,7 @@ class TreeViewSimpleListStore : Gtk.ApplicationWindow {
 		string phone;
 
 		if (selection.get_selected (out model, out iter)) {
-			model.get (iter, 
+			model.get (iter,
                                    Column.FIRSTNAME, out name,
                                    Column.LASTNAME, out lastname,
                                    Column.PHONE, out phone);

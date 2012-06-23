@@ -7,7 +7,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		this.window_position = Gtk.WindowPosition.CENTER;
 		this.set_default_size (250,50);
-		
+
 		var button = new Gtk.Button.with_label ("Click Me");
 
 		/* Connect the button's "clicked" signal to
@@ -20,7 +20,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		button.show ();
 	}
 
-	/* The signal handler for the buttons 'clicked' signal. */	
+	/* The signal handler for the buttons 'clicked' signal. */
 	void on_button_click (Gtk.Button button) {
 		var dialog = new Gtk.Dialog.with_buttons ("A Gtk+ Dialog", this,
                                                           Gtk.DialogFlags.MODAL,
@@ -39,7 +39,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 		dialog.response.connect (on_response);
 
 		/* Show the dialog and all the widgets. */
-		dialog.show_all (); 
+		dialog.show_all ();
 	}
 
 	/* Signal handler for the 'response' signal of the dialog. */
@@ -65,7 +65,7 @@ public class MyApplication : Gtk.Application {
 
 	/* Override the 'activate' signal of GLib.Application. */
 	protected override void activate () {
-		
+
 		/* Create a window for the this application and show it. */
 		new MyWindow (this).show ();
 	}

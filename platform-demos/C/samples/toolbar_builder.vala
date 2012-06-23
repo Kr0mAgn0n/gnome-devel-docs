@@ -2,7 +2,7 @@
 class MyWindow : Gtk.ApplicationWindow {
 
 	/* Declare these two ToolButtons, as we will get them
-	 * from the ui file (see lines 32 and 33), so we can 
+	 * from the ui file (see lines 32 and 33), so we can
 	 * hide() and show() them as needed.*/
 	Gtk.ToolButton fullscreen_button;
 	Gtk.ToolButton leave_fullscreen_button;

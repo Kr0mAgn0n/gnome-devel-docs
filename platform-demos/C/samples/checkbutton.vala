@@ -10,7 +10,7 @@ class MyWindow : Gtk.ApplicationWindow {
 
 		var checkbutton = new Gtk.CheckButton.with_label ("Show Title");
 
-		/* Connect the checkbutton to the 
+		/* Connect the checkbutton to the
 		 * callback function (aka. signal handler).
 		 */
 		checkbutton.toggled.connect (this.toggled_cb);
@@ -38,7 +38,7 @@ class MyApplication : Gtk.Application {
 	internal MyApplication () {
 		Object (application_id: "org.example.checkbutton");
 	}
-	
+
 	/* Override the activate signal of GLib.Application */
 	protected override void activate () {
 		new MyWindow (this).show ();
