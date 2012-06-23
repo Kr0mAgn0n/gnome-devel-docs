@@ -1,8 +1,5 @@
 #include <gtk/gtk.h>
 
-/*Global variable in which holds the statusbar*/
-GtkWidget *status_bar;
-
 
 
 /*Callback function in which pushes an item onto the statusbar*/
@@ -10,6 +7,10 @@ static void
 push_item(GtkWidget *widget,
           gpointer   data)
 {
+  GtkWidget *status_bar = data;
+  guint context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (status_bar), 
+                                                   "Statusbar example");
+
   /*Count is used to keep track of the amount of items 
   the user is pushing/popping*/
   static int count = 1;
@@ -20,7 +21,7 @@ push_item(GtkWidget *widget,
   into the 'hold_output' variable*/
   g_snprintf(hold_output, 20, "Item %d", count++);
   gtk_statusbar_push(GTK_STATUSBAR (status_bar), 
-                     GPOINTER_TO_INT (data), 
+                     context_id, 
                      hold_output);
 }
 
@@ -31,25 +32,32 @@ static void
 pop_item(GtkWidget *widget,
          gpointer   data )
 {
-  gtk_statusbar_pop(GTK_STATUSBAR (status_bar), GPOINTER_TO_INT (data));
+  GtkWidget *status_bar = data;
+  guint context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (status_bar), 
+                                                   "Statusbar example");
+
+  gtk_statusbar_pop(GTK_STATUSBAR (status_bar), context_id);
 }
+
+
 
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
-
     GtkWidget *window;
     GtkWidget *grid;
     GtkWidget *push_button;
     GtkWidget *pop_button;
+    GtkWidget *status_bar;
 
     guint context_id;
 
-    /*Create a window with a title and a default size**/
+    /*Create a window with a title, border width, and a default size**/
     window = gtk_application_window_new (app);
-    gtk_window_set_default_size(GTK_WINDOW (window), 200, 100);
-    gtk_window_set_title(GTK_WINDOW (window), "Statusbar Example");
+    gtk_window_set_default_size (GTK_WINDOW (window), 220, 100);
+    gtk_window_set_title (GTK_WINDOW (window), "Statusbar Example");
+    gtk_container_set_border_width (GTK_CONTAINER(window), 10);
     
     /*Create the status bar, which is held in the global variable*/
     status_bar = gtk_statusbar_new ();      
@@ -65,15 +73,15 @@ activate (GtkApplication *app,
     
     /*Create the grid, and attach the buttons/statusbar accordingly*/
     grid = gtk_grid_new ();
-    gtk_grid_attach (GTK_GRID (grid), status_bar, 1,1,1,1);
-    gtk_grid_attach (GTK_GRID (grid), push_button, 1,2,1,1);
-    gtk_grid_attach (GTK_GRID (grid), pop_button, 1,3,1,1);
+    gtk_grid_attach (GTK_GRID (grid), push_button, 0,1,1,1);
+    gtk_grid_attach (GTK_GRID (grid), pop_button, 0,2,1,1);
+    gtk_grid_attach (GTK_GRID (grid), status_bar, 0,3,1,1);
     
     /*Connecting the clicked signals to the corresponding callback functions*/
     g_signal_connect (GTK_BUTTON (push_button), "clicked", 
-                      G_CALLBACK (push_item), &context_id);
+                      G_CALLBACK (push_item), status_bar);
     g_signal_connect (GTK_BUTTON (pop_button), "clicked", 
-                      G_CALLBACK (pop_item), &context_id);
+                      G_CALLBACK (pop_item), status_bar);
     
     /*Attach the grid holding the child widgets onto the window, and show all*/
     gtk_container_add (GTK_CONTAINER (window), grid);
