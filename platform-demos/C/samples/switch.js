@@ -10,8 +10,7 @@ const SwitchExample = new Lang.Class({
     // Create the application itself
     _init: function() {
         this.application = new Gtk.Application({
-            application_id: 'org.example.jsswitch',
-            flags: Gio.ApplicationFlags.FLAGS_NONE
+            application_id: 'org.example.jsswitch'
         });
 
     // Connect 'activate' and 'startup' signals to the callback functions
@@ -145,7 +144,7 @@ const SwitchExample = new Lang.Class({
     _showAbout: function () {
 
         // String arrays of the names of the people involved in the project
-        var artists = ['Rob Lee http://en.wikipedia.org/wiki/File:Fuzzy_Freddy.jpg', 'Ken Funakoshi http://en.wikipedia.org/wiki/File:Pygoscelis_papua_-Nagasaki_Penguin_Aquarium_-swimming_underwater-8a.jpg', 'Shek Graham http://www.flickr.com/photos/shekgraham/127431519/in/photostream/', 'Mindaugas Urbonas http://commons.wikimedia.org/wiki/File:Mute_Swan-Mindaugas_Urbonas.jpg'];
+        var artists = ['Rob Lee http://en.wikipedia.org/wiki/File:Fuzzy_Freddy.png', 'Ken Funakoshi http://en.wikipedia.org/wiki/File:Pygoscelis_papua_-Nagasaki_Penguin_Aquarium_-swimming_underwater-8a.png', 'Shek Graham http://www.flickr.com/photos/shekgraham/127431519/in/photostream/', 'Mindaugas Urbonas http://commons.wikimedia.org/wiki/File:Mute_Swan-Mindaugas_Urbonas.png'];
         var authors = ["GNOME Documentation Team"];
         var documenters = ["GNOME Documentation Team"];
 
