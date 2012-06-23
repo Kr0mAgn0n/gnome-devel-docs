@@ -1,7 +1,7 @@
 #include <gtk/gtk.h>
 
-/*This is the callback function. It is a handler function
-which reacts to the signal. In this case, it will grab the
+/*This is the callback function. It is a handler function 
+which reacts to the signal. In this case, it will grab the 
 text input from the entry box and print out a line to the user.*/
 static void
 on_activate (GtkEntry *entry,
@@ -20,7 +20,7 @@ activate (GtkApplication *app,
   GtkWidget *window;
   GtkWidget *entry_box;
 
-  /*Create a window with a title, a default size,
+  /*Create a window with a title, a default size, 
   and a set border width*/
   window = gtk_application_window_new (app);
   gtk_window_set_title (GTK_WINDOW (window), "What is your name?");

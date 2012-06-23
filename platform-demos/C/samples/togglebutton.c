@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
 
-/*This is the callback function. It is a handler function
-which reacts to the signal. In this case, it will cause the
-spinner to start and stop according to how many times the user
+/*This is the callback function. It is a handler function 
+which reacts to the signal. In this case, it will cause the 
+spinner to start and stop according to how many times the user 
 presses the button.*/
 static void
 button_toggled_cb (GtkWidget *button,
@@ -41,15 +41,15 @@ activate (GtkApplication *app,
   gtk_widget_set_hexpand (spinner, TRUE);
   gtk_widget_set_vexpand (spinner, TRUE);
 
-  /*Create a grid and set the row spacing, attach the togglebutton
+  /*Create a grid and set the row spacing, attach the togglebutton 
   and spinner onto the grid and position them accordingly*/
   grid = gtk_grid_new();
   gtk_grid_set_row_homogeneous (GTK_GRID (grid), FALSE);
   gtk_grid_set_row_spacing (GTK_GRID (grid), 15);
-
+  
   gtk_grid_attach (GTK_GRID (grid), spinner, 0, 0, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), button, 0, 1, 1, 1);
-
+  
   gtk_container_add (GTK_CONTAINER (window), grid);
 
   /*connecting the clicked signal to the callback*/

@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 
-/*This is the callback function. It is a handler function which reacts to the signal.
+/*This is the callback function. It is a handler function which reacts to the signal. 
 In this case, it will cause the button label's string to reverse.*/
 
 static void
