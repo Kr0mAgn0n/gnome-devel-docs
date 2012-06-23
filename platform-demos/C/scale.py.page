@@ -6,7 +6,7 @@
   <info>
     <link type="guide" xref="beginner.py#entry"/>
     <link type="seealso" xref="grid.py"/>
-    <revision version="0.1" date="2012-05-25" status="draft"/>
+    <revision version="0.2" date="2012-06-23" status="draft"/>
 
     <credit type="author copyright">
       <name>Marta Maria Casetti</name>
@@ -21,13 +21,39 @@
   <media type="image" mime="image/png" src="media/scale.png"/>
   <p>Slide the scales!</p>
 
-<code mime="text/x-python" style="numbered"><xi:include href="samples/scale.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScale.html">GtkScale</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkAdjustment.html">GtkAdjustment</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
-</list>
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/scale.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a Scale widget</title>
+    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py">this page</link>. An example is the <code>"value-changed"</code> signal, emitted when the value of the scale changes.</p>
+    <p>A Gtk.Adjustment is needed to construct the Gtk.Scale. This is the representation of a value with a lower and upper bound, together with step and page increments, and a page size, and it is constructed as <code>Gtk.Adjustment(value, lower, upper, step_increment, page_increment, page_size)</code> where the fields are of type <code>float</code>; <code>step_increment</code> is the increment/decrement that is obtained by using the cursor keys, <code>page_increment</code> the one that is obtained clicking on the scale itself. Note that <code>page_size</code> is not used in this case, it should be set to <code>0</code>.</p>
+    <list>
+      <item><p><code>get_value()</code> retrieves the current value of the scale; <code>set_value(value)</code> sets it (if the <code>value</code>, of type <code>float</code>, is outside the minimum or maximum range, it will be clamped to fit inside them). These are methods of the class Gtk.Range.</p></item>
+      <item><p>Use <code>set_draw_value(False)</code> to avoid displaying the current value as a string next to the slider.</p></item>
+      <item><p>To highlight the part of the scale between the origin and the current value:</p>
+        <code mime="text/x-python">
+self.h_scale.set_restrict_to_fill_level(False)
+self.h_scale.set_fill_level(self.h_scale.get_value())
+self.h_scale.set_show_fill_level(True)</code>
+        <p>in the callback function of the "value-changed" signal, so to have the new filling every time the value is changed. These are methods of the class Gtk.Range.</p>
+      </item>
+      <item><p><code>add_mark(value, position, markup)</code> adds a mark at the <code>value</code> (<code>float</code> or <code>int</code> if that is the precision of the scale), in <code>position</code> (<code>Gtk.PositionType.LEFT, Gtk.PositionType.RIGHT, Gtk.PositionType.TOP, Gtk.PositionType.BOTTOM</code>) with text <code>Null</code> or <code>markup</code> in the Pango Markup Language. To clear marks, <code>clear_marks()</code>.</p></item>
+      <item><p><code>set_digits(digits)</code> sets the precision of the scale at <code>digits</code> digits.</p></item>
+    </list>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkScale.html">GtkScale</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkAdjustment.html">GtkAdjustment</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html">Standard Enumerations</link></p></item>
+    </list>
+  </section>
 </page>

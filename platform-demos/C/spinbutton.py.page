@@ -6,7 +6,7 @@
   <info>
     <link type="guide" xref="beginner.py#entry"/>
     <link type="seealso" xref="grid.py"/>
-    <revision version="0.1" date="2012-05-28" status="draft"/>
+    <revision version="0.2" date="2012-06-23" status="draft"/>
 
     <credit type="author copyright">
       <name>Marta Maria Casetti</name>
@@ -21,12 +21,30 @@
   <media type="image" mime="image/png" src="media/spinbutton.png"/>
   <p>Choose a number, by entering it or by clicking on the -/+ buttons!</p>
 
-<code mime="text/x-python" style="numbered"><xi:include href="samples/spinbutton.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkSpinButton.html">GtkSpinButton</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkAdjustment.html">GtkAdjustment</link></p></item>
-</list>
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/spinbutton.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a SpinButton widget</title>
+    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py">this page</link>. An example is the <code>"value-changed"</code> signal, emitted when the value of the spinbutton changes.</p>
+    <p>A Gtk.Adjustment is needed to construct the Gtk.SpinButton. This is the representation of a value with a lower and upper bound, together with step and page increments, and a page size, and it is constructed as <code>Gtk.Adjustment(value, lower, upper, step_increment, page_increment, page_size)</code> where the fields are of type <code>float</code>; <code>step_increment</code> is the increment/decrement that is obtained by using the cursor keys or the buttons of the spinbutton. Note that <code>page_increment</code> and <code>page_size</code> are not used in this case, and they should be set to <code>0</code>.</p>
+    <list>
+      <item><p>If you want the value of the spinbutton to wrap around when they exceed the maximum or the minimum, set <code>set_wrap(True)</code>. The <code>"wrapped"</code> signal is emitted when this happens.</p></item>
+      <item><p><code>set_digits(digits)</code> sets the precision to be displayed by the spinbutton, up to 20 digits.</p></item>
+      <item><p>To get the value of the spinbutton as an integer, use <code>get_value_as_int()</code>.</p></item>
+    </list>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkSpinButton.html">GtkSpinButton</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkAdjustment.html">GtkAdjustment</link></p></item>
+    </list>
+  </section>
 </page>

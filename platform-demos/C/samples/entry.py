@@ -1,4 +1,3 @@
-from gi.repository import GLib
 from gi.repository import Gtk
 import sys
 
@@ -10,19 +9,23 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a single line entry
         name_box = Gtk.Entry()
-        # sends a signal when the Enter key is pressed
+        # emits a signal when the Enter key is pressed, connected to the
+        # callback function cb_activate
         name_box.connect("activate", self.cb_activate)
 
+        # add the Gtk.Entry to the window
         self.add(name_box)
 
     # the content of the entry is used to write in the terminal
     def cb_activate(self, entry):
+        # retrieve the content of the widget
 		name = entry.get_text()
-		print "\nHello " + name + "!\n"
+		# print it in a nice form in the terminal
+		print "Hello " + name + "!"
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.MyApplication")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)

@@ -15,49 +15,49 @@ class MyWindow(Gtk.ApplicationWindow):
         ad2 = Gtk.Adjustment(50, 0, 100, 5, 10, 0)
 
         # an horizontal scale
-        h_scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL, adjustment=ad1)
-        h_scale.set_digits(0)
+        self.h_scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL, adjustment=ad1)
+        # of integers (no digits)
+        self.h_scale.set_digits(0)
         # that can expand horizontally if there is space in the grid (see below)
-        h_scale.set_hexpand(True)
+        self.h_scale.set_hexpand(True)
         # that is aligned at the top of the space allowed in the grid (see below)
-        h_scale.set_valign(Gtk.Align.START)
+        self.h_scale.set_valign(Gtk.Align.START)
 
-        h_scale.connect("value-changed", self.scale_moved)
+        # we connect the signal "value-changed" emitted by the scale with the callback
+        # function scale_moved
+        self.h_scale.connect("value-changed", self.scale_moved)
 
         # a vertical scale
-        v_scale = Gtk.Scale(orientation=Gtk.Orientation.VERTICAL, adjustment=ad2)
+        self.v_scale = Gtk.Scale(orientation=Gtk.Orientation.VERTICAL, adjustment=ad2)
         # that can expand vertically if there is space in the grid (see below)
-        v_scale.set_vexpand(True)
+        self.v_scale.set_vexpand(True)
 
-        v_scale.connect("value-changed", self.scale_moved)
+        # we connect the signal "value-changed" emitted by the scale with the callback
+        # function scale_moved
+        self.v_scale.connect("value-changed", self.scale_moved)
 
         # a label
-        label = Gtk.Label()
-        label.set_text("Move the scale handles...")
+        self.label = Gtk.Label()
+        self.label.set_text("Move the scale handles...")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
         grid.set_column_spacing(10)
         grid.set_column_homogeneous(True)
-        grid.attach(h_scale, 1, 1, 1, 1)
-        grid.attach_next_to(v_scale, h_scale, Gtk.PositionType.RIGHT, 1, 1)
-        grid.attach(label, 1, 2, 2, 1)
+        grid.attach(self.h_scale, 0, 0, 1, 1)
+        grid.attach_next_to(self.v_scale, self.h_scale, Gtk.PositionType.RIGHT, 1, 1)
+        grid.attach(self.label, 0, 1, 2, 1)
 
         self.add(grid)
 
-        self.label = label
-        self.scale1 = h_scale
-        self.scale2 = v_scale
-
     # any signal from the scales is signaled to the label the text of which is changed
     def scale_moved(self, event):
-        self.label.set_text("Horizontal scale is " + str(int(self.scale1.get_value())) +
-                            "; vertical scale is " + str(self.scale2.get_value()) + ".")
-        return True
+        self.label.set_text("Horizontal scale is " + str(int(self.h_scale.get_value())) +
+                            "; vertical scale is " + str(self.v_scale.get_value()) + ".")
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.spinner")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)

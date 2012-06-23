@@ -11,37 +11,35 @@ class MyWindow(Gtk.ApplicationWindow):
         # step increment - press cursor keys or +/- buttons to see!,
         # page increment - not used here,
         # page size - not used here)
-        ad = Gtk.Adjustment(0, 0, 100, 1, 10, 0)
+        ad = Gtk.Adjustment(0, 0, 100, 1, 0, 0)
 
         # a spin button for integers (digits=0)
-        spin = Gtk.SpinButton(adjustment=ad, climb_rate=1, digits=0)
+        self.spin = Gtk.SpinButton(adjustment=ad, climb_rate=1, digits=0)
         # as wide as possible
-        spin.set_hexpand(True)
+        self.spin.set_hexpand(True)
 
-        spin.connect("value-changed", self.spin_selected)
+        # we connect the signal "value-changed" emitted by the spinbutton with the callback
+        # function spin_selected
+        self.spin.connect("value-changed", self.spin_selected)
 
         # a label
-        label = Gtk.Label()
-        label.set_text("Choose a number")
+        self.label = Gtk.Label()
+        self.label.set_text("Choose a number")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
-        grid.attach(spin, 1, 1, 1, 1)
-        grid.attach(label, 1, 2, 2, 1)
+        grid.attach(self.spin, 0, 0, 1, 1)
+        grid.attach(self.label, 0, 1, 2, 1)
 
         self.add(grid)
 
-        self.label = label
-        self.spin = spin
-
-    # the signal of the spinbutton is signaled to the label the text of which is changed
+    # callback function: the signal of the spinbutton is used to change the text of the label
     def spin_selected(self, event):
         self.label.set_text("The number you selected is " + str(self.spin.get_value_as_int()) + ".")
-        return True
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.spinner")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
