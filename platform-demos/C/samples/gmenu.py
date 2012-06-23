@@ -36,7 +36,7 @@ class MyApplication(Gtk.Application):
         new_action = Gio.SimpleAction.new ("new", None)
         new_action.connect ("activate", self.new_cb)
         self.add_action (new_action)
-	
+
         about_action = Gio.SimpleAction.new ("about", None)
         about_action.connect ("activate", self.about_cb)
         self.add_action (about_action)
