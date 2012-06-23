@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 
+
+
 /*This is the callback function. It is a handler function 
 which reacts to the signal. In this case, it will cause the 
 spinner to start and stop according to how many times the user 
@@ -17,6 +19,8 @@ button_toggled_cb (GtkWidget *button,
   }
 }
 
+
+
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
@@ -28,7 +32,6 @@ activate (GtkApplication *app,
 
   /*Create a window with a title, border width and a default size*/
   window = gtk_application_window_new (app);
-
   gtk_window_set_title (GTK_WINDOW (window), "ToggleButton Example");
   gtk_window_set_default_size (GTK_WINDOW (window), 300, 300);
   gtk_container_set_border_width(GTK_CONTAINER(window), 30);
@@ -46,17 +49,19 @@ activate (GtkApplication *app,
   grid = gtk_grid_new();
   gtk_grid_set_row_homogeneous (GTK_GRID (grid), FALSE);
   gtk_grid_set_row_spacing (GTK_GRID (grid), 15);
-  
   gtk_grid_attach (GTK_GRID (grid), spinner, 0, 0, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), button, 0, 1, 1, 1);
   
   gtk_container_add (GTK_CONTAINER (window), grid);
 
-  /*connecting the clicked signal to the callback*/
-  g_signal_connect (GTK_TOGGLE_BUTTON (button), "toggled", G_CALLBACK (button_toggled_cb), spinner);
+  /*Connecting the toggled signal to the callback*/
+  g_signal_connect (GTK_TOGGLE_BUTTON (button), "toggled", 
+                    G_CALLBACK (button_toggled_cb), spinner);
 
   gtk_widget_show_all (window);
 }
+
+
 
 int
 main (int argc, char **argv)

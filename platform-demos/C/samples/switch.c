@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 
+
+
 /*Signal handler for the "active" signal of the Switch*/
 static void
 activate_cb (GObject    *switcher,
@@ -15,12 +17,12 @@ activate_cb (GObject    *switcher,
 }
 
 
+
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
   GtkWidget *grid;
-
   GtkWidget *window;
   GtkWidget *label;
   GtkWidget *switcher;
@@ -31,8 +33,7 @@ activate (GtkApplication *app,
   window = gtk_application_window_new (app);
   gtk_window_set_title (GTK_WINDOW (window), "Switch Example");
   gtk_window_set_default_size (GTK_WINDOW (window), 300, 100);
-  gtk_container_set_border_width(GTK_CONTAINER(window), 10);
-
+  gtk_container_set_border_width (GTK_CONTAINER (window), 10);
 
   /*Create a label*/
   label = gtk_label_new ("Title");
@@ -40,7 +41,6 @@ activate (GtkApplication *app,
   /*Create a switch with a default active state*/
   switcher = gtk_switch_new ();
   gtk_switch_set_active (GTK_SWITCH (switcher), TRUE);
-
 
   /*Create a grid and set the column spacing, attach the label and
   switch onto the grid and position them accordingly*/
@@ -50,9 +50,10 @@ activate (GtkApplication *app,
   gtk_grid_attach (GTK_GRID (grid), switcher, 1, 0, 1, 1);
 
   /*Connecting the clicked signal to the callback function*/
-  g_signal_connect (GTK_SWITCH (switcher), "notify::active", G_CALLBACK (activate_cb), window);
-
-
+  g_signal_connect (GTK_SWITCH (switcher), 
+                    "notify::active", 
+                    G_CALLBACK (activate_cb), 
+                    window);
 
   gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET (grid));
 

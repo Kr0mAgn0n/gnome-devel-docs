@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 
+
+
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
@@ -7,11 +9,10 @@ activate (GtkApplication *app,
   GtkWidget *window;
   GtkWidget *image;
 
+  /*Create a window with a title and a default size*/
   window = gtk_application_window_new (app);
-
-  gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
   gtk_window_set_title (GTK_WINDOW (window), "Welcome to GNOME");
-  gtk_window_set_default_size (GTK_WINDOW (window), 300, 300);//may have to change size
+  gtk_window_set_default_size (GTK_WINDOW (window), 300, 300);
 
   image = gtk_image_new_from_file ("gnome-image.png");
 
@@ -19,6 +20,8 @@ activate (GtkApplication *app,
 
   gtk_widget_show_all (GTK_WIDGET (window));
 }
+
+
 
 int
 main (int argc, char **argv)

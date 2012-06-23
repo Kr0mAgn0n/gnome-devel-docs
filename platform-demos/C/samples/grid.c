@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 
+
+
 /*Signal handler for the "clicked" signal of the Button. Each
 click generates a progress bar pulse*/
 static void
@@ -11,12 +13,12 @@ on_button_click (GtkButton *button,
 }
 
 
+
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
   GtkWidget *grid;
-
   GtkWidget *window;
   GtkWidget *button;
   GtkWidget *progress_bar;
@@ -29,16 +31,20 @@ activate (GtkApplication *app,
   button = gtk_button_new_with_label ("Button");
 
   /*Create the progress bar*/
-  progress_bar = gtk_progress_bar_new();
+  progress_bar = gtk_progress_bar_new ();
 
   /*Create a grid and attach the button and progress bar
   accordingly*/
-  grid = gtk_grid_new();
+  grid = gtk_grid_new ();
   gtk_grid_attach (GTK_GRID (grid), button, 1, 1, 1, 1);
-  gtk_grid_attach_next_to (GTK_GRID (grid), progress_bar, button, GTK_POS_BOTTOM, 1, 1);
+  gtk_grid_attach_next_to (GTK_GRID (grid), 
+                           progress_bar, 
+                           button, 
+                           GTK_POS_BOTTOM, 1, 1);
 
   /*Connecting the clicked signal to the callback function*/
-  g_signal_connect (GTK_BUTTON (button), "clicked", G_CALLBACK (on_button_click), progress_bar);
+  g_signal_connect (GTK_BUTTON (button), "clicked", 
+                    G_CALLBACK (on_button_click), progress_bar);
 
   gtk_container_add (GTK_CONTAINER (window), GTK_WIDGET (grid));
 
