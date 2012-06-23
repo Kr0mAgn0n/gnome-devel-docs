@@ -60,7 +60,7 @@ const Application = new Lang.Class({
         this._toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
 
         //create the "New" ToolButton and its SimpleAction.
-        //Using actions allows you to add them to the app menu 
+        //Using actions allows you to add them to the app menu
         //without duplicating code.
         let newAction = new Gio.SimpleAction({ name: 'new'});
         newAction.connect('activate', Lang.bind(this,

@@ -7,14 +7,14 @@ const Lang = imports.lang;
 
 const Application = new Lang.Class ({
     Name: 'Application',
-   
+
     //create the application
     _init: function () {
         this.application = new Gtk.Application ({
             application_id: 'org.example.myapp',
             flags: Gio.ApplicationFlags.FLAGS_NONE
         });
-       
+
        //connect to 'activate' and 'startup' signals to the callback functions
        this.application.connect('activate', Lang.bind(this, this._onActivate));
        this.application.connect('startup', Lang.bind(this, this._onStartup));
@@ -40,7 +40,7 @@ const Application = new Lang.Class ({
     _showAbout: function() {
         print ("No AboutDialog here.  This is only a demonstration.");
     },
- 
+
     //create the menu items and connect the signals to the callback functions.
     _initMenus: function() {
         let menu = new Gio.Menu();
@@ -48,7 +48,7 @@ const Application = new Lang.Class ({
         menu.append("About", 'app.about');
         menu.append("Quit",'app.quit');
         this.application.set_app_menu(menu);
- 
+
         let newAction = new Gio.SimpleAction ({ name: 'new' });
         newAction.connect('activate', Lang.bind(this,
             function() {

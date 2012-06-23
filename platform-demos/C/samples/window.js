@@ -7,7 +7,7 @@ const Lang = imports.lang;
 
 const Application = new Lang.Class ({
     Name: 'Application',
- 
+
     //create the application
     _init: function () {
         this.application = new Gtk.Application ({
