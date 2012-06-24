@@ -270,6 +270,7 @@ DOC_PAGES =				\
 	progressbar.js.page		\
 	progressbar.py.page		\
 	progressbar.vala.page		\
+	properties.py.page		\
 	py.page				\
 	radiobutton.c.page		\
 	radiobutton.js.page		\

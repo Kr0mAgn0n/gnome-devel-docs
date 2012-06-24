@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="properties.py">
+
+<info>
+  <link type="guide" xref="beginner.py#tutorials"/>
+  <revision version="0.1" date="2012-06-24" status="draft"/>
+
+  <desc>An explanation of properties, getters and setters.</desc>
+  <credit type="author copyright">
+    <name>Sebastian P&#246;lsterl</name>
+    <email>sebp@k-d-w.org</email>
+    <years>2011</years>
+  </credit>
+  <credit type="editor">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012</years>
+  </credit>
+</info>
+
+<title>Properties</title>
+
+<p><em>Properties</em> describe the configuration and state of widgets, and each widget has its own particular set of properties. For example, a widget such as a button or a label has the property "label" which contains the text of the widget. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget: for example, to create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, you can use:</p>
+<code>
+label = Gtk.Label(label="Hello World", angle=25, halign=Gtk.Align.END)</code>
+
+<p>This is equivalent to:</p>
+<code>
+label = Gtk.Label()
+label.set_label("Hello World")
+label.set_angle(25)
+label.set_halign(Gtk.Align.END)</code>
+
+<p>Once you have created such a label, you can get the text with the getter <code>label.get_label()</code>. Instead of using getters and setters you can also get and set the properties with <code>widget.get_property("prop-name")</code> and <code>widget.set_property("prop-name", value)</code>, respectively.</p>
+
+</page>
