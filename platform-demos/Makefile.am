@@ -45,10 +45,13 @@ demo_sources = \
 	samples/entry.js			\
 	samples/entry.py			\
 	samples/entry.vala			\
+	samples/fruitbat.png			\
+	samples/gentoopenguin.png		\
 	samples/gmenu.c				\
 	samples/gmenu.js			\
 	samples/gmenu.py			\
 	samples/gmenu.vala			\
+	samples/gnome-image.png			\
 	samples/grid.c				\
 	samples/grid.js				\
 	samples/grid.py				\
@@ -71,6 +74,7 @@ demo_sources = \
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
+	samples/muteswan.png			\
 	samples/progressbar.c			\
 	samples/progressbar.js			\
 	samples/progressbar.py			\
@@ -79,12 +83,14 @@ demo_sources = \
 	samples/radiobutton.js			\
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
+	samples/redfox.png			\
 	samples/scale.js			\
 	samples/scale.py			\
 	samples/scale.vala			\
 	samples/scrolledwindow.py		\
 	samples/scrolledwindow.py		\
 	samples/separator.py			\
+	samples/spinbutton.js			\
 	samples/spinbutton.py			\
 	samples/spinbutton.vala			\
 	samples/spinner.c			\
@@ -96,6 +102,7 @@ demo_sources = \
 	samples/statusbar.py			\
 	samples/statusbar.vala			\
 	samples/switch.c			\
+	samples/switch.js			\
 	samples/switch.py			\
 	samples/switch.vala			\
 	samples/textview.py			\
@@ -163,10 +170,12 @@ DOC_FIGURES = \
 	media/scrolledwindow.png		\
 	media/separator.png			\
 	media/spinbutton.png			\
+	media/spinbuttonkittens.png		\
 	media/spinner.png			\
 	media/statusbar.png			\
 	media/statusbar2.png			\
 	media/statusbar3.png			\
+	media/switchanimals.png			\
 	media/switch_on.png			\
 	media/switch_off.png			\
 	media/textview.png			\
@@ -273,7 +282,8 @@ DOC_PAGES =				\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
-	signals-callbacks.py.page		\
+	signals-callbacks.py.page	\
+	spinbutton.js.page		\
 	spinbutton.py.page		\
 	spinbutton.vala.page		\
 	spinner.c.page			\
@@ -284,8 +294,9 @@ DOC_PAGES =				\
 	statusbar.js.page		\
 	statusbar.py.page		\
 	statusbar.vala.page		\
-	strings.py.page		\
+	strings.py.page			\
 	switch.c.page			\
+	switch.js.page			\
 	switch.py.page			\
 	switch.vala.page		\
 	textview.py.page		\
