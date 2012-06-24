@@ -46,10 +46,10 @@
 
   <section id="methods">
   <title>Useful methods for a Window widget</title>
+  <p><code>window = Gtk.Window(application=self, title="Welcome to GNOME")</code> sets the title as well, without the need for the line <code>window.set_title("Welcome to GNOME")</code>. For a general discussion of this, see <link xref="properties.py">here</link>.</p>
   <list>
-    <item><p><code>window = Gtk.Window(application=self, title="Welcome to GNOME")</code> sets the title as well, without the need for the line <code>window.set_title("Welcome to GNOME")</code>.</p></item>
     <item><p><code>set_default_size(200, 100)</code> sets the default size of the window to a width of <code>200</code> and a height of <code>100</code>; if instead of a positive number we pass <code>-1</code> we have the default size.</p></item>
-    <item><p><code>set_position(Gtk.WindowPosition.CENTER)</code> centers the window. Other options are described in the <link href="http://developer.gnome.org/gtk3/3.4/gtk3-Standard-Enumerations.html#GtkWindowPosition">standard enumerations</link> (with the caveat that they should be changed on the model of Gtk.WindowPosition.CENTER).</p></item>
+    <item><p><code>set_position(Gtk.WindowPosition.CENTER)</code> centers the window. Other options are <code>Gtk.WindowPosition.NONE, Gtk.WindowPosition.MOUSE, Gtk.WindowPosition.CENTER_ALWAYS, Gtk.WindowPosition.CENTER_ON_PARENT</code>.</p></item>
   </list>
   </section>
 

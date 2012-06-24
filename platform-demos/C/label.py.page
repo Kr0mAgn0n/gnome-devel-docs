@@ -66,8 +66,8 @@ class MyApplication(Gtk.Application):
   <section id="methods">
   <title>Useful methods for a Label widget</title>
   <p>An explanation of how to deal with strings and Unicode (and a recap of what these things are) can be found <link xref="strings.py.page">here</link>.</p>
+  <p><code>label = Gtk.Label(label="Hello GNOME!")</code> could also be used create a label and set the text directly. For a general discussion of this, see <link xref="properties.py">here</link>.</p>
   <list>
-    <item><p><code>label = Gtk.Label("Hello GNOME!")</code> could also be used create a label and set the text directly.</p></item>
     <item><p><code>set_line_wrap(True)</code> breaks lines if the text of the label exceeds the size of the widget.</p></item>
     <item><p><code>set_justify(Gtk.Justification.LEFT)</code> (or <code>Gtk.Justification.RIGHT, Gtk.Justification.CENTER, Gtk.Justification.FILL</code>) sets the alignment of the lines in the text of the label relative to each other. The method has no effect on a single-line label.</p></item>
     <item><p>For decorated text we can use <code>set_markup("text")</code>, where <code>"text"</code> is a text in the <link href="http://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango Markup Language</link>. An example:</p>
