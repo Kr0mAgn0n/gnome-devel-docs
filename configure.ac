@@ -1,4 +1,4 @@
-AC_INIT([gnome-devel-docs],[3.5.3])
+AC_INIT([gnome-devel-docs],[3.5.4])
 
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE([enable])
