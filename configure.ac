@@ -1,6 +1,6 @@
 AC_INIT([gnome-devel-docs],[3.5.4])
 
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE([enable])
 
 GNOME_DOC_INIT
