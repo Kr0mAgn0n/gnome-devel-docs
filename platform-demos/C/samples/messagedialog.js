@@ -1,23 +1,21 @@
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const Lang = imports.lang;
 
-const MessageExample = new Lang.Class ({
-    Name: 'Message Example',
+const MessageDialogExample = new Lang.Class ({
+    Name: 'MessageDialog Example',
 
     // Create the application itself
-        _init: function () {
-            this.application = new Gtk.Application ({
-                application_id: 'org.example.jsmessagedialog',
-                flags: Gio.ApplicationFlags.FLAGS_NONE
-            });
+    _init: function () {
+        this.application = new Gtk.Application ({
+            application_id: 'org.example.jsmessagedialog',
+            flags: Gio.ApplicationFlags.FLAGS_NONE });
 
-    // Connect 'activate' and 'startup' signals to the callback functions
-    this.application.connect('activate', Lang.bind(this, this._onActivate));
-    this.application.connect('startup', Lang.bind(this, this._onStartup));
+        // Connect 'activate' and 'startup' signals to the callback functions
+        this.application.connect('activate', Lang.bind(this, this._onActivate));
+        this.application.connect('startup', Lang.bind(this, this._onStartup));
     },
 
     // Callback function for 'activate' signal presents windows when active
@@ -31,6 +29,30 @@ const MessageExample = new Lang.Class ({
         this._buildUI ();
     },
 
+
+
+    // Build the application's UI
+    _buildUI: function () {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow  ({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            title: "Gtk.MessageDialog Example",
+            default_height: 200,
+            default_width: 400 });
+
+        // Create a silly warning message and add it to the window
+        this.warningLabel = new Gtk.Label ({
+            label: "This application goes boom! (Not really.)"});
+        this._window.add (this.warningLabel);
+
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+
+
+
     // Build the application menu, including the button that calls the dialog
     _initMenus: function() {
         let menu = new Gio.Menu();
@@ -38,7 +60,7 @@ const MessageExample = new Lang.Class ({
         menu.append("Quit",'app.quit');
         this.application.set_app_menu(menu);
 
-        // This pops up a MessageDialog when the menu item is clicked
+        // This pops up a MessageDialog when "Message" is clicked in the menu
         let messageAction = new Gio.SimpleAction ({ name: 'message' });
         messageAction.connect('activate', Lang.bind(this,
             function() {
@@ -46,43 +68,32 @@ const MessageExample = new Lang.Class ({
             }));
         this.application.add_action(messageAction);
 
+        // This closes the window when "Quit" is clicked in the menu
         let quitAction = new Gio.SimpleAction ({ name: 'quit' });
         quitAction.connect('activate', Lang.bind(this,
-        function() {
-            this._window.destroy();
-        }));
+            function() {
+                this._window.destroy();
+            }));
         this.application.add_action(quitAction);
     },
 
-    // Build the application's UI, including the MessageDialog
-    _buildUI: function () {
 
-        // Create the application window and a "warning message"
-            this._window = new Gtk.ApplicationWindow  ({ application: this.application,
-                                                              window_position: Gtk.WindowPosition.CENTER,
-                                                              title: "Gtk.MessageDialog Example",
-                                                              default_height: 200,
-                                                              default_width: 400 });
-
-        this.warningLabel = new Gtk.Label ({label: "This application goes boom! (Not really.)"});
-        this._window.add (this.warningLabel);
-
-                // Show the window and all child widgets
-                this._window.show_all();
-    },
 
     _showMessageDialog: function () {
 
         // Create a modal MessageDialog whose parent is the window
-        this._messageDialog = new Gtk.MessageDialog ({ transient_for: this._window,
-                                   modal: true,
-                                          buttons: Gtk.ButtonsType.OK_CANCEL,
-                                          message_type: Gtk.MessageType.WARNING,
-                                          text: "This action will cause the universe to stop existing." });
+        this._messageDialog = new Gtk.MessageDialog ({
+            transient_for: this._window,
+            modal: true,
+            buttons: Gtk.ButtonsType.OK_CANCEL,
+            message_type: Gtk.MessageType.WARNING,
+            text: "This action will cause the universe to stop existing." });
 
-        this._messageDialog.connect ("response", Lang.bind(this, this._response_cb));
+        this._messageDialog.connect ('response', Lang.bind(this, this._response_cb));
         this._messageDialog.show();
     },
+
+
 
     // Callback function (aka signal handler) for the response signal
     _response_cb: function (messagedialog, response_id) {
@@ -99,11 +110,13 @@ const MessageExample = new Lang.Class ({
                 this.warningLabel.set_label ("Dialog closed or cancelled.\n");
                 break;
         }
-            this._messageDialog.destroy();
+
+        this._messageDialog.destroy();
+
     }
 
 });
 
 // Run the application
-let app = new MessageExample ();
+let app = new MessageDialogExample ();
 app.application.run (ARGV);
