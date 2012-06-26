@@ -4,10 +4,13 @@
 
 /*Callback function in which pushes an item onto the statusbar*/
 static void 
-push_item(GtkWidget *widget,
-          gpointer   data)
+push_item (GtkWidget *widget,
+           gpointer   data)
 {
   GtkWidget *status_bar = data;
+
+  /*Create a context id, which is used to uniquely identify 
+   *the source of a message*/
   guint context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (status_bar), 
                                                    "Statusbar example");
 
@@ -16,11 +19,11 @@ push_item(GtkWidget *widget,
   static int count = 1;
   char hold_output[20];
   
-  /*This is a safer form of the standard sprintf() function. The output is 
+  /*This is a safer form of the standard sprintf () function. The output is 
   gauranteed in this case to not exceed 20 characters, and the result is stored 
   into the 'hold_output' variable*/
-  g_snprintf(hold_output, 20, "Item %d", count++);
-  gtk_statusbar_push(GTK_STATUSBAR (status_bar), 
+  g_snprintf (hold_output, 20, "Item %d", count++);
+  gtk_statusbar_push (GTK_STATUSBAR (status_bar), 
                      context_id, 
                      hold_output);
 }
@@ -29,14 +32,14 @@ push_item(GtkWidget *widget,
 
 /*Callback function that is used to pop an item off the statusbar*/
 static void 
-pop_item(GtkWidget *widget,
-         gpointer   data )
+pop_item (GtkWidget *widget,
+          gpointer   data )
 {
   GtkWidget *status_bar = data;
   guint context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (status_bar), 
                                                    "Statusbar example");
 
-  gtk_statusbar_pop(GTK_STATUSBAR (status_bar), context_id);
+  gtk_statusbar_pop (GTK_STATUSBAR (status_bar), context_id);
 }
 
 
@@ -45,13 +48,11 @@ static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
-    GtkWidget *window;
     GtkWidget *grid;
-    GtkWidget *push_button;
-    GtkWidget *pop_button;
+    GtkWidget *window;
     GtkWidget *status_bar;
-
-    guint context_id;
+    GtkWidget *pop_button;
+    GtkWidget *push_button;
 
     /*Create a window with a title, border width, and a default size**/
     window = gtk_application_window_new (app);
@@ -62,11 +63,6 @@ activate (GtkApplication *app,
     /*Create the status bar, which is held in the global variable*/
     status_bar = gtk_statusbar_new ();      
     
-    /*Create a context id, which is used to uniquely identify 
-    the source of a message*/
-    context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (status_bar), 
-                                               "Statusbar example");
-
     /*Create the buttons with labels*/
     push_button = gtk_button_new_with_label ("push item");
     pop_button = gtk_button_new_with_label ("pop last item");
