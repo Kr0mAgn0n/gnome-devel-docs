@@ -6,6 +6,7 @@ DOC_LINGUAS = ca de el es fr gl
 
 demo_sources = \
 	audio-player/audio-player.vala		\
+	exercises/menubar.exercises		\
 	guitar-tuner/guitar-tuner.c		\
 	guitar-tuner/guitar-tuner.cc		\
 	guitar-tuner/guitar-tuner.js		\
@@ -71,6 +72,10 @@ demo_sources = \
 	samples/linkbutton.js			\
 	samples/linkbutton.py			\
 	samples/linkbutton.vala			\
+	samples/menubar.vala			\
+	samples/menubar.ui			\
+	samples/menubar_basis.vala		\
+	samples/menubar_basis.ui		\
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
@@ -155,6 +160,8 @@ DOC_FIGURES = \
 	media/label.png				\
 	media/linkbutton.png			\
 	media/magic-mirror.png			\
+	media/menubar.png			\
+	media/menubar_choices.png		\
 	media/message-board.ogv			\
 	media/messagedialog.png			\
 	media/opensuse.png			\
@@ -261,6 +268,7 @@ DOC_PAGES =				\
 	linkbutton.py.page		\
 	linkbutton.vala.page		\
 	magic-mirror.vala.page		\
+	menubar.vala.page		\
 	message-board.c.page		\
 	messagedialog.js.page		\
 	messagedialog.py.page		\
