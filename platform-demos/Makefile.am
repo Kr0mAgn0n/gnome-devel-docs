@@ -110,6 +110,7 @@ demo_sources = \
 	samples/switch.js			\
 	samples/switch.py			\
 	samples/switch.vala			\
+	samples/textview.js			\
 	samples/textview.py			\
 	samples/textview.vala			\
 	samples/togglebutton.c			\
@@ -186,6 +187,7 @@ DOC_FIGURES = \
 	media/switch_on.png			\
 	media/switch_off.png			\
 	media/textview.png			\
+	media/textviewpenguinchat.png		\
 	media/togglebutton.png			\
 	media/toolbar.png			\
 	media/treeview_simple_liststore.png	\
@@ -308,6 +310,7 @@ DOC_PAGES =				\
 	switch.js.page			\
 	switch.py.page			\
 	switch.vala.page		\
+	textview.js.page		\
 	textview.py.page		\
 	textview.vala.page		\
 	togglebutton.c.page		\
