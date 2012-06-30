@@ -2,12 +2,10 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
-      id="treeview_simple_liststore.py">
+      id="treeview_cellrenderertoggle.py">
   <info>
     <link type="guide" xref="beginner.py#treeview"/>
-    <link type="seealso" xref="grid.py"/>
-    <link type="seealso" xref="label.py"/>
-    <revision version="0.2" date="2012-06-30" status="draft"/>
+    <revision version="0.1" date="2012-06-30" status="draft"/>
 
     <credit type="author copyright">
       <name>Marta Maria Casetti</name>
@@ -15,19 +13,19 @@
       <years>2012</years>
     </credit>
 
-    <desc>A TreeView displaying a ListStore (simpler example)</desc>
+    <desc>A TreeView displaying a TreeStore (more complex example, with CellRendererToggle)</desc>
   </info>
 
-  <title>Simple Treeview with ListStore</title>
-  <media type="image" mime="image/png" src="media/treeview_simple_liststore.png"/>
-  <p>This TreeView displays a simple ListStore with the selection "changed" signal connected.</p>
+  <title>Treeview with TreeStore</title>
+  <media type="image" mime="image/png" src="media/treeview_cellrenderertoggle.png"/>
+  <p>This TreeView displays a TreeStore with two columns, one of which is rendered as a toggle.</p>
 
   <links type="section" />
 
   <section id="code">
     <title>Code used to generate this example</title>
 
-    <code mime="text/x-python" style="numbered"><xi:include href="samples/treeview_simple_liststore.py" parse="text"><xi:fallback/></xi:include></code>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/treeview_cellrenderertoggle.py" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="methods">
@@ -41,11 +39,10 @@
     <list>
       <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeView.html">GtkTreeView</link></p></item>
       <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeModel.html">GtkTreeModel</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkListStore.html">GtkListStore</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeStore.html">GtkTreeStore</link></p></item>
       <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkCellRendererText.html">GtkCellRendererText</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkCellRendererToggle.html">GtkCellRendererToggle</link></p></item>
       <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeViewColumn.html">GtkTreeViewColumn</link></p></item>
-      <item><p><link href="http://git.gnome.org/browse/pygobject/tree/gi/overrides/Gtk.py">pygobject - Python bindings for GObject Introspection</link></p></item>
-      <item><p><link href="http://developer.gnome.org/pango/stable/pango-Fonts.html">Fonts</link></p></item>
     </list>
   </section>
 </page>

@@ -21,27 +21,26 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # the data in the model (three strings for each row, one for each column)
         listmodel = Gtk.ListStore(str, str, str)
-        # there is no insert_with_values() in Python, we use append
+        # append the values in the model
         for i in range(len(phonebook)):
             listmodel.append(phonebook[i])
 
         # a treeview to see the data stored in the model
         view = Gtk.TreeView(model=listmodel)
-        # with columns - arguments of treeviewcolumn are:
-        # column title, cell renderer, cell attributes
+        # for each column
         for i in range(len(columns)):
+            # cellrenderer to render the text
             cell = Gtk.CellRendererText()
             # the text in the first column should be in boldface
             if i == 0:
                 cell.props.weight_set=True
                 cell.props.weight=Pango.Weight.BOLD
-            col = Gtk.TreeViewColumn(columns[i],
-                                     cell,
-                                     text=i)
+            # the column is created
+            col = Gtk.TreeViewColumn(columns[i], cell, text=i)
+            # and it is appended to the treeview
             view.append_column(col)
 
-
-        # when a row is selected, emit a signal
+        # when a row is selected, it emits a signal
         view.get_selection().connect("changed", self.on_changed)
 
         # the label we use to show the selection
@@ -50,9 +49,10 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
-        grid.attach(view, 0, 0, 1, 1);
-        grid.attach(self.label, 0, 1, 1, 1);
+        grid.attach(view, 0, 0, 1, 1)
+        grid.attach(self.label, 0, 1, 1, 1)
 
+        # attach the grid to the window
         self.add(grid)
 
     def on_changed(self, selection):
@@ -65,7 +65,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.treeview_simple_liststore")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)

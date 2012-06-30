@@ -124,8 +124,11 @@ demo_sources = \
 	samples/toolbar.vala			\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
+	samples/treeview_advanced_liststore.py	\
+	samples/treeview_cellrenderertoggle.py	\
 	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
+	samples/treeview_treestore.py	\
 	samples/window.c			\
 	samples/window.js			\
 	samples/window.py			\
@@ -192,7 +195,10 @@ DOC_FIGURES = \
 	media/textviewpenguinchat.png		\
 	media/togglebutton.png			\
 	media/toolbar.png			\
+	media/treeview_advanced_liststore.png	\
+	media/treeview_cellrenderertoggle.png	\
 	media/treeview_simple_liststore.png	\
+	media/treeview_treestore.png	\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
 	media/window.png			\
@@ -278,6 +284,7 @@ DOC_PAGES =				\
 	messagedialog.js.page		\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
+	model-view-controller.py.page		\
 	photo-wall.c.page		\
 	progressbar.c.page		\
 	progressbar.js.page		\
@@ -324,8 +331,11 @@ DOC_PAGES =				\
 	toolbar.py.page			\
 	toolbar.vala.page		\
 	toolbar_builder.vala.page	\
+	treeview_advanced_liststore.py.page	\
+	treeview_cellrenderertoggle.py.page	\
 	treeview_simple_liststore.py.page	\
 	treeview_simple_liststore.vala.page	\
+	treeview_treestore.py.page	\
 	translate.page			\
 	vala.page			\
 	weatherApp.js.page		\

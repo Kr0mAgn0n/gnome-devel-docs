@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="model-view-controller.py">
+
+<info>
+  <link type="guide" xref="beginner.py#tutorials"/>
+  <revision version="0.1" date="2012-06-30" status="stub"/>
+
+  <desc>The Model/View/Controller design</desc>
+  <credit type="author copyright">
+    <name>Sebastian P&#246;lsterl</name>
+    <email>sebp@k-d-w.org</email>
+    <years>2011</years>
+  </credit>
+  <credit type="author copyright editor">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012</years>
+  </credit>
+</info>
+
+<title>The Model/View/Controller design</title>
+
+<links type="section" />
+
+<section id="overview">
+<title>Overview</title>
+
+<p>Both the <link xref="treeview_simple_liststore.py">TreeView</link> and the <link xref="combobox.py">ComboBox</link> widgets are built on the <em>Model/View/Controller</em> design. The <em>Model</em> (an implementation of <code>Gtk.TreeModel</code>, usually <code>Gtk.TreeStore</code> or <code>Gtk.ListStore</code>) stores the data; the <em>View</em> gets change notifications and displays the content of the model. The <em>Controller</em>, finally, changes the state of the model (via some methods in the model's implementation - such as <code>append()</code>) and notifies the view of these changes (via signals like <code>"changed"</code>).</p>
+
+<p>The data in the Model can be retrieved or modified using the tree iter and column index, or <code>Gtk.TreeIter</code>, or <code>Gtk.TreePath</code>.</p>
+
+<p>The View makes use of <code>Gtk.CellRenderer</code>s of various types to draw the data; in the case of the TreeView, also <code>Gtk.TreeViewColumn</code> is used, to organize the vertical columns. Examples of Views are <code>Gtk.TreeView</code>,  <code>Gtk.ComboBox</code>, and <code>Gtk.ComboBoxText</code>.</p>
+
+</section>
+
+<section id="model">
+<title>The Model</title>
+
+<p>The main difference between the two main implementations of <code>Gtk.TreeModel</code> is that <code>Gtk.ListStore</code> contains simple rows of data, and each row has no children, whereas <code>Gtk.TreeStore</code> contains rows of data, and each row may have child rows.</p>
+
+<p>As with Python's built-in list object you can use <code>len()</code> to get the number of rows and use slices to retrieve or set values. Otherwise, the method <code>append()</code> returns a <code>Gtk.TreeIter</code> instance, which points to the location of the newly inserted row. Retrieve a <code>Gtk.TreeIter</code> by calling <code>get_iter()</code>.</p>
+
+<p>As <code>Gtk.ListStore</code> contains only one level, i.e. nodes do not have any child nodes, a path is essentially the index of the row you want to access. In the case of <code>Gtk.TreeStore</code>, a path is a list of indexes or a string. The string form is a list of numbers separated by a colon. Each number refers to the offset at that level. Thus, the path <code>"0"</code> refers to the root node and the path <code>"2:4"</code> refers to the fifth child of the third node.</p>
+
+<p>Useful methods for a <code>Gtk.TreeModel</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+<p>Useful methods for a <code>Gtk.ListStore</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+<p>Useful methods for a <code>Gtk.TreeStore</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+</section>
+
+<section id="treeview">
+<title>The View: the TreeView case</title>
+
+<p>Useful methods for a <code>Gtk.TreeView</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+<p>Useful methods for a <code>Gtk.TreeViewColumn</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+</section>
+
+
+<section id="combobox">
+<title>The View: the ComboBox case</title>
+
+<p>Useful methods for a <code>Gtk.ComboBox</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+<p>Useful methods for a <code>Gtk.ComboBoxText</code>:</p>
+<list>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+  <item><p></p></item>
+</list>
+
+</section>
+
+<section id="cellrenderer">
+<title>The View: the Cellrenderers</title>
+
+<p>Implementations of <code>Gtk.CellRenderer</code> and useful methods:</p>
+<list>
+  <item><p><code>Gtk.CellRendererText</code> - renders text in a cell</p></item>
+  <item><p><code>Gtk.CellRendererToggle</code> - renders a toggle button in a cell. Useful methods:</p>
+    <list>
+    <item><p><code>set_active(setting)</code> - activates or deactivates a cell renderer</p></item>
+    <item><p><code>get_active()</code> - returns whether the cell renderer is active</p></item>
+    <item><p><code>set_radio(radio)</code> - if radio is <code>True</code>, the cell renderer renders a radio toggle (i.e. a toggle in a group of mutually-exclusive toggles); if <code>False</code>, it renders a check toggle (a standalone boolean option)</p></item>
+    <item><p><code>get_radio()</code> - returns whether we are rendering radio toggles rather than checkboxes.</p></item>
+    </list>
+  </item>
+  <item><p><code>Gtk.CellRendererPixbuf</code> - renders an image in a cell</p></item>
+  <item><p><code>Gtk.CellRendererCombo</code> - renders text in a cell; but while <code>Gtk.CellRendererText</code> offers a simple entry to edit the text, <code>Gtk.CellRendererCombo</code> offers a <code>Gtk.ComboBox</code> widget to edit the text. It can be used with and without an associated Gtk.Entry widget, depending on the value of the “has-entry” property.</p></item>
+  <item><p><code>Gtk.CellRendererProgress</code> - renders a numeric value as a progress bar in a cell; it can display a text on top of the progress bar</p></item>
+  <item><p><code>Gtk.CellRendererSpinner</code> - renders a spinning animation in a cell</p></item>
+  <item><p><code>Gtk.CellRendererSpin</code> - renders a spin button in a cell</p></item>
+  <item><p><code>Gtk.CellRendererAccel</code> - renders a keyboard accelerator in a cell</p></item>
+</list>
+
+</section>
+
+<section id="references">
+<title>References</title>
+
+<list>
+  <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/treeview.html">The Python Gtk+ 3 Tutorial - Tree and List Widgets</link></p></item>
+  <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/cellrenderers.html">The Python Gtk+ 3 Tutorial - CellRenderers</link></p></item>
+  <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/combobox.html">The Python Gtk+ 3 Tutorial - ComboBox</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkCellRenderer.html">GtkCellRenderer</link></p></item>
+</list>
+
+</section>
+
+</page>
