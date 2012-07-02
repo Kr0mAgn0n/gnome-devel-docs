@@ -46,6 +46,8 @@ demo_sources = \
 	samples/entry.js			\
 	samples/entry.py			\
 	samples/entry.vala			\
+	samples/filechooserdialog.vala		\
+	samples/filechooserdialog.ui		\
 	samples/fruitbat.png			\
 	samples/gentoopenguin.png		\
 	samples/gmenu.c				\
@@ -231,6 +233,7 @@ DOC_PAGES =				\
 	entry.js.page			\
 	entry.py.page			\
 	entry.vala.page			\
+	filechooserdialog.vala.page	\
 	getting-ready.page		\
 	gmenu.c.page			\
 	gmenu.js.page			\
