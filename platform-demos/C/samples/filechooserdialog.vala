@@ -28,7 +28,7 @@ class MyWindow: Gtk.ApplicationWindow {
 
 		scrolled_window = new Gtk.ScrolledWindow (null, null);
 		scrolled_window.set_policy (Gtk.PolicyType.AUTOMATIC,
-                                    Gtk.PolicyType.AUTOMATIC);
+		                            Gtk.PolicyType.AUTOMATIC);
 
 		scrolled_window.add_with_viewport (textview);
 		scrolled_window.set_border_width (5);
@@ -47,12 +47,12 @@ class MyWindow: Gtk.ApplicationWindow {
 	void open_cb (SimpleAction action, Variant? parameter) {
 
 		var open_dialog = new Gtk.FileChooserDialog ("Pick a file",
-                                                     this as Gtk.Window,
-                                                     Gtk.FileChooserAction.OPEN,
-                                                     Gtk.Stock.CANCEL,
-                                                     Gtk.ResponseType.CANCEL,
-                                                     Gtk.Stock.OPEN,
-                                                     Gtk.ResponseType.ACCEPT);
+		                                             this as Gtk.Window,
+		                                             Gtk.FileChooserAction.OPEN,
+		                                             Gtk.Stock.CANCEL,
+		                                             Gtk.ResponseType.CANCEL,
+		                                             Gtk.Stock.OPEN,
+		                                             Gtk.ResponseType.ACCEPT);
 
 		open_dialog.local_only = false; //allow for uri
 		open_dialog.set_modal (true);
@@ -78,7 +78,7 @@ class MyWindow: Gtk.ApplicationWindow {
 				}
 				/* Set the buffer text to be the contents of the file. */
 				buffer.set_text ((string) file_contents,
-                                 file_contents.length);
+				                 file_contents.length);
 
 				print ("opened: %s\n", (open_dialog.get_filename ()));
 				break;
@@ -94,12 +94,12 @@ class MyWindow: Gtk.ApplicationWindow {
 	/* Create FileChooserDialog in SAVE mode. */
 	void save_as_cb (SimpleAction action, Variant? parameter) {
 		var save_dialog = new Gtk.FileChooserDialog ("Pick a file",
-                                                     this as Gtk.Window,
-                                                     Gtk.FileChooserAction.SAVE,
-                                                     Gtk.Stock.CANCEL,
-                                                     Gtk.ResponseType.CANCEL,
-                                                     Gtk.Stock.SAVE,
-                                                     Gtk.ResponseType.ACCEPT);
+		                                             this as Gtk.Window,
+		                                             Gtk.FileChooserAction.SAVE,
+		                                             Gtk.Stock.CANCEL,
+		                                             Gtk.ResponseType.CANCEL,
+		                                             Gtk.Stock.SAVE,
+		                                             Gtk.ResponseType.ACCEPT);
 
 		save_dialog.set_do_overwrite_confirmation (true);
 		save_dialog.set_modal (true);
@@ -135,7 +135,8 @@ class MyWindow: Gtk.ApplicationWindow {
 	void save_cb (SimpleAction action, Variant? parameter) {
 		if (file != null) {
 			this.save_to_file ();
-		}else {
+		}
+		else {
 			save_as_cb (action, parameter);
 		}
 	}
@@ -148,10 +149,11 @@ class MyWindow: Gtk.ApplicationWindow {
 		string current_contents = buffer.get_text (start, end, false);
 		try {
 				file.replace_contents (current_contents.data, null, false,
-                                       GLib.FileCreateFlags.NONE, null, null);
+				                       GLib.FileCreateFlags.NONE, null, null);
+
 				print ("saved: %s\n", file.get_path ());
 		}
-		catch (GLib.Error err){
+		catch (GLib.Error err) {
 			error ("%s\n", err.message);
 		}
 	}
