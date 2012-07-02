@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="filechooserdialog.vala">
+  <info>
+    <link type="guide" xref="beginner.vala#file-selectors"/>
+    <link type="seealso" xref="textview.vala"/>
+    <link type="seealso" xref="menubar.vala"/>
+    <link type="seealso" xref="scrolledwindow.vala"/>
+    <revision version="0.1" date="2012-07-01" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A dialog suitable for "Open" and "Save" commands.</desc>
+  </info>
+
+  <title>FileChooserDialog</title>
+  <links type="sections"/>
+  <section id="overview"><title>Overview of the example</title>
+  <p>This example demonstrates how the FileChooserDialog can be used. It is incorporated into a very simple text editor application.  All the <link xref="menubar.vala#win-app">actions</link>, including the "open", "save" and "save-as" commands can be found in the <link xref="gmenu.vala">app-menu</link>.  Here, the app-menu is created using an XML UI file, which is then imported into the application using Gtk.Builder.</p>
+  </section>
+  <section id="xml"><title>XML UI file which creates the app-menu</title>
+<code mime="text" style="numbered"><xi:include href="samples/filechooserdialog.ui" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  <section id="vala-code"><title>Vala Code</title>
+  <code mime="text/x-vala" style="numbered"><xi:include href="samples/filechooserdialog.vala" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  <section id="api"><title>Relevant API documentation</title>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://valadoc.org/gtk+-3.0/Gtk.FileChooser.html">FileChooser</link></p></item>
+  <item><p><link href="http://valadoc.org/gtk+-3.0/Gtk.FileChooserDialog.html">FileChooserDialog</link></p></item>
+  <item><p><link href="http://valadoc.org/gtk+-3.0/Gtk.Builder.html">Gtk.Builder</link></p></item>
+  <item><p><link href="http://valadoc.org/gio-2.0/GLib.ActionEntry.html">GLib.ActionEntry</link></p></item>
+</list>
+</section>
+</page>
