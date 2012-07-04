@@ -91,6 +91,7 @@ demo_sources = \
 	samples/radiobutton.py			\
 	samples/radiobutton.vala		\
 	samples/redfox.png			\
+	samples/scale.c				\
 	samples/scale.js			\
 	samples/scale.py			\
 	samples/scale.vala			\
@@ -179,6 +180,7 @@ DOC_FIGURES = \
 	media/radiobuttontravel.png		\
 	media/record-collection.png		\
 	media/scale.png				\
+	media/scale2.png			\
 	media/scalepenguins.png			\
 	media/scrolledwindow.png		\
 	media/separator.png			\
@@ -297,6 +299,7 @@ DOC_PAGES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
+	scale.c.page			\
 	scale.js.page			\
 	scale.py.page			\
 	scale.vala.page			\
