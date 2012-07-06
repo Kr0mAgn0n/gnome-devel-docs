@@ -1,3 +1,4 @@
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <clutter/clutter.h>
 
 #define STAGE_WIDTH  800
@@ -10,22 +11,11 @@
 
 #define ANIMATION_DURATION_MS 500
 
-#define FOCUS_DEPTH 100.0
-#define UNFOCUS_DEPTH 0.0
-
 #define IMAGE_DIR_PATH "./berlin_images/"
 
-static GSList *actor_list = NULL;
-static GSList *img_path_list = NULL;
+static GPtrArray *img_paths;
 
-typedef struct Position
-{
-    float x;
-    float y;
-}
-Position;
-
-static Position origin = {0, 0};
+static ClutterPoint unfocused_pos;
 
 static void
 load_image_path_names()
@@ -40,25 +30,18 @@ load_image_path_names()
         return;
     }
 
+    img_paths = g_ptr_array_new_with_free_func (g_free);
+
     const gchar *filename = g_dir_read_name(dir);
     while(filename)
     {
         if(g_str_has_suffix(filename, ".jpg") || g_str_has_suffix(filename, ".png")) 
         {
             gchar *path = g_build_filename(IMAGE_DIR_PATH, filename, NULL);
-            img_path_list = g_slist_prepend(img_path_list, path);
+            g_ptr_array_add (img_paths, path);
         }
         filename = g_dir_read_name(dir);
     }
-}
-
-static void
-foreach_set_focus_state(gpointer data, gpointer user_data)
-{
-    ClutterActor *actor = CLUTTER_ACTOR(data);
-    gboolean is_reactive = *((gboolean*)user_data);
-
-    clutter_actor_set_reactive(actor, is_reactive);
 }
 
 static gboolean
@@ -68,32 +51,39 @@ actor_clicked_cb(ClutterActor *actor,
 {
     /* Flag to keep track of our state. */
     static gboolean is_focused = FALSE;
+    ClutterActorIter iter;
+    ClutterActor *child;
 
-    g_slist_foreach(actor_list, foreach_set_focus_state, &is_focused);
+    /* Reset the focus state on all the images */
+    clutter_actor_iter_init (&iter, clutter_actor_get_parent(actor));
+    while (clutter_actor_iter_next(&iter, &child))
+      clutter_actor_set_reactive(child, is_focused);
+
+    clutter_actor_save_easing_state(actor);
+    clutter_actor_set_easing_duration(actor, ANIMATION_DURATION_MS);
 
     if(is_focused)
     {
-        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x",      origin.x,
-                              "y",      origin.y,
-                              "depth",  UNFOCUS_DEPTH,
-                              "width",  (float) THUMBNAIL_SIZE,
-                              "height", (float) THUMBNAIL_SIZE,
-                              NULL);
+        /* Restore the old location and size. */
+        clutter_actor_set_position(actor, unfocused_pos.x, unfocused_pos.y);
+        clutter_actor_set_size(actor, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
     }
     else
     {
-        /*Save the current location before animating. */
-        clutter_actor_get_position(actor, &origin.x, &origin.y);
+        /* Save the current location before animating. */
+        clutter_actor_get_position(actor, &unfocused_pos.x, &unfocused_pos.y);
+
+        /* Only the currently focused image should receive to events. */
         clutter_actor_set_reactive(actor, TRUE);
-        clutter_actor_animate(actor, CLUTTER_LINEAR, ANIMATION_DURATION_MS,
-                              "x",      (STAGE_WIDTH - STAGE_HEIGHT) / 2.0,
-                              "y",      0.0,
-                              "depth",  FOCUS_DEPTH,
-                              "width",  (float) STAGE_HEIGHT,
-                              "height", (float) STAGE_HEIGHT,
-                              NULL);
+
+        /* Put the focused image on top. */
+        clutter_actor_set_child_above_sibling(clutter_actor_get_parent(actor), actor, NULL);
+
+        clutter_actor_set_position(actor, (STAGE_WIDTH - STAGE_HEIGHT) / 2.0, 0);
+        clutter_actor_set_size(actor, STAGE_HEIGHT, STAGE_HEIGHT);
     }
+
+    clutter_actor_restore_easing_state(actor);
 
     /* Toggle our flag. */
     is_focused = !is_focused;
@@ -121,11 +111,14 @@ main(int argc, char *argv[])
     ClutterColor stage_color = { 16, 16, 16, 255 };
     ClutterActor *stage = NULL;
 
-    clutter_init (&argc, &argv);
+    if (clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS)
+        return 1;
 
-    stage = clutter_stage_get_default();
+    stage = clutter_stage_new();
     clutter_actor_set_size(stage, STAGE_WIDTH, STAGE_HEIGHT);
-    clutter_stage_set_color(CLUTTER_STAGE (stage), &stage_color);
+    clutter_actor_set_background_color(stage, &stage_color);
+    clutter_stage_set_title(CLUTTER_STAGE (stage), "Photo Wall");
+    g_signal_connect(stage, "destroy", G_CALLBACK(clutter_main_quit), NULL);
 
     load_image_path_names();
 
@@ -135,11 +128,30 @@ main(int argc, char *argv[])
     {
         for(col=0; col < COL_COUNT; ++col)
         {
-            GSList *img_path_node = g_slist_nth(img_path_list, (row * COL_COUNT) + col);
-            ClutterActor *actor = clutter_texture_new_from_file((gchar *)(img_path_node->data), NULL);
+            const char *img_path = g_ptr_array_index(img_paths, (row * COL_COUNT) + col);
+            GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file_at_size(img_path, STAGE_HEIGHT, STAGE_HEIGHT, NULL);
+            ClutterContent *image = clutter_image_new ();
+            ClutterActor *actor = clutter_actor_new ();
+
+            if (pixbuf != NULL)
+            {
+                clutter_image_set_data(CLUTTER_IMAGE(image),
+                                       gdk_pixbuf_get_pixels(pixbuf),
+                                       gdk_pixbuf_get_has_alpha(pixbuf)
+                                           ? COGL_PIXEL_FORMAT_RGBA_8888
+                                           : COGL_PIXEL_FORMAT_RGB_888,
+                                       gdk_pixbuf_get_width(pixbuf),
+                                       gdk_pixbuf_get_height(pixbuf),
+                                       gdk_pixbuf_get_rowstride(pixbuf),
+                                       NULL);
+            }
+
+            clutter_actor_set_content(actor, image);
+            g_object_unref(image);
+            g_object_unref(pixbuf);
+
             initialize_actor(actor, row, col);
-            clutter_container_add_actor(CLUTTER_CONTAINER(stage), actor);
-            actor_list = g_slist_prepend(actor_list, actor);
+            clutter_actor_add_child(stage, actor);
         }
     }
 
@@ -148,6 +160,8 @@ main(int argc, char *argv[])
 
     /* Start the clutter main loop. */
     clutter_main();
+
+    g_ptr_array_unref(img_paths);
 
     return 0;
 }
