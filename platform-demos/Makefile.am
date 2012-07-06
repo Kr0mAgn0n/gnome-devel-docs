@@ -98,6 +98,7 @@ demo_sources = \
 	samples/scrolledwindow.py		\
 	samples/scrolledwindow.py		\
 	samples/separator.py			\
+	samples/spinbutton.c			\
 	samples/spinbutton.js			\
 	samples/spinbutton.py			\
 	samples/spinbutton.vala			\
@@ -307,6 +308,7 @@ DOC_PAGES =				\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
 	signals-callbacks.py.page	\
+	spinbutton.c.page		\
 	spinbutton.js.page		\
 	spinbutton.py.page		\
 	spinbutton.vala.page		\
