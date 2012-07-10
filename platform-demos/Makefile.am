@@ -116,6 +116,7 @@ demo_sources = \
 	samples/switch.js			\
 	samples/switch.py			\
 	samples/switch.vala			\
+	samples/textview.c			\
 	samples/textview.js			\
 	samples/textview.py			\
 	samples/textview.vala			\
@@ -330,6 +331,7 @@ DOC_PAGES =				\
 	switch.js.page			\
 	switch.py.page			\
 	switch.vala.page		\
+	textview.c.page			\
 	textview.js.page		\
 	textview.py.page		\
 	textview.vala.page		\
