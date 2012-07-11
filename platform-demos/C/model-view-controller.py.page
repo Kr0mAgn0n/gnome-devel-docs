@@ -28,51 +28,40 @@
 <section id="overview">
 <title>Overview</title>
 
-<p>Both the <link xref="treeview_simple_liststore.py">TreeView</link> and the <link xref="combobox.py">ComboBox</link> widgets are built on the <em>Model/View/Controller</em> design. The <em>Model</em> (an implementation of <code>Gtk.TreeModel</code>, usually <code>Gtk.TreeStore</code> or <code>Gtk.ListStore</code>) stores the data; the <em>View</em> gets change notifications and displays the content of the model. The <em>Controller</em>, finally, changes the state of the model (via some methods in the model's implementation - such as <code>append()</code>) and notifies the view of these changes (via signals like <code>"changed"</code>).</p>
-
-<p>The data in the Model can be retrieved or modified using the tree iter and column index, or <code>Gtk.TreeIter</code>, or <code>Gtk.TreePath</code>.</p>
-
-<p>The View makes use of <code>Gtk.CellRenderer</code>s of various types to draw the data; in the case of the TreeView, also <code>Gtk.TreeViewColumn</code> is used, to organize the vertical columns. Examples of Views are <code>Gtk.TreeView</code>,  <code>Gtk.ComboBox</code>, and <code>Gtk.ComboBoxText</code>.</p>
+<p>Both the <link xref="treeview_simple_liststore.py">TreeView</link> and the <link xref="combobox.py">ComboBox</link> widgets are built on the <em>Model/View/Controller</em> design. The <em>Model</em> (an implementation of <code>Gtk.TreeModel</code>, usually <code>Gtk.TreeStore</code> or <code>Gtk.ListStore</code>) stores the data; the <em>View</em> (e.g. <code>Gtk.TreeView</code>,  <code>Gtk.ComboBox</code>, or <code>Gtk.ComboBoxText</code>) gets change notifications and displays the content of the model. The <em>Controller</em>, finally, changes the state of the model (via some methods in the model's implementation - such as <code>append()</code> or <code>remove()</code>) and notifies the view of these changes (via signals like <code>"changed"</code>).</p>
 
 </section>
 
 <section id="model">
 <title>The Model</title>
 
-<p>The main difference between the two main implementations of <code>Gtk.TreeModel</code> is that <code>Gtk.ListStore</code> contains simple rows of data, and each row has no children, whereas <code>Gtk.TreeStore</code> contains rows of data, and each row may have child rows.</p>
+<p>The main difference between the two main implementations of <code>Gtk.TreeModel</code> is that <code>Gtk.ListStore</code> contains simple rows of data without children, whereas <code>Gtk.TreeStore</code> also contains rows of data, but each row may have child rows (which in turn can have child rows, and so on).</p>
 
-<p>As with Python's built-in list object you can use <code>len()</code> to get the number of rows and use slices to retrieve or set values. Otherwise, the method <code>append()</code> returns a <code>Gtk.TreeIter</code> instance, which points to the location of the newly inserted row. Retrieve a <code>Gtk.TreeIter</code> by calling <code>get_iter()</code>.</p>
+<p>The data in the Model can be retrieved or modified using the tree iter and column index, or <code>Gtk.TreeIter</code>, or <code>Gtk.TreePath</code>.</p>
+
+<p>As with Python's built-in list object you can use <code>len()</code> to get the number of rows and use slices to retrieve or set values. Otherwise, the method <code>append()</code> returns a <code>Gtk.TreeIter</code> instance, which points to the location of the newly inserted row. You can also retrieve a <code>Gtk.TreeIter</code> by calling <code>get_iter()</code>.</p>
 
 <p>As <code>Gtk.ListStore</code> contains only one level, i.e. nodes do not have any child nodes, a path is essentially the index of the row you want to access. In the case of <code>Gtk.TreeStore</code>, a path is a list of indexes or a string. The string form is a list of numbers separated by a colon. Each number refers to the offset at that level. Thus, the path <code>"0"</code> refers to the root node and the path <code>"2:4"</code> refers to the fifth child of the third node.</p>
 
 <p>Useful methods for a <code>Gtk.TreeModel</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p><code>get_iter(path)</code> returns a <code>Gtk.TreeIter</code> instance pointing to <code>path</code>. This is expected to be a colon-separated list of numbers, or a tuple. For example, the string <code>"10:4:0"</code> is equivalent to the tuple <code>(10, 4, 0)</code>, as both would create a path of depth 3 pointing to the 11th child of the root node, the 5th child of that 11th child, and the 1st child of that 5th child.</p></item>
+  <item><p><code>iter_next(treeiter)</code> returns a <code>Gtk.TreeIter</code> instance pointing the node following treeiter at the current level or <code>None</code> if there is no next iter.</p></item>
+  <item><p><code>iter_has_child(treeiter)</code> returns <code>True</code> if <code>treeiter</code> has children, <code>False</code> otherwise.</p></item>
+  <item><p><code>iter_children(treeiter)</code> returns a <code>Gtk.TreeIter</code> instance pointing to the first child of <code>treeiter</code> or <code>None</code> if <code>treeiter</code> has no children.</p></item>
+  <item><p><code>get_iter_first()</code> returns a <code>Gtk.TreeIter</code> instance pointing to the first iterator in the tree (the one at the path <code>"0"</code>) or <code>None</code> if the tree is empty.</p></item>
 </list>
 
 <p>Useful methods for a <code>Gtk.ListStore</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p><code>append(row)</code> appends a new row to this list store, where <code>row</code> can be a list of values for each column; <code>row</code> can also be omitted or <code>None</code>, and in that case an empty row will be appended. The method returns a <code>Gtk.TreeIter</code> pointing to the appended row.</p></item>
+  <item><p><code>remove(iter)</code> removes <code>iter</code> from the <code>Gtk.ListStore</code>, and returns <code>True</code> if the iter is valid, and <code>False</code> if the iter is not. After being removed, <code>iter</code> is set to be the next valid row.</p></item>
 </list>
 
 <p>Useful methods for a <code>Gtk.TreeStore</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p><code>append(parent, row)</code> appends a new row to this tree store; <code>parent</code> must be a valid Gtk.TreeIter. If parent is not <code>None</code>, then it will append the new row after the last child of parent, otherwise it will append a row to the top level; <code>row</code> can be a list of values for each column, or it can be omitted or <code>None</code>; in this latter case an empty row will be appended. The method returns a <code>Gtk.TreeIter</code> pointing to the appended row.</p></item>
+  <item><p><code>remove(iter)</code> removes <code>iter</code> from the <code>Gtk.ListStore</code>, and returns <code>True</code> if the iter is valid, and <code>False</code> if the iter is not. After being removed, <code>iter</code> is set to be the next valid row.</p></item>
 </list>
 
 </section>
@@ -80,50 +69,49 @@
 <section id="treeview">
 <title>The View: the TreeView case</title>
 
+<p>A Treeview shows the structure of children and parent items as a tree. See for instance <link xref="treeview_treestore.py">this example</link>.</p>
+
+<p>The <code>Gtk.TreeViewColumn</code> is used to organize the vertical columns.</p>
+
 <p>Useful methods for a <code>Gtk.TreeView</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p><code>set_model(model)</code> sets the model for this tree view. If this tree view already has a model set, it will remove it before setting the new model. If model is <code>None</code>, then it will unset the old model.</p></item>
+  <item><p><code>get_model()</code> returns the model this tree view is based on, <code>None</code> if the model is unset.</p></item>
+  <item><p><code>append_column(column)</code> appends <code>column</code> to the list of columns.</p></item>
+  <item><p><code>get_selection()</code> gets the <code>Gtk.TreeSelection</code> associated with this tree view.</p></item>
 </list>
 
 <p>Useful methods for a <code>Gtk.TreeViewColumn</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p><code>add_attribute(renderer, attribute, value)</code> adds an attribute mapping to this column. <code>attribute</code> is the parameter on <code>renderer</code> to be set from the <code>value</code></p></item>
+  <item><p><code>pack_start(renderer, expand)</code> packs <code>renderer</code> into the beginning of this column. If <code>expand</code> is <code>False</code>, then <code>renderer</code> is allocated no more space than it needs. Any unused space is divided evenly between cells for which expand is <code>True</code>.</p></item>
+  <item><p><code>pack_end(renderer, expand)</code> adds <code>renderer</code> to end of this column. If <code>expand</code> is <code>False</code>, then <code>renderer</code> is allocated no more space than it needs. Any unused space is divided evenly between cells for which <code>expand</code> is <code>True</code>.</p></item>
+  <item><p><code>set_sort_column_id(sort_column_id)</code> sets the column of the model by which this column (of the view) should be sorted. This also makes the columnd header clickable.</p></item>
+  <item><p><code>set_sort_indicator(setting)</code> sets whether a little arrow is displayed in the column header; <code>setting</code> can either be <code>True</code> (indicator is shown) or <code>False</code>.</p></item>
+  <item><p><code>set_sort_order(order)</code> changes the order by which the column is sorted; <code>order</code> can either be <code>Gtk.SortType.ASCENDING</code> or <code>Gtk.SortType.DESCENDING</code>.</p></item>
 </list>
 
 </section>
 
-
 <section id="combobox">
 <title>The View: the ComboBox case</title>
 
+<p>A <code>Gtk.ComboBox</code> allows for the selection of an item from a dropdown menu, see for instance <link xref="combobox.py">this example</link>. For a list of textual choices, one can also use the simpler <code>Gtk.ComboBoxText</code>. Both <code>Gtk.ComboBox</code> and <code>Gtk.ComboBoxText</code> can contain an entry.</p>
+
 <p>Useful methods for a <code>Gtk.ComboBox</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p>The static method <code>new_with_entry()</code> creates a new empty <code>Gtk.ComboBox</code> with an entry; the static method <code>new_with_model(model)</code> creates a new one with the model initialized to <code>model</code>; and the static method <code>new_with_model_and_entry(model)</code> is a combination of the two.</p></item>
+  <item><p><code>get_active_iter()</code> returns a <code>Gtk.TreeIter</code> pointing to the current active item. If no active item exists, <code>None</code> is returned.</p></item>
+  <item><p><code>set_model(model)</code> sets the model used by this combo box to be <code>model</code>, and it will unset a previously set model (if there is any). If <code>model</code> is <code>None</code>, then it will unset the model. Note that this function does not clear the cell renderers.</p></item>
+  <item><p><code>set_entry_text_column(text_column)</code> sets the model column which this combo box should use to get strings from to be <code>text_column</code>. The column <code>text_column</code> in the model of this combo box must be of type <code>str</code> (this is only relevant if this combo box has been created with the “has-entry” property set to True).</p></item>
+  <item><p><code>set_wrap_width(width)</code> sets the wrap width of this combo box to be <code>width</code>. The wrap width is basically the preferred number of columns when you want the popup to be layed out in a grid.</p></item>
 </list>
 
 <p>Useful methods for a <code>Gtk.ComboBoxText</code>:</p>
 <list>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
-  <item><p></p></item>
+  <item><p>The static method <code>new_with_entry()</code> creates a new empty <code>Gtk.ComboBoxText</code> with an entry.</p></item>
+  <item><p><code>append_text(text)</code> appends <code>text</code> to the list of strings stored in this combo box.</p></item>
+  <item><p><code>get_active_text()</code> returns the currently active string in this combo box, or <code>None</code> if none is selected. If this combo box contains an entry, this function will return its contents (which will not necessarily be an item from the list).</p></item>
 </list>
 
 </section>
@@ -131,10 +119,12 @@
 <section id="cellrenderer">
 <title>The View: the Cellrenderers</title>
 
+<p>The View makes use of <code>Gtk.CellRenderer</code>s of various types to draw the data.</p>
+
 <p>Implementations of <code>Gtk.CellRenderer</code> and useful methods:</p>
 <list>
   <item><p><code>Gtk.CellRendererText</code> - renders text in a cell</p></item>
-  <item><p><code>Gtk.CellRendererToggle</code> - renders a toggle button in a cell. Useful methods:</p>
+  <item><p><code>Gtk.CellRendererToggle</code> - renders a toggle or radio button in a cell. Useful methods:</p>
     <list>
     <item><p><code>set_active(setting)</code> - activates or deactivates a cell renderer</p></item>
     <item><p><code>get_active()</code> - returns whether the cell renderer is active</p></item>
@@ -152,14 +142,53 @@
 
 </section>
 
+<section id="selection">
+<title>The Controller: the Selection</title>
+
+<p>Most applications will need to not only deal with displaying data, but also receiving input events from users. To do this, simply get a reference to a selection object and connect to the <code>"changed"</code> signal.</p>
+
+<code mime="text/x-python">
+select = tree.get_selection()
+select.connect("changed", on_tree_selection_changed)
+</code>
+
+<p>Then to retrieve data for the row selected:</p>
+
+<code mime="text/x-python">
+def on_tree_selection_changed(selection):
+    model, treeiter = selection.get_selected()
+    if treeiter != None:
+        print "You selected", model[treeiter][0]
+</code>
+
+<p>Useful method for a <code>Gtk.TreeSelection</code>:</p>
+
+<list>
+  <item><p><code>set_mode(type)</code> sets the type of selection, where type is one of</p>
+  <list>
+    <item><p><code>Gtk.SelectionMode.NONE</code> - no selection is possible</p></item>
+    <item><p><code>Gtk.SelectionMode.SINGLE</code> - zero or one element may be selected</p></item>
+    <item><p><code>Gtk.SelectionMode.BROWSE</code> - exactly one element is selected. In some circumstances, such as initially or during a search operation, it’s possible for no element to be selected. What is really enforced is that the user can’t deselect a currently selected element except by selecting another element.</p></item>
+    <item><p><code>Gtk.SelectionMode.MULTIPLE</code> -any number of elements may be selected. Clicks toggle the state of an item. Any number of elements may be selected. The Ctrl key may be used to enlarge the selection, and Shift key to select between the focus and the child pointed to. Some widgets may also allow Click-drag to select a range of elements.</p></item>
+  </list>
+  </item>
+  <item><p><code>get_selected()</code> returns a tuple <code>(model, treeiter)</code>, where <code>model</code> is the current model and <code>treeiter</code> a <code>Gtk.TreeIter</code> pointing to the currently selected row, or None if no rows are selected. The method does not work if the selection mode is set to <code>Gtk.SelectionMode.MULTIPLE</code>; in that case, use <code>get_selected_rows()</code> instead, which Returns a list of <code>Gtk.TreePath</code> instances of all selected rows.</p></item>
+</list>
+
+</section>
+
 <section id="references">
 <title>References</title>
 
 <list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeModel.html">GtkTreeModel</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeView.html">GtkTreeView</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkTreeViewColumn.html">GtkTreeViewColumn</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkComboBox.html">GtkComboBox</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkCellRenderer.html">GtkCellRenderer</link></p></item>
   <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/treeview.html">The Python Gtk+ 3 Tutorial - Tree and List Widgets</link></p></item>
   <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/cellrenderers.html">The Python Gtk+ 3 Tutorial - CellRenderers</link></p></item>
   <item><p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/combobox.html">The Python Gtk+ 3 Tutorial - ComboBox</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkCellRenderer.html">GtkCellRenderer</link></p></item>
 </list>
 
 </section>
