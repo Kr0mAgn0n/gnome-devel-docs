@@ -23,6 +23,11 @@
 
 <title>Properties</title>
 
+<links type="section" />
+
+<section id="overview">
+<title>Overview</title>
+
 <p><em>Properties</em> describe the configuration and state of widgets, and each widget has its own particular set of properties. For example, a widget such as a button or a label has the property "label" which contains the text of the widget. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget: for example, to create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, you can use:</p>
 <code>
 label = Gtk.Label(label="Hello World", angle=25, halign=Gtk.Align.END)</code>
@@ -35,5 +40,12 @@ label.set_angle(25)
 label.set_halign(Gtk.Align.END)</code>
 
 <p>Once you have created such a label, you can get the text with the getter <code>label.get_label()</code>. Instead of using getters and setters you can also get and set the properties with <code>widget.get_property("prop-name")</code> and <code>widget.set_property("prop-name", value)</code>, respectively.</p>
+
+</section>
+<section id="references">
+<title>References</title>
+
+<p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/basics.html">Basics - Properties</link> in Python Gtk+ 3 Tutorial</p>
+</section>
 
 </page>
