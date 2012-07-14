@@ -49,6 +49,7 @@ demo_sources = \
 	samples/entry.vala			\
 	samples/filechooserdialog.vala		\
 	samples/filechooserdialog.ui		\
+	samples/fontchooserwidget.py			\
 	samples/fruitbat.png			\
 	samples/gentoopenguin.png		\
 	samples/gmenu.c				\
@@ -148,6 +149,7 @@ DOC_FIGURES = \
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
+	media/fontchooserwidget.png		\
 	media/glade_select_toolbar.png		\
 	media/glade_toolbar_common.png		\
 	media/glade_toolbar_edit.png		\
@@ -245,6 +247,7 @@ DOC_PAGES =				\
 	entry.py.page			\
 	entry.vala.page			\
 	filechooserdialog.vala.page	\
+	fontchooserwidget.py.page	\
 	getting-ready.page		\
 	gmenu.c.page			\
 	gmenu.js.page			\
