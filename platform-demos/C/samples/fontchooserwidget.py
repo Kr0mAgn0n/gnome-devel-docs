@@ -8,7 +8,7 @@ class MyWindow(Gtk.ApplicationWindow):
         # a font chooser
         self.font_chooser = Gtk.FontChooserWidget()
         # a default font
-        self.font_chooser.set_font("Bitstream Charter")
+        self.font_chooser.set_font("Sans")
         # a text to preview the font
         self.font_chooser.set_preview_text("This is an example of preview text!")
 
