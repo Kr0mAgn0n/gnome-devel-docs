@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="textview.c">
+  <info>
+    <link type="guide" xref="beginner.c#multiline"/>
+    <revision version="0.1" date="2012-07-10" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Monica Kochofar</name>
+      <email>monicakochofar@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Widget which displays a GtkTextBuffer</desc>
+  </info>
+
+  <title>TextView widget</title>
+<note style="sidebar"><p>If we press "enter", we have a new line.</p>
+     <p>If we press "enter" more times then there are lines in the default sized window, then a vertical scrollbar appears.</p>
+     <p>If we write a long sentence, the text will wrap breaking lines between words.</p>
+     <p>If we have a loooooooooooooooooooooooooooooooooooong (that was long) word, a* horizontal scrollbar will appear.</p></note>
+
+  <media type="image" mime="image/png" src="media/textview.png"/>
+    <p>This is an example of Gtk.TextView</p>
+
+      <code mime="text/x-csrc" style="numbered">
+<xi:include href="samples/textview.c" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkTextBuffer.html">GtkTextBuffer</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkTextView.html">GtkTextView</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkScrolledWindow.html">GtkScrolledWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkContainer.html">GtkContainer</link></p></item>
+</list>
+</page>
