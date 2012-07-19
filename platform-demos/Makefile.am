@@ -132,6 +132,7 @@ demo_sources = \
 	samples/toolbar_builder.vala		\
 	samples/treeview_advanced_liststore.py	\
 	samples/treeview_cellrenderertoggle.py	\
+	samples/treeview_simple_liststore.js	\
 	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
 	samples/treeview_treestore.py	\
@@ -207,6 +208,7 @@ DOC_FIGURES = \
 	media/treeview_advanced_liststore.png	\
 	media/treeview_cellrenderertoggle.png	\
 	media/treeview_simple_liststore.png	\
+	media/treeview_simple_liststore_penguins.png	\
 	media/treeview_treestore.png	\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
@@ -348,6 +350,7 @@ DOC_PAGES =				\
 	toolbar_builder.vala.page	\
 	treeview_advanced_liststore.py.page	\
 	treeview_cellrenderertoggle.py.page	\
+	treeview_simple_liststore.js.page	\
 	treeview_simple_liststore.py.page	\
 	treeview_simple_liststore.vala.page	\
 	treeview_treestore.py.page	\
