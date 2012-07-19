@@ -67,7 +67,7 @@ const TreeViewExample = new Lang.Class({
                 description: "Very random!"}];
 
         // Put the data in the phonebook
-        for (i = 0; i < phonebook.length; i++ ) {
+        for (let i = 0; i < phonebook.length; i++ ) {
             let contact = phonebook [i];
             this._listStore.set (this._listStore.append(), [0, 1, 2, 3],
                 [contact.name, contact.surname, contact.phone, contact.description]);
