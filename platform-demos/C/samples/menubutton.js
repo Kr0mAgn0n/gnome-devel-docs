@@ -1,7 +1,6 @@
 #!/usr/bin/gjs
 
 const _ = imports.gettext.gettext;
-
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -22,29 +21,25 @@ const Application = new Lang.Class ({
        this.application.connect('startup', Lang.bind(this, this._onStartup));
     },
 
-    //create the UI (in this case it's just the ApplicationWindow
+    //create the UI (in this case it's just the ApplicationWindow)
     _buildUI: function() {
         this._window = new Gtk.ApplicationWindow  ({ application: this.application,
                                                    window_position: Gtk.WindowPosition.CENTER,
                                                    title: "Welcome to GNOME" });
-
-        //uncommenting the line below will change the window size
-        this._window.set_default_size(600, 400);
-        
-        this.grid = new Gtk.Grid();
-        this._window.add(this.grid);
+        this._window.set_default_size (600, 400);
+        this.grid = new Gtk.Grid ();
+        this._window.add (this.grid);
         
         
         this._menuButton = new Gtk.MenuButton();
-        this.grid.attach( this._menuButton, 0, 0, 1, 1 );//here for GTK bug: workaround
-        this.menu = new Gtk.Menu.new_from_model(this.menuModel);
+        this.grid.attach (this._menuButton, 0, 0, 1, 1 );
+        this.menu = new Gtk.Menu.new_from_model (this.menuModel);
         
-        this.menu.show();
-        this._menuButton.set_menu( this.menu );
-        this._menuButton.set_size_request(80, 35);
-        this._menuButton.show();
+        this.menu.show ();
+        this._menuButton.set_menu (this.menu );
+        this._menuButton.set_size_request (80, 35);
+        this._menuButton.show ();
         
-        //show the window and all child widgets (none in this case)
         this._window.show_all();
     },
 
