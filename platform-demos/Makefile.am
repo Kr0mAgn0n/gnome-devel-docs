@@ -153,6 +153,8 @@ DOC_FIGURES = \
 	media/entry.png				\
 	media/fedora.png			\
 	media/fontchooserwidget.png		\
+	media/gediteditor.png			\
+	media/geditview.png			\
 	media/glade_select_toolbar.png		\
 	media/glade_toolbar_common.png		\
 	media/glade_toolbar_edit.png		\
@@ -318,6 +320,7 @@ DOC_PAGES =				\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
+	set-up-gedit.page		\
 	signals-callbacks.py.page	\
 	spinbutton.c.page		\
 	spinbutton.js.page		\
