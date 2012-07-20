@@ -8,7 +8,7 @@
     <link type="seealso" xref="GtkApplicationWindow.js" />
     <link type="seealso" xref="comboboxtext.js" />
     <link type="seealso" xref="messagedialog.js" />
-    <link type="seealso" xref="treeview.js" />
+    <link type="seealso" xref="treeview_simple_liststore.js" />
     <revision version="0.1" date="2012-07-09" status="draft"/>
 
     <credit type="author copyright">
@@ -22,9 +22,9 @@
 
   <title>ComboBox</title>
   <media type="image" mime="image/png" src="media/combobox_multicolumn.png"/>
-  <p>A ComboBox is an extremely customizable drop-down menu. It holds the equivalent of a <link xref="treeview.js">TreeView</link> widget that appears when you click on it, complete with a ListStore (basically a spreadsheet) that says what's in the rows and columns. In this example, our ListStore has the name of each option in one column, and the name of a stock icon in the other, which the ComboBox then turns into an icon for each option.</p>
+  <p>A ComboBox is an extremely customizable drop-down menu. It holds the equivalent of a <link xref="treeview_simple_liststore.js">TreeView</link> widget that appears when you click on it, complete with a ListStore (basically a spreadsheet) that says what's in the rows and columns. In this example, our ListStore has the name of each option in one column, and the name of a stock icon in the other, which the ComboBox then turns into an icon for each option.</p>
   <p>You select a whole horizontal row at a time, so the icons aren't treated as separate options. They and the text beside them make up each option you can click on.</p>
-  <note><p>Working with a ListStore can be time-consuming. If you just want a simple text-only drop-down menu, take a look at the <link xref="comboboxtext.js">ComboBoxText.</link> It doesn't take as much time to set up, and is easier to work with.</p></note>
+  <note style="tip"><p>Working with a ListStore can be time-consuming. If you just want a simple text-only drop-down menu, take a look at the <link xref="comboboxtext.js">ComboBoxText.</link> It doesn't take as much time to set up, and is easier to work with.</p></note>
     <links type="section" />
 
   <section id="imports">
@@ -88,32 +88,35 @@ const ComboBoxExample = new Lang.Class ({
         this._listStore = new Gtk.ListStore();
         this._listStore.set_column_types ([
             GObject.TYPE_STRING,
-            GObject.TYPE_STRING,]);
+            GObject.TYPE_STRING]);
 ]]></code>
-    <p>This ListStore works like the one used in the <link xref="treeview.js">TreeView</link> example. We're giving it two columns, both strings, because one of them will contain the names of <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">stock Gtk icons.</link></p>
+    <p>This ListStore works like the one used in the <link xref="treeview_simple_liststore.js">TreeView</link> example. We're giving it two columns, both strings, because one of them will contain the names of <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">stock Gtk icons.</link></p>
     <p>If we'd wanted to use our own icons that weren't already built in to GNOME, we'd have needed to use the <file>gtk.gdk.Pixbuf</file> type instead. Here are a few other types you can use:</p>
     <list>
       <item><p><file>GObject.TYPE_BOOLEAN</file> -- True or false</p></item>
       <item><p><file>GObject.TYPE_FLOAT</file> -- A floating point number (one with a decimal point)</p></item>
       <item><p><file>GObject.TYPE_STRING</file> -- A string of letters and numbers</p></item>
     </list>
-    <note><p>You need to put the line <file>const GObject = imports.gi.GObject;</file> at the start of your application's code, like we did in this example, if you want to be able to use GObject types.</p></note>
+    <note style="tip"><p>You need to put the line <file>const GObject = imports.gi.GObject;</file> at the start of your application's code, like we did in this example, if you want to be able to use GObject types.</p></note>
 
     <code mime="text/javascript"><![CDATA[
         // This array holds our list of options and their icons
-        let options = [{ name: "Select", icon: null },
+        let options = [{ name: "Select" },
             { name: "New", icon: Gtk.STOCK_NEW },
             { name: "Open", icon: Gtk.STOCK_OPEN },
             { name: "Save", icon: Gtk.STOCK_SAVE }];
 
         // Put the options in the liststore
         for (let i = 0; i < options.length; i++ ) {
-            let option = options[i]
-            this._listStore.set (this._listStore.append(), [0, 1],
-                [option.name, option.icon]);
+            let option = options[i];
+            let iter = this._listStore.append();
+            this._listStore.set (iter, [0], [option.name]);
+            if ('icon' in option)
+                this._listStore.set (iter, [1], [option.icon]);
         }
 ]]></code>
-    <p>Here we create an array of the text options and their corresponding icons, then put them into the ListStore the same way we would for a <link xref="treeview.js">TreeView's</link> ListStore. "Select" isn't really an option so much as an invitation to click on our ComboBox, so it doesn't need an icon.</p>
+    <p>Here we create an array of the text options and their corresponding icons, then put them into the ListStore in much the same way we would for a <link xref="treeview_simple_liststore.js">TreeView's</link> ListStore. We only want to put an icon in if there's actually an icon in the options array, so we make sure to check for that first.</p>
+    <note style="tip"><p>"Select" isn't really an option so much as an invitation to click on our ComboBox, so it doesn't need an icon.</p></note>
   </section>
 
   <section id="combobox">
@@ -137,9 +140,9 @@ const ComboBoxExample = new Lang.Class ({
         this._comboBox.add_attribute (rendererText, "text", 0);
         this._comboBox.add_attribute (rendererPixbuf, "stock_id", 1);
 ]]></code>
-    <p>This part, again, works much like creating CellRenderers and packing them into the columns of a <link xref="treeview.js">TreeView.</link> The biggest difference is that we don't need to create the ComboBox's columns as separate objects. We just pack the CellRenderers into it in the order we want them to show up, then tell them to pull information from the ListStore (and what type of information we want them to expect).</p>
+    <p>This part, again, works much like creating CellRenderers and packing them into the columns of a <link xref="treeview_simple_liststore.js">TreeView.</link> The biggest difference is that we don't need to create the ComboBox's columns as separate objects. We just pack the CellRenderers into it in the order we want them to show up, then tell them to pull information from the ListStore (and what type of information we want them to expect).</p>
     <p>We use a CellRendererText to show the text, and a CellRendererPixbuf to show the icons. We can store the names of the icons' stock types as strings, but when we display them we need a CellRenderer that's designed for pictures.</p>
-    <note><p>Just like with a TreeView, the "model" (in this case a ListStore) and the "view" (in this case our ComboBox) are separate. Because of that, we can do things like have the columns in one order in the ListStore, and then pack the CellRenderers that correspond to those columns into the ComboBox in a different order. We can even create a TreeView or other widget that shows the information in the ListStore in a different way, without it affecting our ComboBox.</p></note>
+    <note style="tip"><p>Just like with a TreeView, the "model" (in this case a ListStore) and the "view" (in this case our ComboBox) are separate. Because of that, we can do things like have the columns in one order in the ListStore, and then pack the CellRenderers that correspond to those columns into the ComboBox in a different order. We can even create a TreeView or other widget that shows the information in the ListStore in a different way, without it affecting our ComboBox.</p></note>
 
     <code mime="text/javascript"><![CDATA[
         // Set the first row in the combobox to be active on startup
@@ -197,7 +200,7 @@ const ComboBoxExample = new Lang.Class ({
     },
 ]]></code>
     <p>Before showing a MessageDialog, we first test to make sure you didn't choose the "Select" message. After that, we set its text to be the haiku in the array that corresponds to the active entry in our ComboBoxText. We do that using the <file>get_active</file> method, which returns the number ID of your selection.</p>
-    <note><p>Other methods you can use include <file>get_active_id,</file> which returns the text ID assigned by <file>append,</file> and <file>get_active_text,</file> which returns the full text of the string you selected.</p></note>
+    <note style="tip"><p>Other methods you can use include <file>get_active_id,</file> which returns the text ID assigned by <file>append,</file> and <file>get_active_text,</file> which returns the full text of the string you selected.</p></note>
     <p>After we create the MessageDialog, we connect its response signal to the _onDialogResponse function, then tell it to show itself.</p>
 
     <code mime="text/javascript"><![CDATA[

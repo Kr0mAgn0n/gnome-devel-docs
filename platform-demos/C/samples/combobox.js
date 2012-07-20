@@ -44,19 +44,21 @@ const ComboBoxExample = new Lang.Class ({
         this._listStore = new Gtk.ListStore();
         this._listStore.set_column_types ([
             GObject.TYPE_STRING,
-            GObject.TYPE_STRING,]);
+            GObject.TYPE_STRING]);
 
         // This array holds our list of options and their icons
-        let options = [{ name: "Select", icon: null },
+        let options = [{ name: "Select" },
             { name: "New", icon: Gtk.STOCK_NEW },
             { name: "Open", icon: Gtk.STOCK_OPEN },
             { name: "Save", icon: Gtk.STOCK_SAVE }];
 
         // Put the options in the liststore
         for (let i = 0; i < options.length; i++ ) {
-            let option = options[i]
-            this._listStore.set (this._listStore.append(), [0, 1],
-                [option.name, option.icon]);
+            let option = options[i];
+            let iter = this._listStore.append();
+            this._listStore.set (iter, [0], [option.name]);
+            if ('icon' in option)
+                this._listStore.set (iter, [1], [option.icon]);
         }
 
         // Create the combobox
