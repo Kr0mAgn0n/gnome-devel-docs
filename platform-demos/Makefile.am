@@ -128,6 +128,7 @@ demo_sources = \
 	samples/toolbar.js			\
 	samples/toolbar.py			\
 	samples/toolbar.vala			\
+	samples/toolbar_builder.py		\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
 	samples/treeview_advanced_liststore.py	\
@@ -350,6 +351,7 @@ DOC_PAGES =				\
 	toolbar.js.page			\
 	toolbar.py.page			\
 	toolbar.vala.page		\
+	toolbar_builder.py.page	\
 	toolbar_builder.vala.page	\
 	treeview_advanced_liststore.py.page	\
 	treeview_cellrenderertoggle.py.page	\

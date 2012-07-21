@@ -11,28 +11,30 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # the data in the model, of type string
         listmodel = Gtk.ListStore(str)
-        # there is no insert_with_values in Python, we use append to
+        # append the data in the model
         for i in range(len(distros)):
             listmodel.append(distros[i])
 
         # a combobox to see the data stored in the model
         combobox = Gtk.ComboBox(model=listmodel)
 
-        # a cellrenderer
+        # a cellrenderer to render the text
         cell = Gtk.CellRendererText()
-        # packs the cell into the beginning of the combobox, allocating
-        # (False) no more space than needed
+
+        # pack the cell into the beginning of the combobox, allocating
+        # no more space than needed
         combobox.pack_start(cell, False)
-        # there is no set_attributes() in Python
-        # associates a property ("text") of the cellrenderer (cell) to a column (column 0)
+        # associate a property ("text") of the cellrenderer (cell) to a column (column 0)
         # in the model used by the combobox
         combobox.add_attribute(cell, "text", 0)
-        # the first row is the active one
+
+        # the first row is the active one by default at the beginning
         combobox.set_active(0)
 
-        # when a row is selected, emit a signal
+        # connect the signal emitted when a row is selected to the callback function
         combobox.connect("changed", self.on_changed)
 
+        # add the combobox to the window
         self.add(combobox)
 
     def on_changed(self, combo):
@@ -44,7 +46,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.combobox")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
