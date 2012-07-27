@@ -21,7 +21,7 @@ class MyWindow(Gtk.ApplicationWindow):
         textview.set_wrap_mode(Gtk.WrapMode.WORD)
 
         # textview is scrolled
-        scrolled_window.add_with_viewport(textview)
+        scrolled_window.add(textview)
 
         self.add(scrolled_window)
 
