@@ -2,10 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
-"POT-Creation-Date: 2009-04-20 02:14+0000\n"
-"PO-Revision-Date: 2009-05-02 07:32+0200\n"
-"Last-Translator: Μάριος Ζηντίλης <m.zindilis@dmajor.org>\n"
+"POT-Creation-Date: 2012-07-27 09:48+0000\n"
+"PO-Revision-Date: 2012-07-29 15:46+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -477,10 +478,18 @@ msgstr ""
 "χρησιμοποιεί τις πληροφορίες αυτού του αρχείου για να:"
 
 #: C/integration-guide.xml:332(para)
-msgid "put the application in the <guimenu>Main Menu</guimenu>."
-msgstr "τοποθετήσει την εφαρμογή στο <guimenu>Κύριο μενού</guimenu>."
+msgid ""
+"put the application in the <guimenu>Main Menu</guimenu>. To find a list of "
+"valid categories, take a look into FreeDesktop.org's <ulink url=\"http://"
+"standards.freedesktop.org/menu-spec/latest/\">Desktop Menu Specification</"
+"ulink>."
+msgstr ""
+"τοποθετήστε την εφαρμογή στο <guimenu>κύριο μενού</guimenu>. Για να βρείτε "
+"μια λίστα από έγκυρες κατηγορίες, ρίξτε μια ματιά στις <ulink url=\"http://"
+"standards.freedesktop.org/menu-spec/latest/\">προδιαγραφές μενού</ulink> του "
+"FreeDesktop.org ."
 
-#: C/integration-guide.xml:335(para)
+#: C/integration-guide.xml:340(para)
 msgid ""
 "list the application in the <application>Run Application...</application> "
 "dialog"
@@ -488,24 +497,24 @@ msgstr ""
 "καταχωρήσει την εφαρμογή στο διάλογο <application>Εκτέλεση εφαρμογής...</"
 "application>."
 
-#: C/integration-guide.xml:339(para)
+#: C/integration-guide.xml:344(para)
 msgid "create appropriate launchers in the menu or on the desktop."
 msgstr ""
 "δημιουργήσει τους κατάλληλους εκκινητές στο μενού ή την επιφάνεια εργασίας."
 
-#: C/integration-guide.xml:342(para)
+#: C/integration-guide.xml:347(para)
 msgid "associate the name and description of the application."
 msgstr "αντιστοιχίσει το όνομα και την περιγραφή της εφαρμογής."
 
-#: C/integration-guide.xml:345(para)
+#: C/integration-guide.xml:350(para)
 msgid "use the appropriate icon."
 msgstr "χρησιμοποιήσει το κατάλληλο εικονίδιο."
 
-#: C/integration-guide.xml:348(para)
+#: C/integration-guide.xml:353(para)
 msgid "recognize the MIME types it supports for opening files."
 msgstr "αναγνωρίσει τους τύπους ΜΙΜΕ των οποίων το άνοιγμα υποστηρίζει."
 
-#: C/integration-guide.xml:352(para)
+#: C/integration-guide.xml:357(para)
 msgid ""
 "To add a menu entry for your application, create a desktop file. It should "
 "have a unique filename, and there are no length limits so avoid "
@@ -525,7 +534,7 @@ msgstr ""
 "επιλογές. Το αρχείο πρέπει να διαθέτει κωδικοποίηση UTF-8 και να συμβαδίζει "
 "με το ακόλουθο πρότυπο:"
 
-#: C/integration-guide.xml:374(para)
+#: C/integration-guide.xml:378(para)
 msgid ""
 "These desktop files contain metadata about your application, and play a "
 "central role in integrating the program with the GNOME and other standards "
@@ -540,7 +549,7 @@ msgstr ""
 "μεταφράσεις, έτσι ώστε το όνομα της εφαρμογής σας να εμφανίζεται στη μητρική "
 "γλώσσα του χρήστη."
 
-#: C/integration-guide.xml:394(para)
+#: C/integration-guide.xml:398(para)
 msgid ""
 "Note that the <literal>~/.local/share/applications</literal> location is not "
 "monitored by versions of GNOME prior to version 2.10 or on Fedora Core "
@@ -560,7 +569,7 @@ msgstr ""
 "έπειτα, οπότε για μέγιστη συμβατότητα, καλό είναι να τοποθετήσετε το αρχείο "
 "και στις δύο τοποθεσίες."
 
-#: C/integration-guide.xml:407(para)
+#: C/integration-guide.xml:411(para)
 msgid ""
 "Note that the KDE Desktop requires one to run <command>kbuildsycoca</"
 "command> to force a refresh of the menus."
@@ -568,7 +577,7 @@ msgstr ""
 "Σημειώστε ότι η επιφάνεια εργασίας KDE απαιτεί την εκτέλεση του "
 "<command>kbuildsycoca</command> για την ανανέωση των μενού."
 
-#: C/integration-guide.xml:383(para)
+#: C/integration-guide.xml:387(para)
 msgid ""
 "Place this file in the <literal>/usr/share/applications</literal> directory "
 "so that it is accessible by everyone, or in <literal>~/.local/share/"
@@ -587,7 +596,7 @@ msgstr ""
 "τυχόν αλλαγές, άρα η απλή αντιγραφή του αρχείου στην κατάλληλη τοποθεσία "
 "αρκεί για την καταχώρησή του στην επιφάνεια εργασίας. <placeholder-1/>"
 
-#: C/integration-guide.xml:437(para)
+#: C/integration-guide.xml:441(para)
 msgid ""
 "Each working desktop file needs to follow the same format. A minimal example "
 "of a desktop file is shown in <xref linkend=\"ex-sample-desktop-file\"/>. "
@@ -609,7 +618,7 @@ msgstr ""
 "<firstterm>τιμή</firstterm>. Μπορείτε να δείτε μια επεξήγηση κάθε γραμμής "
 "στο <xref linkend=\"tb-desktop-file\"/>."
 
-#: C/integration-guide.xml:452(para)
+#: C/integration-guide.xml:456(para)
 msgid ""
 "Other than the first line identifying the desktop file, the order of the "
 "lines is not important. In <xref linkend=\"ex-sample-desktop-file\"/>, the "
@@ -622,7 +631,7 @@ msgstr ""
 "μπορούσε να βρίσκεται στη δεύτερη, την πέμπτη, ή την τελευταία γραμμή, χωρίς "
 "αυτό να επηρεάζει τα αποτελέσματα."
 
-#: C/integration-guide.xml:461(para)
+#: C/integration-guide.xml:465(para)
 msgid ""
 "However, the keys are case sensitive. <command>Type=Application</command> is "
 "not the same as <command>type=Application</command> or "
@@ -632,11 +641,11 @@ msgstr ""
 "<command>Type=Application</command> δεν είναι το ίδιο με το "
 "<command>type=Application</command> ή το <command>TYPE=Application</command>."
 
-#: C/integration-guide.xml:470(title)
+#: C/integration-guide.xml:474(title)
 msgid "Sample desktop file"
 msgstr "Υπόδειγμα αρχείου επιφάνειας εργασίας"
 
-#: C/integration-guide.xml:471(screen)
+#: C/integration-guide.xml:475(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -659,23 +668,23 @@ msgstr ""
 "Icon=application.png\n"
 "Terminal=false\n"
 
-#: C/integration-guide.xml:484(title)
+#: C/integration-guide.xml:488(title)
 msgid "Line by line explanation"
 msgstr "Επεξήγηση γραμμή προς γραμμή"
 
-#: C/integration-guide.xml:491(entry)
+#: C/integration-guide.xml:495(entry)
 msgid "Line"
 msgstr "Γραμμή"
 
-#: C/integration-guide.xml:492(entry)
+#: C/integration-guide.xml:496(entry)
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: C/integration-guide.xml:498(command)
+#: C/integration-guide.xml:502(command)
 msgid "[Desktop Entry]"
 msgstr "[Desktop Entry]"
 
-#: C/integration-guide.xml:499(entry)
+#: C/integration-guide.xml:503(entry)
 msgid ""
 "The first line of every desktop file and the section header to identify the "
 "block of key value pairs associated with the desktop. Necessary for the "
@@ -685,19 +694,19 @@ msgstr ""
 "ενότητας με τα βασικότερα κλειδιά. Η ύπαρξή της είναι απαραίτητη προκειμένου "
 "η επιφάνεια εργασίας να είναι σε θέση να αναγνωρίσει σωστά το αρχείο."
 
-#: C/integration-guide.xml:505(command)
+#: C/integration-guide.xml:509(command)
 msgid "Type=Application"
 msgstr "Type=Application"
 
-#: C/integration-guide.xml:508(command)
+#: C/integration-guide.xml:512(command)
 msgid "Link"
 msgstr "Link"
 
-#: C/integration-guide.xml:509(command)
+#: C/integration-guide.xml:513(command)
 msgid "Directory"
 msgstr "Directory"
 
-#: C/integration-guide.xml:506(entry)
+#: C/integration-guide.xml:510(entry)
 msgid ""
 "Tells the desktop that this desktop file pertains to an application. Other "
 "valid values for this key are <placeholder-1/> and <placeholder-2/>."
@@ -706,64 +715,64 @@ msgstr ""
 "ανήκει σε εφαρμογή. Άλλες έγκυρες τιμές για αυτό το κλειδί είναι οι "
 "<placeholder-1/> (σύνδεσμος) και <placeholder-2/> (κατάλογος)."
 
-#: C/integration-guide.xml:512(command)
+#: C/integration-guide.xml:516(command)
 msgid "Encoding=UTF-8"
 msgstr "Encoding=UTF-8"
 
-#: C/integration-guide.xml:513(entry)
+#: C/integration-guide.xml:517(entry)
 msgid "Describes the encoding of the entries in this desktop file."
 msgstr "Περιγράφει την κωδικοποίηση των εγγραφών του αρχείου."
 
-#: C/integration-guide.xml:517(command)
+#: C/integration-guide.xml:521(command)
 msgid "Name=Sample Application Name"
 msgstr "Name=Όνομα Εφαρμογής"
 
-#: C/integration-guide.xml:518(entry)
+#: C/integration-guide.xml:522(entry)
 msgid "Names of your application for the main menu and any launchers."
 msgstr ""
 "Το όνομα της εφαρμογής σας όπως θα εμφανίζεται στο κύριο μενού και τυχόν "
 "εκκινητές."
 
-#: C/integration-guide.xml:521(command)
+#: C/integration-guide.xml:525(command)
 msgid "Comment=A sample application"
 msgstr "Comment=Υπόδειγμα εφαρμογής"
 
-#: C/integration-guide.xml:522(entry)
+#: C/integration-guide.xml:526(entry)
 msgid "Describes the application. Used as a tooltip."
 msgstr "Περιγράφει την εφαρμογή. Εμφανίζεται ως συμβουλής οθόνης."
 
-#: C/integration-guide.xml:525(command)
+#: C/integration-guide.xml:529(command)
 msgid "Exec=application"
 msgstr "Exec=εφαρμογή"
 
-#: C/integration-guide.xml:526(entry)
+#: C/integration-guide.xml:530(entry)
 msgid ""
 "The command that starts this application from a shell. It can have arguments."
 msgstr ""
 "Η εντολή που εκκινεί την εφαρμογή από κέλυφος. Μπορεί να συνοδεύεται από "
 "ορίσματα."
 
-#: C/integration-guide.xml:530(command)
+#: C/integration-guide.xml:534(command)
 msgid "Icon=application.png"
 msgstr "Icon=εφαρμογή.png"
 
-#: C/integration-guide.xml:531(entry)
+#: C/integration-guide.xml:535(entry)
 msgid "The icon name associated with this application."
 msgstr "Το εικονίδιο που αντιστοιχεί στην εφαρμογή."
 
-#: C/integration-guide.xml:534(command)
+#: C/integration-guide.xml:538(command)
 msgid "Terminal=false"
 msgstr "Terminal=false"
 
-#: C/integration-guide.xml:535(entry)
+#: C/integration-guide.xml:539(entry)
 msgid "Describes whether application should run in a terminal."
 msgstr "Καθορίζει το αν επιτρέπεται να εκτελείται σε τερματικό η εφαρμογή."
 
-#: C/integration-guide.xml:543(title)
+#: C/integration-guide.xml:547(title)
 msgid "Starting your application"
 msgstr "Εκκίνηση της εφαρμογής σας"
 
-#: C/integration-guide.xml:544(para)
+#: C/integration-guide.xml:548(para)
 msgid ""
 "If your application can take command line arguments, you can signify that by "
 "using the fields as shown in <xref linkend=\"tb-exec-params\"/>."
@@ -772,56 +781,56 @@ msgstr ""
 "προσδιορίσετε στα κατάλληλα πεδία, όπως φαίνεται στο <xref linkend=\"tb-exec-"
 "params\"/>."
 
-#: C/integration-guide.xml:551(title)
+#: C/integration-guide.xml:555(title)
 msgid "Exec variables"
 msgstr "Μεταβλητές εκτέλεσης"
 
-#: C/integration-guide.xml:558(entry)
+#: C/integration-guide.xml:562(entry)
 msgid "Add..."
 msgstr "Προσθέστε..."
 
-#: C/integration-guide.xml:559(entry)
+#: C/integration-guide.xml:563(entry)
 msgid "Accepts..."
 msgstr "Δέχεται..."
 
-#: C/integration-guide.xml:565(command) C/integration-guide.xml:583(command)
+#: C/integration-guide.xml:569(command) C/integration-guide.xml:587(command)
 msgid "%f"
 msgstr "%f"
 
-#: C/integration-guide.xml:566(entry)
+#: C/integration-guide.xml:570(entry)
 msgid "a single filename."
 msgstr "ένα όνομα αρχείου."
 
-#: C/integration-guide.xml:569(command) C/integration-guide.xml:588(command)
+#: C/integration-guide.xml:573(command) C/integration-guide.xml:592(command)
 msgid "%F"
 msgstr "%F"
 
-#: C/integration-guide.xml:570(entry)
+#: C/integration-guide.xml:574(entry)
 msgid "multiple filenames."
 msgstr "πολλαπλά ονόματα αρχείων."
 
-#: C/integration-guide.xml:573(command) C/integration-guide.xml:977(literal)
-#: C/integration-guide.xml:980(literal)
+#: C/integration-guide.xml:577(command) C/integration-guide.xml:981(literal)
+#: C/integration-guide.xml:984(literal)
 msgid "%u"
 msgstr "%u"
 
-#: C/integration-guide.xml:574(entry)
+#: C/integration-guide.xml:578(entry)
 msgid "a single URL."
 msgstr "ένα URL."
 
-#: C/integration-guide.xml:577(command)
+#: C/integration-guide.xml:581(command)
 msgid "%U"
 msgstr "%U"
 
-#: C/integration-guide.xml:578(entry)
+#: C/integration-guide.xml:582(entry)
 msgid "multiple URLs."
 msgstr "πολλαπλά URL."
 
-#: C/integration-guide.xml:581(command)
+#: C/integration-guide.xml:585(command)
 msgid "%d"
 msgstr "%d"
 
-#: C/integration-guide.xml:582(entry)
+#: C/integration-guide.xml:586(entry)
 msgid ""
 "a single directory. Used in conjunction with <placeholder-1/> to locate a "
 "file."
@@ -829,11 +838,11 @@ msgstr ""
 "έναν κατάλογο. Χρησιμοποιείται μαζί με το <placeholder-1/> για τον εντοπισμό "
 "ενός αρχείου."
 
-#: C/integration-guide.xml:586(command)
+#: C/integration-guide.xml:590(command)
 msgid "%D"
 msgstr "%D"
 
-#: C/integration-guide.xml:587(entry)
+#: C/integration-guide.xml:591(entry)
 msgid ""
 "multiple directories. Used in conjunction with <placeholder-1/> to locate "
 "files."
@@ -841,45 +850,45 @@ msgstr ""
 "πολλαπλούς καταλόγους. Χρησιμοποιείται μαζί με το <placeholder-1/> για τον "
 "εντοπισμό αρχείων."
 
-#: C/integration-guide.xml:591(command)
+#: C/integration-guide.xml:595(command)
 msgid "%n"
 msgstr "%n"
 
-#: C/integration-guide.xml:592(entry)
+#: C/integration-guide.xml:596(entry)
 msgid "a single filename without a path."
 msgstr "ένα όνομα αρχείου χωρίς διαδρομή."
 
-#: C/integration-guide.xml:595(command)
+#: C/integration-guide.xml:599(command)
 msgid "%N"
 msgstr "%N"
 
-#: C/integration-guide.xml:596(entry)
+#: C/integration-guide.xml:600(entry)
 msgid "multiple filenames without paths."
 msgstr "πολλαπλά ονόματα αρχείων χωρίς διαδρομές."
 
-#: C/integration-guide.xml:599(command)
+#: C/integration-guide.xml:603(command)
 msgid "%k"
 msgstr "%k"
 
-#: C/integration-guide.xml:600(entry)
+#: C/integration-guide.xml:604(entry)
 msgid "a URI or local filename of the location of the desktop file."
 msgstr ""
 "ένα URI ή τοπικό όνομα αρχείου για την τοποθεσία του αρχείου επιφάνειας "
 "εργασίας."
 
-#: C/integration-guide.xml:604(command)
+#: C/integration-guide.xml:608(command)
 msgid "%v"
 msgstr "%v"
 
-#: C/integration-guide.xml:605(entry)
+#: C/integration-guide.xml:609(entry)
 msgid "the name of the Device entry."
 msgstr "το όνομα της εγγραφής μιας συσκευής."
 
-#: C/integration-guide.xml:614(title)
+#: C/integration-guide.xml:618(title)
 msgid "Foreign languages"
 msgstr "Ξένες γλώσσες"
 
-#: C/integration-guide.xml:616(para)
+#: C/integration-guide.xml:620(para)
 msgid ""
 "To create localized names and comments, additional lines for each locale "
 "need to be added. For example, to add a Swedish version of the comment, add "
@@ -890,17 +899,17 @@ msgstr ""
 "προσθέσετε μια εκδοχή του σχολίου στα Σουηδικά, προσθέστε την ακόλουθη "
 "γραμμή:"
 
-#: C/integration-guide.xml:623(command)
+#: C/integration-guide.xml:627(command)
 msgid "Comment[sv]=Exempelprogramnamn"
 msgstr "Comment[sv]=Exempelprogramnamn"
 
-#: C/integration-guide.xml:628(para)
+#: C/integration-guide.xml:632(para)
 msgid "There is no limit to the number of translations in the file."
 msgstr ""
 "Δεν υπάρχει περιορισμός στον αριθμό των μεταφράσεων που μπορούν να "
 "περιέχονται στο αρχείο."
 
-#: C/integration-guide.xml:633(para)
+#: C/integration-guide.xml:637(para)
 msgid ""
 "Since maintaining a long list of translations in a file is cumbersome, a "
 "better way to create these translations is to use the <application>intltool</"
@@ -914,12 +923,12 @@ msgstr ""
 "σελίδες man του <application>intltool-extract</application> και του "
 "<application>intltool-merge</application> για περισσότερες πληροφορίες."
 
-#: C/integration-guide.xml:646(title) C/integration-guide.xml:690(title)
-#: C/integration-guide.xml:793(title) C/integration-guide.xml:876(title)
+#: C/integration-guide.xml:650(title) C/integration-guide.xml:694(title)
+#: C/integration-guide.xml:797(title) C/integration-guide.xml:880(title)
 msgid "References"
 msgstr "Παραπομπές"
 
-#: C/integration-guide.xml:648(para)
+#: C/integration-guide.xml:652(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/desktop-entry-spec/latest/"
 "index.html\">Desktop Entry Specification</ulink> — Specifications for "
@@ -929,11 +938,11 @@ msgstr ""
 "index.html\">Desktop Entry Specification</ulink> — Προδιαγραφές για τη "
 "δημιουργία αρχείων επιφάνειας εργασίας."
 
-#: C/integration-guide.xml:658(title)
+#: C/integration-guide.xml:662(title)
 msgid "Installing icons"
 msgstr "Εγκατάσταση εικονιδίων"
 
-#: C/integration-guide.xml:660(para)
+#: C/integration-guide.xml:664(para)
 msgid ""
 "In <xref linkend=\"ex-sample-desktop-file\"/>, we have specified the icon "
 "for this application as <filename><replaceable>application.png</"
@@ -945,7 +954,7 @@ msgstr ""
 "filename>. Ωστόσο, για να εμφανιστεί το εικονίδιο, θα πρέπει να "
 "τοποθετήσουμε το αρχείο του στον κατάλληλο κατάλογο."
 
-#: C/integration-guide.xml:668(para)
+#: C/integration-guide.xml:672(para)
 msgid ""
 "The desktop looks for icons in the selected theme directory of <filename>/"
 "usr/share/icons/</filename>. Application icons should be available at least "
@@ -963,7 +972,7 @@ msgstr ""
 "επιλεγμένο θέμα. Αν χρησιμοποιείτε προσαρμόσιμα εικονίδια, τοποθετήστε τα "
 "στους κατάλληλους καταλόγους."
 
-#: C/integration-guide.xml:678(para)
+#: C/integration-guide.xml:682(para)
 msgid ""
 "To better visually integrate with the GNOME desktop, while keeping your "
 "application look native when run under KDE, Windows XP or Mac OS X, follow "
@@ -981,7 +990,7 @@ msgstr ""
 "μεγέθη. Επίσης, περιέχονται ορισμένα τυπικά παραδείγματα ροής εργασιών, "
 "καθώς και βίντεο εκμάθησης."
 
-#: C/integration-guide.xml:692(para)
+#: C/integration-guide.xml:696(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/icon-theme-spec/icon-theme-"
 "spec-latest.html\">Icon Theme Specification</ulink> — Describes how to "
@@ -991,7 +1000,7 @@ msgstr ""
 "spec-latest.html\">Icon Theme Specification</ulink> — Περιγράφει τον τρόπο "
 "εγκατάστασης και αναζήτησης εικονιδίων έτσι ώστε να είναι προσαρμόσιμα."
 
-#: C/integration-guide.xml:699(para)
+#: C/integration-guide.xml:703(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/icon-naming-spec/latest/"
 "\">Icon Naming Specification</ulink> — Provides a canonical naming scheme "
@@ -1001,7 +1010,7 @@ msgstr ""
 "\">Icon Naming Specification</ulink> — Παρέχει κανονικοποιημένες "
 "προδιαγραφές ονοματοδοσίας για τα αρχεία εικονιδίων."
 
-#: C/integration-guide.xml:706(para)
+#: C/integration-guide.xml:710(para)
 msgid ""
 "<ulink url=\"http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines"
 "\">Tango Style Guidelines</ulink> — Provides description on how to design "
@@ -1011,11 +1020,11 @@ msgstr ""
 "\">Tango Style Guidelines</ulink> — Περιγράφει πώς να σχεδιάζετε καθαρά "
 "εικονίδια για χρήση σε 'πολλαπλές πλατφόρμες'."
 
-#: C/integration-guide.xml:715(title)
+#: C/integration-guide.xml:719(title)
 msgid "Adding MIME types"
 msgstr "Προσθήκη τύπων MIME"
 
-#: C/integration-guide.xml:717(para)
+#: C/integration-guide.xml:721(para)
 msgid ""
 "If your application can open specific MIME types, you need to let the "
 "desktop know in the desktop file. For example, if your application can "
@@ -1027,12 +1036,12 @@ msgstr ""
 "αν η εφαρμογή σας δέχεται αρχεία <acronym>PNG</acronym>, προσθέστε την "
 "ακόλουθη γραμμή στο αρχείο σας:"
 
-#: C/integration-guide.xml:725(screen)
+#: C/integration-guide.xml:729(screen)
 #, no-wrap
 msgid "MimeType=image/png"
 msgstr "MimeType=image/png"
 
-#: C/integration-guide.xml:728(para)
+#: C/integration-guide.xml:732(para)
 msgid ""
 "Additional Mime types can be added by separating the different types with "
 "semicolons."
@@ -1040,7 +1049,7 @@ msgstr ""
 "Μπορείτε να προσθέσετε πολλαπλούς τύπους MIME, αρκεί να τους διαχωρίζετε με "
 "ερωτηματικά (;)."
 
-#: C/integration-guide.xml:733(para)
+#: C/integration-guide.xml:737(para)
 msgid ""
 "The system already knows of a large number of MIME types. However, if you "
 "are creating one of your own, you need to register your MIME type into the "
@@ -1054,23 +1063,23 @@ msgstr ""
 "share/mime/packages/</filename>, δημιουργήστε ένα αρχείο <acronym>XML</"
 "acronym> με τη μορφή που περιγράφεται στο <xref linkend=\"ex-mime-xml\"/>."
 
-#: C/integration-guide.xml:743(title)
+#: C/integration-guide.xml:747(title)
 msgid "Sample file for registering a new MIME type"
 msgstr "Υπόδειγμα αρχείου καταχώρησης νέου τύπου MIME"
 
-#: C/integration-guide.xml:747(replaceable)
+#: C/integration-guide.xml:751(replaceable)
 msgid "example"
 msgstr "παράδειγμα"
 
-#: C/integration-guide.xml:750(replaceable)
+#: C/integration-guide.xml:754(replaceable)
 msgid "search-string"
 msgstr "αλφαριθμητικό-αναζήτησης"
 
-#: C/integration-guide.xml:752(replaceable)
+#: C/integration-guide.xml:756(replaceable)
 msgid "newextension"
 msgstr "νέαεπέκταση"
 
-#: C/integration-guide.xml:744(screen)
+#: C/integration-guide.xml:748(screen)
 #, no-wrap
 msgid ""
 "\n"
@@ -1097,7 +1106,7 @@ msgstr ""
 "   &lt;/mime-type&gt;\n"
 "&lt;/mime-info&gt;\n"
 
-#: C/integration-guide.xml:758(para)
+#: C/integration-guide.xml:762(para)
 msgid ""
 "In this example, replace the example MIME type with the name of your MIME "
 "type. The <firstterm>magic</firstterm> section searches files for the search "
@@ -1110,7 +1119,7 @@ msgstr ""
 "με τύπους MIME. Η γραμμή <firstterm>glob</firstterm> χρησιμοποιεί την "
 "επέκταση των ονομάτων των αρχείων για τον ίδιο σκοπό."
 
-#: C/integration-guide.xml:767(para)
+#: C/integration-guide.xml:771(para)
 msgid ""
 "Because the <command>magic</command> command forces the computer to open the "
 "files to search for the string, the <command>glob</command> command is "
@@ -1120,7 +1129,7 @@ msgstr ""
 "τα αρχεία και να αναζητά το αλφαριθμητικό, προτιμάται η χρήση της εντολής "
 "<command>glob</command>."
 
-#: C/integration-guide.xml:774(para)
+#: C/integration-guide.xml:778(para)
 msgid ""
 "Once your new MIME type is adequately described in the file, run the "
 "following in a shell:"
@@ -1128,12 +1137,12 @@ msgstr ""
 "Αφού περιγράψετε ικανοποιητικά το νέο τύπο MIME στο αρχείο, εκτελέστε την "
 "παρακάτω εντολή σε κέλυφος:"
 
-#: C/integration-guide.xml:780(screen)
+#: C/integration-guide.xml:784(screen)
 #, no-wrap
 msgid "update-mime-database /usr/share/mime"
 msgstr "update-mime-database /usr/share/mime"
 
-#: C/integration-guide.xml:784(para)
+#: C/integration-guide.xml:788(para)
 msgid ""
 "For more information on choosing a good MIME extension and to register your "
 "MIME type, go to the <ulink url=\"http://www.iana.org/cgi-bin/mediatypes.pl"
@@ -1143,7 +1152,7 @@ msgstr ""
 "και την καταχώρηση των τύπων MIME, δείτε τον ιστότοπο του <ulink url="
 "\"http://www.iana.org/cgi-bin/mediatypes.pl\">IANA</ulink>."
 
-#: C/integration-guide.xml:795(para)
+#: C/integration-guide.xml:799(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/shared-mime-info-spec/latest/"
 "\">Shared MIME Info Specification</ulink> — Describes the MIME registration "
@@ -1153,11 +1162,11 @@ msgstr ""
 "\">Shared MIME Info Specification</ulink> —Περιγράφει εκτενώς το σύστημα "
 "καταχώρησης MIME."
 
-#: C/integration-guide.xml:808(title)
+#: C/integration-guide.xml:812(title)
 msgid "Deeper Integration with the Desktop"
 msgstr "Αυξημένη ενσωμάτωση στην επιφάνεια εργασίας"
 
-#: C/integration-guide.xml:810(para)
+#: C/integration-guide.xml:814(para)
 msgid ""
 "This chapter contains a list of things which you can do to make your "
 "application have better integration with GNOME than the absolute minimum. "
@@ -1177,11 +1186,11 @@ msgstr ""
 "μικρογραφιών που θα επιτρέπει στο διαχειριστή αρχείων του GNOME να "
 "δημιουργεί μικρογραφίες εξειδικευμένες για το πρόγραμμά σας."
 
-#: C/integration-guide.xml:822(title)
+#: C/integration-guide.xml:826(title)
 msgid "Startup notification"
 msgstr "Ειδοποίηση εκκίνησης"
 
-#: C/integration-guide.xml:824(para)
+#: C/integration-guide.xml:828(para)
 msgid ""
 "Although the fields shown in <xref linkend=\"desktop-files\"/> provide "
 "enough information for the desktop to recognize your application, there are "
@@ -1193,7 +1202,7 @@ msgstr ""
 "επιφάνεια εργασίας, υπάρχουν και άλλα πεδία που μπορεί να σας φανούν "
 "χρήσιμα. Ένα από αυτά είναι η <firstterm>ειδοποίηση εκκίνησης</firstterm>."
 
-#: C/integration-guide.xml:832(para)
+#: C/integration-guide.xml:836(para)
 msgid ""
 "When startup notification is set, the panel and cursor notifies the user "
 "that the application has started. When the application appears onscreen, the "
@@ -1204,7 +1213,7 @@ msgstr ""
 "στην οθόνη η εφαρμογή, ο πίνακας εφαρμογών και ο δρομέας επιστρέφουν στην "
 "φυσιολογική τους κατάσταση."
 
-#: C/integration-guide.xml:838(para)
+#: C/integration-guide.xml:842(para)
 msgid ""
 "To let the launcher know your application supports startup notification, add "
 "the following line to your desktop file:"
@@ -1213,11 +1222,11 @@ msgstr ""
 "ειδοποίηση εκκίνησης, προσθέστε την ακόλουθη γραμμή στο αρχείο επιφάνειας "
 "εργασίας:"
 
-#: C/integration-guide.xml:844(command)
+#: C/integration-guide.xml:848(command)
 msgid "StartupNotify=true"
 msgstr "StartupNotify=true"
 
-#: C/integration-guide.xml:849(para)
+#: C/integration-guide.xml:853(para)
 msgid ""
 "This command in the desktop file enables the desktop to use whatever startup "
 "notification is built in to either your application or your toolkit. Most "
@@ -1235,7 +1244,7 @@ msgstr ""
 "ulink> για πληροφορίες σχετικά με το πώς μπορείτε να υλοποιήσετε μόνοι σας "
 "αυτή τη λειτουργία."
 
-#: C/integration-guide.xml:861(para)
+#: C/integration-guide.xml:865(para)
 msgid ""
 "Regardless of toolkit, there is one type of application where you would have "
 "to manually handle feedback. Applications with remoting capabilities (where "
@@ -1258,7 +1267,7 @@ msgstr ""
 "<function>gdk_notify_startup_complete()</function> περιέχει ορισμένες "
 "επιπλέον πληροφορίες σχετικά."
 
-#: C/integration-guide.xml:878(para)
+#: C/integration-guide.xml:882(para)
 msgid ""
 "<ulink url=\"http://standards.freedesktop.org/startup-notification-spec/"
 "startup-notification-latest.txt\">Startup Notification Protocol</ulink> — "
@@ -1270,11 +1279,11 @@ msgstr ""
 "Περιγράφει αναλυτικά την υλοποίηση της ειδοποίησης εκκίνησης στο σύστημα "
 "παραθύρων X."
 
-#: C/integration-guide.xml:889(title)
+#: C/integration-guide.xml:893(title)
 msgid "Installing a Thumbnailer Program"
 msgstr "Εγκατάσταση εφαρμογής μικρογραφιών"
 
-#: C/integration-guide.xml:891(para)
+#: C/integration-guide.xml:895(para)
 msgid ""
 "The GNOME file manager, Nautilus, can display little thumbnails tailored for "
 "each file instead of generic icons in its file lists. For example, a word "
@@ -1294,7 +1303,7 @@ msgstr ""
 "ορισμένα απλά βήματα:"
 
 #. FIXME: screenshot of Nautilus showing thumbnails
-#: C/integration-guide.xml:905(para)
+#: C/integration-guide.xml:909(para)
 msgid ""
 "A <firstterm>thumbnailer</firstterm> is a program with no user interface "
 "that takes a file and a pixel size as inputs, and it writes a thumbnail for "
@@ -1311,7 +1320,7 @@ msgstr ""
 "αντιστοιχίες μεταξύ τύπων MIME και εφαρμογών μικρογραφιών είναι "
 "αποθηκευμένες σε μια σειρά από κλειδιά GConf."
 
-#: C/integration-guide.xml:915(para)
+#: C/integration-guide.xml:919(para)
 msgid ""
 "For each MIME type which you want to handle, you have to create a pair of "
 "GConf keys:"
@@ -1319,16 +1328,16 @@ msgstr ""
 "Για κάθε τύπο MIME που σας ενδιαφέρει, θα πρέπει να δημιουργήσετε δύο "
 "κλειδιά GConf:"
 
-#: C/integration-guide.xml:922(replaceable)
-#: C/integration-guide.xml:934(replaceable)
+#: C/integration-guide.xml:926(replaceable)
+#: C/integration-guide.xml:938(replaceable)
 msgid "application@x-foo"
 msgstr "application@x-foo"
 
-#: C/integration-guide.xml:922(literal)
+#: C/integration-guide.xml:926(literal)
 msgid "/desktop/gnome/thumbnailers/<placeholder-1/>/enable"
 msgstr "/desktop/gnome/thumbnailers/<placeholder-1/>/enable"
 
-#: C/integration-guide.xml:924(para)
+#: C/integration-guide.xml:928(para)
 msgid ""
 "Type: boolean. Determines whether this thumbnailer will be run. You can "
 "enable or disable each individual thumbnailer. When you install a new "
@@ -1340,16 +1349,16 @@ msgstr ""
 "Βεβαίως, όταν εγκαθιστάτε νέα εφαρμογή μικρογραφιών, θα πρέπει να φροντίσετε "
 "η τιμή του κλειδιού να είναι <symbol>true</symbol>."
 
-#: C/integration-guide.xml:934(literal)
+#: C/integration-guide.xml:938(literal)
 msgid "/desktop/gnome/thumbnailers/<placeholder-1/>/command"
 msgstr "/desktop/gnome/thumbnailers/<placeholder-1/>/command"
 
-#: C/integration-guide.xml:936(para)
+#: C/integration-guide.xml:940(para)
 msgid ""
 "Type: string. The command which GNOME will use when it needs to generate a "
 "thumbnail for a file of type <replaceable>application@x-foo</replaceable>. "
-"For example, the value could be \"<literal>application-x-foo-thumbnailer %i %"
-"o %s</literal>\". See below for an explanation of the percent signs."
+"For example, the value could be \"<literal>application-x-foo-thumbnailer %i "
+"%o %s</literal>\". See below for an explanation of the percent signs."
 msgstr ""
 "Τύπος: αλφαριθμητικό. Η εντολή που θα χρησιμοποιήσει το GNOME όταν θα "
 "χρειαστεί να δημιουργήσει μικρογραφία για αρχείο του τύπου "
@@ -1357,7 +1366,7 @@ msgstr ""
 "μπορούσε να είναι \"<literal>application-x-foo-thumbnailer %i %o %s</literal>"
 "\".  Δείτε παρακάτω για επεξήγηση των συμβόλων %."
 
-#: C/integration-guide.xml:949(para)
+#: C/integration-guide.xml:953(para)
 msgid ""
 "That is, each MIME type requires two GConf keys (<literal>enable</literal> "
 "and <literal>command</literal>) under the same path. The path name can be "
@@ -1376,7 +1385,7 @@ msgstr ""
 "literal> και <literal>/desktop/gnome/thumbnailers/image@x-my-format/command</"
 "literal>."
 
-#: C/integration-guide.xml:961(para)
+#: C/integration-guide.xml:965(para)
 msgid ""
 "Within the <literal>command</literal> key, GNOME will look for percent "
 "sequences and substitute them with actual values:"
@@ -1384,17 +1393,17 @@ msgstr ""
 "Στο κλειδί <literal>command</literal>, το GNOME ψάχνει για συνδυασμούς με το "
 "σύμβολο % και τους υποκαθιστά με πραγματικές τιμές ως εξής:"
 
-#: C/integration-guide.xml:970(literal) C/integration-guide.xml:981(literal)
+#: C/integration-guide.xml:974(literal) C/integration-guide.xml:985(literal)
 msgid "%i"
 msgstr "%i"
 
-#: C/integration-guide.xml:971(entry)
+#: C/integration-guide.xml:975(entry)
 msgid "Input file name. This is the file that your thumbnailer needs to read."
 msgstr ""
 "Όνομα αρχείου εισόδου. Πρόκειται για το αρχείο που πρέπει να διαβάσει η "
 "εφαρμογή μικρογραφιών."
 
-#: C/integration-guide.xml:978(entry)
+#: C/integration-guide.xml:982(entry)
 msgid ""
 "Input URI. If your thumbnailer can handle URIs instead of plain file names, "
 "use <placeholder-1/> instead of <placeholder-2/>."
@@ -1403,11 +1412,11 @@ msgstr ""
 "ονόματα αρχείων, χρησιμοποιήστε το <placeholder-1/> αντί του <placeholder-2/"
 ">."
 
-#: C/integration-guide.xml:985(literal)
+#: C/integration-guide.xml:989(literal)
 msgid "%o"
 msgstr "%o"
 
-#: C/integration-guide.xml:986(entry)
+#: C/integration-guide.xml:990(entry)
 msgid ""
 "Output file name. This is where your thumbnailer should write the thumbnail "
 "image in PNG format."
@@ -1415,15 +1424,15 @@ msgstr ""
 "Όνομα αρχείου εξόδου. Πρόκειται για το αρχείο όπου η εφαρμογή μικρογραφιών "
 "εγγράφει την εικόνα της μικρογραφίας σε μορφή PNG."
 
-#: C/integration-guide.xml:992(literal)
+#: C/integration-guide.xml:996(literal)
 msgid "%s"
 msgstr "%s"
 
-#: C/integration-guide.xml:996(literal)
+#: C/integration-guide.xml:1000(literal)
 msgid "128"
 msgstr "128"
 
-#: C/integration-guide.xml:993(entry)
+#: C/integration-guide.xml:997(entry)
 msgid ""
 "Size of the thumbnail as a single integer. For example, if this gets "
 "substituted with <placeholder-1/>, it means that your thumbnailer should "
@@ -1433,7 +1442,7 @@ msgstr ""
 "χρησιμοποιηθεί το <placeholder-1/>, η εφαρμογή μικρογραφιών θα δημιουργήσει "
 "μία εικόνα που δεν θα υπερβαίνει τα 128×128 εικονοστοιχεία."
 
-#: C/integration-guide.xml:1005(para)
+#: C/integration-guide.xml:1009(para)
 msgid ""
 "Either of <literal>%i</literal> and <literal>%u</literal> must appear in "
 "your command, and <literal>%o</literal> is also mandatory. The <literal>%s</"
@@ -1445,11 +1454,11 @@ msgstr ""
 "literal>. Το <literal>%s</literal> είναι προαιρετικό, αλλά συνιστούμε να το "
 "προσέξετε."
 
-#: C/integration-guide.xml:1014(title)
+#: C/integration-guide.xml:1018(title)
 msgid "Additional information"
 msgstr "Πρόσθετες πληροφορίες"
 
-#: C/integration-guide.xml:1016(para)
+#: C/integration-guide.xml:1020(para)
 msgid ""
 "As an additional configuration parameter, you can turn on the boolean key "
 "<literal>/desktop/gnome/thumbnailers/disable_all</literal> to disable the "
@@ -1459,11 +1468,11 @@ msgstr ""
 "κλειδί <literal>/desktop/gnome/thumbnailers/disable_all</literal> για να "
 "απενεργοποιήσετε πλήρως τη δημιουργία μικρογραφιών."
 
-#: C/integration-guide.xml:1032(title)
+#: C/integration-guide.xml:1036(title)
 msgid "Integration Checklist"
 msgstr "Λίστα αξιολόγησης ενσωμάτωσης"
 
-#: C/integration-guide.xml:1034(para)
+#: C/integration-guide.xml:1038(para)
 msgid ""
 "This appendix provides a checklist of the various tasks presented through "
 "this guide. You can use the checklist to ensure that your software is "
@@ -1475,11 +1484,11 @@ msgstr ""
 "διασφαλίσετε ότι το λογισμικό σας ενσωματώνεται στο GNOME ως προς τα βασικά "
 "στοιχεία του, ή για να σχεδιάσετε τις μελλοντικές σας εργασίες ενσωμάτωσης."
 
-#: C/integration-guide.xml:1044(para)
+#: C/integration-guide.xml:1048(para)
 msgid "Does your application appear in the menus of the GNOME Panel?"
 msgstr "Η εφαρμογή σας εμφανίζεται στα μενού των πινάκων εφαρμογών του GNOME;"
 
-#: C/integration-guide.xml:1049(para)
+#: C/integration-guide.xml:1053(para)
 msgid ""
 "Does your application have an icon for the panel menus or the desktop? If "
 "so, does it have multiple pre-rendered sizes and a scalable <acronym>SVG</"
@@ -1489,7 +1498,7 @@ msgstr ""
 "επιφάνεια εργασίας; Αν ναι, διαθέτει εικονίδια σε πολλαπλά προκαθορισμένα "
 "μεγέθη, καθώς και σε κλιμακώσιμη μορφή <acronym>SVG</acronym>;"
 
-#: C/integration-guide.xml:1056(para)
+#: C/integration-guide.xml:1060(para)
 msgid ""
 "If your application can load or save files, does it register the MIME types "
 "that it can handle?"
@@ -1497,11 +1506,11 @@ msgstr ""
 "Αν η εφαρμογή σας μπορεί να φορτώνει και να αποθηκεύει αρχεία, καταχωρεί "
 "τους τύπους MIME που μπορεί να χειριστεί;"
 
-#: C/integration-guide.xml:1062(para)
+#: C/integration-guide.xml:1066(para)
 msgid "Does your application provide MIME icons for the file manager?"
 msgstr "Η εφαρμογή σας παρέχει εικονίδια MIME για το διαχειριστή αρχείων;"
 
-#: C/integration-guide.xml:1068(para)
+#: C/integration-guide.xml:1072(para)
 msgid ""
 "Does your application support startup notification, so that GNOME can "
 "display feedback to the user while your application is being launched?"
@@ -1509,7 +1518,7 @@ msgstr ""
 "Η εφαρμογή σας υποστηρίζει ειδοποιήσεις εκκίνησης, έτσι ώστε να επιτρέπει "
 "στο GNOME να εμφανίζει στο χρήστη πληροφορίες κατά την εκκίνησή της;"
 
-#: C/integration-guide.xml:1075(para)
+#: C/integration-guide.xml:1079(para)
 msgid ""
 "If your application creates \"printable\" documents, does it install a "
 "thumbnailer for use by the file manager?"
@@ -1517,11 +1526,11 @@ msgstr ""
 "Αν η εφαρμογή σας δημιουργεί \"εκτυπώσιμα\" έγγραφα, εγκαθιστά πρόγραμμα  "
 "μικρογραφιών για χρήση από το διαχειριστή αρχείων;"
 
-#: C/integration-guide.xml:1084(title)
+#: C/integration-guide.xml:1088(title)
 msgid "Acknowledgments"
 msgstr "Ευχαριστίες"
 
-#: C/integration-guide.xml:1086(para)
+#: C/integration-guide.xml:1090(para)
 msgid ""
 "Many thanks to Jakub Steiner for providing a beautiful CSS stylesheet for "
 "the HTML version of this guide!"
@@ -1529,7 +1538,7 @@ msgstr ""
 "Θερμές ευχαριστίες στον Jakub Steiner για το υπέροχο φύλλο στυλ CSS της "
 "έκδοσης HTML αυτού του οδηγού!"
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/integration-guide.xml:0(None)
 msgid "translator-credits"
 msgstr ""
@@ -1538,3 +1547,6 @@ msgstr ""
 "Τζένη Πετούμενου <epetoumenou@gmail.com>\n"
 "\n"
 "Για περισσότερα δείτε http://www.gnome.gr/"
+
+#~ msgid "put the application in the <guimenu>Main Menu</guimenu>."
+#~ msgstr "τοποθετήσει την εφαρμογή στο <guimenu>Κύριο μενού</guimenu>."
