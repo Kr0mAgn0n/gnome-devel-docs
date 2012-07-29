@@ -6,7 +6,7 @@ DOC_LINGUAS = ca de el es fr gl
 
 demo_sources = \
 	audio-player/audio-player.vala		\
-	exercises/menubar.exercises		\
+	exercises/menubar.vala.exercises	\
 	guitar-tuner/guitar-tuner.c		\
 	guitar-tuner/guitar-tuner.cc		\
 	guitar-tuner/guitar-tuner.js		\
