@@ -10,8 +10,7 @@ public class MyWindow : Gtk.ApplicationWindow {
 
 		var menumodel = new Menu ();
 		menumodel.append ("New", "app.new");
-		var menu = new Gtk.Menu.from_model (menumodel);
-		menubutton.set_menu (menu);
+		menubutton.set_menu_model (menumodel);
 
 		this.add(grid);
 		grid.attach(menubutton, 0, 0, 1, 1);
