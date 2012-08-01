@@ -30,7 +30,7 @@ class MyWindow: Gtk.ApplicationWindow {
 		scrolled_window.set_policy (Gtk.PolicyType.AUTOMATIC,
 		                            Gtk.PolicyType.AUTOMATIC);
 
-		scrolled_window.add_with_viewport (textview);
+		scrolled_window.add (textview);
 		scrolled_window.set_border_width (5);
 
         this.add (scrolled_window);
