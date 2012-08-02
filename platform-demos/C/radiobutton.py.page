@@ -40,16 +40,16 @@
 button1 = Gtk.RadioButton()
 button1.set_label("Button 1").</code>
     <p>For a general discussion of this, see <link xref="properties.py">here</link>.</p>
-    <p>On the other hand, we cannot create the button as <code>button1.new_with_label("Button 1")</code> - it gives a segmentation error.</p>
+    <p>Yet another way to create a new RadioButton with a label is <code>button1 = Gtk.RadioButton.new_with_label(None, "Button 1")</code> (the first arguement is the group of the radiobuttons, which we can get with <code>get_group()</code>, the second argument is the label).</p>
   </section>
 
   <section id="references">
     <title>API References</title>
     <p>In this sample we used the following:</p>
     <list>
-      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkGrid.html">GtkGrid</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkRadioButton.html">GtkRadioButton</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkGrid.html">GtkGrid</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkRadioButton.html">GtkRadioButton</link></p></item>
     </list>
   </section>
 </page>
