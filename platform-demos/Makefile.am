@@ -363,6 +363,7 @@ DOC_PAGES =				\
 	treeview_simple_liststore.vala.page	\
 	treeview_treestore.py.page	\
 	translate.page			\
+	tutorial.py.page			\
 	vala.page			\
 	weatherApp.js.page		\
 	weatherAppMain.js.page		\
