@@ -6,11 +6,17 @@
   <info>
 	  <link type="guide" xref="beginner.py#layout"/>
 	  <link type="seealso" xref="button.py"/>
-    <revision version="0.1" date="2012-02-21" status="stub"/>
+    <revision version="0.2" date="2012-08-01" status="stub"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
       <years>2012</years>
     </credit>
 
@@ -19,18 +25,37 @@
 
   <title>Grid widget</title>
 
-  <media type="image" mime="image/png" src="media/grid.png"/>
-  <p>A button widget connected to a progress bar.</p>
+  <media type="image" mime="image/png" src="media/grid_simple.png"/>
+  <p>Some labels in a grid.</p>
 
-      <code mime="text/javascript" style="numbered">
-<xi:include href="samples/grid.py" parse="text"><xi:fallback/></xi:include></code>
-<p>
-  In this sample we used the following:
-</p>
-<list>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">Gtk.Application</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkGrid.html">Gtk.Grid</link></p></item>
-  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkProgressBar.html">Gtk.ProgressBar</link></p></item>
-</list>
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/python" style="numbered"><xi:include href="samples/grid.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a Grid widget</title>
+
+    <list>
+      <item><p>To attach a widget <code>child</code> in position <code>left, top</code> in a slot of given <code>width, height</code> use <code>attach(child, top, left, width, height)</code>. If a widget <code>sibling<code> is already in place, we can also use <code>attach_next_to(child, sibling, side, width, height)</code>, where <code>side</code> is one of <code>Gtk.PositionType.LEFT, Gtk.PositionType.RIGHT, Gtk.PositionType.TOP, Gtk.PositionType.BOTTOM</p>.</item>
+      <item><p><code>insert_row(position)</code> and <code>insert_column(position)</code> do exactly what they say; children which are attached at or below this position are moved one row down, and children which span across this position are grown to span the new row. <code>insert_next_to(sibling, side)</code> inserts a row or column at the specified position. The new row or column is placed next to <code>sibling</code>, on the side determined by <code>side</code>; if side is <code>Gtk.PositionType.TOP</code> or <code>Gtk.PositionType.BOTTOM</code>, a row is inserted, if side is <code>Gtk.PositionType.LEFT</code> of <code>Gtk.PositionType.RIGHT</code>, a column is inserted.</p></item>
+      <item><p><code>set_row_homogeneous(True)</code> and <code>set_column_homogeneous(True)</code> ensure that (respectively) every row or every column has the same width or height.</p></item>
+      <item><p><code>set_row_spacing(spacing)</code> and <code>set_column_spacing(spacing)</code> force a spacing between (respectively) rows or columns. The value of <code>spacing</code> can be between <code>0</code>, which is the default value, and <code>32767</code></p></item>
+    </list>
+
+  </section>
+
+  <section id="methods">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">Gtk.Application</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLabel.html">Gtk.Label</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkImage.html">Gtk.Image</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkGrid.html">Gtk.Grid</link></p></item>
+    </list>
+  </section>
 </page>

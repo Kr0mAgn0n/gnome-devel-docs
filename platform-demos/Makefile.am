@@ -169,6 +169,7 @@ DOC_FIGURES = \
 	media/gmenu.py.png			\
 	media/gmenu.vala.png			\
 	media/grid.png				\
+	media/grid_simple.png				\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
