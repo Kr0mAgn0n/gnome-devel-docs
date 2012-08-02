@@ -78,8 +78,9 @@ demo_sources = \
 	samples/linkbutton.vala			\
 	samples/menubutton.js			\
 	samples/menubutton.vala			\
-	samples/menubar.vala			\
+	samples/menubar.py			\
 	samples/menubar.ui			\
+	samples/menubar.vala			\
 	samples/menubar_basis.vala		\
 	samples/menubar_basis.ui		\
 	samples/messagedialog.js		\
@@ -297,6 +298,7 @@ DOC_PAGES =				\
 	linkbutton.py.page		\
 	linkbutton.vala.page		\
 	magic-mirror.vala.page		\
+	menubar.py.page		\
 	menubar.vala.page		\
 	menubutton.js.page		\
 	menubutton.vala.page		\

@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="menubar.py">
+  <info>
+  <link type="guide" xref="beginner.py#menu-combo-toolbar"/>
+  <link type="seealso" xref="aboutdialog.py"/>
+  <link type="seealso" xref="gmenu.py"/>
+    <revision version="0.1" date="2012-08-01" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+    <credit type="author coyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget which holds GtkMenuItem widgets</desc>
+  </info>
+
+  <title>MenuBar</title>
+  <media type="image" mime="image/png" src="media/menubar.png"/>
+  <p>A MenuBar created using XML and GtkBuilder.</p>
+
+  <links type="section"/>
+
+  <section id="xml"> <title>Create a MenuBar using XML</title>
+   <p>To create the menubar using XML:</p>
+   <steps>
+     <item><p>Create <file>menubar.ui</file> using your favorite text editor.</p></item>
+     <item><p>Enter the following line at the top of the file:</p>
+           <code mime="text"><![CDATA[
+<?xml version="1.0"? encoding="UTF-8"?>]]></code>
+     </item>
+    <item><p>We want to create the interface which will contain our menubar and it's submenus.  Our menubar will contain <gui>File</gui>, <gui>Edit</gui>, <gui>Choices</gui> and <gui>Help</gui> submenus. We add the following XML code to the file:</p>
+    <code mime="text"><xi:include href="samples/menubar_basis.ui" parse="text"><xi:fallback/></xi:include></code>
+     </item>
+     <item><p>Now we will create the .py file and use GtkBuilder to import the <file>menubar.ui</file> we just created.</p></item>
+   </steps>
+   </section>
+
+   <section id="basis"> <title>Add the MenuBar to the window using GtkBuilder</title>
+<code mime="text/x-python"><xi:include href="samples/menubar_basis.py" parse="text"><xi:fallback/></xi:include></code>
+<p>
+Now run the python application. It should look like the picture at the top of this page.</p>
+</section>
+
+<section id="xml2"> <title>Add items to the menus</title>
+<p>We start off by adding 2 menuitems to the <gui>File</gui> menu: <gui>New</gui> and <gui>Quit</gui>.  We do this by adding a <code>section</code> to the the <code>File</code> submenu with these items. The <file>menubar.ui</file> should look like this  (lines 6 to 13 inclusive comprise the newly added section):</p>
+      <code mime="text" style="numbered"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <menu id="menubar">
+    <submenu>
+      <attribute name="label">File</attribute>
+      <section>
+        <item>
+          <attribute name="label">New</attribute>
+        </item>
+        <item>
+          <attribute name ="label">Quit</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label">Edit</attribute>
+    </submenu>
+    <submenu>
+      <attribute name="label">Choices</attribute>
+    </submenu>
+    <submenu>
+      <attribute name="label">Help</attribute>
+    </submenu>
+  </menu>
+</interface>]]></code>
+
+  <p>Following this pattern, you can now add a <code>Copy</code> and a <code>Paste</code> item to the <code>Edit</code> submenu, and an <code>About</code> item to the <code>Help</code> submenu.</p>
+
+  </section>
+
+  <section id="actions">
+    <title>Setup actions</title>
+
+    <p>We now create the actions for "New" and "Quit" connected to a callback function in the Python file; for instance we create "new" as:</p>
+    <code>
+new_action = Gio.SimpleAction.new("new", None)
+new_action.connect("activate", self.new_callback)</code>
+
+    <p>And we create the callback function of "new" as</p>
+    <code>
+def new_callback(self, action, parameter):
+    print "You clicked \"New\""</code>
+
+    <p>Now, in the XML file, we we connect the menu items to the actions in the XML file by adding the "action" attribute:</p>
+    <code><![CDATA[
+<item>
+  <attribute name="label">New</attribute>
+  <attribute name="action">app.new</attribute>
+</item>]]></code>
+
+    <p>Note that for an action that is relative to the application, we use the prefix <code>app.</code>; for actions that are relative to the window we use the prefix <code>win.</code>.</p>
+
+    <p>Finally, in the Python file, we add the action to the application or to the window - so for instance <code>app.new</code> will be added to the application in the method <code>do_startup(self)</code> as</p>
+    <code>
+self.add_action(new_action)</code>
+
+  </section>
+
+  <section id="win-app"><title>Actions: Application or Window?</title>
+    <p>Above, we created the "new" and "open" actions as part of the MyApplication class. Actions which control the application itself, such as "quit" should be created similarly.</p>
+
+    <p>Some actions, such as "copy" and "paste" deal with the window, not the application. Window actions should be created as part of the window class.</p>
+
+    <p>The complete example files contain both application actions and window applications.  The window actions are the ones usually included in the <link xref="gmenu.py">application menu</link> also.  It is not good practice to include window actions in the applcation menu. For demonstration purposes, the complete example files which follow include XML in the UI file which creates the application menu which includes a "New" and "Open" item, and these are hooked up to the same actions as the menubar items of the same name.</p>
+  </section>
+
+  <section id="choices">
+    <title>Choices submenu and items with state</title>
+    <media type="image" mime="image/png" src="media/menubar_choices.png"/>
+    <p>Lines 30 to 80 inclusive of the <link xref="menubar.py#xml-code" /> demonstrate the XML code used to create the UI for <gui>Choices</gui> menu.</p>
+
+    <p>The actions created so far are stateless, that is they do not retain or depend on a state given by the action itself. The actions we need to create for the Choices submenu, on the other hand, are stateful. An example of creation of a stateful action is:</p>
+    <code>
+shape_action = Gio.SimpleAction.new_stateful("shape", GLib.VariantType.new('s'), GLib.Variant.new_string('line'))</code>
+
+    <p>where the variables of the method are: name, parameter type (in this case, a string), initial state (in this case, 'line')</p>
+
+    <p>After creating the stateful SimpleAction we connect it to the callback function and we add it to the window (or the application, if it is the case), as before:</p>
+
+    <code>
+shape_action.connect("activate", self.shape_callback)
+self.add_action(shape_action)</code>
+
+  </section>
+
+  <section id="xml-code">
+    <title>Complete XML UI file for this example</title>
+    <code mime="text" style="numbered"><xi:include href="samples/menubar.ui" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="python-code">
+    <title>Complete Python file for this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/menubar.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="mnemonics-and-accelerators"><title>Mnemonics and Accelerators</title>
+    <p>Labels may contain mnemonics. Mnemonics are underlined characters in the label, used for keyboard navigation. Mnemonics are created by placing an underscore before the mnemonic character.  For example "_File" instead of just "File" in the menubar.ui label attribute.</p>
+   <p>The mnemonics are visible when you press the <key>Alt</key> key.  Pressing <keyseq><key>Alt</key><key>F</key></keyseq> will open the <gui>File</gui> menu.</p>
+
+    <p>Accelerators  can be explicitly added in the UI definitions.  For example, it is common to be able to quit an application by pressing <keyseq><key>Ctrl</key><key>Q</key></keyseq> or to save a file by pressing <keyseq><key>Ctrl</key><key>S</key></keyseq>.  To add an accelerator to the UI definition, you simply need add an "accel" attribute to the item.</p>
+<p><code mime="text"><![CDATA[<attribute name="accel">&lt;Primary&gt;q</attribute>]]></code> will create the <keyseq><key>Ctrl</key><key>Q</key></keyseq> sequence when added to the <code>Quit</code> label item.  Here, "Primary" refers to the <key>Ctrl</key> key on a PC or the <key>⌘</key> key on a Mac.</p>
+
+  <code mime="text"><![CDATA[
+<item>
+  <attribute name="label">_Quit</attribute>
+  <attribute name="action">app.quit</attribute>
+  <attribute name="accel">&lt;Primary&gt;q</attribute>
+</item>]]></code>
+  </section>
+
+  <section id="translatable"><title>Translatable strings</title>
+   <p>
+   Since GNOME applications are being translated into <link href="http://l10n.gnome.org/languages/">many languages</link>, it is important that the strings in your application are translable.  To make a label translatable, simple set <code>translatable="yes"</code>:
+   </p>
+   <p>
+     <code mime="text"><![CDATA[<attribute name="label" translatable="yes">Quit</attribute>]]></code>
+  </p>
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gio/unstable/GSimpleAction.html">GSimpleAction</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkBuilder.html">GtkBuilder</link></p></item>
+    </list>
+  </section>
+</page>
