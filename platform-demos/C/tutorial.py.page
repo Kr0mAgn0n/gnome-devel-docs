@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="tutorial.py">
+
+<info>
+  <link type="guide" xref="py"/>
+  <revision version="0.1" date="2012-07-31" status="stub"/>
+
+  <desc>A tutorial for beginners that want to learn how to program GUIs using GTK+ in Python.</desc>
+  <credit type="author copyright">
+    <name>Tiffany Antopolski</name>
+    <email>tiffany.antopolski@gmail.com</email>
+  </credit>
+  <credit type="author copyright">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+  </credit>
+</info>
+
+<title>0 Beginners Tutorial</title>
+<synopsis>
+ <p>If you have never programmed before, or are not familiar with the concepts of object oriented programming, you may need to learn a few basics first.  The book <link href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</link> or <link hfref="http://docs.python.org/tutorial/index.html">The Python Tutorial</link> may be a better place for you to start. Once you master the basics, be sure to come back and check out these tutorials.</p>
+
+ <p>Although these tutorials are designed for beginners, we can't cover all the basics.  Before attempting to follow these tutorials, you are expected to be familiar with the following concepts:</p>
+<list type="numbered">
+  <item><p>Object oriented programming</p></item>
+  <item><p>The Python programming language.</p></item>
+</list>
+
+<p>By following these tutorials you will learn the basics of GUI programming using Gtk+.</p>
+</synopsis>
+
+<links type="section" />
+
+<section id="start">
+<title>To run the code samples</title>
+
+  <p>To run the code samples:</p>
+  <steps>
+    <item><p>Copy and paste the code into <var>filename</var>.py</p></item>
+    <item><p>In the terminal type:</p>
+          <screen>python <var>filename</var>.py</screen>
+    </item>
+  </steps>
+
+</section>
+
+<section id="widgets">
+<title>A path through the widgets</title>
+
+<list type="numbered">
+  <item><title>Basic windows</title>
+  <list type="lower-latin">
+    <item><p><link xref="window.py" /></p></item>
+    <item><p><link xref="GtkApplicationWindow.py" /></p></item>
+  </list></item>
+  <item><title>Images and labels</title>
+  <list type="lower-latin">
+    <item><p><link xref="image.py" /></p></item>
+    <item><p><link xref="label.py" /></p></item>
+  </list></item>
+  <item><title>Grid</title>
+  <list type="lower-latin">
+    <item><p><link xref="grid.py" /></p></item>
+  </list></item>
+  <item><title>Ornaments</title>
+  <list type="lower-latin">
+    <item><p><link xref="separator.py" /></p></item>
+  </list></item>
+  <item><title>Basic buttons</title>
+  <list type="lower-latin">
+    <item><p><link xref="button.py" /></p></item>
+    <item><p><link xref="linkbutton.py" /></p></item>
+    <item><p><link xref="checkbutton.py" /></p></item>
+    <item><p><link xref="togglebutton.py" /></p></item>
+    <item><p><link xref="switch.py" /></p></item>
+    <item><p><link xref="radiobutton.py" /></p></item>
+  </list></item>
+  <item><title>Other display widgets</title>
+  <list type="lower-latin">
+    <item><p><link xref="statusbar.py" /></p></item>
+    <item><p><link xref="spinner.py" /></p></item>
+    <item><p><link xref="progressbar.py" /></p></item>
+  </list></item>
+  <item><title>Entry widgets (with a detour on basic scrolling)</title>
+  <list type="lower-latin">
+    <item><p><link xref="spinbutton.py" /></p></item>
+    <item><p><link xref="entry.py" /></p></item>
+    <item><p><link xref="scrolledwindow.py" /></p></item>
+    <item><p><link xref="textview.py" /></p></item>
+    <item><p><link xref="scale.py" /></p></item>
+  </list></item>
+  <item><title>Selectors</title>
+  <list type="lower-latin">
+    <item><p><link xref="colorbutton.py" /></p></item>
+    <item><p><link xref="fontchooserwidget.py" /></p></item>
+    <item><p>"filechooserdialog.py"</p></item>
+  </list></item>
+  <item><title>Dialogs</title>
+  <list type="lower-latin">
+    <item><p><link xref="dialog.py" /></p></item>
+    <item><p><link xref="aboutdialog.py" /></p></item>
+    <item><p><link xref="messagedialog.py" /></p></item>
+  </list></item>
+  <item><title>TreeViews and ComboBoxes (using the M/V/C design)</title>
+  <list type="lower-latin">
+    <item><p><link xref="combobox.py" /></p></item>
+    <item><p><link xref="combobox_multicolumn.py" /></p></item>
+    <item><p><link xref="treeview_simple_liststore.py" /></p></item>
+    <item><p><link xref="treeview_advanced_liststore.py" /></p></item>
+    <item><p><link xref="treeview_treestore.py" /></p></item>
+    <item><p><link xref="treeview_cellrenderertoggle.py" /></p></item>
+  </list></item>
+  <item><title>Menus and toolbars (also: using Glade)</title>
+  <list type="lower-latin">
+    <item><p><link xref="gmenu.py" /></p></item>
+    <item><p><link xref="toolbar.py" /></p></item>
+    <item><p><link xref="toolbar_builder.py" /></p></item>
+    <item><p><link xref="menubar.py" /></p></item>
+    <item><p>"menubutton.py"</p></item>
+  </list></item>
+  <item><title>Tooltip</title>
+  <list type="lower-latin">
+    <item><p>"tooltip.py"</p></item>
+  </list></item>
+  <item><title>More containers</title>
+  <list type="lower-latin">
+    <item><p>"paned.py"</p></item>
+    <item><p>"buttonbox.py"</p></item>
+  </list></item>
+  <item><title>More scrolling</title>
+  <list type="lower-latin">
+    <item><p>"scrollbar.py"</p></item>
+  </list></item>
+  <item><title>Custom widget</title>
+  <list type="lower-latin">
+    <item><p>"widget.py"</p></item>
+  </list></item>
+</list>
+</section>
+
+<section id="theory">
+<title>Some theory to help you</title>
+
+</section>
+
+</page>
