@@ -81,8 +81,9 @@ demo_sources = \
 	samples/menubar.py			\
 	samples/menubar.ui			\
 	samples/menubar.vala			\
-	samples/menubar_basis.vala		\
+	samples/menubar_basis.py		\
 	samples/menubar_basis.ui		\
+	samples/menubar_basis.vala		\
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
