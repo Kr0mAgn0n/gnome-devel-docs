@@ -124,11 +124,11 @@ self.add_action(new_action)</code>
     <media type="image" mime="image/png" src="media/menubar_choices.png"/>
     <p>Lines 30 to 80 inclusive of the <link xref="menubar.py#xml-code" /> demonstrate the XML code used to create the UI for <gui>Choices</gui> menu.</p>
 
-    <p>The actions created so far are stateless, that is they do not retain or depend on a state given by the action itself. The actions we need to create for the Choices submenu, on the other hand, are stateful. An example of creation of a stateful action is:</p>
+    <p>The actions created so far are <em>stateless</em>, that is they do not retain or depend on a state given by the action itself. The actions we need to create for the Choices submenu, on the other hand, are <em>stateful</em>. An example of creation of a stateful action is:</p>
     <code>
 shape_action = Gio.SimpleAction.new_stateful("shape", GLib.VariantType.new('s'), GLib.Variant.new_string('line'))</code>
 
-    <p>where the variables of the method are: name, parameter type (in this case, a string), initial state (in this case, 'line')</p>
+    <p>where the variables of the method are: name, parameter type (in this case, a string - see <link href="http://developer.gnome.org/glib/unstable/glib-GVariantType.html">here</link> for a complete list of character meanings), initial state (in this case, 'line' - in case of a <code>True</code> boolean value it should be <code>Glib.Variant.new_boolean(True)</code>, and so on, see <link href="http://developer.gnome.org/glib/unstable/glib-GVariant.html">here</link> for a complete list)</p>
 
     <p>After creating the stateful SimpleAction we connect it to the callback function and we add it to the window (or the application, if it is the case), as before:</p>
 
