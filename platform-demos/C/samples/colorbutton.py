@@ -10,19 +10,17 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a colorbutton (which opens a dialogue window in
         # which we choose a color)
-        button = Gtk.ColorButton()
+        self.button = Gtk.ColorButton()
         # with a default color (blue, in this instance)
-        # if not chosen it will be black
         color = Gdk.RGBA()
         color.red = 0.0
         color.green = 0.0
         color.blue = 1.0
         color.alpha = 0.5
-        button.set_rgba(color)
+        self.button.set_rgba(color)
 
         # choosing a color in the dialogue window emits a signal
-        button.connect("color-set", self.on_color_chosen)
-        self.button = button
+        self.button.connect("color-set", self.on_color_chosen)
 
         # a label
         label = Gtk.Label()
@@ -30,17 +28,17 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a grid to attach button and label
         grid = Gtk.Grid()
-        grid.attach(button, 1, 1, 2, 1)
-        grid.attach(label, 1, 2, 2, 1)
+        grid.attach(self.button, 0, 0, 2, 1)
+        grid.attach(label, 0, 1, 2, 1)
         self.add(grid)
 
     # if a new color is chosen, we print it as rgb(r,g,b) in the terminal
     def on_color_chosen(self, user_data):
-        print "You chose another color: " + self.button.get_rgba().to_string()
+        print "You chose the color: " + self.button.get_rgba().to_string()
 
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.example.colorbutton")
+        Gtk.Application.__init__(self)
 
     def do_activate(self):
         win = MyWindow(self)
