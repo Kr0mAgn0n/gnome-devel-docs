@@ -22,6 +22,7 @@ demo_sources = \
 	message-board/message-board.c		\
 	photo-wall/photo-wall.c			\
 	record-collection/record-collection.js	\
+	samples/aboutdialog.c			\
 	samples/aboutdialog.js			\
 	samples/aboutdialog.py			\
 	samples/aboutdialog.vala		\
@@ -224,6 +225,7 @@ DOC_FIGURES = \
 	$(demo_sources)
 
 DOC_PAGES =				\
+	aboutdialog.c.page		\
 	aboutdialog.js.page		\
 	aboutdialog.py.page		\
 	aboutdialog.vala.page		\
