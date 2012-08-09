@@ -84,6 +84,7 @@ demo_sources = \
 	samples/menubar_basis.py		\
 	samples/menubar_basis.ui		\
 	samples/menubar_basis.vala		\
+	samples/messagedialog.c			\
 	samples/messagedialog.js		\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
@@ -304,6 +305,7 @@ DOC_PAGES =				\
 	menubutton.js.page		\
 	menubutton.vala.page		\
 	message-board.c.page		\
+	messagedialog.c.page		\
 	messagedialog.js.page		\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
