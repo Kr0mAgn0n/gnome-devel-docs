@@ -8,9 +8,7 @@ const WelcomeToTheGrid = new Lang.Class({
 
     // Create the application itself
     _init: function() {
-        this.application = new Gtk.Application({
-            application_id: 'org.example.jswelcometothegrid'
-        });
+        this.application = new Gtk.Application();
 
     // Connect 'activate' and 'startup' signals to the callback functions
     this.application.connect('activate', Lang.bind(this, this._onActivate));

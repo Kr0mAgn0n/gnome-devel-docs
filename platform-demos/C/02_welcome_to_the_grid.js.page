@@ -53,9 +53,7 @@ const WelcomeToTheGrid = new Lang.Class({
 
     // Create the application itself
     _init: function() {
-        this.application = new Gtk.Application({
-            application_id: 'org.example.jswelcometothegrid'
-        });
+        this.application = new Gtk.Application();
 
         // Connect 'activate' and 'startup' signals to the callback functions
         this.application.connect('activate', Lang.bind(this, this._onActivate));
@@ -73,7 +71,7 @@ const WelcomeToTheGrid = new Lang.Class({
     },
 ]]></code>
     <p>This is the start of the application itself, and the _init function which creates it. It tells _buildUI to create an ApplicationWindow, which we're going to call _window, and it tells our window to present itself whenever needed.</p>
-    <p>This part, again, is pretty much copy-and-paste, but you always want to choose a new application_id each time. Don't be afraid to make it long and descriptive; every GNOME application in the entire world needs a unique one.</p>
+    <p>This part, again, is pretty much copy-and-paste, but you always want to give your application a unique name.</p>
 
     <code mime="text/javascript"><![CDATA[
     // Build the application's UI
