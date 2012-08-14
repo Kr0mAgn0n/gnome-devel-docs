@@ -45,7 +45,7 @@
 const Gtk = imports.gi.Gtk;
 const Lang = imports.lang;
 ]]></code>
-    <p>This part always goes at the start of your code. Depending on what you'll be doing with it, you may want to declare more imports here. What we're writing today is pretty basic, so these are all we need; <input>Gtk</input> for the widgets, and <input>Lang</input> so we can use <input>Lang.bind</input> to connect our application's <input>activate</input> and <input>startup</input> signals to the requisite functions.</p>
+    <p>This part always goes at the start of your code. Depending on what you'll be doing with it, you may want to declare more imports here. What we're writing today is pretty basic, so these are all we need; Gtk for the widgets, and Lang so we can use Lang.bind to connect our application's activate and startup signals to the requisite functions.</p>
     <p>Speaking of which:</p>
     <code mime="text/javascript"><![CDATA[
 const WelcomeToTheGrid = new Lang.Class({
@@ -72,8 +72,8 @@ const WelcomeToTheGrid = new Lang.Class({
         this._buildUI ();
     },
 ]]></code>
-    <p>This is the start of the application itself, and the <input>_init</input> function which creates it. It tells <input>_buildUI</input> to create an ApplicationWindow, which we're going to call <input>_window</input>, and it tells our window to present itself whenever needed.</p>
-    <p>This part, again, is pretty much copy-and-paste, but you always want to choose a new <input>application_id</input> each time. Don't be afraid to make it long and descriptive; every GNOME application in the entire world needs a unique one.</p>
+    <p>This is the start of the application itself, and the _init function which creates it. It tells _buildUI to create an ApplicationWindow, which we're going to call _window, and it tells our window to present itself whenever needed.</p>
+    <p>This part, again, is pretty much copy-and-paste, but you always want to choose a new application_id each time. Don't be afraid to make it long and descriptive; every GNOME application in the entire world needs a unique one.</p>
 
     <code mime="text/javascript"><![CDATA[
     // Build the application's UI
@@ -86,7 +86,7 @@ const WelcomeToTheGrid = new Lang.Class({
             border_width: 10,
             title: "Welcome to the Grid"});
 ]]></code>
-    <p>Finally, we start off the <input>_buildUI</input> function by creating a new ApplicationWindow. We specify that it goes with this application, that it should appear in the center of the screen, and that there should be at least 10 pixels between the outside edge and any widgets inside of it. We also give it a title, which will appear at the top of the window.</p>
+    <p>Finally, we start off the _buildUI function by creating a new ApplicationWindow. We specify that it goes with this application, that it should appear in the center of the screen, and that there should be at least 10 pixels between the outside edge and any widgets inside of it. We also give it a title, which will appear at the top of the window.</p>
   </section>
 
   <section id="toolbox">
@@ -107,8 +107,8 @@ const WelcomeToTheGrid = new Lang.Class({
         // Create a label
         this._label = new Gtk.Label ({ label: "Welcome to GNOME, too!" });
 ]]></code>
-    <p>That code adds in the label beneath. You can see how we create widgets, here; each one is a part of Gtk, and we can give it properties that customize how it behaves. In this case, we set the Image's <input>file</input> property to be the filename of the picture we want, and the Label's <input>label</input> property to be the sentence that we want beneath the picture.</p>
-    <note style="tip"><p>Yes, <link href="http://knowyourmeme.com/memes/xzibit-yo-dawg">it sounds redundant</link> for a Label to have a <input>label</input> property, but it's not. Other widgets that contain text have a <input>label</input> property, so it's <em>consistent</em> for the Label widget to have one too.</p></note>
+    <p>That code adds in the label beneath. You can see how we create widgets, here; each one is a part of Gtk, and we can give it properties that customize how it behaves. In this case, we set the Image's file property to be the filename of the picture we want, and the Label's label property to be the sentence that we want beneath the picture.</p>
+    <note style="tip"><p>Yes, it sounds redundant for a Label to have a label property, but it's not. Other widgets that contain text have a label property, so it's <em>consistent</em> for the Label widget to have one too.</p></note>
     <p>We can't just add these widgets to our window in order, though, the same way HTML elements appear in the order you write them. That's because an ApplicationWindow can only contain one widget.</p>
     <p>How do we get around that? By making that one widget a container widget, which can hold more than one widget and organize them inside it. Behold: The Grid.</p>
     <code mime="text/javascript"><![CDATA[
@@ -144,9 +144,9 @@ const WelcomeToTheGrid = new Lang.Class({
 let app = new WelcomeToTheGrid ();
 app.application.run (ARGV);
 ]]></code>
-    <p>Now that we've created the Grid and attached all our widgets to it, we add it to the window and tell the window to show itself, as the last part of the <input>_buildUI</input> function. As always, to finish up we create a new instance of the application's class and tell it to run.</p>
-    <p>Save your application as <input>welcome_to_the_grid.js</input>. Then, to run your application just open a terminal, go to the directory where your application is at, and type</p>
-      <screen> <output style="prompt">$ </output><input>gjs welcome_to_the_grid.js</input> </screen>
+    <p>Now that we've created the Grid and attached all our widgets to it, we add it to the window and tell the window to show itself, as the last part of the _buildUI function. As always, to finish up we create a new instance of the application's class and tell it to run.</p>
+    <p>Save your application as welcome_to_the_grid.js. Then, to run your application just open a terminal, go to the directory where your application is at, and type</p>
+      <screen> <output style="prompt">$ </output>gjs welcome_to_the_grid.js </screen>
 
     <media type="image" mime="image/png" src="media/02_jsgrid_02.png"/>
 
@@ -156,7 +156,7 @@ app.application.run (ARGV);
   <section id="tweaking">
     <title>Tweaking the Grid</title>
 
-    <p>One thing we can do, is we can give the Label a <input>margin_top</input> property when we create it. This works sort of like setting a margin for an HTML element using inline CSS styling.</p>
+    <p>One thing we can do, is we can give the Label a margin_top property when we create it. This works sort of like setting a margin for an HTML element using inline CSS styling.</p>
     <code mime="text/javascript"><![CDATA[
         // Create a label
         this._label = new Gtk.Label ({
@@ -167,7 +167,7 @@ app.application.run (ARGV);
     <p>Of course, if we do that then if we replace the Label with something else -- or add in another widget -- then we have to repeat the margin_top on it too. Otherwise we end up with something like this:</p>
     <media type="image" mime="image/png" src="media/02_jsgrid_03.png"/>
 
-    <p>We could give the Image a <input>margin_bottom</input> property, but that won't work when the new Label is in a separate column. So how about we try this instead:</p>
+    <p>We could give the Image a margin_bottom property, but that won't work when the new Label is in a separate column. So how about we try this instead:</p>
     <code mime="text/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
@@ -175,13 +175,13 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>That makes it so that there are always 20 pixels of space in between each horizontal row.</p>
-    <note style="tip"><p>Yes, you can also set the <input>column_spacing</input> property on a Grid, or the <input>margin_left</input> and <input>margin_right</input> properties on any widget. Try them out, if you like!</p></note>
+    <note style="tip"><p>Yes, you can also set the column_spacing property on a Grid, or the margin_left and margin_right properties on any widget. Try them out, if you like!</p></note>
   </section>
 
   <section id="adding">
     <title>Adding more widgets</title>
 
-    <p>If we did want to add a second Label, how would we do it so that it actually looked like it belonged there? One way is to center the Image on top, so that it's above both Labels instead of just the one on the left. That's where those other numbers in the Grid's <input>attach</input> method come in:</p>
+    <p>If we did want to add a second Label, how would we do it so that it actually looked like it belonged there? One way is to center the Image on top, so that it's above both Labels instead of just the one on the left. That's where those other numbers in the Grid's attach method come in:</p>
     <code mime="text/javascript"><![CDATA[
         // Create a second label
         this._labelTwo = new Gtk.Label ({
@@ -194,19 +194,19 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>After we create the second Label, we attach it to the Grid to the right of the first Label. Remember, the first two numbers count columns and rows from left to right and top to bottom, starting with 0. So if the first Label is in column 0 and row 1, we can put the second in column 1 and row 1 to put it to the right of the first Label.</p>
-    <p>Note the number 2 in the <input>attach</input> statement for the Image. That's what does the trick here. That number is how many columns the Image spans, remember? So when we put it together, we get something like this:</p>
+    <p>Note the number 2 in the attach statement for the Image. That's what does the trick here. That number is how many columns the Image spans, remember? So when we put it together, we get something like this:</p>
     <media type="image" mime="image/png" src="media/02_jsgrid_04.png"/>
 
     <p>There are two things you should take note of, here.</p>
     <list>
       <item><p>Setting the Image to span two columns doesn't stretch the picture itself horizontally. Instead, it stretches the invisible box taken up by the Image widget to fill both columns, then places the Image in the center of that box.</p></item>
-      <item><p>Even though we've set the Grid's <input>row_spacing</input> and the ApplicationWindow's <input>border_width</input> properties, we haven't yet set anything that puts a border in between the two Labels. They were separate earlier when the Image was in only one column, but now that it spans both GNOME doesn't see a reason to keep them apart.</p></item>
+      <item><p>Even though we've set the Grid's row_spacing and the ApplicationWindow's border_width properties, we haven't yet set anything that puts a border in between the two Labels. They were separate earlier when the Image was in only one column, but now that it spans both GNOME doesn't see a reason to keep them apart.</p></item>
     </list>
 
-    <p>There are at least three ways we can get around that last one. First, we can set a <input>margin_left</input> or <input>margin_right</input> on one of the Labels:</p>
+    <p>There are at least three ways we can get around that last one. First, we can set a margin_left or margin_right on one of the Labels:</p>
     <media type="image" mime="image/png" src="media/02_jsgrid_05.png"/>
 
-    <p>Second, we can set the Grid's <input>column_homogenous</input> property to <input>true</input>.</p>
+    <p>Second, we can set the Grid's column_homogenous property to true.</p>
     <code mime="text/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
@@ -217,7 +217,7 @@ app.application.run (ARGV);
     <p>That makes it look something like this:</p>
     <media type="image" mime="image/png" src="media/02_jsgrid_06.png"/>
 
-    <p>And third, we can set the Grid's <input>column_spacing</input> property, the same way we set its <input>row_spacing</input>.</p>
+    <p>And third, we can set the Grid's column_spacing property, the same way we set its row_spacing.</p>
     <code mime="text/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
@@ -249,7 +249,7 @@ app.application.run (ARGV);
     <p>That gives us this, when we run it:</p>
     <media type="image" mime="image/png" src="media/02_jsgrid_08.png"/>
 
-    <p>That's what the stock "About" icon looks like. You can see a list of all the stock items starting with <input>gtk-about</input> in <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">GNOME's developer documentation.</link> It was written for C programmers, but you don't need to know C to use it; just look at the part in quotation marks, like "gtk-about", and copy that part to use the icon next to it.</p>
+    <p>That's what the stock "About" icon looks like. You can see a list of all the stock items starting with gtk-about in <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">GNOME's developer documentation.</link> It was written for C programmers, but you don't need to know C to use it; just look at the part in quotation marks, like "gtk-about", and copy that part to use the icon next to it.</p>
     <note style="tip"><p>We put single quotes around 'gtk-about' here because, unlike text strings that have double quotes around them, that part will never need to be translated into another language. In fact, if it <em>were</em> translated it'd break the icon, because its name is still "gtk-about" no matter which language you speak.</p></note>
   </section>
 
