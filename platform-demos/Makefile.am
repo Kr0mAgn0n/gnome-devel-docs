@@ -66,6 +66,7 @@ demo_sources = \
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
+	samples/helloWorld.js			\
 	samples/image.c				\
 	samples/image.py			\
 	samples/image.vala			\

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="helloWorld.js">
   <info>
@@ -11,106 +12,100 @@
       <email>ihmis.suski@gmail.com</email>
       <years>2012</years>
     </credit>
+    <credit type="editor">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+    </credit>
 
     <desc>A basic "hello, world" application</desc>
   </info>
-  <title>Hello World</title>
-
-  <synopsis>
-    <p>In this tutorial we'll construct a small application, Hello World, using JavaScript and GTK+. To write and run all the code examples yourself, you need an editor to write code in, Terminal, and GNOME 3 or higher installed into your computer. In this tutorial we'll go through the following parts:</p>
-    <list>
-      <item><p> <link xref="#script">Script for running the application</link> </p></item>
-      <item><p> <link xref="#imports">Libraries to import</link> </p></item>
-      <item><p> <link xref="#mainwindow">Creating the main window for the application</link> </p></item>
-      <item><p> <link xref="#label">Label for the window</link> </p></item>
-      <item><p> <link xref="#js">helloWorld.js</link> </p></item>
-      <item><p> <link xref="#terminal">Running the application form Terminal</link> </p></item>
-    </list>
-
+ <title>Hello World</title>
+   <synopsis>
+    <p>This tutorial will demonstrate how to make a small "Hello, World" application using JavaScript and GTK+.</p>
   </synopsis>
-    <p>After taking this tutorial, you should see this on your screen:</p>
-    <media type="image" mime="image/png" src="media/helloWorldJs.png"/>
-    <section id="script">
+
+  <media type="image" mime="image/png" src="media/helloWorldJs.png"/>
+   <links type="section" />
+   <section id="script">
     <title>Script for running the application</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="text/javascript"><![CDATA[
 #!/usr/bin/gjs]]></code>
-    <p>This needs to be the first line of your script, because it tells GNOME that we'll be using Gjs -- the JavaScript bindings for GNOME -- in order to run it.</p>
+    <p>This needs to be the first line of your script. It tells the script to use <link href="https://live.gnome.org/Gjs/">Gjs</link>. Gjs is a JavaScript binding for GNOME.</p>
   </section>
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
-var Gtk = imports.gi.Gtk;]]></code>
-    <p>In order for our script to work with GNOME, we need to import GNOME libraries via GObject Introspection. In this case, we're importing GTK+, the most basic library that contains the graphical widgets used to make GNOME apps.</p>
+    <code mime="text/javascript"><![CDATA[
+const Lang = imports.lang;
+const Gtk = imports.gi.Gtk;]]></code>
+    <p>In order for our script to work with GNOME, we need to import GNOME libraries via GObject Introspection. Here we import the language bindings and GTK+, the library which contains the graphical widgets used to make GNOME applications.  </p>
     </section>
 
    <section id="mainwindow">
     <title>Creating the main window for the application</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
-// Initialize GTK+
-Gtk.init(null, 0);
+    <code mime="text/javascript"><![CDATA[
+const Application = new Lang.Class({
+    //A Class requires an explicit Name parameter. This is the Class Name.
+    Name: 'Application',
 
-// Create your window, name it, and connect the "click x to quit" function.
-// The word "window" is a JavaScript keyword, so we have to
-// call it something different.
-var mywindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-mywindow.title = "Hello World!";
-mywindow.connect("destroy", function(){Gtk.main_quit()});
+    //create the application
+    _init: function() {
+        this.application = new Gtk.Application();
+
+       //connect to 'activate' and 'startup' signals to handlers.
+       this.application.connect('activate', Lang.bind(this, this._onActivate));
+       this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    //create the UI
+    _buildUI: function() {
+        this._window = new Gtk.ApplicationWindow({ application: this.application,
+                                                   title: "Hello World!" });
+    },
+
+    //handler for 'activate' signal
+    _onActivate: function() {
+        //show the window and all child widgets
+        this._window.show_all();
+    },
+
+    //handler for 'startup' signal
+    _onStartup: function() {
+        this._buildUI();
+    }
+});
 ]]></code>
-    <p>After importing Gtk, we need to initialize it. After that, we can start building our first window. We do this by creating a variable called mywindow and assigning it a new Gtk.Window of type TOPLEVEL.</p> <p>After setting up our first window we'll give the window a property called title. The title can be any string you want it to be. To be on the safe side, it's best to stick to UTF-8 encoding.</p> <p>The next thing we need to do for our application is connect the close button that's automatically generated along with the window to the close functionality. That happens with the method connect(). When the close button is pressed it gives out the signal "destroy", so in this part we're connecting the "destroy" signal to function(){Gtk.main_quit()}, which does the actual closing.</p><p>Now we have a window that has a title and a working "close" button. Let's add the actual "Hello, world" text.</p>
+
+    <p>GtkApplication initializes Gtk+. It also connects the <gui>x</gui> button that's automatically generated along with the window to the "destroy" signal.</p>
+    <p>We can start building our first window. We do this by creating a variable called _window and assigning it a new Gtk.ApplicationWindow.</p>
+    <p>We give the window a property called title. The title can be any string you want it to be. To be on the safe side, it's best to stick to UTF-8 encoding.</p>
+    <p>Now we have a window which has a title and a working "close" button. Let's add the actual "Hello World" text.</p>
     </section>
 
     <section id="label">
   <title>Label for the window</title>
-  <code mime="text/javascript" style="numbered"><![CDATA[
-// Add some text to your window
-var label = new Gtk.Label({label: "Hello World"});
-mywindow.add(label);
+  <code mime="text/javascript"><![CDATA[
+// Add a label widget to your window
+this.label = new Gtk.Label({ label: "Hello World" });
+this._window.add(this.label);
+this._window.set_default_size(200, 200);]]></code>
+  <p>A text label is one of the GTK+ widgets we can use, on account of having imported the GTK+ library. To use it, we create a new variable called label, and assign it a new Gtk.Label. Then we give it properties inside the curly braces {}. In this case, we're setting the text that the label will hold. Finally, we create and run the application:</p>
+<code mime="text/javascript"><![CDATA[
+//run the application
+let app = new Application();
+app.application.run(ARGV);]]></code>
 
-// Make the label and the window itself visible to the user
-label.show();
-mywindow.show();
-
-// Let the user run the app
-Gtk.main();]]></code>
-  <p>A text label is one of the GTK+ widgets we can use, on account of having imported the GTK+ library. To use it, we create a new variable called label, and assign it a new Gtk.Label. Then we give it properties inside the curly braces {}. In this case, we're setting the text that the label will hold. Finally, we tell GNOME to show the label and the window containing it to the user, and call Gtk.main() to get the app itself started.</p>
-  <p>For the future, keep in mind that Gtk.Window can only hold one widget at a time. To construct more elaborate programs you need to create a holder widget (Gtk.Box, Gtk.Grid, Gtk.Application, and so on) of some kind inside the window, and then add all the other widgets to it.</p>
+  <p>Gtk.ApplicationWindow can only hold one widget at a time. To construct more elaborate programs you need to create a holder widget like Gtk.Grid inside the window, and then add all the other widgets to it.</p>
   </section>
   <section id="js">
     <title>helloWorld.js</title>
     <p>Here's what the completed program looks like.</p>
-      <code mime="text/javascript" style="numbered"><![CDATA[
-#!/usr/bin/gjs
-//The previous line is a hash bang which tells how to run the script.
-// Note that the script has to be executable (run in terminal in the right folder: chmod +x scriptname)
 
-// Import the GTK+ library
-var Gtk = imports.gi.Gtk;
-
-// Initialize GTK+
-Gtk.init(null, 0);
-
-// Create your window, name it, and connect the "click x to quit" function.
-// The word "window" is a JavaScript keyword, so we have to
-// call it something different.
-var mywindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
-mywindow.title = "Hello World!";
-mywindow.connect("destroy", function(){Gtk.main_quit()});
-
-// Add some text to your window
-var label = new Gtk.Label({label: "Hello World"});
-mywindow.add(label);
-
-// Make the label and the window itself visible to the user
-label.show();
-mywindow.show();
-
-// Let the user run the app
-Gtk.main();]]></code>
+<code mime="text/javascript" style="numbered"><xi:include href="samples/helloWorld.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
   <section id="terminal">
-  <title>Running the application from Terminal</title>
-  <p>To run this application, first save it as helloWorld.js. Then open Terminal, go to the folder where your application is stored and run</p> <screen> <output style="prompt">$ </output><input> chmod +x helloWorld.js</input> </screen>
-  <p>This makes your script executable. After that, run</p> <screen> <output style="prompt">$ </output><input> GJS_PATH=`pwd` gjs helloWorld.js</input> </screen>
+  <title>Running the application from terminal</title>
+  <p>To run this application, first save it as helloWorld.js. Then open Terminal, go to the folder where your application is stored and run</p>
+<screen><output style="prompt">$ </output><input>gjs helloWorld.js</input></screen>
     </section>
 </page>
