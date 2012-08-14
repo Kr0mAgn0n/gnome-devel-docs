@@ -67,6 +67,12 @@ demo_sources = \
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
 	samples/helloWorld.js			\
+	samples/helloWorld/autogen.sh		\
+	samples/helloWorld/configure.ac		\
+	samples/helloWorld/helloWorld		\
+	samples/helloWorld/helloWorld.desktop.in\
+	samples/helloWorld/Makefile.am		\
+	samples/helloWorld/README		\
 	samples/image.c				\
 	samples/image.py			\
 	samples/image.vala			\
@@ -178,7 +184,7 @@ DOC_FIGURES = \
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
-	media/helloWorldJs.png			\
+	media/helloWorld.png			\
 	media/image.png				\
 	media/image-viewer.png			\
 	media/label.png				\
@@ -252,7 +258,6 @@ DOC_PAGES =				\
 	combobox.vala.page		\
 	combobox_multicolumn.py.page	\
 	cpp.page			\
-	desktop.js.page			\
 	dialog.c.page			\
 	dialog.js.page			\
 	dialog.py.page			\
@@ -283,7 +288,6 @@ DOC_PAGES =				\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	helloWorld.js.page		\
-	helloworldautotools.js.page	\
 	image.c.page			\
 	image.py.page			\
 	image.vala.page			\

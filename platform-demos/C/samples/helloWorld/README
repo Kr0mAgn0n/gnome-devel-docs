@@ -1,0 +1,35 @@
+To build and install this program:
+
+./autogen.sh --prefix=home/path/to/directory/you/want/to/install
+make install
+
+-------------
+Running the first line above creates the following files:
+
+aclocal.m4
+autom4te.cache
+config.log
+config.status
+configure
+helloWorld.desktop
+install-sh
+missing
+Makefile.in
+Makefile
+
+Running "make install", installs the application in home/path/to/directory/you/want/to/install/bin
+and install the helloWorld.desktop file in home/path/to/directory/you/want/to/install/share/applications
+
+You can now run the application by typeing "Hello World" in the Overview.
+
+----------------
+To uninstall, type:
+
+make uninstall
+
+----------------
+To create a tarball type:
+
+make distcheck
+
+This will create hello-world-1.0.tar.xz
