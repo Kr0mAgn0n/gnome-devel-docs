@@ -95,7 +95,7 @@ Now, compile the vala file, and run it. The application should look like the pic
     <item><p>the initial state for this action (if applicable)</p></item>
     <item><p>the callback to connect to "change-state" signal (if applicable)</p></item>
   </list>
-   <code mime="text/x-vala">
+   <code mime="text/x-csharp">
 const ActionEntry[] actions = {
     { "new", new_cb }, // {"action name", callback_function}
     { "quit", quit_cb }
@@ -103,7 +103,7 @@ const ActionEntry[] actions = {
 
   </item>
   <item><p>Second, we create the callback functions the actions are connected to.</p>
-  <code mime="text/x-vala">
+  <code mime="text/x-csharp">
 void new_cb (SimpleAction action, Variant? parameter) {
     print ("You clicked \"New\"\n");
     //new MyWindow (this).show ();
@@ -154,7 +154,7 @@ void quit_cb (SimpleAction action, Variant? parameter) {
 <code mime="application/xml" style="numbered"><xi:include href="samples/menubar.ui" parse="text"><xi:fallback/></xi:include></code>
   </section>
   <section id="vala-code"><title>Complete Vala file for this example</title>
-<code mime="text/x-vala" style="numbered"><xi:include href="samples/menubar.vala" parse="text"><xi:fallback/></xi:include></code>
+<code mime="text/x-csharp" style="numbered"><xi:include href="samples/menubar.vala" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="mnemonics"><title>Mnemonics</title>
