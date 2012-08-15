@@ -339,6 +339,7 @@ DOC_PAGES =				\
 	label.js.page			\
 	label.py.page			\
 	label.vala.page			\
+	license.page			\
 	linkbutton.c.page		\
 	linkbutton.js.page		\
 	linkbutton.py.page		\
