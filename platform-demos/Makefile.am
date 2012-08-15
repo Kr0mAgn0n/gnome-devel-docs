@@ -22,6 +22,7 @@ demo_sources = \
 	message-board/message-board.c		\
 	photo-wall/photo-wall.c			\
 	record-collection/record-collection.js	\
+	samples/02_welcome_to_the_grid.js	\
 	samples/aboutdialog.c			\
 	samples/aboutdialog.js			\
 	samples/aboutdialog.py			\
@@ -158,6 +159,14 @@ demo_sources = \
 	media/gnome-devtools.catalog
 
 DOC_FIGURES = \
+	media/02_jsgrid_01.png		\
+	media/02_jsgrid_02.png		\
+	media/02_jsgrid_03.png		\
+	media/02_jsgrid_04.png		\
+	media/02_jsgrid_05.png		\
+	media/02_jsgrid_06.png		\
+	media/02_jsgrid_07.png		\
+	media/02_jsgrid_08.png		\
 	media/aboutdialog_GMenu.png		\
 	media/button.png			\
 	media/checkbutton.png			\
@@ -234,6 +243,7 @@ DOC_FIGURES = \
 	$(demo_sources)
 
 DOC_PAGES =				\
+	02_welcome_to_the_grid.js.page		\
 	aboutdialog.c.page		\
 	aboutdialog.js.page		\
 	aboutdialog.py.page		\
