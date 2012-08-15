@@ -123,7 +123,7 @@ six strings) and the orientation to vertical.</p>
   <title>Using GStreamermm</title>
   <p>To use GStreamermm, it has to be initialised. We do that by adding the following line of code next to the
   <code>Gtk::Main kit(argc, argv);</code> line in <file>main.cc</file>:</p>
-  <p><code>	Gst::init (argc, argv);</code></p>
+  <code>	Gst::init (argc, argv);</code>
   <p>While we are on it, also make sure that the <file>gstreamermm.h</file> is included in <file>main.cc</file> properly.</p>
 
   <p>In this simple example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
