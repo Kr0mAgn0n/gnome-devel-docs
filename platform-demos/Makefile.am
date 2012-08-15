@@ -53,8 +53,9 @@ demo_sources = \
 	samples/entry.js			\
 	samples/entry.py			\
 	samples/entry.vala			\
-	samples/filechooserdialog.vala		\
+	samples/filechooserdialog.py		\
 	samples/filechooserdialog.ui		\
+	samples/filechooserdialog.vala		\
 	samples/fontchooserwidget.py			\
 	samples/fruitbat.png			\
 	samples/gentoopenguin.png		\
@@ -186,6 +187,8 @@ DOC_FIGURES = \
 	media/dialog.png			\
 	media/entry.png				\
 	media/fedora.png			\
+	media/filechooserdialog_menu.png	\
+	media/filechooserdialog_save.png	\
 	media/fontchooserwidget.png		\
 	media/gediteditor.png			\
 	media/geditview.png			\
@@ -290,6 +293,7 @@ DOC_PAGES =				\
 	entry.js.page			\
 	entry.py.page			\
 	entry.vala.page			\
+	filechooserdialog.py.page	\
 	filechooserdialog.vala.page	\
 	fontchooserwidget.py.page	\
 	getting-ready.page		\
