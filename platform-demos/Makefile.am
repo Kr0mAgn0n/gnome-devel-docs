@@ -81,6 +81,7 @@ demo_sources = \
 	samples/helloWorld/Makefile.am		\
 	samples/helloWorld/README		\
 	samples/image.c				\
+	samples/image.js			\
 	samples/image.py			\
 	samples/image.vala			\
 	samples/label.c				\
@@ -312,6 +313,7 @@ DOC_PAGES =				\
 	hellognome.js.page		\
 	helloWorld.js.page		\
 	image.c.page			\
+	image.js.page			\
 	image.py.page			\
 	image.vala.page			\
 	image-viewer.c.page		\
