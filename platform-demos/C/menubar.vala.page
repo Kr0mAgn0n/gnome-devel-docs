@@ -4,6 +4,7 @@
       type="guide" style="task"
       id="menubar.vala">
   <info>
+  <title type="text">MenuBar (Vala)</title>
   <link type="guide" xref="beginner.vala#menu-combo-toolbar"/>
   <link type="seealso" xref="aboutdialog.vala"/>
   <link type="seealso" xref="gmenu.vala"/>
@@ -29,17 +30,17 @@
    <steps>
      <item><p>Create <file>menubar.ui</file> using your favorite text editor.</p></item>
      <item><p>Enter the following line at the top of the file:</p>
-           <code mime="text"><![CDATA[
+           <code mime="application/xml"><![CDATA[
 <?xml version="1.0"? encoding="UTF-8"?>]]></code>
      </item>
     <item><p>We want to create the interface which will contain our menubar and it's submenus.  Our menubar will contain <gui>File</gui>, <gui>Edit</gui>, <gui>Choices</gui> and <gui>Help</gui> submenus. We add the following XML code to the file:</p>
-    <code mime="text"><xi:include href="samples/menubar_basis.ui" parse="text"><xi:fallback/></xi:include></code>
+    <code mime="application/xml"><xi:include href="samples/menubar_basis.ui" parse="text"><xi:fallback/></xi:include></code>
      </item>
      <item><p>Now we will create the .vala file and use GtkBuilder to import the <file>menubar.ui</file> we just created.</p></item>
    </steps>
    </section>
    <section id="basis"> <title>Add the MenuBar to the window using GtkBuilder</title>
-<code mime="text/x-vala"><xi:include href="samples/menubar_basis.vala" parse="text"><xi:fallback/></xi:include></code>
+<code mime="text/x-csharp"><xi:include href="samples/menubar_basis.vala" parse="text"><xi:fallback/></xi:include></code>
 <p>
 Now, compile the vala file, and run it. The application should look like the picture at the top of this page.</p>
 </section>
@@ -48,7 +49,7 @@ Now, compile the vala file, and run it. The application should look like the pic
 
 <section id="xml2"> <title>Add items to the menus</title>
 <p>We start off by adding 2 menuitems to the <gui>File</gui> menu: <gui>New</gui> and <gui>Quit</gui>.  We do this by adding a <code>section</code> to the the <code>File</code> submenu with these items. The <file>menubar.ui</file> should look like this  (lines 6 to 13 inclusive comprise the newly added section):</p>
-      <code mime="text" style="numbered"><![CDATA[
+      <code mime="application/xml" style="numbered"><![CDATA[
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <menu id="menubar">
@@ -114,7 +115,7 @@ void quit_cb (SimpleAction action, Variant? parameter) {
 }</code>
  </item>
   <item><p>And lastly, we connect the menu items to the actions in the XML file by adding the "action" attribute:</p>
-    <code mime="text"><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <item>
   <attribute name="label">New</attribute>
   <attribute name="action">app.new</attribute>
@@ -150,7 +151,7 @@ void quit_cb (SimpleAction action, Variant? parameter) {
 </section>
 
   <section id="xml-code"><title>Complete XML UI file for this example</title>
-<code mime="text" style="numbered"><xi:include href="samples/menubar.ui" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/xml" style="numbered"><xi:include href="samples/menubar.ui" parse="text"><xi:fallback/></xi:include></code>
   </section>
   <section id="vala-code"><title>Complete Vala file for this example</title>
 <code mime="text/x-vala" style="numbered"><xi:include href="samples/menubar.vala" parse="text"><xi:fallback/></xi:include></code>
@@ -164,9 +165,9 @@ void quit_cb (SimpleAction action, Variant? parameter) {
 
   <section id="accelerators"><title>Accelerators</title>
     <p>Accelerators  can be explicitly added in the UI definitions.  For example, it is common to be able to quit an application by pressing <keyseq><key>Ctrl</key><key>Q</key></keyseq> or to save a file by pressing <keyseq><key>Ctrl</key><key>S</key></keyseq>.  To add an accelerator to the UI definition, you simply need add an "accel" attribute to the item.</p>
-<p><code mime="text"><![CDATA[<attribute name="accel">&lt;Primary&gt;q</attribute>]]></code> will create the <keyseq><key>Ctrl</key><key>Q</key></keyseq> sequence when added to the <code>Quit</code> label item.  Here, "Primary" refers to the <key>Ctrl</key> key on a PC or the <key>⌘</key> key on a Mac.</p>
+<p><code mime="application/xml"><![CDATA[<attribute name="accel">&lt;Primary&gt;q</attribute>]]></code> will create the <keyseq><key>Ctrl</key><key>Q</key></keyseq> sequence when added to the <code>Quit</code> label item.  Here, "Primary" refers to the <key>Ctrl</key> key on a PC or the <key>⌘</key> key on a Mac.</p>
 
-  <code mime="text"><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <item>
   <attribute name="label">_Quit</attribute>
   <attribute name="action">app.quit</attribute>
@@ -179,7 +180,7 @@ void quit_cb (SimpleAction action, Variant? parameter) {
    Since GNOME applications are being translated into <link href="http://l10n.gnome.org/languages/">many languages</link>, it is important that the strings in your application are translable.  To make a label translatable, simple set <code>translatable="yes"</code>:
    </p>
    <p>
-     <code mime="text"><![CDATA[<attribute name="label" translatable="yes">Quit</attribute>]]></code>
+     <code mime="application/xml"><![CDATA[<attribute name="label" translatable="yes">Quit</attribute>]]></code>
   </p>
   </section>
   <section id="documentation"><title>Relevant API documentation</title>
