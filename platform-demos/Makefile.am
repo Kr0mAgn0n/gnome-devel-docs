@@ -339,7 +339,7 @@ DOC_PAGES =				\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
-	set-up-gedit.page		\
+	set-up-gedit.js.page		\
 	signals-callbacks.py.page	\
 	spinbutton.c.page		\
 	spinbutton.js.page		\
