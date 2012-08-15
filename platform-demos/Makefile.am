@@ -23,6 +23,10 @@ demo_sources = \
 	photo-wall/photo-wall.c			\
 	record-collection/record-collection.js	\
 	samples/02_welcome_to_the_grid.js	\
+	samples/03_getting_the_signal_01.js			\
+	samples/03_getting_the_signal_02.js			\
+	samples/03_getting_the_signal_03.js			\
+	samples/03_getting_the_signal_04.js			\
 	samples/aboutdialog.c			\
 	samples/aboutdialog.js			\
 	samples/aboutdialog.py			\
@@ -167,6 +171,11 @@ DOC_FIGURES = \
 	media/02_jsgrid_06.png		\
 	media/02_jsgrid_07.png		\
 	media/02_jsgrid_08.png		\
+	media/03_jssignal_01.png		\
+	media/03_jssignal_02.png		\
+	media/03_jssignal_02b.png		\
+	media/03_jssignal_03.png		\
+	media/03_jssignal_04.png		\
 	media/aboutdialog_GMenu.png		\
 	media/button.png			\
 	media/checkbutton.png			\
@@ -244,6 +253,7 @@ DOC_FIGURES = \
 
 DOC_PAGES =				\
 	02_welcome_to_the_grid.js.page		\
+	03_getting_the_signal.js.page		\
 	aboutdialog.c.page		\
 	aboutdialog.js.page		\
 	aboutdialog.py.page		\
