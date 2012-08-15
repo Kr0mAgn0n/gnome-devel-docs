@@ -107,6 +107,7 @@ demo_sources = \
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/muteswan.png			\
+	samples/paned.py				\
 	samples/progressbar.c			\
 	samples/progressbar.js			\
 	samples/progressbar.py			\
@@ -159,6 +160,7 @@ demo_sources = \
 	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
 	samples/treeview_treestore.py	\
+	samples/tux.png			\
 	samples/window.c			\
 	samples/window.js			\
 	samples/window.py			\
@@ -221,6 +223,7 @@ DOC_FIGURES = \
 	media/message-board.ogv			\
 	media/messagedialog.png			\
 	media/opensuse.png			\
+	media/paned.png					\
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
@@ -348,6 +351,7 @@ DOC_PAGES =				\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	model-view-controller.py.page		\
+	paned.py.page		\
 	photo-wall.c.page		\
 	progressbar.c.page		\
 	progressbar.js.page		\
