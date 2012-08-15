@@ -39,7 +39,7 @@
     <title>Setting up our application</title>
 
     <p>Before we dig out any widgets from the Gtk+ toolbox, we first need to write the basic boilerplate code that our application requires.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gtk = imports.gi.Gtk;
@@ -47,7 +47,7 @@ const Lang = imports.lang;
 ]]></code>
     <p>This part always goes at the start of your code. Depending on what you'll be doing with it, you may want to declare more imports here. What we're writing today is pretty basic, so these are all we need; Gtk for the widgets, and Lang so we can use Lang.bind to connect our application's activate and startup signals to the requisite functions.</p>
     <p>Speaking of which:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const WelcomeToTheGrid = new Lang.Class({
     Name: 'Welcome to the Grid',
 
@@ -73,7 +73,7 @@ const WelcomeToTheGrid = new Lang.Class({
     <p>This is the start of the application itself, and the _init function which creates it. It tells _buildUI to create an ApplicationWindow, which we're going to call _window, and it tells our window to present itself whenever needed.</p>
     <p>This part, again, is pretty much copy-and-paste, but you always want to give your application a unique name.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -94,14 +94,14 @@ const WelcomeToTheGrid = new Lang.Class({
     <media type="image" mime="image/png" src="media/02_jsgrid_01.png"/>
 
     <p>We're going to need, at the very least, a picture and a text label to go with it. Let's start with the picture:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create an image
         this._image = new Gtk.Image ({ file: "gnome-image.png" });
 ]]></code>
 
     <p>You can download the image file used in this example <link href="https://live.gnome.org/TarynFox?action=AttachFile&amp;do=get&amp;target=gnome-image.png">here.</link> Be sure to put it in the same directory as the code you're writing.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a label
         this._label = new Gtk.Label ({ label: "Welcome to GNOME, too!" });
 ]]></code>
@@ -109,13 +109,13 @@ const WelcomeToTheGrid = new Lang.Class({
     <note style="tip"><p>Yes, it sounds redundant for a Label to have a label property, but it's not. Other widgets that contain text have a label property, so it's <em>consistent</em> for the Label widget to have one too.</p></note>
     <p>We can't just add these widgets to our window in order, though, the same way HTML elements appear in the order you write them. That's because an ApplicationWindow can only contain one widget.</p>
     <p>How do we get around that? By making that one widget a container widget, which can hold more than one widget and organize them inside it. Behold: The Grid.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ();
 ]]></code>
 
     <p>We're not giving it any properties yet. Those will come later, as we learn how to use the Grid's powers. First, let's attach the Image and Label we made to our Grid.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Attach the image and label to the grid
         this._grid.attach (this._image, 0, 0, 1, 1);
         this._grid.attach (this._label, 0, 1, 1, 1);
@@ -128,7 +128,7 @@ const WelcomeToTheGrid = new Lang.Class({
       <item><p>The <em>third</em> and <em>fourth</em> numbers are how many columns and rows a widget should take up. We'll see how these work in a minute.</p></item>
     </list>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the grid to the window
         this._window.add (this._grid);
 
@@ -155,7 +155,7 @@ app.application.run (ARGV);
     <title>Tweaking the Grid</title>
 
     <p>One thing we can do, is we can give the Label a margin_top property when we create it. This works sort of like setting a margin for an HTML element using inline CSS styling.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a label
         this._label = new Gtk.Label ({
             label: "Welcome to GNOME, too!",
@@ -166,7 +166,7 @@ app.application.run (ARGV);
     <media type="image" mime="image/png" src="media/02_jsgrid_03.png"/>
 
     <p>We could give the Image a margin_bottom property, but that won't work when the new Label is in a separate column. So how about we try this instead:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
             row_spacing: 20 });
@@ -180,7 +180,7 @@ app.application.run (ARGV);
     <title>Adding more widgets</title>
 
     <p>If we did want to add a second Label, how would we do it so that it actually looked like it belonged there? One way is to center the Image on top, so that it's above both Labels instead of just the one on the left. That's where those other numbers in the Grid's attach method come in:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a second label
         this._labelTwo = new Gtk.Label ({
             label: "The cake is a pie." });
@@ -205,7 +205,7 @@ app.application.run (ARGV);
     <media type="image" mime="image/png" src="media/02_jsgrid_05.png"/>
 
     <p>Second, we can set the Grid's column_homogenous property to true.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
             column_homogeneous: true,
@@ -216,7 +216,7 @@ app.application.run (ARGV);
     <media type="image" mime="image/png" src="media/02_jsgrid_06.png"/>
 
     <p>And third, we can set the Grid's column_spacing property, the same way we set its row_spacing.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the Grid
         this._grid = new Gtk.Grid ({
             column_spacing: 20,
@@ -230,7 +230,7 @@ app.application.run (ARGV);
     <title>Using stock images</title>
 
     <p>GNOME has a lot of stock images on hand already, that we can use if we don't feel like creating our own or if we want a universally-recognized icon. Here's how we create a stock image, compared to how we create a normal one:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create an image
         this._image = new Gtk.Image ({ file: "gnome-image.png" });
 
@@ -238,7 +238,7 @@ app.application.run (ARGV);
         this._icon = new Gtk.Image ({ stock: 'gtk-about' });
 ]]></code>
     <p>After that, we attach it to the Grid to the left of the first Label. (We aren't using the second one for this example.)</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Attach the images and label to the grid
         this._grid.attach (this._image, 0, 0, 2, 1);
         this._grid.attach (this._icon,  0, 1, 1, 1);
@@ -255,7 +255,7 @@ app.application.run (ARGV);
   <section id="next">
     <title>What's next?</title>
     <p>Before we go on to the next tutorial, let's try something a little different:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a button
         this._button = new Gtk.Button ({
             label: "Welcome to GNOME, too!"});
@@ -273,7 +273,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/02_welcome_to_the_grid.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/02_welcome_to_the_grid.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
 </page>

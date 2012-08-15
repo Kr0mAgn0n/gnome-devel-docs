@@ -68,7 +68,7 @@
 <section id="start">
   <title>Starting the fun</title>
   <p>Let's start by examining the skeleton of the program:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const Gda = imports.gi.Gda;
@@ -102,7 +102,7 @@ Gtk.main ();]]></code>
 <section id="design">
   <title>Designing the application</title>
   <p>Let's take a look at the <code>setupWindow</code> method. It is responsible for creating the User Interface (UI). As UI is not our focus, we will explain only the relevant parts.</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
   setupWindow: function () {
     this.window = new Gtk.Window ({title: "Data Access Demo", height_request: 350});
     this.window.connect ("delete-event", function () {
@@ -164,7 +164,7 @@ Gtk.main ();]]></code>
   <p>
      The code which makes the connection to the database is in the <code>setupDatabase</code> method below:
   </p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
   setupDatabase: function () {
     this.connection = new Gda.Connection ({provider: Gda.Config.get_provider("SQLite"),
                                           cnc_string:"DB_DIR=" + GLib.get_home_dir () + ";DB_NAME=gnome_demo"});
@@ -207,7 +207,7 @@ Gtk.main ();]]></code>
   <p>
      After connecting to the database, our demo's constructor calls the <code>selectData</code> method. It is responsible for getting all the records in the table and showing them on the <code>TextView</code> widget. Let's take a look at it:
   </p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
   selectData: function () {
     var dm = Gda.execute_select_command (this.connection, "select * from demo order by 1, 2");
     var iter = dm.create_iter ();
@@ -246,7 +246,7 @@ Gtk.main ();]]></code>
   <p>
      OK, we know how to connect to a database and how to select rows from a table. Now it's time to do an <code>INSERT</code> on the table. Do you remember above, in the method <code>setupWindow</code> we connected the <gui>Insert</gui> button's <code>clicked</code> signal to the method <code>_insertClicked</code>? Let's see the implementation of this method.
   </p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
   _insertClicked: function () {
     if (!this._validateFields ())
       return;

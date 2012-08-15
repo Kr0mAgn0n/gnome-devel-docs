@@ -29,7 +29,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const GObject = imports.gi.GObject;
@@ -41,7 +41,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const ComboBoxExample = new Lang.Class ({
     Name: 'ComboBox Example',
 
@@ -66,7 +66,7 @@ const ComboBoxExample = new Lang.Class ({
     },
 ]]></code>
     <p>All the code for this sample goes in the ComboBoxExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function () {
 
@@ -83,7 +83,7 @@ const ComboBoxExample = new Lang.Class ({
 
   <section id="liststore">
     <title>Creating the ListStore</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the liststore to put our options in
         this._listStore = new Gtk.ListStore();
         this._listStore.set_column_types ([
@@ -99,7 +99,7 @@ const ComboBoxExample = new Lang.Class ({
     </list>
     <note style="tip"><p>You need to put the line <file>const GObject = imports.gi.GObject;</file> at the start of your application's code, like we did in this example, if you want to be able to use GObject types.</p></note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // This array holds our list of options and their icons
         let options = [{ name: "Select" },
             { name: "New", icon: Gtk.STOCK_NEW },
@@ -121,13 +121,13 @@ const ComboBoxExample = new Lang.Class ({
 
   <section id="combobox">
     <title>Creating the ComboBox</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the combobox
         this._comboBox = new Gtk.ComboBox({
             model: this._listStore});
 ]]></code>
     <p>Each ComboBox has an underlying "model" it takes all its options from. You can use a TreeStore if you want to have a ComboBox with branching options. In this case, we're just using the ListStore we already created.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create some cellrenderers for the items in each column
         let rendererPixbuf = new Gtk.CellRendererPixbuf();
         let rendererText = new Gtk.CellRendererText();
@@ -144,7 +144,7 @@ const ComboBoxExample = new Lang.Class ({
     <p>We use a CellRendererText to show the text, and a CellRendererPixbuf to show the icons. We can store the names of the icons' stock types as strings, but when we display them we need a CellRenderer that's designed for pictures.</p>
     <note style="tip"><p>Just like with a TreeView, the "model" (in this case a ListStore) and the "view" (in this case our ComboBox) are separate. Because of that, we can do things like have the columns in one order in the ListStore, and then pack the CellRenderers that correspond to those columns into the ComboBox in a different order. We can even create a TreeView or other widget that shows the information in the ListStore in a different way, without it affecting our ComboBox.</p></note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Set the first row in the combobox to be active on startup
         this._comboBox.set_active (0);
 
@@ -153,7 +153,7 @@ const ComboBoxExample = new Lang.Class ({
 ]]></code>
     <p>We want the "Select" text to be the part people see at first, that gets them to click on the ComboBox. So we set it to be the active entry. We also connect the ComboBox's <file>changed</file> signal to a callback function, so that any time someone clicks on a new option something happens. In this case, we're just going to show a popup with a little haiku.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the combobox to the window
         this._window.add (this._comboBox);
 
@@ -166,7 +166,7 @@ const ComboBoxExample = new Lang.Class ({
 
   <section id="function">
     <title>Function which handles your selection</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _selected: function () {
 
         // The silly pseudohaiku that we'll use for our messagedialog
@@ -177,7 +177,7 @@ const ComboBoxExample = new Lang.Class ({
 ]]></code>
     <p>We're going to create a pop-up <link xref="messagedialog.js">MessageDialog,</link> which shows you a silly haiku based on which distro you select. First, we create the array of haiku to use. Since the first string in our ComboBox is just the "Select" message, we make the first string in our array blank.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Which combobox item is active?
         let activeItem = this._comboBox.get_active();
 
@@ -203,7 +203,7 @@ const ComboBoxExample = new Lang.Class ({
     <note style="tip"><p>Other methods you can use include <file>get_active_id,</file> which returns the text ID assigned by <file>append,</file> and <file>get_active_text,</file> which returns the full text of the string you selected.</p></note>
     <p>After we create the MessageDialog, we connect its response signal to the _onDialogResponse function, then tell it to show itself.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _onDialogResponse: function () {
 
         this._popUp.destroy ();
@@ -214,7 +214,7 @@ const ComboBoxExample = new Lang.Class ({
 ]]></code>
     <p>Since the only button the MessageDialog has is an OK button, we don't need to test its response_id to see which button was clicked. All we do here is destroy the popup.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new ComboBoxExample ();
 app.application.run (ARGV);
@@ -224,7 +224,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/combobox.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/combobox.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

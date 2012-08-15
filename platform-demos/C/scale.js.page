@@ -24,7 +24,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -36,7 +36,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const ScaleExample = new Lang.Class({
     Name: 'Scale Example',
 
@@ -62,7 +62,7 @@ const ScaleExample = new Lang.Class({
     },
 ]]></code>
     <p>All the code for this sample goes in the ScaleExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -78,7 +78,7 @@ const ScaleExample = new Lang.Class({
 
   <section id="button">
     <title>Creating the scales</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the horizontal scale
         this._hScale = Gtk.Scale.new_with_range (Gtk.Orientation.HORIZONTAL, 0.0, 100.0, 5.0);
         this._hScale.set_valign (Gtk.Align.START);
@@ -90,7 +90,7 @@ const ScaleExample = new Lang.Class({
     <p>The new_with_range method is one way to create a new Scale widget. The parameters it takes are a <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Orientation.html">Gtk.Orientation</link>, the minimum value, the maximum value, and the increment for a single step. After that we use the Scale's methods to set its starting value, and how many decimal places it runs to. We also set its vertical alignment in this case, to control where it appears in the window.</p>
     <p>We can use the set_draw_value method to tell it whether or not to show the number next to the sliding scale. It's commented out in this example.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a master adjustment to use for the vertical (or any other) scale
         this._adjustment = new Gtk.Adjustment ({
             value: 95,
@@ -102,7 +102,7 @@ const ScaleExample = new Lang.Class({
 
     <p>An Adjustment is an object we can use to simplify things when creating a new Scale. The Adjustment's "value" property is what the Scale's default value is, while "upper" and "lower" make the high and low ends of the numerical range. Meanwhile, the increment values show how much the slider moves when you do things like click on it.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a vertical scale using the adjustment we just made
         this._vScale = new Gtk.Scale ({
             orientation: Gtk.Orientation.VERTICAL,
@@ -114,7 +114,7 @@ const ScaleExample = new Lang.Class({
 
     <p>Here we create a new Scale object using _adjustment as its "adjustment" property. This is a great shortcut. We still have to tell it to round off the decimal place, though. Note that the draw_value property is commented out; this is how you tell it not to show the number next to the Scale when you're creating one this way.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the label that shows the product of the two values
         this._product = (this._hScale.get_value() * this._vScale.get_value());
         this._label = new Gtk.Label ({
@@ -131,7 +131,7 @@ const ScaleExample = new Lang.Class({
     <p>We can use the get_value method to find out the numerical value a Scale is set at. We can then do whatever we want with it, including multiply the two Scales' values together and have a <link xref="label.js">Label</link> show us the product. We set the label's text to wrap around, because we're having it display a silly message too.</p>
     <p>After we create the Label, we connect the two Scales' "value-changed" signals to _recalc, a function that will recalculate the number of penguins on the iceberg and come up with a new message.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid to arrange things in
         this._UIGrid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -145,7 +145,7 @@ const ScaleExample = new Lang.Class({
         this._UIGrid.attach (this._vScale, 1, 0, 1, 1);
 ]]></code>
     <p>Here we create a <link xref="grid.js">Grid</link> to put everything in, then attach all our widgets to it. Note that here and on some of the widgets themselves we're using margins to keep things neatly spaced.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the grid to the window
         this._window.add (this._UIGrid);
 
@@ -159,7 +159,7 @@ const ScaleExample = new Lang.Class({
     <section id="scales-handler">
     <title>Function which handles the scales' values changing</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _recalc: function() {
 
         // Figure out what the product of the two scales' values is
@@ -189,7 +189,7 @@ const ScaleExample = new Lang.Class({
 ]]></code>
     <p>Remember, we can get a Scale's value using its get_value method. Here we simply recalculate what the product of the two values is after one of the Scales is moved, add in a silly message depending on how many penguins are left, and change the wording on _label to show the new number and message.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new ScaleExample ();
 app.application.run (ARGV);
@@ -199,7 +199,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/scale.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/scale.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

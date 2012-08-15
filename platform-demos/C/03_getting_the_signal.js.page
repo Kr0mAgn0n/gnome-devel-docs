@@ -38,7 +38,7 @@
     <p>This ApplicationWindow has a Button and a Label inside it, arranged in a Grid. Whenever the Button is clicked, a variable that holds the number of cookies is increased by 1, and the Label that shows how many cookies there are is updated.</p>
     <note style="tip"><p>The cookies in this example are not the same as the cookies that you get from websites, which store your login information and may keep track of which sites you've visited. They're just imaginary treats. You may bake some real ones if you like.</p></note>
     <p>Here is the basic, boilerplate code that goes at the start of the application, before we start creating the window and widgets. Besides the application having a unique name, the biggest change from the usual boilerplate is that we create a global variable right near the beginning, to hold the number of cookies.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gtk = imports.gi.Gtk;
@@ -76,13 +76,13 @@ const GettingTheSignal = new Lang.Class({
     <title>Click the button</title>
 
     <p>As usual, we'll put all the code to create our Button and other widgets inside the _buildUI function, which is called when the application starts up.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 ]]></code>
 
     <p>First, we create the window itself:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the application window
         this._window = new Gtk.ApplicationWindow({
             application: this.application,
@@ -93,14 +93,14 @@ const GettingTheSignal = new Lang.Class({
 ]]></code>
     <p>Note that we've set its default_height and default_width properties. These let us control how tall and wide the ApplicationWindow will be, in pixels.</p>
     <p>Next, we'll create the Label that shows us the number of cookies. We can use the cookies variable as part of the Label's label property.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the label
         this._cookieLabel = new Gtk.Label ({
             label: "Number of cookies: " + cookies });
 ]]></code>
 
     <p>Now we'll create the Button. We set its label property to show the text that we want on the Button, and we connect its "clicked" signal to a function called _getACookie, which we'll write after we're done building our application's UI.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the cookie button
         this._cookieButton = new Gtk.Button ({ label: "Get a cookie" });
 
@@ -108,7 +108,7 @@ const GettingTheSignal = new Lang.Class({
         this._cookieButton.connect ('clicked', Lang.bind (this, this._getACookie));
 ]]></code>
     <p>Finally, we create a Grid, attach the Label and Button to it, add it to the window and tell the window to show itself and its contents. That's all we need inside the _buildUI function, so we close it with a bracket, as well as a comma that tells GNOME to go on to the next function. Note that even though we wrote the code for the Label first, we can still attach it to the Grid in a way that will put it on the bottom.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid to arrange everything inside
         this._grid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -129,7 +129,7 @@ const GettingTheSignal = new Lang.Class({
 ]]></code>
     <p>Now, we write the _getACookie function. Whenever our Button sends out its "clicked" signal, the code in this function will run. In this case, all it does is increase the number of cookies by 1, and update the Label to show the new number of cookies. We do this using the Label's set_label method.</p>
     <note style="tip"><p>Many widgets have the same properties and methods. Both Labels and Buttons, for instance, have a label property that says what text is inside them, and get_label and set_label methods that let you check what that text is and change it, respectively. So if you learn how one widget works, you'll also know how others like it work.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _getACookie: function() {
 
         // Increase the number of cookies by 1 and update the label
@@ -142,7 +142,7 @@ const GettingTheSignal = new Lang.Class({
 ]]></code>
 
     <p>Finally, we run the application, using the same kind of code as in our last tutorial.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new GettingTheSignal ();
 app.application.run (ARGV);
@@ -162,24 +162,24 @@ app.application.run (ARGV);
     <p>You may have seen Switches like these in GNOME's accessibility menu, which let you turn features like large text and the on-screen keyboard on and off. In this case, the Switch controls our imaginary cookie dispenser. If the Switch is turned on, you can get cookies by clicking the "Get a cookie" Button. If it's turned off, clicking the Button won't do anything.</p>
     <note style="tip"><p>You can get to the accessibility menu by clicking on the outline of a human, near your name in the upper-right corner of the screen.</p></note>
     <p>Here's how we create the Switch:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the switch that controls whether or not you can win
         this._cookieSwitch = new Gtk.Switch ();
 ]]></code>
 
     <p>We don't actually need to connect the Switch to anything. All we need to do is write an if statement in our _getACookie function, to check to see if the Switch is turned on. If we wanted to make something happen as soon as you flip the Switch, though, we would connect its notify::active signal, like so:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Connect the switch to the function that handles it
         this._cookieSwitch.connect ('notify::active', Lang.bind (this, this._cookieDispenser));
 ]]></code>
 
     <p>A Switch is set to the off position by default. If we wanted the Switch to start out turned on, we would set the value of its active property to true when we create it.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         this._cookieSwitch = new Gtk.Switch ({ active: true });
 ]]></code>
 
     <p>Let's just create it normally, though, and then create the Label that goes with it. We want the Switch and the Label to be kept right next to each other, so we'll create a Grid just for them, then put that Grid in our larger Grid that holds all the widgets inside it. Here's what the code looks like to create all that:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the switch that controls whether or not you can win
         this._cookieSwitch = new Gtk.Switch ();
 
@@ -198,7 +198,7 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>And now we arrange everything in the larger Grid like so.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Put everything inside the grid
         this._grid.attach (this._cookieButton, 0, 0, 1, 1);
         this._grid.attach (this._switchGrid, 0, 1, 1, 1);
@@ -207,7 +207,7 @@ app.application.run (ARGV);
 
     <p>Now we change the _getACookie function so that it checks to see if the cookie dispenser is turned on. We do that by using the Switch's get_active method. It returns true if the Switch is turned on, and false if the Switch is turned off.</p>
     <note style="tip"><p>When a method is used in an if statement like this, the code inside the if statement is executed if the method returns true.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _getACookie: function() {
 
         // Is the cookie dispenser turned on?
@@ -232,7 +232,7 @@ app.application.run (ARGV);
     <media type="image" mime="image/png" src="media/03_jssignal_03.png"/>
 
     <p>First off, let's change our ApplicationWindow's name and increase its border_width property, so that our widgets aren't packed in too tightly. The border_width is the number of pixels between any widget and the edge of the window.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the application window
         this._window = new Gtk.ApplicationWindow({
             application: this.application,
@@ -244,7 +244,7 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>After that, we create the RadioButtons. Remember how they're created in groups? The way we do that, is we set each new RadioButton's group property to the name of another RadioButton.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the radio buttons
         this._cookieButton = new Gtk.RadioButton ({ label: "Cookie" });
         this._notCookieOne = new Gtk.RadioButton ({ label: "Not cookie",
@@ -254,7 +254,7 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>Next, we create a Grid for the RadioButtons. Remember, we don't have to arrange things in Grids in the same order that we create them in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Arrange the radio buttons in their own grid
         this._radioGrid = new Gtk.Grid ();
         this._radioGrid.attach (this._notCookieOne, 0, 0, 1, 1);
@@ -264,13 +264,13 @@ app.application.run (ARGV);
 
     <p>Normally, the RadioButton that's selected by default is the one that's the name of the group. We want the first "Not cookie" button to be selected by default, though, so we use its set_active method.</p>
     <note style="tip"><p>We could also set its active property to true when we create it.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Set the button that will be at the top to be active by default
         this._notCookieOne.set_active (true);
 ]]></code>
 
     <p>Now we arrange everything in our main Grid like usual ...</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Put everything inside the grid
         this._grid.attach (this._radioGrid, 0, 0, 1, 1);
         this._grid.attach (this._cookieButton, 0, 1, 1, 1);
@@ -278,7 +278,7 @@ app.application.run (ARGV);
 ]]></code>
 
     <p>And then we change our _getACookie function to test to see if the cookie button is the one that's selected.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _getACookie: function() {
 
         // Did you select "cookie" instead of "not cookie"?
@@ -303,13 +303,13 @@ app.application.run (ARGV);
     <media type="image" mime="image/png" src="media/03_jssignal_04.png"/>
 
     <p>After we change the window's name, we create the Entry widget.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the text entry field
         this._spellCookie = new Gtk.Entry ();
 ]]></code>
 
     <p>Next, we arrange everything in the Grid ... </p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Put everything inside the grid
         this._grid.attach (this._spellCookie, 0, 0, 1, 1);
         this._grid.attach (this._cookieButton, 0, 1, 1, 1);
@@ -318,7 +318,7 @@ app.application.run (ARGV);
 
     <p>And now we modify _getACookie's if statement again, using the Entry's get_text method to retrieve the text that you entered into it and see if you spelled "cookie" right. We don't care whether you capitalize "cookie" or not, so we use JavaScript's built-in toLowerCase method to change the Entry's text to all lower case inside the if statement.</p>
     <note style="tip"><p>An Entry widget doesn't have a label property, which is a set text string that the user can't change. (You can't normally change the label on a Button, for instance.) Instead, it has a text property, which changes to match what the user types in.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _getACookie: function() {
 
         // Did you spell "cookie" correctly?
@@ -350,25 +350,25 @@ app.application.run (ARGV);
     <section id="buttonsample">
       <title>Code sample with Button</title>
       <media type="image" mime="image/png" src="media/03_jssignal_01.png"/>
-      <code mime="text/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_01.js" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_01.js" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
     <section id="switchsample">
       <title>Code sample with Switch</title>
       <media type="image" mime="image/png" src="media/03_jssignal_02.png"/>
-      <code mime="text/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_02.js" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_02.js" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
     <section id="radiobuttonsample">
       <title>Code sample with RadioButton</title>
       <media type="image" mime="image/png" src="media/03_jssignal_03.png"/>
-      <code mime="text/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_03.js" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_03.js" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
     <section id="entrysample">
       <title>Code sample with Entry</title>
       <media type="image" mime="image/png" src="media/03_jssignal_04.png"/>
-      <code mime="text/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_04.js" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/javascript" style="numbered"><xi:include href="samples/03_getting_the_signal_04.js" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
   </section>

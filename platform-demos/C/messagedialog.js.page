@@ -27,7 +27,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -39,7 +39,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const MessageDialogExample = new Lang.Class ({
     Name: 'MessageDialog Example',
 
@@ -67,7 +67,7 @@ const MessageDialogExample = new Lang.Class ({
 ]]></code>
     <p>All the code for this sample goes in the MessageDialogExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
     <note><p>Before we call _buildUI to create the window and the widgets inside it, we need to call _initMenus, which tells GNOME to create the menu. We can put the actual code for _initMenus after the code for _buildUI, since it doesn't matter what order we put them in so long as _initMenus is called first in _onStartup.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function () {
 
@@ -81,7 +81,7 @@ const MessageDialogExample = new Lang.Class ({
 ]]></code>
     <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a silly warning message and add it to the window
         this.warningLabel = new Gtk.Label ({
             label: "This application goes boom! (Not really.)"});
@@ -92,7 +92,7 @@ const MessageDialogExample = new Lang.Class ({
 
   <section id="menu">
     <title>Creating the application's menu</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application menu, including the button that calls the dialog
     _initMenus: function() {
         let menu = new Gio.Menu();
@@ -122,7 +122,7 @@ const MessageDialogExample = new Lang.Class ({
 
   <section id="messagedialog">
     <title>Creating the MessageDialog</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _showMessageDialog: function () {
 
         // Create a modal MessageDialog whose parent is the window
@@ -145,7 +145,7 @@ const MessageDialogExample = new Lang.Class ({
       </list>
     </note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Callback function (aka signal handler) for the response signal
     _response_cb: function (messagedialog, response_id) {
 
@@ -170,7 +170,7 @@ const MessageDialogExample = new Lang.Class ({
 ]]></code>
     <p>This function takes two parameters, the MessageDialog and its response_id, both of which are automatically supplied (you don't have to manually pass them to it for it to work). Here we use a simple switch to change the "warning label"'s text, depending on which option you select. The DELETE_EVENT occurs if you press Escape to cancel the MessageDialog, instead of clicking OK or Cancel. Whatever you select, the popup is destroyed afterwards.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new MessageDialogExample ();
 app.application.run (ARGV);
@@ -180,7 +180,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/messagedialog.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/messagedialog.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

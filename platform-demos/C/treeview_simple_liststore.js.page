@@ -33,7 +33,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const GObject = imports.gi.GObject;
@@ -46,7 +46,7 @@ const Pango = imports.gi.Pango;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const TreeViewExample = new Lang.Class({
     Name: 'TreeView Example with Simple ListStore',
 
@@ -72,7 +72,7 @@ const TreeViewExample = new Lang.Class({
     },
 ]]></code>
     <p>All the code for this sample goes in the TreeViewExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -90,7 +90,7 @@ const TreeViewExample = new Lang.Class({
 
   <section id="liststore">
     <title>Creating the ListStore</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the underlying liststore for the phonebook
         this._listStore = new Gtk.ListStore ();
         this._listStore.set_column_types ([
@@ -110,7 +110,7 @@ const TreeViewExample = new Lang.Class({
     <p>In this case, we're making a ListStore of four columns, each one containing string values.</p>
     <note><p>You need to put the line <file>const GObject = imports.gi.GObject;</file> at the start of your application's code, like we did in this example, if you want to be able to use GObject types.</p></note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Data to go in the phonebook
         this.phonebook =
         let phonebook =
@@ -130,7 +130,7 @@ const TreeViewExample = new Lang.Class({
     <p>Here we have the information to go in the ListStore. It's an array of objects, each one corresponding to a single entry in our phone book.</p>
     <p>Note that the TreeView in the screenshot doesn't actually show the data from the "description" properties. Instead, that information's shown in the Label beneath it, for whichever row that you click on. That's because the TreeView and ListStore are two separate things, and a TreeView can show all or part of a ListStore, and display what's in it in different ways. You can even have multiple widgets show things from the same ListStore, like the Label in our example or even a second TreeView.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         for (i = 0; i < phonebook.length; i++ ) {
             let contact = phonebook [i];
             this._listStore.set (this._listStore.append(), [0, 1, 2, 3],
@@ -144,7 +144,7 @@ const TreeViewExample = new Lang.Class({
 
   <section id="treeview">
     <title>Creating the TreeView</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the treeview
         this._treeView = new Gtk.TreeView ({
             expand: true,
@@ -152,7 +152,7 @@ const TreeViewExample = new Lang.Class({
 ]]></code>
     <p>Here we create a basic TreeView widget, that expands both horizontally and vertically to use as much space as needed. We set it to use the ListStore we created as its "model", or the thing it'll show us stuff from.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the columns for the address book
         let firstName = new Gtk.TreeViewColumn ({ title: "First Name" });
         let lastName = new Gtk.TreeViewColumn ({ title: "Last Name" });
@@ -160,7 +160,7 @@ const TreeViewExample = new Lang.Class({
 ]]></code>
     <p>Now we create each of the vertical TreeViewColumns we'll see in the TreeView. The title for each one goes at the top, as you can see in the screenshot.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a cell renderer for when bold text is needed
         let bold = new Gtk.CellRendererText ({
             weight: Pango.Weight.BOLD });
@@ -176,7 +176,7 @@ const TreeViewExample = new Lang.Class({
     <p>Here we create the CellRenderers that we'll use to display the text from our ListStore, and pack them into the TreeViewColumns. Each CellRendererText is used for all the entries in that column. Our normal CellRendererText just creates plain text, while our bold one uses heavier-weight text. We put it into the first name column, and tell the other two to use copies of the normal one. The "true" used as the second parameter for the <file>pack_start</file> method tells it to expand the cells when possible, instead of keeping them compact.</p>
     <note><p><link href="http://www.pygtk.org/docs/pygtk/pango-constants.html">Here is a list</link> of other text properties you can use. In order to use these Pango constants, make sure to put the line <file>const Pango = imports.gi.Pango;</file> at the beginning of your code like we did.</p></note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         firstName.add_attribute (bold, "text", 0);
         lastName.add_attribute (normal, "text", 1);
         phone.add_attribute (normal, "text", 2);
@@ -198,7 +198,7 @@ const TreeViewExample = new Lang.Class({
 
   <section id="ui">
     <title>Building the rest of the UI</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the label that shows details for the name you select
         this._label = new Gtk.Label ({ label: "" });
 
@@ -211,7 +211,7 @@ const TreeViewExample = new Lang.Class({
     <p>The TreeView's <file>get_selection</file> method returns an object called a TreeSelection. A TreeSelection is like a TreeIter in that it's basically a cursor that points at a particular row, except that the one it points to is the one that's visibly highlighted as selected.</p>
     <p>After we get the TreeSelection that goes with our TreeView, we ask it to tell us when it changes which row it's pointing to. We do this by connecting its <file>changed</file> signal to the _onSelectionChanged function we wrote. This function changes the text displayed by the Label we just made.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid to organize everything in
         this._grid = new Gtk.Grid;
 
@@ -232,7 +232,7 @@ const TreeViewExample = new Lang.Class({
   <section id="function">
     <title>Function which handles a changed selection</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _onSelectionChanged: function () {
 
         // Grab a treeiter pointing to the current selection
@@ -253,7 +253,7 @@ const TreeViewExample = new Lang.Class({
     <p>After we've done that, we call the Label's <file>set_label</file> function, and use the ListStore's <file>get_value</file> function a handful of times to fill in the data we want to put in it. Its parameters are a TreeIter pointing to the row we want to get data from, and the column.</p>
     <p>Here, we want to get data from all four columns, including the "hidden" one that's not part of the TreeView. This way, we can use our Label to show strings that are too large to fit in the TreeView, and that we don't need to see at a glance.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new TreeViewExample ();
 app.application.run (ARGV);
@@ -263,7 +263,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/treeview_simple_liststore.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/treeview_simple_liststore.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

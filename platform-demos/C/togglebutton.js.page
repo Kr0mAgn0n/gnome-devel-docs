@@ -24,7 +24,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -36,7 +36,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const ToggleButtonExample = new Lang.Class({
     Name: 'ToggleButton Example',
 
@@ -63,7 +63,7 @@ const ToggleButtonExample = new Lang.Class({
     },
 ]]></code>
     <p>All the code for this sample goes in the RadioButtonExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -81,14 +81,14 @@ const ToggleButtonExample = new Lang.Class({
 
   <section id="togglebutton">
     <title>Creating the ToggleButton and other widgets</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the spinner that the button stops and starts
         this._spinner = new Gtk.Spinner ({hexpand: true, vexpand: true});
 ]]></code>
 
     <p>We want this <link xref="spinner.js">Spinner</link> to expand vertically and horizontally, to take up as much space as possible inside the window.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the togglebutton that starts and stops the spinner
         this._toggleButton = new Gtk.ToggleButton ({label: "Start/Stop"});
         this._toggleButton.connect ('toggled', Lang.bind (this, this._onToggle));
@@ -96,7 +96,7 @@ const ToggleButtonExample = new Lang.Class({
 
     <p>Creating a ToggleButton is a lot like creating a normal <link xref="button.js">Button.</link> The biggest difference is that you're handling a "toggled" signal instead of a "clicked" signal. This code binds the _onToggle function to that signal, so that it's called whenever our ToggleButton is toggled.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid and put everything in it
         this._grid = new Gtk.Grid ({
             row_homogeneous: false,
@@ -106,7 +106,7 @@ const ToggleButtonExample = new Lang.Class({
 ]]></code>
     <p>Here we create a simple <link xref="grid.js">Grid</link> to organize everything in, then attach the Spinner and ToggleButton to it.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the grid to the window
         this._window.add (this._grid);
 
@@ -120,7 +120,7 @@ const ToggleButtonExample = new Lang.Class({
     <section id="toggled">
     <title>Making something happen when the ToggleButton is toggled</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _onToggle: function() {
 
         // Start or stop the spinner
@@ -134,7 +134,7 @@ const ToggleButtonExample = new Lang.Class({
 ]]></code>
     <p>Whenever someone toggles the button, this function checks what its state is afterwards using get_active and starts or stops the spinner accordingly. We want it to spin only while the button is pressed in, so if get_active returns true we start the spinner. Otherwise, we tell it to stop.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new ToggleButtonExample ();
 app.application.run (ARGV);
@@ -144,7 +144,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/togglebutton.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/togglebutton.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

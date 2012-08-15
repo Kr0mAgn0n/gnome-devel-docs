@@ -30,7 +30,7 @@
   <section id="geonamesimports">
   <title>Local library for getting the weather</title>
   <p>For this we need a new file that will be our local library.</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 const Soup = imports.gi.Soup;
 const _httpSession = new Soup.SessionAsync();
 Soup.Session.prototype.add_feature.call(_httpSession, new Soup.ProxyResolverDefault());
@@ -40,7 +40,7 @@ Soup.Session.prototype.add_feature.call(_httpSession, new Soup.ProxyResolverDefa
 
   <section id="geonamesfunction">
   <title>Creating function GeoNames</title>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 function GeoNames(station) {
   this.station = station;
 }
@@ -54,7 +54,7 @@ GeoNames.prototype = {
 
   <section id="geonamesmethods">
   <title>Methods for GeoNames</title>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 getWeather: function(callback) {
     var request = Soup.Message.new('GET', 'http://api.geonames.org/weatherIcaoJSON?ICAO=' + this.station + '&username=demo');
     _httpSession.queue_message(request, function(_httpSession, message) {
@@ -100,7 +100,7 @@ getIcon: function(weather){
   <section id ="geonames.js">
   <title>geonames.js</title>
   <p>Here is the entire code for our local library. The main program file calls this asynchronously.</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 const Soup = imports.gi.Soup;
 const _httpSession = new Soup.SessionAsync();
 Soup.Session.prototype.add_feature.call(_httpSession, new Soup.ProxyResolverDefault());

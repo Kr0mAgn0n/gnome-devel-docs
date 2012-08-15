@@ -61,14 +61,14 @@
 <section id="js">
   <title>JavaScript basics: Hello World</title>
   <p>Before we start writing the image viewer, let's find out more about the way JavaScript is used in GNOME. Of course, your very first contact with any programming language should be the Hello World program which can already be found in <file>main.js</file>:</p>
-  <code mime="text/javascript">print ("Hello world!");</code>
+  <code mime="application/javascript">print ("Hello world!");</code>
   <p>This should look quite natural if you're familiar with almost any other programming language. The function <code>print</code> is called with the argument <code>"Hello world!"</code>, which will be printed on the screen. Note that each line of code ends with a semicolon.</p>
 </section>
 
 <section id="classes">
   <title>Classes in JavaScript</title>
   <p>This is the standard way to define a class in JavaScript:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 function MyClass () {
   this._init ();
 }
@@ -112,7 +112,7 @@ MyClass.prototype = {
   </steps>
 
   <p>Now that MyClass has been defined, we can play with it:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 var o = new MyClass ();
 o.aMethod ("Hello", "world");
 o.propertyA = "Just changed its value!";
@@ -125,7 +125,7 @@ o.dumpProperties ();]]></code>
 <section id="gtk">
   <title>A first Gtk application</title>
   <p>Let's see what a very basic Gtk application looks like in JavaScript:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 const Gtk = imports.gi.Gtk;
 
 Gtk.init (null, null);
@@ -155,7 +155,7 @@ Gtk.main ();]]></code>
 <section id="classes2">
   <title>Adding classes</title>
   <p>The proper way of doing Gtk programming is by using classes. Let's rewrite the simple code you just wrote using classes:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 const Gtk = imports.gi.Gtk;
 
 function ImageViewer () {
@@ -180,7 +180,7 @@ Gtk.main ();]]></code>
 <section id="signals">
   <title>Signals</title>
   <p>Signals are one of the key concepts in Gtk programming. Whenever something happens to an object, it emits a signal; for example, when a button is clicked it gives off the <code>clicked</code> signal. If you want your program to do something when that event occurs, you must connect a function (a "signal handler") to that signal. Here's an example:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 function button_clicked () {
   print ("you clicked me!");
 }
@@ -188,13 +188,13 @@ var b = new Gtk.Button ({label:"Click me"});
 b.connect ("clicked", button_clicked);]]></code>
   <p>The last two lines create a <code>Gtk.Button</code> called <code>b</code> and connect its <code>clicked</code> signal to the <code>button_clicked</code> function, which is defined above. Every time the button is clicked, the code in the <code>button_clicked</code> function will be executed. It just prints a message here.</p>
   <p>The syntax for connecting any signal to a function is:</p>
-  <code mime="text/javascript"><![CDATA[
+  <code mime="application/javascript"><![CDATA[
 object.connect (<signal_name>, <function_to_be_called>);]]></code>
   <p>You can find signal definitions for any object in the <link href="http://library.gnome.org/devel/gtk/stable/ch01.html">GTK class reference</link>.</p>
 
   <note>
     <p>You can simplify the code by making use of an inline function definition:</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   </note>
 
@@ -204,7 +204,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   <title>Closing the window</title>
   <p>When you close a Gtk window it's not really closed, it's hidden. This allows you to keep the window around (which is useful if you want to ask the user if they really want to close the window, for example).</p>
   <p>In our case, we really do just want to close the window. The simplest way of doing this is by connecting the <code>hide</code> signal of the GtkWindow object to a function that closes the application. Go back to the <file>image-viewer.js</file> file and add the following code to the <code>_init</code> method, on the line above <code>this.window.show</code>:</p>
-  <code mime="text/javascript" style="numbered">this.window.connect ("hide", Gtk.main_quit);</code>
+  <code mime="application/javascript" style="numbered">this.window.connect ("hide", Gtk.main_quit);</code>
   <p>This connects the <code>hide</code> signal of the window to Gtk's <code>main_quit</code> function, which ends the execution of the Gtk main loop. Once the main loop finishes, the function <code>Gtk.main</code> returns. Our program would continue to run any code written after the <code>Gtk.main ();</code> line, but since we don't have any code after that point, the program just ends.</p>
 </section>
 
@@ -216,7 +216,7 @@ b.connect ("clicked", function () { print ("you clicked me!"); });]]></code>
   <p>There is a graphical user interface designer called <app>Glade</app> integrated in <app>Anjuta</app> which makes UI design really easy. For this simple example, however, we will code everything manually.</p>
   </note>
   <p>Let's add the box and widgets to the window. Insert the following code into the <code>_init</code> method, immediately above the <code>this.window.show</code> line:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 var main_box = new Gtk.Box ({orientation: Gtk.Orientation.VERTICAL, spacing: 0});
 this.window.add (main_box);]]></code>
   <p>The first line creates a <code>Gtk.Box</code> called <code>main_box</code> and sets two of its properties: the <code>orientation</code> is set to vertical (so widgets are arranged in a column), and the <code>spacing</code> between the widgets is set to 0 pixels. The next line then adds the newly-created <code>Gtk.Box</code> to the window.</p>
@@ -226,7 +226,7 @@ this.window.add (main_box);]]></code>
 <section id="packing2">
   <title>Packing: Adding widgets to the container</title>
   <p>To add some widgets to the <code>Gtk.Box</code>, insert the following code directly below the <code>this.window.add (main_box)</code> line:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 this.image = new Gtk.Image ();
 main_box.pack_start (this.image, true, true, 0);]]></code>
   <p>The first line creates a new <code>Gtk.Image</code> called <code>image</code>, which will be used to display an image file. Then, the image widget is added (<em>packed</em>) into the <code>main_box</code> container using <code>Gtk.Box</code>'s <link href="http://library.gnome.org/devel/gtk/stable/GtkBox.html#gtk-box-pack-start"><code>pack_start</code></link> method.</p>
@@ -234,7 +234,7 @@ main_box.pack_start (this.image, true, true, 0);]]></code>
   <p>Gtk containers (and widgets) dynamically expand to fill the available space, if you let them. You don't position widgets by giving them a precise x,y-coordinate location in the window; rather, they are positioned relative to one another. This makes handling window resizing much easier, and widgets should automatically take a sensible size in most situations.</p>
   <p>Also note how the widgets are organized in a hierarchy. Once packed in the <code>Gtk.Box</code>, the <code>Gtk.Image</code> is considered a <em>child</em> of the <code>Gtk.Box</code>. This allows you to treat all of the children of a widget as a group; for example, you could hide the <code>Gtk.Box</code>, which would also hide all of its children at the same time.</p>
   <p>Now insert these two lines, below the two you just added:</p>
-  <code mime="text/javascript" style="numbered"><![CDATA[
+  <code mime="application/javascript" style="numbered"><![CDATA[
 var open_button = new Gtk.Button ({label: "Open a picture..."});
 main_box.pack_start (open_button, false, false, 0);]]></code>
   <p>These lines are similar to the first two, but this time they create a <code>Gtk.Button</code> and add it to <code>main_box</code>. Notice that we are setting the <code>expand</code> argument (the second one) to <code>false</code> here, whereas it was set to <code>true</code> for the <code>Gtk.Image</code>. This will cause the image to take up all available space and the button to take only the space it needs. When you maximize the window, the button size will remain the same, but the image size will increase, taking up all of the rest of the window.</p>
@@ -247,16 +247,16 @@ main_box.pack_start (open_button, false, false, 0);]]></code>
   <title>Loading the image: Connecting to the button's <code>clicked</code> signal</title>
   <p>When the user clicks on the <gui>Open</gui> button, a dialog should appear so that the user can choose a picture. Once chosen, the picture should be loaded and shown in the image widget.</p>
   <p>The first step is to connect the <code>clicked</code> signal of the button to a signal handler function, which we call <code>_openClicked</code>. Put this code immediately after the <code>var open_button = new Gtk.Button</code> line where the button was created:</p>
-  <code mime="text/javascript"><![CDATA[
+  <code mime="application/javascript"><![CDATA[
 open_button.connect ("clicked", Lang.bind (this, this._openClicked));]]></code>
   <p>We are using the <em>Lang</em> JavaScript helper here. It allows us to connect a <em>class method</em> to the signal, rather than a plain function (without a class) which we had used before for the window's <code>hide</code> signal. Don't worry about this for now, it's just a technical detail. For it to work, you also need to put the following line at the top of the file:</p>
-  <code mime="text/javascript">const Lang = imports.lang;</code>
+  <code mime="application/javascript">const Lang = imports.lang;</code>
 </section>
 
 <section id="loading3">
   <title>Loading the image: Writing the signal's callback</title>
   <p>Now we can create the <code>_openClicked()</code> method. Insert the following into the <code>ImageViewer.prototype</code> code block, after the <code>_init</code> method (and not forgetting the comma):</p>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="application/javascript" style="numbered"><![CDATA[
   _openClicked: function () {
     var chooser = new Gtk.FileChooserDialog ({title: "Select an image",
                                               action: Gtk.FileChooserAction.OPEN,

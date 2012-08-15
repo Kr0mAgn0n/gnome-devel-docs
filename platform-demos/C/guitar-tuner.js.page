@@ -44,14 +44,14 @@
   </section>
   <section id="script">
     <title>Script for running the application</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="application/javascript" style="numbered"><![CDATA[
   #!/usr/bin/gjs]]></code>
     <p>  This line tells how to run the script. It needs to be the first line of the code and it needs to be executable. To get the execution rights go to terminal and run in right folder: chmod +x scriptname. Or you can use the graphical filemanager. Just go to the right folder where your code is, right click you code file, choose properties, click the permissions tab and check the box for allow executing file as a program
     </p>
   </section>
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="application/javascript" style="numbered"><![CDATA[
 var Gtk = imports.gi.Gtk;
 var Gst = imports.gi.Gst;
 
@@ -60,7 +60,7 @@ const Mainloop = imports.mainloop;]]></code>
     </section>
   <section id="mainwindow">
     <title>Creating the main window for the application</title>
-    <code mime="text/javascript" style="numbered"><![CDATA[
+    <code mime="application/javascript" style="numbered"><![CDATA[
 Gtk.init(null, 0);
 Gst.init(null, 0);
 
@@ -74,7 +74,7 @@ Gtk.main();]]></code>
   </section>
   <section id="buttons">
    <title>Buttons for the tunes</title>
-   <code mime="text/javascript" style="numbered"><![CDATA[
+   <code mime="application/javascript" style="numbered"><![CDATA[
 var guitar_box = new Gtk.ButtonBox ({orientation: Gtk.Orientation.VERTICAL, spacing: 10});
 
 var E = new Gtk.Button({label: "E"});
@@ -99,7 +99,7 @@ guitar_box.show_all();]]></code>
   </section>
   <section id="playSound">
    <title>Making the sounds with GStreamer</title>
-   <code mime="text/javascript" style="numbered"><![CDATA[
+   <code mime="application/javascript" style="numbered"><![CDATA[
 var frequencies = {E: 369.23, A: 440,	D: 587.33,	G: 783.99,	B: 987.77,	e: 1318.5}
 
 function playSound(frequency){
@@ -123,7 +123,7 @@ function playSound(frequency){
   </section>
   <section id="connecting">
    <title>Connecting buttons to playSound</title>
-   <code mime="text/javascript" style="numbered"><![CDATA[
+   <code mime="application/javascript" style="numbered"><![CDATA[
 E.connect("clicked", function() {
   playSound(frequencies.E);
 });
@@ -147,7 +147,7 @@ e.connect("clicked", function(){
   <section id="guitarjs">
     <title>The whole program</title>
     <p>So this is what all the parts combined looks like. When running this code, you should be able to tune your guitar(if you have correctly calibrated speakers).</p>
-      <code mime="text/javascript" style="numbered"><![CDATA[
+      <code mime="application/javascript" style="numbered"><![CDATA[
 #!/usr/bin/gjs
 var Gtk = imports.gi.Gtk;
 var Gst = imports.gi.Gst;

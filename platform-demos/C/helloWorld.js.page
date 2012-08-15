@@ -43,19 +43,19 @@
 
     <section id="script"><title>Script for running the application</title>
       <p>This needs to be the first line of your script:</p>
-      <code mime="text/javascript"><![CDATA[#!/usr/bin/gjs]]></code>
+      <code mime="application/javascript"><![CDATA[#!/usr/bin/gjs]]></code>
       <p>It tells the script to use <link href="https://live.gnome.org/Gjs/">Gjs</link>. Gjs is a JavaScript binding for GNOME.</p>
     </section>
 
 
     <section id="imports"><title>Libraries to import</title>
-      <code mime="text/javascript"><![CDATA[const Lang = imports.lang;
+      <code mime="application/javascript"><![CDATA[const Lang = imports.lang;
 const Gtk = imports.gi.Gtk;]]></code>
       <p>In order for our script to work with GNOME, we need to import GNOME libraries via GObject Introspection. Here we import the language bindings and GTK+, the library which contains the graphical widgets used to make GNOME applications.  </p>
     </section>
 
     <section id="mainwindow"><title>Creating the main window for the application</title>
-      <code mime="text/javascript"><![CDATA[const Application = new Lang.Class({
+      <code mime="application/javascript"><![CDATA[const Application = new Lang.Class({
     //A Class requires an explicit Name parameter. This is the Class Name.
     Name: 'Application',
 
@@ -94,14 +94,14 @@ const Gtk = imports.gi.Gtk;]]></code>
     </section>
 
     <section id="label"><title>Label for the window</title>
-      <code mime="text/javascript"><![CDATA[// Add a label widget to your window
+      <code mime="application/javascript"><![CDATA[// Add a label widget to your window
 this.label = new Gtk.Label({ label: "Hello World" });
 this._window.add(this.label);
 this._window.set_default_size(200, 200);]]></code>
 
       <p>A text label is one of the GTK+ widgets we can use, on account of having imported the GTK+ library. To use it, we create a new variable called label, and assign it a new Gtk.Label. Then we give it properties inside the curly braces {}. In this case, we're setting the text that the label will hold. Finally, we create and run the application:</p>
 
-      <code mime="text/javascript"><![CDATA[//run the application
+      <code mime="application/javascript"><![CDATA[//run the application
 let app = new Application();
 app.application.run(ARGV);]]></code>
 
@@ -111,7 +111,7 @@ app.application.run(ARGV);]]></code>
 
     <section id="js"><title>helloWorld.js</title>
       <p>The complete file:</p>
-      <code mime="text/javascript" style="numbered"><xi:include href="samples/helloWorld.js" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/javascript" style="numbered"><xi:include href="samples/helloWorld.js" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
     <section id="terminal"><title>Running the application from terminal</title>

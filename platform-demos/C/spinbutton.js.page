@@ -27,7 +27,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -39,7 +39,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const SpinButtonExample = new Lang.Class({
     Name: 'SpinButton Example',
 
@@ -65,7 +65,7 @@ const SpinButtonExample = new Lang.Class({
     },
 ]]></code>
     <p>All the code for this sample goes in the SpinButtonExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -81,7 +81,7 @@ const SpinButtonExample = new Lang.Class({
 
   <section id="spinbutton">
     <title>Creating the SpinButtons</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the first spinbutton using a function
         this._kittens = Gtk.SpinButton.new_with_range (1, 9001, 1);
         this._kittens.connect ("value-changed", Lang.bind (this, this._newValue));
@@ -90,7 +90,7 @@ const SpinButtonExample = new Lang.Class({
     <p>We can use the new_with_range function to create a new SpinButton quickly. Its first parameter is the SpinButton's starting value, its second is the maximum value, and its third is how much to increment it when the plus or minus buttons are pressed.</p>
     <p>After we create the first SpinButton, we connect its value-changed signal to a function which handles what happens when the number inside either SpinButton changes.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create an adjustment to use for the second spinbutton
         this._adjustment = new Gtk.Adjustment ({
             value: 1,
@@ -115,7 +115,7 @@ const SpinButtonExample = new Lang.Class({
   <section id="UI">
     <title>Creating the rest of the UI</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the text labels to go with the spinbuttons
         this._startLabel = new Gtk.Label ({ label: "There are " });
         this._kittenLabel = new Gtk.Label ({ label: " kitten(s), and "});
@@ -126,7 +126,7 @@ const SpinButtonExample = new Lang.Class({
 ]]></code>
     <p>We create each <link xref="label.js">Label</link> individually, and then string them together along with the SpinButtons. The last label needs to show the number of cans of tuna per kitten, so it has a variable in the middle, which corresponds to an equation that uses the SpinButtons' get_value functions to find out what they're set at. JavaScript's Math function's floor method is used to round the number of cans of tuna per kitten down to the nearest whole number.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid to put the spinbuttons and their labels in
         this._spinGrid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -153,7 +153,7 @@ const SpinButtonExample = new Lang.Class({
     <p>Here we use <link xref="grid.js">Grid</link> widgets to keep everything organized. One Grid holds the labels and SpinButtons in order, while the next puts that Grid on top and the final Label on the bottom.</p>
     <p>There isn't a wrong way to organize things in Grids, so long as you like how it turns out. In this case, the top Grid has a margin on the bottom to keep it evenly spaced from the bottom Label, and the bottom Label is inside a separate Grid so it will be centered relative to the Labels and SpinButtons on the top.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the main grid to the window
         this._window.add (this._mainGrid);
 
@@ -167,7 +167,7 @@ const SpinButtonExample = new Lang.Class({
     <section id="spinbutton-handler">
     <title>Function which handles the SpinButtons' numerical values being adjusted</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _newValue: function () {
 
         // Update the label which shows how many cans there are per kitten
@@ -180,7 +180,7 @@ const SpinButtonExample = new Lang.Class({
 ]]></code>
     <p>Here we update the perKitten variable based on the SpinButtons' new values, and use the set_label property to refresh what _lastLabel shows. Since both SpinButtons have their value-changed signal connected to this function, every time either of the numbers changes this function will update the Label.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new SpinButtonExample ();
 app.application.run (ARGV);
@@ -190,7 +190,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/spinbutton.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/spinbutton.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

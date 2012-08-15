@@ -24,7 +24,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -36,7 +36,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const StatusbarExample = new Lang.Class({
     Name: 'Statusbar Example',
 
@@ -63,7 +63,7 @@ const StatusbarExample = new Lang.Class({
     },
 ]]></code>
     <p>All the code for this sample goes in the StatusbarExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -84,7 +84,7 @@ const StatusbarExample = new Lang.Class({
 
   <section id="buttons">
     <title>Creating the buttons</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the main button
         this._clickMe = new Gtk.Button ({
             label: "Click Me!" });
@@ -104,7 +104,7 @@ const StatusbarExample = new Lang.Class({
 ]]></code>
     <p>This code creates the three <link href="button.js.page">Gtk.Buttons</link> we'll use to push a new message to the statusbar, pop the last one off, and clear all existing messages. The "back" and "clear" buttons are <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html">stock buttons,</link> which are automatically translated into any language GNOME supports.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Put the buttons in a grid
         this._grid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -125,7 +125,7 @@ const StatusbarExample = new Lang.Class({
 
   <section id="statusbar">
     <title>Creating the statusbar</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the statusbar
         this._statusbar = new Gtk.Statusbar();
 
@@ -144,7 +144,7 @@ const StatusbarExample = new Lang.Class({
     <p>Here we create the Gtk.Statusbar, and push a message to it to start off with. Then we give it its own narrow frame at the bottom of the window.</p>
     <p>Every message needs to have a context id, which is an integer value you can get from the statusbar with the get_context_id() function. Its only parameter is the string value you use to describe that particular context id. Normally, you'll get a new context id for different kinds of messages, so that you can use the remove() function to remove a specific message and not just the most recent one on the stack. This is a simple example with only one kind of message, though, so we're just using one for everything.</p>
     <p>We use the push() function to push a new message onto the stack. Its first parameter is the context id, and its second is the message.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Assemble the frames into the paned interface
         this._panes.pack1 (this._topFrame, true, false);
         this._panes.pack2 (this._barFrame, false, false);
@@ -161,7 +161,7 @@ const StatusbarExample = new Lang.Class({
 
   <section id="functions">
     <title>Functions for interacting with the statusbar</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _clicked: function() {
 
         // Increment the number of clicks by 1
@@ -202,7 +202,7 @@ const StatusbarExample = new Lang.Class({
 });
 ]]></code>
     <p>Here we have functions which demonstrate pushing a message onto the stack, popping the top one off of it, and clearing all messages of a particular context id. The pop() function just takes one parameter, which is the context id for the type of message you want to pop off the most recent one of. The remove_all() function works the same way, except it removes all messages of that type from the stack.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new StatusbarExample ();
 app.application.run (ARGV);
@@ -212,7 +212,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/statusbar.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/statusbar.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

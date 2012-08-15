@@ -34,7 +34,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gtk = imports.gi.Gtk;
@@ -45,7 +45,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const TextViewExample = new Lang.Class ({
     Name: 'TextView Example',
 
@@ -70,7 +70,7 @@ const TextViewExample = new Lang.Class ({
     },
 ]]></code>
     <p>All the code for this sample goes in the TextViewExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function () {
 
@@ -88,7 +88,7 @@ const TextViewExample = new Lang.Class ({
 
   <section id="textview">
     <title>Creating the TextView</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a label for the penguin to talk to you
         this._penguin = new Gtk.Label ({
             height_request: 180,
@@ -99,7 +99,7 @@ const TextViewExample = new Lang.Class ({
 
     <p>Our first step in this example is to create the <link xref="label.js">Label</link> that the penguin will use to talk to you. We set the text in it to wrap by setting its wrap property to true, but we'll use a different method on the TextView itself that allows for more fine-grained control.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a textview for you to talk to the penguin
         this.buffer = new Gtk.TextBuffer();
         this._textView = new Gtk.TextView ({
@@ -111,7 +111,7 @@ const TextViewExample = new Lang.Class ({
     <p>Our first step is to create a TextBuffer to put the words into. After that we create the TextView, and tell it to use the TextBuffer we created as its buffer. We also set it to be editable, since we want to be able to type new things in.</p>
     <p>The wrap_mode property lets you select from four different <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html">WrapModes.</link> Gtk.WrapMode.CHAR, for instance, starts wrapping around in the middle of a word if you keep typing when it gets to the edge. Most people are probably used to Gtk.WrapMode.WORD, which will automatically put the word you're typing on the next line if it gets to be too long.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a "scrolled window" to put your textview in so it will scroll
         this._scrolled = new Gtk.ScrolledWindow ({
             hscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
@@ -129,7 +129,7 @@ const TextViewExample = new Lang.Class ({
     <section id="ui">
     <title>Creating the rest of the user interface</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid to organize them in
         this._grid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -141,7 +141,7 @@ const TextViewExample = new Lang.Class ({
 ]]></code>
     <p>The first <link xref="grid.js">Grid</link> we create only has the Label and the ScrolledWindow inside it.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a button to send your message to the penguin
         this._send = new Gtk.Button ({
             halign: Gtk.Align.END,
@@ -160,7 +160,7 @@ const TextViewExample = new Lang.Class ({
 ]]></code>
     <p>We create a <link xref="button.js">Button</link> to send your message to the penguin, and a new Grid that has the other one on top and the Button on the bottom. The Button has a margin on top, so that it isn't squished up against the ScrolledWindow.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Attach the main grid to the window
         this._window.add (this._mainGrid);
 
@@ -175,7 +175,7 @@ const TextViewExample = new Lang.Class ({
 
   <section id="function">
     <title>Function which handles the penguin's response</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _chat: function () {
 
         // Create a random number to determine what the penguin says
@@ -229,7 +229,7 @@ const TextViewExample = new Lang.Class ({
     <p>Here we use some basic JavaScript functions to have the penguins say something random. Penguins like fish, though, so if you mention fish we want the penguin to respond to that. To do that, we use the JavaScript String object's match method on <file>this.buffer.text</file>, which returns the contents of our TextBuffer.</p>
     <p>Since we want to clear out the TextBuffer after each time you click Send, we set <file>this.buffer.text</file> to contain an empty string afterwards. Then we return focus to our TextView, so that you can keep typing without having to click on it beforehand.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new TextViewExample ();
 app.application.run (ARGV);
@@ -239,7 +239,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/textview.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/textview.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

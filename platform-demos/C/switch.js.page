@@ -31,7 +31,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gio = imports.gi.Gio;
@@ -43,7 +43,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const SwitchExample = new Lang.Class({
     Name: 'Switch Example',
 
@@ -72,7 +72,7 @@ const SwitchExample = new Lang.Class({
 ]]></code>
     <p>All the code for this sample goes in the SwitchExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
     <note><p>Before we call _buildUI to create the window and the widgets inside it, we need to call _initMenus, which tells GNOME to create the menu. We can put the actual code for _initMenus after the code for _buildUI, since it doesn't matter what order we put them in so long as _initMenus is called first in _onStartup.</p></note>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function() {
 
@@ -88,14 +88,14 @@ const SwitchExample = new Lang.Class({
 
   <section id="button">
     <title>Creating the switches</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the image widget and set its default picture
         this._image = new Gtk.Image ({file: "redfox.png"});
 ]]></code>
 
     <p>We first create the <link xref="image.js">Image</link> that the switches will control. Remember that a file named <file>redfox.png</file> needs to be in the same directory as this application.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a label for the first switch
         this._flyLabel = new Gtk.Label ({
             label: "Make it fly",
@@ -118,7 +118,7 @@ const SwitchExample = new Lang.Class({
     <p>We use a <link xref="label.js">Label</link> to mark each Switch, and give them a bit of a margin on the right so that they aren't crammed right next to the Switches. After that we create the Switches, and set them to be switched off by default.</p>
     <p>The signal a switch sends out when it's flipped on or off is called notify::active. After we create each switch, we connect its notify::active signal to a function called _switchFlip. If you have multiple switches that each do something different, you might want to connect them to different functions, but here they're both used for the same thing: To control what picture's displayed by _image.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create a grid for the labels and switches beneath the picture
         this._UIGrid = new Gtk.Grid ({
             halign: Gtk.Align.CENTER,
@@ -141,7 +141,7 @@ const SwitchExample = new Lang.Class({
         this._mainGrid.attach (this._UIGrid, 0, 1, 1, 1);
 ]]></code>
     <p>We create a <link xref="grid.js">Grid</link> for the Labels and Switches first, so that we can organize them in a 2x2 layout with a margin between it and the Image. Then we put that Grid into a larger 2x1 Grid that has the Image on top, and the Grid with the Labels and Switches on the bottom.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the master grid to the window
         this._window.add (this._mainGrid);
 
@@ -155,7 +155,7 @@ const SwitchExample = new Lang.Class({
     <section id="switch-handler">
     <title>Function which handles the switches being flipped</title>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _switchFlip: function() {
 
         // Change the picture depending on which switches are flipped
@@ -181,7 +181,7 @@ const SwitchExample = new Lang.Class({
 
 <section id="about">
     <title>Creating the AboutDialog</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _initMenus: function() {
 
         // Build the application's menu so we can have an "About" button
@@ -209,7 +209,7 @@ const SwitchExample = new Lang.Class({
 ]]></code>
     <p>The first step is building the <link xref="gmenu.js">GMenu</link> that the "About" button goes into. This is the menu that appears when you click the application's name in the upper-left corner of the screen, next to the Activities menu. Our menu only has two options in it: About, and Quit.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _showAbout: function () {
 
         // String arrays of the names of the people involved in the project
@@ -245,7 +245,7 @@ const SwitchExample = new Lang.Class({
 ]]></code>
     <p>An <link xref="aboutdialog.js">AboutDialog</link> has a lot of different things you can set, to credit everyone who worked on the application and leave a note to whomever reads it. In this case, the copyright section contains our note and credits the original photographers, while the artists section shows you a list of the photographers with links to the original photos when you click the Credits button. The web URLs put after their names in the array turn their names into clickable links in the Credits section.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new SwitchExample ();
 app.application.run (ARGV);
@@ -255,7 +255,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/switch.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/switch.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">

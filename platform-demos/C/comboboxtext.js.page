@@ -26,7 +26,7 @@
 
   <section id="imports">
     <title>Libraries to import</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 #!/usr/bin/gjs
 
 const Gtk = imports.gi.Gtk;
@@ -37,7 +37,7 @@ const Lang = imports.lang;
 
   <section id="applicationwindow">
     <title>Creating the application window</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 const ComboBoxTextExample = new Lang.Class ({
     Name: 'ComboBoxText Example',
 
@@ -62,7 +62,7 @@ const ComboBoxTextExample = new Lang.Class ({
     },
 ]]></code>
     <p>All the code for this sample goes in the MessageDialogExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     // Build the application's UI
     _buildUI: function () {
 
@@ -79,7 +79,7 @@ const ComboBoxTextExample = new Lang.Class ({
 
   <section id="comboboxtext">
     <title>Creating the ComboBoxText</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Create the combobox
         this._comboBoxText = new Gtk.ComboBoxText();
 
@@ -96,7 +96,7 @@ const ComboBoxTextExample = new Lang.Class ({
     <p>After we populate the ComboBoxText, we set its first entry to be active, so that we'll see the "Select distribution" line before we click on it. Then we connect its <file>changed</file> signal to the _onComboChanged function, so that it's called whenever you make a new selection from the drop-down menu.</p>
     <note><p>If you'd like to add an entry to a ComboBoxText, you can use the <file>insert_text</file> method. And if you'd rather use a text string as an ID for each entry than rely on numbers alone, you can use the <file>append</file> and <file>insert</file> methods. See the links at the bottom of this tutorial for the details of how to use them.</p></note>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Add the combobox to the window
         this._window.add (this._comboBoxText);
 
@@ -109,7 +109,7 @@ const ComboBoxTextExample = new Lang.Class ({
 
   <section id="function">
     <title>Function which handles your selection</title>
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _onComboChanged: function () {
 
         // The responses we'll use for our messagedialog
@@ -120,7 +120,7 @@ const ComboBoxTextExample = new Lang.Class ({
 ]]></code>
     <p>We're going to create a pop-up <link xref="messagedialog.js">MessageDialog,</link> which shows you a message based on which distro you select. First, we create the array of responses to use. Since the first string in our ComboBoxText is just the "Select distribution" message, we make the first string in our array blank.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
         // Which combobox item is active?
         let activeItem = this._comboBoxText.get_active();
 
@@ -146,7 +146,7 @@ const ComboBoxTextExample = new Lang.Class ({
     <note><p>Other methods you can use include <file>get_active_id,</file> which returns the text ID assigned by <file>append,</file> and <file>get_active_text,</file> which returns the full text of the string you selected.</p></note>
     <p>After we create the MessageDialog, we connect its response signal to the _onDialogResponse function, then tell it to show itself.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
     _onDialogResponse: function () {
 
         this._popUp.destroy ();
@@ -157,7 +157,7 @@ const ComboBoxTextExample = new Lang.Class ({
 ]]></code>
     <p>Since the only button the MessageDialog has is an OK button, we don't need to test its response_id to see which button was clicked. All we do here is destroy the popup.</p>
 
-    <code mime="text/javascript"><![CDATA[
+    <code mime="application/javascript"><![CDATA[
 // Run the application
 let app = new ComboBoxTextExample ();
 app.application.run (ARGV);
@@ -167,7 +167,7 @@ app.application.run (ARGV);
 
   <section id="complete">
     <title>Complete code sample</title>
-<code mime="text/javascript" style="numbered"><xi:include href="samples/comboboxtext.js" parse="text"><xi:fallback/></xi:include></code>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/comboboxtext.js" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
   <section id="in-depth">
