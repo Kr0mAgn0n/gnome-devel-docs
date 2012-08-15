@@ -66,6 +66,8 @@ demo_sources = \
         samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
+	samples/hellognome.html			\
+	samples/hellognome.js			\
 	samples/helloWorld.js			\
 	samples/helloWorld/autogen.sh		\
 	samples/helloWorld/configure.ac		\
@@ -287,6 +289,7 @@ DOC_PAGES =				\
 	guitar-tuner.js.page		\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
+	hellognome.js.page		\
 	helloWorld.js.page		\
 	image.c.page			\
 	image.py.page			\
