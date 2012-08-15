@@ -57,7 +57,7 @@
     </item>
     <item>
     <p>Click <gui>Apply</gui> and the project will be created for you. From the <gui>Project</gui> or <gui>Files</gui> tab, open <file>src/guitar_tuner.vala</file> by double-clicking on it. You should see some code which starts with the lines:</p>
-    <code mime="text/x-csharpsrc"><![CDATA[
+    <code mime="text/x-csharp"><![CDATA[
 using GLib;
 using Gtk;]]></code>
     </item>
@@ -136,9 +136,9 @@ using Gtk;]]></code>
   <p>In this example we will use a tone generator source called <code>audiotestsrc</code> and send the output to the default system sound device, <code>autoaudiosink</code>. We only need to configure the frequency of the tone generator; this is accessible through the <code>freq</code> property of <code>audiotestsrc</code>.</p>
 
   <p>We need to add a line to initialize GStreamer; put the following code on the line above the <code>Gtk.init</code> call in the <code>main</code> function:</p>
-  <code mime="text/x-csharpsrc"><![CDATA[Gst.init (ref args);]]></code>
+  <code mime="text/x-csharp"><![CDATA[Gst.init (ref args);]]></code>
   <p>Then, copy the following function into <file>guitar_tuner.vala</file> inside our <code>Main</code> class:</p>
-  <code mime="text/x-csharpsrc"><![CDATA[
+  <code mime="text/x-csharp"><![CDATA[
 Gst.Element sink;
 Gst.Element source;
 Gst.Pipeline pipeline;
@@ -198,7 +198,7 @@ private void play_sound(double frequency)
   <p>In the UI designer, you made it so that all of the buttons will call the same function, <gui>on_button_clicked</gui>, when they are clicked. Actually we type <gui>main_on_button_clicked</gui> which tells the UI designer that this method is part of our <code>Main</code>. We need to add that function in the source file.</p>
   <p>To do this, in the user interface file (guitar_tuner.ui) select one of the buttons by clicking on it, then open <file>guitar_tuner.vala</file> (by clicking on the tab in the center). Switch to the <gui>Signals</gui> tab on the right, which you used to set the signal name. Now take the row where you set the
 <gui>clicked</gui> signal and drag and drop it into to the source file at the beginning of the class. The following code will be added to your source file:</p>
-<code mime="text/x-csharpsrc"><![CDATA[
+<code mime="text/x-csharp"><![CDATA[
 public void on_button_clicked (Gtk.Button sender) {
 
 }]]></code>
@@ -212,7 +212,7 @@ public void on_button_clicked (Gtk.Button sender) {
 <section id="handler">
   <title>Define the signal handler</title>
   <p>We want to play the correct sound when the user clicks a button. For this, we flesh out the signal handler which we defined above, <code>on_button_clicked</code>. We could have connected every button to a different signal handler, but that would lead to a lot of code duplication. Instead, we can use the label of the button to figure out which button was clicked:</p>
-  <code mime="text/x-csharpsrc"><![CDATA[
+  <code mime="text/x-csharp"><![CDATA[
 public void on_button_clicked (Gtk.Button sender) {
 	var label = sender.get_child () as Gtk.Label;
 	switch (label.get_label()) {

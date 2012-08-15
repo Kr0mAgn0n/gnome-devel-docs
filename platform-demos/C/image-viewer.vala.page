@@ -69,7 +69,7 @@
       <p>Click <gui>Continue</gui> then <gui>Apply</gui> and the project will be created for you.
       Open <file>src/image_viewer.vala</file> from the <gui>Project</gui> or <gui>File</gui> tabs.
       You will see this code:</p>
-      <code mime="text/x-csharpsrc"><![CDATA[
+      <code mime="text/x-csharp"><![CDATA[
 using GLib;
 using Gtk;
 
@@ -136,13 +136,13 @@ public class Main : Object
   Here we will use the simplest available container, a <link href="http://unstable.valadoc.org/gtk+-2.0/Gtk.Box.html"><code>Gtk.Box</code></link>.</p>
 
 <p>Add the following lines to the top of the <code>Main</code> class:</p>
-  <code mime="text/x-csharpsrc"><![CDATA[
+  <code mime="text/x-csharp"><![CDATA[
 private Window window;
 private Image image;
 ]]></code>
 
 <p>Now replace the current constructor with the one below:</p>
-<code mime="text/x-csharpsrc"><![CDATA[
+<code mime="text/x-csharp"><![CDATA[
 
 public Main () {
 
@@ -205,7 +205,7 @@ public Main () {
   <p>We will now define the signal handler for the <code>clicked</code> signal for the
 button we mentioned before.
   Add this code after the constructor:</p>
-  <code mime="text/x-csharpsrc"><![CDATA[
+  <code mime="text/x-csharp"><![CDATA[
 public void on_open_image (Button self) {
 	var filter = new FileFilter ();
 	var dialog = new FileChooserDialog ("Open image",
@@ -235,12 +235,12 @@ public void on_open_image (Button self) {
       <p>The first argument of the callback method is always the widget that sent the signal.
       Sometimes other arguments related to the signal come after that, but <em>clicked</em> doesn't have any.</p>
       <p>In this case the <code>button</code> sent the <code>clicked</code> signal, which is connected to the <code>on_open_image</code> callback method:</p>
-<code mime="text/x-csharpsrc"><![CDATA[
+<code mime="text/x-csharp"><![CDATA[
         button.clicked.connect (on_open_image);
 ]]></code>
 
   <p>The <code>on_open_image</code> method takes the button that emitted the signal as an argument:   </p>
- <code mime="text/x-csharpsrc"><![CDATA[
+ <code mime="text/x-csharp"><![CDATA[
         public void on_open_image (Button self)
 ]]></code>
     </item>
