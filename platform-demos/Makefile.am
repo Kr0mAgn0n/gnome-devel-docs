@@ -42,6 +42,7 @@ demo_sources = \
 	samples/colorbutton.py			\
 	samples/colorbutton.vala		\
 	samples/comboboxtext.js			\
+	samples/combobox.js			\
 	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/combobox_multicolumn.py		\
@@ -280,6 +281,7 @@ DOC_PAGES =				\
 	colorbutton.py.page		\
 	colorbutton.vala.page		\
 	comboboxtext.js.page		\
+	combobox.js.page		\
 	combobox.py.page		\
 	combobox.vala.page		\
 	combobox_multicolumn.py.page	\
