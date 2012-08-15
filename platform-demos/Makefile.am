@@ -35,6 +35,7 @@ demo_sources = \
 	samples/button.js			\
 	samples/button.py			\
 	samples/button.vala			\
+	samples/buttonbox.py			\
 	samples/checkbutton.c			\
 	samples/checkbutton.js			\
 	samples/checkbutton.py			\
@@ -183,6 +184,7 @@ DOC_FIGURES = \
 	media/03_jssignal_04.png		\
 	media/aboutdialog_GMenu.png		\
 	media/button.png			\
+	media/buttonbox_calculator.png		\
 	media/checkbutton.png			\
 	media/colorbutton.png			\
 	media/combobox.png			\
@@ -276,6 +278,7 @@ DOC_PAGES =				\
 	button.js.page			\
 	button.py.page			\
 	button.vala.page		\
+	buttonbox.py.page		\
 	c.page				\
 	checkbutton.c.page		\
 	checkbutton.js.page		\
