@@ -21,7 +21,7 @@
   <title>ButtonBox</title>
 
   <media type="image" mime="image/png" src="media/buttonbox_calculator.png"/>
-  <p>Some labels in a grid.</p>
+  <p>A calculator - the buttons are enclosed in horizontal ButtonBoxes.</p>
 
   <links type="section" />
 
@@ -30,13 +30,25 @@
     <code mime="text/python" style="numbered"><xi:include href="samples/buttonbox.py" parse="text"><xi:fallback/></xi:include></code>
   </section>
 
+  <section id="methods">
+    <title>Uselful methods for a ButtonBox widget</title>
+    <list>
+      <item><p>The layout of the ButtonBox are set with <code>set_layout(layout)</code>, where <code>layout</code> can be <code>Gtk.ButtonBoxStyle.SPREAD</code> (buttons are evenly spread across the box), <code>Gtk.ButtonBoxStyle.EDGE</code> (buttons are placed at the edges of the box), <code>Gtk.ButtonBoxStyle.START</code> (buttons are grouped towards the start of the box), <code>Gtk.ButtonBoxStyle.END</code> (buttons are grouped towards the end of the box), <code>Gtk.ButtonBoxStyle.CENTER</code> (buttons are centered in the box).</p></item>
+      <item><p><code>set_child_secondary(button, is_secondary)</code> sets whether <code>button</code> should appear in a secondary group of children. A typical use of a secondary child is the help button in a dialog. This group appears after the other children if the style is <code>START</code>, <code>SPREAD</code> or <code>EDGE</code>, and before the other children if the style is <code>END</code>. If the style is <code>START</code> or <code>END</code>, then the secondary children are aligned at the other end of the button box from the main children. For the other styles, they appear immediately next to the main children.</p></item>
+      <item><p><code>set_child_non_homogeneous(button, is_non_homogeneous)</code> sets whether the child is exempted from homogeous sizing. Default value is <code>False</code>.</p></item>
+      <item><p><code>set_spacing(spacing)</code> sets the spacing, in pixels, between the buttons of the box.</p></item>
+    </list>
+  </section>
+
   <section id="references">
     <title>API References</title>
     <p>In this sample we used the following:</p>
     <list>
       <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkButtonBox.html">GtkButtonBox</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkBox.html">GtkBox</link></p></item>
       <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkButton.html">GtkButton</link></p></item>
       <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkEntry.html">GtkEntry</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkGrid.html">GtkGrid</link></p></item>
     </list>
   </section>
 </page>
