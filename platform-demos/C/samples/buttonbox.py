@@ -43,7 +43,7 @@ class MyWindow(Gtk.ApplicationWindow):
             
         # some variables for the calculations
         self.first_number = 0
-        self.result = 0
+        self.second_number = 0
         self.counter = 0
         self.operation = ""
 
@@ -52,21 +52,43 @@ class MyWindow(Gtk.ApplicationWindow):
 
     # callback function for all the buttons
     def button_clicked(self, button):
-        # functions for the operations
-        if button.get_label() == '+':            
-            self.plus_callback(button)
+        # for the operations
+        if button.get_label() == '+':
+            self.counter += 1 
+            if self.counter > 1:
+                self.do_operation()
+            self.entry.set_text('0')
+            self.operation = "plus"
         elif button.get_label() == '-':
-            self.minus_callback(button)
+            self.counter += 1 
+            if self.counter > 1:
+                self.do_operation()
+            self.entry.set_text('0')
+            self.operation = "minus"
         elif button.get_label() == '*':
-            self.multi_callback(button)
+            self.counter += 1 
+            if self.counter > 1:
+                self.do_operation()
+            self.entry.set_text('0')
+            self.operation = "multiplication"
         elif button.get_label() == '/':
-            self.divided_callback(button)
+            self.counter += 1 
+            if self.counter > 1:
+                self.do_operation()
+            self.entry.set_text('0')
+            self.operation = "division"
         # for =
         elif button.get_label() == '=':
-            self.equal_callback(button)
+            self.do_operation()
+            self.entry.set_text(str(self.first_number))
+            self.counter = 1
         # for Cancel
         elif button.get_label() == 'C':
-            self.cancel_callback(button)
+            self.first_number = 0
+            self.second_number = 0
+            self.counter = 0
+            self.entry.set_text('')
+            self.operation = ""
         # for a digit button
         else:
             new_digit = int(button.get_label())
@@ -74,95 +96,36 @@ class MyWindow(Gtk.ApplicationWindow):
                 number = 0
             else:
                 number = int(self.entry.get_text())
-            number = number * 10 + new_digit
+            number = number * 10 + new_digit            
+            if self.counter == 0:
+                self.first_number = number
+            else:
+                self.second_number = number
             self.entry.set_text(str(number))
 
-    # to calculate +
-    def plus_callback(self, button):
-        self.counter += 1
-        if self.counter == 1:
-            self.first_number = int(self.entry.get_text())
-        else:
-            self.second_number = int(self.entry.get_text())
-            self.first_number = self.first_number + self.second_number
-        self.entry.set_text('0')
-        self.operation = "plus"
-        
-    # to calculate -
-    def minus_callback(self, button):
-        self.counter += 1
-        if self.counter == 1:
-            self.first_number = int(self.entry.get_text())
-        else:
-            self.second_number = int(self.entry.get_text())
-            self.first_number = self.first_number - self.second_number
-        self.entry.set_text('0')
-        self.operation = "minus"
-
-    # to calculate *
-    def multi_callback(self, button):
-        self.counter += 1
-        if self.counter == 1:
-            self.first_number = int(self.entry.get_text())
-        else:
-            self.second_number = int(self.entry.get_text())
-            self.first_number = self.first_number * self.second_number
-        self.entry.set_text('0')
-        self.operation = "multiplication"
-
-    # to calculate /
-    def divided_callback(self, button):
-        self.counter += 1
-        if self.counter == 1:
-            self.first_number = int(self.entry.get_text())
-        else:
-            self.second_number = int(self.entry.get_text())
-            try:
-                self.first_number = self.first_number / self.second_number
-            except ZeroDivisionError:
-                self.cancel_callback(button)
-                self.entry.set_text("error")
-                self.first_number = 0
-                self.second_number = 0
-                self.counter = 0
-                return
-        self.entry.set_text('0')
-        self.operation = "division"
-
-    # to return a result (=)
-    def equal_callback(self, button):
-        self.second_number =  int(self.entry.get_text())
+    def do_operation(self):
         if self.operation == "plus":
-            self.result = self.first_number + self.second_number
+            self.first_number += self.second_number
         elif self.operation == "minus":
-            self.result = self.first_number - self.second_number
+            self.first_number -= self.second_number
         elif self.operation == "multiplication":
-            self.result = self.first_number * self.second_number
+            self.first_number *= self.second_number
         elif self.operation == "division":
             try:
-                self.result = self.first_number / self.second_number
+                self.first_number /= self.second_number
             except ZeroDivisionError:
-                self.cancel_callback(button)
-                self.entry.set_text("error")
                 self.first_number = 0
                 self.second_number = 0
                 self.counter = 0
+                self.entry.set_text('error')
+                self.operation = ""
                 return
         else:
-            self.result = 0
-        self.first_number = self.result
-        self.second_number = 0
-        self.counter = 0
-        self.entry.set_text(str(self.result))
-
-    # to cancel the operation
-    def cancel_callback(self, button):
-        self.first_number = 0
-        self.second_number = 0
-        self.result = 0
-        self.counter = 0
-        self.entry.set_text('0')
-    
+            self.first_number = 0
+            self.second_number = 0
+            self.counter = 0
+            self.entry.set_text('error')
+            
 class MyApplication(Gtk.Application):
     def __init__(self):
         Gtk.Application.__init__(self)
