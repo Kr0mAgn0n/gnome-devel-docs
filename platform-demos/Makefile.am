@@ -96,6 +96,7 @@ demo_sources = \
 	samples/linkbutton.py			\
 	samples/linkbutton.vala			\
 	samples/menubutton.js			\
+	samples/menubutton.py			\
 	samples/menubutton.vala			\
 	samples/menubar.py			\
 	samples/menubar.ui			\
@@ -348,6 +349,7 @@ DOC_PAGES =				\
 	menubar.py.page		\
 	menubar.vala.page		\
 	menubutton.js.page		\
+	menubutton.py.page		\
 	menubutton.vala.page		\
 	message-board.c.page		\
 	messagedialog.c.page		\
