@@ -124,6 +124,7 @@ demo_sources =	\
 	samples/scale.js			\
 	samples/scale.py			\
 	samples/scale.vala			\
+	samples/scrolledwindow.c		\
 	samples/scrolledwindow.py		\
 	samples/scrolledwindow.vala		\
 	samples/separator.py			\
@@ -378,6 +379,7 @@ HELP_FILES =				\
 	scale.js.page			\
 	scale.py.page			\
 	scale.vala.page			\
+	scrolledwindow.c.page		\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
