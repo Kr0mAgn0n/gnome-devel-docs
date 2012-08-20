@@ -156,6 +156,7 @@ demo_sources = \
 	samples/toolbar_builder.py		\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
+	samples/tooltip.py		\
 	samples/treeview_advanced_liststore.py	\
 	samples/treeview_cellrenderertoggle.py	\
 	samples/treeview_simple_liststore.js	\
@@ -252,6 +253,7 @@ DOC_FIGURES = \
 	media/textviewpenguinchat.png		\
 	media/togglebutton.png			\
 	media/toolbar.png			\
+	media/tooltip.png			\
 	media/treeview_advanced_liststore.png	\
 	media/treeview_cellrenderertoggle.png	\
 	media/treeview_simple_liststore.png	\
@@ -351,6 +353,7 @@ DOC_PAGES =				\
 	menubutton.js.page		\
 	menubutton.py.page		\
 	menubutton.vala.page		\
+	menubutton.py.page		\
 	message-board.c.page		\
 	messagedialog.c.page		\
 	messagedialog.js.page		\
@@ -409,6 +412,7 @@ DOC_PAGES =				\
 	toolbar.vala.page		\
 	toolbar_builder.py.page	\
 	toolbar_builder.vala.page	\
+	tooltip.py.page	\
 	treeview_advanced_liststore.py.page	\
 	treeview_cellrenderertoggle.py.page	\
 	treeview_simple_liststore.js.page	\
