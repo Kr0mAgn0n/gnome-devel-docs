@@ -151,6 +151,7 @@ demo_sources =	\
 	samples/togglebutton.js			\
 	samples/togglebutton.py			\
 	samples/togglebutton.vala		\
+	samples/toolbar.c			\
 	samples/toolbar.js			\
 	samples/toolbar.py			\
 	samples/toolbar.vala			\
@@ -407,6 +408,7 @@ HELP_FILES =				\
 	togglebutton.js.page		\
 	togglebutton.py.page		\
 	togglebutton.vala.page		\
+	toolbar.c.page			\
 	toolbar.js.page			\
 	toolbar.py.page			\
 	toolbar.vala.page		\
