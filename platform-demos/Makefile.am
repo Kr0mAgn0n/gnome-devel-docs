@@ -124,7 +124,7 @@ demo_sources = \
 	samples/scale.py			\
 	samples/scale.vala			\
 	samples/scrolledwindow.py		\
-	samples/scrolledwindow.py		\
+	samples/scrolledwindow.vala		\
 	samples/separator.py			\
 	samples/spinbutton.c			\
 	samples/spinbutton.js			\
