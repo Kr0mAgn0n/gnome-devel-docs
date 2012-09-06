@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-09-03 10:20+0000\n"
-"PO-Revision-Date: 2012-09-04 10:54+0200\n"
+"POT-Creation-Date: 2012-09-04 09:10+0000\n"
+"PO-Revision-Date: 2012-09-06 10:31+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -1857,6 +1857,9 @@ msgid ""
 "TreeView. The title for each one goes at the top, as you can see in the "
 "screenshot."
 msgstr ""
+"Ahora se crean todas las TreeViewColumns verticales que se verán en el "
+"TreeView. El título de cada una va en la parte superior, como puede ver en "
+"la captura de pantalla."
 
 #: C/treeview_simple_liststore.js.page:177(p)
 msgid ""
@@ -1869,6 +1872,14 @@ msgid ""
 "<file>pack_start</file> method tells it to expand the cells when possible, "
 "instead of keeping them compact."
 msgstr ""
+"Aquí se crean los CellRenderer que se usarán para mostrar el texto del "
+"ListStore, y se empaquetan en las TreeViewColumn. Cada CellRendererText se "
+"usa para todas las entradas en esa columna. El CellRendererText normal sólo "
+"crea texto plano, mientras que el «bold» usa texto en negrita. Se pone en la "
+"primera columna de nombre, y se le dice a las otras dos que usen copias de "
+"la normal. El «true» usado como segundo parámetro para el método "
+"<file>pack_start</file> le dice que expanda las celdas cuando sea posible, "
+"en lugar de mantenerlas compactas."
 
 #: C/treeview_simple_liststore.js.page:178(p)
 msgid ""
@@ -1877,6 +1888,10 @@ msgid ""
 "Pango constants, make sure to put the line <file>const Pango = imports.gi."
 "Pango;</file> at the beginning of your code like we did."
 msgstr ""
+"<link href=\"http://www.pygtk.org/docs/pygtk/pango-constants.html\">Aquí hay "
+"una lista</link> de otras propiedades de texto que puede usar. Para usar "
+"estas constantes de Pango, asegúrese de poner la línea <file>const Pango = "
+"imports.gi.Pango;</file> al principio del código como se hizo."
 
 #: C/treeview_simple_liststore.js.page:190(p)
 msgid ""
@@ -1885,24 +1900,34 @@ msgid ""
 "the model our TreeView is set to use; in this case, the ListStore with the "
 "phonebook."
 msgstr ""
+"Ahora que se han puesto los CellRenderer en las TreeViewColumn, se usa el "
+"método <file>add_attribute</file> para decirle a cada columna que obtenga "
+"texto del modelo que el TreeView está configurado para usar; en este caso, "
+"el ListStore con la libreta de direcciones."
 
 #: C/treeview_simple_liststore.js.page:192(p)
 msgid ""
 "The first parameter is which CellRenderer we're going to use to render what "
 "we're pulling in."
 msgstr ""
+"El primer parámetro es qué CellRenderer se usará para procesar lo que se "
+"está obteniendo."
 
 #: C/treeview_simple_liststore.js.page:193(p)
 msgid ""
 "The second parameter is what kind of information we're going to pull in. In "
 "this case, we're letting it know that we're rendering text."
 msgstr ""
+"El segundo parámetro es qué tipo de información se obtendrá. En este caso, "
+"se le está haciendo saber que se procesa texto."
 
 #: C/treeview_simple_liststore.js.page:194(p)
 msgid ""
 "The third parameter is which of the ListStore's columns we're pulling that "
 "information in from."
 msgstr ""
+"El tercer parámetro es de cuál de las columnas del ListStore se está "
+"obteniendo la información."
 
 #: C/treeview_simple_liststore.js.page:196(p)
 msgid ""
@@ -1910,6 +1935,9 @@ msgid ""
 "method to put our TreeViewColumns inside it in order. Our TreeView is now "
 "complete."
 msgstr ""
+"Después de haber preparado eso, se usa el método <file>insert_column</file> "
+"del TreeView para poner las TreeViewColumn adentro suyo en orden. El "
+"TreeView ahora está terminado."
 
 #: C/treeview_simple_liststore.js.page:197(p)
 msgid ""
@@ -1917,6 +1945,8 @@ msgid ""
 "this example we're spelling things out step by step for the sake of making "
 "it easier to understand."
 msgstr ""
+"Normalmente, usaría un bucle para inicializar su TreeView, pero en este "
+"ejemplo se hacen las cosas paso a paso para hacerlo más fácil de entender."
 
 #: C/treeview_simple_liststore.js.page:201(title)
 msgid "Building the rest of the UI"
@@ -1929,6 +1959,10 @@ msgid ""
 "cursor that points at a particular row, except that the one it points to is "
 "the one that's visibly highlighted as selected."
 msgstr ""
+"El método <file>get_selection</file> del TreeView devuelve un objeto llamado "
+"TreeSelection. Una TreeSelection es como un TreeIter en el sentido de que es "
+"básicamente un cursor que apunta a una fila particular, excepto que apunta a "
+"la que está resaltada visiblemente como seleccionada."
 
 #: C/treeview_simple_liststore.js.page:213(p)
 msgid ""
@@ -1937,6 +1971,11 @@ msgid ""
 "its <file>changed</file> signal to the _onSelectionChanged function we "
 "wrote. This function changes the text displayed by the Label we just made."
 msgstr ""
+"Después de obtener la TreeSelection que va con el TreeView, le pedimos que "
+"nos diga cuándo cambia la fila a la que está apuntando. Esto se hace "
+"conectando la señal <file>changed</file> a la función «_onSelectionChanged» "
+"que se escribió. Esta función cambia el texto que muestra la etiqueta que se "
+"acaba de hacer."
 
 #: C/treeview_simple_liststore.js.page:230(p)
 msgid ""
@@ -1944,6 +1983,9 @@ msgid ""
 "\">Grid</link> to put everything in, then add it to our window and tell the "
 "window to show itself and its contents."
 msgstr ""
+"Después de haber terminado eso, se crea una <link xref=\"grid.js\">Rejilla</"
+"link> para poner todo dentro, se añade a la ventana y se le dice a esta que "
+"se muestre y revele su contenido."
 
 #: C/treeview_simple_liststore.js.page:234(title)
 msgid "Function which handles a changed selection"
@@ -1956,6 +1998,10 @@ msgid ""
 "TreeSelection. It has to create a couple of other object references, but "
 "<file>iter</file> is the only one we need."
 msgstr ""
+"La línea de código con la declaración let es un poco compleja, pero sin "
+"embargo es la mejor manera de hacer que un TreeIter apunte a la misma fila "
+"que la TreeSelection. Tiene que crear un par de referencias a otros objetos, "
+"pero <file>iter</file> es la única que se necesita."
 
 #: C/treeview_simple_liststore.js.page:254(p)
 msgid ""
@@ -1964,6 +2010,11 @@ msgid ""
 "to fill in the data we want to put in it. Its parameters are a TreeIter "
 "pointing to the row we want to get data from, and the column."
 msgstr ""
+"Después de haber hecho eso, se llama a la función <file>set_label</file> de "
+"la etiqueta, y se usa la función <file>get_value</file> del ListStore "
+"algunas veces para llenar los datos que queremos poner en ella. Sus "
+"parámetros son un TreeIter apuntando a la fila de la que queremos obtener "
+"los datos, y la columna."
 
 #: C/treeview_simple_liststore.js.page:255(p)
 msgid ""
@@ -1972,12 +2023,18 @@ msgid ""
 "strings that are too large to fit in the TreeView, and that we don't need to "
 "see at a glance."
 msgstr ""
+"Aquí, se quieren obtener datos de todas las cuatro columnas, incluyendo la "
+"«escondida» que no es parte del TreeView. De esta manera, se puede usar la "
+"etiqueta para mostrar cadenas que son demasiado largas para entrar en el "
+"TreeView, y que no necesitamos ver de un vistazo."
 
 #: C/treeview_simple_liststore.js.page:262(p)
 msgid ""
 "Finally, we create a new instance of the finished TreeViewExample class, and "
 "set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase TreeViewExample "
+"terminada, y se ejecuta la aplicación."
 
 #: C/treeview_simple_liststore.js.page:266(title)
 #: C/togglebutton.js.page:147(title) C/textview.js.page:242(title)
@@ -2046,6 +2103,8 @@ msgid ""
 "A TreeView displaying a TreeStore (more complex example, with "
 "CellRendererToggle)"
 msgstr ""
+"Un TreeView mostrando un TreeStore (ejemplo más complejo, con "
+"CellRendererToggle)"
 
 #: C/treeview_cellrenderertoggle.py.page:22(p)
 msgid ""
@@ -2075,13 +2134,15 @@ msgstr "Treeview sencillo con ListStore (Python)"
 
 #: C/treeview_advanced_liststore.py.page:20(desc)
 msgid "A TreeView displaying a ListStore (more complex example)"
-msgstr ""
+msgstr "Un TreeView mostrando un ListStore (ejemplo más complejo)"
 
 #: C/treeview_advanced_liststore.py.page:38(p)
 msgid ""
 "For buttons and callbacks functions, see <link xref=\"signals-callbacks.py"
 "\">here</link>"
 msgstr ""
+"Para botones y funciones de devolución de llamada, consulte <link xref="
+"\"signals-callbacks.py\">aquí</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2097,20 +2158,17 @@ msgid "MenuButton"
 msgstr "MenuButton"
 
 #: C/tooltip.py.page:18(desc)
-#, fuzzy
-#| msgid "A separator widget"
 msgid "Add tips to your widgets"
-msgstr "Un widget separador"
+msgstr "Añadir consejos a sus widgets"
 
 #: C/tooltip.py.page:23(p)
 msgid "A toolbar with a tooltip (with an image) for a button."
 msgstr ""
+"Una barra de herramientas con un consejo (con una imagen) para un botón."
 
 #: C/tooltip.py.page:33(title)
-#, fuzzy
-#| msgid "Useful methods for a TextView widget"
 msgid "Useful methods for a Tooltip widget"
-msgstr "Métodos útiles para un widget «TextView»"
+msgstr "Métodos útiles para un widget de consejo"
 
 #: C/tooltip.py.page:34(p)
 msgid ""
@@ -2118,6 +2176,9 @@ msgid ""
 "code> can be used to add a tooltip of plain text (or text in the Pango "
 "Markup Language) to a widget."
 msgstr ""
+"<code>set_tooltip_text(text) y <code>set_tooltip_markup(text)</code> pueden "
+"usarse para añadir un consejo o texto plano (o texto en el lenguaje de "
+"marcado de Pango) a un widget."
 
 #: C/tooltip.py.page:35(p)
 msgid "For more complex tooltips, for instance for a tooltip with an image:"
