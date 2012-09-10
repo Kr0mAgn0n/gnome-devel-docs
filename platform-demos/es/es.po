@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-09-04 09:10+0000\n"
-"PO-Revision-Date: 2012-09-06 10:31+0200\n"
+"POT-Creation-Date: 2012-09-06 08:32+0000\n"
+"PO-Revision-Date: 2012-09-10 10:59+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -2183,6 +2183,7 @@ msgstr ""
 #: C/tooltip.py.page:35(p)
 msgid "For more complex tooltips, for instance for a tooltip with an image:"
 msgstr ""
+"Para consejos más complejos, por ejemplo para un consejo con una imagen:"
 
 #: C/tooltip.py.page:37(p)
 msgid ""
@@ -2190,6 +2191,10 @@ msgid ""
 "code>; this will make GTK+ monitor the widget for motion and related events "
 "which are needed to determine when and where to show a tooltip."
 msgstr ""
+"Establezca la propiedad <code>\"has-tooltip\"</code> del widget a "
+"<code>True</code>; esto hará que GTK+ monitorice el widget en busca de "
+"movimiento y eventos relacionados que se necesitan para determinar cuándo y "
+"dónde mostrar un consejo."
 
 #: C/tooltip.py.page:38(p)
 msgid ""
@@ -2202,12 +2207,22 @@ msgid ""
 "stock icon (<code>set_icon_from_stock(stock_id, size)</code>), or even "
 "putting in a custom widget (<code>set_custom(widget)</code>)."
 msgstr ""
+"Conecte a la señal <code>\"query-tooltip\"</code>. Esta señal se emitirá "
+"cuando se deba mostrar un widget. Uno de los argumentos que se le pasan al "
+"manejador de señales es un objeto GtkTooltip. Este es el objeto que se va a "
+"mostrar como un consejo, y puede manipularse en su retorno de llamada usando "
+"funciones como <code>set_icon()</code>. Hay funciones para establecer el "
+"texto marcado del consejo (<code>set_markup(text)</code>), una imagen desde "
+"un icono del almacén (<code>set_icon_from_stock(stock_id, size)</code>), o "
+"incluso poner un widget personalizado (<code>set_custom(widget)</code>)."
 
 #: C/tooltip.py.page:39(p)
 msgid ""
 "Return <code>True</code> from your query-tooltip handler. This causes the "
 "tooltip to be show. If you return <code>False</code>, it will not be shown."
 msgstr ""
+"Devuelva <code>True</code> de su manejador de «query-tooltip». Esto hace que "
+"el consejo se muestre. Si devuelve <code>False</code>, no se mostrará."
 
 #: C/tooltip.py.page:42(p)
 msgid ""
@@ -2215,18 +2230,25 @@ msgid ""
 "tooltip that is about to be shown, you can set your own GtkWindow which will "
 "be used as tooltip window. This works as follows:"
 msgstr ""
+"En el probablemente raro caso en el que quiera tener aún más control sobre "
+"el consejo que se va a mostrar, puede establecer su propia GtkWindow que se "
+"usará como ventana del consejo. Esto funciona así:"
 
 #: C/tooltip.py.page:44(p)
 msgid ""
 "Set <code>\"has-tooltip\"</code> and connect to <code>\"query-tooltip\"</"
 "code> as before."
 msgstr ""
+"Establezca <code>\"has-tooltip\"</code> y conecte con <code>\"query-tooltip"
+"\"</code> como antes."
 
 #: C/tooltip.py.page:45(p)
 msgid ""
 "Use <code>set_tooltip_window()</code> on the widget to set a GtkWindow "
 "created by you as tooltip window."
 msgstr ""
+"Use <code>set_tooltip_window()</code> en el widget para establecer una "
+"GtkWindow creada como ventana del consejo."
 
 #: C/tooltip.py.page:46(p)
 msgid ""
@@ -2235,6 +2257,11 @@ msgid ""
 "semantics of the return value are exactly as before, return <code>True</"
 "code> to show the window, <code>False</code> to not show it."
 msgstr ""
+"En la devolución de llamada <code>\"query-tooltip\"</code> puede acceder a "
+"su ventana usando <code>get_tooltip_window()</code> y manipularla como "
+"quiera. La semántica del valor de devolución es exactamente la misma que "
+"antes, devuelva <code>True</code> para mostrar el widget o <code>False</"
+"code> para no hacerlo."
 
 #: C/tooltip.py.page:55(link)
 msgid "GtkTooltip"
@@ -2341,12 +2368,16 @@ msgid ""
 "This example is similar to <link xref=\"toolbar.vala\"/>, except we use "
 "Glade to create the toolbar in an XML ui file."
 msgstr ""
+"Este ejemplo es similar a <link xref=\"toolbar.vala\"/>, excepto que se usa "
+"Glade para crear la barra de herramientas en un archivo ui de XML."
 
 #: C/toolbar_builder.vala.page:27(p) C/toolbar_builder.py.page:43(p)
 msgid ""
 "To create the toolbar using the <link href=\"http://glade.gnome.org/\">Glade "
 "Interface Designer</link>:"
 msgstr ""
+"Para crear la barra de herramientas usando el <link href=\"http://glade."
+"gnome.org/\">diseñador de interfaces Glade</link>:"
 
 #: C/toolbar_builder.vala.page:31(p) C/toolbar_builder.py.page:47(p)
 msgid "Open Glade, and save the file as <file>toolbar_builder.ui</file>"
@@ -2361,6 +2392,9 @@ msgid ""
 "Under <gui>Containers</gui> on the left hand side, right click on the "
 "toolbar icon and select <gui>Add widget as toplevel</gui>."
 msgstr ""
+"Bajo <gui>Contenedores</gui> en el lado izquierdo, pulse con el botón "
+"derecho en el icono de la barra de herramientas y seleccione <gui>Añadir "
+"widget como nivel superior</gui>."
 
 #: C/toolbar_builder.vala.page:38(media) C/toolbar_builder.py.page:54(media)
 msgid "Screenshot of toolbar icon in Glade ui"
@@ -2373,6 +2407,9 @@ msgid ""
 "Under the <gui>General</gui> tab on the bottom right, change the <gui>Name</"
 "gui> to <input>toolbar</input> and <gui>Show Arrow</gui> to <gui>No</gui>."
 msgstr ""
+"Bajo la pestaña <gui>General</gui> en la parte inferior derecha, cambie el "
+"<gui>Nombre</gui> a <input>toolbar</input> y <gui>Mostrar flecha</gui> a "
+"<gui>No</gui>."
 
 #: C/toolbar_builder.vala.page:44(media) C/toolbar_builder.py.page:60(media)
 msgid "Screenshot of General tab"
@@ -2383,6 +2420,8 @@ msgid ""
 "Under the <gui>Common</gui> tab, set <gui>Horizontal Expand</gui> to "
 "<gui>Yes</gui>."
 msgstr ""
+"Bajo la pestaña <gui>Comunes</gui>, establezca <gui>Expansión horizontal</"
+"gui> a <gui>Sí</gui>."
 
 #: C/toolbar_builder.vala.page:50(media) C/toolbar_builder.py.page:66(media)
 msgid "Screenshot of Common tab"
@@ -2393,50 +2432,64 @@ msgid ""
 "Right click on the toolbar in the top right and select <gui>Edit</gui>. The "
 "<gui>Tool Bar Editor</gui> window will appear."
 msgstr ""
+"Pulse el botón derecho sobre la barra de herramientas en la parte superior "
+"derecha y seleccione <gui>Editar</gui>. La ventana <gui>Editor de barras de "
+"herramientas</gui> aparecerá."
 
 #: C/toolbar_builder.vala.page:56(media) C/toolbar_builder.py.page:72(media)
 msgid "Screenshot of where to right click to edit toolbar."
 msgstr ""
+"Captura de pantalla que muestra dónde pulsar el botón derecho para editar la "
+"barra de herramientas."
 
 #: C/toolbar_builder.vala.page:61(p) C/toolbar_builder.py.page:77(p)
 msgid ""
 "We want to add 5 ToolButtons: New, Open, Undo, Fullscreen and Leave "
 "Fullscreen. First, we will add the New ToolButton."
 msgstr ""
+"Se quieren añadir 5 «ToolButton»: «New», «Open», «Undo», «Fullscreen», y «Leave "
+"Fullscreen». Primero, se añadirá el «ToolButton» «New»."
 
 #: C/toolbar_builder.vala.page:64(p) C/toolbar_builder.py.page:80(p)
 msgid "Under <gui>Hierarchy</gui> tab, click <gui>Add</gui>."
-msgstr ""
+msgstr "Bajo la pestaña <gui>Jerarquía</gui>, pulse <gui>Añadir</gui>."
 
 #: C/toolbar_builder.vala.page:65(p) C/toolbar_builder.py.page:81(p)
 msgid "Change the name of the ToolItem to <input>new_button</input>."
-msgstr ""
+msgstr "Cambie el nombre del «ToolItem» a <input>new_button</input>."
 
 #: C/toolbar_builder.vala.page:66(p) C/toolbar_builder.py.page:82(p)
 msgid ""
 "Scroll down and set <gui>Is important</gui> to <gui>Yes</gui>. This will "
 "cause the label of the ToolButton to be shown, when you view the toolbar."
 msgstr ""
+"Deslícese hacia abajo y establezca <gui>Es Importante</gui> a <gui>Sí</gui>. "
+"Esto hará que la etiqueta del «ToolButton» se muestre cuando vea la barra de "
+"herramientas."
 
 #: C/toolbar_builder.vala.page:67(p) C/toolbar_builder.py.page:83(p)
 msgid "Enter the <gui>action name</gui>: <input>app.new</input>."
-msgstr ""
+msgstr "Introduzca el <gui>Nombre de la acción</gui>: <input>app.new</input>."
 
 #: C/toolbar_builder.vala.page:68(p) C/toolbar_builder.py.page:84(p)
 msgid "Change the <gui>Label</gui> to <input>New</input>."
-msgstr ""
+msgstr "Cambie la <gui>Etiqueta</gui> a <input>New</input>."
 
 #: C/toolbar_builder.vala.page:69(p) C/toolbar_builder.py.page:85(p)
 msgid ""
 "Select the <gui>New</gui> Stock Id from the drop down menu, or type "
 "<input>gtk-new</input>."
 msgstr ""
+"Seleccione el ID del inventario <gui>Nuevo</gui> desde el menú desplegable, "
+"o escriba <input>gtk-new</input>."
 
 #: C/toolbar_builder.vala.page:71(p) C/toolbar_builder.py.page:87(p)
 msgid ""
 "Repeat the above steps for the remaining ToolButtons, with the following "
 "properties:"
 msgstr ""
+"Repita los pasos anteriores para los «ToolButton» restantes, con las "
+"siguientes propiedades:"
 
 #: C/toolbar_builder.vala.page:77(p) C/toolbar_builder.py.page:93(p)
 #: C/helloWorld.js.page:139(title)
