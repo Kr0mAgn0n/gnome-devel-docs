@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-09-17 12:24+0000\n"
-"PO-Revision-Date: 2012-09-20 10:56+0200\n"
+"POT-Creation-Date: 2012-09-24 10:41+0000\n"
+"PO-Revision-Date: 2012-09-24 13:16+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -1936,8 +1936,8 @@ msgid ""
 "complete."
 msgstr ""
 "Después de haber preparado eso, se usa el método <file>insert_column</file> "
-"del TreeView para poner las TreeViewColumn adentro suyo en orden. El "
-"TreeView ahora está terminado."
+"del TreeView para poner dentro las TreeViewColumn en orden. El TreeView "
+"ahora está terminado."
 
 #: C/treeview_simple_liststore.js.page:197(p)
 msgid ""
@@ -2447,9 +2447,8 @@ msgid ""
 "We want to add 5 ToolButtons: New, Open, Undo, Fullscreen and Leave "
 "Fullscreen. First, we will add the New ToolButton."
 msgstr ""
-"Se quieren añadir 5 «ToolButton»: «Nuevo», «Abrir», «Deshacer», «Pantalla "
-"completa», y «Salir de pantalla completa». Primero, se añadirá el «ToolButton» "
-"«New»."
+"Se quieren añadir 5 «ToolButton»: «New», «Open», «Undo», «Fullscreen», y «Leave "
+"Fullscreen». Primero, se añadirá el «ToolButton» «New»."
 
 #: C/toolbar_builder.vala.page:64(p) C/toolbar_builder.py.page:80(p)
 msgid "Under <gui>Hierarchy</gui> tab, click <gui>Add</gui>."
@@ -2502,14 +2501,16 @@ msgid "Is important"
 msgstr "Es importante"
 
 #: C/toolbar_builder.vala.page:79(p) C/toolbar_builder.py.page:95(p)
-msgid "action name"
+#, fuzzy
+#| msgid "action name"
+msgid "Action name"
 msgstr "nombre de la acción"
 
 #: C/toolbar_builder.vala.page:80(p) C/toolbar_builder.py.page:96(p)
 #: C/label.vala.page:20(title) C/label.py.page:26(title)
 #: C/label.js.page:20(title) C/label.c.page:21(title)
 msgid "Label"
-msgstr "Label"
+msgstr "Etiqueta"
 
 #: C/toolbar_builder.vala.page:81(p) C/toolbar_builder.py.page:97(p)
 msgid "Stock Id"
@@ -2532,7 +2533,7 @@ msgstr "app.open"
 
 #: C/toolbar_builder.vala.page:89(p) C/toolbar_builder.py.page:105(p)
 msgid "Open"
-msgstr "Abrir"
+msgstr "Open"
 
 #: C/toolbar_builder.vala.page:90(p) C/toolbar_builder.py.page:106(p)
 msgid "gtk-open"
@@ -2548,7 +2549,7 @@ msgstr "win.undo"
 
 #: C/toolbar_builder.vala.page:96(p) C/toolbar_builder.py.page:112(p)
 msgid "Undo"
-msgstr "Deshacer"
+msgstr "Undo"
 
 #: C/toolbar_builder.vala.page:97(p) C/toolbar_builder.py.page:113(p)
 msgid "gtk-undo"
@@ -2565,7 +2566,7 @@ msgstr "win.fullscreen"
 
 #: C/toolbar_builder.vala.page:103(p) C/toolbar_builder.py.page:119(p)
 msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgstr "Fullscreen"
 
 #: C/toolbar_builder.vala.page:104(p) C/toolbar_builder.py.page:120(p)
 msgid "gtk-fullscreen"
@@ -2577,7 +2578,7 @@ msgstr "leave_fullscreen_button"
 
 #: C/toolbar_builder.vala.page:110(p) C/toolbar_builder.py.page:126(p)
 msgid "Leave Fullscreen"
-msgstr "Salir de pantalla completa"
+msgstr "Leave Fullscreen"
 
 #: C/toolbar_builder.vala.page:111(p) C/toolbar_builder.py.page:127(p)
 msgid "gtk-leave-fullscreen"
@@ -2596,13 +2597,12 @@ msgid ""
 "appear in the interface designer, but will behave correctly when the file is "
 "loaded into your program code."
 msgstr ""
-"No se quiere que se vea el «ToolButton» <gui>Salir de pantalla completa</gui> "
-"cuando el programa se inicie por primera vez, dado que la aplicación no "
-"estará en modo pantalla completa. Puede establecer esto en la pestaña "
-"<gui>Comunes</gui>, pulsando <gui>No</gui> en la propiedad <gui>Visible</"
-"gui>. El «ToolButton» aparecerá de todos modos en el diseñador de interfaces, "
-"pero se comportará correctamente cuando se cargue el archivo en el código de "
-"su programa."
+"No se quiere que se vea el «ToolButton» <gui>Leave Fullscreen</gui> cuando el "
+"programa se inicie por primera vez, dado que la aplicación no estará en modo "
+"a pantalla completa. Puede establecer esto en la pestaña <gui>Comunes</gui>, "
+"pulsando <gui>No</gui> en la propiedad <gui>Visible</gui>. El «ToolButton» "
+"aparecerá de todos modos en el diseñador de interfaces, pero se comportará "
+"correctamente cuando se cargue el archivo en el código de su programa."
 
 #: C/toolbar_builder.vala.page:124(media) C/toolbar_builder.py.page:140(media)
 msgid "Setting the visible property to No"
@@ -2889,6 +2889,16 @@ msgstr ""
 "muestran a través de un menú flotante."
 
 #: C/toolbar.py.page:42(p)
+#| msgid ""
+#| "<code>set_icon_size(icon_size)</code> sets the size of icons in the "
+#| "toolbar; <code>icon_size</code> can be one of <code>Gtk.IconSize.INVALID, "
+#| "Gtk.IconSize.MENU, Gtk.IconSize.SMALL_TOOLBAR, Gtk.IconSize."
+#| "LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk.IconSize.DND, Gtk.IconSize."
+#| "DIALOG</code>. This should be used only for special-purpose toolbars, "
+#| "normal application toolbars should respect user preferences for the size "
+#| "of icons. <code>unset_icon_size()</code> unsets the preferences set with "
+#| "<code>set_icon_size(icon_size)</code>, so that user preferences will be "
+#| "used to determine the icon size."
 msgid ""
 "<code>set_icon_size(icon_size)</code> sets the size of icons in the toolbar; "
 "<code>icon_size</code> can be one of <code>Gtk.IconSize.INVALID, Gtk."
@@ -2897,8 +2907,18 @@ msgid ""
 "be used only for special-purpose toolbars, normal application toolbars "
 "should respect user preferences for the size of icons. <code>unset_icon_size"
 "()</code> unsets the preferences set with <code>set_icon_size(icon_size)</"
-"code>, so that user preferences will be used to determine the icon size."
+"code>, so that user preferences are used to determine the icon size."
 msgstr ""
+"<code>set_icon_size(icon_size)</code> establece el tamaño de los iconos en "
+"la barra de herramientas; <code>icon_size</code> puede ser uno de <code>Gtk."
+"IconSize.INVALID, Gtk.IconSize.MENU, Gtk.IconSize.SMALL_TOOLBAR, Gtk."
+"IconSize.LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk.IconSize.DND, Gtk.IconSize."
+"DIALOG</code>. Esto solo debe usarse para barras de herramientas con "
+"propósitos especiales, las barras de herramientas de aplicaciones normales "
+"deben respetar las preferencias del usuario para el tamaño de los iconos. "
+"<code>unset_icon_size()</code> restablece las preferencias establecidas con "
+"<code>set_icon_size(icon_size)</code>, para que las preferencias de usuario "
+"se usen para determinar el tamaño de los iconos."
 
 #: C/toolbar.py.page:43(p)
 msgid ""
@@ -2909,6 +2929,13 @@ msgid ""
 "preferences determine the toolbar style, and unset a toolbar style so set, "
 "use <code>unset_style()</code>."
 msgstr ""
+"<code>set_style(style)</code>, donde <code>style</code> es uno de <code>Gtk."
+"ToolbarStyle.ICONS, Gtk.ToolbarStyle.TEXT, Gtk.ToolbarStyle.BOTH, Gtk."
+"ToolbarStyle.BOTH_HORIZ</code>, determina si la barra de herramientas "
+"muestra solo iconos, solo texto, o ambos (apilados verticalmente o uno al "
+"lado de otro). Para dejar que las preferencias del usuario determinen el "
+"estilo de la barra de herramientas, y restablecer el estilo de barra de "
+"herramientas, use <code>unset_style()</code>."
 
 #: C/toolbar.py.page:53(link)
 msgid "GtkToolButton"
@@ -2923,10 +2950,8 @@ msgid "GtkActionable"
 msgstr "GtkActionable"
 
 #: C/toolbar.js.page:7(title)
-#, fuzzy
-#| msgid "JavaScript"
 msgid "Toolbar (JavaScript)"
-msgstr "JavaScript"
+msgstr "Barra de herramientas (JavaScript)"
 
 #: C/toolbar.js.page:17(desc)
 msgid "A bar of tools"
@@ -2953,10 +2978,8 @@ msgstr ""
 "@@image: 'media/togglebutton.png'; md5=791e062613d4f9bd5936390b0aa18448"
 
 #: C/togglebutton.vala.page:7(title)
-#, fuzzy
-#| msgid "ToggleButton"
 msgid "ToggleButton (Vala)"
-msgstr "ToggleButton"
+msgstr "ToggleButton (Vala)"
 
 #: C/togglebutton.vala.page:20(desc) C/togglebutton.py.page:20(desc)
 #: C/togglebutton.c.page:21(desc)
@@ -2978,10 +3001,8 @@ msgid "Gtk.ToggleButton"
 msgstr "Gtk.ToggleButton"
 
 #: C/togglebutton.py.page:7(title)
-#, fuzzy
-#| msgid "ToggleButton"
 msgid "ToggleButton (Python)"
-msgstr "ToggleButton"
+msgstr "ToggleButton (Python)"
 
 #: C/togglebutton.py.page:37(title)
 msgid "Useful methods for a ToggleButton widget"
@@ -2994,6 +3015,8 @@ msgid ""
 "For an explanation of signals and callback functions, see <link xref="
 "\"signals-callbacks.py\">this page</link>."
 msgstr ""
+"Para una explicación de señales y funciones de devolución de llamada, "
+"consulte <link xref=\"signals-callbacks.py\">esta página</link>."
 
 #: C/togglebutton.py.page:45(link) C/checkbutton.py.page:48(link)
 msgid "GtkToggleButton"
@@ -3005,22 +3028,29 @@ msgid "GtkSpinner"
 msgstr "GtkSpinner"
 
 #: C/togglebutton.js.page:7(title)
-#, fuzzy
-#| msgid "ToggleButton"
 msgid "ToggleButton (JavaScript)"
-msgstr "ToggleButton"
+msgstr "ToggleButton (JavaScript)"
 
 #: C/togglebutton.js.page:17(desc)
 msgid "Stays pressed until you click it again"
-msgstr ""
+msgstr "Se mantiene presionado hasta que lo pulsa de nuevo"
 
 #: C/togglebutton.js.page:22(p)
+#| msgid ""
+#| "A ToggleButton is like a normal <link xref=\"button.js\">Button,</link> "
+#| "except that it stays pressed in when you click it. You can use it like an "
+#| "on/off switch, to control things like the <link xref=\"spinner.js"
+#| "\">Spinner</link> in this example."
 msgid ""
-"A ToggleButton is like a normal <link xref=\"button.js\">Button,</link> "
+"A ToggleButton is like a normal <link xref=\"button.js\">Button</link>, "
 "except that it stays pressed in when you click it. You can use it like an on/"
 "off switch, to control things like the <link xref=\"spinner.js\">Spinner</"
 "link> in this example."
 msgstr ""
+"Un «ToggleButton» es como un <link xref=\"button.js\">Button</link> normal, "
+"excepto que se mantiene presionado cuando pulsa en él. Puede usarlo como un "
+"conmutador de encendido/apagado, para controlar cosas como el <link xref="
+"\"spinner.js\">Spinner</link> en este ejemplo."
 
 #: C/togglebutton.js.page:23(p)
 msgid ""
@@ -3030,6 +3060,11 @@ msgid ""
 "to popped out and vice-versa, it sends out the \"toggled\" signal, which you "
 "can connect to a function to do something."
 msgstr ""
+"El método «get_active» del ToggleButton devuelve «true» si está presionado, y "
+"«false» si no lo está. Su método «set_active» se usa si quiere cambiar su "
+"estado sin la necesidad de pulsarlo. Cuando cambia su estado de «pulsado» a "
+"«no pulsado» y viceversa, envía la señal «toggled», que puede conectar a una "
+"función para hacer algo."
 
 #: C/togglebutton.js.page:66(p) C/radiobutton.js.page:66(p)
 msgid ""
@@ -3038,6 +3073,10 @@ msgid ""
 "Gtk.Application.html\">Gtk.Application</link> for our widgets and window to "
 "go in."
 msgstr ""
+"Todo el código de este ejemplo va en la clase RadioButtonExample. El código "
+"anterior crea una <link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/"
+"Gtk.Application.html\">Gtk.Application</link> para que vayan los widgets y "
+"la ventana."
 
 #: C/togglebutton.js.page:84(title)
 msgid "Creating the ToggleButton and other widgets"
@@ -3048,31 +3087,48 @@ msgid ""
 "We want this <link xref=\"spinner.js\">Spinner</link> to expand vertically "
 "and horizontally, to take up as much space as possible inside the window."
 msgstr ""
+"Se quiere que este <link xref=\"spinner.js\">Spinner</link> se expanda "
+"vertical y horizontalmente, para llenar tanto espacio como sea posible "
+"dentro de la ventana."
 
 #: C/togglebutton.js.page:98(p)
+#| msgid ""
+#| "Creating a ToggleButton is a lot like creating a normal <link xref="
+#| "\"button.js\">Button.</link> The biggest difference is that you're "
+#| "handling a \"toggled\" signal instead of a \"clicked\" signal. This code "
+#| "binds the _onToggle function to that signal, so that it's called whenever "
+#| "our ToggleButton is toggled."
 msgid ""
 "Creating a ToggleButton is a lot like creating a normal <link xref=\"button."
-"js\">Button.</link> The biggest difference is that you're handling a "
+"js\">Button</link>. The biggest difference is that you're handling a "
 "\"toggled\" signal instead of a \"clicked\" signal. This code binds the "
 "_onToggle function to that signal, so that it's called whenever our "
 "ToggleButton is toggled."
 msgstr ""
+"Crear un ToggleButton es muy similar a crear un <link xref=\"button.js"
+"\">Button</link> normal. La mayor diferencia es que está manejando una señal "
+"«toggled» en lugar de una «clicked». Este código vincula la función _onToggle "
+"a esa señal, para que se llame cada vez que se conmute el ToggleButton."
 
 #: C/togglebutton.js.page:108(p)
 msgid ""
 "Here we create a simple <link xref=\"grid.js\">Grid</link> to organize "
 "everything in, then attach the Spinner and ToggleButton to it."
 msgstr ""
+"Aquí se crea una <link xref=\"grid.js\">Rejilla</link> simple para organizar "
+"todo dentro, después se le adjuntan el «Spinner» y el «ToggleButton»."
 
 #: C/togglebutton.js.page:118(p)
 msgid ""
 "Now we add the Grid to the Window, and tell the Window to show itself and "
 "its child widgets when the application is started."
 msgstr ""
+"Ahora se añade la rejilla a la ventana, y se le dice a esta que se muestre "
+"con sus widgets hijos cuando la aplicación arranque."
 
 #: C/togglebutton.js.page:122(title)
 msgid "Making something happen when the ToggleButton is toggled"
-msgstr ""
+msgstr "Hacer que algo suceda cuando se conmute el ToggleButton"
 
 #: C/togglebutton.js.page:136(p)
 msgid ""
@@ -3081,12 +3137,19 @@ msgid ""
 "want it to spin only while the button is pressed in, so if get_active "
 "returns true we start the spinner. Otherwise, we tell it to stop."
 msgstr ""
+"Cada vez que alguien conmuta el botón, esta función verifica cuál es su "
+"estado nuevo usando «get_active» e inicia o detiene el «spinner» "
+"consecuentemente. Se quiere que gire sólo cuando el botón está presionado, "
+"por lo que si «get_active» devuelve «true» se inicia el «spinner». De lo "
+"contrario, se le dice que se detenga."
 
 #: C/togglebutton.js.page:143(p) C/radiobutton.js.page:264(p)
 msgid ""
 "Finally, we create a new instance of the finished RadioButtonExample class, "
 "and set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase RadioButtonExample "
+"terminada, y se ejecuta la aplicación."
 
 #: C/togglebutton.js.page:156(link) C/textview.js.page:252(link)
 #: C/switch.js.page:269(link) C/spinbutton.js.page:203(link)
@@ -3101,10 +3164,8 @@ msgid "Gtk.Spinner"
 msgstr "Gtk.Spinner"
 
 #: C/togglebutton.c.page:7(title)
-#, fuzzy
-#| msgid "ToggleButton"
 msgid "ToggleButton (C)"
-msgstr "ToggleButton"
+msgstr "ToggleButton (C)"
 
 #: C/togglebutton.c.page:16(name) C/textview.c.page:12(name)
 #: C/switch.c.page:12(name) C/statusbar.c.page:16(name)
@@ -3162,6 +3223,8 @@ msgid ""
 "If we press \"enter\" more times then there are lines in the default sized "
 "window, then a vertical scrollbar appears."
 msgstr ""
+"Si se pulsa «Intro» más veces entonces hay líneas en la ventana de tamaño "
+"predeterminado, y después aparece una barra de desplazamiento vertical."
 
 #: C/textview.vala.page:23(p) C/textview.c.page:23(p)
 msgid ""
@@ -3180,7 +3243,7 @@ msgstr ""
 
 #: C/textview.vala.page:27(p) C/textview.c.page:27(p)
 msgid "This is an example of Gtk.TextView"
-msgstr "Esto es un ejemplo de of Gtk.TextView"
+msgstr "Esto es un ejemplo de Gtk.TextView"
 
 #: C/textview.vala.page:34(link) C/textview.js.page:256(link)
 msgid "Gtk.TextBuffer"
@@ -3217,15 +3280,15 @@ msgstr "TextView"
 
 #: C/textview.py.page:30(p)
 msgid "This is an example of Gtk.TextView."
-msgstr "Esto es un ejemplo de of Gtk.TextView."
+msgstr "Esto es un ejemplo de Gtk.TextView."
 
 #: C/textview.py.page:32(p)
 msgid ""
 "But we can also have a new line if we write a long sentence (the text will "
 "wrap breaking lines between words)."
 msgstr ""
-"Pero también se obtiene una línea nueva si se escribe una frase larga (el "
-"texto se ajustará a los saltos de línea entre palabras."
+"Pero también se puede obtener una línea nueva si se escribe una frase larga "
+"(el texto se ajustará a los saltos de línea entre palabras."
 
 #: C/textview.py.page:33(p)
 msgid "If we have a loooooooooooooooooooooooooooooooooooong"
@@ -3248,6 +3311,9 @@ msgid ""
 "An explanation of how to deal with strings and Unicode (and a recap of what "
 "these things are) can be found <link xref=\"strings.py.page\">here</link>."
 msgstr ""
+"Una explicación de cómo manejarse con cadenas y Unicode (y un resumen de qué "
+"son estas cosas) se puede encontrar <link xref=\"strings.py.page\">aquí</"
+"link>."
 
 #: C/textview.py.page:50(p)
 msgid ""
@@ -3263,6 +3329,18 @@ msgid ""
 "\"insert\" mark (the position of the cursor) and the \"selection_bound\" "
 "mark."
 msgstr ""
+"Un <code>Gtk.TextView</code> muestra el texto almacenado en un <code>Gtk."
+"TextBuffer</code>. Sin embargo, la mayor parte de la manipulación de texto "
+"se hace con iteradores, representados por un <code>Gtk.TextIter</code>: una "
+"posición entre dos caracteres en el búfer de texto. Los iteradores no son "
+"válidos indefinidamente; cada vez que se modifica el búfer de alguna manera "
+"que se altere su contenido, todos los iteradores relevantes dejan de ser "
+"válidos. Es por esto que no se pueden usar iteradores para mantener "
+"posiciones entre modificaciones del búfer. Para mantener una posición, se "
+"usa una <code>Gtk.TextMark</code>, que puede hacerse visible con "
+"<code>visible(True)</code>. Un búfer de texto contiene dos marcas "
+"empotradas: una marca «insert» (la posición del cursor) y la marca "
+"«selection_bound»."
 
 #: C/textview.py.page:51(p)
 msgid "Methods for a TextView widget:"
@@ -3274,6 +3352,10 @@ msgid ""
 "<code>set_editable(False)</code>. If the buffer has no editable text, it "
 "might be a good idea to use <code>set_cursor_visible(False)</code> as well."
 msgstr ""
+"El widget «TextView» es editable de manera predeterminada. Si prefiere que no "
+"lo sea, use <code>set_editable(False)</code>. Si el búfer no tiene texto "
+"editable, puede ser una buena idea usar <code>set_cursor_visible(False)</"
+"code> también."
 
 #: C/textview.py.page:54(p)
 msgid ""
@@ -3281,6 +3363,9 @@ msgid ""
 "Justification.JUSTIFICATION)</code> where <code>JUSTIFICATION</code> is one "
 "of <code>LEFT, RIGHT, CENTER, FILL</code>."
 msgstr ""
+"La alineación del texto se establece con <code>set_justification(Gtk."
+"Justification.JUSTIFICACIÓN)</code> donde <code>JUSTIFICACIÓN</code> puede "
+"ser <code>LEFT, RIGHT, CENTER, FILL</code>."
 
 #: C/textview.py.page:55(p)
 msgid ""
@@ -3291,6 +3376,12 @@ msgid ""
 "code> (break lines between words, but if that is not enough between "
 "characters)."
 msgstr ""
+"El ajuste de línea del texto se establece con <code>set_wrap_mode(Gtk."
+"WrapMode.WRAP)</code> donde <code>WRAP</code> es uno de <code>NONE</code> "
+"(el área de texto se hace más ancha), <code>CHAR</code> (rompe líneas en "
+"cualquier lugar en que el cursor pueda aparecer), <code>WORD</code> (rompe "
+"líneas entre palabras), <code>WORD_CHAR</code> (rompe líneas entre palabras, "
+"pero si no es suficinete, entre caracteres)."
 
 #: C/textview.py.page:57(p)
 msgid "Methods for a TextBuffer widget:"
