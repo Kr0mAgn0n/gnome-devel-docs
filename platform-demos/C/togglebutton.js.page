@@ -19,7 +19,7 @@
 
   <title>ToggleButton</title>
   <media type="image" mime="image/png" src="media/togglebutton.png"/>
-  <p>A ToggleButton is like a normal <link xref="button.js">Button,</link> except that it stays pressed in when you click it. You can use it like an on/off switch, to control things like the <link xref="spinner.js">Spinner</link> in this example.</p>
+  <p>A ToggleButton is like a normal <link xref="button.js">Button</link>, except that it stays pressed in when you click it. You can use it like an on/off switch, to control things like the <link xref="spinner.js">Spinner</link> in this example.</p>
   <p>A ToggleButton's get_active method returns true if it's pressed in, and false if it's not. Its set_active method is used if you want to change its state without needing to click on it. When it changes state from pressed in to popped out and vice-versa, it sends out the "toggled" signal, which you can connect to a function to do something.</p>
     <links type="section" />
 
@@ -95,7 +95,7 @@ const ToggleButtonExample = new Lang.Class({
         this._toggleButton.connect ('toggled', Lang.bind (this, this._onToggle));
 ]]></code>
 
-    <p>Creating a ToggleButton is a lot like creating a normal <link xref="button.js">Button.</link> The biggest difference is that you're handling a "toggled" signal instead of a "clicked" signal. This code binds the _onToggle function to that signal, so that it's called whenever our ToggleButton is toggled.</p>
+    <p>Creating a ToggleButton is a lot like creating a normal <link xref="button.js">Button</link>. The biggest difference is that you're handling a "toggled" signal instead of a "clicked" signal. This code binds the _onToggle function to that signal, so that it's called whenever our ToggleButton is toggled.</p>
 
     <code mime="application/javascript"><![CDATA[
         // Create a grid and put everything in it
