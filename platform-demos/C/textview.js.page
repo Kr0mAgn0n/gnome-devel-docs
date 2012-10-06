@@ -110,7 +110,7 @@ const TextViewExample = new Lang.Class ({
 ]]></code>
 
     <p>Our first step is to create a TextBuffer to put the words into. After that we create the TextView, and tell it to use the TextBuffer we created as its buffer. We also set it to be editable, since we want to be able to type new things in.</p>
-    <p>The wrap_mode property lets you select from four different <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html">WrapModes.</link> Gtk.WrapMode.CHAR, for instance, starts wrapping around in the middle of a word if you keep typing when it gets to the edge. Most people are probably used to Gtk.WrapMode.WORD, which will automatically put the word you're typing on the next line if it gets to be too long.</p>
+    <p>The wrap_mode property lets you select from four different <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html">WrapModes</link>. Gtk.WrapMode.CHAR, for instance, starts wrapping around in the middle of a word if you keep typing when it gets to the edge. Most people are probably used to Gtk.WrapMode.WORD, which will automatically put the word you're typing on the next line if it gets to be too long.</p>
 
     <code mime="application/javascript"><![CDATA[
         // Create a "scrolled window" to put your textview in so it will scroll
@@ -124,7 +124,7 @@ const TextViewExample = new Lang.Class ({
         // Put the textview into the scrolled window
         this._scrolled.add_with_viewport (this._textView);
 ]]></code>
-    <p>Here we create a <link xref="scrolledwindow.js">ScrolledWindow,</link> and set it to automatically scroll if it gets to be too big horizontally or vertically. We also give it a nice-looking ETCHED_IN border. After that, we put our TextView inside, and tell the ScrolledWindow to give us a viewport onto it.</p>
+    <p>Here we create a <link xref="scrolledwindow.js">ScrolledWindow</link>, and set it to automatically scroll if it gets to be too big horizontally or vertically. We also give it a nice-looking ETCHED_IN border. After that, we put our TextView inside, and tell the ScrolledWindow to give us a viewport onto it.</p>
     </section>
 
     <section id="ui">
