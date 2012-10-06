@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-09-30 09:29+0000\n"
-"PO-Revision-Date: 2012-09-30 11:40+0200\n"
+"POT-Creation-Date: 2012-10-06 09:08+0000\n"
+"PO-Revision-Date: 2012-10-06 11:15+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -3610,9 +3610,6 @@ msgstr ""
 "tres objetos."
 
 #: C/textview.js.page:28(p)
-#| msgid ""
-#| "At the bottom is a <link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/"
-#| "gjs/Gtk.TextBuffer.html\">TextBuffer.</link> This holds the text itself."
 msgid ""
 "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
 "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
@@ -3623,11 +3620,6 @@ msgstr ""
 "texto."
 
 #: C/textview.js.page:29(p)
-#| msgid ""
-#| "In the middle is the <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextView.html\">TextView,</link> which is a widget that "
-#| "lets you see and edit the text in the buffer. It automatically resizes "
-#| "itself depending on how much text there is."
 msgid ""
 "In the middle there is the <link href=\"http://www.roojs.org/seed/gir-1.2-"
 "gtk-3.0/gjs/Gtk.TextView.html\">TextView</link>, which is a widget that lets "
@@ -3640,14 +3632,6 @@ msgstr ""
 "de cuánto texto hay."
 
 #: C/textview.js.page:30(p)
-#| msgid ""
-#| "Since the automatic resizing can make a TextView unwieldy, you normally "
-#| "place it inside of a <link xref=\"scrolledwindow.js\">ScrolledWindow.</"
-#| "link> Despite the name, it's not an actual window in terms of having a "
-#| "title bar and an X button; it's a widget you put on the application "
-#| "you're making, which acts like a window onto a more manageable chunk of a "
-#| "TextView. If the text in the buffer is too big to fit, scrollbars will "
-#| "appear."
 msgid ""
 "Since the automatic resizing can make a TextView unwieldy, you normally "
 "place it inside of a <link xref=\"scrolledwindow.js\">ScrolledWindow</link>. "
@@ -3685,6 +3669,11 @@ msgid ""
 "you'd like to play a (somewhat silly) GNOME game based on this premise, take "
 "a look at <link href=\"http://pingus.seul.org/\">Pingus</link>."
 msgstr ""
+"Las poblaciones de pingüinos reales están decayendo rápidamente, porque el "
+"cambio climático está derritiendo el hielo en el que viven y matando a los "
+"peces que comen. Si le interesa jugar a un juego de GNOME algo tonto basado "
+"en esta premisa, échele un vistazo a <link href=\"http://pingus.seul.org/"
+"\">Pingus</link>."
 
 #: C/textview.js.page:73(p)
 msgid ""
@@ -3693,12 +3682,14 @@ msgid ""
 "Gtk.Application.html\">Gtk.Application</link> for our widgets and window to "
 "go in."
 msgstr ""
+"Todo el código de este ejemplo va en la clase «TextViewExample». El código "
+"anterior crea una <link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/"
+"Gtk.Application.html\">Gtk.Application</link> para poner los widgets y la "
+"ventana."
 
 #: C/textview.js.page:91(title)
-#, fuzzy
-#| msgid "Creating the switches"
 msgid "Creating the TextView"
-msgstr "Crear los interruptores"
+msgstr "Crear el «TextView»"
 
 #: C/textview.js.page:101(p)
 msgid ""
@@ -3707,6 +3698,10 @@ msgid ""
 "it to wrap by setting its wrap property to true, but we'll use a different "
 "method on the TextView itself that allows for more fine-grained control."
 msgstr ""
+"El primer paso en este ejemplo es crear la <link xref=\"label.js\">Label</"
+"link> que el pingüino usará para hablarle. Se configura para que tenga "
+"ajuste de línea estableciendo su propiedad «wrap» a «true», pero usaremos un "
+"método distinto en el «TextView» propio que permite un control más preciso."
 
 #: C/textview.js.page:112(p)
 msgid ""
@@ -3715,25 +3710,55 @@ msgid ""
 "buffer. We also set it to be editable, since we want to be able to type new "
 "things in."
 msgstr ""
+"El primer paso es crear un «TextBuffer» para poner dentro las palabras. "
+"Después de eso se crea el «TextView», y se le dice que use el «TextBuffer» "
+"que se creó como su búfer. También se configura para que sea editable, dado "
+"que se quiere poder introducir cosas nuevas dentro."
 
 #: C/textview.js.page:113(p)
+#| msgid ""
+#| "The wrap_mode property lets you select from four different <link href="
+#| "\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html"
+#| "\">WrapModes.</link> Gtk.WrapMode.CHAR, for instance, starts wrapping "
+#| "around in the middle of a word if you keep typing when it gets to the "
+#| "edge. Most people are probably used to Gtk.WrapMode.WORD, which will "
+#| "automatically put the word you're typing on the next line if it gets to "
+#| "be too long."
 msgid ""
 "The wrap_mode property lets you select from four different <link href="
 "\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html"
-"\">WrapModes.</link> Gtk.WrapMode.CHAR, for instance, starts wrapping around "
+"\">WrapModes</link>. Gtk.WrapMode.CHAR, for instance, starts wrapping around "
 "in the middle of a word if you keep typing when it gets to the edge. Most "
 "people are probably used to Gtk.WrapMode.WORD, which will automatically put "
 "the word you're typing on the next line if it gets to be too long."
 msgstr ""
+"La propiedad «wrap_mode» le permite elegir entre cuatro <link href=\"http://"
+"www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html\">Modos de ajuste "
+"de línea</link> diferentes. «Gtk.WrapMode.CHAR», por ejemplo, salta de línea "
+"en el medio de una palabra si sigue escribiendo cuando llega al borde. La "
+"mayoría de la gente está probablemente acostumbrada a «Gtk.WrapMode.WORD», "
+"que pondrá la palabra que está escribiendo en la línea siguiente "
+"automáticamente si es demasiado larga."
 
 #: C/textview.js.page:127(p)
+#| msgid ""
+#| "Here we create a <link xref=\"scrolledwindow.js\">ScrolledWindow,</link> "
+#| "and set it to automatically scroll if it gets to be too big horizontally "
+#| "or vertically. We also give it a nice-looking ETCHED_IN border. After "
+#| "that, we put our TextView inside, and tell the ScrolledWindow to give us "
+#| "a viewport onto it."
 msgid ""
-"Here we create a <link xref=\"scrolledwindow.js\">ScrolledWindow,</link> and "
+"Here we create a <link xref=\"scrolledwindow.js\">ScrolledWindow</link>, and "
 "set it to automatically scroll if it gets to be too big horizontally or "
 "vertically. We also give it a nice-looking ETCHED_IN border. After that, we "
 "put our TextView inside, and tell the ScrolledWindow to give us a viewport "
 "onto it."
 msgstr ""
+"Aquí se crea una <link xref=\"scrolledwindow.js\">ScrolledWindow</link>, y "
+"se configura para que se desplace automáticamente si se vuelve demasiado "
+"grande horizontal o verticalmente. También se le da un borde bonito "
+"ETCHED_IN. Después de eso, se pone el «TextView» dentro, y se hace que "
+"«ScrolledWindow» dé un punto de vista sobre él."
 
 #: C/textview.js.page:131(title) C/radiobutton.js.page:117(title)
 msgid "Creating the rest of the user interface"
@@ -3744,6 +3769,8 @@ msgid ""
 "The first <link xref=\"grid.js\">Grid</link> we create only has the Label "
 "and the ScrolledWindow inside it."
 msgstr ""
+"La primera <link xref=\"grid.js\">Rejilla</link> que se crea sólo tiene "
+"dentro la etiqueta y la «ScrolledWindow»."
 
 #: C/textview.js.page:162(p)
 msgid ""
@@ -3752,18 +3779,23 @@ msgid ""
 "the bottom. The Button has a margin on top, so that it isn't squished up "
 "against the ScrolledWindow."
 msgstr ""
+"Se crea un <link xref=\"button.js\">Botón</link> para enviar su mensaje al "
+"pingüino, y una rejilla nueva que tiene la otra en su parte superior y el "
+"botón en la parte inferior. El botón tiene un margen en su parte superior, "
+"para que no se aplaste contra la «ScrolledWindow»."
 
 #: C/textview.js.page:173(p)
 msgid ""
 "Finally, we attach the main Grid to the window, then we tell the window and "
 "everything inside it to become visible when the application is run."
 msgstr ""
+"Finalmente, se adjunta la rejilla principal a la ventana, después se le dice "
+"a la ventana y a todo dentro de ella que se vuelva visible cuando se ejecute "
+"la aplicación."
 
 #: C/textview.js.page:178(title)
-#, fuzzy
-#| msgid "Function which handles your selection"
 msgid "Function which handles the penguin's response"
-msgstr "Función que maneja su selección"
+msgstr "Función que maneja la respuesta del pingüino"
 
 #: C/textview.js.page:230(p)
 msgid ""
@@ -3773,6 +3805,11 @@ msgid ""
 "object's match method on <file>this.buffer.text</file>, which returns the "
 "contents of our TextBuffer."
 msgstr ""
+"Aquí se usan algunas funciones básicas de JavaScript para que el pingüino "
+"diga algo aleatorio. Sin embargo, a los pingüinos les gusta el pescado, por "
+"lo que se quiere que si se menciona «fish», el pingüino responda. Para hacer "
+"eso, se usa el método «match» del objeto de cadena de JavaScript sobre "
+"<file>this.buffer.text</file>, que devuelve el contenido del búfer de texto."
 
 #: C/textview.js.page:231(p)
 msgid ""
@@ -3781,12 +3818,18 @@ msgid ""
 "Then we return focus to our TextView, so that you can keep typing without "
 "having to click on it beforehand."
 msgstr ""
+"Dado que se quiere limpiar el búfer de texto después de cada vez que pulsa "
+"«Send», se configura <file>this.buffer.text</file> para que contenga una "
+"cadena vacía justo entonces. Después, se devuelve el foco al «TextView», "
+"para poder seguir escribiendo sin tener que pulsar en él antes."
 
 #: C/textview.js.page:238(p)
 msgid ""
 "Finally, we create a new instance of the finished TextViewExample class, and "
 "set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase «TextViewExample» "
+"terminada, y se ejecuta la aplicación."
 
 #: C/textview.js.page:251(link) C/statusbar.js.page:224(link)
 #: C/radiobutton.js.page:277(link) C/grid.js.page:35(link)
@@ -3807,22 +3850,16 @@ msgid "Gtk.RadioButton"
 msgstr "Gtk.RadioButton"
 
 #: C/textview.c.page:7(title)
-#, fuzzy
-#| msgid "TextView"
 msgid "TextView (C)"
-msgstr "TextView"
+msgstr "TextView (C)"
 
 #: C/textview.c.page:24(p)
-#, fuzzy
-#| msgid ""
-#| "If we have a loooooooooooooooooooooooooooooooooooong word, a horizontal "
-#| "scrollbar will appear."
 msgid ""
 "If we have a loooooooooooooooooooooooooooooooooooong (that was long) word, "
 "a* horizontal scrollbar will appear."
 msgstr ""
-"Si es escribe una palabra laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarga, "
-"aparecerá una barra de desplazamiento horizontal."
+"Si es escribe una palabra laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarga (eso es "
+"largo), aparecerá una barra de desplazamiento horizontal."
 
 #: C/textview.c.page:40(link)
 msgid "GtkContainer"
@@ -3843,24 +3880,22 @@ msgid "@@image: 'media/switch_on.png'; md5=95e8769f758c2d95ace0fa8ecf30b29d"
 msgstr "@@image: 'media/switch_on.png'; md5=95e8769f758c2d95ace0fa8ecf30b29d"
 
 #: C/switch.vala.page:7(title)
-#, fuzzy
-#| msgid "Switch"
 msgid "Switch (Vala)"
-msgstr "Switch"
+msgstr "Interruptor (Vala)"
 
 #: C/switch.vala.page:21(desc) C/switch.py.page:22(desc)
 #: C/switch.c.page:17(desc)
 msgid "A \"light switch\" style toggle"
-msgstr "Un estilo «interruptor»"
+msgstr "Un interruptor estilo «ligero»"
 
 #: C/switch.vala.page:24(title) C/switch.py.page:25(title)
 #: C/switch.js.page:20(title) C/switch.c.page:20(title)
 msgid "Switch"
-msgstr "Switch"
+msgstr "Interruptor"
 
 #: C/switch.vala.page:28(p)
 msgid "This Switch toggles the title."
-msgstr "Este Switch cambia el título."
+msgstr "Este interruptor cambia el título."
 
 #: C/switch.vala.page:35(link) C/switch.js.page:272(link)
 msgid "Gtk.Switch"
@@ -3868,21 +3903,23 @@ msgstr "Gtk.Switch"
 
 #: C/switch.py.page:7(title)
 msgid "Switch (Python)"
-msgstr ""
+msgstr "Interruptor (Python)"
 
 #: C/switch.py.page:29(p)
 msgid "This Switch makes the title appears and disappear."
-msgstr "Este Switch hace que el título aparezca y desaparezca."
+msgstr "Este interruptor hace que el título aparezca y desaparezca."
 
 #: C/switch.py.page:40(title)
 msgid "Useful methods for a Switch widget"
-msgstr "Métodos útiles para un widget «Switch»"
+msgstr "Métodos útiles para un widget interruptor"
 
 #: C/switch.py.page:41(p) C/checkbutton.py.page:38(p)
 msgid ""
 "For a discussion on signals and callback functions, see <link xref=\"signals-"
 "callbacks.py\">this page</link>."
 msgstr ""
+"Para ver una discusión sobre señales y funciones de devolución de llamada, "
+"consulte <link xref=\"signals-callbacks.py\">esta página</link>."
 
 #: C/switch.py.page:48(link) C/switch.c.page:35(link)
 #: C/radiobutton.c.page:37(link)
@@ -3905,23 +3942,33 @@ msgstr ""
 "@@image: 'media/switchanimals.png'; md5=513ae15dcf68e15eef30b76420b8c714"
 
 #: C/switch.js.page:7(title)
-#, fuzzy
-#| msgid "JavaScript"
 msgid "Switch (JavaScript)"
-msgstr "JavaScript"
+msgstr "Interruptor (JavaScript)"
 
 #: C/switch.js.page:17(desc)
 msgid "A sliding switch that can be flipped on and off"
 msgstr "Un interruptor deslizante que se puede activar y desactivar"
 
 #: C/switch.js.page:22(p)
+#| msgid ""
+#| "A Switch has two positions, on and off. This example shows how you can "
+#| "use multiple switches together to control which <link xref=\"image.js"
+#| "\">Image</link> is shown in the window. The pictures used in this example "
+#| "<link href=\"https://live.gnome.org/TarynFox?action=AttachFile&amp;"
+#| "do=get&amp;target=Animal+Photos.zip\">can be downloaded here.</link>"
 msgid ""
 "A Switch has two positions, on and off. This example shows how you can use "
 "multiple switches together to control which <link xref=\"image.js\">Image</"
 "link> is shown in the window. The pictures used in this example <link href="
 "\"https://live.gnome.org/TarynFox?action=AttachFile&amp;do=get&amp;"
-"target=Animal+Photos.zip\">can be downloaded here.</link>"
+"target=Animal+Photos.zip\">can be downloaded here</link>."
 msgstr ""
+"Un interruptor tiene dos posiciones: encendido y apagado. Este ejemplo "
+"muestra cómo puede usar múltiples interruptores para controlar qué <link "
+"xref=\"image.js\">Imagen</link> se muestra en la ventana. Las imágenes "
+"usadas en este ejemplo <link href=\"https://live.gnome.org/TarynFox?"
+"action=AttachFile&amp;do=get&amp;target=Animal+Photos.zip\">se pueden "
+"descargar aquí</link>."
 
 #: C/switch.js.page:23(p)
 msgid ""
@@ -3932,6 +3979,12 @@ msgid ""
 "but the Creative Commons-licensed photos used in this example were taken "
 "from the following sources and cropped to 640x425:"
 msgstr ""
+"La ventana contendrá un icono de «imagen rota» en lugar de una imagen si los "
+"archivos llamados <file>redfox.png</file>, <file>muteswan.png</file>, "
+"<file>fruitbat.png</file>, y <file>gentoopenguin.png</file> no están en la "
+"misma carpeta. Puede cambiar el código y las imágenes como quiera, pero las "
+"fotos con licencia Creative Commons usadas en este ejemplo se tomaron desde "
+"las siguientes fuentes y se redujeron a 640x425:"
 
 #: C/switch.js.page:25(p)
 msgid ""
@@ -3939,6 +3992,9 @@ msgid ""
 "photo</link> by Rob Lee, licensed <link href=\"http://creativecommons.org/"
 "licenses/by/2.0/deed.en\">CC-By</link>"
 msgstr ""
+"<link href=\"http://en.wikipedia.org/wiki/File:Fuzzy_Freddy.jpg\">Foto de un "
+"zorro rojo</link> por Rob Lee, con licencia <link href=\"http://"
+"creativecommons.org/licenses/by/2.0/deed.en\">CC-By</link>"
 
 #: C/switch.js.page:26(p)
 msgid ""
@@ -3947,6 +4003,10 @@ msgid ""
 "photo</link> by Ken Funakoshi, licensed <link href=\"http://creativecommons."
 "org/licenses/by-sa/2.0/deed.en\">CC-By-SA</link>"
 msgstr ""
+"<link href=\"http://en.wikipedia.org/wiki/File:Pygoscelis_papua_-"
+"Nagasaki_Penguin_Aquarium_-swimming_underwater-8a.jpg\">Foto de un pingüino "
+"papúa</link> por Ken Funakoshi, con licencia <link href=\"http://"
+"creativecommons.org/licenses/by-sa/2.0/deed.en\">CC-By-SA</link>"
 
 #: C/switch.js.page:27(p)
 msgid ""
@@ -3954,6 +4014,10 @@ msgid ""
 "photostream/\">Fruit bat photo</link> by Shek Graham, licensed <link href="
 "\"http://creativecommons.org/licenses/by/2.0/deed.en\">CC-By</link>"
 msgstr ""
+"<link href=\"http://www.flickr.com/photos/shekgraham/127431519/in/"
+"photostream/\">Foto de un murciélago de la fruta</link> por Shek Graham, con "
+"licencia <link href=\"http://creativecommons.org/licenses/by/2.0/deed.en"
+"\">CC-By</link>"
 
 #: C/switch.js.page:28(p)
 msgid ""
@@ -3962,6 +4026,10 @@ msgid ""
 "licensed <link href=\"http://creativecommons.org/licenses/by-sa/2.5/deed.en"
 "\">CC-By-SA</link>"
 msgstr ""
+"<link href=\"http://commons.wikimedia.org/wiki/File:Mute_Swan-"
+"Mindaugas_Urbonas.jpg\">Foto de un cisne mudo</link> por Mindaugas Urbonas, "
+"con licencia <link href=\"http://creativecommons.org/licenses/by-sa/2.5/deed."
+"en\">CC-By-SA</link>"
 
 #: C/switch.js.page:30(p)
 msgid ""
