@@ -22,7 +22,7 @@
 
   <title>SpinButton</title>
   <media type="image" mime="image/png" src="media/spinbuttonkittens.png"/>
-  <p>A SpinButton is not related to a <link xref="spinner.js">Spinner.</link> It's a text entry field which only accepts numbers, and which has plus and minus buttons to let you change the value without having to type anything in.</p>
+  <p>A SpinButton is not related to a <link xref="spinner.js">Spinner</link>. It's a text entry field which only accepts numbers, and which has plus and minus buttons to let you change the value without having to type anything in.</p>
   <p>It's best used when it's obvious that only a number can be entered into it. In this example, two SpinButtons are used for the number of kittens and number of cans of tuna to give them.</p>
     <links type="section" />
 
@@ -108,7 +108,7 @@ const SpinButtonExample = new Lang.Class({
         // this._tuna.set_wrap (true);
 ]]></code>
 
-    <p>If you want more fine-grained control over a SpinButton, or want to create a bunch of SpinButtons which all use the same parameters, you can create an object called an <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Adjustment.html">Adjustment.</link> Then you can use that object as a new SpinButton's adjustment property, and it sets all the values at once. Afterwards, you can change all the SpinButtons which use that adjustment by changing the Adjustment object's properties.</p>
+    <p>If you want more fine-grained control over a SpinButton, or want to create a bunch of SpinButtons which all use the same parameters, you can create an object called an <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Adjustment.html">Adjustment</link>. Then you can use that object as a new SpinButton's adjustment property, and it sets all the values at once. Afterwards, you can change all the SpinButtons which use that adjustment by changing the Adjustment object's properties.</p>
     <p>The commented-out lines here show things you can do to customize your SpinButton. You can set the number of digits which go after the decimal point, for example, or tell it to wrap the number around if it goes past the upper or lower bounds that you set.</p>
     <note><p>For the kitties' sake, please don't use set_digits to allow a decimal number of kittens.</p></note>
   </section>

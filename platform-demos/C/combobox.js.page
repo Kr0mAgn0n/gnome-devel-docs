@@ -25,7 +25,7 @@
   <media type="image" mime="image/png" src="media/combobox_multicolumn.png"/>
   <p>A ComboBox is an extremely customizable drop-down menu. It holds the equivalent of a <link xref="treeview_simple_liststore.js">TreeView</link> widget that appears when you click on it, complete with a ListStore (basically a spreadsheet) that says what's in the rows and columns. In this example, our ListStore has the name of each option in one column, and the name of a stock icon in the other, which the ComboBox then turns into an icon for each option.</p>
   <p>You select a whole horizontal row at a time, so the icons aren't treated as separate options. They and the text beside them make up each option you can click on.</p>
-  <note style="tip"><p>Working with a ListStore can be time-consuming. If you just want a simple text-only drop-down menu, take a look at the <link xref="comboboxtext.js">ComboBoxText.</link> It doesn't take as much time to set up, and is easier to work with.</p></note>
+  <note style="tip"><p>Working with a ListStore can be time-consuming. If you just want a simple text-only drop-down menu, take a look at the <link xref="comboboxtext.js">ComboBoxText</link>. It doesn't take as much time to set up, and is easier to work with.</p></note>
     <links type="section" />
 
   <section id="imports">
@@ -91,7 +91,7 @@ const ComboBoxExample = new Lang.Class ({
             GObject.TYPE_STRING,
             GObject.TYPE_STRING]);
 ]]></code>
-    <p>This ListStore works like the one used in the <link xref="treeview_simple_liststore.js">TreeView</link> example. We're giving it two columns, both strings, because one of them will contain the names of <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">stock Gtk icons.</link></p>
+    <p>This ListStore works like the one used in the <link xref="treeview_simple_liststore.js">TreeView</link> example. We're giving it two columns, both strings, because one of them will contain the names of <link href="http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS">stock Gtk icons</link>.</p>
     <p>If we'd wanted to use our own icons that weren't already built in to GNOME, we'd have needed to use the <file>gtk.gdk.Pixbuf</file> type instead. Here are a few other types you can use:</p>
     <list>
       <item><p><file>GObject.TYPE_BOOLEAN</file> -- True or false</p></item>
@@ -141,7 +141,7 @@ const ComboBoxExample = new Lang.Class ({
         this._comboBox.add_attribute (rendererText, "text", 0);
         this._comboBox.add_attribute (rendererPixbuf, "stock_id", 1);
 ]]></code>
-    <p>This part, again, works much like creating CellRenderers and packing them into the columns of a <link xref="treeview_simple_liststore.js">TreeView.</link> The biggest difference is that we don't need to create the ComboBox's columns as separate objects. We just pack the CellRenderers into it in the order we want them to show up, then tell them to pull information from the ListStore (and what type of information we want them to expect).</p>
+    <p>This part, again, works much like creating CellRenderers and packing them into the columns of a <link xref="treeview_simple_liststore.js">TreeView</link>. The biggest difference is that we don't need to create the ComboBox's columns as separate objects. We just pack the CellRenderers into it in the order we want them to show up, then tell them to pull information from the ListStore (and what type of information we want them to expect).</p>
     <p>We use a CellRendererText to show the text, and a CellRendererPixbuf to show the icons. We can store the names of the icons' stock types as strings, but when we display them we need a CellRenderer that's designed for pictures.</p>
     <note style="tip"><p>Just like with a TreeView, the "model" (in this case a ListStore) and the "view" (in this case our ComboBox) are separate. Because of that, we can do things like have the columns in one order in the ListStore, and then pack the CellRenderers that correspond to those columns into the ComboBox in a different order. We can even create a TreeView or other widget that shows the information in the ListStore in a different way, without it affecting our ComboBox.</p></note>
 
