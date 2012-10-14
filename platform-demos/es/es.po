@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-10-13 09:40+0000\n"
-"PO-Revision-Date: 2012-10-13 11:58+0200\n"
+"POT-Creation-Date: 2012-10-14 10:13+0000\n"
+"PO-Revision-Date: 2012-10-14 12:21+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -4624,13 +4624,6 @@ msgid "Creating the buttons"
 msgstr "Crear los botones"
 
 #: C/statusbar.js.page:106(p)
-#| msgid ""
-#| "This code creates the three <link href=\"button.js.page\">Gtk.Buttons</"
-#| "link> we'll use to push a new message to the statusbar, pop the last one "
-#| "off, and clear all existing messages. The \"back\" and \"clear\" buttons "
-#| "are <link href=\"http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html"
-#| "\">stock buttons,</link> which are automatically translated into any "
-#| "language GNOME supports."
 msgid ""
 "This code creates the three <link href=\"button.js.page\">Gtk.Buttons</link> "
 "we'll use to push a new message to the statusbar, pop the last one off, and "
@@ -4658,8 +4651,8 @@ msgstr ""
 "Este código crea la <link href=\"grid.js.page\">Gtk.Grid</link> que se usará "
 "para organizar los botones, y le adjunta los botones en orden. Después crea "
 "un <link href=\"paned.js.page\">Gtk.Frame</link> que ocupará la mayor parte "
-"de la ventana y que tiene bastante separación alrededor de los botones, y "
-"añade la rejilla al cuadro. Tenga en cuenta que todavía se necesita poner el "
+"de la ventana y que tiene bastante relleno alrededor de los botones, y añade "
+"la rejilla al cuadro. Tenga en cuenta que todavía se necesita poner el "
 "cuadro en la interfaz con paneles, y después añadirlo a la "
 "«ApplicationWindow»."
 
@@ -4672,6 +4665,9 @@ msgid ""
 "Here we create the Gtk.Statusbar, and push a message to it to start off "
 "with. Then we give it its own narrow frame at the bottom of the window."
 msgstr ""
+"Aquí se crea la «Gtk.Statusbar», y se le empuja un mensaje para comenzar. "
+"Después se le da su propio cuadro estrecho en la parte inferior de la "
+"ventana."
 
 #: C/statusbar.js.page:146(p)
 msgid ""
@@ -4683,12 +4679,22 @@ msgid ""
 "not just the most recent one on the stack. This is a simple example with "
 "only one kind of message, though, so we're just using one for everything."
 msgstr ""
+"Cada mensaje necesita tener un ID de contexto, que es un valor entero que "
+"puede obtener de la barra de estado con la función «get_context_id()». Su "
+"único parámetro es el valor de la cadena que usa para describir ese ID de "
+"contexto particular. Normalmente, obtendría un ID de contexto nuevo para "
+"distintos tipos de mensajes, para que pueda usar la función «remove()» para "
+"eliminar un mensaje específico y no sólo el más reciente de la pila. Sin "
+"embargo, este es un ejemplo simple con sólo un tipo de mensaje, por lo que "
+"sólo se usa uno para todo."
 
 #: C/statusbar.js.page:147(p)
 msgid ""
 "We use the push() function to push a new message onto the stack. Its first "
 "parameter is the context id, and its second is the message."
 msgstr ""
+"Se usa la función «push()» para empujar un mensaje nuevo a la pila. Su "
+"primer parámetro es el ID de contexto, y el segundo es el mensaje."
 
 #: C/statusbar.js.page:160(p)
 msgid ""
@@ -4696,6 +4702,9 @@ msgid ""
 "pane, adding it to the window, and telling the window to show all child "
 "widgets."
 msgstr ""
+"Este código termina de crear la ventana, empaquetando los marcos en el "
+"panel, añadiéndolo a la ventana, y diciéndole a la ventana que muestre todos "
+"los widgets hijos."
 
 #: C/statusbar.js.page:164(title)
 msgid "Functions for interacting with the statusbar"
@@ -4710,12 +4719,20 @@ msgid ""
 "of. The remove_all() function works the same way, except it removes all "
 "messages of that type from the stack."
 msgstr ""
+"Aquí están funciones que muestran cómo empujar un mensaje a la pila, extraer "
+"el que está arriba de todo, y limpiar todos los mensajes de un ID de "
+"contexto particular. La función «pop()» sólo toma un parámetro, que es el ID "
+"de contexto para el tipo de mensaje del que quiere extraer el más reciente. "
+"La función «remove_all()» funciona de la misma manera, excepto que elimina "
+"todos los mensajes de ese tipo de la pila."
 
 #: C/statusbar.js.page:211(p)
 msgid ""
 "Finally, we create a new instance of the finished StatusbarExample class, "
 "and set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase «StatusbarExample» "
+"terminada, y se ejecuta la aplicación."
 
 #: C/statusbar.js.page:225(link)
 msgid "Gtk.Frame"
@@ -4732,10 +4749,8 @@ msgid "@@image: 'media/statusbar3.png'; md5=60c71604fb44656237ee66dfb39a8689"
 msgstr "@@image: 'media/statusbar3.png'; md5=60c71604fb44656237ee66dfb39a8689"
 
 #: C/statusbar.c.page:7(title)
-#, fuzzy
-#| msgid "Statusbar"
 msgid "Statusbar (C)"
-msgstr "Statusbar"
+msgstr "Statusbar (C)"
 
 #: C/statusbar.c.page:27(p)
 msgid ""
@@ -4743,6 +4758,9 @@ msgid ""
 "first-out order. The message at the top of the stack is always the one "
 "displayed."
 msgstr ""
+"Esta barra de estado se usa para demostrar cómo se apilan los mensajes en un "
+"orden «último dentro, primero fuera». Siempre se muestra el mensaje en la "
+"parte superior de la pila."
 
 #: C/statusbar.c.page:37(link)
 msgid "GtkStatusBar"
@@ -4760,10 +4778,8 @@ msgid "@@image: 'media/spinner.png'; md5=d04f2d81f1d72c6c2f97e8729947dfed"
 msgstr "@@image: 'media/spinner.png'; md5=d04f2d81f1d72c6c2f97e8729947dfed"
 
 #: C/spinner.vala.page:7(title)
-#, fuzzy
-#| msgid "Spinner"
 msgid "Spinner (Vala)"
-msgstr "Spinner"
+msgstr "Spinner (Vala)"
 
 #: C/spinner.vala.page:17(desc) C/spinner.py.page:17(desc)
 #: C/spinner.js.page:17(desc) C/spinner.c.page:18(desc)
@@ -4791,10 +4807,8 @@ msgid "Gdk.keyval_name"
 msgstr "Gdk.keyval_name"
 
 #: C/spinner.py.page:7(title)
-#, fuzzy
-#| msgid "Strings in Python"
 msgid "Spinner (Python)"
-msgstr "Cadenas en Python"
+msgstr "Spinner (Python)"
 
 #: C/spinner.py.page:31(p)
 msgid ""
@@ -4804,22 +4818,24 @@ msgid ""
 "gdk/gdkkeysyms.h\">here</link>,but for instance <code>GDK_KEY_BackSpace</"
 "code> becomes the string <code>\"BackSpace\"</code>."
 msgstr ""
+"<code>Gdk.keyval_name(event.keyval)</code> convierte el valor de tecla "
+"<code>event.keyval</code> en un nombre simbólico. Los nombres y los valores "
+"de tecla correspondientes pueden encontrarse <link href=\"http://git.gnome."
+"org/browse/gtk+/tree/gdk/gdkkeysyms.h\">aquí</link>, pero por ejemplo "
+"<code>GDK_KEY_BackSpace</code> se convierte en la cadena <code>\"BackSpace"
+"\"</code>."
 
 #: C/spinner.py.page:41(link)
 msgid "Key Values"
 msgstr "Valores de teclas"
 
 #: C/spinner.js.page:7(title)
-#, fuzzy
-#| msgid "JavaScript"
 msgid "Spinner (JavaScript)"
-msgstr "JavaScript"
+msgstr "Spinner (JavaScript)"
 
 #: C/spinner.c.page:7(title)
-#, fuzzy
-#| msgid "Spinner"
 msgid "Spinner (C)"
-msgstr "Spinner"
+msgstr "Spinner (C)"
 
 #: C/spinner.c.page:34(link)
 msgid "GObject"
@@ -4833,10 +4849,8 @@ msgid "@@image: 'media/spinbutton.png'; md5=993cbb7d9bd271a329727a926195712a"
 msgstr "@@image: 'media/spinbutton.png'; md5=993cbb7d9bd271a329727a926195712a"
 
 #: C/spinbutton.vala.page:7(title)
-#, fuzzy
-#| msgid "SpinButton"
 msgid "SpinButton (Vala)"
-msgstr "SpinButton"
+msgstr "SpinButton (Vala)"
 
 #: C/spinbutton.vala.page:19(desc)
 msgid "Retrieve an integer or floating point number."
@@ -4857,10 +4871,8 @@ msgid "Gtk.SpinButton"
 msgstr "Gtk.SpinButton"
 
 #: C/spinbutton.py.page:7(title)
-#, fuzzy
-#| msgid "SpinButton"
 msgid "SpinButton (Python)"
-msgstr "SpinButton"
+msgstr "SpinButton (Python)"
 
 #: C/spinbutton.py.page:18(desc)
 msgid "Retrieve an integer or floating-point number from the user."
@@ -4876,6 +4888,10 @@ msgid ""
 "\"signals-callbacks.py\">this page</link>. An example is the <code>\"value-"
 "changed\"</code> signal, emitted when the value of the spinbutton changes."
 msgstr ""
+"Para una explicación de señales y de funciones de devolución de llamada, "
+"consulte <link xref=\"signals-callbacks.py\">esta página</link>. Un ejemplo "
+"es la señal <code>\"value-changed\"</code>, emitida cuando el cambia el "
+"valor del botón incremental."
 
 #: C/spinbutton.py.page:35(p)
 msgid ""
@@ -4889,6 +4905,15 @@ msgid ""
 "<code>page_size</code> are not used in this case, and they should be set to "
 "<code>0</code>."
 msgstr ""
+"Se necesita un «Gtk.Adjustment» para construir el «Gtk.SpinButton». Este es "
+"la representación de un valor con un límite superior e inferior, junto con "
+"pasos y páginas de incrementos, y un tamaño de página, y se construye como "
+"<code>Gtk.Adjustment(valor, mínimo, ,máximo, paso, página, tamaño_de_página)"
+"</code> donde los campos son del tipo <code>float</code>; <code>paso</code> "
+"es el incremento/decremento que se obtiene usando las teclas de dirección o "
+"los botones del botón incremental. Tenga en cuenta que <code>página</code> y "
+"<code>tamaño_de_página</code> no se usan en este caso, y deben establecerse "
+"a <code>0</code>."
 
 #: C/spinbutton.py.page:37(p)
 msgid ""
@@ -4896,18 +4921,25 @@ msgid ""
 "maximum or the minimum, set <code>set_wrap(True)</code>. The <code>\"wrapped"
 "\"</code> signal is emitted when this happens."
 msgstr ""
+"Si quiere que el valor del botón incremental dé la vuelta cuando exceda el "
+"máximo o el mínimo, establezca <code>set_wrap(True)</code>. La señal <code>"
+"\"wrapped\"</code> se emite cuando esto sucede."
 
 #: C/spinbutton.py.page:38(p)
 msgid ""
 "<code>set_digits(digits)</code> sets the precision to be displayed by the "
 "spinbutton, up to 20 digits."
 msgstr ""
+"<code>set_digits(dígitos)</code> establece la precisión que muestra el botón "
+"incremental, hasta 20 dígitos."
 
 #: C/spinbutton.py.page:39(p)
 msgid ""
 "To get the value of the spinbutton as an integer, use <code>get_value_as_int"
 "()</code>."
 msgstr ""
+"Para obtener el valor del botón incremental como un entero, use "
+"<code>get_value_as_int()</code>."
 
 #: C/spinbutton.py.page:47(link) C/spinbutton.c.page:36(link)
 msgid "GtkSpinButton"
@@ -4927,21 +4959,28 @@ msgstr ""
 "@@image: 'media/spinbuttonkittens.png'; md5=577cce8a902140aacbab73fe8a76a010"
 
 #: C/spinbutton.js.page:7(title)
-#, fuzzy
-#| msgid "SpinButton"
 msgid "SpinButton (JavaScript)"
-msgstr "SpinButton"
+msgstr "SpinButton (JavaScript)"
 
 #: C/spinbutton.js.page:20(desc)
 msgid "A number entry field that has + and - buttons"
-msgstr ""
+msgstr "Un campo de entrada numérico que tiene botones «+» y «-»."
 
 #: C/spinbutton.js.page:25(p)
+#| msgid ""
+#| "A SpinButton is not related to a <link xref=\"spinner.js\">Spinner.</"
+#| "link> It's a text entry field which only accepts numbers, and which has "
+#| "plus and minus buttons to let you change the value without having to type "
+#| "anything in."
 msgid ""
-"A SpinButton is not related to a <link xref=\"spinner.js\">Spinner.</link> "
+"A SpinButton is not related to a <link xref=\"spinner.js\">Spinner</link>. "
 "It's a text entry field which only accepts numbers, and which has plus and "
 "minus buttons to let you change the value without having to type anything in."
 msgstr ""
+"Un «SpinButton» no está relacionado con un <link xref=\"spinner.js"
+"\">Spinner</link>. Es un campo de entrada de texto que sólo acepta números, "
+"y que tiene botones más y menos para dejarle cambiar el valor sin tener que "
+"escribir nada."
 
 #: C/spinbutton.js.page:26(p)
 msgid ""
@@ -4949,6 +4988,9 @@ msgid ""
 "In this example, two SpinButtons are used for the number of kittens and "
 "number of cans of tuna to give them."
 msgstr ""
+"Su uso es bueno cuando es obvio que sólo se le puede introducir un número. "
+"En este ejemplo, se usan dos botones incrementales para el número de gatitos "
+"y el número de latas de atún para darles."
 
 #: C/spinbutton.js.page:68(p)
 msgid ""
@@ -4957,6 +4999,10 @@ msgid ""
 "Gtk.Application.html\">Gtk.Application</link> for our widgets and window to "
 "go in."
 msgstr ""
+"Todo el código de este ejemplo va en la clase «SpinButtonExample». El código "
+"anterior crea una <link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/"
+"Gtk.Application.html\">Gtk.Application</link> para que vayan los widgets y "
+"la ventana."
 
 #: C/spinbutton.js.page:84(title)
 msgid "Creating the SpinButtons"
@@ -4969,6 +5015,10 @@ msgid ""
 "maximum value, and its third is how much to increment it when the plus or "
 "minus buttons are pressed."
 msgstr ""
+"Se puede usar la función «new_with_range» para crear un botón incremental "
+"nuevo rápidamente. Su primer parámetro es el valor inicial del botón "
+"incremental, el segundo es el valor máximo, y el tercero es cuánto se "
+"incrementa cuando se presionan los botones más o menos."
 
 #: C/spinbutton.js.page:92(p)
 msgid ""
@@ -4976,17 +5026,36 @@ msgid ""
 "a function which handles what happens when the number inside either "
 "SpinButton changes."
 msgstr ""
+"Después de crear el primer botón incremental, se conecta su señal «value-"
+"changed» a una función que maneja qué sucede cuando cambia el número dentro "
+"de cada botón incremental."
 
 #: C/spinbutton.js.page:111(p)
+#| msgid ""
+#| "If you want more fine-grained control over a SpinButton, or want to "
+#| "create a bunch of SpinButtons which all use the same parameters, you can "
+#| "create an object called an <link href=\"http://www.roojs.org/seed/gir-1.2-"
+#| "gtk-3.0/gjs/Gtk.Adjustment.html\">Adjustment.</link> Then you can use "
+#| "that object as a new SpinButton's adjustment property, and it sets all "
+#| "the values at once. Afterwards, you can change all the SpinButtons which "
+#| "use that adjustment by changing the Adjustment object's properties."
 msgid ""
 "If you want more fine-grained control over a SpinButton, or want to create a "
 "bunch of SpinButtons which all use the same parameters, you can create an "
 "object called an <link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/"
-"Gtk.Adjustment.html\">Adjustment.</link> Then you can use that object as a "
+"Gtk.Adjustment.html\">Adjustment</link>. Then you can use that object as a "
 "new SpinButton's adjustment property, and it sets all the values at once. "
 "Afterwards, you can change all the SpinButtons which use that adjustment by "
 "changing the Adjustment object's properties."
 msgstr ""
+"Si quiere un control más fino sobre un botón incremental, o si quiere crear "
+"varios botones incrementales que usen todos los mismos parámetros, puede "
+"crear un objeto llamado <link href=\"http://www.roojs.org/seed/gir-1.2-"
+"gtk-3.0/gjs/Gtk.Adjustment.html\">Ajuste</link>. Entonces, podrá usar ese "
+"objeto como una propiedad de ajuste nueva del botón incremental, y "
+"establecer todos los valores de una vez. Después, puede cambiar todos los "
+"botones incrementales que usan ese ajuste cambiando las propiedades de su "
+"objeto."
 
 #: C/spinbutton.js.page:112(p)
 msgid ""
@@ -5168,7 +5237,7 @@ msgstr ""
 #: C/set-up-gedit.js.page:19(p)
 msgid ""
 "This tutorial will show you how to set up <link href=\"http://projects.gnome."
-"org/gedit/\">gedit,</link> GNOME's basic text editor, so that it has a "
+"org/gedit/\">gedit</link>, GNOME's basic text editor, so that it has a "
 "handful of extra features which are useful for writing JavaScript code."
 msgstr ""
 
@@ -6417,7 +6486,7 @@ msgid ""
 "To make sure the button's \"OK\" label shows up properly in every language "
 "that GNOME is translated into, remember to use one of Gtk's <link href="
 "\"http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html\">stock button "
-"types.</link>"
+"types</link>."
 msgstr ""
 
 #: C/radiobutton.js.page:166(p)
@@ -8129,7 +8198,7 @@ msgstr ""
 #: C/messagedialog.js.page:91(p)
 msgid ""
 "For this example, all that we have in the window the popup comes out of is a "
-"silly warning <link xref=\"label.js\">Label.</link>"
+"silly warning <link xref=\"label.js\">Label</link>."
 msgstr ""
 
 #: C/messagedialog.js.page:95(title)
@@ -13175,7 +13244,7 @@ msgid ""
 "<link xref=\"02_welcome_to_the_grid.js\">Continue on to the next tutorial</"
 "link> to learn how to build \"native\" GNOME applications that look and feel "
 "like the others, instead of a webview with HTML code inside. Or take a look "
-"at some <link xref=\"beginner.js#samples\">code samples,</link> if you'd "
+"at some <link xref=\"beginner.js#samples\">code samples</link>, if you'd "
 "like to see example code for each Gtk widget."
 msgstr ""
 
@@ -16398,7 +16467,7 @@ msgstr ""
 msgid ""
 "Working with a ListStore can be time-consuming. If you just want a simple "
 "text-only drop-down menu, take a look at the <link xref=\"comboboxtext.js"
-"\">ComboBoxText.</link> It doesn't take as much time to set up, and is "
+"\">ComboBoxText</link>. It doesn't take as much time to set up, and is "
 "easier to work with."
 msgstr ""
 
@@ -16416,7 +16485,7 @@ msgid ""
 "\"treeview_simple_liststore.js\">TreeView</link> example. We're giving it "
 "two columns, both strings, because one of them will contain the names of "
 "<link href=\"http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-"
-"STOCK-ABOUT:CAPS\">stock Gtk icons.</link>"
+"STOCK-ABOUT:CAPS\">stock Gtk icons</link>."
 msgstr ""
 
 #: C/combobox.js.page:95(p)
@@ -16457,8 +16526,8 @@ msgstr ""
 #: C/combobox.js.page:144(p)
 msgid ""
 "This part, again, works much like creating CellRenderers and packing them "
-"into the columns of a <link xref=\"treeview_simple_liststore.js\">TreeView.</"
-"link> The biggest difference is that we don't need to create the ComboBox's "
+"into the columns of a <link xref=\"treeview_simple_liststore.js\">TreeView</"
+"link>. The biggest difference is that we don't need to create the ComboBox's "
 "columns as separate objects. We just pack the CellRenderers into it in the "
 "order we want them to show up, then tell them to pull information from the "
 "ListStore (and what type of information we want them to expect)."
@@ -16499,11 +16568,11 @@ msgstr ""
 
 #: C/combobox.js.page:179(p)
 msgid ""
-"We're going to create a pop-up <link xref=\"messagedialog.js\">MessageDialog,"
-"</link> which shows you a silly haiku based on which distro you select. "
-"First, we create the array of haiku to use. Since the first string in our "
-"ComboBox is just the \"Select\" message, we make the first string in our "
-"array blank."
+"We're going to create a pop-up <link xref=\"messagedialog.js"
+"\">MessageDialog</link>, which shows you a silly haiku based on which distro "
+"you select. First, we create the array of haiku to use. Since the first "
+"string in our ComboBox is just the \"Select\" message, we make the first "
+"string in our array blank."
 msgstr ""
 
 #: C/combobox.js.page:203(p)
@@ -16616,11 +16685,11 @@ msgstr ""
 
 #: C/comboboxtext.js.page:122(p)
 msgid ""
-"We're going to create a pop-up <link xref=\"messagedialog.js\">MessageDialog,"
-"</link> which shows you a message based on which distro you select. First, "
-"we create the array of responses to use. Since the first string in our "
-"ComboBoxText is just the \"Select distribution\" message, we make the first "
-"string in our array blank."
+"We're going to create a pop-up <link xref=\"messagedialog.js"
+"\">MessageDialog</link>, which shows you a message based on which distro you "
+"select. First, we create the array of responses to use. Since the first "
+"string in our ComboBoxText is just the \"Select distribution\" message, we "
+"make the first string in our array blank."
 msgstr ""
 
 #: C/comboboxtext.js.page:146(p)
@@ -17361,7 +17430,7 @@ msgid ""
 "JavaScript, you can write full-fledged applications for GNOME. <link href="
 "\"https://live.gnome.org/GnomeDocuments\">GNOME Documents</link> is written "
 "in JavaScript, and so is <link href=\"https://live.gnome.org/GnomeShell/Tour"
-"\">GNOME Shell,</link> the most basic part of GNOME."
+"\">GNOME Shell</link>, the most basic part of GNOME."
 msgstr ""
 
 #: C/beginner.js.page:21(p)
@@ -18077,7 +18146,7 @@ msgstr ""
 msgid ""
 "Gtk+ stands for \"GIMP Toolkit.\" It's like a toolbox of widgets that you "
 "can reach into, while building your applications. It was originally written "
-"for <link href=\"http://www.gimp.org/\">the GIMP,</link> which is a free "
+"for <link href=\"http://www.gimp.org/\">the GIMP</link>, which is a free "
 "software image editor."
 msgstr ""
 
@@ -18151,7 +18220,7 @@ msgstr ""
 msgid ""
 "You can download the image file used in this example <link href=\"https://"
 "live.gnome.org/TarynFox?action=AttachFile&amp;do=get&amp;target=gnome-image."
-"png\">here.</link> Be sure to put it in the same directory as the code "
+"png\">here</link>. Be sure to put it in the same directory as the code "
 "you're writing."
 msgstr ""
 
@@ -18393,7 +18462,7 @@ msgid ""
 "That's what the stock \"About\" icon looks like. You can see a list of all "
 "the stock items starting with gtk-about in <link href=\"http://developer."
 "gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS\">GNOME's "
-"developer documentation.</link> It was written for C programmers, but you "
+"developer documentation</link>. It was written for C programmers, but you "
 "don't need to know C to use it; just look at the part in quotation marks, "
 "like \"gtk-about\", and copy that part to use the icon next to it."
 msgstr ""
@@ -18417,8 +18486,8 @@ msgid ""
 "That's right, we turned the Label into a Button just by changing the name! "
 "If you run the application and click on it, though, you'll find that it "
 "doesn't do anything. How do we make our Button do something? That's what "
-"we'll find out, in <link xref=\"getting_the_signal.js\">our next tutorial.</"
-"link>"
+"we'll find out, in <link xref=\"getting_the_signal.js\">our next tutorial</"
+"link>."
 msgstr ""
 
 #: C/02_welcome_to_the_grid.js.page:270(p)
