@@ -71,7 +71,7 @@ demo_sources = \
 	samples/grid.py				\
 	samples/grid.vala			\
 	samples/GtkApplicationWindow.c		\
-        samples/GtkApplicationWindow.js		\
+	samples/GtkApplicationWindow.js		\
 	samples/GtkApplicationWindow.py		\
 	samples/GtkApplicationWindow.vala	\
 	samples/hellognome.html			\
@@ -181,7 +181,6 @@ DOC_FIGURES = \
 	media/02_jsgrid_08.png		\
 	media/03_jssignal_01.png		\
 	media/03_jssignal_02.png		\
-	media/03_jssignal_02b.png		\
 	media/03_jssignal_03.png		\
 	media/03_jssignal_04.png		\
 	media/aboutdialog_GMenu.png		\
