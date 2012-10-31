@@ -1,9 +1,8 @@
-include $(top_srcdir)/gnome-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
-DOC_MODULE = hig-book
-DOC_LINGUAS = de el es fr sl zh_CN zh_HK zh_TW
-DOC_ENTITIES =			\
+HELP_ID = hig-book
+HELP_LINGUAS = de el es fr sl zh_CN zh_HK zh_TW
+HELP_FILES =			\
 	hig-ch-bibliography.xml	\
 	hig-ch-checks.xml	\
 	hig-ch-controls.xml	\
@@ -21,8 +20,9 @@ DOC_ENTITIES =			\
 	hig-ch-principles.xml	\
 	hig-ch-toolbars.xml	\
 	hig-ch-windows.xml      \
-	hig-ch-whatsnew.xml
-DOC_FIGURES =						\
+	hig-ch-whatsnew.xml	\
+	index.docbook
+HELP_MEDIA =					\
 	images/controls-buttons.png \
 	images/controls-check-box-ambiguous.png \
 	images/controls-check-boxes-mixed.png \

@@ -1,10 +1,12 @@
-include $(top_srcdir)/gnome-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
-DOC_MODULE = accessibility-devel-guide
-DOC_ENTITIES = gad.xml gtest.xml legal.xml
-DOC_INCLUDES =
-DOC_FIGURES =						\
+HELP_ID = accessibility-devel-guide
+
+HELP_FILES = index.docbook
+
+HELP_EXTRA = gad.xml gtest.xml legal.xml
+
+HELP_MEDIA =						\
 	figures/at-arch.png				\
 	figures/badfocus1.png				\
 	figures/badfocus2.png				\
@@ -23,4 +25,5 @@ DOC_FIGURES =						\
 	figures/label_left.png				\
 	figures/label_right.png				\
 	figures/nodrop.png
-DOC_LINGUAS = de el es fr ja pt_BR sl
+
+HELP_LINGUAS = de el es fr ja pt_BR sl

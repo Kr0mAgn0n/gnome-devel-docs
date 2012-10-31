@@ -1,10 +1,10 @@
-include $(top_srcdir)/gnome-doc-utils.make
+@YELP_HELP_RULES@
 
-DOC_ID = gnome-devel-demos
+HELP_ID = gnome-devel-demos
 
-DOC_LINGUAS = ca de el es fr gl
+HELP_LINGUAS = ca de el es fr gl
 
-demo_sources = \
+demo_sources =	\
 	audio-player/audio-player.vala		\
 	exercises/menubar.vala.exercises	\
 	guitar-tuner/guitar-tuner.c		\
@@ -18,15 +18,15 @@ demo_sources = \
 	image-viewer/image-viewer.py		\
 	image-viewer/image-viewer.vala		\
 	magic-mirror/magic-mirror.vala		\
-	magic-mirror/magic-mirror-advanced.vala \
+	magic-mirror/magic-mirror-advanced.vala	\
 	message-board/message-board.c		\
 	photo-wall/photo-wall.c			\
 	record-collection/record-collection.js	\
 	samples/02_welcome_to_the_grid.js	\
-	samples/03_getting_the_signal_01.js			\
-	samples/03_getting_the_signal_02.js			\
-	samples/03_getting_the_signal_03.js			\
-	samples/03_getting_the_signal_04.js			\
+	samples/03_getting_the_signal_01.js	\
+	samples/03_getting_the_signal_02.js	\
+	samples/03_getting_the_signal_03.js	\
+	samples/03_getting_the_signal_04.js	\
 	samples/aboutdialog.c			\
 	samples/aboutdialog.js			\
 	samples/aboutdialog.py			\
@@ -58,7 +58,7 @@ demo_sources = \
 	samples/filechooserdialog.py		\
 	samples/filechooserdialog.ui		\
 	samples/filechooserdialog.vala		\
-	samples/fontchooserwidget.py			\
+	samples/fontchooserwidget.py		\
 	samples/fruitbat.png			\
 	samples/gentoopenguin.png		\
 	samples/gmenu.c				\
@@ -109,7 +109,7 @@ demo_sources = \
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/muteswan.png			\
-	samples/paned.py				\
+	samples/paned.py			\
 	samples/progressbar.c			\
 	samples/progressbar.js			\
 	samples/progressbar.py			\
@@ -156,21 +156,21 @@ demo_sources = \
 	samples/toolbar_builder.py		\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
-	samples/tooltip.py		\
+	samples/tooltip.py			\
 	samples/treeview_advanced_liststore.py	\
 	samples/treeview_cellrenderertoggle.py	\
 	samples/treeview_simple_liststore.js	\
 	samples/treeview_simple_liststore.py	\
 	samples/treeview_simple_liststore.vala	\
-	samples/treeview_treestore.py	\
-	samples/tux.png			\
+	samples/treeview_treestore.py		\
+	samples/tux.png				\
 	samples/window.c			\
 	samples/window.js			\
 	samples/window.py			\
 	samples/window.vala			\
 	media/gnome-devtools.catalog
 
-DOC_FIGURES = \
+HELP_MEDIA =	\
 	media/02_jsgrid_01.png		\
 	media/02_jsgrid_02.png		\
 	media/02_jsgrid_03.png		\
@@ -210,7 +210,7 @@ DOC_FIGURES = \
 	media/gmenu.py.png			\
 	media/gmenu.vala.png			\
 	media/grid.png				\
-	media/grid_simple.png				\
+	media/grid_simple.png			\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
@@ -226,7 +226,7 @@ DOC_FIGURES = \
 	media/message-board.ogv			\
 	media/messagedialog.png			\
 	media/opensuse.png			\
-	media/paned.png					\
+	media/paned.png				\
 	media/photo-wall.png			\
 	media/photo-wall-focused.png		\
 	media/progressbar.ogv			\
@@ -257,15 +257,15 @@ DOC_FIGURES = \
 	media/treeview_cellrenderertoggle.png	\
 	media/treeview_simple_liststore.png	\
 	media/treeview_simple_liststore_penguins.png	\
-	media/treeview_treestore.png	\
+	media/treeview_treestore.png		\
 	media/ubuntu.png			\
 	media/weatherAppJs.png			\
 	media/window.png			\
 	$(demo_sources)
 
-DOC_PAGES =				\
-	02_welcome_to_the_grid.js.page		\
-	03_getting_the_signal.js.page		\
+HELP_FILES =				\
+	02_welcome_to_the_grid.js.page	\
+	03_getting_the_signal.js.page	\
 	aboutdialog.c.page		\
 	aboutdialog.js.page		\
 	aboutdialog.py.page		\
@@ -347,19 +347,18 @@ DOC_PAGES =				\
 	linkbutton.py.page		\
 	linkbutton.vala.page		\
 	magic-mirror.vala.page		\
-	menubar.py.page		\
+	menubar.py.page			\
 	menubar.vala.page		\
 	menubutton.js.page		\
 	menubutton.py.page		\
 	menubutton.vala.page		\
-	menubutton.py.page		\
 	message-board.c.page		\
 	messagedialog.c.page		\
 	messagedialog.js.page		\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
-	model-view-controller.py.page		\
-	paned.py.page		\
+	model-view-controller.py.page	\
+	paned.py.page			\
 	photo-wall.c.page		\
 	progressbar.c.page		\
 	progressbar.js.page		\
@@ -409,9 +408,9 @@ DOC_PAGES =				\
 	toolbar.js.page			\
 	toolbar.py.page			\
 	toolbar.vala.page		\
-	toolbar_builder.py.page	\
+	toolbar_builder.py.page		\
 	toolbar_builder.vala.page	\
-	tooltip.py.page	\
+	tooltip.py.page			\
 	treeview_advanced_liststore.py.page	\
 	treeview_cellrenderertoggle.py.page	\
 	treeview_simple_liststore.js.page	\
@@ -419,7 +418,7 @@ DOC_PAGES =				\
 	treeview_simple_liststore.vala.page	\
 	treeview_treestore.py.page	\
 	translate.page			\
-	tutorial.py.page			\
+	tutorial.py.page		\
 	vala.page			\
 	weatherApp.js.page		\
 	weatherAppMain.js.page		\
@@ -429,5 +428,3 @@ DOC_PAGES =				\
 	window.js.page			\
 	window.py.page			\
 	window.vala.page
-
-dist-hook: doc-dist-hook

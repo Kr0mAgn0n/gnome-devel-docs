@@ -1,6 +1,5 @@
-include $(top_srcdir)/gnome-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
-DOC_MODULE = integration-guide
-DOC_FIGURES =
-DOC_LINGUAS = cs de el en_GB es fr gl it pt_BR sl sv zh_CN
+HELP_ID = integration-guide
+HELP_FILES = index.docbook
+HELP_LINGUAS = cs de el en_GB es fr gl it pt_BR sl sv zh_CN

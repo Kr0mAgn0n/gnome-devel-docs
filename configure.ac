@@ -3,7 +3,7 @@ AC_INIT([gnome-devel-docs],[3.6.1])
 AM_INIT_AUTOMAKE([no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE([enable])
 
-GNOME_DOC_INIT
+YELP_HELP_INIT
 
 AC_OUTPUT([
 Makefile

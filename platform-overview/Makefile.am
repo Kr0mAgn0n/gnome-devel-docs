@@ -1,8 +1,7 @@
-include $(top_srcdir)/gnome-doc-utils.make
-dist-hook: doc-dist-hook
+@YELP_HELP_RULES@
 
-DOC_ID = platform-overview
-DOC_PAGES =			\
+HELP_ID = platform-overview
+HELP_FILES =			\
 	atk.page		\
 	cairo.page		\
 	canberra.page		\
@@ -22,12 +21,8 @@ DOC_PAGES =			\
 	notify.page		\
 	pango.page		\
 	telepathy.page		\
-	webkit.page
-
-DOC_FIGURES =
-
-DOC_INCLUDES=			\
+	webkit.page		\
 	cc-by-sa-3-0.xml	\
 	legal-fdl.xml
 
-DOC_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl sv zh_CN
+HELP_LINGUAS = ca cs de el es fr gl it ja oc pt_BR ru uk sl sv zh_CN
