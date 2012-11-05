@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-11-03 10:12+0000\n"
-"PO-Revision-Date: 2012-11-03 11:50+0100\n"
+"POT-Creation-Date: 2012-11-03 10:51+0000\n"
+"PO-Revision-Date: 2012-11-05 17:28+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -404,11 +404,6 @@ msgstr ""
 "Porque en lugar de usar código web, estos van a ser 100% GNOME, usando Gtk+."
 
 #: C/02_welcome_to_the_grid.js.page:35(note/p)
-#| msgid ""
-#| "Gtk+ stands for \"GIMP Toolkit.\" It's like a toolbox of widgets that you "
-#| "can reach into, while building your applications. It was originally "
-#| "written for <link href=\"http://www.gimp.org/\">the GIMP</link>, which is "
-#| "a free software image editor."
 msgid ""
 "Gtk+ stands for \"GIMP Toolkit\". It's like a toolbox of widgets that you "
 "can reach into, while building your applications. It was originally written "
@@ -688,6 +683,9 @@ msgid ""
 "how to use the Grid's powers. First, let's attach the Image and Label we "
 "made to our Grid."
 msgstr ""
+"Todavía no se le da ninguna propiedad. Estas vendrán después, cuando aprenda "
+"cómo usar los poderes de la rejilla. Primero, adjúntele a su rejilla la "
+"imagen y la etiqueta que hizo."
 
 #: C/02_welcome_to_the_grid.js.page:118(section/code)
 #, no-wrap
@@ -707,12 +705,17 @@ msgid ""
 "This code looks awfully complicated, but it's not. Here's what those numbers "
 "mean:"
 msgstr ""
+"Este código se ve terriblemente complicado, pero no lo es. Aquí está lo que "
+"esos números significan:"
 
 #: C/02_welcome_to_the_grid.js.page:126(item/p)
 msgid ""
 "The <em>first</em> number is what left-to-right position to put things in, "
 "starting from 0. Any widget that uses a 0 here goes all the way to the left."
 msgstr ""
+"El <em>primer</em> número es en qué posición de izquierda a derecha se ponen "
+"las cosas, comenzando desde 0. Cualquier widget que use un 0 aquí va todo a "
+"la izquierda."
 
 #: C/02_welcome_to_the_grid.js.page:127(item/p)
 msgid ""
@@ -720,12 +723,17 @@ msgid ""
 "widget in, starting from 0. The Label goes beneath the Image, so we give the "
 "Image a 0 and the Label a 1 here."
 msgstr ""
+"El <em>segundo</em> número es en qué posición de arriba a abajo se pone un "
+"widget dado, comenzando desde 0. La etiqueta va debajo de la imagen, por lo "
+"que se le da a la imagen un 0 y a la etiqueta un 1 aquí."
 
 #: C/02_welcome_to_the_grid.js.page:128(item/p)
 msgid ""
 "The <em>third</em> and <em>fourth</em> numbers are how many columns and rows "
 "a widget should take up. We'll see how these work in a minute."
 msgstr ""
+"Los números <em>tercero</em> y <em>cuarto</em> son cuántas columnas y filas "
+"debe ocupar un widget. Se verá cómo funciona esto en un minuto."
 
 #: C/02_welcome_to_the_grid.js.page:131(section/code)
 #, no-wrap
@@ -765,24 +773,25 @@ msgid ""
 "_buildUI function. As always, to finish up we create a new instance of the "
 "application's class and tell it to run."
 msgstr ""
+"Ahora que ha creado la rejilla y le ha adjuntado todos los widgets, se añade "
+"a la ventana y se le dice que se muestre, como la última parte de la función "
+"«_buildUI». Como siempre, para finalizar se crea una instancia nueva de la "
+"clase de la aplicación y se le dice que se ejecute."
 
 #: C/02_welcome_to_the_grid.js.page:146(section/p)
-#, fuzzy
-#| msgid ""
-#| "To run this application, first save it as helloWorld.js. Then open "
-#| "Terminal, go to the folder where your application is stored and run"
 msgid ""
 "Save your application as welcome_to_the_grid.js. Then, to run your "
 "application just open a terminal, go to the directory where your application "
 "is at, and type"
 msgstr ""
-"Para ejecutar esta aplicación ,primero guárdela como helloWorld.js. Luego, "
-"abra una terminal, vaya a la carpeta donde está la aplicación y ejecute"
+"Guarde su aplicación como «welcome_to_the_grid.js». Después, para ejecutar "
+"su aplicación simplemente abra una terminal, vaya a la carpeta en la que "
+"está, y escriba"
 
 #: C/02_welcome_to_the_grid.js.page:147(section/screen)
 #, no-wrap
 msgid " <output style=\"prompt\">$ </output>gjs welcome_to_the_grid.js "
-msgstr ""
+msgstr " <output style=\"prompt\">$ </output>gjs welcome_to_the_grid.js "
 
 #: C/02_welcome_to_the_grid.js.page:151(section/p)
 msgid ""
@@ -790,12 +799,13 @@ msgid ""
 "next to the Image like that? That doesn't look as nice, and it makes it "
 "harder to read. What can we do about this?"
 msgstr ""
+"¡Allí va! Pero espere. Eso no se ve bien. ¿Por qué la etiqueta está pegada a "
+"la imagen así? Eso no se ve tan bien, y la hace difícil de leer. ¿Qué puede "
+"hacer acerca de esto?"
 
 #: C/02_welcome_to_the_grid.js.page:155(section/title)
-#, fuzzy
-#| msgid "Creating the switches"
 msgid "Tweaking the Grid"
-msgstr "Crear los interruptores"
+msgstr "Configurar la rejilla"
 
 #: C/02_welcome_to_the_grid.js.page:157(section/p)
 msgid ""
@@ -803,6 +813,9 @@ msgid ""
 "create it. This works sort of like setting a margin for an HTML element "
 "using inline CSS styling."
 msgstr ""
+"Una cosa que puede hacer, es darle a la etiqueta una propiedad «margin_top» "
+"cuando la crea. Esto funciona de manera similar a establecer un margen para "
+"un elemento HTML usando estilos CSS en línea."
 
 #: C/02_welcome_to_the_grid.js.page:158(section/code)
 #, no-wrap
@@ -825,12 +838,18 @@ msgid ""
 "or add in another widget -- then we have to repeat the margin_top on it too. "
 "Otherwise we end up with something like this:"
 msgstr ""
+"Por supuesto, si hace eso y después remplaza la etiqueta con otra cosa (o "
+"añade otro widget), entonces tendrá que repetir el «margin_top». De lo "
+"contrario, acabará con algo así:"
 
 #: C/02_welcome_to_the_grid.js.page:168(section/p)
 msgid ""
 "We could give the Image a margin_bottom property, but that won't work when "
 "the new Label is in a separate column. So how about we try this instead:"
 msgstr ""
+"Le podría dar una propiedad «margin_bottom» a la imagen, pero no funcionará "
+"cuando la etiqueta nueva esté en una columna separada. Entonces, mejor "
+"probar esto:"
 
 #: C/02_welcome_to_the_grid.js.page:169(section/code)
 #, no-wrap
@@ -850,6 +869,7 @@ msgid ""
 "That makes it so that there are always 20 pixels of space in between each "
 "horizontal row."
 msgstr ""
+"Eso hace que siempre hayan 20 píxeles de espacio entre cada fila horizontal."
 
 #: C/02_welcome_to_the_grid.js.page:176(note/p)
 msgid ""
@@ -857,10 +877,13 @@ msgid ""
 "margin_left and margin_right properties on any widget. Try them out, if you "
 "like!"
 msgstr ""
+"Sí, también puede establecer la propiedad «column_spacing» en una rejilla, o "
+"las propiedades «margin_left» y «margin_right» en cualquier widget. "
+"Pruébelas, si quiere."
 
 #: C/02_welcome_to_the_grid.js.page:180(section/title)
 msgid "Adding more widgets"
-msgstr ""
+msgstr "Añadir más widgets"
 
 #: C/02_welcome_to_the_grid.js.page:182(section/p)
 msgid ""
@@ -869,6 +892,11 @@ msgid ""
 "that it's above both Labels instead of just the one on the left. That's "
 "where those other numbers in the Grid's attach method come in:"
 msgstr ""
+"Si quisiera añadir una segunda etiqueta, ¿cómo lo haría para que realmente "
+"se vea integrada? Una manera es centrar la imagen en la parte superior, para "
+"que esté encima de ambas etiquetas en lugar de sólo de la que está en la "
+"izquierda. Allí es donde los otros números en el método «attach» de la "
+"rejilla entran:"
 
 #: C/02_welcome_to_the_grid.js.page:183(section/code)
 #, no-wrap
@@ -901,6 +929,11 @@ msgid ""
 "in column 0 and row 1, we can put the second in column 1 and row 1 to put it "
 "to the right of the first Label."
 msgstr ""
+"Después de haber creado la segunda etiqueta, se añade a la rejilla a la "
+"derecha de la primera. Recuerde, los primeros dos números cuentan columnas y "
+"filas de izquierda a derecha y de arriba a abajo, comenzando desde 0. Por lo "
+"que si la primera etiqueta está en la columna 0 y fila 1, se puede poner la "
+"segunda en la columna 1 y fila 1 para ponerla a la derecha de la primera."
 
 #: C/02_welcome_to_the_grid.js.page:195(section/p)
 msgid ""
@@ -908,10 +941,13 @@ msgid ""
 "the trick here. That number is how many columns the Image spans, remember? "
 "So when we put it together, we get something like this:"
 msgstr ""
+"Tenga en cuenta el número 2 en la declaración «attach» de la imagen. Eso es "
+"lo que hace el truco. Ese número indica cuántas columnas ocupa la imagen, "
+"¿recuerda? Entonces, cuando se junta todo, se obtiene algo así:"
 
 #: C/02_welcome_to_the_grid.js.page:198(section/p)
 msgid "There are two things you should take note of, here."
-msgstr ""
+msgstr "Hay dos cosas de las que debe tomar nota, aquí."
 
 #: C/02_welcome_to_the_grid.js.page:200(item/p)
 msgid ""
@@ -919,6 +955,10 @@ msgid ""
 "horizontally. Instead, it stretches the invisible box taken up by the Image "
 "widget to fill both columns, then places the Image in the center of that box."
 msgstr ""
+"Configurar la imagen para que ocupe dos columnas no la estrecha en sí "
+"horizontalmente. En vez de eso, estrecha la caja invisible que el widget "
+"«Image» ocupa para llenar ambas columnas, y luego pone la imagen en el "
+"centro de esa caja."
 
 #: C/02_welcome_to_the_grid.js.page:201(item/p)
 msgid ""
@@ -928,16 +968,25 @@ msgid ""
 "only one column, but now that it spans both GNOME doesn't see a reason to "
 "keep them apart."
 msgstr ""
+"Incluso a pesar de que ha establecido las propiedades «row_spacing» de la "
+"rejilla y «border_with» de la ventana de la aplicación, todavía no ha "
+"establecido nada que ponga un borde entre las dos etiquetas. Estaban "
+"separadas anteriormente cuando la imagen estaba en una sola columna, pero "
+"ahora que ocupa ambas GNOME no ve una razón para mantenerlas separadas."
 
 #: C/02_welcome_to_the_grid.js.page:204(section/p)
 msgid ""
 "There are at least three ways we can get around that last one. First, we can "
 "set a margin_left or margin_right on one of the Labels:"
 msgstr ""
+"Existen por lo menos tres maneras de solucionar esto último. Primero, se "
+"puede establecer «margin_left» o «margin_right» en una de las etiquetas:"
 
 #: C/02_welcome_to_the_grid.js.page:207(section/p)
 msgid "Second, we can set the Grid's column_homogenous property to true."
 msgstr ""
+"Segundo, se puede establecer la propiedad «column_homogenous» de la rejilla "
+"a «true»."
 
 #: C/02_welcome_to_the_grid.js.page:208(section/code)
 #, no-wrap
@@ -955,10 +1004,8 @@ msgstr ""
 "            row_spacing: 20 });\n"
 
 #: C/02_welcome_to_the_grid.js.page:215(section/p)
-#, fuzzy
-#| msgid "Weatherapp.js file looks like this:"
 msgid "That makes it look something like this:"
-msgstr "El archivo Weatherapp.js se parece a esto:"
+msgstr "Eso hace que se vea algo así:"
 
 #: C/02_welcome_to_the_grid.js.page:218(section/p)
 msgid ""
@@ -1321,8 +1368,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/03_getting_the_signal.js.page:36(media)
 #: C/03_getting_the_signal.js.page:352(media)
-#| msgid ""
-#| "@@image: 'media/03_jssignal_01.png'; md5=8d6ecab185f4af4534cc255d62b58b8e"
 msgctxt "_"
 msgid ""
 "external ref='media/03_jssignal_01.png' "
@@ -1342,8 +1387,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/03_getting_the_signal.js.page:156(media)
 #: C/03_getting_the_signal.js.page:358(media)
-#| msgid ""
-#| "@@image: 'media/03_jssignal_02.png'; md5=ba941390fbafc4a0f653c8f70bca92c0"
 msgctxt "_"
 msgid ""
 "external ref='media/03_jssignal_02.png' "
@@ -1372,8 +1415,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/03_getting_the_signal.js.page:232(media)
 #: C/03_getting_the_signal.js.page:364(media)
-#| msgid ""
-#| "@@image: 'media/03_jssignal_03.png'; md5=49ecf251b0bf57543c8d79a77b6f306d"
 msgctxt "_"
 msgid ""
 "external ref='media/03_jssignal_03.png' "
@@ -1393,8 +1434,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/03_getting_the_signal.js.page:303(media)
 #: C/03_getting_the_signal.js.page:370(media)
-#| msgid ""
-#| "@@image: 'media/03_jssignal_04.png'; md5=dfc5221ca15ca9fba7d3c76a73804e2d"
 msgctxt "_"
 msgid ""
 "external ref='media/03_jssignal_04.png' "
@@ -3112,9 +3151,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/aboutdialog.c.page:24(media) C/aboutdialog.js.page:20(media)
 #: C/aboutdialog.py.page:22(media) C/aboutdialog.vala.page:29(media)
-#| msgid ""
-#| "@@image: 'media/aboutdialog_GMenu.png'; "
-#| "md5=a36117a559fa98e25e2f6b3db593639f"
 msgctxt "_"
 msgid ""
 "external ref='media/aboutdialog_GMenu.png' "
@@ -3124,7 +3160,6 @@ msgstr ""
 "md5='a36117a559fa98e25e2f6b3db593639f'"
 
 #: C/aboutdialog.c.page:7(info/title)
-#| msgid "AboutDialog (C)"
 msgctxt "text"
 msgid "AboutDialog (C)"
 msgstr "AboutDialog (C)"
@@ -3576,9 +3611,6 @@ msgstr "En este ejemplo se usa lo siguiente:"
 #: C/spinner.c.page:32(item/p) C/statusbar.c.page:35(item/p)
 #: C/switch.c.page:32(item/p) C/textview.c.page:35(item/p)
 #: C/togglebutton.c.page:35(item/p) C/window.c.page:33(item/p)
-#| msgid ""
-#| "How to write a <link href=\"http://developer.gnome.org/platform-overview/"
-#| "stable/gtk\">Gtk application</link> in Vala"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/3.4/GtkApplication.html"
 "\">GtkApplication</link>"
@@ -3595,9 +3627,6 @@ msgstr ""
 #: C/statusbar.c.page:36(item/p) C/switch.c.page:33(item/p)
 #: C/textview.c.page:36(item/p) C/togglebutton.c.page:36(item/p)
 #: C/window.c.page:34(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/3.4/GtkWindow.html\">GtkWindow</"
 "link>"
@@ -3606,9 +3635,6 @@ msgstr ""
 "link>"
 
 #: C/aboutdialog.c.page:36(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkAboutDialog.html"
 "\">GtkAboutDialog</link>"
@@ -3618,18 +3644,12 @@ msgstr ""
 
 #: C/aboutdialog.c.page:37(item/p) C/aboutdialog.py.page:47(item/p)
 #: C/messagedialog.c.page:41(item/p) C/messagedialog.py.page:63(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GMenu.html\">GMenu</link>"
 msgstr ""
 "<link href=\"http://developer.gnome.org/gio/stable/GMenu.html\">GMenu</link>"
 
 #: C/aboutdialog.c.page:38(item/p) C/messagedialog.c.page:40(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GActionMap.html"
 "\">GActionMap</link>"
@@ -3638,7 +3658,6 @@ msgstr ""
 "\">GActionMap</link>"
 
 #: C/aboutdialog.js.page:6(info/title)
-#| msgid "AboutDialog (JavaScript)"
 msgctxt "text"
 msgid "AboutDialog (JavaScript)"
 msgstr "AboutDialog (JavaScript)"
@@ -3865,9 +3884,6 @@ msgstr ""
 #: C/aboutdialog.js.page:28(item/p) C/gmenu.c.page:31(item/p)
 #: C/gmenu.js.page:29(item/p) C/gmenu.py.page:76(item/p)
 #: C/messagedialog.js.page:193(item/p) C/switch.js.page:265(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/unstable/GMenu.html\">GMenu</"
 "link>"
@@ -3879,9 +3895,6 @@ msgstr ""
 #: C/gmenu.c.page:32(item/p) C/gmenu.js.page:30(item/p)
 #: C/gmenu.py.page:77(item/p) C/messagedialog.js.page:194(item/p)
 #: C/messagedialog.py.page:61(item/p) C/switch.js.page:266(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GSimpleAction.html"
 "\">GSimpleAction</link>"
@@ -3890,9 +3903,6 @@ msgstr ""
 "\">GSimpleAction</link>"
 
 #: C/aboutdialog.js.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.AboutDialog."
 "html\">Gtk.AboutDialog</link>"
@@ -3912,9 +3922,6 @@ msgstr ""
 #: C/statusbar.js.page:222(item/p) C/switch.js.page:267(item/p)
 #: C/textview.js.page:249(item/p) C/togglebutton.js.page:154(item/p)
 #: C/treeview_simple_liststore.js.page:276(item/p) C/window.js.page:38(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application."
 "html\">Gtk.Application</link>"
@@ -3934,9 +3941,6 @@ msgstr ""
 #: C/statusbar.js.page:223(item/p) C/switch.js.page:268(item/p)
 #: C/textview.js.page:250(item/p) C/togglebutton.js.page:155(item/p)
 #: C/treeview_simple_liststore.js.page:277(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html"
 "\">Gtk.ApplicationWindow</link>"
@@ -3945,7 +3949,6 @@ msgstr ""
 "\">Gtk.ApplicationWindow</link>"
 
 #: C/aboutdialog.py.page:7(info/title)
-#| msgid "AboutDialog (Python)"
 msgctxt "text"
 msgid "AboutDialog (Python)"
 msgstr "AboutDialog (Python)"
@@ -4242,9 +4245,6 @@ msgid "API References"
 msgstr "Referencias de la API"
 
 #: C/aboutdialog.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkAboutDialog.html"
 "\">GtkAboutDialog</link>"
@@ -4254,9 +4254,6 @@ msgstr ""
 
 #: C/aboutdialog.py.page:46(item/p) C/checkbutton.py.page:47(item/p)
 #: C/grid.py.page:56(item/p) C/GtkApplicationWindow.py.page:53(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkApplicationWindow."
 "html\">GtkApplicationWindow</link>"
@@ -4267,9 +4264,6 @@ msgstr ""
 #: C/aboutdialog.py.page:48(item/p) C/checkbutton.py.page:46(item/p)
 #: C/grid.py.page:55(item/p) C/GtkApplicationWindow.py.page:52(item/p)
 #: C/messagedialog.py.page:64(item/p) C/window.py.page:62(item/p)
-#| msgid ""
-#| "How to write a <link href=\"http://developer.gnome.org/platform-overview/"
-#| "stable/gtk\">Gtk application</link> in Vala"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkApplication.html"
 "\">GtkApplication</link>"
@@ -4278,7 +4272,6 @@ msgstr ""
 "\">GtkApplication</link>"
 
 #: C/aboutdialog.vala.page:7(info/title)
-#| msgid "AboutDialog (Vala)"
 msgctxt "text"
 msgid "AboutDialog (Vala)"
 msgstr "AboutDialog (Vala)"
@@ -4424,9 +4417,6 @@ msgstr ""
 
 #: C/aboutdialog.vala.page:38(item/p) C/gmenu.vala.page:41(item/p)
 #: C/window.vala.page:37(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Application.html\">Gtk."
 "Application</link>"
@@ -4436,9 +4426,6 @@ msgstr ""
 
 #: C/aboutdialog.vala.page:39(item/p) C/gmenu.vala.page:42(item/p)
 #: C/GtkApplicationWindow.vala.page:31(item/p) C/label.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ApplicationWindow.html"
 "\">Gtk.ApplicationWindow</link>"
@@ -4447,9 +4434,6 @@ msgstr ""
 "\">Gtk.ApplicationWindow</link>"
 
 #: C/aboutdialog.vala.page:40(item/p)
-#| msgid ""
-#| "The method <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window."
-#| "set_default_size.html\">set_default_size</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.set_default_size.html"
 "\">set_default_size</link>"
@@ -4943,7 +4927,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/button.c.page:24(media) C/button.js.page:21(media)
 #: C/button.py.page:23(media) C/button.vala.page:23(media)
-#| msgid "@@image: 'media/button.png'; md5=8d69efbb3a0d3e043af6139b6492171c"
 msgctxt "_"
 msgid "external ref='media/button.png' md5='8d69efbb3a0d3e043af6139b6492171c'"
 msgstr "external ref='media/button.png' md5='8d69efbb3a0d3e043af6139b6492171c'"
@@ -5108,9 +5091,6 @@ msgstr ""
 
 #: C/button.c.page:35(item/p) C/buttonbox.py.page:49(item/p)
 #: C/grid.c.page:34(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkButton.html"
 "\">GtkButton</link>"
@@ -5277,9 +5257,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/button.js.page:32(item/p) C/grid.js.page:35(item/p)
-#| msgid ""
-#| "In this sample we used the following: <link href=\"http://www.valadoc.org/"
-#| "gtk+-3.0/Gtk.Button.html\">Gtk.Button</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html"
 "\">Gtk.Button</link>"
@@ -5437,9 +5414,6 @@ msgid ""
 msgstr ""
 
 #: C/button.py.page:52(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkButton.html"
 "\">GtkButton</link>"
@@ -5452,9 +5426,6 @@ msgstr ""
 #: C/linkbutton.py.page:46(item/p) C/messagedialog.py.page:60(item/p)
 #: C/radiobutton.py.page:51(item/p) C/separator.py.page:37(item/p)
 #: C/window.py.page:63(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkWindow.html"
 "\">GtkWindow</link>"
@@ -5577,9 +5548,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/buttonbox.py.page:23(media)
-#| msgid ""
-#| "@@image: 'media/buttonbox_calculator.png'; "
-#| "md5=ce0de08b7ac66f517290e33e6d33d508"
 msgctxt "_"
 msgid ""
 "external ref='media/buttonbox_calculator.png' "
@@ -5942,9 +5910,6 @@ msgid ""
 msgstr ""
 
 #: C/buttonbox.py.page:47(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkButtonBox.html"
 "\">GtkButtonBox</link>"
@@ -5953,9 +5918,6 @@ msgstr ""
 "\">GtkButtonBox</link>"
 
 #: C/buttonbox.py.page:48(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkBox.html\">GtkBox</"
 "link>"
@@ -5964,9 +5926,6 @@ msgstr ""
 "link>"
 
 #: C/buttonbox.py.page:50(item/p) C/entry.c.page:33(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkEntry.html"
 "\">GtkEntry</link>"
@@ -5978,9 +5937,6 @@ msgstr ""
 #: C/radiobutton.c.page:36(item/p) C/spinbutton.c.page:39(item/p)
 #: C/statusbar.c.page:39(item/p) C/switch.c.page:36(item/p)
 #: C/togglebutton.c.page:39(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkGrid.html\">GtkGrid</"
 "link>"
@@ -5989,7 +5945,6 @@ msgstr ""
 "link>"
 
 #: C/c.page:6(info/title)
-#| msgid "C"
 msgctxt "link"
 msgid "C"
 msgstr "C"
@@ -6019,8 +5974,6 @@ msgstr "Tutoriales, ejemplos de código y demostraciones de la plataforma en C"
 #. whatever you like once you have updated your copy of the file.
 #: C/checkbutton.c.page:21(media) C/checkbutton.js.page:21(media)
 #: C/checkbutton.py.page:22(media) C/checkbutton.vala.page:21(media)
-#| msgid ""
-#| "@@image: 'media/checkbutton.png'; md5=7921a6812c87dd2b3781f4fad241e858"
 msgctxt "_"
 msgid ""
 "external ref='media/checkbutton.png' md5='7921a6812c87dd2b3781f4fad241e858'"
@@ -6028,7 +5981,6 @@ msgstr ""
 "external ref='media/checkbutton.png' md5='7921a6812c87dd2b3781f4fad241e858'"
 
 #: C/checkbutton.c.page:7(info/title)
-#| msgid "CheckButton"
 msgctxt "text"
 msgid "CheckButton (C)"
 msgstr "CheckButton (C)"
@@ -6145,9 +6097,6 @@ msgstr ""
 "}\n"
 
 #: C/checkbutton.c.page:29(item/p)
-#| msgid ""
-#| "In this sample we used the following: <link href=\"http://www.valadoc.org/"
-#| "gtk+-3.0/Gtk.Button.html\">Gtk.Button</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/3.2/GtkCheckButton.html"
 "\">GtkCheckButton</link>"
@@ -6156,7 +6105,6 @@ msgstr ""
 "\">GtkCheckButton</link>"
 
 #: C/checkbutton.js.page:7(info/title)
-#| msgid "CheckButton"
 msgctxt "text"
 msgid "CheckButton (JavaScript)"
 msgstr "CheckButton (JavaScript)"
@@ -6629,9 +6577,6 @@ msgid "In-depth documentation"
 msgstr "Documentación en profundidad"
 
 #: C/checkbutton.js.page:139(item/p)
-#| msgid ""
-#| "In this sample we used the following: <link href=\"http://www.valadoc.org/"
-#| "gtk+-3.0/Gtk.Button.html\">Gtk.Button</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.CheckButton."
 "html\">Gtk.CheckButton</link>"
@@ -6640,7 +6585,6 @@ msgstr ""
 "html\">Gtk.CheckButton</link>"
 
 #: C/checkbutton.py.page:7(info/title)
-#| msgid "CheckButton"
 msgctxt "text"
 msgid "CheckButton (Python)"
 msgstr "CheckButton (Python)"
@@ -6767,9 +6711,6 @@ msgstr ""
 "consulte <link xref=\"signals-callbacks.py\">esta página</link>."
 
 #: C/checkbutton.py.page:48(item/p) C/togglebutton.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkToggleButton.html"
 "\">GtkToggleButton</link>"
@@ -6778,9 +6719,6 @@ msgstr ""
 "\">GtkToggleButton</link>"
 
 #: C/checkbutton.py.page:49(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCheckButton.html"
 "\">GtkCheckButton</link>"
@@ -6789,7 +6727,6 @@ msgstr ""
 "\">GtkCheckButton</link>"
 
 #: C/checkbutton.vala.page:7(info/title)
-#| msgid "CheckButton"
 msgctxt "text"
 msgid "CheckButton (Vala)"
 msgstr "CheckButton (Vala)"
@@ -6908,9 +6845,6 @@ msgstr ""
 "}\n"
 
 #: C/checkbutton.vala.page:29(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.CheckButton.html\">Gtk."
 "CheckButton</link>"
@@ -6928,8 +6862,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/colorbutton.py.page:21(media) C/colorbutton.vala.page:23(media)
-#| msgid ""
-#| "@@image: 'media/colorbutton.png'; md5=904539d26fe367bf99f9a0961cfc9a03"
 msgctxt "_"
 msgid ""
 "external ref='media/colorbutton.png' md5='904539d26fe367bf99f9a0961cfc9a03'"
@@ -6937,7 +6869,6 @@ msgstr ""
 "external ref='media/colorbutton.png' md5='904539d26fe367bf99f9a0961cfc9a03'"
 
 #: C/colorbutton.py.page:7(info/title)
-#| msgid "ColorButton"
 msgctxt "text"
 msgid "ColorButton (Python)"
 msgstr "ColorButton (Python)"
@@ -7081,9 +7012,6 @@ msgid ""
 msgstr ""
 
 #: C/colorbutton.py.page:40(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkColorButton.html"
 "\">GtkColorButton</link>"
@@ -7092,9 +7020,6 @@ msgstr ""
 "\">GtkColorButton</link>"
 
 #: C/colorbutton.py.page:41(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkColorChooser.html"
 "\">GtkColorChooser</link>"
@@ -7115,7 +7040,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/colorbutton.vala.page:7(info/title)
-#| msgid "ColorButton"
 msgctxt "text"
 msgid "ColorButton (Vala)"
 msgstr "ColorButton (Vala)"
@@ -7208,9 +7132,6 @@ msgstr ""
 "}\n"
 
 #: C/colorbutton.vala.page:31(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gtk+-3.0/Gtk.ColorButton.html\">Gtk."
 "ColorButton</link>"
@@ -7219,9 +7140,6 @@ msgstr ""
 "ColorButton</link>"
 
 #: C/colorbutton.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid "<link href=\"http://valadoc.org/gdk-3.0/Gdk.RGBA.html\">Gdk.RGBA</link>"
 msgstr ""
 "<link href=\"http://valadoc.org/gdk-3.0/Gdk.RGBA.html\">Gdk.RGBA</link>"
@@ -7242,7 +7160,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/comboboxtext.js.page:23(media) C/combobox.py.page:21(media)
 #: C/combobox.vala.page:21(media)
-#| msgid "@@image: 'media/combobox.png'; md5=ab9e91bc1a58fe866cb00dd52159251d"
 msgctxt "_"
 msgid ""
 "external ref='media/combobox.png' md5='ab9e91bc1a58fe866cb00dd52159251d'"
@@ -7250,7 +7167,6 @@ msgstr ""
 "external ref='media/combobox.png' md5='ab9e91bc1a58fe866cb00dd52159251d'"
 
 #: C/comboboxtext.js.page:7(info/title)
-#| msgid "ComboBoxText"
 msgctxt "text"
 msgid "ComboBoxText (JavaScript)"
 msgstr "ComboBoxText (JavaScript)"
@@ -7834,10 +7750,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/comboboxtext.js.page:182(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ComboBoxText."
 "html\">Gtk.ComboBoxText</link>"
@@ -7847,9 +7759,6 @@ msgstr ""
 
 #: C/comboboxtext.js.page:183(item/p) C/combobox.js.page:243(item/p)
 #: C/entry.js.page:32(item/p) C/messagedialog.js.page:197(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.MessageDialog."
 "html\">Gtk.MessageDialog</link>"
@@ -7867,9 +7776,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/combobox.js.page:25(media) C/combobox_multicolumn.py.page:22(media)
-#| msgid ""
-#| "@@image: 'media/combobox_multicolumn.png'; "
-#| "md5=43f16648fb11ebc7d2f70825ed0f63b3"
 msgctxt "_"
 msgid ""
 "external ref='media/combobox_multicolumn.png' "
@@ -7879,7 +7785,6 @@ msgstr ""
 "md5='43f16648fb11ebc7d2f70825ed0f63b3'"
 
 #: C/combobox.js.page:7(info/title)
-#| msgid "JavaScript"
 msgctxt "text"
 msgid "ComboBox (JavaScript)"
 msgstr "ComboBox (JavaScript)"
@@ -8631,10 +8536,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/combobox.js.page:239(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk."
 "CellRendererPixbuf.html\">Gtk.CellRendererPixbuf</link>"
@@ -8644,10 +8545,6 @@ msgstr ""
 
 #: C/combobox.js.page:240(item/p)
 #: C/treeview_simple_liststore.js.page:278(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.CellRendererText.html"
 "\">Gtk.CellRendererText</link>"
@@ -8656,9 +8553,6 @@ msgstr ""
 "\">Gtk.CellRendererText</link>"
 
 #: C/combobox.js.page:241(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ComboBox.html"
 "\">Gtk.ComboBox</link>"
@@ -8668,9 +8562,6 @@ msgstr ""
 
 #: C/combobox.js.page:242(item/p)
 #: C/treeview_simple_liststore.js.page:279(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ListStore.html"
 "\">Gtk.ListStore</link>"
@@ -8680,10 +8571,6 @@ msgstr ""
 
 #: C/combobox.js.page:244(item/p)
 #: C/treeview_simple_liststore.js.page:280(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeIter.html"
 "\">Gtk.TreeIter</link>"
@@ -8693,7 +8580,6 @@ msgstr ""
 
 #: C/combobox.py.page:7(info/title)
 #: C/combobox_multicolumn.py.page:7(info/title)
-#| msgid "ComboBox"
 msgctxt "text"
 msgid "ComboBox (Python)"
 msgstr "ComboBox (Python)"
@@ -8848,9 +8734,6 @@ msgstr ""
 
 #: C/combobox.py.page:40(item/p) C/combobox_multicolumn.py.page:43(item/p)
 #: C/model-view-controller.py.page:188(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkComboBox.html"
 "\">GtkComboBox</link>"
@@ -8861,9 +8744,6 @@ msgstr ""
 #: C/combobox.py.page:41(item/p) C/combobox_multicolumn.py.page:44(item/p)
 #: C/treeview_advanced_liststore.py.page:47(item/p)
 #: C/treeview_simple_liststore.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkListStore.html"
 "\">GtkListStore</link>"
@@ -8876,9 +8756,6 @@ msgstr ""
 #: C/treeview_cellrenderertoggle.py.page:44(item/p)
 #: C/treeview_simple_liststore.py.page:46(item/p)
 #: C/treeview_treestore.py.page:44(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCellRendererText."
 "html\">GtkCellRendererText</link>"
@@ -8887,9 +8764,6 @@ msgstr ""
 "html\">GtkCellRendererText</link>"
 
 #: C/combobox.py.page:43(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCellLayout.html"
 "\">GtkCellLayout</link>"
@@ -8906,7 +8780,6 @@ msgid ""
 msgstr ""
 
 #: C/combobox.vala.page:7(info/title)
-#| msgid "ComboBox"
 msgctxt "text"
 msgid "ComboBox (Vala)"
 msgstr "ComboBox (Vala)"
@@ -9080,9 +8953,6 @@ msgstr ""
 
 #: C/combobox.vala.page:29(item/p)
 #: C/treeview_simple_liststore.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ListStore.html\">Gtk."
 "ListStore</link>"
@@ -9091,9 +8961,6 @@ msgstr ""
 "ListStore</link>"
 
 #: C/combobox.vala.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ComboBox.html\">Gtk."
 "ComboBox</link>"
@@ -9102,9 +8969,6 @@ msgstr ""
 "ComboBox</link>"
 
 #: C/combobox.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.CellRendererText.html\">Gtk."
 "CellRendererText</link>"
@@ -9113,9 +8977,6 @@ msgstr ""
 "CellRendererText</link>"
 
 #: C/combobox.vala.page:32(item/p)
-#| msgid ""
-#| "The method <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window."
-#| "set_default_size.html\">set_default_size</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.CellLayout.set_attributes."
 "html\">set_attributes</link>"
@@ -9271,9 +9132,6 @@ msgstr ""
 "sys.exit(exit_status)\n"
 
 #: C/combobox_multicolumn.py.page:46(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCellRendererPixbuf."
 "html\">GtkCellRendererPixbuf</link>"
@@ -9294,7 +9152,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/cpp.page:6(info/title)
-#| msgid "C++"
 msgctxt "link"
 msgid "C++"
 msgstr "C++"
@@ -9324,7 +9181,6 @@ msgstr "Demostraciones de la plataforma en C++"
 #. whatever you like once you have updated your copy of the file.
 #: C/dialog.c.page:24(media) C/dialog.js.page:21(media)
 #: C/dialog.py.page:22(media) C/dialog.vala.page:21(media)
-#| msgid "@@image: 'media/dialog.png'; md5=c90a33386a600e892fe623d4072c8c38"
 msgctxt "_"
 msgid "external ref='media/dialog.png' md5='c90a33386a600e892fe623d4072c8c38'"
 msgstr "external ref='media/dialog.png' md5='c90a33386a600e892fe623d4072c8c38'"
@@ -9558,9 +9414,6 @@ msgstr ""
 "}\n"
 
 #: C/dialog.c.page:35(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkDialog.html"
 "\">GtkDialog</link>"
@@ -9570,9 +9423,6 @@ msgstr ""
 
 #: C/dialog.c.page:36(item/p) C/radiobutton.c.page:35(item/p)
 #: C/spinbutton.c.page:37(item/p) C/switch.c.page:34(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkLabel.html"
 "\">GtkLabel</link>"
@@ -9777,9 +9627,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/dialog.js.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Dialog.html"
 "\">Gtk.Dialog</link>"
@@ -9943,9 +9790,6 @@ msgid ""
 msgstr ""
 
 #: C/dialog.py.page:49(item/p) C/messagedialog.py.page:59(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkDialog.html"
 "\">GtkDialog</link>"
@@ -10128,9 +9972,6 @@ msgstr ""
 "}\n"
 
 #: C/dialog.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Dialog.html\">Gtk.Dialog</"
 "link>"
@@ -10139,9 +9980,6 @@ msgstr ""
 "link>"
 
 #: C/dialog.vala.page:32(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Dialog.Dialog.with_buttons."
 "html\">Gtk.Dialog.with_buttons</link>"
@@ -10150,9 +9988,6 @@ msgstr ""
 "html\">Gtk.Dialog.with_buttons</link>"
 
 #: C/dialog.vala.page:33(item/p) C/label.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Label.html\">Gtk.Label</"
 "link>"
@@ -10161,9 +9996,6 @@ msgstr ""
 "link>"
 
 #: C/dialog.vala.page:34(item/p)
-#| msgid ""
-#| "The method <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window."
-#| "set_default_size.html\">set_default_size</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Dialog.get_content_area.html"
 "\">get_content_area</link>"
@@ -10221,7 +10053,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/entry.c.page:22(media) C/entry.js.page:21(media)
 #: C/entry.py.page:26(media) C/entry.vala.page:21(media)
-#| msgid "@@image: 'media/entry.png'; md5=8a828cffdcbaa4bad83342e109f28cc8"
 msgctxt "_"
 msgid "external ref='media/entry.png' md5='8a828cffdcbaa4bad83342e109f28cc8'"
 msgstr "external ref='media/entry.png' md5='8a828cffdcbaa4bad83342e109f28cc8'"
@@ -10565,9 +10396,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/entry.js.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Entry.html"
 "\">Gtk.Entry</link>"
@@ -10809,9 +10637,6 @@ msgid ""
 msgstr ""
 
 #: C/entry.py.page:61(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkEntry.html"
 "\">GtkEntry</link>"
@@ -10934,9 +10759,6 @@ msgstr ""
 "}\n"
 
 #: C/entry.vala.page:29(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Entry.html\">Gtk.Entry</"
 "link>"
@@ -10949,9 +10771,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/filechooserdialog.py.page:24(media)
-#| msgid ""
-#| "@@image: 'media/filechooserdialog_save.png'; "
-#| "md5=3a7a3b71b9d3a36066857843b68ff27f"
 msgctxt "_"
 msgid ""
 "external ref='media/filechooserdialog_save.png' "
@@ -10965,9 +10784,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/filechooserdialog.py.page:26(media)
-#| msgid ""
-#| "@@image: 'media/filechooserdialog_menu.png'; "
-#| "md5=8a75f04127a70eba0ed68a9eb1d3bbca"
 msgctxt "_"
 msgid ""
 "external ref='media/filechooserdialog_menu.png' "
@@ -10977,7 +10793,6 @@ msgstr ""
 "md5='8a75f04127a70eba0ed68a9eb1d3bbca'"
 
 #: C/filechooserdialog.py.page:7(info/title)
-#| msgid "FileChooserDialog"
 msgctxt "text"
 msgid "FileChooserDialog (Python)"
 msgstr "FileChooserDialog (Python)"
@@ -11608,9 +11423,6 @@ msgid ""
 msgstr ""
 
 #: C/filechooserdialog.py.page:71(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkFileChooserDialog.html"
 "\">GtkFileChooserDialog</link>"
@@ -11619,9 +11431,6 @@ msgstr ""
 "\">GtkFileChooserDialog</link>"
 
 #: C/filechooserdialog.py.page:72(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkFileChooser.html"
 "\">GtkFileChooser</link>"
@@ -11631,9 +11440,6 @@ msgstr ""
 
 #: C/filechooserdialog.py.page:73(item/p) C/image.c.page:33(item/p)
 #: C/label.c.page:37(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkWindow.html"
 "\">GtkWindow</link>"
@@ -11642,9 +11448,6 @@ msgstr ""
 "\">GtkWindow</link>"
 
 #: C/filechooserdialog.py.page:74(item/p) C/textview.c.page:38(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkTextView.html"
 "\">GtkTextView</link>"
@@ -11653,9 +11456,6 @@ msgstr ""
 "\">GtkTextView</link>"
 
 #: C/filechooserdialog.py.page:75(item/p) C/textview.c.page:37(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkTextBuffer.html"
 "\">GtkTextBuffer</link>"
@@ -11664,9 +11464,6 @@ msgstr ""
 "\">GtkTextBuffer</link>"
 
 #: C/filechooserdialog.py.page:76(item/p) C/textview.c.page:39(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkScrolledWindow.html"
 "\">GtkScrolledWindow</link>"
@@ -11675,18 +11472,12 @@ msgstr ""
 "\">GtkScrolledWindow</link>"
 
 #: C/filechooserdialog.py.page:77(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GFile.html\">GFile</link>"
 msgstr ""
 "<link href=\"http://developer.gnome.org/gio/stable/GFile.html\">GFile</link>"
 
 #: C/filechooserdialog.py.page:79(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkBuilder.html"
 "\">GtkBuilder</link>"
@@ -11695,7 +11486,6 @@ msgstr ""
 "\">GtkBuilder</link>"
 
 #: C/filechooserdialog.vala.page:7(info/title)
-#| msgid "FileChooserDialog"
 msgctxt "text"
 msgid "FileChooserDialog (Vala)"
 msgstr "FileChooserDialog (Vala)"
@@ -12129,9 +11919,6 @@ msgid "Relevant API documentation"
 msgstr "Documentación de la API relevante"
 
 #: C/filechooserdialog.vala.page:39(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gtk+-3.0/Gtk.FileChooser.html\">FileChooser</"
 "link>"
@@ -12140,9 +11927,6 @@ msgstr ""
 "link>"
 
 #: C/filechooserdialog.vala.page:40(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gtk+-3.0/Gtk.FileChooserDialog.html"
 "\">FileChooserDialog</link>"
@@ -12151,9 +11935,6 @@ msgstr ""
 "\">FileChooserDialog</link>"
 
 #: C/filechooserdialog.vala.page:41(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gtk+-3.0/Gtk.Builder.html\">Gtk.Builder</"
 "link>"
@@ -12162,9 +11943,6 @@ msgstr ""
 "link>"
 
 #: C/filechooserdialog.vala.page:42(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gio-2.0/GLib.ActionEntry.html\">GLib."
 "ActionEntry</link>"
@@ -12177,9 +11955,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/fontchooserwidget.py.page:23(media)
-#| msgid ""
-#| "@@image: 'media/fontchooserwidget.png'; "
-#| "md5=9161245e307b432ae1313e9a9941edae"
 msgctxt "_"
 msgid ""
 "external ref='media/fontchooserwidget.png' "
@@ -12189,7 +11964,6 @@ msgstr ""
 "md5='9161245e307b432ae1313e9a9941edae'"
 
 #: C/fontchooserwidget.py.page:7(info/title)
-#| msgid "FontChooserWidget"
 msgctxt "text"
 msgid "FontChooserWidget (Python)"
 msgstr "FontChooserWidget (Python)"
@@ -12313,9 +12087,6 @@ msgid ""
 msgstr ""
 
 #: C/fontchooserwidget.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkFontChooserWidget."
 "html\">GtkFontChooserWidget</link>"
@@ -12328,7 +12099,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/getting-ready.page:39(media)
-#| msgid "@@image: 'media/ubuntu.png'; md5=40845e4a40b335b1958da1403f01c13f"
 msgctxt "_"
 msgid "external ref='media/ubuntu.png' md5='40845e4a40b335b1958da1403f01c13f'"
 msgstr "external ref='media/ubuntu.png' md5='40845e4a40b335b1958da1403f01c13f'"
@@ -12338,7 +12108,6 @@ msgstr "external ref='media/ubuntu.png' md5='40845e4a40b335b1958da1403f01c13f'"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/getting-ready.page:44(media)
-#| msgid "@@image: 'media/fedora.png'; md5=19add55f4349fd9e90f3a50b344ba626"
 msgctxt "_"
 msgid "external ref='media/fedora.png' md5='19add55f4349fd9e90f3a50b344ba626'"
 msgstr "external ref='media/fedora.png' md5='19add55f4349fd9e90f3a50b344ba626'"
@@ -12348,7 +12117,6 @@ msgstr "external ref='media/fedora.png' md5='19add55f4349fd9e90f3a50b344ba626'"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/getting-ready.page:49(media)
-#| msgid "@@image: 'media/opensuse.png'; md5=a852a94199328e2f978c7f6a55bf8b54"
 msgctxt "_"
 msgid ""
 "external ref='media/opensuse.png' md5='a852a94199328e2f978c7f6a55bf8b54'"
@@ -12356,7 +12124,6 @@ msgstr ""
 "external ref='media/opensuse.png' md5='a852a94199328e2f978c7f6a55bf8b54'"
 
 #: C/getting-ready.page:6(info/title)
-#| msgid "Install GNOME development tools"
 msgctxt "link"
 msgid "Install GNOME development tools"
 msgstr "Instalar las herramientas de desarrollo de GNOME"
@@ -12472,14 +12239,12 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/gmenu.c.page:21(media)
-#| msgid "@@image: 'media/gmenu.c.png'; md5=f305fc3cae8d16d72b734ee53b559e33"
 msgctxt "_"
 msgid "external ref='media/gmenu.c.png' md5='f305fc3cae8d16d72b734ee53b559e33'"
 msgstr ""
 "external ref='media/gmenu.c.png' md5='f305fc3cae8d16d72b734ee53b559e33'"
 
 #: C/gmenu.c.page:7(info/title)
-#| msgid "GMenu (C)"
 msgctxt "text"
 msgid "GMenu (C)"
 msgstr "GMenu (C)"
@@ -12645,7 +12410,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/gmenu.js.page:21(media)
-#| msgid "@@image: 'media/gmenu.js.png'; md5=16b8bee122197771ec8498dac42f196b"
 msgctxt "_"
 msgid ""
 "external ref='media/gmenu.js.png' md5='16b8bee122197771ec8498dac42f196b'"
@@ -12653,7 +12417,6 @@ msgstr ""
 "external ref='media/gmenu.js.png' md5='16b8bee122197771ec8498dac42f196b'"
 
 #: C/gmenu.js.page:7(info/title)
-#| msgid "GMenu (JavaScript)"
 msgctxt "text"
 msgid "GMenu (JavaScript)"
 msgstr "GMenu (JavaScript)"
@@ -12846,7 +12609,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/gmenu.py.page:27(media)
-#| msgid "@@image: 'media/gmenu.py.png'; md5=52c68b34d5d566f37e9f803dedb6353a"
 msgctxt "_"
 msgid ""
 "external ref='media/gmenu.py.png' md5='52c68b34d5d566f37e9f803dedb6353a'"
@@ -12854,7 +12616,6 @@ msgstr ""
 "external ref='media/gmenu.py.png' md5='52c68b34d5d566f37e9f803dedb6353a'"
 
 #: C/gmenu.py.page:7(info/title)
-#| msgid "Python"
 msgctxt "text"
 msgid "GMenu (Python)"
 msgstr "GMenu (Python)"
@@ -13133,9 +12894,6 @@ msgid "To set a label for the menu, use <code>set_label(label)</code>."
 msgstr ""
 
 #: C/gmenu.py.page:78(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/glib/unstable/glib-GVariantType.html"
 "\">GVariantType</link>"
@@ -13144,9 +12902,6 @@ msgstr ""
 "\">GVariantType</link>"
 
 #: C/gmenu.py.page:79(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/glib/unstable/glib-GVariant.html"
 "\">GVariant</link>"
@@ -13159,8 +12914,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/gmenu.vala.page:27(media)
-#| msgid ""
-#| "@@image: 'media/gmenu.vala.png'; md5=7a9f381fc3ed5bf8d1c50d2acb095400"
 msgctxt "_"
 msgid ""
 "external ref='media/gmenu.vala.png' md5='7a9f381fc3ed5bf8d1c50d2acb095400'"
@@ -13168,7 +12921,6 @@ msgstr ""
 "external ref='media/gmenu.vala.png' md5='7a9f381fc3ed5bf8d1c50d2acb095400'"
 
 #: C/gmenu.vala.page:7(info/title)
-#| msgid "GMenu (Vala)"
 msgctxt "text"
 msgid "GMenu (Vala)"
 msgstr "GMenu (Vala)"
@@ -13317,18 +13069,12 @@ msgstr ""
 "}\n"
 
 #: C/gmenu.vala.page:43(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gio-2.0/GLib.Menu.Menu.html\">Menu</link>"
 msgstr ""
 "<link href=\"http://www.valadoc.org/gio-2.0/GLib.Menu.Menu.html\">Menu</link>"
 
 #: C/gmenu.vala.page:44(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gio-2.0/GLib.Menu.append.html\">append</"
 "link>"
@@ -13337,9 +13083,6 @@ msgstr ""
 "link>"
 
 #: C/gmenu.vala.page:45(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gio-2.0/GLib.SimpleAction.html"
 "\">SimpleAction</link>"
@@ -13348,9 +13091,6 @@ msgstr ""
 "\">SimpleAction</link>"
 
 #: C/gmenu.vala.page:46(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gio-2.0/GLib.ActionMap.add_action.html"
 "\">add_action</link>"
@@ -13373,13 +13113,11 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/grid.c.page:22(media) C/grid.js.page:25(media) C/grid.vala.page:23(media)
-#| msgid "@@image: 'media/grid.png'; md5=27d45da115401127456a3b854dcfc5be"
 msgctxt "_"
 msgid "external ref='media/grid.png' md5='27d45da115401127456a3b854dcfc5be'"
 msgstr "external ref='media/grid.png' md5='27d45da115401127456a3b854dcfc5be'"
 
 #: C/grid.c.page:7(info/title)
-#| msgid "Python"
 msgctxt "text"
 msgid "Grid (C)"
 msgstr "Grid (C)"
@@ -13542,9 +13280,6 @@ msgstr ""
 "}\n"
 
 #: C/grid.c.page:33(item/p) C/progressbar.c.page:34(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkProgressBar.html"
 "\">GtkProgressBar</link>"
@@ -13717,9 +13452,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/grid.js.page:36(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html"
 "\">Gtk.Grid</link>"
@@ -13728,10 +13460,6 @@ msgstr ""
 "\">Gtk.Grid</link>"
 
 #: C/grid.js.page:37(item/p) C/progressbar.js.page:41(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.ProgressBar."
 "html\">Gtk.ProgressBar</link>"
@@ -13744,8 +13472,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/grid.py.page:29(media)
-#| msgid ""
-#| "@@image: 'media/grid_simple.png'; md5=c806f2e69b30373d4d2e08b41d6cc1f6"
 msgctxt "_"
 msgid ""
 "external ref='media/grid_simple.png' md5='c806f2e69b30373d4d2e08b41d6cc1f6'"
@@ -13896,9 +13622,6 @@ msgstr ""
 
 #: C/grid.py.page:57(item/p) C/label.py.page:88(item/p)
 #: C/separator.py.page:40(item/p) C/switch.py.page:49(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkLabel.html"
 "\">GtkLabel</link>"
@@ -13908,9 +13631,6 @@ msgstr ""
 
 #: C/grid.py.page:58(item/p) C/image.py.page:100(item/p)
 #: C/paned.py.page:42(item/p) C/scrolledwindow.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkImage.html"
 "\">GtkImage</link>"
@@ -13921,9 +13641,6 @@ msgstr ""
 #: C/grid.py.page:59(item/p) C/radiobutton.py.page:52(item/p)
 #: C/separator.py.page:39(item/p) C/switch.py.page:50(item/p)
 #: C/toolbar_builder.py.page:193(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkGrid.html"
 "\">GtkGrid</link>"
@@ -14028,9 +13745,6 @@ msgstr ""
 "}\n"
 
 #: C/grid.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Grid.html\">Gtk.Grid</link>"
 msgstr ""
@@ -14081,7 +13795,6 @@ msgstr ""
 #: C/GtkApplicationWindow.vala.page:21(media) C/window.c.page:21(media)
 #: C/window.js.page:24(media) C/window.py.page:30(media)
 #: C/window.vala.page:24(media)
-#| msgid "@@image: 'media/window.png'; md5=eb0cde3530978619c25bddfaeb453345"
 msgctxt "_"
 msgid "external ref='media/window.png' md5='eb0cde3530978619c25bddfaeb453345'"
 msgstr "external ref='media/window.png' md5='eb0cde3530978619c25bddfaeb453345'"
@@ -14166,9 +13879,6 @@ msgstr ""
 "}\n"
 
 #: C/GtkApplicationWindow.c.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/3.4/GtkApplicationWindow.html"
 "\">GtkApplicationWindow</link>"
@@ -14491,8 +14201,6 @@ msgstr ""
 #: C/guitar-tuner.c.page:39(media) C/guitar-tuner.cpp.page:37(media)
 #: C/guitar-tuner.js.page:36(media) C/guitar-tuner.py.page:39(media)
 #: C/guitar-tuner.vala.page:42(media)
-#| msgid ""
-#| "@@image: 'media/guitar-tuner.png'; md5=35e615e0f5e293671d00c5c414ac2f6b"
 msgctxt "_"
 msgid ""
 "external ref='media/guitar-tuner.png' md5='35e615e0f5e293671d00c5c414ac2f6b'"
@@ -14520,9 +14228,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/guitar-tuner.c.page:94(media) C/guitar-tuner.cpp.page:88(media)
 #: C/guitar-tuner.py.page:90(media) C/guitar-tuner.vala.page:95(media)
-#| msgid ""
-#| "@@image: 'media/guitar-tuner-glade.png'; "
-#| "md5=f6606525443ab2160f53a87a454364d0"
 msgctxt "_"
 msgid ""
 "external ref='media/guitar-tuner-glade.png' "
@@ -14558,9 +14263,6 @@ msgstr ""
 #: C/guitar-tuner.c.page:139(media) C/guitar-tuner.cpp.page:117(media)
 #: C/guitar-tuner.js.page:42(media) C/guitar-tuner.py.page:133(media)
 #: C/guitar-tuner.vala.page:129(media)
-#| msgid ""
-#| "@@image: 'media/guitar-tuner-pipeline.png'; "
-#| "md5=5adc952909d92af5dae6954781b4ad5f"
 msgctxt "_"
 msgid ""
 "external ref='media/guitar-tuner-pipeline.png' "
@@ -15082,7 +14784,6 @@ msgstr ""
 
 #: C/guitar-tuner.c.page:149(section/code)
 #, no-wrap
-#| msgid "#include &lt;webkit/webkit.h&gt;"
 msgid "#include &lt;gst/gst.h&gt;"
 msgstr "#include &lt;gst/gst.h&gt;"
 
@@ -15098,7 +14799,6 @@ msgstr ""
 
 #: C/guitar-tuner.c.page:151(section/code)
 #, no-wrap
-#| msgid "\tGst::init (argc, argv);"
 msgid "gst_init (&amp;argc, &amp;argv);"
 msgstr "gst_init (&amp;argc, &amp;argv);"
 
@@ -17436,7 +17136,6 @@ msgstr ""
 
 #: C/guitar-tuner.vala.page:139(section/code)
 #, no-wrap
-#| msgid "\tGst::init (argc, argv);"
 msgid "Gst.init (ref args);"
 msgstr "Gst.init (ref args);"
 
@@ -17804,9 +17503,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/hellognome.js.page:64(media)
-#| msgid ""
-#| "@@image: 'media/hellognomewebapp.png'; "
-#| "md5=948efb6148ede3bc6b47b4b0bbe4a74f"
 msgctxt "_"
 msgid ""
 "external ref='media/hellognomewebapp.png' "
@@ -18444,8 +18140,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/helloWorld.js.page:27(media)
-#| msgid ""
-#| "@@image: 'media/helloWorld.png'; md5=4c88a27211dfd1b33e504c9f78602f2d"
 msgctxt "_"
 msgid ""
 "external ref='media/helloWorld.png' md5='4c88a27211dfd1b33e504c9f78602f2d'"
@@ -18507,7 +18201,6 @@ msgstr ""
 
 #: C/helloWorld.js.page:53(section/code)
 #, no-wrap
-#| msgid "const Lang = imports.lang;"
 msgid ""
 "const Lang = imports.lang;\n"
 "const Gtk = imports.gi.Gtk;"
@@ -19146,7 +18839,6 @@ msgid "README"
 msgstr "README"
 
 #: C/helloWorld.js.page:173(section/p)
-#| msgid "README: Information user should read first."
 msgid "Information users should read first. This file can be blank."
 msgstr ""
 "Información que los usuarios deben leer primero. Este archivo puede estar "
@@ -19258,7 +18950,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/image.c.page:21(media) C/image.js.page:20(media)
 #: C/image.py.page:21(media) C/image.vala.page:21(media)
-#| msgid "@@image: 'media/image.png'; md5=9416aa74d9d6a857783f7a36338e7a02"
 msgctxt "_"
 msgid "external ref='media/image.png' md5='9416aa74d9d6a857783f7a36338e7a02'"
 msgstr "external ref='media/image.png' md5='9416aa74d9d6a857783f7a36338e7a02'"
@@ -19377,9 +19068,6 @@ msgstr ""
 "}\n"
 
 #: C/image.c.page:34(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkImage.html"
 "\">GtkImage</link>"
@@ -19520,10 +19208,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/image.js.page:33(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Image.html"
 "\">Gtk.Image</link>"
@@ -19550,31 +19234,6 @@ msgstr ""
 
 #: C/image.py.page:33(section/code)
 #, no-wrap
-#| msgid ""
-#| "\n"
-#| "# a class to create a window\n"
-#| "class MyWindow(Gtk.ApplicationWindow):\n"
-#| "    def __init__(self, app):\n"
-#| "        Gtk.Window.__init__(self, title=\"Welcome to GNOME\", application=app)\n"
-#| "        self.set_default_size(300, 300)\n"
-#| "\n"
-#| "# a class to create an image\n"
-#| "class MyImage(Gtk.Image):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Image.__init__(self)\n"
-#| "        self.set_from_file(\"gnome-image.png\")\n"
-#| "\n"
-#| "class MyApplication(Gtk.Application):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Application.__init__(self)\n"
-#| "\n"
-#| "    def do_activate(self):\n"
-#| "        # create an instance of MyWindow\n"
-#| "        win = MyWindow(self)\n"
-#| "        # create an instance of MyImage and add it to the window\n"
-#| "        win.add(MyImage())\n"
-#| "        # show the window and everything on it\n"
-#| "        win.show_all()"
 msgid ""
 "from gi.repository import Gtk\n"
 "import sys\n"
@@ -19789,7 +19448,6 @@ msgid ""
 msgstr ""
 
 #: C/image.vala.page:7(info/title)
-#| msgid "Image (Vala)"
 msgctxt "text"
 msgid "Image (Vala)"
 msgstr "Imagen (Vala)"
@@ -19848,9 +19506,6 @@ msgstr ""
 "}\n"
 
 #: C/image.vala.page:31(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Application.html"
 "\">GtkApplication</link>"
@@ -19859,9 +19514,6 @@ msgstr ""
 "\">GtkApplication</link>"
 
 #: C/image.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ApplicationWindow.html"
 "\">GtkApplicationWindow</link>"
@@ -19870,9 +19522,6 @@ msgstr ""
 "\">GtkApplicationWindow</link>"
 
 #: C/image.vala.page:33(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Image.html\">GtkImage</link>"
 msgstr ""
@@ -19905,8 +19554,6 @@ msgstr ""
 #: C/image-viewer.c.page:33(media) C/image-viewer.cpp.page:31(media)
 #: C/image-viewer.js.page:42(media) C/image-viewer.py.page:41(media)
 #: C/image-viewer.vala.page:48(media)
-#| msgid ""
-#| "@@image: 'media/image-viewer.png'; md5=7720360611243b14283b83527be968c2"
 msgctxt "_"
 msgid ""
 "external ref='media/image-viewer.png' md5='7720360611243b14283b83527be968c2'"
@@ -22886,7 +22533,6 @@ msgstr ""
 "Por ejemplo, 200x200 píxeles."
 
 #: C/js.page:7(info/title)
-#| msgid "JavaScript"
 msgctxt "link"
 msgid "JavaScript"
 msgstr "JavaScript"
@@ -22918,13 +22564,11 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/label.c.page:25(media) C/label.js.page:21(media)
 #: C/label.py.page:27(media) C/label.vala.page:21(media)
-#| msgid "@@image: 'media/label.png'; md5=734975c18653d88379f983e4501c3fc0"
 msgctxt "_"
 msgid "external ref='media/label.png' md5='734975c18653d88379f983e4501c3fc0'"
 msgstr "external ref='media/label.png' md5='734975c18653d88379f983e4501c3fc0'"
 
 #: C/label.c.page:7(info/title)
-#| msgid "Label"
 msgctxt "text"
 msgid "Label (C)"
 msgstr "Label (C)"
@@ -23048,7 +22692,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/label.js.page:7(info/title)
-#| msgid "JavaScript"
 msgctxt "text"
 msgid "Label (JavaScript)"
 msgstr "Label (JavaScript)"
@@ -23201,7 +22844,6 @@ msgstr ""
 "texto."
 
 #: C/label.py.page:7(info/title)
-#| msgid "Python"
 msgctxt "text"
 msgid "Label (Python)"
 msgstr "Label (Python)"
@@ -23212,31 +22854,6 @@ msgstr "Un widget que muestra una cantidad pequeña o mediana de texto"
 
 #: C/label.py.page:35(section/code)
 #, no-wrap
-#| msgid ""
-#| "\n"
-#| "# a class to create a window\n"
-#| "class MyWindow(Gtk.ApplicationWindow):\n"
-#| "    def __init__(self, app):\n"
-#| "        Gtk.Window.__init__(self, title=\"Welcome to GNOME\", application=app)\n"
-#| "        self.set_default_size(300, 300)\n"
-#| "\n"
-#| "# a class to create an image\n"
-#| "class MyImage(Gtk.Image):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Image.__init__(self)\n"
-#| "        self.set_from_file(\"gnome-image.png\")\n"
-#| "\n"
-#| "class MyApplication(Gtk.Application):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Application.__init__(self)\n"
-#| "\n"
-#| "    def do_activate(self):\n"
-#| "        # create an instance of MyWindow\n"
-#| "        win = MyWindow(self)\n"
-#| "        # create an instance of MyImage and add it to the window\n"
-#| "        win.add(MyImage())\n"
-#| "        # show the window and everything on it\n"
-#| "        win.show_all()"
 msgid ""
 "from gi.repository import Gtk\n"
 "import sys\n"
@@ -23422,7 +23039,6 @@ msgstr ""
 "                 \"title=\\\"Click to find out more\\\"&gt;internets&lt;/a&gt;.\")"
 
 #: C/label.vala.page:7(info/title)
-#| msgid "Label"
 msgctxt "text"
 msgid "Label (Vala)"
 msgstr "Label (Vala)"
@@ -23505,7 +23121,6 @@ msgid "You are free:"
 msgstr "Es libre de:"
 
 #: C/license.page:25(item/title)
-#| msgid "To share"
 msgid "<em>To share</em>"
 msgstr "Compartir"
 
@@ -23514,7 +23129,6 @@ msgid "To copy, distribute and transmit the work."
 msgstr "Copiar, distribuir y comunicar públicamente la obra"
 
 #: C/license.page:29(item/title)
-#| msgid "To remix"
 msgid "<em>To remix</em>"
 msgstr "Hacer obras derivadas"
 
@@ -23527,7 +23141,6 @@ msgid "Under the following conditions:"
 msgstr "Bajo las siguientes condiciones:"
 
 #: C/license.page:38(item/title)
-#| msgid "Attribution"
 msgid "<em>Attribution</em>"
 msgstr "Atribución"
 
@@ -23542,7 +23155,6 @@ msgstr ""
 "o apoyan el uso que hace de su obra)."
 
 #: C/license.page:46(item/title)
-#| msgid "Share Alike"
 msgid "<em>Share Alike</em>"
 msgstr "Compartir igual"
 
@@ -23588,8 +23200,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/linkbutton.c.page:22(media) C/linkbutton.js.page:21(media)
 #: C/linkbutton.py.page:23(media) C/linkbutton.vala.page:21(media)
-#| msgid ""
-#| "@@image: 'media/linkbutton.png'; md5=3712eae8953e87c65a6aa74503b8e32b"
 msgctxt "_"
 msgid ""
 "external ref='media/linkbutton.png' md5='3712eae8953e87c65a6aa74503b8e32b'"
@@ -23597,7 +23207,6 @@ msgstr ""
 "external ref='media/linkbutton.png' md5='3712eae8953e87c65a6aa74503b8e32b'"
 
 #: C/linkbutton.c.page:7(info/title)
-#| msgid "LinkButton"
 msgctxt "text"
 msgid "LinkButton (C)"
 msgstr "LinkButton (C)"
@@ -23705,7 +23314,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/linkbutton.js.page:7(info/title)
-#| msgid "LinkButton widget"
 msgctxt "text"
 msgid "LinkButton (JavaScript)"
 msgstr "LinkButton (JavaScript)"
@@ -23846,7 +23454,6 @@ msgstr ""
 "Window</link>"
 
 #: C/linkbutton.py.page:7(info/title)
-#| msgid "LinkButton"
 msgctxt "text"
 msgid "LinkButton (Python)"
 msgstr "LinkButton (Python)"
@@ -23861,31 +23468,6 @@ msgstr "Un botón que enlaza con una página web."
 
 #: C/linkbutton.py.page:31(section/code)
 #, no-wrap
-#| msgid ""
-#| "\n"
-#| "# a class to create a window\n"
-#| "class MyWindow(Gtk.ApplicationWindow):\n"
-#| "    def __init__(self, app):\n"
-#| "        Gtk.Window.__init__(self, title=\"Welcome to GNOME\", application=app)\n"
-#| "        self.set_default_size(300, 300)\n"
-#| "\n"
-#| "# a class to create an image\n"
-#| "class MyImage(Gtk.Image):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Image.__init__(self)\n"
-#| "        self.set_from_file(\"gnome-image.png\")\n"
-#| "\n"
-#| "class MyApplication(Gtk.Application):\n"
-#| "    def __init__(self):\n"
-#| "        Gtk.Application.__init__(self)\n"
-#| "\n"
-#| "    def do_activate(self):\n"
-#| "        # create an instance of MyWindow\n"
-#| "        win = MyWindow(self)\n"
-#| "        # create an instance of MyImage and add it to the window\n"
-#| "        win.add(MyImage())\n"
-#| "        # show the window and everything on it\n"
-#| "        win.show_all()"
 msgid ""
 "from gi.repository import Gtk\n"
 "import sys\n"
@@ -23988,7 +23570,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/linkbutton.vala.page:7(info/title)
-#| msgid "LinkButton"
 msgctxt "text"
 msgid "LinkButton (Vala)"
 msgstr "LinkButton (Vala)"
@@ -24061,8 +23642,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/magic-mirror.vala.page:41(media)
-#| msgid ""
-#| "@@image: 'media/magic-mirror.png'; md5=8171faea6ed3b6ddac0da084c29e4e22"
 msgctxt "_"
 msgid ""
 "external ref='media/magic-mirror.png' md5='8171faea6ed3b6ddac0da084c29e4e22'"
@@ -24372,7 +23951,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/menubar.py.page:28(media) C/menubar.vala.page:23(media)
-#| msgid "@@image: 'media/menubar.png'; md5=7b642aaa1628d5e43ab85ac230ac1c78"
 msgctxt "_"
 msgid "external ref='media/menubar.png' md5='7b642aaa1628d5e43ab85ac230ac1c78'"
 msgstr ""
@@ -24388,8 +23966,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/menubar.py.page:129(media) C/menubar.vala.page:133(media)
-#| msgid ""
-#| "@@image: 'media/menubar_choices.png'; md5=47cdfa12caf85ba20dd3e835bd7f893f"
 msgctxt "_"
 msgid ""
 "external ref='media/menubar_choices.png' "
@@ -24399,7 +23975,6 @@ msgstr ""
 "md5='47cdfa12caf85ba20dd3e835bd7f893f'"
 
 #: C/menubar.py.page:7(info/title)
-#| msgid "MenuButton"
 msgctxt "text"
 msgid "MenuBar (Python)"
 msgstr "MenuBar (Python)"
@@ -25447,9 +25022,6 @@ msgid "&lt;attribute name=\"label\" translatable=\"yes\"&gt;Quit&lt;/attribute&g
 msgstr ""
 
 #: C/menubar.py.page:183(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/unstable/GSimpleAction.html"
 "\">GSimpleAction</link>"
@@ -25458,9 +25030,6 @@ msgstr ""
 "\">GSimpleAction</link>"
 
 #: C/menubar.py.page:184(item/p) C/toolbar_builder.py.page:194(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkBuilder.html"
 "\">GtkBuilder</link>"
@@ -25469,7 +25038,6 @@ msgstr ""
 "\">GtkBuilder</link>"
 
 #: C/menubar.vala.page:7(info/title)
-#| msgid "Menu"
 msgctxt "text"
 msgid "MenuBar (Vala)"
 msgstr "MenuBar (Vala)"
@@ -25920,9 +25488,6 @@ msgid ""
 msgstr ""
 
 #: C/menubar.vala.page:191(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gio-2.0/GLib.ActionEntry.html\">Glib."
 "ActionEntry</link>"
@@ -25931,9 +25496,6 @@ msgstr ""
 "ActionEntry</link>"
 
 #: C/menubar.vala.page:192(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://valadoc.org/gio-2.0/Gtk.Builder.html\">Gtk.Builder</link>"
 msgstr ""
@@ -25955,8 +25517,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/menubutton.js.page:21(media) C/menubutton.py.page:27(media)
 #: C/menubutton.vala.page:21(media)
-#| msgid ""
-#| "@@image: 'media/menubutton.png'; md5=1feb7b836a522c3007079d4420621d9d"
 msgctxt "_"
 msgid ""
 "external ref='media/menubutton.png' md5='1feb7b836a522c3007079d4420621d9d'"
@@ -25964,7 +25524,6 @@ msgstr ""
 "external ref='media/menubutton.png' md5='1feb7b836a522c3007079d4420621d9d'"
 
 #: C/menubutton.js.page:7(info/title)
-#| msgid "MenuButton"
 msgctxt "text"
 msgid "MenuButton (JavaScript)"
 msgstr "MenuButton (JavaScript)"
@@ -26220,9 +25779,6 @@ msgstr ""
 "app.application.run(ARGV);\n"
 
 #: C/menubutton.js.page:32(item/p) C/menubutton.vala.page:32(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/3.5/gtk3-GtkMenuButton.html"
 "\">MenuButton</link>"
@@ -26231,7 +25787,6 @@ msgstr ""
 "\">MenuButton</link>"
 
 #: C/menubutton.py.page:7(info/title) C/tooltip.py.page:7(info/title)
-#| msgid "MenuButton"
 msgctxt "text"
 msgid "MenuButton"
 msgstr "MenuButton"
@@ -26419,9 +25974,6 @@ msgid ""
 msgstr ""
 
 #: C/menubutton.py.page:52(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkMenuButton.html"
 "\">MenuButton</link>"
@@ -26430,7 +25982,6 @@ msgstr ""
 "\">MenuButton</link>"
 
 #: C/menubutton.vala.page:7(info/title)
-#| msgid "MenuButton"
 msgctxt "text"
 msgid "MenuButton (Vala)"
 msgstr "MenuButton (Vala)"
@@ -26575,8 +26126,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/message-board.c.page:36(media)
-#| msgid ""
-#| "@@image: 'media/message-board.ogv'; md5=beb80c4538776dc2cdd26c95abea5027"
 msgctxt "_"
 msgid ""
 "external ref='media/message-board.ogv' md5='beb80c4538776dc2cdd26c95abea5027'"
@@ -26584,7 +26133,6 @@ msgstr ""
 "external ref='media/message-board.ogv' md5='beb80c4538776dc2cdd26c95abea5027'"
 
 #: C/message-board.c.page:7(info/title)
-#| msgid "Message Board"
 msgctxt "text"
 msgid "Message Board (C)"
 msgstr "Cuadro de mensajes (C)"
@@ -27402,8 +26950,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/messagedialog.c.page:23(media) C/messagedialog.js.page:24(media)
 #: C/messagedialog.py.page:22(media) C/messagedialog.vala.page:21(media)
-#| msgid ""
-#| "@@image: 'media/messagedialog.png'; md5=1956288274018e2386d9cba96a2101de"
 msgctxt "_"
 msgid ""
 "external ref='media/messagedialog.png' md5='1956288274018e2386d9cba96a2101de'"
@@ -27411,7 +26957,6 @@ msgstr ""
 "external ref='media/messagedialog.png' md5='1956288274018e2386d9cba96a2101de'"
 
 #: C/messagedialog.c.page:7(info/title)
-#| msgid "MessageDialog"
 msgctxt "text"
 msgid "MessageDialog (C)"
 msgstr "MessageDialog (C)"
@@ -27786,9 +27331,6 @@ msgstr ""
 "}\n"
 
 #: C/messagedialog.c.page:36(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GApplication.html"
 "\">GApplication</link>"
@@ -27797,9 +27339,6 @@ msgstr ""
 "\">GApplication</link>"
 
 #: C/messagedialog.c.page:38(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkMessageDialog.html"
 "\">GtkMessageDialog</link>"
@@ -27808,9 +27347,6 @@ msgstr ""
 "\">GtkMessageDialog</link>"
 
 #: C/messagedialog.c.page:39(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/stable/GSimpleAction.html#g-"
 "simple-action-new\">GSimpleAction</link>"
@@ -27819,7 +27355,6 @@ msgstr ""
 "simple-action-new\">GSimpleAction</link>"
 
 #: C/messagedialog.js.page:7(info/title)
-#| msgid "MessageDialog"
 msgctxt "text"
 msgid "MessageDialog (JavaScript)"
 msgstr "MessageDialog (JavaScript)"
@@ -28434,7 +27969,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/messagedialog.py.page:7(info/title)
-#| msgid "MessageDialog"
 msgctxt "text"
 msgid "MessageDialog (Python)"
 msgstr "MessageDialog (Python)"
@@ -28676,9 +28210,6 @@ msgid ""
 msgstr ""
 
 #: C/messagedialog.py.page:58(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkMessageDialog.html"
 "\">GtkMessageDialog</link>"
@@ -28687,9 +28218,6 @@ msgstr ""
 "\">GtkMessageDialog</link>"
 
 #: C/messagedialog.py.page:62(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gio/unstable/GActionMap.html"
 "\">GActionMap</link>"
@@ -28698,7 +28226,6 @@ msgstr ""
 "\">GActionMap</link>"
 
 #: C/messagedialog.vala.page:7(info/title)
-#| msgid "MessageDialog"
 msgctxt "text"
 msgid "MessageDialog (Vala)"
 msgstr "MessageDialog (Vala)"
@@ -28853,9 +28380,6 @@ msgstr ""
 "}\n"
 
 #: C/messagedialog.vala.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ResponseType.html\">Gtk."
 "ResponseType</link>"
@@ -28864,9 +28388,6 @@ msgstr ""
 "ResponseType</link>"
 
 #: C/messagedialog.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.MessageDialog.html\">Gtk."
 "MessageDialog</link>"
@@ -28875,9 +28396,6 @@ msgstr ""
 "MessageDialog</link>"
 
 #: C/messagedialog.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.DialogFlags.html\">Gtk."
 "DialogFlags</link>"
@@ -28886,9 +28404,6 @@ msgstr ""
 "DialogFlags</link>"
 
 #: C/messagedialog.vala.page:33(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.MessageType.html\">Gtk."
 "MessageType</link>"
@@ -28897,9 +28412,6 @@ msgstr ""
 "MessageType</link>"
 
 #: C/messagedialog.vala.page:34(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ButtonsType.html\">Gtk."
 "ButtonsType</link>"
@@ -28908,7 +28420,6 @@ msgstr ""
 "ButtonsType</link>"
 
 #: C/model-view-controller.py.page:8(info/title)
-#| msgid "The Model/View/Controller design (Python)"
 msgctxt "text"
 msgid "The Model/View/Controller design (Python)"
 msgstr "El diseño modelo/vista/controlador (Python)"
@@ -29571,9 +29082,6 @@ msgstr "Referencias"
 #: C/treeview_cellrenderertoggle.py.page:42(item/p)
 #: C/treeview_simple_liststore.py.page:44(item/p)
 #: C/treeview_treestore.py.page:42(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTreeModel.html"
 "\">GtkTreeModel</link>"
@@ -29586,9 +29094,6 @@ msgstr ""
 #: C/treeview_cellrenderertoggle.py.page:41(item/p)
 #: C/treeview_simple_liststore.py.page:43(item/p)
 #: C/treeview_treestore.py.page:41(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTreeView.html"
 "\">GtkTreeView</link>"
@@ -29601,9 +29106,6 @@ msgstr ""
 #: C/treeview_cellrenderertoggle.py.page:46(item/p)
 #: C/treeview_simple_liststore.py.page:47(item/p)
 #: C/treeview_treestore.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTreeViewColumn.html"
 "\">GtkTreeViewColumn</link>"
@@ -29612,9 +29114,6 @@ msgstr ""
 "\">GtkTreeViewColumn</link>"
 
 #: C/model-view-controller.py.page:189(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCellRenderer.html"
 "\">GtkCellRenderer</link>"
@@ -29665,13 +29164,11 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/paned.py.page:21(media)
-#| msgid "@@image: 'media/paned.png'; md5=01e36d8a51ee18313616d63d2e15d993"
 msgctxt "_"
 msgid "external ref='media/paned.png' md5='01e36d8a51ee18313616d63d2e15d993'"
 msgstr "external ref='media/paned.png' md5='01e36d8a51ee18313616d63d2e15d993'"
 
 #: C/paned.py.page:7(info/title)
-#| msgid "Paned (Python)"
 msgctxt "text"
 msgid "Paned (Python)"
 msgstr "Paned (Python)"
@@ -29792,9 +29289,6 @@ msgstr ""
 "panel inferior."
 
 #: C/paned.py.page:40(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkPaned.html"
 "\">GtkPaned</link>"
@@ -29819,8 +29313,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/photo-wall.c.page:78(media)
-#| msgid ""
-#| "@@image: 'media/photo-wall.png'; md5=f19590d97e8ec029cda3c44b769c11cd"
 msgctxt "_"
 msgid ""
 "external ref='media/photo-wall.png' md5='f19590d97e8ec029cda3c44b769c11cd'"
@@ -29832,9 +29324,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/photo-wall.c.page:81(media)
-#| msgid ""
-#| "@@image: 'media/photo-wall-focused.png'; "
-#| "md5=9f1ceecf3a28c1e468597b093a10cbae"
 msgctxt "_"
 msgid ""
 "external ref='media/photo-wall-focused.png' "
@@ -29844,7 +29333,6 @@ msgstr ""
 "md5='9f1ceecf3a28c1e468597b093a10cbae'"
 
 #: C/photo-wall.c.page:6(info/title)
-#| msgid "Photo Wall (C)"
 msgctxt "text"
 msgid "Photo Wall (C)"
 msgstr "Mural de fotos (C)"
@@ -30912,9 +30400,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/progressbar.c.page:23(media) C/progressbar.vala.page:21(media)
-#| msgid ""
-#| "@@image: 'media/progressbar_fill.ogv'; "
-#| "md5=287763d1d3f4a328212ea2243910f5e4"
 msgctxt "_"
 msgid ""
 "external ref='media/progressbar_fill.ogv' "
@@ -30924,7 +30409,6 @@ msgstr ""
 "md5='287763d1d3f4a328212ea2243910f5e4'"
 
 #: C/progressbar.c.page:7(info/title)
-#| msgid "ProgressBar (C)"
 msgctxt "text"
 msgid "ProgressBar (C)"
 msgstr "ProgressBar (C)"
@@ -31089,9 +30573,6 @@ msgstr ""
 "}\n"
 
 #: C/progressbar.c.page:35(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/glib/stable/glib-The-Main-Event-Loop."
 "html#g-timeout-add\">G_Timeout</link>"
@@ -31109,8 +30590,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/progressbar.js.page:20(media) C/progressbar.py.page:21(media)
-#| msgid ""
-#| "@@image: 'media/progressbar.ogv'; md5=36deab3dd4b5be968828fa2ef416d612"
 msgctxt "_"
 msgid ""
 "external ref='media/progressbar.ogv' md5='36deab3dd4b5be968828fa2ef416d612'"
@@ -31118,7 +30597,6 @@ msgstr ""
 "external ref='media/progressbar.ogv' md5='36deab3dd4b5be968828fa2ef416d612'"
 
 #: C/progressbar.js.page:6(info/title)
-#| msgid "ProgressBar (JavaScript)"
 msgctxt "text"
 msgid "ProgressBar (JavaScript)"
 msgstr "ProgressBar (JavaScript)"
@@ -31303,9 +30781,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/progressbar.js.page:38(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/GLib.html\">GLib</"
 "link>"
@@ -31314,7 +30789,6 @@ msgstr ""
 "link>"
 
 #: C/progressbar.py.page:7(info/title)
-#| msgid "ProgressBar (Python)"
 msgctxt "text"
 msgid "ProgressBar (Python)"
 msgstr "ProgressBar (Python)"
@@ -31469,9 +30943,6 @@ msgstr ""
 "porcentaje del trabajo que se ha completado."
 
 #: C/progressbar.py.page:55(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkProgressBar.html"
 "\">GtkProgressBar</link>"
@@ -31504,7 +30975,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/progressbar.vala.page:7(info/title)
-#| msgid "ProgressBar (Vala)"
 msgctxt "text"
 msgid "ProgressBar (Vala)"
 msgstr "ProgressBar (Vala)"
@@ -31587,9 +31057,6 @@ msgstr ""
 "}\n"
 
 #: C/progressbar.vala.page:29(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ProgressBar.html\">Gtk."
 "ProgressBar</link>"
@@ -31598,9 +31065,6 @@ msgstr ""
 "ProgressBar</link>"
 
 #: C/progressbar.vala.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/glib-2.0/GLib.Timeout.html\">GLib."
 "Timeout</link>"
@@ -31609,7 +31073,6 @@ msgstr ""
 "Timeout</link>"
 
 #: C/properties.py.page:8(info/title)
-#| msgid "Properties (Python)"
 msgctxt "text"
 msgid "Properties (Python)"
 msgstr "Properties (Python)"
@@ -31697,7 +31160,6 @@ msgstr ""
 "con Python"
 
 #: C/py.page:6(info/title)
-#| msgid "Python"
 msgctxt "link"
 msgid "Python"
 msgstr "Python"
@@ -31723,8 +31185,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/radiobutton.c.page:24(media) C/radiobutton.py.page:25(media)
 #: C/radiobutton.vala.page:24(media)
-#| msgid ""
-#| "@@image: 'media/radiobutton.png'; md5=d115460280d8e41493dd98054b5822a5"
 msgctxt "_"
 msgid ""
 "external ref='media/radiobutton.png' md5='d115460280d8e41493dd98054b5822a5'"
@@ -31732,7 +31192,6 @@ msgstr ""
 "external ref='media/radiobutton.png' md5='d115460280d8e41493dd98054b5822a5'"
 
 #: C/radiobutton.c.page:7(info/title)
-#| msgid "RadioButton (C)"
 msgctxt "text"
 msgid "RadioButton (C)"
 msgstr "RadioButton (C)"
@@ -31952,9 +31411,6 @@ msgstr ""
 "}\n"
 
 #: C/radiobutton.c.page:37(item/p) C/switch.c.page:35(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkSwitch.html"
 "\">GtkSwitch</link>"
@@ -31967,9 +31423,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/radiobutton.js.page:21(media)
-#| msgid ""
-#| "@@image: 'media/radiobuttontravel.png'; "
-#| "md5=0c5f01ee160bb42716ccf5dccbd080c0"
 msgctxt "_"
 msgid ""
 "external ref='media/radiobuttontravel.png' "
@@ -31979,7 +31432,6 @@ msgstr ""
 "md5='0c5f01ee160bb42716ccf5dccbd080c0'"
 
 #: C/radiobutton.js.page:7(info/title)
-#| msgid "RadioButton (JavaScript)"
 msgctxt "text"
 msgid "RadioButton (JavaScript)"
 msgstr "RadioButton (JavaScript)"
@@ -32956,9 +32408,6 @@ msgstr ""
 
 #: C/radiobutton.js.page:277(item/p) C/statusbar.js.page:224(item/p)
 #: C/textview.js.page:251(item/p)
-#| msgid ""
-#| "In this sample we used the following: <link href=\"http://www.valadoc.org/"
-#| "gtk+-3.0/Gtk.Button.html\">Gtk.Button</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html"
 "\">Gtk.Button</link>"
@@ -32969,9 +32418,6 @@ msgstr ""
 #: C/radiobutton.js.page:278(item/p) C/scale.js.page:212(item/p)
 #: C/spinbutton.js.page:203(item/p) C/switch.js.page:269(item/p)
 #: C/textview.js.page:252(item/p) C/togglebutton.js.page:156(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html"
 "\">Gtk.Grid</link>"
@@ -32982,9 +32428,6 @@ msgstr ""
 #: C/radiobutton.js.page:279(item/p) C/scale.js.page:213(item/p)
 #: C/spinbutton.js.page:204(item/p) C/switch.js.page:271(item/p)
 #: C/textview.js.page:253(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html"
 "\">Gtk.Label</link>"
@@ -32993,9 +32436,6 @@ msgstr ""
 "\">Gtk.Label</link>"
 
 #: C/radiobutton.js.page:280(item/p) C/textview.js.page:254(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.RadioButton."
 "html\">Gtk.RadioButton</link>"
@@ -33004,7 +32444,6 @@ msgstr ""
 "html\">Gtk.RadioButton</link>"
 
 #: C/radiobutton.py.page:7(info/title)
-#| msgid "RadioButton (Python)"
 msgctxt "text"
 msgid "RadioButton (Python)"
 msgstr "RadioButton (Python)"
@@ -33207,9 +32646,6 @@ msgstr ""
 "<code>get_group()</code>, el segundo argumento es la etiqueta)."
 
 #: C/radiobutton.py.page:53(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkRadioButton.html"
 "\">GtkRadioButton</link>"
@@ -33218,7 +32654,6 @@ msgstr ""
 "\">GtkRadioButton</link>"
 
 #: C/radiobutton.vala.page:7(info/title)
-#| msgid "RadioButton (Vala)"
 msgctxt "text"
 msgid "RadioButton (Vala)"
 msgstr "RadioButton (Vala)"
@@ -33363,9 +32798,6 @@ msgstr ""
 "}\n"
 
 #: C/radiobutton.vala.page:32(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.RadioButton.html\">Gtk."
 "RadioButton</link>"
@@ -33378,9 +32810,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/record-collection.js.page:64(media)
-#| msgid ""
-#| "@@image: 'media/record-collection.png'; "
-#| "md5=2d645997687ed5aacd36aafafc16e072"
 msgctxt "_"
 msgid ""
 "external ref='media/record-collection.png' "
@@ -33390,7 +32819,6 @@ msgstr ""
 "md5='2d645997687ed5aacd36aafafc16e072'"
 
 #: C/record-collection.js.page:7(info/title)
-#| msgid "Record Collection (JavaScript)"
 msgctxt "text"
 msgid "Record Collection (JavaScript)"
 msgstr "Colección de música (JavaScript)"
@@ -34193,13 +33621,11 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scale.c.page:24(media)
-#| msgid "@@image: 'media/scale2.png'; md5=ae2ba0a6675f3d9cdcd961cdf32f1a5c"
 msgctxt "_"
 msgid "external ref='media/scale2.png' md5='ae2ba0a6675f3d9cdcd961cdf32f1a5c'"
 msgstr "external ref='media/scale2.png' md5='ae2ba0a6675f3d9cdcd961cdf32f1a5c'"
 
 #: C/scale.c.page:7(info/title)
-#| msgid "Scale (C)"
 msgctxt "text"
 msgid "Scale (C)"
 msgstr "Escala (C)"
@@ -34539,9 +33965,6 @@ msgstr ""
 "}\n"
 
 #: C/scale.c.page:35(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkScale.html"
 "\">GtkScale</link>"
@@ -34550,9 +33973,6 @@ msgstr ""
 "\">GtkScale</link>"
 
 #: C/scale.c.page:36(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkRange.html"
 "\">GtkRange</link>"
@@ -34561,9 +33981,6 @@ msgstr ""
 "\">GtkRange</link>"
 
 #: C/scale.c.page:37(item/p) C/spinbutton.c.page:38(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkAdjustment.html"
 "\">GtkAdjustment</link>"
@@ -34588,8 +34005,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scale.js.page:21(media)
-#| msgid ""
-#| "@@image: 'media/scalepenguins.png'; md5=2dbe6a833fec86fde71a5ddb421e2cd5"
 msgctxt "_"
 msgid ""
 "external ref='media/scalepenguins.png' md5='2dbe6a833fec86fde71a5ddb421e2cd5'"
@@ -34597,7 +34012,6 @@ msgstr ""
 "external ref='media/scalepenguins.png' md5='2dbe6a833fec86fde71a5ddb421e2cd5'"
 
 #: C/scale.js.page:7(info/title)
-#| msgid "Scale (JavaScript)"
 msgctxt "text"
 msgid "Scale (JavaScript)"
 msgstr "Escala (JavaScript)"
@@ -35325,9 +34739,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/scale.js.page:209(item/p) C/spinbutton.js.page:200(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Adjustment."
 "html\">Gtk.Adjustment</link>"
@@ -35336,9 +34747,6 @@ msgstr ""
 "html\">Gtk.Adjustment</link>"
 
 #: C/scale.js.page:214(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Scale.html"
 "\">Gtk.Scale</link>"
@@ -35356,13 +34764,11 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scale.py.page:22(media) C/scale.vala.page:23(media)
-#| msgid "@@image: 'media/scale.png'; md5=462c52a53b773cb9e8c62c646bf88452"
 msgctxt "_"
 msgid "external ref='media/scale.png' md5='462c52a53b773cb9e8c62c646bf88452'"
 msgstr "external ref='media/scale.png' md5='462c52a53b773cb9e8c62c646bf88452'"
 
 #: C/scale.py.page:7(info/title)
-#| msgid "Scale (Python)"
 msgctxt "text"
 msgid "Scale (Python)"
 msgstr "Escala (Python)"
@@ -35624,9 +35030,6 @@ msgstr ""
 "<code>dígitos</code> dígitos."
 
 #: C/scale.py.page:55(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkScale.html"
 "\">GtkScale</link>"
@@ -35635,9 +35038,6 @@ msgstr ""
 "\">GtkScale</link>"
 
 #: C/scale.py.page:56(item/p) C/spinbutton.py.page:48(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkAdjustment.html"
 "\">GtkAdjustment</link>"
@@ -35659,7 +35059,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/scale.vala.page:7(info/title)
-#| msgid "Scale (Vala)"
 msgctxt "text"
 msgid "Scale (Vala)"
 msgstr "Escala (Vala)"
@@ -35774,9 +35173,6 @@ msgstr ""
 "}\n"
 
 #: C/scale.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Scale.html\">Gtk.Scale</"
 "link>"
@@ -35785,9 +35181,6 @@ msgstr ""
 "link>"
 
 #: C/scale.vala.page:32(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Adjustment.html\">Gtk."
 "Adjustment</link>"
@@ -35796,9 +35189,6 @@ msgstr ""
 "Adjustment</link>"
 
 #: C/scale.vala.page:33(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.PositionType.html\">Gtk."
 "PositionType</link>"
@@ -35807,9 +35197,6 @@ msgstr ""
 "PositionType</link>"
 
 #: C/scale.vala.page:34(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Orientation.html\">Gtk."
 "Orientation</link>"
@@ -35827,8 +35214,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scrolledwindow.py.page:21(media) C/scrolledwindow.vala.page:22(media)
-#| msgid ""
-#| "@@image: 'media/scrolledwindow.png'; md5=697bb3205d5c4fb0b4ea8db435843157"
 msgctxt "_"
 msgid ""
 "external ref='media/scrolledwindow.png' "
@@ -35838,7 +35223,6 @@ msgstr ""
 "md5='697bb3205d5c4fb0b4ea8db435843157'"
 
 #: C/scrolledwindow.py.page:7(info/title)
-#| msgid "ScrolledWindow (Python)"
 msgctxt "text"
 msgid "ScrolledWindow (Python)"
 msgstr "ScrolledWindow (Python)"
@@ -36003,9 +35387,6 @@ msgstr ""
 "<code>0</code>."
 
 #: C/scrolledwindow.py.page:43(item/p) C/textview.py.page:98(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkScrolledWindow.html"
 "\">GtkScrolledWindow</link>"
@@ -36014,7 +35395,6 @@ msgstr ""
 "\">GtkScrolledWindow</link>"
 
 #: C/scrolledwindow.vala.page:7(info/title)
-#| msgid "ScrolledWindow (Vala)"
 msgctxt "text"
 msgid "ScrolledWindow (Vala)"
 msgstr "ScrolledWindow (Vala)"
@@ -36071,9 +35451,6 @@ msgstr ""
 "}\n"
 
 #: C/scrolledwindow.vala.page:30(item/p) C/textview.vala.page:36(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ScrolledWindow.html\">Gtk."
 "ScrolledWindow</link>"
@@ -36082,9 +35459,6 @@ msgstr ""
 "ScrolledWindow</link>"
 
 #: C/scrolledwindow.vala.page:31(item/p) C/textview.vala.page:38(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.PolicyType.html\">Gtk."
 "PolicyType</link>"
@@ -36097,7 +35471,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/separator.py.page:23(media)
-#| msgid "@@image: 'media/separator.png'; md5=8769b27662ce5c77f99e9ce33751a21a"
 msgctxt "_"
 msgid ""
 "external ref='media/separator.png' md5='8769b27662ce5c77f99e9ce33751a21a'"
@@ -36105,7 +35478,6 @@ msgstr ""
 "external ref='media/separator.png' md5='8769b27662ce5c77f99e9ce33751a21a'"
 
 #: C/separator.py.page:7(info/title)
-#| msgid "Seperator (Python)"
 msgctxt "text"
 msgid "Seperator (Python)"
 msgstr "Separador (Python)"
@@ -36220,9 +35592,6 @@ msgid "API Reference"
 msgstr "Referencias de la API"
 
 #: C/separator.py.page:38(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkSeparator.html"
 "\">GtkSeparator</link>"
@@ -36235,7 +35604,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/set-up-gedit.js.page:24(media)
-#| msgid "@@image: 'media/geditview.png'; md5=f1438295662d95f56fcd1d8200efaaf2"
 msgctxt "_"
 msgid ""
 "external ref='media/geditview.png' md5='f1438295662d95f56fcd1d8200efaaf2'"
@@ -36247,8 +35615,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/set-up-gedit.js.page:36(media)
-#| msgid ""
-#| "@@image: 'media/gediteditor.png'; md5=50db1ee8f2c545744879ee9fba5b4b24"
 msgctxt "_"
 msgid ""
 "external ref='media/gediteditor.png' md5='50db1ee8f2c545744879ee9fba5b4b24'"
@@ -36349,7 +35715,6 @@ msgstr ""
 "tabuladores</gui>."
 
 #: C/signals-callbacks.py.page:8(info/title)
-#| msgid "Signals and callbacks (Python)"
 msgctxt "text"
 msgid "Signals and callbacks (Python)"
 msgstr "Señales y retornos de llamada (Python)"
@@ -36476,8 +35841,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/spinbutton.c.page:25(media) C/spinbutton.py.page:22(media)
 #: C/spinbutton.vala.page:23(media)
-#| msgid ""
-#| "@@image: 'media/spinbutton.png'; md5=993cbb7d9bd271a329727a926195712a"
 msgctxt "_"
 msgid ""
 "external ref='media/spinbutton.png' md5='993cbb7d9bd271a329727a926195712a'"
@@ -36485,7 +35848,6 @@ msgstr ""
 "external ref='media/spinbutton.png' md5='993cbb7d9bd271a329727a926195712a'"
 
 #: C/spinbutton.c.page:7(info/title)
-#| msgid "SpinButton (C)"
 msgctxt "text"
 msgid "SpinButton (C)"
 msgstr "SpinButton (C)"
@@ -36700,9 +36062,6 @@ msgstr ""
 "}\n"
 
 #: C/spinbutton.c.page:36(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkSpinButton.html"
 "\">GtkSpinButton</link>"
@@ -36715,9 +36074,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/spinbutton.js.page:24(media)
-#| msgid ""
-#| "@@image: 'media/spinbuttonkittens.png'; "
-#| "md5=577cce8a902140aacbab73fe8a76a010"
 msgctxt "_"
 msgid ""
 "external ref='media/spinbuttonkittens.png' "
@@ -36727,7 +36083,6 @@ msgstr ""
 "md5='577cce8a902140aacbab73fe8a76a010'"
 
 #: C/spinbutton.js.page:7(info/title)
-#| msgid "SpinButton (JavaScript)"
 msgctxt "text"
 msgid "SpinButton (JavaScript)"
 msgstr "SpinButton (JavaScript)"
@@ -37401,9 +36756,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/spinbutton.js.page:205(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.SpinButton."
 "html\">Gtk.SpinButton</link>"
@@ -37412,7 +36764,6 @@ msgstr ""
 "html\">Gtk.SpinButton</link>"
 
 #: C/spinbutton.py.page:7(info/title)
-#| msgid "SpinButton (Python)"
 msgctxt "text"
 msgid "SpinButton (Python)"
 msgstr "SpinButton (Python)"
@@ -37596,9 +36947,6 @@ msgstr ""
 "<code>get_value_as_int()</code>."
 
 #: C/spinbutton.py.page:47(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkSpinButton.html"
 "\">GtkSpinButton</link>"
@@ -37607,7 +36955,6 @@ msgstr ""
 "\">GtkSpinButton</link>"
 
 #: C/spinbutton.vala.page:7(info/title)
-#| msgid "SpinButton (Vala)"
 msgctxt "text"
 msgid "SpinButton (Vala)"
 msgstr "SpinButton (Vala)"
@@ -37692,9 +37039,6 @@ msgstr ""
 "}\n"
 
 #: C/spinbutton.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.SpinButton.html\">Gtk."
 "SpinButton</link>"
@@ -37723,14 +37067,12 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/spinner.c.page:23(media) C/spinner.js.page:21(media)
 #: C/spinner.py.page:21(media) C/spinner.vala.page:21(media)
-#| msgid "@@image: 'media/spinner.png'; md5=d04f2d81f1d72c6c2f97e8729947dfed"
 msgctxt "_"
 msgid "external ref='media/spinner.png' md5='d04f2d81f1d72c6c2f97e8729947dfed'"
 msgstr ""
 "external ref='media/spinner.png' md5='d04f2d81f1d72c6c2f97e8729947dfed'"
 
 #: C/spinner.c.page:7(info/title)
-#| msgid "Spinner (C)"
 msgctxt "text"
 msgid "Spinner (C)"
 msgstr "Spinner (C)"
@@ -37936,9 +37278,6 @@ msgstr ""
 "}\n"
 
 #: C/spinner.c.page:34(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gobject/stable/gobject-The-Base-"
 "Object-Type.html#g-object-get\">GObject</link>"
@@ -37947,9 +37286,6 @@ msgstr ""
 "Object-Type.html#g-object-get\">GObject</link>"
 
 #: C/spinner.c.page:35(item/p) C/togglebutton.c.page:37(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkSpinner.html"
 "\">GtkSpinner</link>"
@@ -37958,7 +37294,6 @@ msgstr ""
 "\">GtkSpinner</link>"
 
 #: C/spinner.js.page:7(info/title)
-#| msgid "Spinner (JavaScript)"
 msgctxt "text"
 msgid "Spinner (JavaScript)"
 msgstr "Spinner (JavaScript)"
@@ -38143,9 +37478,6 @@ msgstr ""
 "texto."
 
 #: C/spinner.js.page:32(item/p) C/togglebutton.js.page:157(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Spinner.html"
 "\">Gtk.Spinner</link>"
@@ -38154,7 +37486,6 @@ msgstr ""
 "\">Gtk.Spinner</link>"
 
 #: C/spinner.py.page:7(info/title)
-#| msgid "Spinner (Python)"
 msgctxt "text"
 msgid "Spinner (Python)"
 msgstr "Spinner (Python)"
@@ -38280,9 +37611,6 @@ msgstr ""
 "\"</code>."
 
 #: C/spinner.py.page:40(item/p) C/togglebutton.py.page:47(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkSpinner.html"
 "\">GtkSpinner</link>"
@@ -38303,7 +37631,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/spinner.vala.page:7(info/title)
-#| msgid "Spinner (Vala)"
 msgctxt "text"
 msgid "Spinner (Vala)"
 msgstr "Spinner (Vala)"
@@ -38416,9 +37743,6 @@ msgstr ""
 "}\n"
 
 #: C/spinner.vala.page:29(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Widget.html\">Gtk.Widget</"
 "link>"
@@ -38427,9 +37751,6 @@ msgstr ""
 "link>"
 
 #: C/spinner.vala.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Spinner.html\">Gtk.Spinner</"
 "link>"
@@ -38438,9 +37759,6 @@ msgstr ""
 "link>"
 
 #: C/spinner.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gdk-3.0/Gdk.keyval_name.html\">Gdk."
 "keyval_name</link>"
@@ -38453,8 +37771,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/statusbar.c.page:26(media)
-#| msgid ""
-#| "@@image: 'media/statusbar3.png'; md5=60c71604fb44656237ee66dfb39a8689"
 msgctxt "_"
 msgid ""
 "external ref='media/statusbar3.png' md5='60c71604fb44656237ee66dfb39a8689'"
@@ -38462,7 +37778,6 @@ msgstr ""
 "external ref='media/statusbar3.png' md5='60c71604fb44656237ee66dfb39a8689'"
 
 #: C/statusbar.c.page:7(info/title)
-#| msgid "Statusbar (C)"
 msgctxt "text"
 msgid "Statusbar (C)"
 msgstr "Statusbar (C)"
@@ -38697,9 +38012,6 @@ msgstr ""
 "}\n"
 
 #: C/statusbar.c.page:37(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkStatusbar.htmll"
 "\">GtkStatusBar</link>"
@@ -38724,8 +38036,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/statusbar.js.page:21(media)
-#| msgid ""
-#| "@@image: 'media/statusbar2.png'; md5=ff6f7e5b270827ca98b2d5f7087aa766"
 msgctxt "_"
 msgid ""
 "external ref='media/statusbar2.png' md5='ff6f7e5b270827ca98b2d5f7087aa766'"
@@ -38733,7 +38043,6 @@ msgstr ""
 "external ref='media/statusbar2.png' md5='ff6f7e5b270827ca98b2d5f7087aa766'"
 
 #: C/statusbar.js.page:7(info/title)
-#| msgid "Statusbar (JavaScript)"
 msgctxt "text"
 msgid "Statusbar (JavaScript)"
 msgstr "Statusbar (JavaScript)"
@@ -39541,9 +38850,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/statusbar.js.page:225(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Frame.html"
 "\">Gtk.Frame</link>"
@@ -39552,9 +38858,6 @@ msgstr ""
 "\">Gtk.Frame</link>"
 
 #: C/statusbar.js.page:226(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Paned.html"
 "\">Gtk.Paned</link>"
@@ -39563,10 +38866,6 @@ msgstr ""
 "\">Gtk.Paned</link>"
 
 #: C/statusbar.js.page:227(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Statusbar.html"
 "\">Gtk.Statusbar</link>"
@@ -39584,7 +38883,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/statusbar.py.page:24(media) C/statusbar.vala.page:24(media)
-#| msgid "@@image: 'media/statusbar.png'; md5=eb1aca55315d6cda57b12a5f36058ba8"
 msgctxt "_"
 msgid ""
 "external ref='media/statusbar.png' md5='eb1aca55315d6cda57b12a5f36058ba8'"
@@ -39592,7 +38890,6 @@ msgstr ""
 "external ref='media/statusbar.png' md5='eb1aca55315d6cda57b12a5f36058ba8'"
 
 #: C/statusbar.py.page:7(info/title)
-#| msgid "Statusbar (Python)"
 msgctxt "text"
 msgid "Statusbar (Python)"
 msgstr "Statusbar (Python)"
@@ -39796,9 +39093,6 @@ msgstr ""
 "mensaje en la barra de estado."
 
 #: C/statusbar.py.page:52(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkStatusbar.html"
 "\">GtkStatusbar</link>"
@@ -39819,7 +39113,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/statusbar.vala.page:7(info/title)
-#| msgid "Statusbar (Vala)"
 msgctxt "text"
 msgid "Statusbar (Vala)"
 msgstr "Statusbar (Vala)"
@@ -39958,9 +39251,6 @@ msgstr ""
 "}\n"
 
 #: C/statusbar.vala.page:32(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Statusbar.html\">Gtk."
 "Statusbar</link>"
@@ -39969,7 +39259,6 @@ msgstr ""
 "Statusbar</link>"
 
 #: C/strings.py.page:8(info/title)
-#| msgid "Strings (Python)"
 msgctxt "text"
 msgid "Strings (Python)"
 msgstr "Cadenas (Python)"
@@ -40073,11 +39362,6 @@ msgstr ""
 
 #: C/strings.py.page:50(section/code)
 #, no-wrap
-#| msgid ""
-#| "<![CDATA[\n"
-#| ">>> unicode_string = u\"Fu\\u00dfb\\u00e4lle\"\n"
-#| ">>> print unicode_string]]>\n"
-#| "Fußbälle\n"
 msgid ""
 "\n"
 "&gt;&gt;&gt; unicode_string = u\"Fu\\u00dfb\\u00e4lle\"\n"
@@ -40326,8 +39610,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/switch.c.page:22(media) C/switch.py.page:26(media)
 #: C/switch.vala.page:25(media)
-#| msgid ""
-#| "@@image: 'media/switch_off.png'; md5=211a2962708800697ad5373dcc86ad6d"
 msgctxt "_"
 msgid ""
 "external ref='media/switch_off.png' md5='211a2962708800697ad5373dcc86ad6d'"
@@ -40350,7 +39632,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/switch.c.page:23(media) C/switch.py.page:27(media)
 #: C/switch.vala.page:26(media)
-#| msgid "@@image: 'media/switch_on.png'; md5=95e8769f758c2d95ace0fa8ecf30b29d"
 msgctxt "_"
 msgid ""
 "external ref='media/switch_on.png' md5='95e8769f758c2d95ace0fa8ecf30b29d'"
@@ -40358,7 +39639,6 @@ msgstr ""
 "external ref='media/switch_on.png' md5='95e8769f758c2d95ace0fa8ecf30b29d'"
 
 #: C/switch.c.page:7(info/title)
-#| msgid "Switch (C)"
 msgctxt "text"
 msgid "Switch (C)"
 msgstr "Interruptor (C)"
@@ -40543,8 +39823,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/switch.js.page:21(media)
-#| msgid ""
-#| "@@image: 'media/switchanimals.png'; md5=513ae15dcf68e15eef30b76420b8c714"
 msgctxt "_"
 msgid ""
 "external ref='media/switchanimals.png' md5='513ae15dcf68e15eef30b76420b8c714'"
@@ -40552,7 +39830,6 @@ msgstr ""
 "external ref='media/switchanimals.png' md5='513ae15dcf68e15eef30b76420b8c714'"
 
 #: C/switch.js.page:7(info/title)
-#| msgid "Switch (JavaScript)"
 msgctxt "text"
 msgid "Switch (JavaScript)"
 msgstr "Interruptor (JavaScript)"
@@ -41524,9 +40801,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/switch.js.page:270(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Image.html"
 "\">Gtk.Image</link>"
@@ -41535,9 +40809,6 @@ msgstr ""
 "\">Gtk.Image</link>"
 
 #: C/switch.js.page:272(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Switch.html"
 "\">Gtk.Switch</link>"
@@ -41546,7 +40817,6 @@ msgstr ""
 "\">Gtk.Switch</link>"
 
 #: C/switch.py.page:7(info/title)
-#| msgid "Switch (Python)"
 msgctxt "text"
 msgid "Switch (Python)"
 msgstr "Interruptor (Python)"
@@ -41677,9 +40947,6 @@ msgid "Useful methods for a Switch widget"
 msgstr "Métodos útiles para un widget interruptor"
 
 #: C/switch.py.page:48(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkSwitch.html"
 "\">GtkSwitch</link>"
@@ -41688,7 +40955,6 @@ msgstr ""
 "\">GtkSwitch</link>"
 
 #: C/switch.vala.page:7(info/title)
-#| msgid "Switch (Vala)"
 msgctxt "text"
 msgid "Switch (Vala)"
 msgstr "Interruptor (Vala)"
@@ -41795,9 +41061,6 @@ msgstr ""
 "}\n"
 
 #: C/switch.vala.page:35(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Switch.html\">Gtk.Switch</"
 "link>"
@@ -41821,7 +41084,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/textview.c.page:26(media) C/textview.py.page:37(media)
 #: C/textview.vala.page:26(media)
-#| msgid "@@image: 'media/textview.png'; md5=049e859ed1af2d7c93d8cb5cfd9f7792"
 msgctxt "_"
 msgid ""
 "external ref='media/textview.png' md5='049e859ed1af2d7c93d8cb5cfd9f7792'"
@@ -41829,7 +41091,6 @@ msgstr ""
 "external ref='media/textview.png' md5='049e859ed1af2d7c93d8cb5cfd9f7792'"
 
 #: C/textview.c.page:7(info/title)
-#| msgid "TextView (C)"
 msgctxt "text"
 msgid "TextView (C)"
 msgstr "TextView (C)"
@@ -42024,9 +41285,6 @@ msgstr ""
 "}\n"
 
 #: C/textview.c.page:40(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkContainer.html"
 "\">GtkContainer</link>"
@@ -42039,9 +41297,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/textview.js.page:25(media)
-#| msgid ""
-#| "@@image: 'media/textviewpenguinchat.png'; "
-#| "md5=0dd6f6aa44aaeab7901bd90162ed4c9a"
 msgctxt "_"
 msgid ""
 "external ref='media/textviewpenguinchat.png' "
@@ -42051,7 +41306,6 @@ msgstr ""
 "md5='0dd6f6aa44aaeab7901bd90162ed4c9a'"
 
 #: C/textview.js.page:7(info/title)
-#| msgid "TextView (JavaScript)"
 msgctxt "text"
 msgid "TextView (JavaScript)"
 msgstr "TextView (JavaScript)"
@@ -42931,9 +42185,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/textview.js.page:255(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk."
 "ScrolledWindow.html\">Gtk.ScrolledWindow</link>"
@@ -42942,10 +42193,6 @@ msgstr ""
 "ScrolledWindow.html\">Gtk.ScrolledWindow</link>"
 
 #: C/textview.js.page:256(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextBuffer."
 "html\">Gtk.TextBuffer</link>"
@@ -42954,10 +42201,6 @@ msgstr ""
 "html\">Gtk.TextBuffer</link>"
 
 #: C/textview.js.page:257(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextView.html"
 "\">Gtk.TextView</link>"
@@ -42966,7 +42209,6 @@ msgstr ""
 "\">Gtk.TextView</link>"
 
 #: C/textview.py.page:7(info/title)
-#| msgid "TextView (Python)"
 msgctxt "text"
 msgid "TextView (Python)"
 msgstr "TextView (Python)"
@@ -43357,9 +42599,6 @@ msgstr ""
 "<code>forward_search()</code>, pero hacia atrás."
 
 #: C/textview.py.page:95(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTextView.html"
 "\">GtkTextView</link>"
@@ -43368,9 +42607,6 @@ msgstr ""
 "\">GtkTextView</link>"
 
 #: C/textview.py.page:96(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTextBuffer.html"
 "\">GtkTextBuffer</link>"
@@ -43379,9 +42615,6 @@ msgstr ""
 "\">GtkTextBuffer</link>"
 
 #: C/textview.py.page:97(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTextTag.html"
 "\">GtkTextTag</link>"
@@ -43390,7 +42623,6 @@ msgstr ""
 "\">GtkTextTag</link>"
 
 #: C/textview.vala.page:7(info/title)
-#| msgid "TextView (Vala)"
 msgctxt "text"
 msgid "TextView (Vala)"
 msgstr "TextView (Vala)"
@@ -43475,9 +42707,6 @@ msgstr ""
 "}\n"
 
 #: C/textview.vala.page:34(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.TextBuffer.html\">Gtk."
 "TextBuffer</link>"
@@ -43486,9 +42715,6 @@ msgstr ""
 "TextBuffer</link>"
 
 #: C/textview.vala.page:35(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.TextView.html\">Gtk."
 "TextView</link>"
@@ -43497,9 +42723,6 @@ msgstr ""
 "TextView</link>"
 
 #: C/textview.vala.page:37(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WrapMode.html\">Gtk."
 "WrapMode</link>"
@@ -43528,8 +42751,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/togglebutton.c.page:26(media) C/togglebutton.js.page:21(media)
 #: C/togglebutton.py.page:24(media) C/togglebutton.vala.page:24(media)
-#| msgid ""
-#| "@@image: 'media/togglebutton.png'; md5=791e062613d4f9bd5936390b0aa18448"
 msgctxt "_"
 msgid ""
 "external ref='media/togglebutton.png' md5='791e062613d4f9bd5936390b0aa18448'"
@@ -43537,7 +42758,6 @@ msgstr ""
 "external ref='media/togglebutton.png' md5='791e062613d4f9bd5936390b0aa18448'"
 
 #: C/togglebutton.c.page:7(info/title)
-#| msgid "ToggleButton (C)"
 msgctxt "text"
 msgid "ToggleButton (C)"
 msgstr "ToggleButton (C)"
@@ -43722,9 +42942,6 @@ msgstr ""
 "}\n"
 
 #: C/togglebutton.c.page:38(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkToggleButton.html"
 "\">GtkTogglebutton</link>"
@@ -43733,7 +42950,6 @@ msgstr ""
 "\">GtkTogglebutton</link>"
 
 #: C/togglebutton.js.page:7(info/title)
-#| msgid "ToggleButton (JavaScript)"
 msgctxt "text"
 msgid "ToggleButton (JavaScript)"
 msgstr "ToggleButton (JavaScript)"
@@ -44184,10 +43400,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/togglebutton.js.page:158(item/p)
-#| msgid ""
-#| "At the bottom there is a <link href=\"http://www.roojs.org/seed/gir-1.2-"
-#| "gtk-3.0/gjs/Gtk.TextBuffer.html\">TextBuffer</link>. This holds the text "
-#| "itself."
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ToggleButton."
 "html\">Gtk.ToggleButton</link>"
@@ -44196,7 +43408,6 @@ msgstr ""
 "html\">Gtk.ToggleButton</link>"
 
 #: C/togglebutton.py.page:7(info/title)
-#| msgid "ToggleButton (Python)"
 msgctxt "text"
 msgid "ToggleButton (Python)"
 msgstr "ToggleButton (Python)"
@@ -44324,9 +43535,6 @@ msgstr "Métodos útiles para un widget «ToggleButton»"
 
 #: C/togglebutton.py.page:46(item/p) C/toolbar.py.page:57(item/p)
 #: C/toolbar_builder.py.page:195(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkWidget.html"
 "\">GtkWidget</link>"
@@ -44335,7 +43543,6 @@ msgstr ""
 "\">GtkWidget</link>"
 
 #: C/togglebutton.vala.page:7(info/title)
-#| msgid "ToggleButton (Vala)"
 msgctxt "text"
 msgid "ToggleButton (Vala)"
 msgstr "ToggleButton (Vala)"
@@ -44456,9 +43663,6 @@ msgstr ""
 "}\n"
 
 #: C/togglebutton.vala.page:32(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ToggleButton.html\">Gtk."
 "ToggleButton</link>"
@@ -44493,14 +43697,12 @@ msgstr ""
 #: C/toolbar.js.page:21(media) C/toolbar.py.page:23(media)
 #: C/toolbar.vala.page:23(media) C/toolbar_builder.py.page:36(media)
 #: C/toolbar_builder.vala.page:24(media)
-#| msgid "@@image: 'media/toolbar.png'; md5=f0350855eedf6343952b72d6d906f738"
 msgctxt "_"
 msgid "external ref='media/toolbar.png' md5='f0350855eedf6343952b72d6d906f738'"
 msgstr ""
 "external ref='media/toolbar.png' md5='f0350855eedf6343952b72d6d906f738'"
 
 #: C/toolbar.js.page:7(info/title)
-#| msgid "Toolbar (JavaScript)"
 msgctxt "text"
 msgid "Toolbar (JavaScript)"
 msgstr "Toolbar (JavaScript)"
@@ -44879,9 +44081,6 @@ msgstr ""
 "app.application.run(ARGV);\n"
 
 #: C/toolbar.js.page:30(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html"
 "\">Gtk.Window</link>"
@@ -44890,9 +44089,6 @@ msgstr ""
 "\">Gtk.Window</link>"
 
 #: C/toolbar.js.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Toolbar.html"
 "\">Gtk.Toolbar</link>"
@@ -44901,9 +44097,6 @@ msgstr ""
 "\">Gtk.Toolbar</link>"
 
 #: C/toolbar.js.page:32(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ToolButton."
 "html\">Gtk.ToolButton</link>"
@@ -44924,9 +44117,6 @@ msgstr ""
 "Window</link>"
 
 #: C/toolbar.js.page:34(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gdk.WindowState."
 "html\">Gdk.WindowState</link>"
@@ -44935,7 +44125,6 @@ msgstr ""
 "html\">Gdk.WindowState</link>"
 
 #: C/toolbar.py.page:7(info/title)
-#| msgid "Toolbar (Python)"
 msgctxt "text"
 msgid "Toolbar (Python)"
 msgstr "Toolbar (Python)"
@@ -45300,9 +44489,6 @@ msgstr ""
 "herramientas, use <code>unset_style()</code>."
 
 #: C/toolbar.py.page:52(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkToolbar.html"
 "\">GtkToolbar</link>"
@@ -45311,9 +44497,6 @@ msgstr ""
 "\">GtkToolbar</link>"
 
 #: C/toolbar.py.page:53(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkToolButton.html"
 "\">GtkToolButton</link>"
@@ -45322,9 +44505,6 @@ msgstr ""
 "\">GtkToolButton</link>"
 
 #: C/toolbar.py.page:54(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkToolItem.html"
 "\">GtkToolItem</link>"
@@ -45333,9 +44513,6 @@ msgstr ""
 "\">GtkToolItem</link>"
 
 #: C/toolbar.py.page:56(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkActionable.html"
 "\">GtkActionable</link>"
@@ -45350,7 +44527,6 @@ msgid ""
 msgstr ""
 
 #: C/toolbar.vala.page:7(info/title)
-#| msgid "Toolbar (Vala)"
 msgctxt "text"
 msgid "Toolbar (Vala)"
 msgstr "Barra de herramientas (Vala)"
@@ -45629,9 +44805,6 @@ msgstr ""
 "}\n"
 
 #: C/toolbar.vala.page:33(item/p) C/toolbar_builder.vala.page:150(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Toolbar.html\">Gtk.Toolbar</"
 "link>"
@@ -45640,9 +44813,6 @@ msgstr ""
 "link>"
 
 #: C/toolbar.vala.page:34(item/p) C/toolbar_builder.vala.page:151(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.ToolButton.html\">Gtk."
 "Toolbutton</link>"
@@ -45651,9 +44821,6 @@ msgstr ""
 "Toolbutton</link>"
 
 #: C/toolbar.vala.page:35(item/p) C/toolbar_builder.vala.page:152(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Stock.html\">Gtk.Stock</"
 "link>"
@@ -45671,7 +44838,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:48(media) C/toolbar_builder.vala.page:32(media)
-#| msgid "@@image: 'media/glade_ui.png'; md5=baea74fe213bc12ea934f64f6977215a"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_ui.png' md5='baea74fe213bc12ea934f64f6977215a'"
@@ -45688,9 +44854,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:54(media) C/toolbar_builder.vala.page:38(media)
-#| msgid ""
-#| "@@image: 'media/glade_select_toolbar.png'; "
-#| "md5=f7b5b224050b2e387eb04362fc99df00"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_select_toolbar.png' "
@@ -45709,9 +44872,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:60(media) C/toolbar_builder.vala.page:44(media)
-#| msgid ""
-#| "@@image: 'media/glade_toolbar_general.png'; "
-#| "md5=e31daba6e8a3e526aca89d5f1622edaa"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_toolbar_general.png' "
@@ -45730,9 +44890,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:66(media) C/toolbar_builder.vala.page:50(media)
-#| msgid ""
-#| "@@image: 'media/glade_toolbar_common.png'; "
-#| "md5=d5ec6cc0218ca98e195dbd033feb9ac5"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_toolbar_common.png' "
@@ -45751,9 +44908,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:72(media) C/toolbar_builder.vala.page:56(media)
-#| msgid ""
-#| "@@image: 'media/glade_toolbar_edit.png'; "
-#| "md5=feb1e2b7040d24a4d030f94cf07c81fd"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_toolbar_edit.png' "
@@ -45772,9 +44926,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:131(media) C/toolbar_builder.vala.page:115(media)
-#| msgid ""
-#| "@@image: 'media/glade_toolbar_editor.png'; "
-#| "md5=8af65241e5ca47d5494a7b36640e6f1c"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_toolbar_editor.png' "
@@ -45793,9 +44944,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/toolbar_builder.py.page:140(media) C/toolbar_builder.vala.page:124(media)
-#| msgid ""
-#| "@@image: 'media/glade_visible_no.png'; "
-#| "md5=dc6c025aa825f4d772fbd283d6330026"
 msgctxt "_"
 msgid ""
 "external ref='media/glade_visible_no.png' "
@@ -45805,7 +44953,6 @@ msgstr ""
 "md5='dc6c025aa825f4d772fbd283d6330026'"
 
 #: C/toolbar_builder.py.page:7(info/title)
-#| msgid "Toolbar created using Glade (Python)"
 msgctxt "text"
 msgid "Toolbar created using Glade (Python)"
 msgstr "Barra de herramientas creada con Glade (Python)"
@@ -46617,7 +45764,6 @@ msgstr ""
 "con Python"
 
 #: C/toolbar_builder.vala.page:7(info/title)
-#| msgid "Toolbar created using Glade (Vala)"
 msgctxt "text"
 msgid "Toolbar created using Glade (Vala)"
 msgstr "Barra de herramientas creada con Glade (Vala)"
@@ -46863,7 +46009,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/tooltip.py.page:22(media)
-#| msgid "@@image: 'media/tooltip.png'; md5=6950da5f4444aa941ecc2f0fc5951d52"
 msgctxt "_"
 msgid "external ref='media/tooltip.png' md5='6950da5f4444aa941ecc2f0fc5951d52'"
 msgstr ""
@@ -47225,9 +46370,6 @@ msgstr ""
 "code> para no hacerlo."
 
 #: C/tooltip.py.page:55(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkTooltip.html"
 "\">GtkTooltip</link>"
@@ -47236,9 +46378,6 @@ msgstr ""
 "\">GtkTooltip</link>"
 
 #: C/tooltip.py.page:56(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkToolbar.html"
 "\">GtkToolbar</link>"
@@ -47247,9 +46386,6 @@ msgstr ""
 "\">GtkToolbar</link>"
 
 #: C/tooltip.py.page:57(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkWidget.html"
 "\">GtkWidget</link>"
@@ -47274,9 +46410,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/treeview_advanced_liststore.py.page:24(media)
-#| msgid ""
-#| "@@image: 'media/treeview_advanced_liststore.png'; "
-#| "md5=102b512197fb9aa4ed9a16462f6af911"
 msgctxt "_"
 msgid ""
 "external ref='media/treeview_advanced_liststore.png' "
@@ -47286,7 +46419,6 @@ msgstr ""
 "md5='102b512197fb9aa4ed9a16462f6af911'"
 
 #: C/treeview_advanced_liststore.py.page:7(info/title)
-#| msgid "Simple Treeview with ListStore (Python)"
 msgctxt "text"
 msgid "Simple Treeview with ListStore (Python)"
 msgstr "Treeview sencillo con ListStore (Python)"
@@ -47607,9 +46739,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/treeview_cellrenderertoggle.py.page:21(media)
-#| msgid ""
-#| "@@image: 'media/treeview_cellrenderertoggle.png'; "
-#| "md5=ade9b9437f8f83150acf37610dab834d"
 msgctxt "_"
 msgid ""
 "external ref='media/treeview_cellrenderertoggle.png' "
@@ -47620,7 +46749,6 @@ msgstr ""
 
 #: C/treeview_cellrenderertoggle.py.page:7(info/title)
 #: C/treeview_treestore.py.page:7(info/title)
-#| msgid "TreeView with TreeStore (Python)"
 msgctxt "text"
 msgid "TreeView with TreeStore (Python)"
 msgstr "TreeView con TreeStore (Python)"
@@ -47855,9 +46983,6 @@ msgstr ""
 
 #: C/treeview_cellrenderertoggle.py.page:43(item/p)
 #: C/treeview_treestore.py.page:43(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkTreeStore.html"
 "\">GtkTreeStore</link>"
@@ -47866,9 +46991,6 @@ msgstr ""
 "\">GtkTreeStore</link>"
 
 #: C/treeview_cellrenderertoggle.py.page:45(item/p)
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/unstable/GtkCellRendererToggle."
 "html\">GtkCellRendererToggle</link>"
@@ -47881,9 +47003,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/treeview_simple_liststore.js.page:24(media)
-#| msgid ""
-#| "@@image: 'media/treeview_simple_liststore_penguins.png'; "
-#| "md5=d750a0b9fddf8e508753cc639839871d"
 msgctxt "_"
 msgid ""
 "external ref='media/treeview_simple_liststore_penguins.png' "
@@ -47893,7 +47012,6 @@ msgstr ""
 "md5='d750a0b9fddf8e508753cc639839871d'"
 
 #: C/treeview_simple_liststore.js.page:7(info/title)
-#| msgid "TreeView with ListStore (JavaScript)"
 msgctxt "text"
 msgid "TreeView with ListStore (JavaScript)"
 msgstr "TreeView con ListStore (JavaScript)"
@@ -48953,9 +48071,6 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/treeview_simple_liststore.js.page:281(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeSelection."
 "html\">Gtk.TreeSelection</link>"
@@ -48964,9 +48079,6 @@ msgstr ""
 "html\">Gtk.TreeSelection</link>"
 
 #: C/treeview_simple_liststore.js.page:282(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeView.html"
 "\">Gtk.TreeView</link>"
@@ -48975,9 +48087,6 @@ msgstr ""
 "\">Gtk.TreeView</link>"
 
 #: C/treeview_simple_liststore.js.page:283(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk."
 "TreeViewColumn.html\">Gtk.TreeViewColumn</link>"
@@ -48996,9 +48105,6 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/treeview_simple_liststore.py.page:23(media)
 #: C/treeview_simple_liststore.vala.page:23(media)
-#| msgid ""
-#| "@@image: 'media/treeview_simple_liststore.png'; "
-#| "md5=2dc501a2b95b094da985d37b66aee90c"
 msgctxt "_"
 msgid ""
 "external ref='media/treeview_simple_liststore.png' "
@@ -49008,7 +48114,6 @@ msgstr ""
 "md5='2dc501a2b95b094da985d37b66aee90c'"
 
 #: C/treeview_simple_liststore.py.page:7(info/title)
-#| msgid "Simple TreeView with ListStore (Python)"
 msgctxt "text"
 msgid "Simple TreeView with ListStore (Python)"
 msgstr "TreeView sencillo con ListStore (Python)"
@@ -49197,7 +48302,6 @@ msgstr ""
 "\">Señales</link> en la documentación de GObject"
 
 #: C/treeview_simple_liststore.vala.page:7(info/title)
-#| msgid "Simple Treeview with ListStore (Vala)"
 msgctxt "text"
 msgid "Simple Treeview with ListStore (Vala)"
 msgstr "Treeview sencillo con ListStore (Vala)"
@@ -49472,9 +48576,6 @@ msgstr ""
 "}\n"
 
 #: C/treeview_simple_liststore.vala.page:31(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.TreeView.html\">Gtk."
 "TreeView</link>"
@@ -49483,9 +48584,6 @@ msgstr ""
 "TreeView</link>"
 
 #: C/treeview_simple_liststore.vala.page:33(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.TreeSelection.html\">Gtk."
 "TreeSelection</link>"
@@ -49498,9 +48596,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/treeview_treestore.py.page:21(media)
-#| msgid ""
-#| "@@image: 'media/treeview_treestore.png'; "
-#| "md5=5ca87bc4acd55c527b3fb5fd46779d85"
 msgctxt "_"
 msgid ""
 "external ref='media/treeview_treestore.png' "
@@ -49700,7 +48795,6 @@ msgstr ""
 "\">lista de correo</link>."
 
 #: C/tutorial.py.page:8(info/title)
-#| msgid "Beginner's Tutorial (Python)"
 msgctxt "text"
 msgid "Beginner's Tutorial (Python)"
 msgstr "Tutorial para principiantes (Python)"
@@ -49821,7 +48915,6 @@ msgid "Some theory to help you"
 msgstr "Algo de teoría para ayudarle"
 
 #: C/vala.page:6(info/title)
-#| msgid "Vala"
 msgctxt "link"
 msgid "Vala"
 msgstr "Vala"
@@ -49836,8 +48929,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/weatherApp.js.page:35(media)
-#| msgid ""
-#| "@@image: 'media/weatherAppJs.png'; md5=1fe859ac4854273d72ea8fc9203639b2"
 msgctxt "_"
 msgid ""
 "external ref='media/weatherAppJs.png' md5='1fe859ac4854273d72ea8fc9203639b2'"
@@ -49845,7 +48936,6 @@ msgstr ""
 "external ref='media/weatherAppJs.png' md5='1fe859ac4854273d72ea8fc9203639b2'"
 
 #: C/weatherApp.js.page:6(info/title)
-#| msgid "Weather Application (JavaScript)"
 msgctxt "text"
 msgid "Weather Application (JavaScript)"
 msgstr "Aplicación del clima (JavaScript)"
@@ -51187,7 +50277,6 @@ msgstr ""
 "}  "
 
 #: C/window.c.page:7(info/title)
-#| msgid "Window (C)"
 msgctxt "text"
 msgid "Window (C)"
 msgstr "Ventana (C)"
@@ -51274,7 +50363,6 @@ msgstr ""
 "}\n"
 
 #: C/window.js.page:7(info/title)
-#| msgid "Window (JavaScript)"
 msgctxt "text"
 msgid "Window (JavaScript)"
 msgstr "Ventana (JavaScript)"
@@ -51391,9 +50479,6 @@ msgid "In this example we used the following:"
 msgstr "En este ejemplo se usa lo siguiente:"
 
 #: C/window.js.page:39(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html"
 "\">Gtk.Window</link>"
@@ -51402,7 +50487,6 @@ msgstr ""
 "\">Gtk.Window</link>"
 
 #: C/window.py.page:7(info/title)
-#| msgid "Window (Python)"
 msgctxt "text"
 msgid "Window (Python)"
 msgstr "Ventana (Python)"
@@ -51475,7 +50559,6 @@ msgstr ""
 "esto, consulte <link xref=\"properties.py\">aquí</link>."
 
 #: C/window.vala.page:7(info/title)
-#| msgid "Window (Vala)"
 msgctxt "text"
 msgid "Window (Vala)"
 msgstr "Ventana (Vala)"
@@ -51596,9 +50679,6 @@ msgstr ""
 "set_default_size.html\">set_default_size</link>"
 
 #: C/window.vala.page:44(item/p)
-#| msgid ""
-#| "The widget <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.html"
-#| "\">Gtk.Window</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Container.border_width.html"
 "\">border_width</link>"
@@ -51607,9 +50687,6 @@ msgstr ""
 "\">border_width</link>"
 
 #: C/window.vala.page:46(item/p)
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Window.window_position.html"
 "\">window_position</link>"
