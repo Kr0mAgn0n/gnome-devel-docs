@@ -3,15 +3,15 @@
 # Copyright (C) 2011 gnome-devel-docs's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-devel-docs package.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
-# Nicolás Satragno <nsatragno@gnome.org>, 2012.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
+# Nicolás Satragno <nsatragno@gnome.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-11-06 12:12+0000\n"
-"PO-Revision-Date: 2012-11-09 13:21+0100\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"POT-Creation-Date: 2012-11-09 12:24+0000\n"
+"PO-Revision-Date: 2012-11-09 18:56-0300\n"
+"Last-Translator: Nicolás Satragno <nsatragno@gnome.org>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -1667,7 +1667,7 @@ msgstr ""
 
 #: C/03_getting_the_signal.js.page:84(section/p)
 msgid "First, we create the window itself:"
-msgstr ""
+msgstr "Primero, se crea la ventana en sí:"
 
 #: C/03_getting_the_signal.js.page:85(section/code)
 #, no-wrap
@@ -1695,12 +1695,18 @@ msgid ""
 "Note that we've set its default_height and default_width properties. These "
 "let us control how tall and wide the ApplicationWindow will be, in pixels."
 msgstr ""
+"Tenga en cuenta que se han establecido sus propiedades «default_height» y "
+"«default_width». Estas le permiten controlar qué tan alta y ancha será la "
+"«ApplicationWindow», en píxeles."
 
 #: C/03_getting_the_signal.js.page:95(section/p)
 msgid ""
 "Next, we'll create the Label that shows us the number of cookies. We can use "
 "the cookies variable as part of the Label's label property."
 msgstr ""
+"A continuación, se creará la etiqueta que muestra el número de galletas. Se "
+"puede usar la variable de las galletas como parte de la propiedad «label» de "
+"la etiqueta."
 
 #: C/03_getting_the_signal.js.page:96(section/code)
 #, no-wrap
@@ -1722,6 +1728,10 @@ msgid ""
 "called _getACookie, which we'll write after we're done building our "
 "application's UI."
 msgstr ""
+"Ahora se creará el botón. Se configura su propiedad «label» para que muestre "
+"el texto que quiere en el botón, y se conecta su señal «clicked» a una "
+"función llamada «_getACookie», que se escribirá después de haber construido "
+"la IU de la aplicación."
 
 #: C/03_getting_the_signal.js.page:103(section/code)
 #, no-wrap
@@ -1749,6 +1759,13 @@ msgid ""
 "though we wrote the code for the Label first, we can still attach it to the "
 "Grid in a way that will put it on the bottom."
 msgstr ""
+"Finalmente, se crea una rejilla, se le adjuntan la etiqueta y el botón, se "
+"añade a la ventana y se le dice que se muestre con su contenido. Eso es todo "
+"lo que necesita dentro de la función «_buildUI», por lo que se cierra con un "
+"paréntesis y un punto y coma que le dice a GNOME que continúe con la "
+"siguiente función. Tenga en cuenta que incluso a pesar de que se escribió el "
+"código de la etiqueta primero, igual se puede adjuntar a la rejilla de forma "
+"tal que quede en la parte inferior."
 
 #: C/03_getting_the_signal.js.page:111(section/code)
 #, no-wrap
@@ -1798,6 +1815,11 @@ msgid ""
 "does is increase the number of cookies by 1, and update the Label to show "
 "the new number of cookies. We do this using the Label's set_label method."
 msgstr ""
+"Ahora, se escribe la función «_getACookie». Cada vez que el botón envíe su "
+"señal «clicked», se ejecutará el código de esta función. En este caso, todo "
+"lo que hace es incrementar el número de galletas en 1, y actualizar la "
+"etiqueta para que muestre el número nuevo. Esto se hace usando el método "
+"«set_label» de la etiqueta."
 
 #: C/03_getting_the_signal.js.page:131(note/p)
 msgid ""
@@ -1807,6 +1829,12 @@ msgid ""
 "change it, respectively. So if you learn how one widget works, you'll also "
 "know how others like it work."
 msgstr ""
+"Muchos widgets tienen las mismas propiedades y métodos. Tanto las etiquetas "
+"como los botones, por ejemplo, tienen una propiedad «label» que dice qué "
+"texto va dentro de ellos, y métodos «get_label» y «set_label» que le "
+"permiten verificar cuál es el texto y cambiarlo, respectivamente. Por lo que "
+"si aprende cómo funciona un widget, también aprenderá cómo funcionan otros "
+"similares."
 
 #: C/03_getting_the_signal.js.page:132(section/code)
 #, no-wrap
@@ -1838,6 +1866,8 @@ msgid ""
 "Finally, we run the application, using the same kind of code as in our last "
 "tutorial."
 msgstr ""
+"Finalmente, se ejecuta la aplicación, usando el mismo tipo de código que en "
+"el tutorial anterior."
 
 #: C/03_getting_the_signal.js.page:145(section/code)
 #, no-wrap
@@ -1853,10 +1883,8 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/03_getting_the_signal.js.page:153(section/title)
-#, fuzzy
-#| msgid "Creating the switches"
 msgid "Flip the switch"
-msgstr "Crear los interruptores"
+msgstr "Pulsar el interruptor"
 
 #: C/03_getting_the_signal.js.page:154(section/p)
 msgid ""
@@ -1865,12 +1893,19 @@ msgid ""
 "property, so we have to create a separate Label that says what it does to go "
 "next to it."
 msgstr ""
+"Los botones no son el único widget de entrada de la caja de herramientas de "
+"Gtk+. También se pueden usar interruptores, como el de este ejemplo. Los "
+"interruptores no tienen una propiedad «label», por lo que hay que crear una "
+"etiqueta separada que diga qué hace a su lado."
 
 #: C/03_getting_the_signal.js.page:158(section/p)
 msgid ""
 "A Switch has two positions, Off and On. When a Switch is turned on, its text "
 "and background color change, so you can tell which position it's in."
 msgstr ""
+"Un interruptor tiene dos posiciones, «apagado» y «encendido». Cuando un "
+"interruptor está encendido, su texto y color de fondo cambian, indicando en "
+"qué posición está."
 
 #: C/03_getting_the_signal.js.page:162(section/p)
 msgid ""
@@ -1880,16 +1915,24 @@ msgid ""
 "Switch is turned on, you can get cookies by clicking the \"Get a cookie\" "
 "Button. If it's turned off, clicking the Button won't do anything."
 msgstr ""
+"Puede haber visto interruptores como estos en el menú de accesibilidad de "
+"GNOME, que le permiten conmutar características como texto grande y el "
+"teclado en pantalla. En este caso, el interruptor controla un dispensador de "
+"galletas imaginario. Si el interruptor está encendido, puede obtener "
+"galletas pulsando el botón «Get a cookie». Si está apagado, pulsar el botón "
+"no hará nada."
 
 #: C/03_getting_the_signal.js.page:163(note/p)
 msgid ""
 "You can get to the accessibility menu by clicking on the outline of a human, "
 "near your name in the upper-right corner of the screen."
 msgstr ""
+"Puede llegar al menú de accesibilidad pulsando el contorno de un humano, "
+"cerca de su nombre en la esquina superior derecha de la pantalla."
 
 #: C/03_getting_the_signal.js.page:164(section/p)
 msgid "Here's how we create the Switch:"
-msgstr ""
+msgstr "Aquí se muestra cómo crear el interruptor:"
 
 #: C/03_getting_the_signal.js.page:165(section/code)
 #, no-wrap
@@ -1909,6 +1952,11 @@ msgid ""
 "Switch is turned on. If we wanted to make something happen as soon as you "
 "flip the Switch, though, we would connect its notify::active signal, like so:"
 msgstr ""
+"En realidad no se necesita conectar el interruptor a nada. Todo lo que hay "
+"que hacer es escribir una declaración «if» en la función «_getACookie», para "
+"verificar si el interruptor está encendido. Si quisiera hacer que algo "
+"suceda tan pronto como se acciona el interruptor, conectaría su señal "
+"«notify::active», así:"
 
 #: C/03_getting_the_signal.js.page:171(section/code)
 #, no-wrap
@@ -1927,6 +1975,9 @@ msgid ""
 "start out turned on, we would set the value of its active property to true "
 "when we create it."
 msgstr ""
+"De manera predeterminada, un interruptor está apagado. Si quisiera que el "
+"interruptor arrancara encendido, establecería el valor de su propiedad "
+"«active» a «true» cuando lo crea."
 
 #: C/03_getting_the_signal.js.page:177(section/code)
 #, no-wrap
@@ -1945,6 +1996,11 @@ msgid ""
 "larger Grid that holds all the widgets inside it. Here's what the code looks "
 "like to create all that:"
 msgstr ""
+"Por ahora sólo se creará normalmente, y después se creará la etiqueta que lo "
+"acompaña. Se quiere que el interruptor y la etiqueta estén lado a lado, por "
+"lo que se creará una rejilla sólo para ellos, y después se pondrá esa "
+"rejilla en la rejilla más grande que contiene todos los widgets. Aquí está "
+"cómo se ve el código para crear todo eso:"
 
 #: C/03_getting_the_signal.js.page:182(section/code)
 #, no-wrap
@@ -1985,7 +2041,7 @@ msgstr ""
 
 #: C/03_getting_the_signal.js.page:200(section/p)
 msgid "And now we arrange everything in the larger Grid like so."
-msgstr ""
+msgstr "Y ahora se organiza todo en la rejilla más grande así."
 
 #: C/03_getting_the_signal.js.page:201(section/code)
 #, no-wrap
@@ -2009,12 +2065,18 @@ msgid ""
 "method. It returns true if the Switch is turned on, and false if the Switch "
 "is turned off."
 msgstr ""
+"Ahora se cambia la función «_getACookie» para que verifique si el "
+"dispensador de galletas está encendido. Se hace usando el método "
+"«get_active» del interruptor. Devuelve «true» si está encendido, y «false» "
+"si está apagado."
 
 #: C/03_getting_the_signal.js.page:209(note/p)
 msgid ""
 "When a method is used in an if statement like this, the code inside the if "
 "statement is executed if the method returns true."
 msgstr ""
+"Cuando un método se usa en una declaración «if» como esta, el código dentro "
+"de la declaración «if» se ejecuta si el método devuelve «true»."
 
 #: C/03_getting_the_signal.js.page:210(section/code)
 #, no-wrap
@@ -2048,10 +2110,8 @@ msgstr ""
 "    }\n"
 
 #: C/03_getting_the_signal.js.page:228(section/title)
-#, fuzzy
-#| msgid "Creating the radiobuttons"
 msgid "Tuning the radio"
-msgstr "Crear los botones de radio"
+msgstr "Sintonizar la radio"
 
 #: C/03_getting_the_signal.js.page:230(section/p)
 msgid ""
@@ -2062,6 +2122,12 @@ msgid ""
 "to one station at a time, so whenever you pressed one button in, another "
 "would pop back out."
 msgstr ""
+"Otro tipo de widget de entrada que puede usar se llama botón de radio. Se "
+"crean en grupos, y sólo un botón de radio en un grupo puede seleccionarse "
+"por vez. Se llaman botones de radio porque funcionan como los botones de "
+"selección de canal en las radios de coches viejos. La radio sólo podía "
+"sintonizarse con una estación a la vez, por lo que cada vez que presionaba "
+"un botón, otro saltaba hacia arriba."
 
 #: C/03_getting_the_signal.js.page:234(section/p)
 msgid ""
@@ -2070,6 +2136,10 @@ msgid ""
 "border_width is the number of pixels between any widget and the edge of the "
 "window."
 msgstr ""
+"Primero, cambie el nombre de la «ApplicationWindow» e incremente su "
+"propiedad «border_width», para que los widgets no se empaqueten demasiado "
+"apretados. El «border_width» es el número de píxeles entre cualquier widget "
+"y el borde de la ventana."
 
 #: C/03_getting_the_signal.js.page:235(section/code)
 #, no-wrap
