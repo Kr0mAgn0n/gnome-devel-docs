@@ -201,7 +201,7 @@ const ComboBoxExample = new Lang.Class ({
     },
 ]]></code>
     <p>Before showing a MessageDialog, we first test to make sure you didn't choose the "Select" message. After that, we set its text to be the haiku in the array that corresponds to the active entry in our ComboBoxText. We do that using the <file>get_active</file> method, which returns the number ID of your selection.</p>
-    <note style="tip"><p>Other methods you can use include <file>get_active_id,</file> which returns the text ID assigned by <file>append,</file> and <file>get_active_text,</file> which returns the full text of the string you selected.</p></note>
+    <note style="tip"><p>Other methods you can use include <file>get_active_id</file>, which returns the text ID assigned by <file>append</file>, and <file>get_active_text</file>, which returns the full text of the string you selected.</p></note>
     <p>After we create the MessageDialog, we connect its response signal to the _onDialogResponse function, then tell it to show itself.</p>
 
     <code mime="application/javascript"><![CDATA[
