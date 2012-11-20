@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-11-19 09:53+0000\n"
-"PO-Revision-Date: 2012-11-19 10:57+0100\n"
+"POT-Creation-Date: 2012-11-20 08:58+0000\n"
+"PO-Revision-Date: 2012-11-20 10:53+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -6522,13 +6522,6 @@ msgstr ""
 "        this._button.connect (\"toggled\", Lang.bind (this, this._toggledCB));\n"
 
 #: C/checkbutton.js.page:96(section/p)
-#| msgid ""
-#| "This code creates the checkbutton itself. The label next to the "
-#| "checkbutton is created by giving the checkbutton the \"label\" property "
-#| "and assigning a string value to it. Since this checkbutton toggles "
-#| "whether the window title is on or off, and the window title will be on to "
-#| "start with, we want the box to be checked by default. Whenever the user "
-#| "checks or unchecks the box, we call the ._toggledCB function."
 msgid ""
 "This code creates the checkbutton itself. The label next to the checkbutton "
 "is created by giving the checkbutton the \"label\" property and assigning a "
@@ -6563,10 +6556,13 @@ msgid ""
 "This code finishes up creating the UI, by telling the window to show itself "
 "and all child widgets (which is just the checkbutton in this case)."
 msgstr ""
+"Este código termina de crear la IU, diciéndole a la ventana que se muestre "
+"con todos sus widgets hijos (que, en este caso, solo es la casilla de "
+"verificación)."
 
 #: C/checkbutton.js.page:106(section/title)
 msgid "Function which handles the checkbutton's toggling"
-msgstr ""
+msgstr "Función que maneja la conmutación de la casilla de verificación"
 
 #: C/checkbutton.js.page:107(section/code)
 #, no-wrap
@@ -6605,6 +6601,11 @@ msgid ""
 "(checked) or not afterwards. A simple if / else statement which calls the "
 "checkbutton's get_active() method will work for this."
 msgstr ""
+"Si la casilla se conmuta de «encendido» a «apagado», se quiere que el título "
+"de la ventana desaparezca. Si sucede al revés, que aparezca. Se puede saber "
+"en qué sentido se conmutó probando si está activada (verificada) o no. Una "
+"declaración «if / else» simple que llame al método «get_active()» de la "
+"casilla de verificación funcionará."
 
 #: C/checkbutton.js.page:121(section/code)
 #, no-wrap
@@ -6624,6 +6625,8 @@ msgid ""
 "Finally, we create a new instance of the finished CheckButtonExample class, "
 "and set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase «CheckButtonExample» "
+"terminada, y se ejecuta la aplicación."
 
 #: C/checkbutton.js.page:131(section/code)
 #, no-wrap
@@ -6916,6 +6919,8 @@ msgid ""
 "We could also create the CheckButton with <code>button = Gtk.CheckButton."
 "new_with_label(\"Show Title\")</code>."
 msgstr ""
+"También se podría crear la casilla de verificación con <code>button = Gtk."
+"CheckButton.new_with_label(\"Show Title\")</code>."
 
 #: C/checkbutton.py.page:37(section/title)
 msgid "Useful methods for a CheckButton widget"
@@ -7218,10 +7223,8 @@ msgstr ""
 "sys.exit(exit_status)\n"
 
 #: C/colorbutton.py.page:32(section/title)
-#, fuzzy
-#| msgid "Useful methods for a Button widget"
 msgid "Useful methods for a ColorButton widget"
-msgstr "Métodos útiles para un widget «Button»"
+msgstr "Métodos útiles para un widget «ColorButton»"
 
 #: C/colorbutton.py.page:33(section/p)
 msgid ""
@@ -7229,6 +7232,9 @@ msgid ""
 "the example, sets the color of the ColorButton, which by default is black. "
 "<code>get_color()</code> returns the color."
 msgstr ""
+"<code>set_color(color)</code>, donde el <code>color</code> se define como en "
+"el ejemplo, establece el color del «ColorButton», que es negro de manera "
+"predeterminada. <code>get_color()</code> devuelve el color."
 
 #: C/colorbutton.py.page:40(item/p)
 msgid ""
@@ -7247,16 +7253,12 @@ msgstr ""
 "\">GtkColorChooser</link>"
 
 #: C/colorbutton.py.page:42(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gdk3/stable/gdk3-RGBA-Colors.html"
 "\">RGBA Colors</link>"
 msgstr ""
-"<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-"\">Señales</link> en la documentación de GObject"
+"<link href=\"http://developer.gnome.org/gdk3/stable/gdk3-RGBA-Colors.html"
+"\">Colores RGBA</link>"
 
 #: C/colorbutton.vala.page:7(info/title)
 msgctxt "text"
@@ -7392,7 +7394,7 @@ msgstr "ComboBoxText (JavaScript)"
 
 #: C/comboboxtext.js.page:19(info/desc)
 msgid "A text-only drop-down menu"
-msgstr ""
+msgstr "Un menú desplegable de solo texto"
 
 #: C/comboboxtext.js.page:22(page/title)
 msgid "ComboBoxText"
@@ -7406,6 +7408,11 @@ msgid ""
 "TreeStore (which are basically spreadsheets) to show things like branching "
 "options, or pictures to go alongside each choice."
 msgstr ""
+"Un «ComboBox» es un menú desplegable. La diferencia entre un <link xref="
+"\"combobox.js\">ComboBox</link> y un «ComboBoxText» es que este sólo tiene "
+"opciones básicas de texto, mientras que un «ComboBox» completo usa un "
+"«ListStore» o «TreeStore» (que son básicamente hojas de cálculo) para mostrar "
+"cosas como opciones de bifurcación, o imágenes junto a cada opción."
 
 #: C/comboboxtext.js.page:25(note/p)
 msgid ""
@@ -7413,6 +7420,9 @@ msgid ""
 "working with ListStores and TreeStores, you may find it a lot simpler to use "
 "a ComboBoxText whenever possible."
 msgstr ""
+"A menos que necesite las características adicionales de un «ComboBox» "
+"completo, o si se siente cómodo trabajando con «ListStore» y «TreeStore», "
+"encontrará mucho más simple usar un «ComboBoxText» siempre que sea posible."
 
 #: C/comboboxtext.js.page:41(section/code)
 #, no-wrap
@@ -7472,6 +7482,10 @@ msgid ""
 "gjs/Gtk.Application.html\">Gtk.Application</link> for our widgets and window "
 "to go in."
 msgstr ""
+"Todo el código de este ejemplo va en la clase «MessageDialogExample». El "
+"código anterior crea una <link href=\"http://www.roojs.com/seed/gir-1.2-gtk-"
+"3.0/gjs/Gtk.Application.html\">Gtk.Application</link> para que vayan los "
+"widgets y la ventana."
 
 #: C/comboboxtext.js.page:66(section/code) C/combobox.js.page:70(section/code)
 #, no-wrap
@@ -7558,6 +7572,12 @@ msgid ""
 "create an array for your ComboBoxText entries, then use a for loop to append "
 "them in order, like we did here."
 msgstr ""
+"Después de crear el «ComboBoxText», se usa su método <file>append_text</file> "
+"para añadirle cadenas de texto. Al igual que las entradas en una matriz, "
+"cada una tiene un número para identificarlas, comenzando por el 0. Para "
+"hacer las cosas más simples, puede crear una matriz para los datos del "
+"«ComboBoxText», y después usar un bucle «for» para añadirlos en orden, como "
+"aquí."
 
 #: C/comboboxtext.js.page:97(section/p)
 msgid ""
@@ -7567,6 +7587,10 @@ msgid ""
 "so that it's called whenever you make a new selection from the drop-down "
 "menu."
 msgstr ""
+"Después de poblar el «ComboBoxText», se activa su primera entrada, para ver "
+"la línea «Seleccionar distribución» antes de pulsarlo. Después se conecta su "
+"señal <file>changed</file> a la función «_onComboChanged», para que se llame "
+"siempre que haga una selección nueva del menú desplegable."
 
 #: C/comboboxtext.js.page:98(note/p)
 msgid ""
@@ -7576,6 +7600,11 @@ msgid ""
 "file> and <file>insert</file> methods. See the links at the bottom of this "
 "tutorial for the details of how to use them."
 msgstr ""
+"Si quiere añadirle una entrada a un «ComboBoxText», puede usar el método "
+"<file>insert_text</file>. Y si prefiere usar una cadena de texto como "
+"identificación de cada entrada en lugar de solo números, puede usar los "
+"métodos <file>append</file> e <file>insert</file>. Consulte los enlaces al "
+"final de este tutorial para ver detalles sobre su uso."
 
 #: C/comboboxtext.js.page:100(section/code)
 #, no-wrap
@@ -7601,6 +7630,8 @@ msgid ""
 "Finally, we add the ComboBoxText to the window, and tell the window to show "
 "itself and the widget inside it."
 msgstr ""
+"Finalmente, se añade el «ComboBoxText» a la ventana, y se le dice que se "
+"muestre con su widget."
 
 #: C/comboboxtext.js.page:112(section/title)
 #: C/combobox.js.page:169(section/title)
@@ -7637,6 +7668,11 @@ msgid ""
 "string in our ComboBoxText is just the \"Select distribution\" message, we "
 "make the first string in our array blank."
 msgstr ""
+"Se va a crear un <link xref=\"messagedialog.js\">MessageDialog</link> "
+"emergente, que muestre un mensaje a partir de qué distribución elija. "
+"Primero, se crea la matriz de respuestas para usar. Dado que la primera "
+"cadena del «ComboBoxText» es solo el mensaje «Seleccione distribución», la "
+"primera cadena de la matriz está vacía."
 
 #: C/comboboxtext.js.page:124(section/code)
 #, no-wrap
@@ -7693,19 +7729,30 @@ msgid ""
 "We do that using the <file>get_active</file> method, which returns the "
 "number ID of your selection."
 msgstr ""
+"Antes de mostrar un «MessageDialog», se verifica que no ha elegido el mensaje "
+"«Seleccionar distribución». Después de eso, se establece su texto a la "
+"entrada en la matriz que le corresponde a la entrada activa en el "
+"«ComboBoxText». Esto se hace usando el método </file>get_active<file>, que "
+"devuelve la identificación numérica de su selección."
 
-#: C/comboboxtext.js.page:147(note/p) C/combobox.js.page:204(note/p)
+#: C/comboboxtext.js.page:147(note/p)
 msgid ""
 "Other methods you can use include <file>get_active_id,</file> which returns "
 "the text ID assigned by <file>append,</file> and <file>get_active_text,</"
 "file> which returns the full text of the string you selected."
 msgstr ""
+"Otros métodos que puede usar incluyen <file>get_active_id</file>, que "
+"devuelve la identificación de texto que asignó <file>append</file>, y "
+"<file>get_active_text</file>, que devuelve el texto completo de la cadena "
+"que seleccionó."
 
 #: C/comboboxtext.js.page:148(section/p) C/combobox.js.page:205(section/p)
 msgid ""
 "After we create the MessageDialog, we connect its response signal to the "
 "_onDialogResponse function, then tell it to show itself."
 msgstr ""
+"Después de crear el «MessageDialog», se conecta su señal «response» a la "
+"función «onDialogResponse», y se le dice que se muestre."
 
 #: C/comboboxtext.js.page:150(section/code)
 #: C/combobox.js.page:207(section/code)
@@ -7735,6 +7782,9 @@ msgid ""
 "to test its response_id to see which button was clicked. All we do here is "
 "destroy the popup."
 msgstr ""
+"Dado que el único botón que tiene el «MessageDialog» es un botón aceptar, no "
+"se necesita verificar su «response_id» para ver qué botón se pulsó. Todo lo "
+"que se hace aquí es destruir la ventana emergente."
 
 #: C/comboboxtext.js.page:161(section/code)
 #, no-wrap
@@ -7754,6 +7804,8 @@ msgid ""
 "Finally, we create a new instance of the finished ComboBoxTextExample class, "
 "and set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase ComboBoxTextExample "
+"terminada, y se ejecuta la aplicación."
 
 #: C/comboboxtext.js.page:171(section/code)
 #, no-wrap
@@ -8010,7 +8062,7 @@ msgstr "ComboBox (JavaScript)"
 
 #: C/combobox.js.page:21(info/desc)
 msgid "A customizable drop-down menu"
-msgstr ""
+msgstr "Un menú desplegable personalizable."
 
 #: C/combobox.js.page:24(page/title) C/combobox.py.page:20(page/title)
 #: C/combobox.vala.page:20(page/title)
@@ -8028,6 +8080,13 @@ msgid ""
 "name of a stock icon in the other, which the ComboBox then turns into an "
 "icon for each option."
 msgstr ""
+"Un «ComboBox» es un menú desplegable extremadamente personalizable. Contiene "
+"el equivalente a un widget <link xref=\"treeview_simple_liststore.js"
+"\">TreeView</link> que aparece cuando lo pulsa, completo con un "
+"«ListStore» (básicamente una hoja de cálculo) que dice qué está en las filas "
+"y columnas. En este ejemplo, el «ListStore» tiene el nombre de cada opción en "
+"una columna, y el nombre de un elemento del almacén en la otra, que el "
+"«ComboBox» convierte en un icono para cada opción."
 
 #: C/combobox.js.page:27(page/p)
 msgid ""
@@ -8035,6 +8094,9 @@ msgid ""
 "separate options. They and the text beside them make up each option you can "
 "click on."
 msgstr ""
+"Puede seleccionar una fila horizontal a la vez, por lo que los iconos no se "
+"tratan como opciones separadas. Ellos y su texto forman una opción que puede "
+"pulsar."
 
 #: C/combobox.js.page:28(note/p)
 msgid ""
@@ -8043,6 +8105,10 @@ msgid ""
 "\">ComboBoxText</link>. It doesn't take as much time to set up, and is "
 "easier to work with."
 msgstr ""
+"Trabajar con un «ListStore» puede llevar tiempo. Si sólo quiere un menú "
+"desplegable de solo texto simple, échele un vistazo al <link xref="
+"\"comboboxtext.js\">ComboBoxText</link>. No toma tanto tiempo configurarlo, "
+"y es más fácil trabajar con él."
 
 #: C/combobox.js.page:33(section/code)
 #, no-wrap
@@ -8119,6 +8185,10 @@ msgid ""
 "Gtk.Application.html\">Gtk.Application</link> for our widgets and window to "
 "go in."
 msgstr ""
+"Todo el código de este ejemplo va en la clase «ComboBoxExample». El código "
+"anterior crea una <link href=\"http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/"
+"Gtk.Application.html\">Gtk.Application</link> para que vayan los widgets y "
+"la ventana."
 
 #: C/combobox.js.page:86(section/title)
 #: C/treeview_simple_liststore.js.page:93(section/title)
@@ -8150,6 +8220,11 @@ msgid ""
 "<link href=\"http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-"
 "STOCK-ABOUT:CAPS\">stock Gtk icons</link>."
 msgstr ""
+"Este «ListStore» funciona como el que se usó en el ejemplo del <link xref="
+"\"treeview_simple_liststore.js\">TreeView</link>. Se le dan dos columnas, "
+"ambas cadenas, porque una contendrá los nombres de los <link href=\"http://"
+"developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS"
+"\">iconos del almacén de GTK+</link>."
 
 #: C/combobox.js.page:95(section/p)
 msgid ""
@@ -8157,6 +8232,9 @@ msgid ""
 "we'd have needed to use the <file>gtk.gdk.Pixbuf</file> type instead. Here "
 "are a few other types you can use:"
 msgstr ""
+"Si quisiera usar sus propios iconos que no están incluidos en GNOME, tendría "
+"que usar el tipo <file>gtk.gdk.Pixbuf</file> en su lugar. Aquí hay algunos "
+"tipos más que puede usar:"
 
 #: C/combobox.js.page:97(item/p)
 #: C/treeview_simple_liststore.js.page:106(item/p)
@@ -8231,18 +8309,23 @@ msgid ""
 "want to put an icon in if there's actually an icon in the options array, so "
 "we make sure to check for that first."
 msgstr ""
+"Aquí se crea una matriz de las opciones de texto y sus iconos "
+"correspondientes, después se ponen en el «ListStore» de forma parecida a cOmo "
+"se haría para un «ListStore» de un <link xref=\"treeview_simple_liststore.js"
+"\">TreeView</link>. Sólo se quiere poner un icono si hay uno en la matriz de "
+"opciones, por lo que primero hay que asegurarse de verificar esto."
 
 #: C/combobox.js.page:120(note/p)
 msgid ""
 "\"Select\" isn't really an option so much as an invitation to click on our "
 "ComboBox, so it doesn't need an icon."
 msgstr ""
+"«Select» no es realmente una opción, sino una invitación a pulsar en el "
+"«ComboBox», por lo que no necesita un icono."
 
 #: C/combobox.js.page:124(section/title)
-#, fuzzy
-#| msgid "Creating the ComboBoxText"
 msgid "Creating the ComboBox"
-msgstr "Crear el ComboBoxText"
+msgstr "Crear el ComboBox"
 
 #: C/combobox.js.page:125(section/code)
 #, no-wrap
@@ -8263,6 +8346,9 @@ msgid ""
 "can use a TreeStore if you want to have a ComboBox with branching options. "
 "In this case, we're just using the ListStore we already created."
 msgstr ""
+"Cada «ComboBox» tiene un «modelo» subyacente del que toma todas sus opciones. "
+"Puede usar un «TreeStore» si quiere tener un «ComboBox» con opciones de "
+"bifurcación. En este caso, solo se está usando el «ListStore» que ya se creó."
 
 #: C/combobox.js.page:131(section/code)
 #, no-wrap
@@ -8457,6 +8543,22 @@ msgid ""
 "using the <file>get_active</file> method, which returns the number ID of "
 "your selection."
 msgstr ""
+
+#: C/combobox.js.page:204(note/p)
+#| msgid ""
+#| "Other methods you can use include <file>get_active_id,</file> which "
+#| "returns the text ID assigned by <file>append,</file> and "
+#| "<file>get_active_text,</file> which returns the full text of the string "
+#| "you selected."
+msgid ""
+"Other methods you can use include <file>get_active_id</file>, which returns "
+"the text ID assigned by <file>append</file>, and <file>get_active_text</"
+"file>, which returns the full text of the string you selected."
+msgstr ""
+"Otros métodos que puede usar incluyen <file>get_active_id</file>, que "
+"devuelve la identificación de texto que asignó <file>append</file>, y "
+"<file>get_active_text</file>, que devuelve el texto completo de la cadena "
+"que seleccionó."
 
 #: C/combobox.js.page:218(section/code)
 #, no-wrap
