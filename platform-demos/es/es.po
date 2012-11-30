@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-11-23 01:47+0000\n"
-"PO-Revision-Date: 2012-11-27 09:57+0100\n"
+"POT-Creation-Date: 2012-11-30 16:01+0000\n"
+"PO-Revision-Date: 2012-11-30 17:28+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -14100,10 +14100,8 @@ msgstr ""
 "sys.exit(exit_status)\n"
 
 #: C/grid.py.page:40(section/title)
-#, fuzzy
-#| msgid "Useful methods for a Window widget"
 msgid "Useful methods for a Grid widget"
-msgstr "Métodos útiles para un widget «Window»"
+msgstr "Métodos útiles para un widget «Grid»"
 
 #: C/grid.py.page:43(item/p)
 msgid ""
@@ -14115,8 +14113,26 @@ msgid ""
 "LEFT, Gtk.PositionType.RIGHT, Gtk.PositionType.TOP, Gtk.PositionType.BOTTOM</"
 "code>."
 msgstr ""
+"Para añadir un widget <code>hijo</code> en la posición <code>izquierda, "
+"arriba</code> en un espacio de una <code>anchura, altura</code> dada use "
+"<code>attach(hijo, arriba, izquierda, anchura, altura</code>. Si un widget "
+"<code>hermano</code> ya está en posición, también se puede usar "
+"<code>attach_next_to(hijo, hermano, lado, anchura, altura)</code>, donde "
+"<code>lado</code> puede ser <code>Gtk.PositionType.LEFT, Gtk.PositionType."
+"RIGHT, Gtk.PositionType.TOP, Gtk.PositionType.BOTTOM</code>."
 
 #: C/grid.py.page:44(item/p)
+#| msgid ""
+#| "<code>insert_row(position)</code> and <code>insert_column(position)</"
+#| "code> do exactly what they say; children which are attached at or below "
+#| "this position are moved one row down, and children which span across this "
+#| "position are grown to span the new row. <code>insert_next_to(sibling, "
+#| "side)</code> inserts a row or column at the specified position. The new "
+#| "row or column is placed next to <code>sibling</code>, on the side "
+#| "determined by <code>side</code>; if side is <code>Gtk.PositionType.TOP</"
+#| "code> or <code>Gtk.PositionType.BOTTOM</code>, a row is inserted, if side "
+#| "is <code>Gtk.PositionType.LEFT</code> of <code>Gtk.PositionType.RIGHT</"
+#| "code>, a column is inserted."
 msgid ""
 "<code>insert_row(position)</code> and <code>insert_column(position)</code> "
 "do exactly what they say; children which are attached at or below this "
@@ -14126,9 +14142,18 @@ msgid ""
 "column is placed next to <code>sibling</code>, on the side determined by "
 "<code>side</code>; if side is <code>Gtk.PositionType.TOP</code> or <code>Gtk."
 "PositionType.BOTTOM</code>, a row is inserted, if side is <code>Gtk."
-"PositionType.LEFT</code> of <code>Gtk.PositionType.RIGHT</code>, a column is "
+"PositionType.LEFT</code> or <code>Gtk.PositionType.RIGHT</code>, a column is "
 "inserted."
 msgstr ""
+"<code>insert_row(posición)</code> e <code>insert_column(posición)</code> "
+"hacen que los hijos añadidos en esa posición o por debajo se muevan una fila "
+"hacia abajo, y que los hijos que se extienden a lo largo de esta posición "
+"crezcan para ocupar la siguiente fila. <code>insert_next_to(hermano, lado)</"
+"code> inserta una fila o columna en la posición especificada. La fila o "
+"columna nueva se pone al lado del <code>hermano</code>, a su <code>lado</"
+"code>; si es <code>Gtk.PositionType.TOP</code> or <code>Gtk.PositionType."
+"BOTTOM</code>, se inserta una fila; si es <code>Gtk.PositionType.LEFT</code> "
+"o <code>Gtk.PositionType.RIGHT</code>, se inserta una columna."
 
 #: C/grid.py.page:45(item/p)
 msgid ""
@@ -14136,6 +14161,9 @@ msgid ""
 "</code> ensure that (respectively) every row or every column has the same "
 "width or height."
 msgstr ""
+"<code>set_row_homogeneous(True)</code> y <code>set_column_homogeneous(True)</"
+"code> se aseguran de que (respectivamente) cada fila o cada columna tengan "
+"la misma anchura o altura."
 
 #: C/grid.py.page:46(item/p)
 msgid ""
@@ -14144,6 +14172,14 @@ msgid ""
 "<code>spacing</code> can be between <code>0</code>, which is the default "
 "value, and <code>32767</code>"
 msgstr ""
+"<code>set_row_spacing(espaciado)</code> y <code>set_column_spacing(espaciado)"
+"</code> fuerzan un espaciado entre (respectivamente) filas o columnas. El "
+"valor de <code>espaciado</code> puede estar entre <code>0</code>, que es el "
+"valor predeterminado, y <code>32767</code>."
+
+#: C/grid.py.page:42(section/list)
+msgid "<_:item-1/> <_:item-2/> <_:item-3/> <_:item-4/>."
+msgstr "<_:item-1/> <_:item-2/> <_:item-3/> <_:item-4/>."
 
 #: C/grid.py.page:57(item/p) C/label.py.page:88(item/p)
 #: C/separator.py.page:40(item/p) C/switch.py.page:49(item/p)
@@ -14174,11 +14210,9 @@ msgstr ""
 "\">GtkGrid</link>"
 
 #: C/grid.vala.page:7(info/title)
-#, fuzzy
-#| msgid "Window (Vala)"
 msgctxt "text"
 msgid "Grid (Vala)"
-msgstr "Ventana (Vala)"
+msgstr "Grid (Vala)"
 
 #: C/grid.vala.page:22(page/title)
 msgid "Grid widget"
@@ -14325,11 +14359,9 @@ msgid "external ref='media/window.png' md5='eb0cde3530978619c25bddfaeb453345'"
 msgstr "external ref='media/window.png' md5='eb0cde3530978619c25bddfaeb453345'"
 
 #: C/GtkApplicationWindow.c.page:7(info/title)
-#, fuzzy
-#| msgid "ApplicationWindow"
 msgctxt "text"
 msgid "ApplicationWindow (C)"
-msgstr "ApplicationWindow"
+msgstr "ApplicationWindow (C)"
 
 #: C/GtkApplicationWindow.c.page:17(info/desc)
 msgid "A toplevel window which can contain other widgets, and support GMenu"
@@ -14412,11 +14444,9 @@ msgstr ""
 "\">GtkApplicationWindow</link>"
 
 #: C/GtkApplicationWindow.js.page:7(info/title)
-#, fuzzy
-#| msgid "ApplicationWindow"
 msgctxt "text"
 msgid "ApplicationWindow (JavaScript)"
-msgstr "ApplicationWindow"
+msgstr "ApplicationWindow (JavaScript)"
 
 #: C/GtkApplicationWindow.js.page:17(info/desc)
 #: C/GtkApplicationWindow.py.page:22(info/desc)
@@ -14534,11 +14564,9 @@ msgstr ""
 "app.application.run (ARGV);\n"
 
 #: C/GtkApplicationWindow.py.page:7(info/title)
-#, fuzzy
-#| msgid "ApplicationWindow"
 msgctxt "text"
 msgid "ApplicationWindow (Python)"
-msgstr "ApplicationWindow"
+msgstr "ApplicationWindow (Python)"
 
 #: C/GtkApplicationWindow.py.page:27(page/p)
 #: C/GtkApplicationWindow.vala.page:22(page/p)
@@ -14644,11 +14672,9 @@ msgstr ""
 "Gtk.WindowPosition.CENTER_ALWAYS, Gtk.WindowPosition.CENTER_ON_PARENT</code>."
 
 #: C/GtkApplicationWindow.vala.page:7(info/title)
-#, fuzzy
-#| msgid "ApplicationWindow"
 msgctxt "text"
 msgid "ApplicationWindow (Vala)"
-msgstr "ApplicationWindow"
+msgstr "ApplicationWindow (Vala)"
 
 #: C/GtkApplicationWindow.vala.page:24(page/code)
 #, no-wrap
@@ -14688,16 +14714,12 @@ msgstr ""
 "}\n"
 
 #: C/GtkApplicationWindow.vala.page:30(item/p) C/label.vala.page:30(item/p)
-#, fuzzy
-#| msgid ""
-#| "The enum <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-#| "html\">Gtk.WindowPosition</link>"
 msgid ""
 "<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Application.html.content.tpl"
 "\">Gtk.Application</link>"
 msgstr ""
-"El enumerado <link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.WindowPosition."
-"html\">Gtk.WindowPosition</link>"
+"<link href=\"http://www.valadoc.org/gtk+-3.0/Gtk.Application.html.content.tpl"
+"\">Gtk.Application</link>"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -14797,11 +14819,9 @@ msgstr ""
 "md5='5adc952909d92af5dae6954781b4ad5f'"
 
 #: C/guitar-tuner.c.page:7(info/title)
-#, fuzzy
-#| msgid "Guitar Tuner"
 msgctxt "text"
 msgid "Guitar Tuner (C)"
-msgstr "Afinador de guitarra"
+msgstr "Afinador de guitarra (C)"
 
 #: C/guitar-tuner.c.page:10(info/desc) C/guitar-tuner.py.page:10(info/desc)
 msgid ""
@@ -15296,16 +15316,12 @@ msgstr ""
 "de la propiedad <code>freq</code> de <code>audiotestsrc</code>."
 
 #: C/guitar-tuner.c.page:148(section/p)
-#, fuzzy
-#| msgid ""
-#| "Insert the following line into <file>main.c</file>, just below the "
-#| "<code><![CDATA[#include <gtk/gtk.h>]]></code> line:"
 msgid ""
 "Insert the following line into <file>main.c</file>, just below the "
 "<code>#include &lt;gtk/gtk.h&gt;</code> line:"
 msgstr ""
 "Inserte la siguiente línea en <file>main.c</file>, justo a continuación de "
-"la línea <code><![CDATA[#include <gtk/gtk.h>]]></code>:"
+"la línea <code>#include &lt;gtk/gtk.h&gt;</code>:"
 
 #: C/guitar-tuner.c.page:149(section/code)
 #, no-wrap
@@ -16279,11 +16295,9 @@ msgstr ""
 "referencia de GStreamermm</link>."
 
 #: C/guitar-tuner.js.page:6(info/title)
-#, fuzzy
-#| msgid "Guitar Tuner"
 msgctxt "text"
 msgid "Guitar Tuner (JavaScript)"
-msgstr "Afinador de guitarra"
+msgstr "Afinador de guitarra (JavaScript)"
 
 #: C/guitar-tuner.js.page:16(info/desc)
 msgid ""
@@ -16310,54 +16324,44 @@ msgstr ""
 "una terminal y GNOME 3 o superior instalado en su equipo."
 
 #: C/guitar-tuner.js.page:24(item/p)
-#, fuzzy
-#| msgid "An example GStreamer pipeline."
 msgid "<link xref=\"#gstreamer\">GStreamer pipelines</link>"
-msgstr "Un ejemplo de tubería de GStreamer."
+msgstr "<link xref=\"#gstreamer\">Tuberías de GStreamer</link>"
 
 #: C/guitar-tuner.js.page:25(item/p) C/weatherAppMain.js.page:22(item/p)
-#, fuzzy
-#| msgid "Script for running the application"
 msgid "<link xref=\"#script\">Script for running the application</link>"
-msgstr "Script para ejecutar la aplicación"
+msgstr "<link xref=\"#script\">Script para ejecutar la aplicación</link>"
 
 #: C/guitar-tuner.js.page:26(item/p) C/weatherAppMain.js.page:23(item/p)
 msgid "<link xref=\"#imports\">Libraries to import</link>"
-msgstr ""
+msgstr "<link xref=\"#imports\">Bibliotecas que importar</link>"
 
 #: C/guitar-tuner.js.page:27(item/p) C/weatherAppMain.js.page:24(item/p)
-#, fuzzy
-#| msgid "Creating the main window for the application"
 msgid ""
 "<link xref=\"#mainwindow\">Creating the main window for the application</"
 "link>"
-msgstr "Crear la ventana principal de la aplicación"
+msgstr ""
+"<link xref=\"#mainwindow\">Crear la ventana principal de la aplicación</link>"
 
 #: C/guitar-tuner.js.page:28(item/p)
 msgid "<link xref=\"#buttons\">Buttons for the tunes</link>"
-msgstr ""
+msgstr "<link xref=\"#buttons\">Botones para las melodías</link>"
 
 #: C/guitar-tuner.js.page:29(item/p)
-#, fuzzy
-#| msgid "Making the sounds with GStreamer"
 msgid "<link xref=\"#playSound\">Making the sounds with GStreamer</link>"
-msgstr "Crear sonidos con GStreamer"
+msgstr "<link xref=\"#playSound\">Crear sonidos con GStreamer</link>"
 
 #: C/guitar-tuner.js.page:30(item/p)
-#, fuzzy
-#| msgid "Connecting buttons to playSound"
 msgid "<link xref=\"#connecting\">Connecting buttons to playSound</link>"
-msgstr "Conectar los botones a playSound"
+msgstr "<link xref=\"#connecting\">Conectar los botones a playSound</link>"
 
 #: C/guitar-tuner.js.page:31(item/p)
 msgid "<link xref=\"#guitarjs\">The whole program</link>"
-msgstr ""
+msgstr "<link xref=\"#guitarjs\">El programa completo</link>"
 
 #: C/guitar-tuner.js.page:32(item/p)
-#, fuzzy
-#| msgid "Running the application form Terminal"
 msgid "<link xref=\"#terminal\">Running the application form Terminal</link>"
-msgstr "Ejecutar la aplicación desde la terminal"
+msgstr ""
+"<link xref=\"#terminal\">Ejecutar la aplicación desde la terminal</link>"
 
 #: C/guitar-tuner.js.page:35(page/p) C/weatherApp.js.page:34(page/p)
 msgid "After reading this tutorial, you should see this in your screen:"
@@ -16685,6 +16689,13 @@ msgid ""
 "in the function(){}; we the playSound happen with the correct tune that "
 "should be associated to the button."
 msgstr ""
+"La forma de conectar pulsaciones del ratón a «playSound» con la melodía "
+"correcta es usar el método «connect» del widget botón. Por lo que se elije un "
+"botón que conectar y se introduce «E.connect(\"clicked\", function(){playSound"
+"(frequencies.E);});» El «connect» indica que cuando se pulsa «E», algo debe "
+"pasar. El «clicked» indica el tipo de acción que interesa sobre «E» y después "
+"en la «function(){};» se llama a «playSound» con la melodía correcta que debe "
+"asociarse al botón."
 
 #: C/guitar-tuner.js.page:149(section/title)
 msgid "The whole program"
@@ -16870,7 +16881,7 @@ msgstr ""
 #: C/guitar-tuner.js.page:230(section/screen)
 #, no-wrap
 msgid " <output style=\"prompt\">$ </output><input> GJS_PATH=`pwd` gjs guitarTuner.js</input> "
-msgstr ""
+msgstr " <output style=\"prompt\">$ </output><input> GJS_PATH=`pwd` gjs guitarTuner.js</input> "
 
 #: C/guitar-tuner.js.page:235(section/p)
 msgid ""
@@ -16881,11 +16892,9 @@ msgstr ""
 "\"guitar-tuner/guitar-tuner.js\">código de referencia</link>."
 
 #: C/guitar-tuner.py.page:7(info/title)
-#, fuzzy
-#| msgid "Guitar Tuner"
 msgctxt "text"
 msgid "Guitar Tuner (Python)"
-msgstr "Afinador de guitarra"
+msgstr "Afinador de guitarra (Python)"
 
 #: C/guitar-tuner.py.page:35(item/p)
 msgid "Basic knowledge of the Python programming language"
@@ -18037,14 +18046,12 @@ msgstr ""
 "md5='948efb6148ede3bc6b47b4b0bbe4a74f'"
 
 #: C/hellognome.js.page:16(info/desc)
-#, fuzzy
-#| msgid "A first Gtk application"
 msgid "Your first GNOME application!"
-msgstr "Una primera aplicación en GTK"
+msgstr "Su primera aplicación de GNOME"
 
 #: C/hellognome.js.page:19(page/title)
 msgid "1. Hello, GNOME!"
-msgstr ""
+msgstr "1. ¡Hola, GNOME!"
 
 #: C/hellognome.js.page:21(synopsis/p)
 msgid ""
@@ -18053,6 +18060,10 @@ msgid ""
 "would for the web. Afterwards, you will learn how to use \"native\" widgets, "
 "to write applications that look and feel like other GNOME apps."
 msgstr ""
+"Este tutorial le mostrará cómo escribir su primera aplicación de GNOME en "
+"JavaScript. Usará JavaScript para escribir para GNOME de la misma manera que "
+"lo haría para la web. Después, aprenderá cómo usar widgets «nativos», para "
+"escribir aplicaciones que se ven como otras aplicaciones de GNOME."
 
 #: C/hellognome.js.page:22(note/p)
 msgid ""
@@ -18060,17 +18071,18 @@ msgid ""
 "gedit.js\">gedit</link> set up to write code with? You'll want to do these "
 "things first."
 msgstr ""
+"¿Ya tiene GNOME instalado en su equipo, y <link xref=\"set-up-gedit.js"
+"\">gedit</link> configurado para escribir código? Querrá hacer estas cosas "
+"primero."
 
 #: C/hellognome.js.page:28(section/title)
-#, fuzzy
-#| msgid "A button that links to a web page"
 msgid "Let's start with a web page"
-msgstr "Un botón que enlaza con una página web"
+msgstr "Comience con una página web"
 
 #: C/hellognome.js.page:30(section/p)
 msgid ""
 "Here's some basic HTML, CSS, and JavaScript code. Does this look familiar?"
-msgstr ""
+msgstr "Aquí hay código HTML, CSS, y JavaScript básico. ¿Le resulta familiar?"
 
 #: C/hellognome.js.page:31(section/code)
 #, no-wrap
@@ -18140,6 +18152,8 @@ msgid ""
 "Let's save this as <file>hellognome.html</file>, and see what it looks like "
 "when we run it!"
 msgstr ""
+"Guarde esto como <file>hellognome.html</file>, y observe cómo se ve cuando "
+"lo ejecuta."
 
 #: C/hellognome.js.page:66(section/p)
 msgid ""
@@ -18150,6 +18164,12 @@ msgid ""
 "close it, just like you'd expect from any other GNOME app. The difference is "
 "that this one will run our web code inside of it."
 msgstr ""
+"<em>Puede</em> ejecutar el código anterior abriendo <file>hellognome.html</"
+"file> en un navegador web. Pero aquí, se va a crear una aplicación de GNOME "
+"que ejecute la aplicación web de dentro, como ve en la captura de pantalla. "
+"Podrá redimensionar y maximizar la ventana, y pulsar en la «X» en la esquina "
+"para cerrarla, al igual que esperaría de cualquier otra aplicación de GNOME. "
+"La diferencia es que esta ejecutará el código web de dentro."
 
 #: C/hellognome.js.page:67(section/p)
 msgid ""
@@ -18157,12 +18177,13 @@ msgid ""
 "parts that make our app work with GNOME. Let's look at the code, and see how "
 "it's done!"
 msgstr ""
+"¿La mejor parte? Se va a continuar usando JavaScript para escribir todas las "
+"partes que hacen que la aplicación funcione con GNOME. Échele un vistazo al "
+"código y vea cómo se hace."
 
 #: C/hellognome.js.page:71(section/title)
-#, fuzzy
-#| msgid "Creating the main window for the application"
 msgid "Creating a GNOME window to frame our web app"
-msgstr "Crear la ventana principal de la aplicación"
+msgstr "Crear una ventana de GNOME para enmarcar la aplicación web"
 
 #: C/hellognome.js.page:73(section/p)
 msgid ""
@@ -18171,6 +18192,10 @@ msgid ""
 "instructions it understands, so this line always has to go at the start of "
 "your applications."
 msgstr ""
+"Primero, se necesita decirle a GNOME que esta es una aplicación de "
+"JavaScript, que usa gjs. gjs es la forma de GNOME de convertir su código de "
+"JavaScript en instrucciones que entiende, por lo que esta línea siempre debe "
+"ir al principio de sus aplicaciones."
 
 #: C/hellognome.js.page:74(section/code)
 #, no-wrap
@@ -18184,6 +18209,7 @@ msgstr ""
 #: C/hellognome.js.page:77(section/p)
 msgid "After that, we need to tell GNOME which libraries we want to import."
 msgstr ""
+"Después de eso, necesita decirle a GNOME qué bibliotecas quiere importar."
 
 #: C/hellognome.js.page:78(section/code)
 #, no-wrap
@@ -18206,30 +18232,38 @@ msgid ""
 "JavaScript, each of these libraries gives us new capabilities for our GNOME "
 "apps:"
 msgstr ""
+"Al igual que las bibliotecas adicionales como jQuery, que permiten hacer "
+"cosas adicionales con JavaScript, cada una de estas bibliotecas le da "
+"capacidades nuevas a las aplicaciones de GNOME:"
 
 #: C/hellognome.js.page:86(item/p)
 msgid ""
 "<file>Gtk</file> and <file>Lang</file> are basic parts of any GNOME "
 "application, which let you create windows and widgets and tie them together."
 msgstr ""
+"<file>Gtk</file> y <file>Lang</file> son partes básicas de cualquier "
+"aplicación de GNOME, que le permiten crear ventanas y widgets, y juntarlos."
 
 #: C/hellognome.js.page:87(item/p)
 msgid ""
 "<file>GLib</file> is a helper library, which lets us do things like tell "
 "GNOME where the <file>hellognome.html</file> file we created is."
 msgstr ""
+"<file>GLib</file> es una biblioteca de ayuda, que permite hacer cosas como "
+"decirle a GNOME dónde está el archivo <file>hellognome.html</file> que creó."
 
 #: C/hellognome.js.page:88(item/p)
 msgid ""
 "And <file>Webkit</file> is a web rendering engine, which we'll use to "
 "basically create a browser window to open our HTML file with."
 msgstr ""
+"Y <file>Webkit</file> es un motor de procesamiento web, que usará "
+"básicamente para crear una ventana de navegador con la que abrir el archivo "
+"HTML."
 
 #: C/hellognome.js.page:91(section/p)
-#, fuzzy
-#| msgid "Creating the application window"
 msgid "Now we create the application itself:"
-msgstr "Crear la ventana de la aplicación"
+msgstr "Ahora se crea la aplicación en sí:"
 
 #: C/hellognome.js.page:92(section/code)
 #, no-wrap
