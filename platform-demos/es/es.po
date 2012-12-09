@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-12-03 22:54+0000\n"
-"PO-Revision-Date: 2012-12-07 12:40+0100\n"
+"POT-Creation-Date: 2012-12-07 11:43+0000\n"
+"PO-Revision-Date: 2012-12-09 19:56+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -18781,11 +18781,9 @@ msgstr ""
 "external ref='media/helloWorld.png' md5='4c88a27211dfd1b33e504c9f78602f2d'"
 
 #: C/helloWorld.js.page:8(info/title)
-#, fuzzy
-#| msgid "Hello World"
 msgctxt "text"
 msgid "Hello World (JavaScript)"
-msgstr "Hola mundo"
+msgstr "Hola mundo (JavaScript)"
 
 #: C/helloWorld.js.page:23(info/desc)
 msgid "A basic \"hello, world\" application"
@@ -18797,30 +18795,27 @@ msgstr "Hola mundo"
 
 #: C/helloWorld.js.page:29(synopsis/p)
 msgid "This tutorial will demonstrate how to:"
-msgstr ""
+msgstr "Este tutorial le demostrará cómo:"
 
 #: C/helloWorld.js.page:31(item/p)
-#, fuzzy
-#| msgid "This a basic Hello World application done with JavaScript and GTK+."
 msgid "create a small \"Hello, World\" application using JavaScript and GTK+"
-msgstr ""
-"Esto es una aplicación «Hola mundo» básica hecha con JavaScript y GTK+."
+msgstr "crear una pequeña aplicación «Hola, mundo» usando JavaScript y GTK+"
 
 #: C/helloWorld.js.page:32(item/p)
 msgid "make the <file>.desktop</file> file"
-msgstr ""
+msgstr "hacer el archivo <file>.desktop</file>"
 
 #: C/helloWorld.js.page:33(item/p)
 msgid "how to set up the build system"
-msgstr ""
+msgstr "configurar el sistema de construcción"
 
 #: C/helloWorld.js.page:41(section/title)
 msgid "Create the HelloWorld program"
-msgstr ""
+msgstr "Crear el programa «HolaMundo»"
 
 #: C/helloWorld.js.page:46(section/p)
 msgid "This needs to be the first line of your script:"
-msgstr ""
+msgstr "Esta tiene que ser la primera línea de su script:"
 
 #: C/helloWorld.js.page:47(section/code)
 #, no-wrap
@@ -18832,6 +18827,8 @@ msgid ""
 "It tells the script to use <link href=\"https://live.gnome.org/Gjs/\">Gjs</"
 "link>. Gjs is a JavaScript binding for GNOME."
 msgstr ""
+"Le dice al script que use <link href=\"https://live.gnome.org/Gjs/\">Gjs</"
+"link>. Gjs es una vinculación de JavaScript para GNOME."
 
 #: C/helloWorld.js.page:53(section/code)
 #, no-wrap
@@ -18843,12 +18840,6 @@ msgstr ""
 "const Gtk = imports.gi.Gtk;"
 
 #: C/helloWorld.js.page:55(section/p)
-#, fuzzy
-#| msgid ""
-#| "In order for our script to work with GNOME, we need to import GNOME "
-#| "libraries via GObject Introspection. In this case, we're importing GTK+, "
-#| "the most basic library that contains the graphical widgets used to make "
-#| "GNOME apps."
 msgid ""
 "In order for our script to work with GNOME, we need to import GNOME "
 "libraries via GObject Introspection. Here we import the language bindings "
@@ -18856,9 +18847,9 @@ msgid ""
 "GNOME applications."
 msgstr ""
 "Para que su script funcione con GNOME, se deben importar las bibliotecas de "
-"GNOME mediante introspección de GObject. En este caso, se está importando GTK"
-"+, la biblioteca más importante que con tiene los widgets gráficos usados "
-"para crear aplicaciones de GNOME."
+"GNOME mediante introspección de GObject. En este caso, se están importando "
+"las vinculaciones de lenguaje y GTK+, la biblioteca que contiene los widgets "
+"gráficos usados para crear aplicaciones de GNOME."
 
 #: C/helloWorld.js.page:59(section/code)
 #, no-wrap
@@ -18931,42 +18922,29 @@ msgid ""
 "that's automatically generated along with the window to the \"destroy\" "
 "signal."
 msgstr ""
+"«GtkApplication» inicializa GTK+. También conecta el botón <gui>x</gui> que "
+"se genera automáticamente junto con la ventana a la señal «destroy»."
 
 #: C/helloWorld.js.page:92(section/p)
-#, fuzzy
-#| msgid ""
-#| "After importing Gtk, we need to initialize it. After that, we can start "
-#| "building our first window. We do this by creating a variable called "
-#| "mywindow and assigning it a new Gtk.Window of type TOPLEVEL."
 msgid ""
 "We can start building our first window. We do this by creating a variable "
 "called <var>_window</var> and assigning it a new Gtk.ApplicationWindow."
 msgstr ""
-"Después de importar GTK+, se debe inicializar. Después de inicializar GTK+ "
-"se puede empezar a construir la primera ventana. Esto se hace creando una "
-"variable llamada «mywindow» y asignándole una «Gtk.Window» de tipo "
-"«TOPLEVEL»."
+"Se puede empezar a construir la primera ventana. Esto se hace creando una "
+"variable llamada <var>_window</var> y asignándole una «Gtk."
+"ApplicationWindow» nueva."
 
 #: C/helloWorld.js.page:93(section/p)
-#, fuzzy
-#| msgid ""
-#| "After setting up our first window we'll give the window a property called "
-#| "title. The title can be any string you want it to be. To be on the safe "
-#| "side, it's best to stick to UTF-8 encoding."
 msgid ""
 "We give the window a property called <var>title</var>. The title can be any "
 "string you want it to be. To be on the safe side, it's best to stick to "
 "UTF-8 encoding."
 msgstr ""
-"Después de configurar la primera ventana, se le asignará una propiedad "
-"llamada «title». El título puede ser la cadena que quiera pero, para estar "
-"seguro, es conveniente que tenga una codificación UTF-8."
+"Se le asignara una propiedad llamada <var>title</var>. El título puede ser "
+"la cadena que quiera pero, para estar seguro, es conveniente que tenga una "
+"codificación UTF-8."
 
 #: C/helloWorld.js.page:94(section/p)
-#, fuzzy
-#| msgid ""
-#| "Now we have a window that has a title and a working \"close\" button. "
-#| "Let's add the actual \"Hello, world\" text."
 msgid ""
 "Now we have a window which has a title and a working \"close\" button. Let's "
 "add the actual \"Hello World\" text."
@@ -18999,6 +18977,11 @@ msgid ""
 "braces {}. In this case, we're setting the text that the label will hold. "
 "Finally, we create and run the application:"
 msgstr ""
+"Una etiqueta de texto es uno de los widgets de GTK+ que puede usar si "
+"importó la biblioteca GTK+. Para usarlo, cree una variable nueva llamada "
+"«label» y asígnele una Gtk.Label nueva. Después dele propiedades dentro de "
+"las llaves «{}». En este caso, se está estableciendo el texto que la "
+"etiqueta contendrá. Finalmente, se crea y ejecuta la aplicación:"
 
 #: C/helloWorld.js.page:105(section/code)
 #, no-wrap
@@ -19017,6 +19000,9 @@ msgid ""
 "elaborate programs you need to create a holder widget like Gtk.Grid inside "
 "the window, and then add all the other widgets to it."
 msgstr ""
+"«Gtk.ApplicationWindow» sólo puede contener un widget a la vez. Para "
+"construir programas más elaborados necesita crear un widget contenedor como "
+"«Gtk.Grid» dentro de la ventana, y después añadirle los otros."
 
 #: C/helloWorld.js.page:113(section/title)
 msgid "helloWorld.js"
@@ -19024,7 +19010,7 @@ msgstr "helloWorld.js"
 
 #: C/helloWorld.js.page:114(section/p)
 msgid "The complete file:"
-msgstr ""
+msgstr "El archivo completo:"
 
 #: C/helloWorld.js.page:115(section/code)
 #, no-wrap
@@ -19116,44 +19102,27 @@ msgstr ""
 "app.application.run(ARGV);\n"
 
 #: C/helloWorld.js.page:118(section/title)
-#, fuzzy
-#| msgid "Running the application from Terminal"
 msgid "Running the application from terminal"
 msgstr "Ejecutar la aplicación desde la terminal"
 
 #: C/helloWorld.js.page:119(section/p)
-#, fuzzy
-#| msgid ""
-#| "To run this application, first save it as helloWorld.js. Then open "
-#| "Terminal, go to the folder where your application is stored and run"
 msgid ""
 "To run this application, first save it as helloWorld.js. Then open Terminal, "
 "go to the folder where your application is stored and run:"
 msgstr ""
-"Para ejecutar esta aplicación ,primero guárdela como helloWorld.js. Luego, "
-"abra una terminal, vaya a la carpeta donde está la aplicación y ejecute"
+"Para ejecutar esta aplicación, primero guárdela como helloWorld.js. Luego, "
+"abra una terminal, vaya a la carpeta donde está la aplicación y ejecute:"
 
 #: C/helloWorld.js.page:120(section/screen)
 #, no-wrap
 msgid "<output style=\"prompt\">$ </output><input>gjs helloWorld.js</input>"
-msgstr ""
+msgstr "<output style=\"prompt\">$ </output><input>gjs helloWorld.js</input>"
 
 #: C/helloWorld.js.page:126(section/title)
 msgid "The <file>.desktop.in</file> file"
-msgstr ""
+msgstr "El archivo <file>.desktop.in</file>"
 
 #: C/helloWorld.js.page:127(section/p)
-#, fuzzy
-#| msgid ""
-#| "Running applications from the Terminal is useful at the beginning of the "
-#| "application making process. To have a fully working <link href=\"http://"
-#| "library.gnome.org/admin/system-admin-guide/stable/mimetypes-9.html.en"
-#| "\">application integration</link> in GNOME 3 requires a desktop launcher. "
-#| "For this you need to create a <file>.desktop</file> file. The .desktop "
-#| "file describes the application name, the used icon and various "
-#| "integration bits. A deeper insight to <file>.desktop</file> file can be "
-#| "found <link href=\"http://developer.gnome.org/desktop-entry-spec/\">here</"
-#| "link>."
 msgid ""
 "Running applications from the Terminal is useful at the beginning of the "
 "application making process. To have fully working <link href=\"http://"
@@ -19174,30 +19143,29 @@ msgstr ""
 "archivo «.desktop» describe el nombre de la aplicación, el icono que usa y "
 "varios campos de integración. Puede encontrar una descripción de los "
 "archivos <file>.desktop</file> <link href=\"http://developer.gnome.org/"
-"desktop-entry-spec/\">aquí</link>."
+"desktop-entry-spec/\">aquí</link>. El archivo <file>.desktop.in</file> "
+"creará el <file>.desktop</file>."
 
 #: C/helloWorld.js.page:130(note/p)
 msgid ""
 "Before continuing, resave <file>helloWorld.js</file> as <file>helloWorld</"
 "file>. Then run this in the command line:"
 msgstr ""
+"Antes de continuar, guarde nuevamente <file>helloWorld.js</file> como "
+"<file>helloWorld</file>. Después ejecute esto en la terminal:"
 
 #: C/helloWorld.js.page:131(note/screen)
 #, no-wrap
 msgid "<output style=\"prompt\">$ </output><input>chmod +x helloWorld</input>"
-msgstr ""
+msgstr "<output style=\"prompt\">$ </output><input>chmod +x helloWorld</input>"
 
 #: C/helloWorld.js.page:134(section/p)
-#, fuzzy
-#| msgid ""
-#| "The example shows you the minimum requirements for a <code>.desktop</"
-#| "code> file."
 msgid ""
 "The example shows you the minimum requirements for a <code>.desktop.in</"
 "code> file."
 msgstr ""
-"El ejemplo muestra los requerimientos mínimos de un archivo <code>.desktop</"
-"code>."
+"El ejemplo muestra los requerimientos mínimos de un archivo <code>.desktop."
+"in</code>."
 
 #: C/helloWorld.js.page:135(section/code)
 #, no-wrap
@@ -19227,73 +19195,52 @@ msgstr ""
 "Categories=GNOME;GTK;Utility;\n"
 
 #: C/helloWorld.js.page:137(section/p)
-#, fuzzy
-#| msgid "Now let's go through some parts of the <code>.desktop</code> file."
 msgid "Now let's go through some parts of the <code>.desktop.in</code> file."
-msgstr "Ahora se verán algunas partes del archivo <code>.desktop</code>."
+msgstr "Ahora se verán algunas partes del archivo <code>.desktop.in</code>."
 
 #: C/helloWorld.js.page:139(item/title) C/toolbar_builder.py.page:93(td/p)
 #: C/toolbar_builder.vala.page:77(td/p)
 msgid "Name"
-msgstr "Nombre"
+msgstr "Name"
 
 #: C/helloWorld.js.page:139(item/p)
-#, fuzzy
-#| msgid "Run the application"
 msgid "The application name."
-msgstr "Ejecutar la aplicación"
+msgstr "El nombre de la aplicación."
 
 #: C/helloWorld.js.page:140(item/title)
 msgid "Comment"
-msgstr ""
+msgstr "Comment"
 
 #: C/helloWorld.js.page:140(item/p)
-#, fuzzy
-#| msgid "Designing the application"
 msgid "A short description of the application."
-msgstr "Diseñar la aplicación"
+msgstr "Una descripción corta de la aplicación."
 
 #: C/helloWorld.js.page:141(item/title)
 msgid "Exec"
-msgstr ""
+msgstr "Exec"
 
 #: C/helloWorld.js.page:141(item/p)
-#, fuzzy
-#| msgid ""
-#| "Line 6: Specifies a command to execute when you choose the item from the "
-#| "menu. In this example exec just tells where to find the <code>helloworld."
-#| "js</code> file and the file takes care of the rest."
 msgid ""
 "Specifies a command to execute when you choose the application from the "
 "menu. In this example exec just tells where to find the <file>helloWorld</"
 "file> file and the file takes care of the rest."
 msgstr ""
-"Línea 6: especifica un comando que ejecutar cuando se elige el elemento en "
-"el menú. En este ejemplo, «exec» sólo indica dónde encontrar el archivo "
-"<code>helloworld.js</code> y el archivo se hace cargo del resto."
+"Especifica un comando que ejecutar cuando se elige la aplicación en el menú. "
+"En este ejemplo, «exec» sólo indica dónde encontrar el archivo "
+"<code>helloworld</code> y el archivo se hace cargo del resto."
 
 #: C/helloWorld.js.page:142(item/title)
 msgid "Terminal"
 msgstr "Terminal"
 
 #: C/helloWorld.js.page:142(item/p)
-#, fuzzy
-#| msgid ""
-#| "Line 8: Specifies whether the command in the Exec key runs in a terminal "
-#| "window."
 msgid ""
 "Specifies whether the command in the Exec key runs in a terminal window."
 msgstr ""
-"Línea 8: especifica si el comando del campo «Exec» se ejecuta en una ventana "
-"de la terminal."
+"Especifica si el comando del campo «Exec» se ejecuta en una ventana de la "
+"terminal."
 
 #: C/helloWorld.js.page:145(section/p)
-#, fuzzy
-#| msgid ""
-#| "To put your application to the right category you need to add the "
-#| "necessary categories to the Categories line. More information on the "
-#| "different categories can be found in the <link href=\"http://standards."
-#| "freedesktop.org/menu-spec/latest/apa.html\">menu spec</link>."
 msgid ""
 "To put your application into the appropriate category, you need to add the "
 "necessary categories to the Categories line. More information on the "
@@ -19307,17 +19254,6 @@ msgstr ""
 "menú</link>."
 
 #: C/helloWorld.js.page:146(section/p)
-#, fuzzy
-#| msgid ""
-#| "In this example I used an existing icon. For a custom icon you need to "
-#| "have a .svg file of your icon, store it to /usr/share/icons/hicolor/"
-#| "scalable/apps. Write the name of your icon file to the .desktop file, on "
-#| "line 7. More information on icons in: <link href=\"http://library.gnome."
-#| "org/admin/system-admin-guide/stable/themes-11.html.en\"> Installing Icons "
-#| "for Themes </link>, <link href=\"https://live.gnome.org/GnomeGoals/AppIcon"
-#| "\">Installing Icons for Themes</link> and <link href=\"http://freedesktop."
-#| "org/wiki/Specifications/icon-theme-spec\">on freedesktop.org: "
-#| "Specifications/icon-theme-spec</link>."
 msgid ""
 "In this example we use an existing icon. For a custom icon you need to have "
 "a .svg file of your icon, stored in <file>/usr/share/icons/hicolor/scalable/"
@@ -19330,18 +19266,19 @@ msgid ""
 "icon-theme-spec</link>."
 msgstr ""
 "En este ejemplo se ha usado un icono existente. Para usar un icono "
-"personalizado, necesita un archivo .svg con su icono y guardarlo en /usr/"
-"share/icons/hicolor/scalable/apps. Escriba el nombre del archivo del icono "
-"en el archivo .desktop, en la línea 7. Puede obtener más información sobre "
-"los iconos en <link href=\"http://library.gnome.org/admin/system-admin-guide/"
-"stable/themes-11.html.en\">Instalar iconos para temas</link>, <link href="
-"\"https://live.gnome.org/GnomeGoals/AppIcon\">Instalar iconos para temas</"
-"link> y <link href=\"http://freedesktop.org/wiki/Specifications/icon-theme-"
-"spec\">en freedesktop.org: Specifications/icon-theme-spec</link>."
+"personalizado, necesita un archivo «.svg» con su icono guardado en <file>/"
+"usr/share/icons/hicolor/scalable/apps</file>. Escriba el nombre del archivo "
+"del icono en el archivo «.desktop.in», en la línea 7. Puede obtener más "
+"información sobre los iconos en <link href=\"http://library.gnome.org/admin/"
+"system-admin-guide/stable/themes-11.html.en\">Instalar iconos para temas</"
+"link>, <link href=\"https://live.gnome.org/GnomeGoals/AppIcon\">Instalar "
+"iconos para temas</link> y <link href=\"http://freedesktop.org/wiki/"
+"Specifications/icon-theme-spec\">en freedesktop.org: especificaciones/icon-"
+"theme-spec</link>."
 
 #: C/helloWorld.js.page:149(section/title)
 msgid "The build system"
-msgstr ""
+msgstr "El sistema de construcción"
 
 #: C/helloWorld.js.page:150(section/p)
 msgid ""
@@ -19404,10 +19341,10 @@ msgstr ""
 "fi\n"
 
 #: C/helloWorld.js.page:157(section/p)
-#, fuzzy
-#| msgid "After the autogen.sh file is ready and saved run"
 msgid "After the <file>autogen.sh</file> file is ready and saved, run:"
-msgstr "Una vez que esté listo el archivo autogen.sh, guárdelo y ejecute"
+msgstr ""
+"Una vez que el archivo <file>autogen.sh</file> esté listo y guardado, "
+"ejecute:"
 
 #: C/helloWorld.js.page:158(section/screen)
 #, no-wrap
@@ -19485,6 +19422,10 @@ msgid ""
 "sh</file> files with correct information and rights, the <file>README</file> "
 "file can include the following instructions:"
 msgstr ""
+"Cuando tenga los archivos <file>helloWorld</file>, <file>helloWorld.desktop."
+"in</file>, <file>Makefile.am</file>, <file>configure.ac</file> y "
+"<file>autogen.sh</file> con la información y los derechos correctos, el "
+"archivo <file>README</file> puede incluir las siguientes instrucciones:"
 
 #: C/helloWorld.js.page:176(section/code)
 #, no-wrap
@@ -19589,11 +19530,9 @@ msgid "external ref='media/image.png' md5='9416aa74d9d6a857783f7a36338e7a02'"
 msgstr "external ref='media/image.png' md5='9416aa74d9d6a857783f7a36338e7a02'"
 
 #: C/image.c.page:7(info/title)
-#, fuzzy
-#| msgid "Image"
 msgctxt "text"
 msgid "Image (C)"
-msgstr "Image"
+msgstr "Image (C)"
 
 #: C/image.c.page:17(info/desc) C/image.js.page:16(info/desc)
 #: C/image.py.page:17(info/desc) C/image.vala.page:17(info/desc)
@@ -19710,11 +19649,9 @@ msgstr ""
 "\">GtkImage</link>"
 
 #: C/image.js.page:6(info/title)
-#, fuzzy
-#| msgid "JavaScript"
 msgctxt "text"
 msgid "Image (JavaScript)"
-msgstr "JavaScript"
+msgstr "Image (JavaScript)"
 
 #: C/image.js.page:26(page/code)
 #, no-wrap
@@ -19850,11 +19787,9 @@ msgstr ""
 "\">Gtk.Image</link>"
 
 #: C/image.py.page:7(info/title)
-#, fuzzy
-#| msgid "Python"
 msgctxt "text"
 msgid "Image (Python)"
-msgstr "Python"
+msgstr "Image (Python)"
 
 #: C/image.py.page:24(note/p)
 msgid ""
@@ -19937,6 +19872,9 @@ msgid ""
 "an instance of another class and add it to the instance of <code>MyWindow</"
 "code> in the <code>do_activate(self)</code> method:"
 msgstr ""
+"Otra manera de obtener lo que se tiene en el ejemplo es crear la imagen como "
+"una instancia de otra clase y añadírsela a la instancia de <code>MyWindow</"
+"code> en el método <code>do_activate(self)</code>:"
 
 #: C/image.py.page:36(section/code)
 #, no-wrap
@@ -20006,6 +19944,15 @@ msgid ""
 "IconSize.SMALL_TOOLBAR, Gtk.IconSize.LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk."
 "IconSize.DND, Gtk.IconSize.DIALOG</code>."
 msgstr ""
+"Para establecer un icono del almacén como imagen, puede usar "
+"<code>set_from_stock(id_almacén, tamaño)</code> donde <code>id_almacén</"
+"code> es un icono del almacén como <code>Gtk.STOCK_ABOUT</code> (puede "
+"encontrar más en <link href=\"http://developer.gnome.org/gtk3/unstable/gtk3-"
+"Stock-Items\">Elementos del almacén</link>, teniendo en cuenta que deben "
+"modificarse como anteriormente) y un <code>tamaño</code> de icono del "
+"almacén, que puede ser <code>Gtk.IconSize.INVALID, Gtk.IconSize.MENU, Gtk."
+"IconSize.SMALL_TOOLBAR, Gtk.IconSize.LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk."
+"IconSize.DND, Gtk.IconSize.DIALOG</code>."
 
 #: C/image.py.page:67(item/p)
 msgid ""
@@ -20013,6 +19960,10 @@ msgid ""
 "<code>icon_name</code> is a stock icon name such as <code>\"gtk-about\"</"
 "code> (more can be found as above) and <code>size</code> is as above."
 msgstr ""
+"También puede usar <code>set_from_icon_name(nombre_icono, tamaño)</code> "
+"donde <code>nombre_icono</code> es un nombre de icono del almacén como "
+"<code>«gtk-about»</code> (puede encontrar más como se mencionó) y "
+"<code>tamaño</code> es igual que con «set_from_stock»."
 
 #: C/image.py.page:68(item/p)
 msgid ""
