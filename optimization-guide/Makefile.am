@@ -1,7 +1,7 @@
 @YELP_HELP_RULES@
 
 HELP_ID = optimization-guide
-DOC_LINGUAS = cs de el es fr gl sl zh_CN
+DOC_LINGUAS = cs de el es fr gl sl zh_CN pt_BR
 DOC_ENTITIES =
 HELP_FILES =				\
 	index.docbook			\
