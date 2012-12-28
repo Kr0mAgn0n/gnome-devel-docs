@@ -162,7 +162,7 @@ def on_tree_selection_changed(selection):
         print "You selected", model[treeiter][0]
 </code>
 
-<p>Useful method for a <code>Gtk.TreeSelection</code>:</p>
+<p>Useful methods for a <code>Gtk.TreeSelection</code>:</p>
 
 <list>
   <item><p><code>set_mode(type)</code> sets the type of selection, where type is one of</p>
@@ -170,7 +170,7 @@ def on_tree_selection_changed(selection):
     <item><p><code>Gtk.SelectionMode.NONE</code> - no selection is possible</p></item>
     <item><p><code>Gtk.SelectionMode.SINGLE</code> - zero or one element may be selected</p></item>
     <item><p><code>Gtk.SelectionMode.BROWSE</code> - exactly one element is selected. In some circumstances, such as initially or during a search operation, it’s possible for no element to be selected. What is really enforced is that the user can’t deselect a currently selected element except by selecting another element.</p></item>
-    <item><p><code>Gtk.SelectionMode.MULTIPLE</code> -any number of elements may be selected. Clicks toggle the state of an item. Any number of elements may be selected. The Ctrl key may be used to enlarge the selection, and Shift key to select between the focus and the child pointed to. Some widgets may also allow Click-drag to select a range of elements.</p></item>
+    <item><p><code>Gtk.SelectionMode.MULTIPLE</code> -any number of elements may be selected. Clicks toggle the state of an item. The Ctrl key may be used to enlarge the selection, and Shift key to select between the focus and the child pointed to. Some widgets may also allow Click-drag to select a range of elements.</p></item>
   </list>
   </item>
   <item><p><code>get_selected()</code> returns a tuple <code>(model, treeiter)</code>, where <code>model</code> is the current model and <code>treeiter</code> a <code>Gtk.TreeIter</code> pointing to the currently selected row, or None if no rows are selected. The method does not work if the selection mode is set to <code>Gtk.SelectionMode.MULTIPLE</code>; in that case, use <code>get_selected_rows()</code> instead, which Returns a list of <code>Gtk.TreePath</code> instances of all selected rows.</p></item>
