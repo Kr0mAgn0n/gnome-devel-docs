@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2012-12-27 12:44+0000\n"
-"PO-Revision-Date: 2012-12-27 14:05+0100\n"
+"POT-Creation-Date: 2012-12-28 16:14+0000\n"
+"PO-Revision-Date: 2012-12-28 17:21+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -5516,11 +5516,6 @@ msgid "Useful methods for a Button widget"
 msgstr "Métodos útiles para un widget «Button»"
 
 #: C/button.py.page:35(section/p)
-#, fuzzy
-#| msgid ""
-#| "<code>button = Gtk.Button(label=\"Click me\")</code> could also be used "
-#| "create a button and set the text directly. For a general discussion of "
-#| "this, see <link xref=\"properties.py\">here</link>."
 msgid ""
 "<code>button = Gtk.Button(label=\"Click me\")</code> could also be used to "
 "create a button and set the text directly. For a general discussion of this, "
@@ -24875,10 +24870,6 @@ msgstr ""
 "    print \"You clicked \\\"New\\\"\""
 
 #: C/menubar.py.page:104(section/p)
-#, fuzzy
-#| msgid ""
-#| "Now, in the XML file, we we connect the menu items to the actions in the "
-#| "XML file by adding the \"action\" attribute:"
 msgid ""
 "Now, in the XML file, we connect the menu items to the actions in the XML "
 "file by adding the \"action\" attribute:"
@@ -24954,15 +24945,6 @@ msgstr ""
 "la ventana."
 
 #: C/menubar.py.page:124(section/p)
-#| msgid ""
-#| "The complete example files contain both application actions and window "
-#| "applications. The window actions are the ones usually included in the "
-#| "<link xref=\"gmenu.py\">application menu</link> also. It is not good "
-#| "practice to include window actions in the applcation menu. For "
-#| "demonstration purposes, the complete example files which follow include "
-#| "XML in the UI file which creates the application menu which includes a "
-#| "\"New\" and \"Open\" item, and these are hooked up to the same actions as "
-#| "the menubar items of the same name."
 msgid ""
 "The complete example files contain both application actions and window "
 "actions. The window actions are the ones usually included in the <link xref="
@@ -27685,6 +27667,8 @@ msgid ""
 "To test out the application once it has started running, you can click on "
 "the \"Message Dialog\" tab that appears in the top menubar of the screen."
 msgstr ""
+"Para probar la aplicación una vez que la ha ejecutado, puede pulsar la "
+"pestaña «Message Dialog», en la barra de menú superior de la pantalla."
 
 #: C/messagedialog.c.page:29(page/code)
 #, no-wrap
@@ -28076,6 +28060,13 @@ msgid ""
 "appears when you click on an application's name in the upper-left screen "
 "corner, next to Activities."
 msgstr ""
+"Un «MessageDialog» es un diálogo de mensaje modal, es decir un diálogo "
+"emergente al que tiene que responder antes de volver a lo que estaba "
+"haciendo en la ventana a la que está vinculado. Este puede hacer que el "
+"mundo explote (o al menos eso dice). Para hacer que el diálogo aparezca "
+"cuando ejecute este ejemplo, pulse «Message» dentro de su menú de aplicación "
+"(el que aparece cuando pulsa en el nombre de la aplicación en la esquina "
+"superior izquierda, junto a «Actividades»)."
 
 #: C/messagedialog.js.page:26(note/p)
 msgid ""
@@ -28084,6 +28075,10 @@ msgid ""
 "you want to put in it, whereas a MessageDialog is just a convenient way to "
 "make popups appear with a basic message and buttons."
 msgstr ""
+"La diferencia entre un «MessageDialog» y un <link xref=\"dialog.js\">Dialog</"
+"link> es que un «Dialog» puede contener cualquier widget y tener el contenido "
+"que quiera, mientras que un «MessageDialog» es sólo una manera cómoda de "
+"hacer que aparezca un diálogo emergente con un mensaje básico y botones."
 
 #: C/messagedialog.js.page:43(section/code)
 #, no-wrap
@@ -28201,6 +28196,8 @@ msgid ""
 "For this example, all that we have in the window the popup comes out of is a "
 "silly warning <link xref=\"label.js\">Label</link>."
 msgstr ""
+"Para este ejemplo, todo lo que hay en la ventana de la que viene el diálogo "
+"emergente es una <link xref=\"label.js\">Label</link> de advertencia tonta."
 
 #: C/messagedialog.js.page:95(section/title)
 msgid "Creating the application's menu"
@@ -28267,6 +28264,11 @@ msgid ""
 "upper-left corner of the screen, next to the Activities menu. Our menu only "
 "has two options in it: Message, and Quit."
 msgstr ""
+"Aquí, se construye el <link xref=\"gmenu.js\">GMenu</link> donde se pondrá "
+"el botón «Message» que acciona el «MessageDialog» emergente. El «GMenu» es el "
+"menú que aparece cuando pulsa el nombre de la aplicación en la esquina "
+"superior izquierda de la pantalla, junto al menú «Actividades». Este menú "
+"sólo tiene dos opciones: «Message» y «Quit»."
 
 #: C/messagedialog.js.page:125(section/title)
 msgid "Creating the MessageDialog"
@@ -28314,34 +28316,32 @@ msgid ""
 "text inside it, before connecting its \"response\" signal to the callback "
 "function which handles it."
 msgstr ""
+"Para hacer del «MessageDialog» un diálogo emergente vinculado a la ventana "
+"principal, se establece su propiedad «modal» a «true» y «transient_for» a "
+"«_window». Después, se puede configurar el tipo de botones que tiene y qué "
+"tipo de mensaje es (determinando el icono junto al mensaje), y escribir su "
+"texto, antes de conectar su señal «response» a la función de retorno de "
+"llamada que la maneja."
 
 #: C/messagedialog.js.page:142(note/p)
 msgid "Here are some resources for making your own MessageDialogs:"
-msgstr ""
+msgstr "Aquí hay algunos recursos para hacer sus propios «MessageDialog»:"
 
 #: C/messagedialog.js.page:144(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkMessageDialog."
 "html#GtkButtonsType\">List of button types</link>"
 msgstr ""
-"<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-"\">Señales</link> en la documentación de GObject"
+"<link href=\"http://developer.gnome.org/gtk3/stable/GtkMessageDialog."
+"html#GtkButtonsType\">Lista de tipos de botones</link>"
 
 #: C/messagedialog.js.page:145(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-#| "\">Signals</link> in GObject documentation"
 msgid ""
 "<link href=\"http://developer.gnome.org/gtk3/stable/GtkMessageDialog."
 "html#GtkMessageType\">List of message types</link>"
 msgstr ""
-"<link href=\"http://developer.gnome.org/gobject/stable/signal.html"
-"\">Señales</link> en la documentación de GObject"
+"<link href=\"http://developer.gnome.org/gtk3/stable/GtkMessageDialog."
+"html#GtkMessageType\">Lista de tipos de mensajes</link>"
 
 #: C/messagedialog.js.page:149(section/code)
 #, no-wrap
@@ -28402,6 +28402,13 @@ msgid ""
 "of clicking OK or Cancel. Whatever you select, the popup is destroyed "
 "afterwards."
 msgstr ""
+"Esta función toma dos parámetros, el «MessageDialog» y su «response_id», ambos "
+"proporcionados automáticamente (no tiene que pasarlos manualmente para que "
+"funcione). Aquí se usa un interruptor simple para cambiar el texto de la "
+"«etiqueta de advertencia», dependiendo de qué opción elija. «DELETE_EVENT» "
+"ocurre su presiona «Escape» para cancelar el «MessageDialog», en lugar de "
+"presionar «OK» o «Cancel». Elija lo que elija, el diálogo emergente de "
+"destruirá a continuación."
 
 #: C/messagedialog.js.page:174(section/code)
 #, no-wrap
@@ -28421,6 +28428,8 @@ msgid ""
 "Finally, we create a new instance of the finished MessageDialogExample "
 "class, and set the application running."
 msgstr ""
+"Finalmente, se crea una instancia nueva de la clase «MessageDialogExample» "
+"terminada, y se ejecuta la aplicación."
 
 #: C/messagedialog.js.page:184(section/code)
 #, no-wrap
@@ -28860,6 +28869,10 @@ msgid ""
 "when its parent window is destroyed) or as <code>Gtk.DialogFlags.MODAL</"
 "code> (no interaction with other windows of the application)."
 msgstr ""
+"En el constructor de un «MessageDialog» se pueden configurar opciones como "
+"<code>Gtk.DialogFlags.DESTROY_WITH_PARENT</code> (para destruir la ventana "
+"de diálogo cuando se destruya su ventana madre) o <code>Gtk.DialogFlags."
+"MODAL</code> (sin interacción con otras ventanas de la aplicación)."
 
 #: C/messagedialog.py.page:39(item/p)
 msgid ""
@@ -28868,6 +28881,10 @@ msgid ""
 "MessageType.ERROR, Gtk.MessageType.OTHER</code> depending on what type of "
 "message we want."
 msgstr ""
+"En el constructor del «MessageDialog» se puede elegir entre los tipos "
+"<code>Gtk.MessageType.INFO, Gtk.MessageType.WARNING, Gtk.MessageType."
+"QUESTION, Gtk.MessageType.ERROR, Gtk.MessageType.OTHER</code> dependiendo de "
+"qué tipo de mensaje quiera."
 
 #: C/messagedialog.py.page:40(item/p)
 msgid ""
@@ -28876,12 +28893,19 @@ msgid ""
 "CANCEL, Gtk.ButtonsType.YES_NO, Gtk.ButtonsType.OK_CANCEL</code>, or any "
 "button using <code>add_button()</code> as in Gtk.Dialog."
 msgstr ""
+"En el constructor del «MessageDialog» se puede elegir entre los botones "
+"<code>Gtk.ButtonsType.NONE, Gtk.ButtonsType.OK, Gtk.ButtonsType.CLOSE, Gtk."
+"ButtonsType.CANCEL, Gtk.ButtonsType.YES_NO, Gtk.ButtonsType.OK_CANCEL</"
+"code>, o cualquier botón usando <code>add_button()</code> como en un «Gtk."
+"Dialog»."
 
 #: C/messagedialog.py.page:41(item/p)
 msgid ""
 "We could substitute the default image of the MessageDialog with another "
 "image using"
 msgstr ""
+"Se podría sustituir la imagen predeterminada del «MessageDialog» con otra "
+"usando"
 
 #: C/messagedialog.py.page:42(item/code)
 #, no-wrap
@@ -28905,12 +28929,19 @@ msgid ""
 "Items</link>. We could also set any image as in the Image widget, as "
 "<code>image.set_from_file(\"filename.png\")</code>."
 msgstr ""
+"donde <code>Gtk.STOCK_CAPS_LOCK_WARNING</code> es cualquier imagen de los "
+"<link href=\"http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items.html"
+"\">elementos del almacén</link>. También se podría establecer cualquier "
+"imagen como en el widget «Image», con <code>image.set_from_file(\"archivo.png"
+"\")</code>."
 
 #: C/messagedialog.py.page:48(item/p)
 msgid ""
 "<code>format_secondary_text(\"some secondary message\")</code> sets a "
 "secondary message. The primary text becomes bold."
 msgstr ""
+"<code>format_secondary_text(\"algún mensaje secundario\")</code> establece "
+"un mensaje secundario. El texto primario aparece en negrita."
 
 #: C/messagedialog.py.page:58(item/p)
 msgid ""
@@ -29687,7 +29718,7 @@ msgstr ""
 
 #: C/model-view-controller.py.page:147(section/title)
 msgid "The Controller: the Selection"
-msgstr ""
+msgstr "El controlador: la selección"
 
 #: C/model-view-controller.py.page:149(section/p)
 msgid ""
@@ -29695,6 +29726,10 @@ msgid ""
 "receiving input events from users. To do this, simply get a reference to a "
 "selection object and connect to the <code>\"changed\"</code> signal."
 msgstr ""
+"La mayoría de las aplicaciones no solo necesitarán mostrar datos, sino "
+"también recibir eventos de entrada de los usuarios. Para hacer esto, "
+"simplemente obtenga una referencia a un objeto de selección y conéctela a la "
+"señal <code>«changed»</code>."
 
 #: C/model-view-controller.py.page:151(section/code)
 #, no-wrap
@@ -29709,7 +29744,7 @@ msgstr ""
 
 #: C/model-view-controller.py.page:156(section/p)
 msgid "Then to retrieve data for the row selected:"
-msgstr ""
+msgstr "Después, para obtener datos de la fila seleccionada:"
 
 #: C/model-view-controller.py.page:158(section/code)
 #, no-wrap
@@ -29727,22 +29762,27 @@ msgstr ""
 "        print \"You selected\", model[treeiter][0]\n"
 
 #: C/model-view-controller.py.page:165(section/p)
-msgid "Useful method for a <code>Gtk.TreeSelection</code>:"
-msgstr "Método útil para un <code>Gtk.TreeSelection</code>:"
+#| msgid "Useful method for a <code>Gtk.TreeSelection</code>:"
+msgid "Useful methods for a <code>Gtk.TreeSelection</code>:"
+msgstr "Métodos útiles para un <code>Gtk.TreeSelection</code>:"
 
 #: C/model-view-controller.py.page:168(item/p)
 msgid ""
 "<code>set_mode(type)</code> sets the type of selection, where type is one of"
 msgstr ""
+"<code>set_mode(tipo)</code> establece el tipo de la selección, donde «tipo» "
+"puede ser"
 
 #: C/model-view-controller.py.page:170(item/p)
 msgid "<code>Gtk.SelectionMode.NONE</code> - no selection is possible"
-msgstr ""
+msgstr "<code>Gtk.SelectionMode.NONE</code>: la selección no es posible"
 
 #: C/model-view-controller.py.page:171(item/p)
 msgid ""
 "<code>Gtk.SelectionMode.SINGLE</code> - zero or one element may be selected"
 msgstr ""
+"<code>Gtk.SelectionMode.SINGLE</code>: se puede seleccionar uno o ningún "
+"elemento"
 
 #: C/model-view-controller.py.page:172(item/p)
 msgid ""
@@ -29752,15 +29792,31 @@ msgid ""
 "user can’t deselect a currently selected element except by selecting another "
 "element."
 msgstr ""
+"<code>Gtk.SelectionMode.BROWSE</code>: se selecciona exactamente un "
+"elemento. En algunas circunstancias, como inicialmente o durante una "
+"operación de búsqueda, es posible que ningún elemento esté seleccionado. Lo "
+"que realmente se prohíbe es que el usuario deseleccione un elemento "
+"actualmente seleccionado excepto si selecciona otro."
 
 #: C/model-view-controller.py.page:173(item/p)
+#| msgid ""
+#| "<code>Gtk.SelectionMode.MULTIPLE</code> -any number of elements may be "
+#| "selected. Clicks toggle the state of an item. Any number of elements may "
+#| "be selected. The Ctrl key may be used to enlarge the selection, and Shift "
+#| "key to select between the focus and the child pointed to. Some widgets "
+#| "may also allow Click-drag to select a range of elements."
 msgid ""
 "<code>Gtk.SelectionMode.MULTIPLE</code> -any number of elements may be "
-"selected. Clicks toggle the state of an item. Any number of elements may be "
-"selected. The Ctrl key may be used to enlarge the selection, and Shift key "
-"to select between the focus and the child pointed to. Some widgets may also "
-"allow Click-drag to select a range of elements."
+"selected. Clicks toggle the state of an item. The Ctrl key may be used to "
+"enlarge the selection, and Shift key to select between the focus and the "
+"child pointed to. Some widgets may also allow Click-drag to select a range "
+"of elements."
 msgstr ""
+"<code>Gtk.SelectionMode.MULTIPLE</code>: se puede seleccionar cualquier "
+"número de elementos. Las pulsaciones cambien el estado de un elemento. Se "
+"puede usar la tecla «Ctrl» para agrandar la selección, y «Mayús» para "
+"seleccionar entre el foco y el hijo al que apunta. Algunos widgets también "
+"pueden permitir arrastrar y soltar para seleccionar un rango de elementos."
 
 #: C/model-view-controller.py.page:176(item/p)
 msgid ""
@@ -29825,42 +29881,28 @@ msgstr ""
 "\">GtkCellRenderer</link>"
 
 #: C/model-view-controller.py.page:190(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/"
-#| "basics.html\">Basics - Properties</link> in Python Gtk+ 3 Tutorial"
 msgid ""
 "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/treeview."
 "html\">The Python Gtk+ 3 Tutorial - Tree and List Widgets</link>"
 msgstr ""
 "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/treeview."
-"html\">The Python Gtk+ 3 Tutorial - Tree and List Widgets</link>"
+"html\">El tutorial de GTK+ 3 en Python: widgets de árbol y lista</link>"
 
 #: C/model-view-controller.py.page:191(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/"
-#| "basics.html\">Basics - Properties</link> in Python Gtk+ 3 Tutorial"
 msgid ""
 "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/"
 "cellrenderers.html\">The Python Gtk+ 3 Tutorial - CellRenderers</link>"
 msgstr ""
-"<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/basics."
-"html\">Conceptos básicos sobre propiedades</link> en el tutorial de Gtk+3 "
-"con Python"
+"<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/"
+"cellrenderers.html\">El tutorial de GTK+ 3 en Python: «CellRenderer»</link>"
 
 #: C/model-view-controller.py.page:192(item/p)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/"
-#| "basics.html\">Basics - Properties</link> in Python Gtk+ 3 Tutorial"
 msgid ""
 "<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/combobox."
 "html\">The Python Gtk+ 3 Tutorial - ComboBox</link>"
 msgstr ""
-"<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/basics."
-"html\">Conceptos básicos sobre propiedades</link> en el tutorial de Gtk+3 "
-"con Python"
+"<link href=\"http://python-gtk-3-tutorial.readthedocs.org/en/latest/combobox."
+"html\">El tutorial de GTK+ 3 en Python: «ComboBox»</link>"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
