@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hig.master\n"
-"POT-Creation-Date: 2013-01-14 16:51+0000\n"
-"PO-Revision-Date: 2013-01-16 17:55+0100\n"
+"POT-Creation-Date: 2013-01-16 16:58+0000\n"
+"PO-Revision-Date: 2013-01-18 10:46+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -11157,6 +11157,13 @@ msgid ""
 "guibutton> are better buttons than <guibutton>Yes</guibutton> and "
 "<guibutton>OK</guibutton>."
 msgstr ""
+"Escriba las etiquetas de los botones con verbos en infinitivo, como "
+"<guibutton>Guardar</guibutton>, <guibutton>Imprimir</guibutton>. Esto le "
+"permite a los usuarios seleccionar una acción sin dudarlo. Una frase activa "
+"también se adecua al rol del botón de iniciar acciones, a diferencia de una "
+"frase más pasiva. Por ejemplo, <guibutton>Buscar</guibutton> e "
+"<guibutton>Iniciar sesión</guibutton> son mejores botones que <guibutton>Sí</"
+"guibutton> y <guibutton>Aceptar</guibutton>."
 
 #: C/index.docbook:1127(formalpara/title)
 #: C/hig-ch-windows.xml:1127(formalpara/title)
@@ -11171,6 +11178,10 @@ msgid ""
 "dismisses the alert if no action is suggested (as is the case with an <link "
 "linkend=\"alerts-information\">information alert</link>)."
 msgstr ""
+"Ponga el botón afirmativo en la esquina inferior derecha de la alerta. El "
+"botón afirmativo acepta la acción propuesta por la alerta, o simplemente la "
+"cierra si no se sugiere ninguna acción (como en el caso de una <link linkend="
+"\"alerts-information\">alerta informativa</link>)."
 
 #: C/index.docbook:1139(formalpara/title)
 #: C/hig-ch-windows.xml:1139(formalpara/title)
@@ -11187,6 +11198,12 @@ msgid ""
 "Clicking the <guibutton>Cancel</guibutton> button reverts the application to "
 "its state prior to the user action."
 msgstr ""
+"Si la alerta se produjo en respuesta a la acción de un usuario, ponga un "
+"botón <guibutton>Cancelar</guibutton> inmediatamente a la izquierda del "
+"botón afirmativo. Esto proporciona una ruta de escape para que los usuarios "
+"detengan una acción en respuesta a información nueva, o si pulsaron un botón "
+"accidentalmente. Pulsar el botón <guibutton>Cancelar</guibutton> revierte la "
+"aplicación al estado anterior a la acción del usuario."
 
 #: C/index.docbook:1153(formalpara/title)
 #: C/hig-ch-windows.xml:1153(formalpara/title)
@@ -11203,11 +11220,17 @@ msgid ""
 "performed by the other buttons, and explaining any side-effects that each "
 "action may have."
 msgstr ""
+"Un botón <guibutton>Ayuda</guibutton> puede usarse para clarificar alertas "
+"que presentan opciones potencialmente destructivas. Ponga el botón "
+"<guibutton>Ayuda</guibutton> en la esquina inferior izquierda de la alerta. "
+"Cuando se pulse, lance una ventana de ayuda clarificando la situación, "
+"detallando las acciones que los otros botones realizan, y explicando "
+"cualquier efecto colateral posible."
 
 #: C/index.docbook:1166(formalpara/title)
 #: C/hig-ch-windows.xml:1166(formalpara/title)
 msgid "Alternate Buttons"
-msgstr "Botones de cambio"
+msgstr "Botones alternativos"
 
 #: C/index.docbook:1168(formalpara/para)
 #: C/hig-ch-windows.xml:1168(formalpara/para)
@@ -11221,6 +11244,14 @@ msgid ""
 "suggested action <guibutton>Save</guibutton> and the <guibutton>Cancel</"
 "guibutton> button."
 msgstr ""
+"Se pueden usar botones adicionales para proporcionar alternativas a la "
+"acción primaria propuesta por el texto de la alerta. Ponga estos botones a "
+"la izquierda del botón <guibutton>Cancelar</guibutton>, o el botón "
+"afirmativo si <guibutton>Cancelar</guibutton> no está presente. Un ejemplo "
+"de una acción alternativa común sería un botón <guibutton>Salir sin guardar</"
+"guibutton> en una alerta de confirmación de guardado. Esta es una "
+"alternativa a la acción primaria sugerida <guibutton>Guardar</guibutton> y "
+"al botón <guibutton>Cancelar</guibutton>."
 
 #: C/index.docbook:1183(sect2/title) C/hig-ch-windows.xml:1183(sect2/title)
 msgid "Spacing and Positioning Inside Alerts"
@@ -11248,6 +11279,12 @@ msgid ""
 "between controls and buttons in an alert window. This is detailed in the "
 "guidelines below.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"images/windows-alert-spacing.png\" format="
+"\"PNG\" width=\"530\" depth=\"250\"/> </imageobject> <imageobject> "
+"<imagedata fileref=\"images/windows-alert-spacing.eps\" format=\"EPS\"/> </"
+"imageobject> <textobject> <phrase>Diagrama mostrando el espaciado correcto "
+"dentro de botones y controles en una ventana de alerta. Esto se detalla en "
+"la guía a continuación.</phrase> </textobject>"
 
 #: C/index.docbook:1213(listitem/para)
 #: C/hig-ch-windows.xml:1213(listitem/para)
@@ -11302,6 +11339,17 @@ msgid ""
 "(return), then place <replaceable>Secondary Text</replaceable>. Now change "
 "the properties for each control according to these tables:"
 msgstr ""
+"Cree una ventana «GtkDialog» nueva especificando el número de botones que "
+"quiere que la alerta contenga (y un botón «Ayuda» si es apropiado). El "
+"«GtkDialog» contendrá una «GtkVBox» con una fila superior vacía, y una fila "
+"inferior conteniendo una «GtkButtonBox» con botones dentro. En la fila "
+"superior, ponga una «GtkHBox» nueva. En su columna izquierda, agregue una "
+"«GtkImage». En la derecha, una «GtkLabel». Dentro de ella escriba el "
+"<replaceable>Texto primario</replaceable> primero (usando el marcado Pango "
+"apropiado, consulte <xref linkend=\"alert-text\"/>), después ponga dos "
+"saltos de línea (retornos), y el <replaceable>Texto secundario</"
+"replaceable>. Ahora cambie las propiedades para cada control de acuerdo a "
+"estas tablas:"
 
 #: C/index.docbook:1251(table/title) C/hig-ch-windows.xml:1251(table/title)
 msgid "Properties for the GtkDialog"
@@ -11486,6 +11534,10 @@ msgid ""
 "alert that opens the appointment's property window. Place this button to the "
 "left of the affirmative button."
 msgstr ""
+"puede presentar un botón de comodidad para dar acceso al objeto relevante. "
+"Por ejemplo, un botón <guibutton>Detalles</guibutton> en una alerta "
+"recordatoria de una cita que abre su ventana de propiedades. Ponga este "
+"botón a la izquierda del botón afirmativo."
 
 #: C/index.docbook:1465(formalpara/para)
 #: C/hig-ch-windows.xml:1465(formalpara/para)
@@ -11507,6 +11559,14 @@ msgid ""
 "However, an error encountered in an automated periodic email check would "
 "more appropriately report failure with a statusbar message."
 msgstr ""
+"Muestre una alerta de error cuando una operación solicitada por el usuario "
+"no pueda completarse exitosamente. Presente errores causados por operaciones "
+"que el usuario no solicitó de otra manera, a menos que puedan resultar en "
+"pérdida de datos u otros problemas serios. Por ejemplo, un error encontrado "
+"durante una verificación de correo-e iniciada por el usuario pulsando un "
+"botón en la barra de tareas debería presentar una alerta de error. Sin "
+"embargo, de ser una comprobación automática periódica, sería mejor presentar "
+"un reporte de fallo con un mensaje en la barra de estado."
 
 #: C/index.docbook:1483(figure/title) C/hig-ch-windows.xml:1483(figure/title)
 msgid "An error alert"
@@ -11541,6 +11601,10 @@ msgid ""
 "not formatted\" alert. Place this button to the left of the affirmative "
 "button."
 msgstr ""
+"puede presentar un botón de comodidad para permitir gestionar el error "
+"inmediatamente. Por ejemplo, un botón <guibutton>Formatear…</guibutton> en "
+"una alerta «El disco no tiene formato». Ponga este botón a la izquierda del "
+"botón afirmativo."
 
 #: C/index.docbook:1529(sect2/title) C/hig-ch-windows.xml:1529(sect2/title)
 msgid "Confirmation Alerts"
@@ -11631,6 +11695,11 @@ msgid ""
 "imageobject> <textobject> <phrase>Save confirmation alert: \"[ Close without "
 "Saving] [ Cancel ] [[ Save ]] \"</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"images/windows-alert-save.png\" width="
+"\"500\" depth=\"194\" format=\"PNG\"/> </imageobject> <imageobject> "
+"<imagedata fileref=\"images/windows-alert-save.eps\" format=\"EPS\"/> </"
+"imageobject> <textobject> <phrase>Alerta de confirmación de guardado: "
+"«[ Salir sin guardar ] [ Cancelar ] [[ Guardar ]]»</phrase> </textobject>"
 
 #: C/index.docbook:1619(formalpara/para)
 #: C/hig-ch-windows.xml:1619(formalpara/para)
@@ -11694,6 +11763,13 @@ msgid ""
 "occurs. Then hide the document window immediately after it has been saved "
 "successfuly."
 msgstr ""
+"Cuando se necesita una alerta de confirmación, preséntela inmediatamente. Si "
+"el usuario confirma cerrar sin guardar, oculte la alerta y el documento o la "
+"ventana de la aplicación inmediatamente, antes de hacer cualquier limpieza "
+"interna. Si el usuario elije guardar antes de cerrar, esconda la alerta "
+"inmediatamente pero muestre la ventana del documento hasta que se haya "
+"guardado, en caso de que ocurra un error. Después oculte la ventana del "
+"documento inmediatamente después de que se haya guardado exitosamente."
 
 #: C/index.docbook:1656(sect2/title) C/hig-ch-windows.xml:1656(sect2/title)
 msgid "Authentication Alerts"
@@ -11754,6 +11830,10 @@ msgid ""
 "phrase or such a phrase would be longer than three words. Place this button "
 "in the bottom right corner of the alert."
 msgstr ""
+"Muestre un botón etiquetado con un verbo o frase verbal describiendo la "
+"acción de autenticación, o <guilabel>Aceptar</guilabel> si no hay una frase "
+"adecuada o si fuera de más de tres palabras. Ponga este botón en la esquina "
+"inferior derecha de la alerta."
 
 #: C/index.docbook:1694(listitem/para)
 #: C/hig-ch-windows.xml:1694(listitem/para)
@@ -11823,6 +11903,12 @@ msgid ""
 "progress somewhere in the original window, making all its other elements "
 "temporarily insensitive. This helps reduce visual clutter."
 msgstr ""
+"Una ventana de progreso siempre debe aparecer como una ventana independiente "
+"en una lista de ventanas. Si el progreso de una tarea hace una ventana "
+"temporalmente inutilizable, no presente una ventana de progreso modal frente "
+"a ella. En su lugar, presente el progreso en algún lugar de la ventana "
+"original, desactivando todos sus otros elementos temporalmente. Esto ayuda a "
+"reducir el desorden visual."
 
 #: C/index.docbook:1730(figure/title) C/hig-ch-windows.xml:1730(figure/title)
 msgid "An example of a progress window"
@@ -11836,6 +11922,11 @@ msgid ""
 "fileref=\"images/windows-progress.eps\" format=\"EPS\"/> </imageobject> "
 "<textobject> <phrase>An example of a progress window</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"images/windows-progress.png\" width=\"425"
+"\" depth=\"159\" format=\"PNG\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/windows-progress.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Un ejemplo de una ventana de progreso</phrase> </"
+"textobject>"
 
 #: C/index.docbook:1750(formalpara/para)
 #: C/hig-ch-windows.xml:1750(formalpara/para)
@@ -11904,6 +11995,10 @@ msgid ""
 "should also be included in the progress bar text. Indicate that the \"time "
 "left\" is an estimate using the word \"about\"."
 msgstr ""
+"Si es posible, también debe incluirse una estimación del tiempo restante "
+"hasta que se haya completado la operación en el texto de la barra de "
+"progreso. Indique que el «tiempo restante» es estimado con la palabra "
+"«aproximadamente»."
 
 #: C/index.docbook:1794(listitem/para)
 #: C/hig-ch-windows.xml:1794(listitem/para)
@@ -11914,6 +12009,11 @@ msgid ""
 "current object being operated on in a bulk operation, \"Rotating MonaLisa.png"
 "\", \"Rotating StarryNight.png\"."
 msgstr ""
+"Inmediatamente debajo de la barra de progreso, ubique texto en cursiva "
+"indicando la suboperación ejecutándose. Esta puede ser un paso de una "
+"secuencia, «Contactando a la torre de control para aterrizar», o puede ser el "
+"objeto actual en una operación por lotes, como «Rotando MonaLisa.png», "
+"«Rotando NocheEstrellada.png»."
 
 #: C/index.docbook:1803(listitem/para)
 #: C/hig-ch-windows.xml:1803(listitem/para)
@@ -11928,6 +12028,16 @@ msgid ""
 "give them time to think whether they want to procede with a dangerous "
 "operation they inadvertantly triggered."
 msgstr ""
+"Si la operación en progreso es potencialmente peligrosa (destructiva, "
+"costosa, etc.) o consume gran parte de un recurso limitado durante más de "
+"diez segundos (ancho de banda, disco duro, CPU, etc.), considere agregar un "
+"<link linkend=\"controls-toggle-buttons\">botón interruptor</link> "
+"<guibutton>Pausar</guibutton> a la derecha del botón <guibutton>Cancelar</"
+"guibutton>. Cuando se pause, agréguele al texto de la suboperación actual en "
+"itálica « (Pausado)». Esto le permitirá a los usuarios realizar tareas "
+"importantes que requieran ese recurso, o darles tiempo para pensar si "
+"quieren proseguir con una operación peligrosa que desencadenaron "
+"inadvertidamente."
 
 #: C/index.docbook:1817(figure/title) C/hig-ch-windows.xml:1817(figure/title)
 msgid "A progress window for a file copy operation"
@@ -11942,6 +12052,11 @@ msgid ""
 "> </imageobject> <textobject> <phrase>A progress window for a copy "
 "operation</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"images/windows-progress-copy-file.png\" "
+"width=\"408\" depth=\"227\" format=\"PNG\"/> </imageobject> <imageobject> "
+"<imagedata fileref=\"images/windows-progress-copy-file.eps\" format=\"EPS\"/"
+"> </imageobject> <textobject> <phrase>Una ventana de progreso para una "
+"operación de copia</phrase> </textobject>"
 
 #: C/index.docbook:1835(sect2/title) C/index.docbook:389(sect3/title)
 #: C/hig-ch-feedback.xml:389(sect3/title)
@@ -11956,6 +12071,10 @@ msgid ""
 "acquire some familiarity with the actions involved in a procedure, checklist "
 "windows may be used."
 msgstr ""
+"Ocasionalmente un procedimiento se compone de una serie de acciones "
+"realizables por el usuario. En estos casos, particularmente cuando se quiere "
+"que el usuario se familiarice con las acciones involucradas en un "
+"procedimiento, se pueden usar ventanas de listas de comprobación."
 
 #: C/index.docbook:1843(example/title)
 #: C/hig-ch-windows.xml:1843(example/title)
