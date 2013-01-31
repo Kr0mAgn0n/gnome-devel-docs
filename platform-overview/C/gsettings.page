@@ -10,4 +10,35 @@
 
 <title>GSettings</title>
 
+  <p>
+    GSettings is the part of <link xref="glib">GLib</link> that allows
+    applications to save their configuration settings and user's preferences in
+    a standard way.
+  </p>
+
+  <p>
+    An application that uses GSettings defines a <em>schema</em> of
+    configuration keys.  The schema for each key contains the key's name, a
+    human-readable description of what the key is for, a type for the key
+    (string, integer, etc.), and a default value.
+  </p>
+
+  <p>
+    GSettings uses the operating system's storage for configuration data.  On
+    GNU systems this is DConf; on Windows it is the Registry, and on Mac OS it
+    is the NextStep property list mechanism.
+  </p>
+
+  <p>
+    GSettings lets you monitor changes in keys' values, so your application can
+    respond dynamically to global changes in configuration.  For example, all
+    applications that display clocks can respond to a global setting for
+    12-hour/24-hour display immediately, without having to restart.
+  </p>
+
+  <list style="compact">
+    <item><p><link href="http://developer.gnome.org/gio/stable/GSettings.html">GSettings Reference Manual</link></p></item>
+</list>
+
+
 </page>
