@@ -69,6 +69,10 @@ table {
   }
 }
 
+.left {  float: left; }
+.right { float: right; }
+.hidden { display: none; }
+
 .shortcut {
   display: inline-block;
   min-width: 4em;
@@ -162,7 +166,7 @@ table {
 
 .contain {
 	width: 960px;
-	margin: 4em auto 0;
+	margin: 53px auto 0;
 	overflow: hidden;
 	.sidebar {
 	  @include column(5,16);
@@ -258,6 +262,73 @@ table {
   .main {  @include column(11,16);}
 }
 
+#top_bar {
+  background: url("../images/top_bar-bg.png") repeat-x scroll center top #2E3436;
+  @include border-radius(6px);
+  @include box-shadow(0,2px,4px,rgba(0, 0, 0, 0.2));
+  font-size: 13px;
+  line-height: normal;
+  padding: 8px 0;
+  overflow: hidden;
+  margin-bottom: 2em;
+  input {
+    background: url("../images/wgo-search-icon.png") no-repeat scroll 8px center transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    font: inherit;
+    margin: -8px 0 -8px -8px;
+    outline: medium none;
+    padding: 8px 8px 8px 28px;
+    width: 150px;
+  }
+  input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  input.placeholder {
+    color: #CCCCCC;
+  }
+  ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 5px;
+  }
+  ul li {
+    display: inline;
+    margin: 0 5px 0 0;
+  }
+  a {
+    border-radius: 4px;
+    color: #FFFFFF;
+    outline: 0 none;
+    padding: 4px 8px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000000;
+    transition: background 100ms linear 0s;
+}
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  a:active, li.current-menu-item a, li.current-page-ancestor a {
+    background: url("../images/top_bar-item-bg.png") repeat-x scroll center top #1C2021;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 3px rgba(0, 0, 0, 0.4) inset;
+  }
+  li.selected a {
+    font-weight: bold;
+  }
+  li a span.home {
+    background: url("../images/top_bar-item-home.png") no-repeat scroll 0 0 transparent;
+    padding-left: 18px;
+  }
+  #main_search {
+    text-align: right;
+  }
+}
 
 .columns {
   @include row(11);
@@ -534,6 +605,38 @@ hr.footerart {
       margin-top: 2em;
       margin-bottom: 2em;
     }
+  }
+
+  .left, .right {
+    float: none;
+  }
+
+  #top_bar {
+    margin-top: 10px;
+      .menu-globalnav-container,
+      ul li,
+      ul li a  {
+        display: block;
+        width: 100%;
+      }
+      input,
+      ul li a,
+      form {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+      ul li a {
+        padding: 1em 0.5em;
+      }
+      form {
+        margin: 10px 0;
+      }
+      input {
+        margin: 0;
+      }
   }
 }
 

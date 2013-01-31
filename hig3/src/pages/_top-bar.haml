@@ -1,0 +1,18 @@
+#top_bar
+  .left
+    .menu-globalnav-container
+      %ul#menu-globalnav
+        %li
+          =link "Tutorials", "/tutorials/"
+        %li
+          =link "API Reference", "/api/"
+        %li.current-menu-item
+          =link "Design", "http://library.gnome.org/design/"
+        %li
+          =link "Community", "/community/"
+  .right
+    %form{"role" => "search", "method" => "get", "id" => "searchform", "action" => "/search"}
+      %div
+        %label{"class" => "hidden", "for" => "q"}
+          Search:
+        %input{ "type"=>"text", "value"=>"", "name"=>"q", "id" => "s", "placeholder"=>"Search"}
