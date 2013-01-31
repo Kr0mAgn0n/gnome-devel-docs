@@ -9,15 +9,24 @@
 
 <title>GDK</title>
 
-<p>GDK is the low-level library used by GTK+ to interact with the
-system for graphics and input devices.  Although you will rarely use
+<p>GDK is the low-level library used by <link xref="gtk">GTK+</link> to interact with the
+windowing system for graphics and input devices.  Although you will rarely use
 GDK directly in application code, it contains all the necessary
-functionality to draw objects and text to the screen and to interact
-with the user with various input devices.</p>
+functionality to create low-level windows in the the screen and to interact
+with the user with various input devices.  GDK acts as an abstraction over
+various windowing systems, so that GTK+ can be portable to all of them:
+the X Window System (X11), Microsoft Windows, Mac OS X Quartz.</p>
 
 <p>GDK enables you to access events from keyboards, mice, and other
-input devices, rather than connect to the high-level signals used in
-GTK+.  GDK also provides low-level routines to access drag and drop
+input devices.  Implementations of widgets in GTK+ use this functionality, and
+translate the events into higher-level signals that can in turn be used from
+application code.  For example, a <code>GtkButton</code> widget will track
+<code>GDK_BUTTON_PRESS</code> and <code>GTK_BUTTON_RELEASE</code> events,
+which come from the mouse, and translate them as appropriate into a
+<code>GtkButton::clicked</code> signal when the user presses and releases
+the button in the right location.</p>
+
+<p>GDK also provides low-level routines to access drag and drop
 and clipboard data from the system.  When implementing custom controls,
 you may need to access these features to implement proper user interaction
 behavior.</p>
@@ -33,9 +42,10 @@ color depth, colormaps, and cursors.</p>
 underlying windowing system, including low-level access to events,
 windows, and the clipboard.  Using GDK for these tasks ensures that
 your code is portable and integrates with the rest of your GTK+ code.
-The simple drawing routines in GDK should generally not be used.
-Instead, you should use the extensive functionality provide by
-Cairo.</p>
+The simple drawing routines in GDK should generally not be used; these are a
+left-over from when GDK simply wrapped the windowing system's drawing primitives.
+Instead, you should use the extensive functionality provided by
+<link xref="cairo">Cairo</link> to draw high-quality 2D graphics.</p>
 
 <list style="compact">
   <item><p><link href="http://library.gnome.org/devel/gdk/stable/">GDK Reference Manual</link></p></item>
