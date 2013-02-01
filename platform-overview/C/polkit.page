@@ -1,0 +1,38 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="policykit">
+<info>
+  <link type="guide" xref="index" group="policykit"/>
+  <desc>Access control for system-level services provided through D-Bus</desc>
+</info>
+
+<title>Polkit</title>
+
+  <p>
+    Polkit, or Policy Kit, hanels the policies that let unprivileged processes
+    talk to privileged ones via <link xref="d-bus">D-Bus</link> APIs.  For
+    example, not all programs should be allowed to request that the machine be
+    disconnected from the network via the <link
+      xref="NetworkManager">NetworkManager</link> service.
+  </p>
+
+  <p>
+    Polkit lets the system administrator define different policies for
+    different services.  For example, only a user with physical access to the
+    console may mount/unmount drives and volumes; users that are not at the
+    console will need to type an administrator password.  On a machine for home
+    users, most policies will be rather liberal, as the users can be trusted to
+    take care of the machine.  On corporate settings, policies may be more
+    restricted.
+  </p>
+
+  <p>
+    GNOME uses PolicyKit whenever applications need to request privileged
+    operations.
+  </p>
+
+  <list style="compact">
+    <item><p><link href="http://www.freedesktop.org/wiki/Software/polkit">Polkit home page</link></p></item>
+  </list>
+
+</page>
