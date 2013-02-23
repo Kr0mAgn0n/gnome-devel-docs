@@ -143,7 +143,14 @@ B.connect("clicked", function(){
 e.connect("clicked", function(){
   playSound(frequencies.e);
 });]]></code>
-   <p>The method of connecting button clicks to playSound with the correct tune is by using the connect method of the button widget. So we choose a button to be connected and type E.connect("clicked", function(){playSound(frequencies.E);}); The connect tells that when pushing E, something should happen. The "clicked" tells the type of something happening to E and then in the function(){}; we the playSound happen with the correct tune that should be associated to the button.</p>
+   <p>The method of connecting button clicks to playSound with the correct tune
+   is by using the connect method of the button widget. So we choose a button
+   to be connected and type <code>E.connect("clicked",
+   function(){playSound(frequencies.E);});</code> The <code>connect</code>
+   tells that when pushing E, something should happen. The <code>clicked</code>
+   tells the type of the signal happening to E and then in the
+   <code>function(){};</code> we call playSound with the correct note that
+   should be associated with the button.</p>
   </section>
   <section id="guitarjs">
     <title>The whole program</title>
