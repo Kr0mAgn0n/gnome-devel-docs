@@ -10,7 +10,7 @@
 #define UI_FILE "src/guitar_tuner.ui"
 
 /* Frequencies of the tones */
-#define NOTE_E 369.23
+#define NOTE_E 329.63
 #define NOTE_A 440
 #define NOTE_D 587.33
 #define NOTE_G 783.99
@@ -51,7 +51,7 @@ play_sound (gdouble frequency)
 
 	gst_element_set_state (pipeline, GST_STATE_PLAYING);
 
-	/* stop it after 200ms */
+	/* stop it after 500ms */
 	g_timeout_add (LENGTH, (GSourceFunc) pipeline_stop, pipeline);
 }
 
