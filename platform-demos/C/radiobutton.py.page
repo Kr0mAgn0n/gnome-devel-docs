@@ -9,7 +9,7 @@
     <link type="seealso" xref="signals-callbacks.py"/>
     <link type="seealso" xref="togglebutton.py"/>
     <link type="seealso" xref="grid.py"/>
-
+    <link type="next" xref="statusbar.py"/>
     <revision version="0.1" date="2012-05-09" status="draft"/>
 
     <credit type="author copyright">
@@ -36,11 +36,10 @@
     <title>Useful methods for a RadioButton widget</title>
     <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py">this page</link>.</p>
 
-    <p>Instead of <code>button1 = Gtk.RadioButton(label="Button 1")</code> we could create the button and label it with</p>
+    <p>As seen in <link xref="properties.py"/>, instead of <code>button1 = Gtk.RadioButton(label="Button 1")</code> we could create the button and label it with</p>
     <code>
 button1 = Gtk.RadioButton()
 button1.set_label("Button 1").</code>
-    <p>For a general discussion of this, see <link xref="properties.py">here</link>.</p>
     <p>Yet another way to create a new RadioButton with a label is <code>button1 = Gtk.RadioButton.new_with_label(None, "Button 1")</code> (the first arguement is the group of the radiobuttons, which we can get with <code>get_group()</code>, the second argument is the label).</p>
   </section>
 

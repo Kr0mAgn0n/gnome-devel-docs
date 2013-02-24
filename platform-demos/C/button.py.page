@@ -7,6 +7,7 @@
     <title type="text">Button (Python)</title>
     <link type="guide" xref="beginner.py#buttons"/>
     <link type="seealso" xref="signals-callbacks.py"/>
+    <link type="next" xref="linkbutton.py"/>
     <revision version="0.2" date="2012-05-05" status="draft"/>
 
     <credit type="author copyright">
@@ -31,8 +32,7 @@
   </section>
   <section id="methods">
     <title>Useful methods for a Button widget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py">this page</link>.</p>
-    <p><code>button = Gtk.Button(label="Click me")</code> could also be used to create a button and set the text directly. For a general discussion of this, see <link xref="properties.py">here</link>.</p>
+    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />.</p>
     <list>
       <item><p><code>set_relief(Gtk.ReliefStyle.NONE)</code> sets to none the relief style of the edges of the Gtk.Button - as opposed to <code>Gtk.ReliefStyle.NORMAL</code>.</p></item>
       <item><p>If the label of the button is a <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items.html">stock icon</link>, <code>set_use_stock(True)</code> sets the label as the name of the corresponding stock icon.</p></item>
@@ -45,6 +45,7 @@ button.set_image(image)</code>
       <item><p>If we use <code>set_focus_on_click(False)</code> the button will not grab focus when it is clicked by the mouse. This could be useful in places like toolbars, so that the keyboard focus is not removed from the main area of the application.</p></item>
     </list>
   </section>
+  
   <section id="references">
     <title>API References</title>
     <p>In this sample we used the following:</p>

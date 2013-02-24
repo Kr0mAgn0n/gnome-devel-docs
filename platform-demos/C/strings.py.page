@@ -7,6 +7,7 @@
 <info>
   <title type="text">Strings (Python)</title>
   <link type="guide" xref="beginner.py#theory"/>
+  <link type="next" xref="label.py"/>
   <revision version="0.1" date="2012-06-16" status="draft"/>
 
   <desc>An explanation of how to deal with strings in Python and GTK+.</desc>
@@ -26,21 +27,7 @@
 
 <links type="section" />
 
-<section id="definitions">
-<title>Definitions</title>
-
-<p>Conceptionally, a <em>string</em> is a list of <em>characters</em> such as 'A', 'B', 'C' or '&#200;'. Characters are abstract representations and their meaning depends on the language and context they are used in. The <em>Unicode standard</em> describes how characters are represented by <em>code points</em>. For example the characters above are represented with the code points U+0041, U+0042, U+0043, and U+00C9, respectively. Basically, code points are numbers in the range from 0 to 0x10FFFF.</p>
-
-<p>The representation of a string as a list of code points is abstract. In order to convert this abstract representation into a sequence of bytes the Unicode string must be <em>encoded</em>. The simplest from of encoding is ASCII and is performed as follows:</p>
-
-<list>
-  <item><p>If the code point is strictly less than 128, each byte is the same as the value of the code point.</p></item>
-  <item><p>If the code point is 128 or greater, the Unicode string can’t be represented in this encoding. (Python raises a <sys>UnicodeEncodeError</sys> exception in this case.)</p></item>
-</list>
-
-<p>Although ASCII encoding is simple to apply it can only encode for 128 different characters which is hardly enough. One of the most commonly used encodings that addresses this problem is UTF-8 (it can handle any Unicode code point). UTF stands for “Unicode Transformation Format”, and the ‘8’ means that 8-bit numbers are used in the encoding.</p>
-
-</section>
+<note style="warning"><p>GNOME strongly encourages the use of Python 3 for writing applications!</p></note>
 
 <section id="python-2">
 <title>Strings in Python 2</title>
@@ -116,7 +103,7 @@ b'Fu\xc3\x9fb\xc3\xa4lle sind rund']]></code>
 
 <p>In general it is recommended to not use <code>unicode</code> objects in GTK+ applications at all, and only use UTF-8 encoded <code>str</code> objects since GTK+ does not fully integrate with <code>unicode</code> objects.</p>
 
-<p>With Python 3.x things are much more consistent, because PyGObject will automatically encode/decode to/from UTF-8 if you pass a string to a method or a method returns a string. Strings, or text, will always be represented as instances of <code>str</code> only:</p>
+<p>With Python 3.x things are much more consistent, because PyGObject will automatically encode/decode to/from UTF-8 if you pass a string to a method or a method returns a string. Strings, or text, will always be represented as instances of <code>str</code> only.</p>
 
 </section>
 

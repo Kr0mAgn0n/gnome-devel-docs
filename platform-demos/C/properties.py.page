@@ -7,6 +7,7 @@
 <info>
   <title type="text">Properties (Python)</title>
   <link type="guide" xref="beginner.py#theory"/>
+  <link type="next" xref="window.py"/>
   <revision version="0.1" date="2012-06-24" status="draft"/>
 
   <desc>An explanation of properties, getters and setters.</desc>
@@ -29,20 +30,20 @@
 <section id="overview">
 <title>Overview</title>
 
-<p><em>Properties</em> describe the configuration and state of widgets, and each widget has its own particular set of properties. For example, a widget such as a button or a label has the property "label" which contains the text of the widget. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget: for example, to create a label aligned to the right with the text “Hello World” and an angle of 25 degrees, you can use:</p>
+<p><em>Properties</em> describe the configuration and state of widgets, and each widget has its own particular set of properties. For example, a widget such as a button or a label has the property "label" which contains the text of the widget. You can specify the name and value of any number of properties as keyword arguments when creating an instance of a widget: for example, to create a label with the text “Hello World”, an angle of 25 degrees, and aligned to the right, you can use:</p>
 <code>
 label = Gtk.Label(label="Hello World", angle=25, halign=Gtk.Align.END)</code>
 
-<p>This is equivalent to:</p>
+<p>which is equivalent to using:</p>
 <code>
 label = Gtk.Label()
 label.set_label("Hello World")
 label.set_angle(25)
 label.set_halign(Gtk.Align.END)</code>
 
-<p>Once you have created such a label, you can get the text with the getter <code>label.get_label()</code>.</p>
+<p>Once you have created such a label, you can get the text of the label with the getter <code>label.get_label()</code>, and analogously for the other properties.</p>
 
-<p>Instead of using getters and setters you can also get and set the properties with <code>get_property("prop-name")</code> and <code>set_property("prop-name", value)</code>, respectively.</p>
+<p>Instead of using getters and setters you can also get and set the properties with <code>get_property(<var>"prop-name"</var>)</code> and <code>set_property(<var>"prop-name"</var>, <var>value</var>)</code>, respectively.</p>
 
 </section>
 <section id="references">

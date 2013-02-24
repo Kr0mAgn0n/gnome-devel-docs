@@ -8,6 +8,7 @@
     <link type="guide" xref="beginner.py#multiline"/>
     <link type="seealso" xref="strings.py" />
     <link type="seealso" xref="scrolledwindow.py"/>
+    <link type="next" xref="dialog.py" />
     <revision version="0.2" date="2012-06-19" status="draft"/>
 
     <credit type="author copyright">
@@ -46,7 +47,7 @@
 
   <section id="methods">
   <title>Useful methods for a TextView widget</title>
-  <p>An explanation of how to deal with strings and Unicode (and a recap of what these things are) can be found <link xref="strings.py.page">here</link>.</p>
+  <p>Go to <link xref="strings.py.page" /> for an explanation of how to deal with strings and Unicode.</p>
   <p>A <code>Gtk.TextView</code> displays the text stored in a <code>Gtk.TextBuffer</code>. However, most text manipulation is accomplished with iterators, represented by a <code>Gtk.TextIter</code> - a position between two characters in the text buffer. Iterators are not valid indefinitely; whenever the buffer is modified in a way that affects the contents of the buffer, all outstanding iterators become invalid. Because of this, iterators can’t be used to preserve positions across buffer modifications. To preserve a position, we use a <code>Gtk.TextMark</code>, that can be set visible with <code>visible(True)</code>. A text buffer contains two built-in marks; an "insert" mark (the position of the cursor) and the "selection_bound" mark.</p>
   <p>Methods for a TextView widget:</p>
   <list>
