@@ -38,7 +38,7 @@ activate (GtkApplication *app,
   gtk_container_add (GTK_CONTAINER (window), button);
 
   /*Connecting the clicked signal to the callback function*/
-  g_signal_connect (GTK_Button (button), 
+  g_signal_connect (GTK_BUTTON (button),
                     "clicked", 
                     G_CALLBACK (button_clicked), 
                     G_OBJECT (window));
