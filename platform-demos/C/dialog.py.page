@@ -34,7 +34,7 @@
 
   <section id="methods">
   <title>Useful methods for a Dialog widget</title>
-  <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py">this page</link>.</p>
+  <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />.</p>
   <list>
     <item><p>Instead of <code>set_modal(True)</code> we could have <code>set_modal(False)</code> followed by <code>set_destroy_with_parent(True)</code> that would destroy the dialog window if the main window is closed.</p></item>
     <item><p><code>add_button(button_text="The Answer", response_id=42)</code>, where <code>42</code> is any integer, is an alternative to <code>add_button(button_text="text", response_id=Gtk.ResponseType.RESPONSE)</code>, where <code>RESPONSE</code> could be one of <code>OK, CANCEL, CLOSE, YES, NO, APPLY, HELP</code>, which in turn correspond to the integers <code>-5, -6,..., -11</code>.</p></item>
