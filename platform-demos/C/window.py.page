@@ -6,6 +6,7 @@
   <info>
     <title type="text">Window (Python)</title>
     <link type="guide" xref="beginner.py#windows"/>
+    <link type="seealso" xref="properties.py" />
     <link type="next" xref="GtkApplicationWindow.py"/>
     <revision version="0.2" date="2012-06-09" status="draft"/>
 
@@ -32,7 +33,7 @@
         <p>A minimal Gtk+ Application: a window with a title.</p>
       </td>
       <td>
-        <p>Use <link xref="GtkApplicationWindow.py">Application Window</link> if you need GMenu support.</p>
+        <p>Use <link xref="GtkApplicationWindow.py" /> if you need <link xref="gmenu.py"/> support.</p>
       </td>
     </tr>
   </table>
@@ -48,7 +49,6 @@
 
   <section id="methods">
   <title>Useful methods for a Window widget</title>
-  <p><code>window = Gtk.Window(application=self, title="Welcome to GNOME")</code> sets the title as well, without the need for the line <code>window.set_title("Welcome to GNOME")</code>. For a general discussion of this, see <link xref="properties.py" />.</p>
   <list>
     <item><p><code>set_default_size(200, 100)</code> sets the default size of the window to a width of <code>200</code> and a height of <code>100</code>; if instead of a positive number we pass <code>-1</code> we have the default size.</p></item>
     <item><p><code>set_position(Gtk.WindowPosition.CENTER)</code> centers the window. Other options are <code>Gtk.WindowPosition.NONE, Gtk.WindowPosition.MOUSE, Gtk.WindowPosition.CENTER_ALWAYS, Gtk.WindowPosition.CENTER_ON_PARENT</code>.</p></item>
