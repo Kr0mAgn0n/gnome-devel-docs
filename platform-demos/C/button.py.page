@@ -30,9 +30,10 @@
     <title>Code used to generate this example</title>
     <code mime="text/x-python" style="numbered"><xi:include href="samples/button.py" parse="text"><xi:fallback/></xi:include></code>
   </section>
+  
   <section id="methods">
     <title>Useful methods for a Button widget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />.</p>
+    <p>In line 16 the <code>"clicked"</code> signal from the button is connected to the callback function <code>do_clicked()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
     <list>
       <item><p><code>set_relief(Gtk.ReliefStyle.NONE)</code> sets to none the relief style of the edges of the Gtk.Button - as opposed to <code>Gtk.ReliefStyle.NORMAL</code>.</p></item>
       <item><p>If the label of the button is a <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items.html">stock icon</link>, <code>set_use_stock(True)</code> sets the label as the name of the corresponding stock icon.</p></item>

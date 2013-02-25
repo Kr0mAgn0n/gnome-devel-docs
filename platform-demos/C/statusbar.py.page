@@ -6,9 +6,7 @@
   <info>
     <title type="text">Statusbar (Python)</title>
     <link type="guide" xref="beginner.py#display-widgets"/>
-    <link type="seealso" xref="grid.py"/>
-    <link type="seealso" xref="button.py"/>
-    <link type="seealso" xref="label.py"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
     <link type="next" xref="spinner.py" />    
     <revision version="0.2" date="2012-06-12" status="draft"/>
 
@@ -39,6 +37,7 @@
 
   <section id="methods">
   <title>Useful methods for a Statusbar widget</title>
+    <p>In line 17 the signal <code>"clicked"</code> is connected to the callback function <code>button_clicked_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
   <list>
     <item><p><code>pop(context_id)</code> removes the first message in the statusbar stack with the given <code>context_id</code>.</p></item>
     <item><p><code>remove_all(context_id)</code> removes all the messages in the statusbar stack with the given <code>context_id</code>.</p></item>

@@ -32,8 +32,8 @@
 
   <section id="methods">
     <title>Useful methods for a Scale widget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py"/>. An example is the <code>"value-changed"</code> signal, emitted when the value of the scale changes.</p>
     <p>A Gtk.Adjustment is needed to construct the Gtk.Scale. This is the representation of a value with a lower and upper bound, together with step and page increments, and a page size, and it is constructed as <code>Gtk.Adjustment(value, lower, upper, step_increment, page_increment, page_size)</code> where the fields are of type <code>float</code>; <code>step_increment</code> is the increment/decrement that is obtained by using the cursor keys, <code>page_increment</code> the one that is obtained clicking on the scale itself. Note that <code>page_size</code> is not used in this case, it should be set to <code>0</code>.</p>
+    <p>In line 28 the signal <code>"value-changed"</code> is connected to the callback function <code>scale_moved()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
     <list>
       <item><p><code>get_value()</code> retrieves the current value of the scale; <code>set_value(value)</code> sets it (if the <code>value</code>, of type <code>float</code>, is outside the minimum or maximum range, it will be clamped to fit inside them). These are methods of the class Gtk.Range.</p></item>
       <item><p>Use <code>set_draw_value(False)</code> to avoid displaying the current value as a string next to the slider.</p></item>

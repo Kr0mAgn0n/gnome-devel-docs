@@ -6,6 +6,7 @@
   <info>
     <title type="text">GMenu (Python)</title>
     <link type="guide" xref="beginner.py#menu-combo-toolbar"/>
+    <link type="seealso" xref="signals-callbacks.py" />
     <link type="next" xref="menubutton.py"/>
     <revision version="0.1" date="2012-04-28" status="draft"/>
 
@@ -27,7 +28,6 @@
   <title>GMenu</title>
   <media type="image" mime="image/png" src="media/gmenu.py.png"/>
   <p>A GtkApplication with a simple GMenu and SimpleActions</p>
-  <note><p><em style="bold">You need to be running Gtk3.4 or later for this to work</em></p></note>
 
   <links type="section" />
 
@@ -39,6 +39,8 @@
 
   <section id="methods">
     <title>Useful methods for a GSimpleAction and a GMenu</title>
+
+    <p>In line 33 the signal <code>"activate"</code> from the action <code>new_action</code> (not the menu!) is connected to the callback function <code>new_cb()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
 
     <p>Useful methods for a GSimpleAction:</p>
     <list>

@@ -6,7 +6,7 @@
   <info>
     <title type="text">SpinButton (Python)</title>
     <link type="guide" xref="beginner.py#entry"/>
-    <link type="seealso" xref="grid.py"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
     <link type="next" xref="entry.py" />    
     <revision version="0.2" date="2012-06-23" status="draft"/>
 
@@ -32,8 +32,8 @@
 
   <section id="methods">
     <title>Useful methods for a SpinButton widget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />. An example is the <code>"value-changed"</code> signal, emitted when the value of the spinbutton changes.</p>
     <p>A Gtk.Adjustment is needed to construct the Gtk.SpinButton. This is the representation of a value with a lower and upper bound, together with step and page increments, and a page size, and it is constructed as <code>Gtk.Adjustment(value, lower, upper, step_increment, page_increment, page_size)</code> where the fields are of type <code>float</code>; <code>step_increment</code> is the increment/decrement that is obtained by using the cursor keys or the buttons of the spinbutton. Note that <code>page_increment</code> and <code>page_size</code> are not used in this case, and they should be set to <code>0</code>.</p>
+    <p>In line 23 the signal <code>"value-changed"</code> is connected to the callback function <code>spin_selected()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
     <list>
       <item><p>If you want the value of the spinbutton to wrap around when they exceed the maximum or the minimum, set <code>set_wrap(True)</code>. The <code>"wrapped"</code> signal is emitted when this happens.</p></item>
       <item><p><code>set_digits(digits)</code> sets the precision to be displayed by the spinbutton, up to 20 digits.</p></item>

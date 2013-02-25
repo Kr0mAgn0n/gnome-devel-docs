@@ -6,7 +6,6 @@
   <info>
   <title type="text">MenuBar (Python)</title>
   <link type="guide" xref="beginner.py#menu-combo-toolbar"/>
-  <link type="seealso" xref="aboutdialog.py"/>
   <link type="seealso" xref="gmenu.py"/>
     <link type="next" xref="colorbutton.py"/>
     <revision version="0.1" date="2012-08-01" status="stub"/>
@@ -25,7 +24,7 @@
     <desc>A widget which holds GtkMenuItem widgets</desc>
   </info>
 
-  <title>MenuBar - using XML and GtkBuilder</title>
+  <title>MenuBar created using XML and GtkBuilder</title>
   <media type="image" mime="image/png" src="media/menubar.png"/>
   <p>A MenuBar created using XML and GtkBuilder.</p>
 
@@ -114,6 +113,8 @@ def new_callback(self, action, parameter):
     <p>Finally, in the Python file, we add the action to the application or to the window - so for instance <code>app.new</code> will be added to the application in the method <code>do_startup(self)</code> as</p>
     <code mime="text/x-python">
 self.add_action(new_action)</code>
+
+    <p>See <link xref="signals-callbacks.py"/> for a more detailed explanation of signals and callbacks.</p> 
 
   </section>
 

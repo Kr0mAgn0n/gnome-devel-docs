@@ -35,7 +35,7 @@
     <item><p>Create a file .ui to describe an app-menu with items "New", "Open", "Save", "Save as", and "Quit". This can be done with Glade or in a text editor. See <link xref="#xml" /></p></item>
     <item><p>Create a Python program for a Gtk.TextView with a Gtk.Buffer <code>self.buffer</code>, and a <code>self.file</code> which will be a Gio.File and we set initially as <code>None</code>.</p></item>
     <item><p>In this program, create also the actions corresponding to the items in the app-menu, connect them to callback functions, and import the menu in the <code>do_startup()</code> method with a Gtk.Builder.</p></item>
-    <item><p>"New" and "Quit" actions and callback functions are quite straightforward, see <link xref="#code" />.</p></item>
+    <item><p>"New" and "Quit" actions and callback functions are quite straightforward, see <link xref="#code" />. See <link xref="signals-callbacks.py"/> for a more detailed explanation of signals and callback functions.</p></item>
     <item><p>"Open" callback should create and open a Gtk.FileChooserDialog for "Open", connected with another callback function for each of the two "Open" and "Cancel" buttons of the FileChooserDialog.</p></item>
     <item><p>"Save as" works basically as "Open", but the callback function of the "Save" button depends on a more complex method <code>save_to_file()</code>.</p></item>
     <item><p>"Save" can be reduced to the case where the file is <code>None</code>, that is the case where <code>self.file</code> is a new file, which in turn is the case "Save as"; and to the case where the file is not <code>None</code>, which in turn is reduced to <code>save_to_file()</code>.</p></item>

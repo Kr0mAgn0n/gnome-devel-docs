@@ -6,6 +6,7 @@
   <info>
     <title type="text">Entry (Python)</title>
     <link type="guide" xref="beginner.py#entry"/>
+    <link type="seealso" xref="strings.py" />
     <link type="next" xref="scale.py" />
     <revision version="0.2" date="2012-06-23" status="draft"/>
 
@@ -36,7 +37,7 @@
 
   <section id="methods">
     <title>Useful methods for an Entry widget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />. Some of the signals that a Gtk.Entry widget can emit are: <code>"activate"</code> (emitted when the user activates the Entry key); <code>"backspace"</code> (emitted when the user activates the Backspace or Shift-Backspace keys); <code>"copy-clipboard"</code> (Ctrl-c and Ctrl-Insert); <code>"paste-clipboard"</code> (Ctrl-v and Shift-Insert); <code>"delete-from-cursor"</code> (Delete, for deleting a character; Ctrl-Delete, for deleting a word); <code>"icon-press"</code> (emitted when the user clicks an activable icon); <code>"icon-release"</code> (emitted on the button release from a mouse click over an activable icon);  <code>"insert-at-cursor"</code> (emitted when the user initiates the insertion of a fixed string at the cursor); <code>"move-cursor"</code> (emitted when the user initiates a cursor movement); <code>"populate-popup"</code> (emitted before showing the context menu of the entry; it can be used to add items to it).</p>
+    <p>In line 14 the signal <code>"activate"</code> is connected to the callback function <code>cb_activate()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation. Some of the signals that a Gtk.Entry widget can emit are: <code>"activate"</code> (emitted when the user activates the Entry key); <code>"backspace"</code> (emitted when the user activates the Backspace or Shift-Backspace keys); <code>"copy-clipboard"</code> (Ctrl-c and Ctrl-Insert); <code>"paste-clipboard"</code> (Ctrl-v and Shift-Insert); <code>"delete-from-cursor"</code> (Delete, for deleting a character; Ctrl-Delete, for deleting a word); <code>"icon-press"</code> (emitted when the user clicks an activable icon); <code>"icon-release"</code> (emitted on the button release from a mouse click over an activable icon);  <code>"insert-at-cursor"</code> (emitted when the user initiates the insertion of a fixed string at the cursor); <code>"move-cursor"</code> (emitted when the user initiates a cursor movement); <code>"populate-popup"</code> (emitted before showing the context menu of the entry; it can be used to add items to it).</p>
     <list>
       <item><p><code>get_buffer()</code> and <code>set_buffer(buffer)</code>, where <code>buffer</code> is a Gtk.EntryBuffer object, can be used to get and set the buffer for the entry.</p></item>
       <item><p><code>get_text()</code> and <code>set_text("some text")</code> can be used to get and set the content for the entry.</p></item>

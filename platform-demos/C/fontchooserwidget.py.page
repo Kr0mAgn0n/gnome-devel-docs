@@ -32,7 +32,7 @@
   </section>
   <section id="methods">
     <title>Useful methods for a FontChooserWidget</title>
-    <p>For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />.</p>
+    <p>In line 16 the <code>"notify::font"</code> signal from the widget is connected to the callback function <code>font_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
     <list>
       <item><p>To set the font which is initially selected, use <code>set_font(font)</code> (where <code>font</code> is the font name) or <code>set_font_desc(font)</code> (where <code>font</code> is the PangoFontDescription).</p></item>
       <item><p>To get the selected font use <code>get_font()</code> or <code>get_font_desc()</code>.</p></item>

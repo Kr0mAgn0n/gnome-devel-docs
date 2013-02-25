@@ -39,6 +39,8 @@
 
   <section id="methods">
   <title>Useful methods for a MenuButton widget</title>
+      <p>In line 33 the signal <code>"activate"</code> from the action <code>about_action</code> is connected to the callback function <code>about_callback()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+
     <p>The positioning of the menu is determined by the "direction" property of the menu button and the "halign" or "valign" properties of the menu. For example, when the direction is <code>Gtk.ArrowType.DOWN</code> (other option: <code>UP</code>) and the horizontal alignment is <code>Gtk.Align.START</code> (other options: <code>CENTER</code> and <code>END</code>), the menu will be positioned below the button, with the starting edge (depending on the text direction) of the menu aligned with the starting edge of the button. If there is not enough space below the button, the menu is popped up above the button instead. If the alignment would move part of the menu offscreen, it is 'pushed in'.</p>
     
     <p>In the case of vertical alignment, the possible ArrowType directions are <code>LEFT</code> and <code>RIGHT</code> and the vertical alignment is again <code>START</code>, <code>CENTER</code> or <code>END</code>.</p>

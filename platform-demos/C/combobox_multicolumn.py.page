@@ -6,7 +6,6 @@
   <info>
     <title type="text">ComboBox (Python)</title>
     <link type="guide" xref="beginner.py#menu-combo-toolbar"/>
-    <link type="seealso" xref="combobox.py"/>
     <link type="next" xref="treeview_advanced_liststore.py"/>
     <revision version="0.1" date="2012-06-03" status="draft"/>
 
@@ -33,8 +32,8 @@
 
   <section id="methods">
     <title>Useful methods for a ComboBox widget</title>
-    <p>The ComboBox widget is designed around a <em>Model/View/Controller</em> design: the <em>Model</em> stores the data; the <em>View</em> gets change notifications and displays the content of the model; the <em>Controller</em>, finally, changes the state of the model and notifies the view of these changes. For more information, and for a list of useful methods for ComboBox and TreeModel, see <link xref="model-view-controller.py" />.</p>
-
+    <p>The ComboBox widget is designed around a <em>Model/View/Controller</em> design: the <em>Model</em> stores the data; the <em>View</em> gets change notifications and displays the content of the model; the <em>Controller</em>, finally, changes the state of the model and notifies the view of these changes. For more information and for a list of useful methods for ComboBox see <link xref="model-view-controller.py" />.</p>
+    <p>In line 45 the <code>"changed"</code> signal is connected to the callback function <code>on_changed()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
   </section>
 
   <section id="references">
