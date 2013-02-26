@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="topic" style="task"
+      id="first-gnome-application">
+
+<info>
+  <title type="text">Writing Your First GNOME Application</title>
+  <link type="guide" xref="getting-started#getting-started"/>
+  <revision version="0.1" date="2013-01-31" status="stub"/>
+
+  <desc>An introductory guide to writing a GNOME application.</desc>
+  <credit type="author copyright">
+    <name></name>
+    <email></email>
+    <years></years>
+  </credit>
+</info>
+
+<title type="text">Writing Your First GNOME Application</title>
+
+<p>This tutorial will guide you through the steps involved in creating a GNOME application. Following the stages it describes will enable you to produce a high-quality application that provides an excellent experience for GNOME users.</p>
+
+<section id="design">
+<title>1. Design</title>
+
+<p>Design is an important stage in the process of creating an application, and will inform your technical decisions. The GNOME Human Interface Guidelines will assist you in designing your application.</p>
+
+</section>
+
+<section id="setting-up">
+<title>2. Set Up Your Development Environment</title>
+
+<p>The first stage in creating a GNOME application is to set up your development environment. If you are not using GNOME 3 already, you will need to install it; you will use it as the environment for developing your application. See the <link href="http://www.gnome.org/getting-gnome/">Getting GNOME page</link> for information on GNOME 3 distributions.</p>
+
+<p>The following tools are recommended for writing a GNOME application:</p>
+
+<list>
+    <item><p><link href="http://glade.gnome.org/">Glade</link> - for creating your user interface.</p></item>
+    <item><p><link href="http://www.anjuta.org/downloads">Anjunta</link> - for editing code.</p></item>
+    <item><p>DevHelp - for viewing and searching API documentation.</p></item>
+</list>
+
+<p>All of these tools are available via GNOME 3 distributions. The <link href="http://developer.gnome.org/gnome-devel-demos/unstable/getting-ready">GNOME wiki</link> contains information for installing development tools for different distributions:</p>
+
+<list>
+    <item><p><link href="http://live.gnome.org/DeveloperTools/Installation/Ubuntu">
+    <media type="image" mime="image/png" src="media/ubuntu.png">Ubuntu</media></link></p></item>
+    <item><p>
+    <link href="http://live.gnome.org/DeveloperTools/Installation/Fedora">
+    <media type="image" mime="image/png" src="media/fedora.png">Fedora</media></link></p></item>
+    <item><p>
+    <link href="http://live.gnome.org/DeveloperTools/Installation/OpenSuSE">
+    <media type="image" mime="image/png" src="media/opensuse.png">OpenSuSE</media></link></p></item>
+    <item><p><link href="http://live.gnome.org/DeveloperTools/Installation">Others</link></p></item>
+</list>
+</section>
+
+<section id="user-interface">
+<title>3. Create Your User Interface</title>
+
+<p>Creating a prototype of your application's user interface is a good way to begin the development process. You can use Glade to construct your interface quickly and easily. Becoming familiar with the design patterns found in the Human Interface Guidelines will help you to keep the users' best interests in mind while creating an aesthetically pleasing application. The <link href="https://live.gnome.org/Glade/Tutorials">Glade tutorials</link> give a step-by-step introduction to developing an application with Glade. </p>
+</section>
+
+<section id="code">
+<title>4. Code</title>
+
+<p>JavaScript is the recommended language for developing GNOME applications. To familiarize yourself with its use in GNOME application development, check out <link href="http://developer.gnome.org/gnome-devel-demos/unstable/">the tutorials</link> or browse the code of existing GNOME applications.</p>
+
+<p>GNOME provides a collection of libraries that can be used for application development. These give the ability to create custom user interfaces and provide common functionality for applications, such as reading and writing to files, playing and creating multimedia, storing and searching data, embedding web functionality and many other things. See <link type="guide" xref="library-intro">the introduction to GNOME libraries</link> for more details.</p>
+
+<p>Following the coding style guides will allow you to create reusable code and build on existing code from GNOME's codebase: <link href="ftp://ftp.mirrorservice.org/pub/GNOME/teams/docs/devel/guides/programming_guidelines/programming-guidelines.ps">programming guidelines</link> and <link href="https://live.gnome.org/GnomeShell/Gjs_StyleGuide">GNOME JavaScript style guide</link>.</p>
+</section>
+
+<section id="test">
+<title>5. Test</title>
+<p>Test your application in order to eliminate bugs and make sure that it provides a high quality experience.</p>
+<list>
+    <item><p>Exercise all of your application's functionality, and get a small group of users to try it out.</p></item>
+    <item><p>GNOME aims to ensure that its software is usable for everyone, including people with disabilities. For information on testing for accessibility, including high contrast mode and the screen reader, see <link href="https://live.gnome.org/Accessibility/Testing">accessibility testing</link> for more details.</p></item>
+    <item><p>GNOME software is available in a large number of spoken languages. Try using the application using both right to left and left to right layout. This can be done by changing your language settings.</p></item>
+    <item><p>Ensure that your application works effectively for different screen sizes - see the HIG for guidelines on the target screen sizes.</p></item>
+</list>
+</section>
+
+<section id="get-ready">
+<title>6. Get Ready</title>
+
+<p>Get your application ready to be distributed to users.</p>
+
+<list>
+    <item><p>Write <link href="http://developer.gnome.org/gdp-handbook/stable/gnomedocsystem.html.en">documentation</link> for your application, so that users can learn how to use it.</p></item>
+    <item><p>Ensure that all the text in your user interface can be <link href="http://people.gnome.org/~malcolm/i18n/">translated</link>.</p></item>
+</list>
+</section>
+
+<section id="packaging">
+<title>7. Package</title>
+
+<p>Once your application is ready to be distributed to users, you should make your source code publicly available by posting it in a public git repository such as <link href="http://gitorious.org/">Gitorious</link> or <link href="https://github.com/">Github</link>. To have your application included in a distribution's releases, see distribution specific guidelines. GNOME recommends that you license your work using <link href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">the GNU GPLv2 or later</link></p>
+</section>
+
+</page>
+

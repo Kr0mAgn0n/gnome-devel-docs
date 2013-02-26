@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="the-build-system">
+
+<info>
+  <title type="text">Desktop Files</title>
+    <link type="guide" xref="integration#integration"/>
+
+    <revision version="0.1" date="2012-02-19" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+    <credit type="editor">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+    </credit>
+
+    <desc>Using the GNOME build system</desc>
+</info>
+
+<title>The Build System</title>
+
+<p>To make your application truly a part of the GNOME 3 system you need to install it with the help of autotools. The autotools build will install all the necessary files to all the right places. </p>
+
+<p>For this you need to have the following files:</p>
+
+<links type="section"/>
+
+<section id="autogen"><title>autogen.sh</title>
+  <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/autogen.sh" parse="text"><xi:fallback/></xi:include></code>
+  <p>After the <file>autogen.sh</file> file is ready and saved, run:</p>
+  <screen><output style="prompt">$ </output><input>chmod +x autogen.sh</input></screen>
+</section>
+
+<section id="makefile"><title>Makefile.am</title>
+  <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/Makefile.am" parse="text"><xi:fallback/></xi:include></code>
+</section>
+
+<section id="configure"><title>configure.ac</title>
+  <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/configure.ac" parse="text"><xi:fallback/></xi:include></code>
+</section>
+
+</page>
