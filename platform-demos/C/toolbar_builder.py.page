@@ -180,9 +180,8 @@
 <item><p><code>add_objects_from_string(filename, object_ids)</code>  is the same as <code>add_from_string()</code>, but it loads only the objects with the ids given in the <code>object_id</code>s list.</p></item>
 <item><p><code>get_object(object_id)</code> retrieves the widget with the id <code>object_id</code> from the loaded objects in the builder.</p></item>
 <item><p><code>get_objects()</code> returns all loaded objects.</p></item>
-<item><p><code>connect_signals(handler_object)</code> connects the signals to the methods given in the <code>handler_object</code>. This can be any object which contains keys or attributes that are called like the signal handler names given in the interface description, e.g. a class or a dict.</p></item>
-    <p>In line 39 the signal <code>"activate"</code> from the action <code>undo_action</code> is connected to the callback function <code>undo_callback()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
-
+<item><p><code>connect_signals(handler_object)</code> connects the signals to the methods given in the <code>handler_object</code>. This can be any object which contains keys or attributes that are called like the signal handler names given in the interface description, e.g. a class or a dict. In line 39 the signal <code>"activate"</code> from the action <code>undo_action</code> is connected to the callback function <code>undo_callback()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+</item>
 </list>
 
 </section>
