@@ -1,0 +1,39 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="philosophy">
+
+<info>
+  <link type="guide" xref="index" group="philosophy"/>
+  <desc>Philosophy of the GNOME platform</desc>
+</info>
+
+<title>Philosophy of the GNOME platform</title>
+
+<p>The first thing to mention is that the GNOME as a platform does not
+have a Grand Unified Vision, or a grand plan, or anything like
+that. GNOME has grown organically over time, in a more or less
+well-controlled way.</p>
+
+<p>The GNOME project started in August 1997 as a tiny collection of
+libraries in addition to the existing GTK+ widget toolkit.  Over time,
+GNOME adopted external libraries or created new ones to meet various
+needs.  In turn, libraries or parts of them have been deprecated and
+replaced as our ongoing gestalt of "best practices" has changed.  This
+does not mean that GNOME developers change their minds capriciously
+(most of the time, anyway!), but that as the whole platform evolves,
+different things may be seen to fit better with it.</p>
+
+<p>Experience has taught us some things that work well in the context
+of GNOME.  For example, libraries that are based on GLib's <link
+xref="gobject">GObject system</link> are easier to learn for GNOME
+programmers than custom object systems.  People can then assume
+certain conventions for memory management and certain patterns such as
+methods and signals.  Long-running operations that are made
+asynchronous, and that have an API that supports GLib's
+<code>GCancellable</code> objects for cancellation, are more
+convenient than libraries which force the programmer to create
+threads by hand.</p>
+
+<p>FIXME: Pattern of moving things to the right place in the stack.</p>
+
+</page>
