@@ -52,9 +52,9 @@
   <code>__init__(self)</code>; the properties such as title, size and position 
   are given by the methods in lines 6&#8211;9.</p>
   
-  <p>In GTK+3, the widgets have a natural and a minimum size. For a window, 
-  there is also a default size, that is an initial size, set with 
-  <code>set_default_size(<var>width</var>, <var>height</var>)</code>. 
+  <p>A note on the size property: in GTK+3, the widgets have a natural and a 
+  minimum size. For a window, there is also a default size, that is an initial 
+  size, set with <code>set_default_size(<var>width</var>, <var>height</var>)</code>. 
   The default size cannot be smaller than the minimum size of 
   the widgets inside the window (known as "children widgets").</p>
   
@@ -64,6 +64,10 @@
   <p>In both methods, the variables <var>width</var> and <var>height</var> can 
   take the value of <code>-1</code>: in this case, they will take the natural 
   size of the children widgets.</p>
+  
+  <p>There is furthermore the method <code>set_border_width(<var>width</var>)</code> 
+  that specifies the amount of space to leave blank between the inner border of 
+  the window and the children widgets.</p>
   
   <p>Line 11 makes the window visible.</p>
 
