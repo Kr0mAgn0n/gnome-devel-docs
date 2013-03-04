@@ -3,12 +3,11 @@
       xmlns:xi="http://www.w3.org/2001/XInclude"
       type="guide" style="task"
       id="grid.py">
+      
   <info>
     <title type="text">Grid (Python)</title>
-    <link type="guide" xref="beginner.py#layout"/>
-    <link type="seealso" xref="label.py"/>
     <link type="next" xref="separator.py"/>
-    <revision version="0.2" date="2012-08-01" status="stub"/>
+    <revision version="0.3" date="2013-03-04" status="draft"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -19,45 +18,91 @@
     <credit type="author copyright">
       <name>Marta Maria Casetti</name>
       <email>mmcasetti@gmail.com</email>
-      <years>2012</years>
+      <years>2012, 2013</years>
     </credit>
 
     <desc>Pack widgets in rows and columns</desc>
   </info>
 
   <title>Grid</title>
-
-  <media type="image" mime="image/png" src="media/grid_simple.png"/>
-  <p>Some labels in a grid.</p>
+  
+  <synopsis><p>To pack more widgets inside the same windows we can use a grid.
+  </p></synopsis>
 
   <links type="section" />
 
-  <section id="code">
-    <title>Code used to generate this example</title>
-    <code mime="text/python" style="numbered"><xi:include href="samples/grid.py" parse="text"><xi:fallback/></xi:include></code>
-  </section>
+  <section id="example">
+  <title>An example</title>
 
-  <section id="methods">
-    <title>Useful methods for a Grid widget</title>
+  <p>you can pack three labels inside a grid, two on the first row and one in 
+  the middle of the second row, with the following code:</p>
 
-    <list>
-      <item><p>To attach a widget <code>child</code> in position <code>left, top</code> in a slot of given <code>width, height</code> use <code>attach(child, top, left, width, height)</code>. If a widget <code>sibling</code> is already in place, we can also use <code>attach_next_to(child, sibling, side, width, height)</code>, where <code>side</code> is one of <code>Gtk.PositionType.LEFT, Gtk.PositionType.RIGHT, Gtk.PositionType.TOP, Gtk.PositionType.BOTTOM</code>.</p></item>
-      <item><p><code>insert_row(position)</code> and <code>insert_column(position)</code> do exactly what they say; children which are attached at or below this position are moved one row down, and children which span across this position are grown to span the new row. <code>insert_next_to(sibling, side)</code> inserts a row or column at the specified position. The new row or column is placed next to <code>sibling</code>, on the side determined by <code>side</code>; if side is <code>Gtk.PositionType.TOP</code> or <code>Gtk.PositionType.BOTTOM</code>, a row is inserted, if side is <code>Gtk.PositionType.LEFT</code> or <code>Gtk.PositionType.RIGHT</code>, a column is inserted.</p></item>
-      <item><p><code>set_row_homogeneous(True)</code> and <code>set_column_homogeneous(True)</code> ensure that (respectively) every row or every column has the same width or height.</p></item>
-      <item><p><code>set_row_spacing(spacing)</code> and <code>set_column_spacing(spacing)</code> force a spacing between (respectively) rows or columns. The value of <code>spacing</code> can be between <code>0</code>, which is the default value, and <code>32767</code>.</p></item>
-    </list>
+  <code mime="text/python" style="numbered"><xi:include href="samples/grid.py" parse="text"><xi:fallback/></xi:include></code>
+
+  <p>If you run the code, the result should be like the image below.</p>
+
+  <media type="image" mime="image/png" src="media/grid_example.png"/>
 
   </section>
 
+  <section id="in-depth">
+  <title>A more in-depth look</title>
+
+  <p>We create the grid inside the window (line 13), then we attach the widgets 
+  to the grid (lines 16&#8211;18), and finally we attach the grid to the window 
+  (line 20).</p>
+  
+  <p>To attach a widget <code><var>child</var></code> in position 
+  <code><var>left</var>, <var>top</var></code> in a slot of given 
+  <code><var>width</var>, <var>height</var></code> use 
+  <code>attach(<var>child</var>, <var>top</var>, <var>left</var>, <var>width</var>, <var>height</var>)</code>. 
+  If a widget <code><var>sibling</var></code> is already in place, we can also 
+  use 
+  <code>attach_next_to(<var>child</var>, <var>sibling</var>, <var>side</var>, <var>width</var>, <var>height</var>)</code>, 
+  where <code><var>side</var></code> is one of <code>Gtk.PositionType.LEFT</code>, 
+  <code>Gtk.PositionType.RIGHT</code>, <code>Gtk.PositionType.TOP</code>, <code>Gtk.PositionType.BOTTOM</code>.</p>
+
+  <p>The methods <code>set_row_spacing(<var>spacing</var>)</code> and 
+  <code>set_column_spacing(<var>spacing</var>)</code> (used in line 14) force a 
+  spacing between (respectively) rows or columns. The value of 
+  <code><var>spacing</var></code> can be between <code>0</code>, which is the 
+  default value, and <code>32767</code>.</p>
+
+  <p><code>set_row_homogeneous(True)</code> and 
+  <code>set_column_homogeneous(True)</code> are used to ensure that every row or 
+  every column (respectively) has the same width or height.</p>
+  
+  <p><code>insert_row(<var>position</var>)</code> and 
+  <code>insert_column(<var>position</var>)</code> ensure that children which are 
+  attached at or below this position are moved one row down, and children which 
+  span across this position are grown to span the new row. Analogously, 
+  <code>insert_next_to(<var>sibling</var>, <var>side</var>)</code> inserts a row 
+  or column at the specified position. The new row or column is placed next to 
+  <code><var>sibling</var></code>, on the side determined by 
+  <code><var>side</var></code>; if side is <code>Gtk.PositionType.TOP</code> or 
+  <code>Gtk.PositionType.BOTTOM</code>, a row is inserted, if side is 
+  <code>Gtk.PositionType.LEFT</code> or <code>Gtk.PositionType.RIGHT</code>, 
+  a column is inserted.</p>
+
+  </section>
+
+  <section id="exercises">
+  <title>Exercises</title>
+
+  <p>Insert a column between the two labels in the first row.</p>
+
+  <p>Write another example on the model of the one you have seen above.</p>
+
+  </section>
+  
   <section id="references">
-    <title>API References</title>
-    <p>In this sample we used the following:</p>
-    <list>
-      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">GtkApplication</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplicationWindow.html">GtkApplicationWindow</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLabel.html">GtkLabel</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkImage.html">GtkImage</link></p></item>
-      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkGrid.html">GtkGrid</link></p></item>
-    </list>
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">GtkApplication</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplicationWindow.html">GtkApplicationWindow</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLabel.html">GtkLabel</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkGrid.html">GtkGrid</link></p></item>
+  </list>
   </section>
 </page>
