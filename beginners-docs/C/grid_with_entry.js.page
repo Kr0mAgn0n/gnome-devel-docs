@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="entry.js">
+  <info>
+  <title type="text">Entry (JavaScript)</title>
+  <link type="guide" xref="beginner.js#entry"/>
+    <revision version="0.1" date="2012-02-19" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>How to make an entry widget and connect its contents to a label</desc>
+  </info>
+
+  <title>Entry</title>
+
+  <media type="image" mime="image/png" src="media/grid_with_entry.png"/>
+  <p>This an entry widget. An entry widget is a container that you can type in to. </p>
+
+      <code mime="application/javascript" style="numbered"><![CDATA[
+#!/usr/bin/gjs
+Gtk = imports.gi.Gtk;
+Gtk.init(null, 0);
+
+myW = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL});
+myW.title = "Entry";
+myW.connect("destroy", function(){Gtk.main_quit()});
+grid = new Gtk.Grid();
+myW.add(grid);
+
+//create the entry widget
+var entry = new Gtk.Entry();
+entry.set_placeholder_text("Write something here");
+entry.set_width_chars(50);
+//create the first label
+var label = new Gtk.Label({label: "Entry widget: "});
+//create the button for connecting
+var connectionbutton = new Gtk.Button({label: "Click to update label"});
+//create the label for updating the entrys information
+this.resultlabel = new Gtk.Label({
+  label: "Entry contents go here after the click"
+});
+//create a connection between the button and the result label
+connectionbutton.connect("clicked", function(widget, event) {
+  //getting the text from the entry widget and updating the label
+  var whatWasTyped = entry.get_text();
+  this.resultlabel.set_text(whatWasTyped);
+});
+
+grid.attach(label, 1, 1, 1, 1);
+grid.attach_next_to(entry,label,1,1,1);
+grid.attach_next_to(connectionbutton,label,3,1,1);
+grid.attach_next_to(resultlabel,entry,3,1,1);myW.show_all();
+Gtk.main();]]></code>
+<p>In this sample we use the following widgets:
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Window.html">Gtk.Window</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Entry.html">Gtk.Entry</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link>,
+<link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link>.</p>
+
+</page>

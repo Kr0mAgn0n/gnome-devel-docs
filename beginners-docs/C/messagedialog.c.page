@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="messagedialog.c">
+  <info>
+    <title type="text">MessageDialog (C)</title>
+    <link type="guide" xref="beginner.c#windows"/>
+    <link type="seealso" xref="dialog.c"/>
+    <revision version="0.2" date="2012-08-07" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Monica Kochofar</name>
+      <email>monicakochofar@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A message window</desc>
+  </info>
+
+  <title>MessageDialog</title>
+
+  <media type="image" mime="image/png" src="media/messagedialog.png"/>
+  <p>A modal message dialog which can cause the world to explode.</p>
+  <note><p>
+    To test out the application once it has started running, you can click on the "Message Dialog" tab that appears in the top menubar of the screen. 
+  </p></note>
+
+      <code mime="text/x-csrc" style="numbered">
+<xi:include href="samples/messagedialog.c" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gio/stable/GApplication.html">GApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkMessageDialog.html">GtkMessageDialog</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gio/stable/GSimpleAction.html#g-simple-action-new">GSimpleAction</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gio/stable/GActionMap.html">GActionMap</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gio/stable/GMenu.html">GMenu</link></p></item>
+  
+</list>
+</page>

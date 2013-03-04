@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="label.py">
+  <info>
+    <title type="text">Label (Python)</title>
+    <link type="guide" xref="beginner.py#display-widgets"/>
+    <link type="seealso" xref="properties.py" />
+    <link type="seealso" xref="strings.py" />
+    <link type="next" xref="properties.py" />
+    <revision version="0.2" date="2012-06-18" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+    <credit type="author">
+      <name>Sebastian P&#246;lsterl</name>
+      <email>sebp@k-d-w.org</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget that displays a small to medium amount of text</desc>
+  </info>
+
+  <title>Label</title>
+  <media type="image" mime="image/png" src="media/label.png"/>
+  <p>A simple label</p>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/label.py" parse="text"><xi:fallback/></xi:include></code>
+
+    <p>Another way to obtain what we have in the example is to create the label as an instance of another class and add it to the instance of <code>MyWindow</code> in the <code>do_activate(self)</code> method:</p>
+      <code mime="text/x-python">
+# a class to define a window
+class MyWindow(Gtk.ApplicationWindow):
+    def __init__(self, app):
+        Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
+        self.set_default_size(200, 100)
+
+# a class to define a label
+class MyLabel(Gtk.Label):
+    def __init__(self):
+        Gtk.Label.__init__(self)
+        self.set_text("Hello GNOME!")
+
+class MyApplication(Gtk.Application):
+    def __init__(self):
+        Gtk.Application.__init__(self)
+
+    def do_activate(self):
+        # create an instance of MyWindow
+        win = MyWindow(self)
+        # create an instance of MyLabel
+        label = MyLabel()
+        # and add it to the window
+        win.add(label)
+        # show the window and everything on it
+        win.show_all()</code>
+
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a Label widget</title>
+  <p>An explanation of how to deal with strings in GTK+ can be found in <link xref="strings.py" />.</p>
+  <list>
+    <item><p><code>set_line_wrap(True)</code> breaks lines if the text of the label exceeds the size of the widget.</p></item>
+    <item><p><code>set_justify(Gtk.Justification.LEFT)</code> (or <code>Gtk.Justification.RIGHT, Gtk.Justification.CENTER, Gtk.Justification.FILL</code>) sets the alignment of the lines in the text of the label relative to each other. The method has no effect on a single-line label.</p></item>
+    <item><p>For decorated text we can use <code>set_markup("text")</code>, where <code>"text"</code> is a text in the <link href="http://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango Markup Language</link>. An example:</p>
+      <code mime="text/x-python"><![CDATA[
+label.set_markup("Text can be <small>small</small>, <big>big</big>, "
+                 "<b>bold</b>, <i>italic</i> and even point to somewhere "
+                 "in the <a href=\"http://www.gtk.org\" "
+                 "title=\"Click to find out more\">internets</a>.")]]></code>
+    </item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLabel.html">GtkLabel</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+  </list>
+  </section>
+</page>

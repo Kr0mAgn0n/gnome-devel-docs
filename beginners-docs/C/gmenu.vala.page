@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="gmenu.vala">
+  <info>
+  <title type="text">GMenu (Vala)</title>
+	  <link type="guide" xref="beginner.vala#menu-combo-toolbar"/>
+	  <link type="seealso" xref="aboutdialog.vala"/>
+    <revision version="0.1" date="2012-04-07" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Ryan Lortie</name>
+      <email>desrt@desrt.ca</email>
+      <years>2012</years>
+   </credit>
+
+    <credit type="author">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+    </credit>
+
+    <desc>A simple implementation of GMenuModel</desc>
+  </info>
+
+  <title>GMenu</title>
+    <media type="image" mime="image/png" height="200" src="media/gmenu.vala.png"/>
+    <note style="important">
+       <p><em style="strong">You need to be running GTK+-3.4 or later for this to work</em></p>
+    </note>
+    <note style="bug">
+      <p>This program will not compile with the quit action connected until <link href="https://bugzilla.gnome.org/show_bug.cgi?id=674090">Bug #674090</link> is fixed. Therefore, the problematic line has been commented out.</p>
+    </note>
+    <p>A GtkApplication with a simple GMenu and SimpleActions</p>
+
+<code mime="text/x-csharp" style="numbered"><xi:include href="samples/gmenu.vala" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gtk+-3.0/Gtk.ApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gio-2.0/GLib.Menu.Menu.html">Menu</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gio-2.0/GLib.Menu.append.html">append</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gio-2.0/GLib.SimpleAction.html">SimpleAction</link></p></item>
+  <item><p><link href="http://www.valadoc.org/gio-2.0/GLib.ActionMap.add_action.html">add_action</link></p></item>
+</list>
+</page>

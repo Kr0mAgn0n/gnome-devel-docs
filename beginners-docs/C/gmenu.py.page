@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="gmenu.py">
+  <info>
+    <title type="text">GMenu (Python)</title>
+    <link type="guide" xref="beginner.py#menu-combo-toolbar"/>
+    <link type="seealso" xref="signals-callbacks.py" />
+    <link type="next" xref="menubutton.py"/>
+    <revision version="0.1" date="2012-04-28" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A simple implementation of GMenu</desc>
+  </info>
+
+  <title>GMenu</title>
+  <media type="image" mime="image/png" src="media/gmenu.py.png"/>
+  <p>A GtkApplication with a simple GMenu and SimpleActions</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered">
+    <xi:include href="samples/gmenu.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a GSimpleAction and a GMenu</title>
+
+    <p>In line 33 the signal <code>"activate"</code> from the action <code>new_action</code> (not the menu!) is connected to the callback function <code>new_cb()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+
+    <p>Useful methods for a GSimpleAction:</p>
+    <list>
+      <item><p>To create a new action that is <em>stateless</em>, that is, an action that do not retain or depend on a state given by the action itself, use</p>
+      <code>
+action = Gio.SimpleAction.new("name", parameter_type)</code>
+      <p>where <code>"name"</code> is the name of the action and <code>parameter_type</code> is the type of the parameters that the action receives when being activated. This can be <code>None</code>, or <code>GLib.VariantType.new('s')</code> if the parameter is of type <code>str</code>, or instead of <code>'s'</code> a character as described <link href="http://developer.gnome.org/glib/unstable/glib-GVariantType.html">here</link>. To create a new <em>stateful</em> (i.e. not stateless) action, use</p>
+      <code>
+action = Gio.SimpleAction.new_stateful("name", parameter_type, initial_state)</code>
+      <p>where <code>initial_state</code> is defined as a GVariant - for instance <code>Glib.Variant.new_string('start')</code>; for a list of possiblities see <link href="http://developer.gnome.org/glib/unstable/glib-GVariant.html">here</link>.</p></item>
+      <item><p><code>set_enabled(True)</code>  sets the action as enabled; an action must be enabled in order to be activated or in order to have its state changed from outside callers. This should only be called by the implementor of the action. Users of the action should not attempt to modify its enabled flag.</p></item>
+      <item><p><code>set_state(state)</code>, where <code>state</code> is a GVariant, sets the state of the action, updating the 'state' property to the given value. This should only be called by the implementor of the action; users of the action should instead call <code>change_state(state)</code> (where <code>state</code> is as above) to request the change.</p></item>
+    </list>
+
+    <p>Useful methods for a GMenu:</p>
+    <list>
+      <item><p>To insert an item in the menu in position <code>position</code>, use <code>insert(position, label, detailed_action)</code>, where <code>label</code> is the label that will appear in the menu and <code>detailed_action</code> is a string composed of the name of the action to which we prepend the prefix <code>app.</code>. A more detailed discussion of this can be found in <link xref="menubar.py#win-app" />.</p>
+      <p>To append or prepend an item in the menu use respectively <code>append(label, detailed_action)</code> and <code>prepend(label, detailed_action)</code>.</p></item>
+      <item><p>Another way of adding items to the menu is to create them as <code>GMenuItem</code>s and use <code>insert_item(position, item)</code>, <code>append_item(item)</code>, or <code>prepend_item(item)</code>; so for instance we might have:</p>
+      <code>
+about = Gio.MenuItem.new("About", "app.about")
+menu.append_item(about)</code>
+      </item>
+      <item><p>We can also add a whole subsection in a menu using <code>insert_section(position, label, section)</code>, <code>append_section(label, section)</code>, or <code>prepend_section(label, section)</code>, where <code>label</code> is the title of the subsection.</p></item>
+      <item><p>To add a submenu that will expand and collapse, use <code>insert_submenu(position, label, section)</code>, <code>append_submenu(label, section)</code>, or <code>prepend_submenu(label, section)</code>, where <code>label</code> is the title of the subsection.</p></item>
+      <item><p>To remove an item from the menu, use <code>remove(postion)</code>.</p></item>
+      <item><p>To set a label for the menu, use <code>set_label(label)</code>.</p></item>
+    </list>
+
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gio/unstable/GMenu.html">GMenu</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gio/stable/GSimpleAction.html">GSimpleAction</link></p></item>
+      <item><p><link href="http://developer.gnome.org/glib/unstable/glib-GVariantType.html">GVariantType</link></p></item>
+      <item><p><link href="http://developer.gnome.org/glib/unstable/glib-GVariant.html">GVariant</link></p></item>
+    </list>
+  </section>
+</page>

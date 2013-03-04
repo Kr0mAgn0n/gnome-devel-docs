@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="dialog.py">
+  <info>
+    <title type="text">Dialog (Python)</title>
+    <link type="guide" xref="beginner.py#windows"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
+    <link type="next" xref="aboutdialog.py" />
+    <revision version="0.1" date="2012-06-11" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A popup window</desc>
+  </info>
+
+  <title>Dialog</title>
+  <media type="image" mime="image/png" src="media/dialog.png"/>
+  <p>A dialog with the response signal connected to a callback function.</p>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/dialog.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a Dialog widget</title>
+    <p>In line 16 the signal <code>"clicked"</code> is connected to the callback function <code>on_button_click()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+  <list>
+    <item><p>Instead of <code>set_modal(True)</code> we could have <code>set_modal(False)</code> followed by <code>set_destroy_with_parent(True)</code> that would destroy the dialog window if the main window is closed.</p></item>
+    <item><p><code>add_button(button_text="The Answer", response_id=42)</code>, where <code>42</code> is any integer, is an alternative to <code>add_button(button_text="text", response_id=Gtk.ResponseType.RESPONSE)</code>, where <code>RESPONSE</code> could be one of <code>OK, CANCEL, CLOSE, YES, NO, APPLY, HELP</code>, which in turn correspond to the integers <code>-5, -6,..., -11</code>.</p></item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>
+    In this sample we used the following:
+  </p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkDialog.html">GtkDialog</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+  </list>
+  </section>
+</page>

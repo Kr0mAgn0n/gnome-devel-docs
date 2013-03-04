@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="progressbar.c">
+  <info>
+    <title type="text">ProgressBar (C)</title>
+    <link type="guide" xref="beginner.c#display-widgets"/>
+    <link type="seealso" xref="spinner.c"/>
+    <revision version="0.1" date="2012-06-16" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Monica Kochofar</name>
+      <email>monicakochofar@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget which indicates progress visually</desc>
+  </info>
+
+  <title>ProgressBar</title>
+
+  <media type="video" mime="application/ogv" src="media/progressbar_fill.ogv" />
+  <p>This ProgressBar "fills in" by a fraction of the bar until it is full.</p>
+
+      <code mime="text/x-csrc" style="numbered">
+<xi:include href="samples/progressbar.c" parse="text"><xi:fallback/></xi:include></code>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkApplication.html">GtkApplication</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/3.4/GtkWindow.html">GtkWindow</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkProgressBar.html">GtkProgressBar</link></p></item>
+  <item><p><link href="http://developer.gnome.org/glib/stable/glib-The-Main-Event-Loop.html#g-timeout-add">G_Timeout</link></p></item>
+</list>
+</page>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="checkbutton.py">
+  <info>
+    <title type="text">CheckButton (Python)</title>
+    <link type="guide" xref="beginner.py#buttons"/>
+    <link type="next" xref="togglebutton.py"/>
+    <revision version="0.1" date="2012-05-09" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A toggle button in a window</desc>
+  </info>
+
+  <title>CheckButton</title>
+  <media type="image" mime="image/png" src="media/checkbutton.png"/>
+  <p>This CheckButton toggles the title.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/checkbutton.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a CheckButton widget</title>
+    <p>In line 17 the <code>"toggled"</code> signal is connected to the callback function <code>toggled_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">GtkApplication</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplicationWindow.html">GtkApplicationWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkToggleButton.html">GtkToggleButton</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkCheckButton.html">GtkCheckButton</link></p></item>
+    </list>
+  </section>
+</page>

@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="weatherGeonames.js">
+  <info>
+    <link type="guide" xref="weatherApp.js#main"/>
+    <revision version="0.1" date="2012-03-09" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Susanna Huhtanen</name>
+      <email>ihmis.suski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc></desc>
+  </info>
+
+  <title>Local library geoNames</title>
+  <synopsis>
+    <p>In this part of the guide we'll construct the local library geoNames using asynchronous calls. Weather information in this example is fetched from geonames.org and the application is using the <link href= "http://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_E">ICAO codes </link> to place your weather request. To write and run all the code examples yourself, you need an editor to write code in, Terminal and GNOME 3 or higher installed into your computer. In this guide we'll go through the following parts:</p>
+
+    <list>
+      <item><p> <link xref="#geonamesimports">Local library for getting the weather</link></p></item>
+      <item><p> <link xref="#geonamesfunction">Creating function geoNames</link></p></item>
+      <item><p> <link xref="#geonamesmethods">Methods for geoNames</link></p></item>
+      <item><p> <link xref="#geonames.js">geonames.js </link></p></item>
+    </list>
+  </synopsis>
+
+  <section id="geonamesimports">
+  <title>Local library for getting the weather</title>
+  <p>For this we need a new file that will be our local library.</p>
+  <code mime="application/javascript" style="numbered"><![CDATA[
+const Soup = imports.gi.Soup;
+const _httpSession = new Soup.SessionAsync();
+Soup.Session.prototype.add_feature.call(_httpSession, new Soup.ProxyResolverDefault());
+]]></code>
+  <p>In the first lines we'll import and initialize the libraries we need to use in this local library. Soup handles all the requests we have to make with http.</p>
+  </section>
+
+  <section id="geonamesfunction">
+  <title>Creating function GeoNames</title>
+  <code mime="application/javascript" style="numbered"><![CDATA[
+function GeoNames(station) {
+  this.station = station;
+}
+
+GeoNames.prototype = {
+
+}
+]]></code>
+  <p>Here we create the function GeoNames that will handle getting weather for us. JavaScript allows us to create functions that have little inside at first and later expand them. This will be done inside the GeoNames.prototype curly braces{}</p>
+  </section>
+
+  <section id="geonamesmethods">
+  <title>Methods for GeoNames</title>
+  <code mime="application/javascript" style="numbered"><![CDATA[
+getWeather: function(callback) {
+    var request = Soup.Message.new('GET', 'http://api.geonames.org/weatherIcaoJSON?ICAO=' + this.station + '&username=demo');
+    _httpSession.queue_message(request, function(_httpSession, message) {
+      if (message.status_code !== 200) {
+        callback(message.status_code, null);
+        return;
+      }
+      var weatherJSON = request.response_body.data;
+      var weather = JSON.parse(weatherJSON);
+      callback(null, weather);
+      });
+},
+
+getIcon: function(weather){
+    switch (weather.weatherObservation.weatherCondition){
+    case "drizzle":
+    case "light showers rain":
+    case "light rain":
+      return "weather-showers-scattered.svg";
+    case "rain":
+      return "weather-showers.svg";
+    case "light snow":
+    case "snow grains":
+      return "weather-snow.svg";
+    }
+    switch (weather.weatherObservation.clouds){
+      case "few clouds":
+      case "scattered clouds":
+        return "weather-few-clouds.svg";
+      case "clear sky":
+        return "weather-clear.svg"
+      case "broken clouds":
+      case "overcast":
+        return "weather-overcast.svg";
+    }
+    return "weather-fog.svg";
+}
+]]></code>
+  <p>The first method for GeoNames is getWeather and the second getIcon. In getWeather we make a http request with soup, handle errors and then parse the information from the request to form we can use it. In getIcon we simply compare the results we got from getWeather to the switch we have in order to get the icon matching current weather. Now that we have our local library ready, it's time to make use of it.</p>
+  </section>
+
+
+  <section id ="geonames.js">
+  <title>geonames.js</title>
+  <p>Here is the entire code for our local library. The main program file calls this asynchronously.</p>
+  <code mime="application/javascript" style="numbered"><![CDATA[
+const Soup = imports.gi.Soup;
+const _httpSession = new Soup.SessionAsync();
+Soup.Session.prototype.add_feature.call(_httpSession, new Soup.ProxyResolverDefault());
+
+function GeoNames(station) {
+  this.station = station;
+}
+
+GeoNames.prototype = {
+  getWeather: function(callback) {
+    var request = Soup.Message.new('GET', 'http://api.geonames.org/weatherIcaoJSON?ICAO=' + this.station + '&username=demo');
+    _httpSession.queue_message(request, function(_httpSession, message) {
+      if (message.status_code !== 200) {
+        callback(message.status_code, null);
+        return;
+      }
+      var weatherJSON = request.response_body.data;
+      var weather = JSON.parse(weatherJSON);
+      callback(null, weather);
+      });
+    },
+
+  getIcon: function(weather){
+    switch (weather.weatherObservation.weatherCondition){
+    case "drizzle":
+    case "light showers rain":
+    case "light rain":
+      return "weather-showers-scattered.svg";
+    case "rain":
+      return "weather-showers.svg";
+    case "light snow":
+    case "snow grains":
+      return "weather-snow.svg";
+    }
+    switch (weather.weatherObservation.clouds){
+      case "few clouds":
+      case "scattered clouds":
+        return "weather-few-clouds.svg";
+      case "clear sky":
+        return "weather-clear.svg"
+      case "broken clouds":
+      case "overcast":
+        return "weather-overcast.svg";
+    }
+    return "weather-fog.svg";
+    }
+}
+}  ]]></code>
+  </section>
+
+</page>

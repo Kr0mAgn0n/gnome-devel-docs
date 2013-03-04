@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="switch.py">
+  <info>
+    <title type="text">Switch (Python)</title>
+    <link type="guide" xref="beginner.py#buttons"/>
+    <link type="next" xref="radiobutton.py"/>
+    <revision version="0.1" date="2012-05-24" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A "light switch" style toggle</desc>
+  </info>
+
+  <title>Switch</title>
+  <media type="image" mime="image/png" style="floatend" src="media/switch_off.png"/>
+  <media type="image" mime="image/png" src="media/switch_on.png"/>
+
+  <p>This Switch makes the title appears and disappear.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/switch.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+  <section id="methods">
+    <title>Useful methods for a Switch widget</title>
+    <p>In line 17 the signal <code>"notify::active"</code> is connected to the callback function <code>activate_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkSwitch.html">GtkSwitch</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLabel.html">GtkLabel</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkGrid.html">GtkGrid</link></p></item>
+    </list>
+  </section>
+</page>

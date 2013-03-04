@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="statusbar.py">
+  <info>
+    <title type="text">Statusbar (Python)</title>
+    <link type="guide" xref="beginner.py#display-widgets"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
+    <link type="next" xref="spinner.py" />    
+    <revision version="0.2" date="2012-06-12" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>Report messages of minor importance to the user</desc>
+  </info>
+
+  <title>Statusbar</title>
+  <media type="image" mime="image/png" src="media/statusbar.png"/>
+  <p>This statusbar tells you if you click the button or if you press any key (and which key).</p>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/statusbar.py" parse="text"><xi:fallback/></xi:include></code>
+
+  <note><p>
+    <code>Gdk.keyval_name(event.keyval)</code> converts the key value <code>event.keyval</code> into a symbolic name. The names and corresponding key values can be found <link href="http://git.gnome.org/browse/gtk+/tree/gdk/gdkkeysyms.h">here</link>, but for instance <code>GDK_KEY_BackSpace</code> becomes the string <code>"BackSpace"</code>.
+  </p></note>
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a Statusbar widget</title>
+    <p>In line 17 the signal <code>"clicked"</code> is connected to the callback function <code>button_clicked_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+  <list>
+    <item><p><code>pop(context_id)</code> removes the first message in the statusbar stack with the given <code>context_id</code>.</p></item>
+    <item><p><code>remove_all(context_id)</code> removes all the messages in the statusbar stack with the given <code>context_id</code>.</p></item>
+    <item><p><code>remove(context_id, message_id)</code> removes the message with the given <code>message_id</code> in the statusbar stack with the given <code>context_id</code>. The <code>message_id</code> is returned by <code>push(context_id, "the message")</code> when pushing the message on the statusbar.</p></item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkStatusbar.html">GtkStatusbar</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gdk/stable/gdk-Keyboard-Handling.html">Gdk - Key Values</link></p></item>
+  </list>
+  </section>
+</page>

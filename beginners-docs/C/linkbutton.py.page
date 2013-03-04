@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="linkbutton.py">
+  <info>
+    <title type="text">LinkButton (Python)</title>
+    <link type="guide" xref="beginner.py#buttons"/>
+    <link type="next" xref="checkbutton.py"/>
+    <revision version="0.1" date="2012-05-23" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A button bound to an URL</desc>
+  </info>
+
+  <title>LinkButton</title>
+
+  <media type="image" mime="image/png" src="media/linkbutton.png"/>
+  <p>A button that links to a web page.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/linkbutton.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+  <section id="methods">
+    <title>Useful methods for a LinkButton widget</title>
+    <list>
+      <item><p><code>get_visited()</code> returns the 'visited' state (<code>True</code> or <code>False</code>) of the URI where the LinkButton points. The button becomes visited when it is clicked.</p></item>
+      <item><p><code>set_visited(True)</code> sets the 'visited' state of the URI where the LinkButton points as <code>True</code> (analogously for <code>False</code>).</p></item>
+      <item><p>Each time the button is clicked, the signal <code>"activate-link"</code> is emitted. For an explanation of signals and callback functions, see <link xref="signals-callbacks.py" />.</p></item>
+    </list>
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkLinkButton.html">GtkLinkButton</link></p></item>
+    </list>
+  </section>
+</page>

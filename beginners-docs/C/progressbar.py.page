@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="progressbar.py">
+  <info>
+    <title type="text">ProgressBar (Python)</title>
+    <link type="guide" xref="beginner.py#display-widgets"/>
+    <link type="next" xref="spinbutton.py" />    
+    <revision version="0.2" date="2012-06-12" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget which indicates progress visually.</desc>
+  </info>
+
+  <title>ProgressBar</title>
+  <media type="video" mime="application/ogv" src="media/progressbar.ogv">
+    <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+      <tt:body>
+        <tt:div begin="0s" end="6s">
+          <tt:p>
+              Pressing any key stops and starts this ProgressBar.
+          </tt:p>
+        </tt:div>
+      </tt:body>
+    </tt:tt>
+  </media>
+  <p>This ProgressBar is stopped and started by pressing any key.</p>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/progressbar.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a ProgressBar widget</title>
+  <list>
+    <item><p>Instead of <code>pulse()</code>, that makes the bar go back and forth, if we want the ProgressBar to "fill in" a fraction (a <code>float</code> between <code>0.0</code> and <code>1.0</code> included) of the bar that has been completed, use <code>set_fraction(fraction)</code>.</p></item>
+    <item><p>To set a text and show it (superimposed over the bar) use <code>set_text(<var>"text"</var>)</code> and <code>set_show_text(True)</code>. If a text is not set and <code>set_show_text(True)</code> the text will be the percentage of the work that has been completed.</p></item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkProgressBar.html">GtkProgressBar</link></p></item>
+    <item><p><link href="http://developer.gnome.org/glib/stable/glib-The-Main-Event-Loop.html">GLib - The Main Event Loop</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gdk/stable/gdk-Keyboard-Handling">Gdk - Key Values</link></p></item>
+  </list>
+  </section>
+</page>

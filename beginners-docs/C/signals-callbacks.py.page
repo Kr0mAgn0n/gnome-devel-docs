@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="signals-callbacks.py">
+
+<info>
+  <title type="text">Signals and callbacks (Python)</title>
+  <link type="guide" xref="beginner.py#theory"/>
+  <link type="next" xref="button.py"/>
+  <revision version="0.1" date="2012-06-16" status="draft"/>
+
+  <desc>An explanation of signals and callbacks in GTK+.</desc>
+  <credit type="author copyright">
+    <name>Sebastian P&#246;lsterl</name>
+    <email>sebp@k-d-w.org</email>
+    <years>2011</years>
+  </credit>
+  <credit type="editor">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012</years>
+  </credit>
+</info>
+
+<title>Signals and callbacks</title>
+
+<links type="section" />
+
+<section id="overview">
+<title>Overview</title>
+
+<p>Like most GUI toolkits, GTK+ uses an event-driven programming model. When the user is doing nothing, GTK+ sits in the main loop and waits for input. If the user performs some action - say, a mouse click - then the main loop "wakes up" and delivers an event to GTK+.</p>
+
+<p>When widgets receive an event, they frequently emit one or more signals. Signals notify your program that "something interesting happened" by invoking functions you have connected to the signal. Such functions are commonly known as callbacks. When your callbacks are invoked, you would typically take some action. After a callback finishes, GTK+ will return to the main loop and await more user input.</p>
+
+<p>A generic example is: <code>handler_id = widget.connect("event", callback, data)</code>. <code>widget</code> is an instance of a widget we created earlier. Next, the <code>event</code> we are interested in. Each widget has its own particular events which can occur. For instance, if you have a Gtk.Button you usually want to connect to the "clicked" event: this means that when the button is clicked, the signal is issued. Another example is the <code>notify::property</code> signal: whenever a <link xref="properties.py">property</link> is modified on a GObject, instead of just emitting the <code>notify</code> signal, GObject associates as a detail to this signal emission the name of the property modified. This allows clients who wish to be notified of changes to only one property to filter most events before receiving them. Thirdly, the callback argument is the name of the callback function, which contains the code which runs when signals of the specified type are issued. Finally, the optional data argument includes any data which should be passed when the signal is issued.</p>
+
+<p>The function returns a number (the <code>handler_id</code>) that identifies this particular signal-callback pair. This number is required to disconnect from a signal such that the callback function will not be called during any future or currently ongoing emissions of the signal it has been connected to, as in <code>widget.disconnect(handler_id)</code>.</p>
+
+</section>
+
+<section id="references">
+
+<title>References</title>
+<p><link href="http://developer.gnome.org/gobject/stable/signal.html">Signals</link> in GObject documentation</p>
+<p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/basics.html">Basics - Main loop and Signals</link> in Python GTK+ 3 Tutorial</p>
+</section>
+
+
+</page>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="button.py">
+  <info>
+    <title type="text">Button (Python)</title>
+    <link type="guide" xref="beginner.py#buttons"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
+    <link type="next" xref="linkbutton.py"/>
+    <revision version="0.2" date="2012-05-05" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A button widget which emits a signal when clicked</desc>
+  </info>
+
+  <title>Button</title>
+
+  <media type="image" mime="image/png" src="media/button.png"/>
+  <p>A button widget connected to a simple callback function.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/button.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  
+  <section id="methods">
+    <title>Useful methods for a Button widget</title>
+    <p>In line 16 the <code>"clicked"</code> signal from the button is connected to the callback function <code>do_clicked()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+    <list>
+      <item><p><code>set_relief(Gtk.ReliefStyle.NONE)</code> sets to none the relief style of the edges of the Gtk.Button - as opposed to <code>Gtk.ReliefStyle.NORMAL</code>.</p></item>
+      <item><p>If the label of the button is a <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items.html">stock icon</link>, <code>set_use_stock(True)</code> sets the label as the name of the corresponding stock icon.</p></item>
+      <item><p>To set an image (e.g. a stock image) for the button <code>button</code>:</p>
+        <code>
+image = Gtk.Image()
+image.set_from_stock(Gtk.STOCK_ABOUT, Gtk.IconSize.BUTTON)
+button.set_image(image)</code>
+      <p>You should not set a label for the button after this, otherwise it will show the label and not the image.</p></item>
+      <item><p>If we use <code>set_focus_on_click(False)</code> the button will not grab focus when it is clicked by the mouse. This could be useful in places like toolbars, so that the keyboard focus is not removed from the main area of the application.</p></item>
+    </list>
+  </section>
+  
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkButton.html">GtkButton</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+    </list>
+  </section>
+</page>

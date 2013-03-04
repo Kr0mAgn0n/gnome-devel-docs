@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="menubutton.py">
+  <info>
+  <title type="text">MenuButton</title>
+    <link type="guide" xref="beginner.py#buttons"/>
+    <link type="next" xref="toolbar.py"/>
+    <revision version="0.1" date="2012-08-19" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget that shows a menu when clicked on</desc>
+  </info>
+
+  <title>MenuButton</title>
+  <media type="image" mime="image/png" src="media/menubutton.png"/>
+  <p>The GtkMenuButton widget is used to display a menu when clicked on. This menu can be provided either as a GtkMenu, or an abstract GMenuModel. The GtkMenuButton widget can hold any valid child widget. That is, it can hold almost any other standard GtkWidget. The most commonly used child is the provided GtkArrow.</p>
+
+  <note><p>You need to be running GNOME 3.6 for the MenuButton to work.</p></note>
+
+  <links type="section" />
+    
+  <section id="code">
+  <title>Code used to generate this example</title>
+    <code mime="text/x-csharp" style="numbered"><xi:include href="samples/menubutton.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a MenuButton widget</title>
+      <p>In line 33 the signal <code>"activate"</code> from the action <code>about_action</code> is connected to the callback function <code>about_callback()</code> using <code><var>action</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+
+    <p>The positioning of the menu is determined by the "direction" property of the menu button and the "halign" or "valign" properties of the menu. For example, when the direction is <code>Gtk.ArrowType.DOWN</code> (other option: <code>UP</code>) and the horizontal alignment is <code>Gtk.Align.START</code> (other options: <code>CENTER</code> and <code>END</code>), the menu will be positioned below the button, with the starting edge (depending on the text direction) of the menu aligned with the starting edge of the button. If there is not enough space below the button, the menu is popped up above the button instead. If the alignment would move part of the menu offscreen, it is 'pushed in'.</p>
+    
+    <p>In the case of vertical alignment, the possible ArrowType directions are <code>LEFT</code> and <code>RIGHT</code> and the vertical alignment is again <code>START</code>, <code>CENTER</code> or <code>END</code>.</p>
+    
+    <p><code>set_align_widget(alignment)</code> and <code>set_direction(direction)</code> can be used to set these properties.</p>
+  </section>
+  
+  <section id="references">
+  <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkMenuButton.html">MenuButton</link></p></item>
+    </list>
+  </section>
+</page>

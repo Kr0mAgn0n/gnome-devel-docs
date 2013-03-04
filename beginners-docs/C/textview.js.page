@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="textview.js">
+  <info>
+  <title type="text">TextView (JavaScript)</title>
+    <link type="guide" xref="beginner.js#multiline"/>
+    <link type="seealso" xref="button.js"/>
+    <link type="seealso" xref="grid.js"/>
+    <link type="seealso" xref="GtkApplicationWindow.js"/>
+    <link type="seealso" xref="label.js"/>
+    <revision version="0.1" date="2012-06-28" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A multiline text editor</desc>
+  </info>
+
+  <title>TextView</title>
+  <media type="image" mime="image/png" src="media/textviewpenguinchat.png"/>
+  <p>A TextView is really (or at least usually) a nested set of three objects.</p>
+  <list>
+    <item><p>At the bottom there is a <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextBuffer.html">TextBuffer</link>. This holds the text itself.</p></item>
+    <item><p>In the middle there is the <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextView.html">TextView</link>, which is a widget that lets you see and edit the text in the buffer. It automatically resizes itself depending on how much text there is.</p></item>
+    <item><p>Since the automatic resizing can make a TextView unwieldy, you normally place it inside of a <link xref="scrolledwindow.js">ScrolledWindow</link>. Despite the name, it's not an actual window in terms of having a title bar and an X button; it's a widget you put on the application you're making, which acts like a window onto a more manageable chunk of a TextView. If the text in the buffer is too big to fit, scrollbars will appear.</p></item>
+  </list>
+  <p>If you want to change what text is displayed in the TextView, you act on the TextBuffer, since it's what actually holds the text. The same goes for if you want to see what text someone typed in. This sample application lets you talk to a (make-believe) penguin, and checks the TextBuffer to see if you typed the word "fish" anywhere in it.</p>
+  <note><p>Real-life penguin populations are declining fast, because climate change is melting the ice that they live on and killing the fish that they eat. If you'd like to play a (somewhat silly) GNOME game based on this premise, take a look at <link href="http://pingus.seul.org/">Pingus</link>.</p></note>
+    <links type="section" />
+
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="application/javascript"><![CDATA[
+#!/usr/bin/gjs
+
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
+]]></code>
+    <p>These are the libraries we need to import for this application to run. Remember that the line which tells GNOME that we're using Gjs always needs to go at the start.</p>
+    </section>
+
+  <section id="applicationwindow">
+    <title>Creating the application window</title>
+    <code mime="application/javascript"><![CDATA[
+const TextViewExample = new Lang.Class ({
+    Name: 'TextView Example',
+
+    // Create the application itself
+    _init: function () {
+        this.application = new Gtk.Application ({
+            application_id: 'org.example.jstextview' });
+
+        // Connect 'activate' and 'startup' signals to the callback functions
+        this.application.connect('activate', Lang.bind(this, this._onActivate));
+        this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    // Callback function for 'activate' signal presents windows when active
+    _onActivate: function () {
+        this._window.present ();
+    },
+
+    // Callback function for 'startup' signal builds the UI
+    _onStartup: function () {
+        this._buildUI ();
+    },
+]]></code>
+    <p>All the code for this sample goes in the TextViewExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
+    <code mime="application/javascript"><![CDATA[
+    // Build the application's UI
+    _buildUI: function () {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow  ({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            title: "Talk to a Penguin",
+            default_height: 400,
+            default_width: 440,
+            border_width: 20 });
+]]></code>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+  </section>
+
+  <section id="textview">
+    <title>Creating the TextView</title>
+    <code mime="application/javascript"><![CDATA[
+        // Create a label for the penguin to talk to you
+        this._penguin = new Gtk.Label ({
+            height_request: 180,
+            width_request: 400,
+            label: "Squaaaak?",
+            wrap: true });
+]]></code>
+
+    <p>Our first step in this example is to create the <link xref="label.js">Label</link> that the penguin will use to talk to you. We set the text in it to wrap by setting its wrap property to true, but we'll use a different method on the TextView itself that allows for more fine-grained control.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a textview for you to talk to the penguin
+        this.buffer = new Gtk.TextBuffer();
+        this._textView = new Gtk.TextView ({
+            buffer: this.buffer,
+            editable: true,
+            wrap_mode: Gtk.WrapMode.WORD });
+]]></code>
+
+    <p>Our first step is to create a TextBuffer to put the words into. After that we create the TextView, and tell it to use the TextBuffer we created as its buffer. We also set it to be editable, since we want to be able to type new things in.</p>
+    <p>The wrap_mode property lets you select from four different <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.WrapMode.html">WrapModes</link>. Gtk.WrapMode.CHAR, for instance, starts wrapping around in the middle of a word if you keep typing when it gets to the edge. Most people are probably used to Gtk.WrapMode.WORD, which will automatically put the word you're typing on the next line if it gets to be too long.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a "scrolled window" to put your textview in so it will scroll
+        this._scrolled = new Gtk.ScrolledWindow ({
+            hscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
+            vscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
+            shadow_type: Gtk.ShadowType.ETCHED_IN,
+            height_request: 180,
+            width_request: 400, });
+
+        // Put the textview into the scrolled window
+        this._scrolled.add_with_viewport (this._textView);
+]]></code>
+    <p>Here we create a <link xref="scrolledwindow.js">ScrolledWindow</link>, and set it to automatically scroll if it gets to be too big horizontally or vertically. We also give it a nice-looking ETCHED_IN border. After that, we put our TextView inside, and tell the ScrolledWindow to give us a viewport onto it.</p>
+    </section>
+
+    <section id="ui">
+    <title>Creating the rest of the user interface</title>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a grid to organize them in
+        this._grid = new Gtk.Grid ({
+            halign: Gtk.Align.CENTER,
+            valign: Gtk.Align.CENTER });
+
+        // Put the label and textview in the grid one on top of the other
+        this._grid.attach (this._penguin, 0, 0, 1, 1);
+        this._grid.attach (this._scrolled, 0, 1, 1, 1);
+]]></code>
+    <p>The first <link xref="grid.js">Grid</link> we create only has the Label and the ScrolledWindow inside it.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a button to send your message to the penguin
+        this._send = new Gtk.Button ({
+            halign: Gtk.Align.END,
+            margin_top: 20,
+            label: "Send" });
+        this._send.connect ('clicked', Lang.bind (this, this._chat));
+
+        // Create a grid that will have the other grid on top and the button on bottom
+        this._mainGrid = new Gtk.Grid ({
+            halign: Gtk.Align.CENTER,
+            valign: Gtk.Align.CENTER });
+
+        // Add the other grid and the button to the main grid
+        this._mainGrid.attach (this._grid, 0, 0, 1, 1);
+        this._mainGrid.attach (this._send, 0, 1, 1, 1);
+]]></code>
+    <p>We create a <link xref="button.js">Button</link> to send your message to the penguin, and a new Grid that has the other one on top and the Button on the bottom. The Button has a margin on top, so that it isn't squished up against the ScrolledWindow.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Attach the main grid to the window
+        this._window.add (this._mainGrid);
+
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+]]></code>
+
+    <p>Finally, we attach the main Grid to the window, then we tell the window and everything inside it to become visible when the application is run.</p>
+
+  </section>
+
+  <section id="function">
+    <title>Function which handles the penguin's response</title>
+    <code mime="application/javascript"><![CDATA[
+    _chat: function () {
+
+        // Create a random number to determine what the penguin says
+        this.number = Math.floor ((Math.random() * 3) + 1);
+
+        // Did you actually say anything?
+        if (this.buffer.text) {
+
+            // Did you mention fish?
+            if (this.buffer.text.match (/fish/gi)) {
+
+                // Have the penguin squaak about fish
+                if (this.number == 1)
+                    this._penguin.set_label ("FISH!");
+
+                else if (this.number == 2)
+                    this._penguin.set_label ("Fish fish fish fish. Fish!");
+
+                else
+                    this._penguin.set_label ("Fish? Fish fish fish. Fish fish. FISH!");
+
+            }
+
+            // I guess you didn't mention fish
+            else {
+
+                // Have the penguin talk about penguinny stuff
+                if (this.number == 1)
+                    this._penguin.set_label ("SQUAAK!");
+
+                else if (this.number == 2)
+                    this._penguin.set_label ("Ork ork ork ork squaak. Squaak squaak! *waves flippers*");
+
+                else
+                    this._penguin.set_label ("Ork ork ork ork ork?");
+
+            }
+
+        }
+
+        // Clear the buffer
+        this.buffer.text = "";
+
+        // Give focus back to the textview so you don't have to click it again
+        this._textView.has_focus = true;
+
+    }
+
+});
+]]></code>
+    <p>Here we use some basic JavaScript functions to have the penguins say something random. Penguins like fish, though, so if you mention fish we want the penguin to respond to that. To do that, we use the JavaScript String object's match method on <file>this.buffer.text</file>, which returns the contents of our TextBuffer.</p>
+    <p>Since we want to clear out the TextBuffer after each time you click Send, we set <file>this.buffer.text</file> to contain an empty string afterwards. Then we return focus to our TextView, so that you can keep typing without having to click on it beforehand.</p>
+
+    <code mime="application/javascript"><![CDATA[
+// Run the application
+let app = new TextViewExample ();
+app.application.run (ARGV);
+]]></code>
+    <p>Finally, we create a new instance of the finished TextViewExample class, and set the application running.</p>
+  </section>
+
+  <section id="complete">
+    <title>Complete code sample</title>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/textview.js" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="in-depth">
+    <title>In-depth documentation</title>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Button.html">Gtk.Button</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Grid.html">Gtk.Grid</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.Label.html">Gtk.Label</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.RadioButton.html">Gtk.RadioButton</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ScrolledWindow.html">Gtk.ScrolledWindow</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextBuffer.html">Gtk.TextBuffer</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextView.html">Gtk.TextView</link></p></item>
+</list>
+  </section>
+</page>

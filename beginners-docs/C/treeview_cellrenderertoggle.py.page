@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="treeview_cellrenderertoggle.py">
+  <info>
+    <title type="text">TreeView with TreeStore (Python)</title>
+    <link type="guide" xref="beginner.py#treeview"/>
+    <link type="next" xref="widget_drawing.py"/>
+    <revision version="0.1" date="2012-06-30" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A TreeView displaying a TreeStore (more complex example, with CellRendererToggle)</desc>
+  </info>
+
+  <title>More Complex TreeView with TreeStore</title>
+  <media type="image" mime="image/png" src="media/treeview_cellrenderertoggle.png"/>
+  <p>This TreeView displays a TreeStore with two columns, one of which is rendered as a toggle.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/treeview_cellrenderertoggle.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a TreeView widget</title>
+    <p>The TreeView widget is designed around a <em>Model/View/Controller</em> design: the <em>Model</em> stores the data; the <em>View</em> gets change notifications and displays the content of the model; the <em>Controller</em>, finally, changes the state of the model and notifies the view of these changes. For more information and for a list of useful methods for TreeModel see <link xref="model-view-controller.py" />.</p>
+    <p>In line 48 the <code>"toggled"</code> signal is connected to the callback function <code>on_toggled()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeView.html">GtkTreeView</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeModel.html">GtkTreeModel</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeStore.html">GtkTreeStore</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkCellRendererText.html">GtkCellRendererText</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkCellRendererToggle.html">GtkCellRendererToggle</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeViewColumn.html">GtkTreeViewColumn</link></p></item>
+    </list>
+  </section>
+</page>

@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="treeview_simple_liststore.js">
+  <info>
+  <title type="text">TreeView with ListStore (JavaScript)</title>
+    <link type="guide" xref="beginner.js#treeview"/>
+    <link type="seealso" xref="GtkApplicationWindow.js" />
+    <link type="seealso" xref="grid.js" />
+    <link type="seealso" xref="label.js" />
+    <revision version="0.1" date="2012-07-04" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Taryn Fox</name>
+      <email>jewelfox@fursona.net</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget that shows a separate list of items</desc>
+  </info>
+
+  <title>TreeView with ListStore</title>
+  <media type="image" mime="image/png" src="media/treeview_simple_liststore_penguins.png"/>
+  <p>A TreeView is like a window onto the contents of either a ListStore or a TreeStore. A ListStore is like a spreadsheet: a "flat", two-dimensional list of things broken up into rows and columns. A TreeStore, meanwhile, can branch out in different directions like a tree can. In this example, we create a TreeView that shows the contents of a ListStore with (fictitious) names and phone numbers in it, and set it so that the <link xref="label.js">Label</link> at the bottom of the window shows more information about whichever name you click on.</p>
+  <p>The TreeView is not just a single widget, but contains a number of smaller ones:</p>
+  <list>
+    <item><p>TreeViewColumn widgets show each (vertical) column of information from the ListStore. Each one has a title which can be shown at the top of the column, like in the screenshot.</p></item>
+    <item><p>CellRenderer widgets are "packed" into each TreeViewColumn, and contain the instructions for how to display each individual "cell", or item from the ListStore. There are multiple different types, including the CellRendererText used here and the CellRendererPixbuf, which displays a picture ("pixel buffer").</p></item>
+  </list>
+  <p>Finally, we're going to use an object called a TreeIter, which isn't a widget so much as an invisible cursor which points to a (horizontal) row in the ListStore. Whenever you click on a name in the phonebook, for instance, we create a TreeIter pointing to the row that's selected, and then use that to tell the ListStore which entry we want the Label to show more information about.</p>
+  <note><p>The TreeView is probably the most complicated Gtk widget, because of how many parts it has and how they all have to work together. Give yourself time to learn how it works and experiment with it, or try something easier first if you're having trouble.</p></note>
+    <links type="section" />
+
+  <section id="imports">
+    <title>Libraries to import</title>
+    <code mime="application/javascript"><![CDATA[
+#!/usr/bin/gjs
+
+const GObject = imports.gi.GObject;
+const Gtk = imports.gi.Gtk;
+const Lang = imports.lang;
+const Pango = imports.gi.Pango;
+]]></code>
+    <p>These are the libraries we need to import for this application to run. Remember that the line which tells GNOME that we're using Gjs always needs to go at the start.</p>
+  </section>
+
+  <section id="applicationwindow">
+    <title>Creating the application window</title>
+    <code mime="application/javascript"><![CDATA[
+const TreeViewExample = new Lang.Class({
+    Name: 'TreeView Example with Simple ListStore',
+
+    // Create the application itself
+    _init: function() {
+        this.application = new Gtk.Application({
+            application_id: 'org.example.jstreeviewsimpleliststore'
+        });
+
+    // Connect 'activate' and 'startup' signals to the callback functions
+    this.application.connect('activate', Lang.bind(this, this._onActivate));
+    this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+
+    // Callback function for 'activate' signal presents window when active
+    _onActivate: function() {
+        this._window.present();
+    },
+
+    // Callback function for 'startup' signal builds the UI
+    _onStartup: function() {
+        this._buildUI ();
+    },
+]]></code>
+    <p>All the code for this sample goes in the TreeViewExample class. The above code creates a <link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link> for our widgets and window to go in.</p>
+    <code mime="application/javascript"><![CDATA[
+    // Build the application's UI
+    _buildUI: function() {
+
+        // Create the application window
+        this._window = new Gtk.ApplicationWindow({
+            application: this.application,
+            window_position: Gtk.WindowPosition.CENTER,
+            default_height: 250,
+            default_width: 100,
+            border_width: 20,
+            title: "My Phone Book"});
+]]></code>
+    <p>The _buildUI function is where we put all the code to create the application's user interface. The first step is creating a new <link xref="GtkApplicationWindow.js">Gtk.ApplicationWindow</link> to put all our widgets into.</p>
+  </section>
+
+  <section id="liststore">
+    <title>Creating the ListStore</title>
+    <code mime="application/javascript"><![CDATA[
+        // Create the underlying liststore for the phonebook
+        this._listStore = new Gtk.ListStore ();
+        this._listStore.set_column_types ([
+            GObject.TYPE_STRING,
+            GObject.TYPE_STRING,
+            GObject.TYPE_STRING,
+            GObject.TYPE_STRING]);
+]]></code>
+    <p>We first create the ListStore like we would any widget. Then we call its set_column_types method, and pass it an array of GObject data types. (We could have put the types all on one line, but here we are breaking them up to make it easier to read.)</p>
+    <p>The GObject data types you can use include:</p>
+    <list>
+      <item><p><file>GObject.TYPE_BOOLEAN</file> -- True or false</p></item>
+      <item><p><file>GObject.TYPE_FLOAT</file> -- A floating point number (one with a decimal point)</p></item>
+      <item><p><file>GObject.TYPE_STRING</file> -- A string of letters and numbers</p></item>
+      <item><p><file>gtk.gdk.Pixbuf</file> -- A picture</p></item>
+    </list>
+    <p>In this case, we're making a ListStore of four columns, each one containing string values.</p>
+    <note><p>You need to put the line <file>const GObject = imports.gi.GObject;</file> at the start of your application's code, like we did in this example, if you want to be able to use GObject types.</p></note>
+
+    <code mime="application/javascript"><![CDATA[
+        // Data to go in the phonebook
+        this.phonebook =
+        let phonebook =
+            [{ name: "Jurg", surname: "Billeter", phone: "555-0123",
+                description: "A friendly person."},
+             { name: "Johannes", surname: "Schmid", phone: "555-1234",
+                description: "Easy phone number to remember."},
+             { name: "Julita", surname: "Inca", phone: "555-2345",
+                description: "Another friendly person."},
+             { name: "Javier", surname: "Jardon", phone: "555-3456",
+                description: "Bring fish for his penguins."},
+             { name: "Jason", surname: "Clinton", phone: "555-4567",
+                description: "His cake's not a lie."},
+             { name: "Random J.", surname: "Hacker", phone: "555-5678",
+                description: "Very random!"}];
+]]></code>
+    <p>Here we have the information to go in the ListStore. It's an array of objects, each one corresponding to a single entry in our phone book.</p>
+    <p>Note that the TreeView in the screenshot doesn't actually show the data from the "description" properties. Instead, that information's shown in the Label beneath it, for whichever row that you click on. That's because the TreeView and ListStore are two separate things, and a TreeView can show all or part of a ListStore, and display what's in it in different ways. You can even have multiple widgets show things from the same ListStore, like the Label in our example or even a second TreeView.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        for (i = 0; i < phonebook.length; i++ ) {
+            let contact = phonebook [i];
+            this._listStore.set (this._listStore.append(), [0, 1, 2, 3],
+                [contact.name, contact.surname, contact.phone, contact.description]);
+        }
+]]></code>
+    <p>This <file>for</file> loop puts the strings from our phonebook into our ListStore in order. In order, we pass the ListStore's set method the iter that points to the correct row, an array which says which columns we want to set, and an array which contains the data we want to put into those columns.</p>
+    <p>A ListStore's <file>append</file> method adds a horizontal row onto it (it starts out with none), and returns a TreeIter pointing to that row like a cursor. So by passing <file>this._listStore.append()</file> to the ListStore as a property, we're creating a new row and telling the <file>set</file> method which row to set data for at the same time.</p>
+
+  </section>
+
+  <section id="treeview">
+    <title>Creating the TreeView</title>
+    <code mime="application/javascript"><![CDATA[
+        // Create the treeview
+        this._treeView = new Gtk.TreeView ({
+            expand: true,
+            model: this._listStore });
+]]></code>
+    <p>Here we create a basic TreeView widget, that expands both horizontally and vertically to use as much space as needed. We set it to use the ListStore we created as its "model", or the thing it'll show us stuff from.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create the columns for the address book
+        let firstName = new Gtk.TreeViewColumn ({ title: "First Name" });
+        let lastName = new Gtk.TreeViewColumn ({ title: "Last Name" });
+        let phone = new Gtk.TreeViewColumn ({ title: "Phone Number" });
+]]></code>
+    <p>Now we create each of the vertical TreeViewColumns we'll see in the TreeView. The title for each one goes at the top, as you can see in the screenshot.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a cell renderer for when bold text is needed
+        let bold = new Gtk.CellRendererText ({
+            weight: Pango.Weight.BOLD });
+
+        // Create a cell renderer for normal text
+        let normal = new Gtk.CellRendererText ();
+
+        // Pack the cell renderers into the columns
+        firstName.pack_start (bold, true);
+        lastName.pack_start (normal, true);
+        phone.pack_start (normal, true);
+]]></code>
+    <p>Here we create the CellRenderers that we'll use to display the text from our ListStore, and pack them into the TreeViewColumns. Each CellRendererText is used for all the entries in that column. Our normal CellRendererText just creates plain text, while our bold one uses heavier-weight text. We put it into the first name column, and tell the other two to use copies of the normal one. The "true" used as the second parameter for the <file>pack_start</file> method tells it to expand the cells when possible, instead of keeping them compact.</p>
+    <note><p><link href="http://www.pygtk.org/docs/pygtk/pango-constants.html">Here is a list</link> of other text properties you can use. In order to use these Pango constants, make sure to put the line <file>const Pango = imports.gi.Pango;</file> at the beginning of your code like we did.</p></note>
+
+    <code mime="application/javascript"><![CDATA[
+        firstName.add_attribute (bold, "text", 0);
+        lastName.add_attribute (normal, "text", 1);
+        phone.add_attribute (normal, "text", 2);
+
+        // Insert the columns into the treeview
+        this._treeView.insert_column (firstName, 0);
+        this._treeView.insert_column (lastName, 1);
+        this._treeView.insert_column (phone, 2);
+]]></code>
+    <p>Now that we've put the CellRenderers into the TreeViewColumns, we use the <file>add_attribute</file> method to tell each column to pull in text from the model our TreeView is set to use; in this case, the ListStore with the phonebook.</p>
+    <list>
+      <item><p>The first parameter is which CellRenderer we're going to use to render what we're pulling in.</p></item>
+      <item><p>The second parameter is what kind of information we're going to pull in. In this case, we're letting it know that we're rendering text.</p></item>
+      <item><p>The third parameter is which of the ListStore's columns we're pulling that information in from.</p></item>
+    </list>
+    <p>After we've set that up, we use the TreeView's <file>insert_column</file> method to put our TreeViewColumns inside it in order. Our TreeView is now complete.</p>
+    <note><p>Normally, you might want to use a loop to initialize your TreeView, but in this example we're spelling things out step by step for the sake of making it easier to understand.</p></note>
+  </section>
+
+  <section id="ui">
+    <title>Building the rest of the UI</title>
+    <code mime="application/javascript"><![CDATA[
+        // Create the label that shows details for the name you select
+        this._label = new Gtk.Label ({ label: "" });
+
+        // Get which item is selected
+        this.selection = this._treeView.get_selection();
+
+        // When something new is selected, call _on_changed
+        this.selection.connect ('changed', Lang.bind (this, this._onSelectionChanged));
+]]></code>
+    <p>The TreeView's <file>get_selection</file> method returns an object called a TreeSelection. A TreeSelection is like a TreeIter in that it's basically a cursor that points at a particular row, except that the one it points to is the one that's visibly highlighted as selected.</p>
+    <p>After we get the TreeSelection that goes with our TreeView, we ask it to tell us when it changes which row it's pointing to. We do this by connecting its <file>changed</file> signal to the _onSelectionChanged function we wrote. This function changes the text displayed by the Label we just made.</p>
+
+    <code mime="application/javascript"><![CDATA[
+        // Create a grid to organize everything in
+        this._grid = new Gtk.Grid;
+
+        // Attach the treeview and label to the grid
+        this._grid.attach (this._treeView, 0, 0, 1, 1);
+        this._grid.attach (this._label, 0, 1, 1, 1);
+
+        // Add the grid to the window
+        this._window.add (this._grid);
+
+        // Show the window and all child widgets
+        this._window.show_all();
+    },
+]]></code>
+    <p>After we've gotten that out of the way, we create a <link xref="grid.js">Grid</link> to put everything in, then add it to our window and tell the window to show itself and its contents.</p>
+  </section>
+
+  <section id="function">
+    <title>Function which handles a changed selection</title>
+
+    <code mime="application/javascript"><![CDATA[
+    _onSelectionChanged: function () {
+
+        // Grab a treeiter pointing to the current selection
+        let [ isSelected, model, iter ] = this.selection.get_selected();
+
+        // Set the label to read off the values stored in the current selection
+        this._label.set_label ("\n" +
+            this._listStore.get_value (iter, 0) + " " +
+            this._listStore.get_value (iter, 1) + " " +
+            this._listStore.get_value (iter, 2) + "\n" +
+            this._listStore.get_value (iter, 3));
+
+    }
+
+});
+]]></code>
+    <p>The line of code with the let statement is a little convoluted, but it's nonetheless the best way to get a TreeIter pointing to the same row as our TreeSelection. It has to create a couple of other object references, but <file>iter</file> is the only one we need.</p>
+    <p>After we've done that, we call the Label's <file>set_label</file> function, and use the ListStore's <file>get_value</file> function a handful of times to fill in the data we want to put in it. Its parameters are a TreeIter pointing to the row we want to get data from, and the column.</p>
+    <p>Here, we want to get data from all four columns, including the "hidden" one that's not part of the TreeView. This way, we can use our Label to show strings that are too large to fit in the TreeView, and that we don't need to see at a glance.</p>
+
+    <code mime="application/javascript"><![CDATA[
+// Run the application
+let app = new TreeViewExample ();
+app.application.run (ARGV);
+]]></code>
+    <p>Finally, we create a new instance of the finished TreeViewExample class, and set the application running.</p>
+  </section>
+
+  <section id="complete">
+    <title>Complete code sample</title>
+<code mime="application/javascript" style="numbered"><xi:include href="samples/treeview_simple_liststore.js" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="in-depth">
+    <title>In-depth documentation</title>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/Gtk.Application.html">Gtk.Application</link></p></item>
+  <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkApplicationWindow.html">Gtk.ApplicationWindow</link></p></item>
+  <item><p><link href="www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.CellRendererText.html">Gtk.CellRendererText</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.ListStore.html">Gtk.ListStore</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeIter.html">Gtk.TreeIter</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeSelection.html">Gtk.TreeSelection</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeView.html">Gtk.TreeView</link></p></item>
+  <item><p><link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TreeViewColumn.html">Gtk.TreeViewColumn</link></p></item>
+</list>
+  </section>
+</page>

@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="menubar.vala">
+  <info>
+  <title type="text">MenuBar (Vala)</title>
+  <link type="guide" xref="beginner.vala#menu-combo-toolbar"/>
+  <link type="seealso" xref="aboutdialog.vala"/>
+  <link type="seealso" xref="gmenu.vala"/>
+    <revision version="0.1" date="2012-05-25" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget which holds GtkMenuItem widgets</desc>
+  </info>
+
+  <title>MenuBar</title>
+  <media type="image" mime="image/png" src="media/menubar.png"/>
+  <p>A MenuBar created using XML and GtkBuilder.</p>
+
+  <links type="section"/>
+
+  <section id="xml"> <title>Create a MenuBar using XML</title>
+   <p>To create the menubar using XML:</p>
+   <steps>
+     <item><p>Create <file>menubar.ui</file> using your favorite text editor.</p></item>
+     <item><p>Enter the following line at the top of the file:</p>
+           <code mime="application/xml"><![CDATA[
+<?xml version="1.0"? encoding="UTF-8"?>]]></code>
+     </item>
+    <item><p>We want to create the interface which will contain our menubar and its submenus.  Our menubar will contain <gui>File</gui>, <gui>Edit</gui>, <gui>Choices</gui> and <gui>Help</gui> submenus. We add the following XML code to the file:</p>
+    <code mime="application/xml"><xi:include href="samples/menubar_basis.ui" parse="text"><xi:fallback/></xi:include></code>
+     </item>
+     <item><p>Now we will create the .vala file and use GtkBuilder to import the <file>menubar.ui</file> we just created.</p></item>
+   </steps>
+   </section>
+   <section id="basis"> <title>Add the MenuBar to the window using GtkBuilder</title>
+<code mime="text/x-csharp"><xi:include href="samples/menubar_basis.vala" parse="text"><xi:fallback/></xi:include></code>
+<p>
+Now, compile the vala file, and run it. The application should look like the picture at the top of this page.</p>
+</section>
+
+
+
+<section id="xml2"> <title>Add items to the menus</title>
+<p>We start off by adding 2 menuitems to the <gui>File</gui> menu: <gui>New</gui> and <gui>Quit</gui>.  We do this by adding a <code>section</code> to the the <code>File</code> submenu with these items. The <file>menubar.ui</file> should look like this  (lines 6 to 13 inclusive comprise the newly added section):</p>
+      <code mime="application/xml" style="numbered"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <menu id="menubar">
+    <submenu>
+      <attribute name="label">File</attribute>
+      <section>
+        <item>
+          <attribute name="label">New</attribute>
+        </item>
+        <item>
+          <attribute name ="label">Quit</attribute>
+        </item>
+      </section>
+    </submenu>
+    <submenu>
+      <attribute name="label">Edit</attribute>
+    </submenu>
+    <submenu>
+      <attribute name="label">Choices</attribute>
+    </submenu>
+    <submenu>
+      <attribute name="label">Help</attribute>
+    </submenu>
+  </menu>
+</interface>]]></code>
+
+<p>Following this pattern, you can now add a <code>Copy</code> and a <code>Paste</code> item to the <code>Edit</code> submenu, and an <code>About</code> item to the <code>Help</code> submenu.  We will hold off on adding items to the <link xref="menubar.vala#choices">Choices submenu</link> until further in the tutorial.</p>
+
+<note style="tip"><p>
+  You do not need to recompile the vala program if you only made changes to the UI file.  Just run your previously compiled application, and the UI changes will be reflected.
+</p></note>
+</section>
+
+<section id="actions"><title>Setup actions</title>
+<p>This is a three step process.</p>
+<steps>
+  <item><p>First we create the ActionEntry array in the MyApplication class.
+           An ActionEntry consists of: </p>
+  <list>
+    <item><p>the "action name" (mandatory)</p></item>
+    <item><p>the callback function to connect to the "activate" signal of the action (if applicable)</p></item>
+    <item><p>the type of the parameter that must be passed to the activate function for the action (if applicable)</p></item>
+    <item><p>the initial state for this action (if applicable)</p></item>
+    <item><p>the callback to connect to "change-state" signal (if applicable)</p></item>
+  </list>
+   <code mime="text/x-csharp">
+const ActionEntry[] actions = {
+    { "new", new_cb }, // {"action name", callback_function}
+    { "quit", quit_cb }
+};</code>
+
+  </item>
+  <item><p>Second, we create the callback functions the actions are connected to.</p>
+  <code mime="text/x-csharp">
+void new_cb (SimpleAction action, Variant? parameter) {
+    print ("You clicked \"New\"\n");
+    //new MyWindow (this).show ();
+}
+
+void quit_cb (SimpleAction action, Variant? parameter) {
+    print ("You clicked \"Quit\"\n");
+    //this.quit ();  **Bug #674090**
+}</code>
+ </item>
+  <item><p>And lastly, we connect the menu items to the actions in the XML file by adding the "action" attribute:</p>
+    <code mime="application/xml"><![CDATA[
+<item>
+  <attribute name="label">New</attribute>
+  <attribute name="action">app.new</attribute>
+</item>
+<item>
+  <attribute name="label">Quit</attribute>
+  <attribute name="action">app.quit</attribute>
+</item>]]></code>
+ </item>
+</steps>
+</section>
+
+
+<section id="choices"><title>Choices submenu and items with state</title>
+  <media type="image" mime="image/png" src="media/menubar_choices.png"/>
+  <p>Lines 30 to 80 inclusive of the <link xref="menubar.vala#xml-code" /> demonstrate
+     the XML code used to create the UI for <gui>Choices</gui> menu.</p>
+</section>
+
+<section id="win-app"><title>Actions: Application or Window?</title>
+  <p>Above, we created the "new" and "open" actions as part of the MyApplication class.
+  Actions which control the application itself, such as "quit" should be created similarly.</p>
+
+  <p>Some actions, such as "copy" and "paste" deal with the window, not the application.
+  Window actions should be created as part of the window class.</p>
+
+  <p>
+   The complete example files contain both application actions and
+   window applications.  The window actions are the ones usually included in the <link xref="gmenu.vala">application menu</link> also.  It is not good practice to include window actions in the applcation menu. For demonstration purposes, the complete example files which follow include XML in the UI file which creates the application menu which includes a "New" and "Open" item, and these are hooked up to the same actions as the menubar items of the same name.
+  </p>
+
+
+</section>
+
+  <section id="xml-code"><title>Complete XML UI file for this example</title>
+<code mime="application/xml" style="numbered"><xi:include href="samples/menubar.ui" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  <section id="vala-code"><title>Complete Vala file for this example</title>
+<code mime="text/x-csharp" style="numbered"><xi:include href="samples/menubar.vala" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="mnemonics"><title>Mnemonics</title>
+    <p>Labels may contain mnemonics. Mnemonics are underlined characters in the label, used for keyboard navigation. Mnemonics are created by placing an underscore before the mnemonic character.  For example "_File" instead of just "File" in the menubar.ui label attribute.</p>
+   <p>The mnemonics are visible when you press the <key>Alt</key> key.  Pressing <keyseq><key>Alt</key><key>F</key></keyseq> will open the <gui>File</gui> menu.
+   </p>
+  </section>
+
+  <section id="accelerators"><title>Accelerators</title>
+    <p>Accelerators  can be explicitly added in the UI definitions.  For example, it is common to be able to quit an application by pressing <keyseq><key>Ctrl</key><key>Q</key></keyseq> or to save a file by pressing <keyseq><key>Ctrl</key><key>S</key></keyseq>.  To add an accelerator to the UI definition, you simply need add an "accel" attribute to the item.</p>
+<p><code mime="application/xml"><![CDATA[<attribute name="accel">&lt;Primary&gt;q</attribute>]]></code> will create the <keyseq><key>Ctrl</key><key>Q</key></keyseq> sequence when added to the <code>Quit</code> label item.  Here, "Primary" refers to the <key>Ctrl</key> key on a PC or the <key>⌘</key> key on a Mac.</p>
+
+  <code mime="application/xml"><![CDATA[
+<item>
+  <attribute name="label">_Quit</attribute>
+  <attribute name="action">app.quit</attribute>
+  <attribute name="accel">&lt;Primary&gt;q</attribute>
+</item>]]></code>
+  </section>
+
+  <section id="translatable"><title>Translatable strings</title>
+   <p>
+   Since GNOME applications are being translated into <link href="http://l10n.gnome.org/languages/">many languages</link>, it is important that the strings in your application are translable.  To make a label translatable, simple set <code>translatable="yes"</code>:
+   </p>
+   <p>
+     <code mime="application/xml"><![CDATA[<attribute name="label" translatable="yes">Quit</attribute>]]></code>
+  </p>
+  </section>
+  <section id="documentation"><title>Relevant API documentation</title>
+<p>
+  In this sample we used the following:
+</p>
+<list>
+  <item><p><link href="http://valadoc.org/gio-2.0/GLib.ActionEntry.html">Glib.ActionEntry</link></p></item>
+  <item><p><link href="http://valadoc.org/gio-2.0/Gtk.Builder.html">Gtk.Builder</link></p></item>
+</list>
+</section>
+
+
+<section id="exercises"><title>Exercises</title>
+  <xi:include href="exercises/menubar.vala.exercises"><xi:fallback/></xi:include>
+</section>
+</page>

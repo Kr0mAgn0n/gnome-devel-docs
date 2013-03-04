@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="beginner.c">
+
+<info>
+  <title type="text">GTK+ Tutorial for beginners (C)</title>
+  <link type="guide" xref="c#libraries"/>
+  <revision version="0.1" date="2012-02-19" status="stub"/>
+
+  <desc>A beginner's guide to GUI programming using GTK+, including code samples and practice exercises.</desc>
+  <credit type="author copyright">
+    <name></name>
+    <email></email>
+    <years></years>
+  </credit>
+    <credit type="editor">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2013</years>
+    </credit>
+</info>
+
+<title>GTK+ Tutorial for beginners</title>
+<synopsis>
+ <p>Although these tutorials are designed for beginners, we can't cover all the basics.  Before attempting to follow these tutorials, you are expected to be familiar with the following concepts:</p>
+<list type="numbered">
+  <item><p>Object oriented programming</p></item>
+  <item><p>The C programming language</p></item>
+</list>
+
+
+<p>By following these tutorials you will learn the basics of GUI programming using GTK+.</p>
+</synopsis>
+
+<section id="tutorials">
+<title>Tutorials</title>
+</section>
+
+<section id="samples">
+<title>Code samples</title>
+  <p>
+    To run the code samples:
+  </p>
+  <steps>
+    <item><p>Copy and paste the code into <var>filename</var>.c</p></item>
+    <item><p>In the terminal type:</p>
+          <screen>gcc <var>filename</var>.c `pkg-config --cflags --libs gtk+-3.0` -o <var>filename</var>
+</screen>
+          <screen>./<var>filename</var></screen>
+    </item>
+  </steps>
+ <note>
+  <p>
+    For more information about compiling GTK+ programs see <link href="http://developer.gnome.org/gtk3/3.4/gtk-compiling.html">Compiling GTK+ Applications on UNIX</link>.
+  </p>
+  </note>
+  <p>You can also use the Vala compiler to compile these samples:</p>
+  <steps>
+    <item><p>In the terminal type:</p>
+      <screen>valac --pkg gtk+-3.0 <var>filename</var>.c</screen>
+    </item>
+    <item><p>To run:</p>
+      <screen>./<var>filename</var></screen>
+    </item>
+  </steps>
+ <section id="windows" style="2column"><title>Windows</title>
+    <p></p>
+  </section>
+  <section id="display-widgets" style="2column"><title>Display widgets</title>
+  </section>
+  <section id="buttons" style="2column"><title>Buttons and toggles</title>
+  </section>
+  <section id="entry" style="2column"><title>Numeric and text data entry</title>
+  </section>
+  <section id="multiline" style="2column"><title>Multiline text editor</title>
+  </section>
+  <section id="menu-combo-toolbar" style="2column"><title>Menu, combo box and toolbar widgets</title>
+  </section>
+  <section id="treeview" style="2column"><title>TreeView widget</title>
+  </section>
+  <section id="selectors"><title>Selectors</title>
+    <section id="file-selectors" style="2column"><title>File selectors</title>
+    </section>
+    <section id="font-selectors" style="2column"><title>Font selectors</title>
+    </section>
+    <section id="color-selectors" style="2column"><title>Color Selectors</title>
+    </section>
+  </section>
+  <section id="layout" style="2column"><title>Layout containers</title>
+  </section>
+  <section id="ornaments" style="2column"><title>Ornaments</title>
+  </section>
+  <section id="scrolling" style="2column"><title>Scrolling</title>
+  </section>
+  <section id="misc" style="2column"><title>Miscellaneous</title>
+  </section>
+</section>
+
+<section id="exercises">
+<title>Exercises</title>
+</section>
+
+</page>

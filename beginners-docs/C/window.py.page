@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="topic"
+      id="window.py">
+
+  <info>
+    <title type="text">Window (Python)</title>
+    <link type="next" xref="GtkApplicationWindow.py"/>
+    <link type="seealso" xref="properties.py"/>
+    <revision version="0.3" date="2013-03-03" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012, 2013</years>
+    </credit>
+
+    <desc>A window which can contain other widgets</desc>
+  </info>
+
+  <title>Window</title>
+
+  <synopsis><p>We start from the most basic widget: a window.</p></synopsis>
+
+  <links type="section"/>
+
+  <section id="example">
+  <title>An example</title>
+  
+  <p>Here is an example of what you can do to construct a window.</p>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/window.py" parse="text"><xi:fallback/></xi:include></code>
+
+  <p>If you run this code, a window like the one below should appear in the 
+  middle of your screen.</p>
+
+  <media type="image" mime="image/png" src="media/window.png"/>
+  
+  </section>
+
+  <section id="in-depth">
+  <title>A more in-depth look</title>
+
+  <p>In this first example, we create a window with a title and a size, in a 
+  given position. The creation is given by the constructor 
+  <code>__init__(self)</code>; the properties such as title, size and position 
+  are given by the methods in lines 6&#8211;13.</p>
+
+  <p>Do not worry too much of what happens in lines 15&#8211;20: we will see it 
+  in <link xref="signals-callbacks.py"/>.</p>
+
+  </section>
+
+  <section id="exercises">
+  <title>Exercises</title>
+
+  <p>Guess what would happen by changing or removing something in lines 
+  6&#8211;13, then verify your guess. </p>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>In this sample we used the following:</p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">GtkApplication</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+  </list>
+  </section>
+</page>

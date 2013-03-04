@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="fontchooserwidget.py">
+  <info>
+    <title type="text">FontChooserWidget (Python)</title>
+    <link type="guide" xref="beginner.py#font-selectors"/>
+    <link type="seealso" xref="signals-callbacks.py"/>
+    <link type="next" xref="filechooserdialog.py"/>    
+    <revision version="0.2" date="2012-05-05" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget to choose a font</desc>
+  </info>
+
+  <title>FontChooserWidget</title>
+
+  <media type="image" mime="image/png" src="media/fontchooserwidget.png"/>
+  <p>A FontChooserWidget with a callback function.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/fontchooserwidget.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+  <section id="methods">
+    <title>Useful methods for a FontChooserWidget</title>
+    <p>In line 16 the <code>"notify::font"</code> signal from the widget is connected to the callback function <code>font_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+    <list>
+      <item><p>To set the font which is initially selected, use <code>set_font(font)</code> (where <code>font</code> is the font name) or <code>set_font_desc(font)</code> (where <code>font</code> is the PangoFontDescription).</p></item>
+      <item><p>To get the selected font use <code>get_font()</code> or <code>get_font_desc()</code>.</p></item>
+      <item><p>To change the text which is shown in the preview area, use <code>set_preview_text()</code>. </p></item>
+    </list>
+  </section>
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkFontChooserWidget.html">GtkFontChooserWidget</link></p></item>
+    </list>
+  </section>
+</page>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="messagedialog.py">
+  <info>
+    <title type="text">MessageDialog (Python)</title>
+    <link type="guide" xref="beginner.py#windows"/>
+    <link type="next" xref="gmenu.py"/>
+    <revision version="0.1" date="2012-06-11" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A message window</desc>
+  </info>
+
+  <title>MessageDialog</title>
+  <media type="image" mime="image/png" src="media/messagedialog.png"/>
+  <p>A message dialog which prints messages on the terminal, depending on your choices.</p>
+
+  <links type="section" />
+
+  <section id="code">
+  <title>Code used to generate this example</title>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/messagedialog.py" parse="text"><xi:fallback/></xi:include></code>
+
+  </section>
+
+  <section id="methods">
+  <title>Useful methods for a MessageDialog widget</title>
+    <p>In line 18 the signal <code>"activate"</code> is connected to the callback function <code>message_cb()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+  <list>
+    <item><p>In the constructor of MessageDialog we could set flags as <code>Gtk.DialogFlags.DESTROY_WITH_PARENT</code> (to destroy the messagedialog window when its parent window is destroyed) or as <code>Gtk.DialogFlags.MODAL</code> (no interaction with other windows of the application).</p></item>
+    <item><p>In the constructor of MessageDialog we could set type as any of <code>Gtk.MessageType.INFO, Gtk.MessageType.WARNING, Gtk.MessageType.QUESTION, Gtk.MessageType.ERROR, Gtk.MessageType.OTHER</code> depending on what type of message we want.</p></item>
+    <item><p>In the constructor of MessageDialog we could set buttons as any of <code>Gtk.ButtonsType.NONE, Gtk.ButtonsType.OK, Gtk.ButtonsType.CLOSE, Gtk.ButtonsType.CANCEL, Gtk.ButtonsType.YES_NO, Gtk.ButtonsType.OK_CANCEL</code>, or any button using <code>add_button()</code> as in Gtk.Dialog.</p></item>
+    <item><p>We could substitute the default image of the MessageDialog with another image using</p>
+    <code mime="text/x-python">
+image = Gtk.Image()
+image.set_from_stock(Gtk.STOCK_CAPS_LOCK_WARNING, Gtk.IconSize.DIALOG)
+image.show()
+messagedialog.set_image(image)</code>
+    <p>where <code>Gtk.STOCK_CAPS_LOCK_WARNING</code> is any image from <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items.html">Stock Items</link>. We could also set any image as in the Image widget, as <code>image.set_from_file("filename.png")</code>.</p></item>
+    <item><p><code>format_secondary_text("some secondary message")</code> sets a secondary message. The primary text becomes bold.</p></item>
+  </list>
+  </section>
+
+  <section id="references">
+  <title>API References</title>
+  <p>
+    In this sample we used the following:
+  </p>
+  <list>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkMessageDialog.html">GtkMessageDialog</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkDialog.html">GtkDialog</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkWindow.html">GtkWindow</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gio/stable/GSimpleAction.html">GSimpleAction</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gio/unstable/GActionMap.html">GActionMap</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gio/stable/GMenu.html">GMenu</link></p></item>
+    <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkApplication.html">GtkApplication</link></p></item>
+  </list>
+  </section>
+</page>

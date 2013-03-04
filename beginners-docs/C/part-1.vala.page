@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="part-1.vala">
+  <info>
+    <link type="guide" xref="hello-world.vala"/>
+    <link type="next" xref="part-2.vala"/>
+    <title type="link" role="series">
+     Your first GTK+ application
+    </title>
+    <revision version="0.1" date="2012-02-20" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>An intro to Anjuta's interface builder</desc>
+  </info>
+
+  <title>Part 1: Your first GTK+ application</title>
+  <links type="series" style="floatend"/>
+
+<synopsis>
+  <p>This tutorial is a brief introduction to Anjuta's interface builder.</p>
+  <p>In this tutorial you will create a very simple application.</p>
+  <p>You'll need an installed copy of <app>Anjuta</app> to be able to follow this tutorial.</p>
+</synopsis>
+
+<media type="image" mime="image/png" src="media/hello-world-label.png" width="300"/>
+
+<section id="anjuta">
+  <title>Create a project in Anjuta</title>
+  <p>Anjuta will create all of the files you need to build and run your application.
+  It's also a very useful tool for keeping everything together.</p>
+  <steps>
+    <item>
+      <p>Start <app>Anjuta</app> and click <gui>Create a new project</gui> or <guiseq><gui>File</gui><gui>New</gui><gui>Project</gui></guiseq> to open the project wizard.</p>
+    </item>
+    <item>
+      <p>Choose <gui>GTK+ (Simple)</gui> from the <gui>Vala</gui> tab, click <gui>Forward</gui>, and fill out your details on the next few pages.
+      Use <file>hello-world</file> as the project name and directory. Click <gui>Continue</gui>.</p>
+   	</item>
+    <item>
+      <p>Click <gui>Apply</gui> and the project will be created for you.</p>
+    </item>
+  </steps>
+
+<p>From the <gui>Project</gui> or <gui>Files</gui> tab, open <file>src/hello_world.vala</file> by double-clicking on it. You should see some code:</p>
+
+  <listing>
+    <title>src/hello_world.vala</title>
+    <code mime="text/x-csharp"><![CDATA[
+using GLib;
+using Gtk;
+
+public class Main : Object
+{
+	const string UI_FILE = "src/hello_world.ui";
+
+	public Main ()
+	{
+		try
+		{
+			var builder = new Builder ();
+			builder.add_from_file (UI_FILE);
+			builder.connect_signals (this);
+
+			var window = builder.get_object ("window") as Window;
+			window.show_all ();
+		}
+		catch (Error e) {
+			stderr.printf ("Could not load UI: %s\n", e.message);
+		}
+	}
+
+	public void on_destroy (Widget window)
+	{
+		Gtk.main_quit();
+	}
+
+	static int main (string[] args)
+	{
+		Gtk.init (ref args);
+		var app = new Main ();
+
+		Gtk.main ();
+
+		return 0;
+	}
+}]]></code>
+  </listing>
+
+</section>
+
+<section id="build">
+  <title>Build the code for the first time</title>
+  <p>The code loads an (empty) window from the user interface description file and displays it.</p>
+
+  <list>
+  <item>
+    <p>The two <code>using</code> lines import namespaces so we don't have to name them explicitly.</p>
+   </item>
+   <item>
+    <p>The constructor of the <code>Main</code> class creates a new window by opening a GtkBuilder file (<file>src/hello_world.ui</file>, defined a few lines above), connecting its signals and then displaying it in a window. This GtkBuilder file contains a description of a user interface and all of its elements. You can use Anjuta's editor to design GtkBuilder user interfaces.</p>
+    <note>
+    <p>Connecting signals is how you define what happens when you push a button, or when some other event happens. Here, the <code>on_destroy</code> function is called (and quits the app) when you close the window.</p>
+    </note>
+   </item>
+   <item>
+    <p>The static <code>main</code> function is run by default when you start a Vala application. It calls a few functions which create the Main class, set up and then run the application. The <code>Gtk.main</code> function starts the GTK main loop, which runs the user interface and starts listening for events (like clicks and key presses).</p>
+   </item>
+  </list>
+
+  <p>This code is ready to be used, so you can compile it by clicking <guiseq><gui>Build</gui><gui>Build Project</gui></guiseq> (or press <keyseq><key>Shift</key><key>F7</key></keyseq>). When you do this, a dialog will appear. Change the <gui>Configuration</gui> to <gui>Default</gui> and then click <gui>Execute</gui> to configure the build directory. You only need to do this once, for the first build.</p>
+
+
+</section>
+
+</page>

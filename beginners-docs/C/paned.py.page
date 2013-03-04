@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="paned.py">
+  <info>
+    <title type="text">Paned (Python)</title>
+    <link type="guide" xref="beginner.py#layout"/>
+    <link type="next" xref="signals-callbacks.py"/>
+    <revision version="0.1" date="2012-08-15" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A widget with two adjustable panes</desc>
+  </info>
+
+  <title>Paned</title>
+  <media type="image" mime="image/png" src="media/paned.png"/>
+  <p>Two images in two adjustable panes, horizontally aligned.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/paned.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a Paned widget</title>
+    <p>To have two vertically aligned panes, use <code>Gtk.Orientation.VERTICAL</code> instead of <code>Gtk.Orientation.HORIZONTAL</code>. The method <code>add1(widget1)</code> will add the <code>widget1</code> to the top pane, and <code>add2(widget2)</code> will add the <code>widget2</code> to the bottom pane.</p>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/stable/GtkPaned.html">GtkPaned</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/stable/gtk3-Standard-Enumerations.html#GtkOrientation">Standard Enumerations</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkImage.html">GtkImage</link></p></item>
+    </list>
+  </section>
+</page>

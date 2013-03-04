@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="treeview_treestore.py">
+  <info>
+    <title type="text">TreeView with TreeStore (Python)</title>
+    <link type="guide" xref="beginner.py#treeview"/>
+    <link type="seealso" xref="model-view-controller.py" />
+    <link type="next" xref="model-view-controller.py"/>
+    <revision version="0.1" date="2012-06-30" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A TreeView displaying a TreeStore (simpler example)</desc>
+  </info>
+
+  <title>Simpler TreeView with TreeStore</title>
+  <media type="image" mime="image/png" src="media/treeview_treestore.png"/>
+  <p>This TreeView displays a TreeStore.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/treeview_treestore.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a TreeView widget</title>
+    <p>The TreeView widget is designed around a <em>Model/View/Controller</em> design: the <em>Model</em> stores the data; the <em>View</em> gets change notifications and displays the content of the model; the <em>Controller</em>, finally, changes the state of the model and notifies the view of these changes. For more information and for a list of useful methods for TreeModel see <link xref="model-view-controller.py" />.</p>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeView.html">GtkTreeView</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeModel.html">GtkTreeModel</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeStore.html">GtkTreeStore</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkCellRendererText.html">GtkCellRendererText</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeViewColumn.html">GtkTreeViewColumn</link></p></item>
+    </list>
+  </section>
+</page>

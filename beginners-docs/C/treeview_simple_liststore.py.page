@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      type="guide" style="task"
+      id="treeview_simple_liststore.py">
+  <info>
+    <title type="text">Simple TreeView with ListStore (Python)</title>
+    <link type="guide" xref="beginner.py#treeview"/>
+    <link type="seealso" xref="model-view-controller.py"/>
+    <link type="next" xref="treeview_treestore.py"/>
+    <revision version="0.2" date="2012-06-30" status="draft"/>
+
+    <credit type="author copyright">
+      <name>Marta Maria Casetti</name>
+      <email>mmcasetti@gmail.com</email>
+      <years>2012</years>
+    </credit>
+
+    <desc>A TreeView displaying a ListStore (simpler example)</desc>
+  </info>
+
+  <title>Simple TreeView with ListStore</title>
+  <media type="image" mime="image/png" src="media/treeview_simple_liststore.png"/>
+  <p>This TreeView displays a simple ListStore with the selection "changed" signal connected.</p>
+
+  <links type="section" />
+
+  <section id="code">
+    <title>Code used to generate this example</title>
+
+    <code mime="text/x-python" style="numbered"><xi:include href="samples/treeview_simple_liststore.py" parse="text"><xi:fallback/></xi:include></code>
+  </section>
+
+  <section id="methods">
+    <title>Useful methods for a TreeView widget</title>
+    <p>The TreeView widget is designed around a <em>Model/View/Controller</em> design: the <em>Model</em> stores the data; the <em>View</em> gets change notifications and displays the content of the model; the <em>Controller</em>, finally, changes the state of the model and notifies the view of these changes. For more information, and for a list of useful methods for TreeModel, see <link xref="model-view-controller.py" />.</p>
+    <p>In line 44 the <code>"changed"</code> signal is connected to the callback function <code>on_changed()</code> using <code><var>widget</var>.connect(<var>signal</var>, <var>callback function</var>)</code>. See <link xref="signals-callbacks.py"/> for a more detailed explanation.</p>
+  </section>
+
+  <section id="references">
+    <title>API References</title>
+    <p>In this sample we used the following:</p>
+    <list>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeView.html">GtkTreeView</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeModel.html">GtkTreeModel</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkListStore.html">GtkListStore</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkCellRendererText.html">GtkCellRendererText</link></p></item>
+      <item><p><link href="http://developer.gnome.org/gtk3/unstable/GtkTreeViewColumn.html">GtkTreeViewColumn</link></p></item>
+      <item><p><link href="http://git.gnome.org/browse/pygobject/tree/gi/overrides/Gtk.py">pygobject - Python bindings for GObject Introspection</link></p></item>
+      <item><p><link href="http://developer.gnome.org/pango/stable/pango-Fonts.html">Fonts</link></p></item>
+    </list>
+  </section>
+</page>

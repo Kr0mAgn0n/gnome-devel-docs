@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="guide" style="task"
+      id="gtk-beginner.py">
+
+<info>
+  <title type="text">GTK+ Tutorial for beginners (Python)</title>
+  <link type="guide" xref="py#libraries"/>
+  <revision pkgversion="3.8" date="2013-02-25" status="draft"/>
+
+  <desc>A tutorial for beginners who want to learn how to program GUIs using 
+  GTK+ in Python.</desc>
+  <credit type="author copyright">
+    <name>Tiffany Antopolski</name>
+    <email>tiffany.antopolski@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <credit type="author copyright">
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012 2013</years>
+  </credit>
+  <credit type="editor author">
+    <name>Jim Campbell</name>
+    <email>jwcampbell@gmail.com</email>
+    <years>2013</years>
+  </credit>
+</info>
+
+<title>GTK+ Tutorial for beginners</title>
+
+<synopsis>
+ <p>This tutorial will teach you the basics of GUI programming using GTK+ in 
+ Python. It will walk you through increasingly complex examples and programming 
+ theory, but you can also feel free to just go directly to the section that is 
+ most helpful to you.</p>
+
+ <p>If you have never programmed before, or are not familiar with the concepts 
+ of object oriented programming, you may need to learn a few basics first.  The 
+ book <link href="http://learnpythonthehardway.org/book/">Learn Python the Hard 
+ Way</link> or <link href="http://docs.python.org/tutorial/index.html">The 
+ Python Tutorial</link> may be a better place for you to start. Once you master 
+ the basics, be sure to come back and check out these tutorials.</p>
+</synopsis>
+
+<links type="section" />
+
+<note type="tip">
+<title>To run the code samples</title>
+
+  <p>To run the code samples in the tutorial:</p>
+  <steps>
+    <item><p>Type or copy and paste the code into a file, and save the file with 
+    a name like <var>filename</var>.py</p></item>
+    <item><p>To execute the code, type in the terminal:</p>
+          <screen>python <var>filename</var>.py</screen>
+    </item>
+  </steps>
+  <p>After executing the code, you will either see the widget on your screen, or 
+  (if you have mistyped some of the code) you will see an error message that 
+  will help you identify the problem.</p>
+</note>
+
+<section id="windows">
+  <title>Basic windows</title>
+  <steps>
+    <item><p><link xref="window.py"/></p></item>
+    <item><p><link xref="GtkApplicationWindow.py"/></p></item>
+  </steps>
+</section>
+<section id="images-and-labels">  
+  <title>Images and labels</title>
+  <steps>
+    <item><p><link xref="image.py" /></p></item>
+    <item><p><link xref="strings.py" /></p></item>
+    <item><p><link xref="label.py" /></p></item>
+  </steps>
+</section>
+<section id="properties">
+  <title>Introduction to properties</title>
+  <steps>
+    <item><p><link xref="properties.py" /></p></item>
+  </steps>
+</section>
+<section id="grid">  
+  <title>Grid, separator and scrolling</title>
+  <steps>
+    <item><p><link xref="grid.py" /></p></item>
+    <item><p><link xref="separator.py" /></p></item>
+    <item><p><link xref="scrolledwindow.py" /></p></item>
+    <item><p><link xref="paned.py" /></p></item>
+  </steps>
+</section>
+<section id="buttons">
+  <title>Signals, callbacks and buttons</title>   
+  <steps>
+    <item><p><link xref="signals-callbacks.py" /></p></item>
+    <item><p><link xref="button.py" /></p></item>
+    <item><p><link xref="linkbutton.py" /></p></item>
+    <item><p><link xref="checkbutton.py" /></p></item>
+    <item><p><link xref="togglebutton.py" /></p></item>
+    <item><p><link xref="switch.py" /></p></item>
+    <item><p><link xref="radiobutton.py" /></p></item>
+    <item><p><link xref="buttonbox.py" /></p></item>
+  </steps>
+</section>  
+<section id="other-display">
+  <title>Other display widgets</title>
+  <steps>
+    <item><p><link xref="statusbar.py" /></p></item>
+    <item><p><link xref="spinner.py" /></p></item>
+    <item><p><link xref="progressbar.py" /></p></item>
+  </steps>
+</section>
+<section id="entry">
+  <title>Entry widgets</title>
+  <steps>
+    <item><p><link xref="spinbutton.py" /></p></item>
+    <item><p><link xref="entry.py" /></p></item>
+    <item><p><link xref="scale.py" /></p></item>
+  </steps>
+</section>
+<section id="textview">
+  <title>A widget to write and display text</title>
+  <steps>
+    <item><p><link xref="textview.py" /></p></item>
+  </steps>
+</section>
+<section id="dialogs">
+  <title>Dialogs</title>
+  <steps>
+    <item><p><link xref="dialog.py" /></p></item>
+    <item><p><link xref="aboutdialog.py" /></p></item>
+    <item><p><link xref="messagedialog.py" /></p></item>
+  </steps>
+</section>
+<section id="menus">
+  <title>Menus, Toolbars and Tooltips (also: using Glade and GtkBuilder)</title>
+  <steps>
+    <item><p><link xref="gmenu.py" /></p></item>
+    <item><p><link xref="menubutton.py" /></p></item>
+    <item><p><link xref="toolbar.py" /></p></item>
+    <item><p><link xref="tooltip.py" /></p></item>
+    <item><p><link xref="toolbar_builder.py" /></p></item>
+    <item><p><link xref="menubar.py" /></p></item>
+  </steps>
+</section>  
+<section id="selectors">
+  <title>Selectors</title>
+  <steps>
+    <item><p><link xref="colorbutton.py" /></p></item>
+    <item><p><link xref="fontchooserwidget.py" /></p></item>
+    <item><p><link xref="filechooserdialog.py" /></p></item>
+  </steps>
+</section>
+<section id="mvc">
+  <title>TreeViews and ComboBoxes (using the M/V/C design)</title>
+  <steps>
+    <item><p><link xref="combobox.py" /></p></item>
+    <item><p><link xref="treeview_simple_liststore.py" /></p></item>
+    <item><p><link xref="treeview_treestore.py" /></p></item>
+    <item><p><link xref="model-view-controller.py" /></p></item>
+    <item><p><link xref="combobox_multicolumn.py" /></p></item>
+    <item><p><link xref="treeview_advanced_liststore.py" /></p></item>
+    <item><p><link xref="treeview_cellrenderertoggle.py" /></p></item>
+  </steps>
+</section>
+<section id="custom">
+  <title>Custom widget</title>
+  <steps>
+    <item><p><link xref="widget_drawing.py" /></p></item>
+  </steps>
+</section>
+
+</page>
