@@ -46,68 +46,48 @@
   <section id="in-depth">
   <title>A more in-depth look</title>
 
+  <p>We start by creating a window. In line 10 we create an image in the window, 
+  then in line 11 we set the image using one in the current folder; finally in 
+  line 12 we add the image to the window.</p>
 
-  <p>Another way to obtain what we have in the example is to create the image as an instance of another class and add it to the instance of <code>MyWindow</code> in the <code>do_activate(self)</code> method:</p>
-      <code mime="text/x-python">
-# a class to create a window
-class MyWindow(Gtk.ApplicationWindow):
-    def __init__(self, app):
-        Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
-        self.set_default_size(300, 300)
+  <p>Another way to obtain what we have in the example is to create the image as 
+  an instance of another class and add it to the instance of 
+  <code>MyWindow</code> in the <code>do_activate(self)</code> method.</p>
 
-# a class to create an image
-class MyImage(Gtk.Image):
-    def __init__(self):
-        Gtk.Image.__init__(self)
-        self.set_from_file("gnome-image.png")
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/image2.py" parse="text"><xi:fallback/></xi:include></code>
+  
+  <p>GTK+ has a set of stock images that can be set using 
+  <code>set_from_stock(<var>stock_id</var>, <var>size</var>)</code>, where 
+  <code><var>stock_id</var></code> is a name such as <code>Gtk.STOCK_ABOUT</code> 
+  (more can be found at 
+  <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items">Stock Items</link>)
+  and <code><var>size</var></code> is a stock icon size to be chosen from 
+  <code>Gtk.IconSize.INVALID, Gtk.IconSize.MENU, Gtk.IconSize.SMALL_TOOLBAR, Gtk.IconSize.LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk.IconSize.DND, Gtk.IconSize.DIALOG</code>.
+  </p>
 
-class MyApplication(Gtk.Application):
-    def __init__(self):
-        Gtk.Application.__init__(self)
+  <p>There are also stock icons, that can be set with 
+  <code>set_from_icon_name(<var>icon_name</var>, <var>size</var>)</code> and can 
+  be found at 
+  <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items">Stock Items</link>.
+  </p>
 
-    def do_activate(self):
-        # create an instance of MyWindow
-        win = MyWindow(self)
-        # create an instance of MyImage and add it to the window
-        win.add(MyImage())
-        # show the window and everything on it
-        win.show_all()</code>
+  <p>To load an image over a network use <code>set_from_pixbuf(<var>pixbuf</var>)</code>, 
+  where <code><var>pixbuf</var></code> is a <link href="http://developer.gnome.org/gdk-pixbuf/unstable//index.html">GdkPixbuf</link>.
+   For example, we could have:</p>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/image3.py" parse="text"><xi:fallback/></xi:include></code>
+
   </section>
-
-  <section id="methods">
-  <title>Useful methods for an Image widget</title>
-
-  <list>
-    <item><p>To set a stock icon as image, you can use <code>set_from_stock(stock_id, size)</code> where <code>stock_id</code> is a stock icon such as <code>Gtk.STOCK_ABOUT</code> (more can be found at <link href="http://developer.gnome.org/gtk3/unstable/gtk3-Stock-Items">Stock Items</link>, with the caveat that they should be modified as above) and <code>size</code> is a stock icon size to be chosen from <code>Gtk.IconSize.INVALID, Gtk.IconSize.MENU, Gtk.IconSize.SMALL_TOOLBAR, Gtk.IconSize.LARGE_TOOLBAR, Gtk.IconSize.BUTTON, Gtk.IconSize.DND, Gtk.IconSize.DIALOG</code>.</p></item>
-    <item><p>You can also use <code>set_from_icon_name(icon_name, size)</code>, where <code>icon_name</code> is a stock icon name such as <code>"gtk-about"</code> (more can be found as above) and <code>size</code> is as above.</p></item>
-    <item><p>To load an image over a network use <code>set_from_pixbuf(pixbuf)</code>, where <code>pixbuf</code> is a <link href="http://developer.gnome.org/gdk-pixbuf/unstable//index.html">GdkPixbuf</link>.</p>
-    <code mime="text/python">
-from gi.repository import Gtk
-from gi.repository import GdkPixbuf
-import sys
-
-class MyWindow(Gtk.ApplicationWindow):
-    # create a window
-    def __init__(self, app):
-        Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
-        self.set_default_size(300, 300)
-
-        # create a pixbuf from file filename="gnome-image.png", with width=32
-        # and height=64 amd boolean preserve_aspect_ratio=False.
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("gnome-image.png", 64, 128, False)
-
-        # create an image
-        image = Gtk.Image()
-        # set the content of the image as the pixbuf
-        image.set_from_pixbuf(pixbuf)
-        # add the image to the window
-        self.add(image)</code>
-    <p>If <code>preserve_aspect_ratio=True</code> we can use <code>new_from_file_at_size(filename, width, height)</code>. If <code>width</code> or <code>height</code> is <code>-1</code>, it is not constrained.</p>
-    <p>For loading from an input stream, see <code>new_from_stream()</code> and <code>new_from_stream_at_scale()</code> in the documentation</p>
-    </item>
-  </list>
+  
+  <section id="exercises">
+  <title>Exercises</title>
+  
+  <p>Comment line-by-line the first two examples.</p>
+  
+  <p>Guess and check what the third example returns.</p>
+  
   </section>
-
+  
   <section id="references">
   <title>API References</title>
   <p>In this sample we used the following:</p>

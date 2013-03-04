@@ -8,7 +8,7 @@
     <title type="text">GtkApplicationWindow (Python)</title>
     <link type="seealso" xref="properties.py"/>
     <link type="next" xref="image.py"/>
-    <revision version="0.3" date="2013-03-03" status="draft"/>
+    <revision version="0.4" date="2013-03-04" status="draft"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -51,12 +51,35 @@
   <section id="in-depth">
   <title>A more in-depth look</title>
 
-  <p></p>
+  <p>In lines 4&#8211;7 we construct a GtkApplicationWindow that belongs to a 
+  generic application <code>app</code>.</p>
+
+  <p>In lines 9&#8211;11 we construct a GtkApplication, uniquely identified by 
+  its <code>application_id</code>. This means that if you start an application 
+  with a given <code>application_id</code> more than once, only the first 
+  instance (also known as the primary instance) will actually run; every new 
+  instance using the same <code>application_id</code> will notify the primary 
+  instance and call the <code>do_activate()</code> method on it, and then 
+  terminate.</p>
+  
+  <p>The default <code>application_id</code> is <code>None</code>; in the next 
+  examples we may use this default.</p>
 
   </section>
 
   <section id="exercises">
   <title>Exercises</title>
+
+  <p>Instead of line 15 we could have a similar line somewhere else. Can you 
+  guess what and where? [Are you really lost? Look at line 11 in the 
+  <link xref="window.py"/> example.]</p>
+  
+  <p>Similarly: can you find another way to set the title of the window?</p>
+
+  <p>Modify the code to print to terminal the number of windows created by the 
+  application after the <code><var>app</var>.run(sys.argv)</code> method 
+  returns. Verify it by opening a number of windows, and checking the result.
+  </p>
 
   </section>
 
