@@ -4,114 +4,79 @@
       type="guide" style="task"
       id="strings.py">
 
-<info>
-  <title type="text">Strings (Python)</title>
-  <link type="guide" xref="beginner.py#theory"/>
-  <link type="next" xref="label.py"/>
-  <revision version="0.1" date="2012-06-16" status="draft"/>
+  <info>
+    <title type="text">Strings (Python)</title>
+    <link type="next" xref="label.py"/>
+    <revision version="0.3" date="2013-03-05" status="draft"/>
 
-  <desc>An explanation of how to deal with strings in Python and GTK+.</desc>
-  <credit type="author copyright">
+    <credit type="author copyright">
     <name>Sebastian P&#246;lsterl</name>
     <email>sebp@k-d-w.org</email>
     <years>2011</years>
-  </credit>
-  <credit type="editor">
+    </credit>
+    <credit type="editor">
     <name>Marta Maria Casetti</name>
     <email>mmcasetti@gmail.com</email>
     <years>2012</years>
-  </credit>
-</info>
+    </credit>
 
-<title>Strings</title>
+    <desc>An explanation of how to deal with strings in GTK+</desc>
+  </info>
 
-<links type="section" />
+  <title>Strings</title>
 
-<note style="warning"><p>GNOME strongly encourages the use of Python 3 for writing applications!</p></note>
+  <note style="warning"><p>GNOME strongly encourages the use of Python 3 for 
+writing applications!</p></note>
 
-<section id="python-2">
-<title>Strings in Python 2</title>
+  <links type="section" />
 
-<p>Python 2 comes with two different kinds of objects that can be used to represent strings, <code>str</code> and <code>unicode</code>. Instances of <code>unicode</code> are used to express Unicode strings, whereas instances of the <code>str</code> type are byte representations (the encoded string). Under the hood, Python represents Unicode strings as either 16- or 32-bit integers, depending on how the Python interpreter was compiled.</p>
+  <section id="gtk">
+  <title>Strings in GTK+</title>
 
-<code><![CDATA[
->>> unicode_string = u"Fu\u00dfb\u00e4lle"
->>> print unicode_string]]>
-Fu&#223;b&#228;lle
-</code>
+  <p>GTK+ uses UTF-8 encoded strings for all text, as Python 3.x does. If you 
+  use Python 3.x, PyGObject will automatically encode/decode to/from UTF-8 if 
+  you pass a string to a method or a method returns a string. Strings, or text, 
+  will always be represented as instances of <code>str</code> only.</p>
+  
+  
+  <p>For older program that use Python 2.x, if you call a method that returns a 
+  string you will always obtain an instance of the 
+  <code>str</code> type. It also means that if you call a method that expect one 
+  or more strings as parameter, these strings must be UTF-8 encoded.</p>
+  
+  <p>However, for convenience PyGObject will automatically convert any Unicode 
+  instance to <code>str</code> if supplied as argument:</p>
 
-<p>Unicode strings can be converted to 8-bit strings with <code>unicode.encode()</code>. Python’s 8-bit strings have a <code>str.decode()</code> method that interprets the string using the given encoding (that is, it is the inverse of the <code>unicode.encode()</code>):</p>
-
-<code><![CDATA[
->>> type(unicode_string)
-<type 'unicode'>
->>> unicode_string.encode("utf-8")
-'Fu\xc3\x9fb\xc3\xa4lle'
->>> utf8_string = unicode_string.encode("utf-8")
->>> type(utf8_string)
-<type 'str'>
->>> unicode_string == utf8_string.decode("utf-8")
-True]]></code>
-
-<p>Unfortunately, Python 2.x allows you to mix <code>unicode</code> and <code>str</code> if the 8-bit string happened to contain only 7-bit (ASCII) bytes, but would get <sys>UnicodeDecodeError</sys> if it contained non-ASCII values.</p>
-
-</section>
-
-<section id="python-3">
-<title>Strings in Python 3</title>
-
-<p>Since Python 3.0, all strings are stored as Unicode in an instance of the <code>str</code> type. Encoded strings on the other hand are represented as binary data in the form of instances of the bytes type. Conceptionally, <code>str</code> refers to text, whereas bytes refers to data. Use <code>encode()</code> to go from <code>str</code> to <code>bytes</code>, and <code>decode()</code> to go from <code>bytes</code> to <code>str</code>.</p>
-
-<p>In addition, it is no longer possible to mix Unicode strings with encoded strings, because it will result in a <code>TypeError</code>:</p>
-
-<code><![CDATA[
->>> text = "Fu\u00dfb\u00e4lle"
->>> data = b" sind rund"
->>> text + data
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: Can't convert 'bytes' object to str implicitly
->>> text + data.decode("utf-8")
-'Fußbälle sind rund'
->>> text.encode("utf-8") + data
-b'Fu\xc3\x9fb\xc3\xa4lle sind rund']]></code>
-
-</section>
-
-<section id="gtk">
-<title>Unicode in GTK+</title>
-
-<p>GTK+ uses UTF-8 encoded strings for all text. This means that if you call a method that returns a string you will always obtain an instance of the <code>str</code> type. The same applies to methods that expect one or more strings as parameter, they must be UTF-8 encoded. However, for convenience PyGObject will automatically convert any unicode instance to str if supplied as argument:</p>
-
-<code><![CDATA[
+  <screen><![CDATA[
 >>> from gi.repository import Gtk
 >>> label = Gtk.Label()
 >>> unicode_string = u"Fu\u00dfb\u00e4lle"
 >>> label.set_text(unicode_string)
 >>> txt = label.get_text()
 >>> type(txt)
-<type 'str'>]]></code>
+<type 'str'>]]></screen>
 
-<p>Furthermore:</p>
+  <p>Furthermore, <code>get_text()</code> will always return a <code>str</code> 
+  instance</p>
 
-<code><![CDATA[
->>> txt == unicode_string]]></code>
+  <screen><![CDATA[
+>>> txt == unicode_string
+__main__:1: UnicodeWarning: Unicode equal comparison failed to convert both 
+arguments to Unicode - interpreting them as being unequal
+False]]></screen>
 
-<p>would return <code>False</code>, with the warning <code>__main__:1: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal</code> (<code>Gtk.Label.get_text()</code> will always return a <code>str</code> instance; therefore, <code>txt</code> and <code>unicode_string</code> are not equal).</p>
+  <p>This is especially important if you want to internationalize your program 
+  using <link href="http://docs.python.org/library/gettext.html"><code>gettext</code></link>. 
+  You have to make sure that <code>gettext</code> will return UTF-8 encoded 
+  8-bit strings for all languages.</p>
 
-<p>This is especially important if you want to internationalize your program using <link href="http://docs.python.org/library/gettext.html"><code>gettext</code></link>. You have to make sure that <code>gettext</code> will return UTF-8 encoded 8-bit strings for all languages.</p>
+  </section>
 
-<p>In general it is recommended to not use <code>unicode</code> objects in GTK+ applications at all, and only use UTF-8 encoded <code>str</code> objects since GTK+ does not fully integrate with <code>unicode</code> objects.</p>
+  <section id="references">
+  <title>References</title>
 
-<p>With Python 3.x things are much more consistent, because PyGObject will automatically encode/decode to/from UTF-8 if you pass a string to a method or a method returns a string. Strings, or text, will always be represented as instances of <code>str</code> only.</p>
+  <p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/unicode.html">How To Deal With Strings - The Python GTK+ 3 Tutorial</link></p>
 
-</section>
-
-<section id="references">
-<title>References</title>
-
-<p><link href="http://python-gtk-3-tutorial.readthedocs.org/en/latest/unicode.html">How To Deal With Strings - The Python GTK+ 3 Tutorial</link></p>
-
-</section>
+  </section>
 
 </page>
