@@ -5,33 +5,61 @@
       id="paned.py">
   <info>
     <title type="text">Paned (Python)</title>
-    <link type="guide" xref="beginner.py#layout"/>
     <link type="next" xref="signals-callbacks.py"/>
-    <revision version="0.1" date="2012-08-15" status="draft"/>
+    <revision version="0.2" date="2013-03-08" status="draft"/>
 
     <credit type="author copyright">
-      <name>Marta Maria Casetti</name>
-      <email>mmcasetti@gmail.com</email>
-      <years>2012</years>
+    <name>Marta Maria Casetti</name>
+    <email>mmcasetti@gmail.com</email>
+    <years>2012</years>
     </credit>
 
     <desc>A widget with two adjustable panes</desc>
   </info>
 
   <title>Paned</title>
-  <media type="image" mime="image/png" src="media/paned.png"/>
-  <p>Two images in two adjustable panes, horizontally aligned.</p>
-
+  
+  <synopsis><p>Two widgets can also be inserted using two adjustable panes - 
+  either vertically or horizontally aligned.</p></synopsis>
+  
   <links type="section" />
 
-  <section id="code">
-    <title>Code used to generate this example</title>
-    <code mime="text/x-python" style="numbered"><xi:include href="samples/paned.py" parse="text"><xi:fallback/></xi:include></code>
+  <section id="example">
+  <title>An example</title>
+  
+  <p>An example of two images inserted in two horizontally aligned panes.</p>
+
+  <code mime="text/x-python" style="numbered"><xi:include href="samples/paned.py" parse="text"><xi:fallback/></xi:include></code>
+
+  <p>If you run the code above, you should obtain something like the image below.</p>
+
+  <media type="image" mime="image/png" src="media/paned.png"/>
+
   </section>
 
-  <section id="methods">
-    <title>Useful methods for a Paned widget</title>
-    <p>To have two vertically aligned panes, use <code>Gtk.Orientation.VERTICAL</code> instead of <code>Gtk.Orientation.HORIZONTAL</code>. The method <code>add1(widget1)</code> will add the <code>widget1</code> to the top pane, and <code>add2(widget2)</code> will add the <code>widget2</code> to the bottom pane.</p>
+  <section id="in-depth">
+  <title>A more in-depth look</title>
+
+  <p>Once more, we create the panes (line 9), then the images (in general, the 
+  widgets we want to insert in the panes: lines 11&#8211;14), then we add the 
+  children widgets (in the example, the images) to the Paned (lines 16&#8211;17) 
+  and finally we add the Paned to the window (line 19).</p>
+
+  <p>To have two vertically or horizontally aligned panes, use respectively 
+  <code>Gtk.Orientation.VERTICAL</code> or <code>Gtk.Orientation.HORIZONTAL</code>.</p> 
+
+  <p>The method <code>add1(<var>widget1</var>)</code> will add the 
+  <code><var>widget1</var></code> to the top or left pane, and 
+  <code>add2(<var>widget2</var>)</code> will add the <code><var>widget2</var></code> 
+  to the bottom or right pane.</p>
+  
+  <p>Instead of the method <code>add1(<var>widget1</var>)</code> you can use 
+  <code>pack1(<var>widget1</var>, <var>resize</var>, <var>shrink</var>)</code>, 
+  where the boolean <code><var>resize</var></code> determines if 
+  <code><var>widget1</var></code> will expand or shrink along with the paned 
+  widget, and the boolean <code><var>shrink</var></code> determines if 
+  <code><var>widget1</var></code> can be made smaller than its requisition.</p>
+
   </section>
 
   <section id="references">
