@@ -43,7 +43,7 @@
     Clutter is a library for creating dynamic user interfaces using OpenGL for hardware acceleration. This example demonstates a small, but central, part of the Clutter library to create a simple but attractive image viewing program.
   </p>
   <p>
-    To help us reach our goal we will be utilising a few other common pieces of GLib as well. Most importantly, we'll use one <code>GPtrArray</code>, a dynamic aray of pointers, to hold the file path names. We will also use <code>GDir</code>, a utility for working with directories, to access our image directory and gather file paths.
+    To help us reach our goal we will be utilising a few other common pieces of GLib as well. Most importantly, we'll use one <code>GPtrArray</code>, a dynamic array of pointers, to hold the file path names. We will also use <code>GDir</code>, a utility for working with directories, to access our image directory and gather file paths.
   </p>
 </section>
 
@@ -370,7 +370,7 @@ actor_clicked_cb(ClutterActor *actor,
   </p>
 </note></item>
     <item><p>Line 7: We set up a static flag to track which state we are in: wall mode or focus mode. We start out in wall mode so no image has focus. Thus, we set the flag to <code>FALSE</code> initially.</p></item>
-    <item><p>Line 12&#x2012;14: These set the image actors to receive events if they are foxused.</p></item>
+    <item><p>Line 12&#x2012;14: These set the image actors to receive events if they are focused.</p></item>
     <item><p>Line 16&#x2012;17: Here we set the animation duration and save the current state.</p></item>
     <item><p>Lines 21&#x2012;23: Reaching this code means that one image currently has focus and we want to return to wall mode. Setting a position on a <code>ClutterActor</code> begins an animation with the duration that we set in line 17.</p>
     </item>
