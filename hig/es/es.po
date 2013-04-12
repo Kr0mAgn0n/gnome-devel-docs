@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hig.master\n"
-"POT-Creation-Date: 2013-03-17 19:37+0000\n"
-"PO-Revision-Date: 2013-03-25 10:44+0100\n"
+"POT-Creation-Date: 2013-04-06 15:44+0000\n"
+"PO-Revision-Date: 2013-04-12 13:32+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -13663,11 +13663,11 @@ msgstr ""
 
 #: C/index.docbook:402(sect3/title) C/hig-ch-menus.xml:402(sect3/title)
 msgid "Creation and Opening Operations"
-msgstr ""
+msgstr "Operaciones de creación y apertura"
 
 #: C/index.docbook:408(table/title) C/hig-ch-menus.xml:408(table/title)
 msgid "Creation and Opening operation menu items"
-msgstr ""
+msgstr "Elementos de menú de operaciones de creación y apertura"
 
 #: C/index.docbook:413(row/entry) C/index.docbook:462(row/entry)
 #: C/index.docbook:528(row/entry) C/index.docbook:571(row/entry)
@@ -13754,7 +13754,7 @@ msgstr "Descripción"
 #: C/index.docbook:420(row/entry) C/index.docbook:548(row/entry)
 #: C/hig-ch-input.xml:548(row/entry) C/hig-ch-menus.xml:420(row/entry)
 msgid "<guimenuitem><accel>N</accel>ew</guimenuitem>"
-msgstr ""
+msgstr "<guimenuitem><accel>N</accel>uevo</guimenuitem>"
 
 #: C/index.docbook:421(row/entry) C/index.docbook:549(row/entry)
 #: C/hig-ch-input.xml:549(row/entry) C/hig-ch-menus.xml:421(row/entry)
@@ -13770,12 +13770,21 @@ msgid ""
 "in the submenu the most commonly used document type, and give it the "
 "<keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo> shortcut."
 msgstr ""
+"Si su aplicación puede crear un número de diferentes tipos de documentos, "
+"puede hacer el elemento <guimenuitem><accel>N</accel>uevo</guimenuitem> un "
+"submenú, conteniendo un elemento de menú por cada tipo. Etiquete estos "
+"elementos <guimenuitem>Nuevo <replaceable>tipo de documento</replaceable></"
+"guimenuitem>, haga la primera entrada en el submenú el tipo de documento más "
+"utilizado, y dele el atajo <keycombo><keycap>Ctrl</keycap><keycap>N</"
+"keycap></keycombo>."
 
 #: C/index.docbook:424(entry/para) C/hig-ch-menus.xml:424(entry/para)
 msgid ""
 "Note: A blank document will not necessarily be completely blank. For "
 "example, a document created from a template may already contain some data."
 msgstr ""
+"Nota: un documento vacío no necesariamente lo estará por completo. Por "
+"ejemplo, un documento creado desde una plantilla podría ya contener datos."
 
 #: C/index.docbook:422(row/entry) C/hig-ch-menus.xml:422(row/entry)
 msgid ""
@@ -13784,10 +13793,14 @@ msgid ""
 "this window is displayed, e.g. as a tab or a separate window, is up to the "
 "window manager. <_:para-1/> <_:para-2/>"
 msgstr ""
+"Crea un documento nuevo. Abra una ventana primaria nueva, con el título "
+"<replaceable>Nombre del documento</replaceable>, conteniendo un documento "
+"vacío. Cómo se muestra esta ventana, por ejemplo, como pestaña o ventana "
+"separada, lo tiene que decidir el gestor de ventanas. <_:para-1/> <_:para-2/>"
 
 #: C/index.docbook:429(row/entry) C/hig-ch-menus.xml:429(row/entry)
 msgid "<guimenuitem><accel>O</accel>pen...</guimenuitem>"
-msgstr ""
+msgstr "<guimenuitem><accel>A</accel>brir…</guimenuitem>"
 
 #: C/index.docbook:430(row/entry) C/index.docbook:554(row/entry)
 #: C/hig-ch-input.xml:554(row/entry) C/hig-ch-menus.xml:430(row/entry)
@@ -13801,14 +13814,18 @@ msgid ""
 "file is already open in the application, raise that window instead of "
 "opening a new one. <_:remark-1/> <_:remark-2/> <_:remark-3/>"
 msgstr ""
+"Abre un documento existente en una ventana nueva. Preséntele al usuario un "
+"diálogo «Abrir archivo» estándar del que puedan elegir un archivo existente. "
+"Si el archivo elegido ya está abierto en la aplicación, levante su ventana "
+"en lugar de abrir una nueva. <_:remark-1/> <_:remark-2/> <_:remark-3/>"
 
 #: C/index.docbook:454(sect3/title) C/hig-ch-menus.xml:454(sect3/title)
 msgid "Saved State Operations"
-msgstr ""
+msgstr "Operaciones de estado de guardado"
 
 #: C/index.docbook:458(table/title) C/hig-ch-menus.xml:458(table/title)
 msgid "Saved State Operation menu items"
-msgstr ""
+msgstr "Elementos de menú de operaciones de estado de guardadod"
 
 #: C/index.docbook:469(row/entry) C/index.docbook:558(row/entry)
 #: C/hig-ch-input.xml:558(row/entry) C/hig-ch-menus.xml:469(row/entry)
@@ -13825,6 +13842,9 @@ msgid ""
 "If the document has no current filename or is read-only, selecting this item "
 "should be the same as selecting <guimenuitem>Save As</guimenuitem>."
 msgstr ""
+"Si el documento no tiene nombre de archivo actual o es de solo lectura, "
+"seleccionar este elemento debería ser lo mismo que seleccionar "
+"<guimenuitem>Guardar como</guimenuitem>."
 
 #: C/index.docbook:471(row/entry) C/hig-ch-menus.xml:471(row/entry)
 msgid ""
@@ -13835,10 +13855,16 @@ msgid ""
 "file), prompt for these first time the document is saved, but subsequently "
 "use the same values each time until the user changes them. <_:para-1/>"
 msgstr ""
+"Guarda el documento con su nombre de archivo actual. Si el documento ya "
+"tiene un nombre de archivo asociado, lo guarda inmediatamente sin más "
+"interacción con el usuario. Si hay opciones involucradas al guardar (por "
+"ejemplo, finales de línea estilo DOS ó UNIX en un archivo de texto), "
+"pregunte la primera vez que guarda el documento, pero a continuación use los "
+"mismo valores cada vez que el usuario los cambia. <_:para-1/>"
 
 #: C/index.docbook:477(row/entry) C/hig-ch-menus.xml:477(row/entry)
 msgid "<guimenuitem>Save <accel>A</accel>s...</guimenuitem>"
-msgstr "<guimenuitem>Guardar <accel>C</accel>omo...</guimenuitem>"
+msgstr "<guimenuitem>Guardar <accel>C</accel>omo…</guimenuitem>"
 
 #: C/index.docbook:478(row/entry) C/hig-ch-menus.xml:478(row/entry)
 msgid ""
@@ -13853,10 +13879,12 @@ msgid ""
 "Saves the document with a new filename. Present the user with the standard "
 "Save As dialog, and save the file with the chosen file name."
 msgstr ""
+"Guarda el documento con un nombre de archivo nuevo. Preséntele al usuario un "
+"diálogo «Guardar como» estándar, y guarde el archivo con el nombre elegido."
 
 #: C/index.docbook:483(row/entry) C/hig-ch-menus.xml:483(row/entry)
 msgid "<guimenuitem>S<accel>a</accel>ve a Copy...</guimenuitem>"
-msgstr ""
+msgstr "<guimenuitem>G<accel>u</accel>ardar una copia…</guimenuitem>"
 
 #: C/index.docbook:486(entry/para) C/hig-ch-menus.xml:486(entry/para)
 msgid ""
@@ -13864,6 +13892,10 @@ msgid ""
 "Copy</guimenuitem> dialog may present different ways to save the data. For "
 "example, an image may be saved in a native format or as a PNG."
 msgstr ""
+"Al igual que el diálogo <guimenuitem>Guardar como</guimenuitem>, "
+"<guimenuitem>Guardar una copia</guimenuitem> puede presentar distintas "
+"maneras de guardar los datos. Por ejemplo, una imagen puede guardarse en un "
+"formato nativo o como PNG."
 
 #: C/index.docbook:485(row/entry) C/hig-ch-menus.xml:485(row/entry)
 msgid ""
@@ -13873,6 +13905,12 @@ msgid ""
 "until the user specifies otherwise, for example by choosing the "
 "<guimenuitem>Save As</guimenuitem> command. <_:para-1/>"
 msgstr ""
+"Le pide al usuario un nombre de archivo, con el que se guarda una copia del "
+"documento. No altere la vista o el nombre de archivo en el documento "
+"original. A continuación, todos los cambios se seguirán haciendo sobre el "
+"documento original hasta que el usuario especifique lo contrario, por "
+"ejemplo eligiendo el comando <guimenuitem>Guardar como</guimenuitem>. <_:"
+"para-1/>"
 
 #: C/index.docbook:490(row/entry) C/hig-ch-menus.xml:490(row/entry)
 msgid "<guimenuitem><accel>R</accel>evert</guimenuitem>"
@@ -13884,10 +13922,13 @@ msgid ""
 "warning that all changes will be lost, and offer the option of cancelling "
 "before reloading the file."
 msgstr ""
+"Revierte el documento al último estado guardado. Preséntele al usuario una "
+"advertencia de que se perderán todos los cambios, y ofrezca la opción de "
+"cancelar antes de recargar el archivo."
 
 #: C/index.docbook:497(row/entry) C/hig-ch-menus.xml:497(row/entry)
 msgid "<guimenuitem>Save <accel>V</accel>ersion...</guimenuitem>"
-msgstr "<guimenuitem>Guardar <accel>V</accel>ersión...</guimenuitem>"
+msgstr "<guimenuitem>Guardar <accel>V</accel>ersión…</guimenuitem>"
 
 #: C/index.docbook:499(row/entry) C/hig-ch-menus.xml:499(row/entry)
 msgid ""
@@ -13895,6 +13936,9 @@ msgid ""
 "use this item in conjunction with the <guimenuitem>Restore Version</"
 "guimenuitem>. <_:remark-1/>command."
 msgstr ""
+"Una alternativa al comando <guimenuitem>Guardar una copia</guimenuitem>. "
+"Solo use este elemento en conjunto con el comando <guimenuitem>Restaurar "
+"versión</guimenuitem>. <_:remark-1/>"
 
 #: C/index.docbook:503(row/entry) C/hig-ch-menus.xml:503(row/entry)
 msgid "<guimenuitem>R<accel>e</accel>store Version...</guimenuitem>"
@@ -13907,6 +13951,11 @@ msgid ""
 "offer the option of cancelling before restoring the version. Only use this "
 "item in conjunction with the <guimenuitem>Save Version</guimenuitem> command."
 msgstr ""
+"Le pide al usuario una versión del documento actual que restaurar. "
+"Preséntele al usuario una advertencia de que se perderán todos los cambios, "
+"y ofrezca la opción de cancelar antes de restaurar la versión. Solo use este "
+"elemento conjuntamente con el comando <guimenuitem>Guardar versión</"
+"guimenuitem>."
 
 #: C/index.docbook:509(row/entry) C/hig-ch-menus.xml:509(row/entry)
 msgid "<guimenuitem><accel>V</accel>ersions...</guimenuitem>"
@@ -13918,6 +13967,9 @@ msgid ""
 "<guimenuitem>Restore Version</guimenuitem> commands. Use this when more "
 "utilities, such as a diff, are available."
 msgstr ""
+"Una alternativa a los comandos <guimenuitem>Guardar versión</guimenuitem> y "
+"<guimenuitem>Restaurar versión</guimenuitem>. Use esto cuando hay "
+"disponibles más utilidades, como un «diff»."
 
 #: C/index.docbook:521(sect3/title) C/hig-ch-menus.xml:521(sect3/title)
 msgid "Export Operations"
@@ -14040,7 +14092,7 @@ msgstr "Elementos del menú de operaciones de cierre"
 #: C/index.docbook:928(row/entry) C/hig-ch-input.xml:568(row/entry)
 #: C/hig-ch-input.xml:928(row/entry) C/hig-ch-menus.xml:602(row/entry)
 msgid "<guimenuitem><accel>C</accel>lose</guimenuitem>"
-msgstr ""
+msgstr "<guimenuitem><accel>C</accel>errar</guimenuitem>"
 
 #: C/index.docbook:603(row/entry) C/index.docbook:569(row/entry)
 #: C/index.docbook:1078(row/entry) C/hig-ch-input.xml:569(row/entry)
@@ -14425,7 +14477,7 @@ msgstr "Buscar y reemplazar"
 
 #: C/index.docbook:785(table/title) C/hig-ch-menus.xml:785(table/title)
 msgid "Search and Replace menu items"
-msgstr ""
+msgstr "Elementos del menú Buscar y reemplazar"
 
 #: C/index.docbook:797(row/entry) C/hig-ch-menus.xml:797(row/entry)
 msgid "Find..."
@@ -14488,7 +14540,7 @@ msgstr ""
 #: C/index.docbook:816(row/entry) C/index.docbook:661(row/entry)
 #: C/hig-ch-input.xml:661(row/entry) C/hig-ch-menus.xml:816(row/entry)
 msgid "<guimenuitem><accel>R</accel>eplace...</guimenuitem>"
-msgstr ""
+msgstr "<guimenuitem><accel>R</accel>eemplazar...</guimenuitem>"
 
 #: C/index.docbook:817(row/entry) C/index.docbook:662(row/entry)
 #: C/hig-ch-input.xml:662(row/entry) C/hig-ch-menus.xml:817(row/entry)
@@ -14959,6 +15011,9 @@ msgid ""
 "appearance of the document. For example, changing the font, color, or line "
 "spacing of a text selection."
 msgstr ""
+"Un menú <guimenu>Formato</guimenu> contiene comandos para cambiar la "
+"apariencia visual del documento. Por ejemplo, cambiar la tipografía, el "
+"color o el interlineado en una selección de texto."
 
 #: C/index.docbook:1134(sect2/para) C/hig-ch-menus.xml:1134(sect2/para)
 msgid ""
@@ -15179,7 +15234,7 @@ msgstr ""
 
 #: C/index.docbook:1273(table/title) C/hig-ch-menus.xml:1273(table/title)
 msgid "Bookmark menu items"
-msgstr ""
+msgstr "Elementos del menú de marcadores"
 
 #: C/index.docbook:1285(row/entry) C/hig-ch-menus.xml:1285(row/entry)
 msgid "<guimenuitem><accel>A</accel>dd Bookmark</guimenuitem>"
@@ -15359,7 +15414,7 @@ msgstr ""
 
 #: C/index.docbook:1413(row/entry) C/hig-ch-menus.xml:1413(row/entry)
 msgid "<keycap>PageUp</keycap>"
-msgstr ""
+msgstr "<keycap>Re Pág</keycap>"
 
 #: C/index.docbook:1414(row/entry) C/hig-ch-menus.xml:1414(row/entry)
 msgid "Navigates to the previous page in the document."
@@ -15371,7 +15426,7 @@ msgstr ""
 
 #: C/index.docbook:1419(row/entry) C/hig-ch-menus.xml:1419(row/entry)
 msgid "<keycap>PageDown</keycap>"
-msgstr ""
+msgstr "<keycap>Av Pág</keycap>"
 
 #: C/index.docbook:1420(row/entry) C/hig-ch-menus.xml:1420(row/entry)
 msgid "Navigates to the next page in the document."
@@ -15466,7 +15521,7 @@ msgstr ""
 
 #: C/index.docbook:1496(table/title) C/hig-ch-menus.xml:1496(table/title)
 msgid "Windows menu items"
-msgstr ""
+msgstr "Elementos del menú de ventana"
 
 #: C/index.docbook:1507(row/entry) C/hig-ch-menus.xml:1507(row/entry)
 msgid "<guimenuitem><accel>S</accel>ave All</guimenuitem>"
@@ -15594,6 +15649,11 @@ msgid ""
 "\"images/toolbars-mail.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>Example mail application toolbar</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/toolbars-mail.png\" format=\"PNG\" "
+"width=\"428\" depth=\"48\"/></imageobject> <imageobject><imagedata fileref="
+"\"images/toolbars-mail.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Ejemplo de barra de herramientas de aplicación de correo-"
+"e</phrase></textobject>"
 
 #: C/index.docbook:32(chapter/para) C/hig-ch-toolbars.xml:32(chapter/para)
 msgid ""
@@ -15910,6 +15970,11 @@ msgid ""
 "<textobject><phrase>Toolbar showing labels under all controls</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/toolbars-labels-below.png\" format="
+"\"PNG\" width=\"381\" depth=\"56\"/></imageobject> <imageobject><imagedata "
+"fileref=\"images/toolbars-labels-below.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Barra de herramientas con las etiquetas debajo de los "
+"controles</phrase></textobject>"
 
 #: C/index.docbook:168(listitem/para) C/hig-ch-toolbars.xml:168(listitem/para)
 msgid ""
@@ -15957,7 +16022,7 @@ msgstr "Controles"
 
 #: C/index.docbook:6(sect1/title) C/hig-ch-controls.xml:6(sect1/title)
 msgid "Using Controls Effectively"
-msgstr ""
+msgstr "Usar los controles de manera efectiva"
 
 #: C/index.docbook:8(sect1/para) C/hig-ch-controls.xml:8(sect1/para)
 msgid ""
@@ -16097,7 +16162,7 @@ msgstr ""
 
 #: C/index.docbook:135(figure/title) C/hig-ch-controls.xml:135(figure/title)
 msgid "Example of a dialog with locked controls"
-msgstr ""
+msgstr "Ejemplo de diálogo con controles bloqueados"
 
 #: C/index.docbook:137(figure/mediaobject)
 #: C/hig-ch-controls.xml:137(figure/mediaobject)
@@ -16142,6 +16207,11 @@ msgid ""
 "<textobject> <phrase>Screenshot of part of a dialog, containing both single "
 "and multi-line entry fields</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"153\" fileref=\"images/controls-text.png\" "
+"format=\"PNG\" width=\"545\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-text.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Captura de pantalla de parte de un diálogo que contiene "
+"campos de entrada de una sola línea y de varias líneas</phrase> </textobject>"
 
 #: C/index.docbook:202(listitem/para) C/hig-ch-controls.xml:202(listitem/para)
 msgid ""
@@ -16340,7 +16410,7 @@ msgstr ""
 
 #: C/index.docbook:400(sect1/title) C/hig-ch-controls.xml:400(sect1/title)
 msgid "Spin Boxes"
-msgstr ""
+msgstr "Cajas incrementales"
 
 #: C/index.docbook:402(sect1/para) C/hig-ch-controls.xml:402(sect1/para)
 msgid ""
@@ -16351,7 +16421,7 @@ msgstr ""
 
 #: C/index.docbook:407(figure/title) C/hig-ch-controls.xml:407(figure/title)
 msgid "Example of a spin box"
-msgstr ""
+msgstr "Ejemplo de caja incremental"
 
 #: C/index.docbook:409(figure/mediaobject)
 #: C/hig-ch-controls.xml:409(figure/mediaobject)
@@ -16422,6 +16492,11 @@ msgid ""
 "<textobject> <phrase>A slider control used to change the stereo audio "
 "balance between left and right speakers</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"27\" fileref=\"images/controls-slider.png\" "
+"format=\"PNG\" width=\"208\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-slider.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Un control deslizante usado para cambiar el balance de "
+"sonido estéreo entre los altavoces izquierdo y derecho</phrase> </textobject>"
 
 #: C/index.docbook:497(listitem/para) C/hig-ch-controls.xml:497(listitem/para)
 msgid "Use a slider when:"
@@ -16468,7 +16543,7 @@ msgstr ""
 
 #: C/index.docbook:538(figure/title) C/hig-ch-controls.xml:538(figure/title)
 msgid "Slider controls with linked spin boxes"
-msgstr ""
+msgstr "Controles deslizantes con cajas incrementales asociadas"
 
 #: C/index.docbook:540(figure/mediaobject)
 #: C/hig-ch-controls.xml:540(figure/mediaobject)
@@ -16483,7 +16558,7 @@ msgstr ""
 
 #: C/index.docbook:565(sect1/para) C/hig-ch-controls.xml:565(sect1/para)
 msgid "A button initiates an action when the user clicks it."
-msgstr ""
+msgstr "Un botón inicia una acción cuando el usuario lo pulsa."
 
 #: C/index.docbook:568(figure/title) C/hig-ch-controls.xml:568(figure/title)
 msgid "Typical buttons in a modal dialog"
@@ -16498,6 +16573,11 @@ msgid ""
 "<textobject> <phrase>OK and Cancel buttons as found in a modal dialog</"
 "phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"47\" fileref=\"images/controls-buttons.png"
+"\" format=\"PNG\" width=\"190\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-buttons.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Botones de aceptar y cancelar tal como se ven en un "
+"diálogo modal</phrase> </textobject>"
 
 #: C/index.docbook:590(listitem/para) C/hig-ch-controls.xml:590(listitem/para)
 msgid ""
@@ -16586,7 +16666,7 @@ msgstr ""
 
 #: C/index.docbook:671(sect1/title) C/hig-ch-controls.xml:671(sect1/title)
 msgid "Check Boxes"
-msgstr ""
+msgstr "Casillas"
 
 #: C/index.docbook:673(sect1/para) C/hig-ch-controls.xml:673(sect1/para)
 msgid ""
@@ -16594,6 +16674,9 @@ msgid ""
 "unset, are shown by the presence or absence of a checkmark in the labelled "
 "box."
 msgstr ""
+"Las casillas se usan para mostrar o cambiar una configuración. Tienen dos "
+"estados, activada y desactivada, y se distinguen por la presencia de una "
+"marca en la caja etiquetada."
 
 #: C/index.docbook:678(figure/title) C/hig-ch-controls.xml:678(figure/title)
 msgid "A typical group of check boxes"
@@ -16608,6 +16691,11 @@ msgid ""
 "<textobject> <phrase>A typical group of five check boxes in a dialog</"
 "phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"140\" fileref=\"images/controls-check-boxes."
+"png\" format=\"PNG\" width=\"143\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-check-boxes.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Un grupo típico de cinco casillas en un diálogo</"
+"phrase> </textobject>"
 
 #: C/index.docbook:702(listitem/para) C/hig-ch-controls.xml:702(listitem/para)
 msgid ""
@@ -16785,6 +16873,11 @@ msgid ""
 "imageobject> <textobject> <phrase>A typical group of three radio buttons in "
 "a dialog</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"105\" fileref=\"images/controls-radio-"
+"buttons.png\" format=\"PNG\" width=\"352\"/> </imageobject> <imageobject> "
+"<imagedata fileref=\"images/controls-radio-buttons.eps\" format=\"EPS\"/> </"
+"imageobject> <textobject> <phrase>Un grupo típico de tres botones de radio "
+"en un diálogo</phrase> </textobject>"
 
 #: C/index.docbook:890(listitem/para) C/hig-ch-controls.xml:890(listitem/para)
 msgid ""
@@ -17334,6 +17427,11 @@ msgid ""
 "<textobject> <phrase>Picture of list control containing two unsorted columns "
 "of text</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"149\" fileref=\"images/controls-list.png\" "
+"format=\"PNG\" width=\"179\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-list.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Imagen de una lista de control que contiene dos "
+"columnas de texto desordenadas</phrase> </textobject>"
 
 #: C/index.docbook:1443(listitem/para)
 #: C/hig-ch-controls.xml:1443(listitem/para)
@@ -17692,6 +17790,11 @@ msgid ""
 "<textobject> <phrase>Picture of notebook control with three tabs</phrase> </"
 "textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"270\" fileref=\"images/controls-notebook.png"
+"\" format=\"PNG\" width=\"341\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-notebook.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Imagen de un cuaderno de notas con tres pestañas</"
+"phrase> </textobject>"
 
 #: C/index.docbook:1780(listitem/para)
 #: C/hig-ch-controls.xml:1780(listitem/para)
@@ -17868,7 +17971,7 @@ msgstr ""
 
 #: C/index.docbook:1936(sect2/title) C/hig-ch-controls.xml:1936(sect2/title)
 msgid "Time-remaining Progress Indicator"
-msgstr ""
+msgstr "Indicador de progreso de tiempo restante"
 
 #: C/index.docbook:1938(sect2/para) C/hig-ch-controls.xml:1938(sect2/para)
 msgid ""
@@ -17947,7 +18050,7 @@ msgstr ""
 
 #: C/index.docbook:2009(sect2/title) C/hig-ch-controls.xml:2009(sect2/title)
 msgid "Indeterminate-progress indicator"
-msgstr ""
+msgstr "Indicador de progreso indeterminado"
 
 #: C/index.docbook:2011(sect2/para) C/hig-ch-controls.xml:2011(sect2/para)
 msgid ""
@@ -18170,6 +18273,11 @@ msgid ""
 "<textobject> <phrase>Frame showing the preferred style described above</"
 "phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"256\" fileref=\"images/controls-frames.png"
+"\" format=\"PNG\" width=\"288\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-frames.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Marco que muestra el estilo preferido descrito "
+"anteriormente</phrase> </textobject>"
 
 #: C/index.docbook:2236(figure/title) C/hig-ch-controls.xml:2236(figure/title)
 msgid "Traditional frame style, using borders (deprecated)"
@@ -18184,6 +18292,11 @@ msgid ""
 "<textobject> <phrase>Frame showing the traditional style described above</"
 "phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata depth=\"275\" fileref=\"images/controls-old-frames."
+"png\" format=\"PNG\" width=\"296\"/> </imageobject> <imageobject> <imagedata "
+"fileref=\"images/controls-old-frames.eps\" format=\"EPS\"/> </imageobject> "
+"<textobject> <phrase>Marco que muestra el estilo tradicional descrito "
+"anteriormente</phrase> </textobject>"
 
 #: C/index.docbook:2259(listitem/para)
 #: C/hig-ch-controls.xml:2259(listitem/para)
@@ -18252,7 +18365,7 @@ msgstr ""
 
 #: C/index.docbook:36(listitem/para) C/hig-ch-feedback.xml:36(listitem/para)
 msgid "They let users know when processing is in progress."
-msgstr ""
+msgstr "Permiten al usuario saber cuando se está realizando el proceso"
 
 #: C/index.docbook:40(listitem/para) C/hig-ch-feedback.xml:40(listitem/para)
 msgid "They let users know or estimate how long lengthy operations will take."
@@ -18333,7 +18446,7 @@ msgstr "Evento de IU"
 
 #: C/index.docbook:108(row/entry) C/hig-ch-feedback.xml:108(row/entry)
 msgid "Maximum Acceptable Response Time"
-msgstr ""
+msgstr "Tiempo máximo aceptable de respuesta"
 
 #: C/index.docbook:114(row/entry) C/hig-ch-feedback.xml:114(row/entry)
 msgid ""
@@ -18918,6 +19031,10 @@ msgid ""
 "\" format=\"EPS\"/></imageobject> <textobject><phrase>The basic GNOME 32-"
 "color palette</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-palette.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/visdes-palette.eps"
+"\" format=\"EPS\"/></imageobject> <textobject><phrase>La paleta de 32 "
+"colores básica de GNOME</phrase></textobject>"
 
 #: C/index.docbook:45(table/title) C/hig-ch-layout.xml:45(table/title)
 msgid "RGB and hexadecimal values for the basic palette"
@@ -19758,6 +19875,11 @@ msgid ""
 "<textobject><phrase>Small icon with text label to the right</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-small-icon-label.png\" "
+"format=\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/"
+"visdes-small-icon-label.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Icono pequeño con etiqueta de texto a su derecha</"
+"phrase></textobject>"
 
 #: C/index.docbook:605(row/entry) C/hig-ch-layout.xml:605(row/entry)
 msgid "List control label"
@@ -19796,6 +19918,11 @@ msgid ""
 "<textobject><phrase>Radio button with text label to its right</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-radiobutton-label.png\" "
+"format=\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/"
+"visdes-radiobutton-label.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Botón de radio con el texto de la etiqueta a su derecha</"
+"phrase></textobject>"
 
 #: C/index.docbook:630(row/entry) C/hig-ch-layout.xml:630(row/entry)
 msgid "Text field labels"
@@ -19814,6 +19941,10 @@ msgid ""
 "textbox-label.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>Textbox with text label to its left</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-textbox-label.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/visdes-"
+"textbox-label.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Caja "
+"de texto con el texto de la etiqueta a su izquierda</phrase></textobject>"
 
 #: C/index.docbook:642(row/entry) C/hig-ch-layout.xml:642(row/entry)
 msgid "Button labels"
@@ -19835,6 +19966,10 @@ msgid ""
 "button-label.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>Buttons with centered text</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-button-label.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/visdes-"
+"button-label.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Cotones con texto centrado</phrase></textobject>"
 
 #: C/index.docbook:653(row/entry) C/hig-ch-layout.xml:653(row/entry)
 msgid "Other component labels (e.g., spin boxes, text fields"
@@ -19855,6 +19990,10 @@ msgid ""
 "other-labels.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Drop-"
 "down list with label to its left</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/visdes-other-labels.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/visdes-"
+"other-labels.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Lista "
+"desplegable con su etiqueta a la izquierda</phrase></textobject>"
 
 #: C/index.docbook:670(listitem/para) C/hig-ch-layout.xml:670(listitem/para)
 msgid ""
@@ -19934,13 +20073,15 @@ msgstr "Capitalización"
 #: C/index.docbook:704(varlistentry/term)
 #: C/hig-ch-layout.xml:704(varlistentry/term)
 msgid "Header capitalization"
-msgstr ""
+msgstr "Capitalización de la cabecera"
 
 #: C/index.docbook:710(listitem/para) C/hig-ch-layout.xml:710(listitem/para)
 msgid ""
 "Articles: <emphasis>a</emphasis>, <emphasis>an</emphasis>, <emphasis>the</"
 "emphasis>."
 msgstr ""
+"Artículos: <emphasis>un</emphasis>, <emphasis>una</emphasis>, <emphasis>el</"
+"emphasis>."
 
 #: C/index.docbook:713(listitem/para) C/hig-ch-layout.xml:713(listitem/para)
 msgid ""
@@ -19958,6 +20099,9 @@ msgid ""
 "<emphasis>for</emphasis>, <emphasis>by</emphasis>, <emphasis>in</emphasis>, "
 "<emphasis>to</emphasis> ..."
 msgstr ""
+"Preposiciones de 3 letras o menos: <emphasis>a</emphasis>, <emphasis>por</"
+"emphasis>, <emphasis>con</emphasis>, <emphasis>en</emphasis>, <emphasis>de</"
+"emphasis> ..."
 
 #: C/index.docbook:706(listitem/para) C/hig-ch-layout.xml:706(listitem/para)
 msgid ""
@@ -20000,7 +20144,7 @@ msgstr "Estilo"
 
 #: C/index.docbook:763(row/entry) C/hig-ch-layout.xml:763(row/entry)
 msgid "Check box labels"
-msgstr ""
+msgstr "Etiquetas de casillas"
 
 #: C/index.docbook:768(row/entry) C/index.docbook:816(row/entry)
 #: C/index.docbook:828(row/entry) C/index.docbook:840(row/entry)
@@ -20112,11 +20256,11 @@ msgstr ""
 
 #: C/index.docbook:1004(row/entry) C/hig-ch-layout.xml:1004(row/entry)
 msgid "Text box labels"
-msgstr ""
+msgstr "Etiquetas de cajas de texto"
 
 #: C/index.docbook:1016(row/entry) C/hig-ch-layout.xml:1016(row/entry)
 msgid "Titlebar labels"
-msgstr ""
+msgstr "Etiquetas de barras de títulos"
 
 #: C/index.docbook:1028(row/entry) C/hig-ch-layout.xml:1028(row/entry)
 msgid "Toolbar button labels"
@@ -20129,7 +20273,7 @@ msgstr "Consejos"
 
 #: C/index.docbook:1053(row/entry) C/hig-ch-layout.xml:1053(row/entry)
 msgid "Webpage titles and navigational elements"
-msgstr ""
+msgstr "Títulos de páginas web y elementos de navegación"
 
 #: C/index.docbook:1067(note/title) C/hig-ch-layout.xml:1067(note/title)
 msgid "Capitalization guidelines for other languages"
@@ -20298,6 +20442,11 @@ msgid ""
 "<textobject><phrase>illustration of the table perspective</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-perspective-table.png\" "
+"format=\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/"
+"icons-perspective-table.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Ilustración de la perspectiva de tabla</phrase></"
+"textobject>"
 
 #: C/index.docbook:74(formalpara/title)
 #: C/hig-ch-icons.xml:74(formalpara/title)
@@ -20410,6 +20559,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>variety of object icons</"
 "phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-objects.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-objects.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>variedad de iconos de "
+"objetos</phrase></textobject>"
 
 #: C/index.docbook:137(row/entry) C/index.docbook:191(sect2/title)
 #: C/hig-ch-icons.xml:137(row/entry) C/hig-ch-icons.xml:191(sect2/title)
@@ -20428,6 +20581,10 @@ msgid ""
 "applications.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>variety of application icons</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-applications.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-"
+"applications.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>variedad de iconos de aplicaciones</phrase></textobject>"
 
 #: C/index.docbook:150(row/entry) C/index.docbook:197(sect2/title)
 #: C/hig-ch-icons.xml:150(row/entry) C/hig-ch-icons.xml:197(sect2/title)
@@ -20451,6 +20608,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>variety of toolbar icons</"
 "phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-toolbar.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-toolbar.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>variedad de iconos de la "
+"barra de herramientas</phrase></textobject>"
 
 #: C/index.docbook:163(row/entry) C/index.docbook:208(sect2/title)
 #: C/hig-ch-icons.xml:163(row/entry) C/hig-ch-icons.xml:208(sect2/title)
@@ -20469,6 +20630,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>variety of menu icons</"
 "phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-menu.png\" format=\"PNG\"/></"
+"imageobject> <imageobject><imagedata fileref=\"images/icons-menu.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>variedad de iconos de "
+"menú</phrase></textobject>"
 
 #: C/index.docbook:178(sect1/para) C/hig-ch-icons.xml:178(sect1/para)
 msgid "(* denotes the primary size for this kind of icon)"
@@ -20628,6 +20793,10 @@ msgid ""
 "processor.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>A "
 "document with a pencil writing on it</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-word-processor.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-word-"
+"processor.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Un "
+"documento con un lápiz escribiendo en él</phrase></textobject>"
 
 #: C/index.docbook:234(figure/title) C/hig-ch-icons.xml:234(figure/title)
 msgid "A functionally suggestive icon for underline"
@@ -20641,6 +20810,10 @@ msgid ""
 "underline-text.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>An "
 "underlined character</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-underline-text.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-"
+"underline-text.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Un "
+"carácter subrayado</phrase></textobject>"
 
 #: C/index.docbook:244(formalpara/title)
 #: C/hig-ch-icons.xml:244(formalpara/title)
@@ -20671,6 +20844,10 @@ msgid ""
 "eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Silhouettes of "
 "various toolbar icons</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-silhouette.png\" format=\"PNG"
+"\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-silhouette."
+"eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Siluetas de varios "
+"iconos de la barra de herramientas</phrase></textobject>"
 
 #: C/index.docbook:265(sect2/title) C/hig-ch-icons.xml:265(sect2/title)
 msgid "Suggested Design Process For Toolbar and Menu Icons"
@@ -20811,6 +20988,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>The original GEdit icon, "
 "a rectangle containing the word \"GEdit\".</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-gedit.png\" format=\"PNG\"/></"
+"imageobject> <imageobject><imagedata fileref=\"images/icons-gedit.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>El icono original de "
+"GEdit, en un rectángulo que contiene la palabra «GEdit».</phrase></textobject>"
 
 #: C/index.docbook:388(formalpara/title)
 #: C/hig-ch-icons.xml:388(formalpara/title)
@@ -20848,6 +21029,10 @@ msgid ""
 "\" format=\"EPS\"/></imageobject> <textobject><phrase>A squirrel</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-sodipodi.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-sodipodi.eps"
+"\" format=\"EPS\"/></imageobject> <textobject><phrase>Una ardilla</phrase></"
+"textobject>"
 
 #: C/index.docbook:403(formalpara/title)
 #: C/hig-ch-icons.xml:403(formalpara/title)
@@ -20882,6 +21067,10 @@ msgid ""
 "eps\" format=\"EPS\"/></imageobject> <textobject><phrase>The Evolution icon</"
 "phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-evolution.png\" format=\"PNG"
+"\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-evolution."
+"eps\" format=\"EPS\"/></imageobject> <textobject><phrase>El icono de "
+"Evolution</phrase></textobject>"
 
 #: C/index.docbook:414(listitem/para) C/hig-ch-icons.xml:414(listitem/para)
 msgid ""
@@ -20907,6 +21096,10 @@ msgid ""
 "\" format=\"EPS\"/></imageobject> <textobject><phrase>The Gnumeric icon</"
 "phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-gnumeric.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-gnumeric.eps"
+"\" format=\"EPS\"/></imageobject> <textobject><phrase>El icono de Gnumeric</"
+"phrase></textobject>"
 
 #: C/index.docbook:428(formalpara/title)
 #: C/hig-ch-icons.xml:428(formalpara/title)
@@ -20952,6 +21145,11 @@ msgid ""
 "icons-font-selection-poor.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>The original Font Selector Icon</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-font-selection-poor.png\" "
+"format=\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/"
+"icons-font-selection-poor.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>El icono original del selector de tipografías</phrase></"
+"textobject>"
 
 #: C/index.docbook:440(figure/title) C/hig-ch-icons.xml:440(figure/title)
 msgid "A better icon for the Font Selector"
@@ -21095,6 +21293,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>Book icon</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-book.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-book.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>Icono de libro</phrase></"
+"textobject>"
 
 #: C/index.docbook:514(entry/mediaobject)
 #: C/hig-ch-icons.xml:514(entry/mediaobject)
@@ -21104,6 +21306,10 @@ msgid ""
 "book-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Blurred "
 "Book icon</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-book-blur.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-"
+"book-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Icono de "
+"libro desenfocado</phrase></textobject>"
 
 #: C/index.docbook:522(row/entry) C/hig-ch-icons.xml:522(row/entry)
 msgid "CD-ROM"
@@ -21117,6 +21323,10 @@ msgid ""
 "\" format=\"EPS\"/></imageobject> <textobject><phrase>CD-ROM icon</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-cdrom.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-cdrom.eps"
+"\" format=\"EPS\"/></imageobject> <textobject><phrase>Icono de CD-ROM</"
+"phrase></textobject>"
 
 #: C/index.docbook:531(entry/mediaobject)
 #: C/hig-ch-icons.xml:531(entry/mediaobject)
@@ -21126,6 +21336,10 @@ msgid ""
 "cdrom-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Blurred "
 "CD-ROM icon</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-cdrom-blur.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-"
+"cdrom-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Icono de "
+"CD-ROM desenfocado</phrase></textobject>"
 
 #: C/index.docbook:539(row/entry) C/index.docbook:286(row/entry)
 #: C/hig-ch-icons.xml:539(row/entry) C/hig-ch-input.xml:286(row/entry)
@@ -21140,6 +21354,10 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>Copy icon</phrase></"
 "textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-copy.png\" format=\"PNG\"/"
+"></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-copy.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>Icono de copiar</phrase></"
+"textobject>"
 
 #: C/index.docbook:548(entry/mediaobject)
 #: C/hig-ch-icons.xml:548(entry/mediaobject)
@@ -21149,6 +21367,10 @@ msgid ""
 "copy-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Blurred "
 "Copy icon</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/icons-hc-copy-blur.png\" format="
+"\"PNG\"/></imageobject> <imageobject><imagedata fileref=\"images/icons-hc-"
+"copy-blur.eps\" format=\"EPS\"/></imageobject> <textobject><phrase>Icono de "
+"copiar desenfocado</phrase></textobject>"
 
 #: C/index.docbook:559(sect2/para) C/hig-ch-icons.xml:559(sect2/para)
 msgid ""
@@ -21527,6 +21749,8 @@ msgstr "Añadir/quitar elemento de la selección"
 #: C/index.docbook:122(row/entry) C/hig-ch-input.xml:122(row/entry)
 msgid "<keycap>Ctrl</keycap> click (toggles item's selected state)"
 msgstr ""
+"<keycap>Ctrl</keycap> pulsación (cambia el estado de los elementos "
+"seleccionados)"
 
 #: C/index.docbook:123(row/entry) C/hig-ch-input.xml:123(row/entry)
 msgid ""
@@ -21918,6 +22142,10 @@ msgid ""
 "fileref=\"images/input-drag-cursor-move.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>\"Move\" pointer</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/input-drag-cursor-move.png\" format="
+"\"PNG\" width=\"31\" depth=\"32\"/></imageobject> <imageobject><imagedata "
+"fileref=\"images/input-drag-cursor-move.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Puntero «Mover»</phrase></textobject>"
 
 #: C/index.docbook:334(row/entry) C/hig-ch-input.xml:334(row/entry)
 msgid ""
@@ -21933,6 +22161,10 @@ msgid ""
 "fileref=\"images/input-drag-cursor-copy.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>\"Copy\" pointer</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/input-drag-cursor-copy.png\" format="
+"\"PNG\" width=\"33\" depth=\"30\"/></imageobject> <imageobject><imagedata "
+"fileref=\"images/input-drag-cursor-copy.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Puntero «Copiar»</phrase></textobject>"
 
 #: C/index.docbook:345(row/entry) C/hig-ch-input.xml:345(row/entry)
 msgid ""
@@ -21948,6 +22180,10 @@ msgid ""
 "fileref=\"images/input-drag-cursor-link.eps\" format=\"EPS\"/></imageobject> "
 "<textobject><phrase>\"Link\" pointer</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/input-drag-cursor-link.png\" format="
+"\"PNG\" width=\"37\" depth=\"33\"/></imageobject> <imageobject><imagedata "
+"fileref=\"images/input-drag-cursor-link.eps\" format=\"EPS\"/></imageobject> "
+"<textobject><phrase>Puntero «Enlazar»</phrase></textobject>"
 
 #: C/index.docbook:355(row/entry) C/hig-ch-input.xml:355(row/entry)
 msgid ""
@@ -21982,6 +22218,11 @@ msgid ""
 "format=\"EPS\"/></imageobject> <textobject><phrase>\"Can't drop here\" "
 "pointer</phrase></textobject>"
 msgstr ""
+"<imageobject><imagedata fileref=\"images/input-drag-cursor-nodrop.png\" "
+"format=\"PNG\" width=\"28\" depth=\"32\"/></imageobject> "
+"<imageobject><imagedata fileref=\"images/input-drag-cursor-nodrop.eps\" "
+"format=\"EPS\"/></imageobject> <textobject><phrase>\"Puntero «No se puede "
+"arrastrar aquí»</phrase></textobject>"
 
 #: C/index.docbook:377(row/entry) C/hig-ch-input.xml:377(row/entry)
 msgid ""
@@ -22550,7 +22791,7 @@ msgstr ""
 
 #: C/index.docbook:712(row/entry) C/hig-ch-input.xml:712(row/entry)
 msgid "<keycombo><keycap>Ctrl</keycap><keysym>Plus</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Ctrl</keycap><keysym>Más</keysym></keycombo>"
 
 #: C/index.docbook:713(row/entry) C/hig-ch-input.xml:713(row/entry)
 msgid "Zoom in on the document <_:remark-1/>"
@@ -22558,7 +22799,7 @@ msgstr ""
 
 #: C/index.docbook:717(row/entry) C/hig-ch-input.xml:717(row/entry)
 msgid "<keycombo><keycap>Ctrl</keycap><keysym>Minus</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Ctrl</keycap><keysym>Menos</keysym></keycombo>"
 
 #: C/index.docbook:718(row/entry) C/hig-ch-input.xml:718(row/entry)
 msgid "Zoom out of the document"
@@ -22675,7 +22916,7 @@ msgstr ""
 
 #: C/index.docbook:790(row/entry) C/hig-ch-input.xml:790(row/entry)
 msgid "<keycombo><keycap>Alt</keycap><keysym>Left</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Alt</keycap><keysym>Izquierda</keysym></keycombo>"
 
 #: C/index.docbook:791(row/entry) C/hig-ch-input.xml:791(row/entry)
 msgid "Go to the previous location in the navigation chain"
@@ -22687,7 +22928,7 @@ msgstr ""
 
 #: C/index.docbook:795(row/entry) C/hig-ch-input.xml:795(row/entry)
 msgid "<keycombo><keycap>Alt</keycap><keysym>Right</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Alt</keycap><keysym>Derecha</keysym></keycombo>"
 
 #: C/index.docbook:796(row/entry) C/hig-ch-input.xml:796(row/entry)
 msgid "Go to the next location in the navigation chain"
@@ -22695,7 +22936,7 @@ msgstr "Ir a la siguiente ubicación en la cadena de navegación"
 
 #: C/index.docbook:800(row/entry) C/hig-ch-input.xml:800(row/entry)
 msgid "<keycombo><keycap>Alt</keycap><keysym>Up</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Alt</keycap><keysym>Arriba</keysym></keycombo>"
 
 #: C/index.docbook:801(row/entry) C/hig-ch-input.xml:801(row/entry)
 msgid "Go up one level in the navigation hierarchy"
@@ -22703,7 +22944,7 @@ msgstr ""
 
 #: C/index.docbook:806(row/entry) C/hig-ch-input.xml:806(row/entry)
 msgid "<keycombo><keycap>Alt</keycap><keysym>Home</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Alt</keycap><keysym>Inicio</keysym></keycombo>"
 
 #: C/index.docbook:807(row/entry) C/hig-ch-input.xml:807(row/entry)
 msgid "Go to the starting page defined by the user or application"
@@ -22711,7 +22952,7 @@ msgstr ""
 
 #: C/index.docbook:811(row/entry) C/hig-ch-input.xml:811(row/entry)
 msgid "<keycombo><keycap>Ctrl</keycap><keysym>L</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Ctrl</keycap><keysym>L</keysym></keycombo>"
 
 #: C/index.docbook:812(row/entry) C/hig-ch-input.xml:812(row/entry)
 msgid ""
@@ -22967,6 +23208,9 @@ msgid ""
 "<keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Tab</keycap></"
 "keycombo>"
 msgstr ""
+"<keycombo><keycap>Ctrl</keycap><keycap>Tab</keycap></keycombo>, "
+"<keycombo><keycap>Mayús</keycap><keycap>Ctrl</keycap><keycap>Tab</keycap></"
+"keycombo>"
 
 #: C/index.docbook:994(row/entry) C/hig-ch-input.xml:994(row/entry)
 msgid ""
@@ -23059,6 +23303,9 @@ msgid ""
 "keycap></keycombo>, <keycap>PageDown</keycap>, <keycombo><keycap>Ctrl</"
 "keycap><keycap>PageDown</keycap></keycombo>"
 msgstr ""
+"<keycap>Re Pág</keycap>, <keycombo><keycap>Ctrl</keycap><keycap>Re Pág</"
+"keycap></keycombo>, <keycap>Av Pág</keycap>, <keycombo><keycap>Ctrl</"
+"keycap><keycap>Av Pág</keycap></keycombo>"
 
 #: C/index.docbook:1034(row/entry) C/hig-ch-input.xml:1034(row/entry)
 msgid "Scroll selected view by one page up/left/down/right"
@@ -23125,7 +23372,7 @@ msgstr "Pega desde el portapapeles"
 
 #: C/index.docbook:1086(row/entry) C/hig-ch-input.xml:1086(row/entry)
 msgid "<keycombo><keycap>Ctrl</keycap><keysym>Space</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Ctrl</keycap><keysym>Espacio</keysym></keycombo>"
 
 #: C/index.docbook:1087(row/entry) C/hig-ch-input.xml:1087(row/entry)
 msgid "Set mark"
@@ -23136,6 +23383,8 @@ msgid ""
 "<keycombo><keycap>Ctrl</keycap><keycap>Del</keycap></keycombo>, "
 "<keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo>"
 msgstr ""
+"<keycombo><keycap>Ctrl</keycap><keycap>Supr</keycap></keycombo>, "
+"<keycombo><keycap>Alt</keycap><keycap>D</keycap></keycombo>"
 
 #: C/index.docbook:1091(row/entry) C/hig-ch-input.xml:1091(row/entry)
 msgid "Delete from cursor to end of word"
@@ -23143,7 +23392,7 @@ msgstr "Eliminar desde el cursor al final de la palabra"
 
 #: C/index.docbook:1094(row/entry) C/hig-ch-input.xml:1094(row/entry)
 msgid "<keycombo><keycap>Ctrl</keycap><keysym>Backspace</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Ctrl</keycap><keysym>Retroceso</keysym></keycombo>"
 
 #: C/index.docbook:1095(row/entry) C/hig-ch-input.xml:1095(row/entry)
 msgid "Delete from cursor to start of word"
@@ -23151,7 +23400,7 @@ msgstr "Eliminar desde el cursor al principio de la palabra"
 
 #: C/index.docbook:1098(row/entry) C/hig-ch-input.xml:1098(row/entry)
 msgid "<keycombo><keycap>Alt</keycap><keysym>Space</keysym></keycombo>"
-msgstr ""
+msgstr "<keycombo><keycap>Alt</keycap><keysym>Espacio</keysym></keycombo>"
 
 #: C/index.docbook:1099(row/entry) C/hig-ch-input.xml:1099(row/entry)
 msgid "Delete all whitespace around cursor, reinsert single space"
