@@ -1,71 +1,42 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
-      id="tech-tracker">
+      id="tracker">
 <info>
-  <link type="guide" xref="tech" group="apps"/>
-  
-  <desc>Semantic data storage with RDF and SPARQL</desc>
+  <link type="guide" xref="tech" group="tracker"/>
+  <desc>Storage and retrieval for document metadata</desc>
 </info>
 
-<title>Tracker</title>
+  <title>Tracker</title>
 
-<list>
- <item>
-  <p><em style="strong">Strong selling point #1</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #2</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #3</em></p>
- </item>
-</list>
+  <p>
+    Tracker is an RDF (resource data format) storage engine.  RDF consists of
+    <em>triplets</em> such as subject:verb:object.  For example, there could be
+    standard triplets for book titles and authors, such as
+    <code>Othello:has-author:William Shakespeare</code>.  A standardized set of
+    triplet forms is called an <em>ontology</em>.
+  </p>
 
-<p>Marketing blurb, info on what this library offers developers.</p>
+  <p>
+    Tracker provides a storage for such triplets, and a query engine in the
+    form of the SPARQL query language.
+  </p>
 
-<media type="image" mime="image/png" src="test_comm1.png" width="65%">
- <p>Example image</p>
-</media>
+  <p>
+    Gnome uses Tracker as a storage for document metadata.  A document's
+    metadata may include its title, authors, copyright, modification date, and
+    keywords.  All this metadata is stored as RDF triplets in Tracker, and queried
+    with SPARQL by applications such as Gnome Documents.  The <a
+      href="http://developer.gnome.org/ontology/unstable/">ontology used</a> is based
+    on various standard sub-ontologies:  <link xref="http://dublincore.org/">Dublin
+      Core</link> for document metadata, and <link
+      xref="http://nepomuk.kde.org/">NEPOMUK</link> for annotations, files, contacts,
+    and other items.
+  </p>
 
-
-<section id="what">
- <title>What can you do?</title>
- 
- <p>Things that <em style="strong">you can do</em> with <em style="strong"><link xref="blah">some feature</link></em> of the library.</p>
-</section>
-
-
-<section id="docs">
- <title>API and reference documentation</title>
- <p></p>
- <list>
-  <item>
-   <p><em style="strong"><link href="">Documentation Link</link></em></p>
-   <p>Brief description of the documentation. Maybe also some direct links to particularly interesting pages.</p>
-  </item>
- </list>
-</section>
-
-
-<section id="samples">
- <title>Code samples</title>
- <list>
-  <item><p>A sample we should write</p></item>
-  <item><p><link xref="samples">More...</link></p></item>
- </list>
-</section>
-
-<section id="realworld">
- <title>Real-world examples</title>
- 
- <p>This library is used in lots of open source software. Take a look at some of it.</p>
- <list>
-  <item>
-   <p><em style="strong">XXX</em> is .</p>
-   <p>(<link href="xxx">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
- </list>
-</section>
-
+  <list style="compact">
+    <item><p><link href="http://projects.gnome.org/tracker/">Tracker Home Page</link></p></item>
+    <item><p><link href="https://live.gnome.org/Tracker/Documentation">Tracker documentation</link></p></item>
+  </list>
+  
 
 </page>

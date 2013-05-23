@@ -1,69 +1,48 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" id="tech-gobject">
+      type="topic"
+      id="gobject">
 <info>
   <link type="guide" xref="tech" group="gobject"/>
-  <desc>Bindable and introspectable C object system</desc>
+  <desc>C-based object and type system with signals and slots</desc>
 </info>
 
 <title>GObject</title>
 
-<list>
- <item>
-  <p><em style="strong">Strong selling point #1</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #2</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #3</em></p>
- </item>
-</list>
+  <p>
+    GObject is the part of the <link xref="glib">GLib</link> library that
+    provides an object and type system for C programs.  Although C as a
+    language does not provide objects or classes, GObject makes it possible to
+    write object-oriented C programs.
+  </p>
 
-<p>Marketing blurb, info on what this library offers developers.</p>
+  <p>
+    GObject provides a fundamental GType, the base for the whole type system,
+    from which types such as ints and strings are derived.  Then, there is
+    GObject itself, the base class for all other classes.  Objects can emit
+    <em>signals</em> to notify the caller when something interesting happens.
+    For example, a <code>Button</code> object could emit a <code>clicked</code>
+    signal to indicate that it has been pressed and released.
+  </p>
 
-<media type="image" mime="image/png" src="test_comm1.png" width="65%">
- <p>Example image</p>
-</media>
+  <p>
+    GObject is <em>introspectible</em>, which means that you can ask the
+    GObject system for the class types that are defined, the methods they
+    support, their signals, etc.  GNOME's language bindings are built on top of
+    this introspection information.  Instead of writing wrappers by hand to let
+    GNOME APIs be called from other programming languages, language bindings
+    use the introspection information from GObject to auto-generate those
+    wrappers themselves.
+  </p>
 
+  <p>
+    You normally don't need to be concerned with GObject itself if you are
+    programming for GNOME with an object-oriented language.  However, making
+    yourself familiar with GObject's concepts, such as signals and slots, will
+    make your life easier as a GNOME programmer.
+  </p>
 
-<section id="what">
- <title>What can you do?</title>
- 
- <p>Things that <em style="strong">you can do</em> with <em style="strong"><link xref="blah">some feature</link></em> of the library.</p>
-</section>
-
-
-<section id="docs">
- <title>API and reference documentation</title>
- <p></p>
- <list>
-  <item>
-   <p><em style="strong"><link href="">Documentation Link</link></em></p>
-   <p>Brief description of the documentation. Maybe also some direct links to particularly interesting pages.</p>
-  </item>
- </list>
-</section>
-
-
-<section id="samples">
- <title>Code samples</title>
- <list>
-  <item><p>A sample we should write</p></item>
-  <item><p><link xref="samples">More...</link></p></item>
- </list>
-</section>
-
-<section id="realworld">
- <title>Real-world examples</title>
- 
- <p>This library is used in lots of open source software. Take a look at some of it.</p>
- <list>
-  <item>
-   <p><em style="strong">XXX</em> is .</p>
-   <p>(<link href="xxx">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
- </list>
-</section>
-
+  <list style="compact">
+    <item><p><link href="http://developer.gnome.org/gobject/stable/">GObject reference manual</link></p></item>
+  </list>
 
 </page>
