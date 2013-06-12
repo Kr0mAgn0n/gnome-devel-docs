@@ -1,0 +1,76 @@
+Developer's Overview of the GNOME Platform
+==========================================
+
+This document is written using Mallard (http://projectmallard.org/).
+
+Structure
+---------
+
+Mallard lets you add pages to a document, and have links from one page
+to a destination page, without listing the links explicitly in the
+"from" page.  For example, our toplevel index.page has this at the
+very beginning:
+
+  <page xmlns="http://projectmallard.org/1.0/"
+        type="guide" style="task"
+        id="index">
+
+The id="index" is for referencing purposes.
+
+Later, index.page has this:
+
+   <section id="overview" style="2column">
+    <info>
+     <title type="link" role="trail">Overview</title>
+    </info>
+    <title>Overview of GNOME technologies</title>
+   ...
+   </section>
+
+This creates a section with an id="overview".  In turn, various .page
+files have things like this:
+
+  <info>
+    <link type="guide" xref="index#overview" group="#first" />
+    ...
+  </info>
+
+See that xref="index#overview"?  It tells Mallard to look in the page
+whose id="index" (i.e. our index.page), and then to look in the
+section whose id="overview".  Mallard will then put a link to this
+page inside the original section, without you having to explicitly
+list the page in index.page.
+
+If this seems backwards to all other markup languages, it is.  But
+Mallard thinks that it is easier to create aggregate documents that
+way without modifying the original contents, or something like that.
+
+
+Editing
+-------
+
+You can get Emacs to understand Mallard by using gnome-emacs-utils
+(https://github.com/federicomenaquintero/gnome-emacs-utils).
+
+
+Updating this document in developer.gnome.org
+---------------------------------------------
+
+FIXME
+
+
+Authors
+-------
+
+Shaun McCance <shaunm@gnome.org>
+Phil Bull <philbull@gmail.com>
+Germán Póo-Caamaño <gpoo@gnome.org>
+Federico Mena-Quintero <federico@gnome.org>
+
+
+Donations
+---------
+
+Donations of bitcoins are kindly accepted at 1Ao5ify9NXZvb9SFwjvkh29oofbNAS6yez
+I (Federico) will redistribute donations to people who have contributed
+to the Developer's Overview of the GNOME Platform.

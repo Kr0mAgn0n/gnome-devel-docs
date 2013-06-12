@@ -3,13 +3,24 @@
       id="index">
 
 <info>
-  <desc>Overview of the powerful technologies inside the GNOME platform.</desc>
+  <desc>Overview of the powerful technologies inside the GNOME platform for developers.</desc>
   <revision pkgversion="2.24" version="0.1" date="2007-03-16" status="incomplete"/>
   <revision pkgversion="3.0" version="0.2" date="2011-03-18" status="incomplete"/>
+  <revision pkgversion="3.10" version="0.9" date="2013-05-23" status="incomplete"/>
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
     <!--<years>2005-2011</years>-->
+  </credit>
+  <credit type="author">
+    <name>Phil Bull</name>
+    <email>philbull@gmail.com</email>
+    <!--<years>2012</years>-->
+  </credit>
+  <credit type="author">
+    <name>Federico Mena-Quintero</name>
+    <email>federico@gnome.org</email>
+    <!--<years>2012</years>-->
   </credit>
   <credit type="collaborator">
     <name>Germán Póo-Caamaño</name>
@@ -24,19 +35,38 @@
   <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
-<title>Overview of the GNOME platform</title>
+<title>Developer's Overview of the GNOME Platform</title>
 
 
 <media src="equation.png" width="90%">
  <p>GNOME equation</p>
 </media>
 
-<p>GNOME provides a comprehensive developer platform that allows 
-developers to create professional software that is easy to use and 
-aesthetically pleasing. Using the technologies in GNOME, you can create 
-high-quality software to meet and exceed your users' expectations. Here, you 
-can find a high-level overview of the platform, designed to introduce you to 
-its capabilities, and to help you find resources on developing with GNOME.</p>
+<p>GNOME is a powerful desktop environment with a strong focus
+on usability, accessibility, and internationalization.  GNOME is designed to
+be usable by everybody, regardless of technical expertise, disabilitites, or
+native language.  GNOME makes it easy for people to use their computers.</p>
+
+<p>In addition to the desktop environment, GNOME also provides a
+development platform to write applications for that desktop.  All of
+GNOME's core utilities such as the text editor (GEdit) and file
+manager (Nautilus) are built using this development platform.  Large
+applications like Evolution and Inkscape can also be built using
+GNOME's platform libraries.</p>
+
+<p>The most fundamental part of GNOME is the <link xref="gtk">GTK+
+toolkit</link>.  It provides the basic, graphical widget toolkit that
+all GNOME applications use.</p>
+
+<p>Simple graphical applications can be written directly using only GTK+.
+However, programs that require deeper integration with the rest of
+GNOME's services, for example, to store passwords in secure storage,
+or to access the user's addressbook, will need to use other GNOME
+libraries as well as GTK+.</p>
+
+<p>This document provides a high-level overview of the GNOME platform
+and its libraries, along with links to reference documentation for
+each part of the platform.</p>
 
 <section id="overview" style="2column">
  <info>
