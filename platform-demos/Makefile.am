@@ -375,6 +375,7 @@ HELP_FILES =				\
 	radiobutton.py.page		\
 	radiobutton.vala.page		\
 	record-collection.js.page	\
+	response-type.page		\
 	scale.c.page			\
 	scale.js.page			\
 	scale.py.page			\
