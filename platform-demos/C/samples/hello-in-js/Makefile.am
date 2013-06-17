@@ -11,13 +11,13 @@ desktop_DATA = \
 	hello-world.desktop
 
 CLEANFILES = \
-	aclocal.m4		\
-	autom4te.cache		\
-	config.log		\
-	config.status		\
-	configure		\
-	hello-world.desktop	\
-	install-sh		\
-	missing			\
-	Makefile.in		\
+	aclocal.m4 \
+	autom4te.cache \
+	config.log \
+	config.status \
+	configure \
+	hello-world.desktop \
+	install-sh \
+	missing	\
+	Makefile.in \
 	Makefile

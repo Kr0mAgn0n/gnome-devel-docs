@@ -76,13 +76,12 @@ demo_sources =	\
 	samples/GtkApplicationWindow.vala	\
 	samples/hellognome.html			\
 	samples/hellognome.js			\
-	samples/helloWorld.js			\
-	samples/helloWorld/autogen.sh		\
-	samples/helloWorld/configure.ac		\
-	samples/helloWorld/helloWorld		\
-	samples/helloWorld/helloWorld.desktop.in\
-	samples/helloWorld/Makefile.am		\
-	samples/helloWorld/README		\
+	samples/hello-in-js/autogen.sh		\
+	samples/hello-in-js/configure.ac	\
+	samples/hello-in-js/hello-world		\
+	samples/hello-in-js/hello-world.desktop.in\
+	samples/hello-in-js/Makefile.am		\
+	samples/hello-in-js/README		\
 	samples/image.c				\
 	samples/image.js			\
 	samples/image.py			\
@@ -217,7 +216,7 @@ HELP_MEDIA =	\
 	media/guitar-tuner.png			\
 	media/guitar-tuner-glade.png		\
 	media/guitar-tuner-pipeline.png		\
-	media/helloWorld.png			\
+	media/hello-world.png			\
 	media/image.png				\
 	media/image-viewer.png			\
 	media/label.png				\
@@ -328,7 +327,7 @@ HELP_FILES =				\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	hellognome.js.page		\
-	helloWorld.js.page		\
+	hello-world.js.page		\
 	image.c.page			\
 	image.js.page			\
 	image.py.page			\
