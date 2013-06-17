@@ -1,0 +1,52 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="translating-messages">
+  <info>
+  
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Michael Hill</name>
+      <email>mdhillca@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <desc></desc>
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  </info>
+
+  <title>Preparing messages for translation</title>
+  
+  <p>The messages in your application are set up for translation into other
+  languages . </p>
+
+  <steps>
+    <item><p>Wrap messages or <em>string literals</em> in your code with the
+    '_()' macro. This macro is defined in the <file>glib/gi18n.h</file> header
+    file, which must be included at the top of your application source.</p>
+    <note style="advanced">
+    	<p>This is the syntax for the macro using C. Check with the
+    	documentation for your language for the syntax you need to use.</p>
+    </note>
+    <p>Your wrapped strings should look like this:</p>
+    <code>_("Press a key to continue")</code>
+    <p>This marks the strings as translatable, and at runtime calls
+    <app>gettext</app> to substitute the translated strings.</p>
+    </item>
+    <item><p>(other syntax to indicate plural).</p></item>
+    <item><p>(set up in the build system to run automatically).</p></item>
+    <item><p>Create a <file>po/</file> subdirectory in your project
+    directory.</p></item>
+    <item><p>Tell <app>gettext</app> which files have translatable strings by
+    listing those files in <file>po/POTFILES.in</file>. List files
+    <em>without</em> translatable strings in
+    <file>po/POTFILES.skip</file>.</p></item>
+    <item><p>Run <cmd>make projectname.pot</cmd> in the
+    <file>po</file> directory. This runs <cmd>intltool-extract</cmd> to extract
+    the translatable strings and put them in a po template (POT) file.</p></item>
+  </steps>
+
+  <p>At this point the strings are ready for
+  <link xref="translating-tools">translation</link>.</p>
+
+</page>
