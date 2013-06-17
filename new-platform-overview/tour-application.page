@@ -1,0 +1,50 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="tour-application">
+
+  <info>
+    <link type="next" xref="tour-summary"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="author copyright">
+      <name>Gordon Hill</name>
+      <email its:translate="no">caseyweederman@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Finish the application and run the script.</desc>
+  </info>
+
+  <title>Run your application</title>
+  <links type="series" style="floatend">
+    <title>Get started with GNOME</title>
+  </links>
+
+  <example>
+    <p>Make the new object <code>app</code> and call the method <code>run</code>
+    to run the application:</p>
+    <code><![CDATA[
+let app = new HelloWorld();
+app.application.run(ARGV);
+]]></code>
+
+    <p>Save the script as <file>helloworld.js</file>, run
+    <cmd>chmod +x helloworld.js</cmd> to mark it executable, and run it with
+    <cmd>./helloworld.js</cmd>.</p>
+  </example>
+
+  <media type="image" src="media/glade-result.png">
+    <p>Screenshot of a basic window.</p>
+  </media>
+  <p>This window is generated from the <app>Glade</app> file and linked to
+  <app>Gtk</app> events. You now have a fully functional Gtk application!</p>
+
+</page>

@@ -1,0 +1,62 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="tour-events">
+
+  <info>
+    <link type="next" xref="tour-get_object"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="author copyright">
+      <name>Gordon Hill</name>
+      <email its:translate="no">caseyweederman@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Bind functions to events using Lang.</desc>
+  </info>
+
+  <title>Actions and signals</title>
+
+  <links type="series" style="floatend">
+    <title>Get started with GNOME</title>
+  </links>
+
+  <p>Gtk has a set of predefined events that you can use in your application.</p>
+  <example>
+    <p>Declare <code>HelloWorld</code> as a new <code>Lang</code> class.
+    <app>Gjs</app> requires classes to have the Name property defined.</p>
+
+    <code><![CDATA[
+const HelloWorld = new Lang.Class({
+    Name: 'HelloWorld',
+]]></code>
+
+    <p><code>_init</code> is called when a new instance is created. Create a
+    <code>GtkApplication</code>, then connect <code>activate</code> to the
+    existing Gtk event <code>_onActivate</code> and <code>startup</code> to
+    <code>_onStartup</code>:</p>
+
+    <code><![CDATA[
+    _init: function() {
+        this.application = new Gtk.Application();
+        this.application.connect('activate', Lang.bind(this, this._onActivate));
+        this.application.connect('startup', Lang.bind(this, this._onStartup));
+    },
+]]></code>
+
+    <p>Show the window upon application activation:</p>
+    <code><![CDATA[
+    _onActivate: function(){
+        this._window.show_all();
+    },
+]]></code>
+  </example>
+</page>

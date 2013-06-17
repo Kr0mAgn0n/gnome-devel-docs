@@ -1,0 +1,54 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="tour-gjs">
+
+  <info>
+    <link type="next" xref="tour-events"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="author copyright">
+      <name>Gordon Hill</name>
+      <email its:translate="no">caseyweederman@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Include bindings necessary to run your script.</desc>
+  </info>
+
+  <title>Gjs and Gtk</title>
+  <links type="series" style="floatend">
+    <title>Get started with GNOME</title>
+  </links>
+
+  <p>Gjs is a JavaScript binding for GNOME and can be
+  used to interact with Gtk. Gtk is a toolkit for creating graphical
+  user interfaces.</p>
+  <p>Open a text editor and paste in the lines of code. The complete script is
+  available in the <link xref="tour-summary">Summary</link>.</p>
+  <p>Create an <code>object</code> using your <code>class</code> and call
+  the <code>run()</code> method:</p>
+<example>
+  <p>Call the Gjs JavaScript binding. This instructs the
+  shell to run this script with Gjs.</p>
+
+  <code><![CDATA[
+#!/usr/bin/gjs
+]]></code>
+
+  <p>Import <code>lang</code> for the <code>bind</code> function and
+  <code>gi.Gtk</code> for <code>Gtk</code> functions.</p>
+
+  <code><![CDATA[
+const Lang = imports.lang;
+const Gtk = imports.gi.Gtk;
+]]></code>
+</example>
+</page>

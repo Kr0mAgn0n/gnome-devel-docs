@@ -1,0 +1,51 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="tour-get_object">
+
+  <info>
+    <link type="next" xref="tour-application"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="author copyright">
+      <name>Gordon Hill</name>
+      <email its:translate="no">caseyweederman@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Add the window specified in the UI file to the application using
+    GtkBuilder.</desc>
+  </info>
+
+  <title>GtkBuilder</title>
+  <links type="series" style="floatend">
+    <title>Get started with GNOME</title>
+  </links>
+
+  <p>GtkBuilder accepts UI descriptions and turns them into Gtk applications.
+  In this case, the UI description is in the file <file>helloworld.glade</file>
+  and can be read by the <code>get_object()</code> method.</p>
+
+  <example>
+    <p>Load the UI file using <code>GtkBuilder</code> and get the window object
+    using the <gui>Name</gui> (or <gui>ID</gui>) chosen in <app>Glade</app>,
+    and add the window object to the application:</p>
+
+    <code><![CDATA[
+    _onStartup: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_file('helloworld.glade');
+        this._window = builder.get_object('window1');
+        this.application.add_window(this._window);
+    }
+});
+]]></code>
+  </example>
+</page>
