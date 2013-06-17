@@ -82,6 +82,12 @@ demo_sources =	\
 	samples/hello-in-js/hello-world.desktop.in\
 	samples/hello-in-js/Makefile.am		\
 	samples/hello-in-js/README		\
+	samples/hello-in-python/autogen.sh	\
+	samples/hello-in-python/configure.ac	\
+	samples/hello-in-python/hello-world.py	\
+	samples/hello-in-python/hello-world.desktop.in\
+	samples/hello-in-python/Makefile.am	\
+	samples/hello-in-python/README		\
 	samples/image.c				\
 	samples/image.js			\
 	samples/image.py			\
@@ -328,6 +334,7 @@ HELP_FILES =				\
 	guitar-tuner.vala.page		\
 	hellognome.js.page		\
 	hello-world.js.page		\
+	hello-world.py.page		\
 	image.c.page			\
 	image.js.page			\
 	image.py.page			\
