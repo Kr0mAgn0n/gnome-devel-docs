@@ -27,7 +27,7 @@
   <list>
     <item><p>At the bottom there is a <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextBuffer.html">TextBuffer</link>. This holds the text itself.</p></item>
     <item><p>In the middle there is the <link href="http://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/Gtk.TextView.html">TextView</link>, which is a widget that lets you see and edit the text in the buffer. It automatically resizes itself depending on how much text there is.</p></item>
-    <item><p>Since the automatic resizing can make a TextView unwieldy, you normally place it inside of a <link xref="scrolledwindow.js">ScrolledWindow</link>. Despite the name, it's not an actual window in terms of having a title bar and an X button; it's a widget you put on the application you're making, which acts like a window onto a more manageable chunk of a TextView. If the text in the buffer is too big to fit, scrollbars will appear.</p></item>
+    <item><p>Since the automatic resizing can make a TextView unwieldy, you normally place it inside of a ScrolledWindow. Despite the name, it's not an actual window in terms of having a title bar and an X button; it's a widget you put on the application you're making, which acts like a window onto a more manageable chunk of a TextView. If the text in the buffer is too big to fit, scrollbars will appear.</p></item>
   </list>
   <p>If you want to change what text is displayed in the TextView, you act on the TextBuffer, since it's what actually holds the text. The same goes for if you want to see what text someone typed in. This sample application lets you talk to a (make-believe) penguin, and checks the TextBuffer to see if you typed the word "fish" anywhere in it.</p>
   <note><p>Real-life penguin populations are declining fast, because climate change is melting the ice that they live on and killing the fish that they eat. If you'd like to play a (somewhat silly) GNOME game based on this premise, take a look at <link href="http://pingus.seul.org/">Pingus</link>.</p></note>
@@ -124,7 +124,7 @@ const TextViewExample = new Lang.Class ({
         // Put the textview into the scrolled window
         this._scrolled.add_with_viewport (this._textView);
 ]]></code>
-    <p>Here we create a <link xref="scrolledwindow.js">ScrolledWindow</link>, and set it to automatically scroll if it gets to be too big horizontally or vertically. We also give it a nice-looking ETCHED_IN border. After that, we put our TextView inside, and tell the ScrolledWindow to give us a viewport onto it.</p>
+    <p>Here we create a ScrolledWindow, and set it to automatically scroll if it gets to be too big horizontally or vertically. We also give it a nice-looking ETCHED_IN border. After that, we put our TextView inside, and tell the ScrolledWindow to give us a viewport onto it.</p>
     </section>
 
     <section id="ui">
