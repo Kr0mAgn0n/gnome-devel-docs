@@ -145,6 +145,7 @@ demo_sources =	\
 	samples/scrolledwindow.py		\
 	samples/scrolledwindow.vala		\
 	samples/separator.py			\
+	samples/separator.vala			\
 	samples/spinbutton.c			\
 	samples/spinbutton.js			\
 	samples/spinbutton.py			\
@@ -404,6 +405,7 @@ HELP_FILES =				\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
+	separator.vala.page		\
 	set-up-gedit.js.page		\
 	signals-callbacks.py.page	\
 	spinbutton.c.page		\
