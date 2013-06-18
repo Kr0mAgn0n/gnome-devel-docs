@@ -1,0 +1,96 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-help-appmenu">
+
+  <info>
+    <link type="next" xref="dev-help-context"/>
+    <revision version="0.1" date="2013-06-18" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Radina Matic</name>
+      <email its:translate="no">radina.matic@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name></name>
+      <email its:translate="no"></email>
+      <years></years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Add Help item to the app menu in the top bar</title>
+
+  <links type="series" style="floatend">
+    <title>Set up help</title>
+  </links>
+
+  <p>If your application has an app menu, follow these 3 steps to add the Help item:</p>
+
+<note style="warning">
+  <p>The following code lines are from an application <link href="https://git.gnome.org/browse/cheese/tree/src/cheese-main.vala"><app>Cheese</app></link> written in Vala, but should be fairly similar in other languages.</p>
+</note>
+
+
+<list>
+
+  <item><p>Define the action by adding the <em style="strong"><file>{ "help", on_help }</file></em> line.</p>
+
+<code>
+   private const GLib.ActionEntry action_entries[] = {
+        { "shoot", on_shoot },
+        { "mode", on_action_radio, "s", "'photo'", on_mode_change },
+        { "fullscreen", on_action_toggle, null, "false", on_fullscreen_change },
+        { "effects", on_action_toggle, null, "false", on_effects_change },
+        { "preferences", on_preferences },
+        { "about", on_about },
+        <em style="strong">{ "help", on_help },</em>
+        { "quit", on_quit }
+    };
+
+   add_action_entries (action_entries, my_Gtk_Application);
+
+</code>
+</item>
+
+<item><p>Create the menu item with <code>var item = new GLib.MenuItem (_("_Help"), "app.help");</code> line, and define the F1 shortcut attribute.</p>
+
+<code>
+// Create the menus.
+            var menu = new GLib.Menu ();
+            var section = new GLib.Menu ();
+            
+            <em style="strong">var item = new GLib.MenuItem (_("_Help"), "app.help");
+            item.set_attribute ("accel", "s", "F1");</em>
+            section.append_item (item);
+	    
+</code>
+</item>
+
+<item><p>Define the function that will open the Yelp window and load the help file of your application. In the example below, the code <em style="strong"><file>"help:cheese"</file></em> will open Yelp and tell it to load the Mallard files for the Cheese app.</p>
+
+<code>
+   /**
+     * Show the Cheese help contents.
+     */
+    private void on_help ()
+    {
+        var screen = main_window.get_screen ();
+        try
+        {
+            Gtk.show_uri (screen, <em style="strong">"help:cheese"</em>, Gtk.get_current_event_time ());
+        }
+        catch (Error err)
+        {
+            message ("Error opening help: %s", err.message);
+        }
+    }
+
+</code>
+</item>
+</list>
+
+</page>

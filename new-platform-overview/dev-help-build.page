@@ -1,0 +1,70 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-help-build">
+
+  <info>
+     <link type="next" xref="dev-help-appmenu"/>
+     <revision version="0.1" date="2013-06-18" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Radina Matic</name>
+      <email its:translate="no">radina.matic@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name></name>
+      <email its:translate="no"></email>
+      <years></years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Set up your buildsystem</title>
+
+  <links type="series" style="floatend">
+    <title>Set up help</title>
+  </links>
+
+  <p>Once you have some Mallard <file>.page</file> files, place them into the
+  <file>help/C/</file> folder among the rest of your code files.</p>
+
+  <p>You will also need <app>yelp-tools</app> installed to bundle
+  Mallard documentation into your application.</p>
+
+  <p>Modify these 3 files to include instructions how to install user help
+  files into the <file>usr/share/help/$lang/HELP_ID</file> folder:</p>
+
+  <p>Add the following lines in the file <em style="strong"><file>configure.ac</file></em>.</p>
+  
+  <code>YELP_HELP_INIT</code>
+  
+  <code>help/Makefile</code>
+  <p>This line should go under <file>AC_CONFIG_FILES</file>.</p>
+  <p>Add the following line at the begining of the <em style="strong"><file>Makefile.am </file></em>file.</p>
+  <code>SUBDIRS = po help</code>
+  		
+  <p>Write the <em style="strong"><file>help/Makefile.am</file></em> file. The most important line defines the ID of your app: <em style="strong"><code>HELP_ID = name_of_application</code></em>.</p>
+
+<code>
+@YELP_HELP_RULES@
+
+HELP_ID = name_of_application
+
+HELP_MEDIA = \
+	figures/icon.png
+	# list of media files used in user help
+	# in case of no media files leave empty
+
+HELP_FILES = \
+	index.page \
+	introduction.page
+	# list of Mallard .page files
+
+HELP_LINGUAS = ca cs de el en_GB es fi fr gl hu id 
+	# in case of no translations leave empty
+</code>
+
+</page>
