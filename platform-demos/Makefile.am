@@ -76,6 +76,12 @@ demo_sources =	\
 	samples/GtkApplicationWindow.vala	\
 	samples/hellognome.html			\
 	samples/hellognome.js			\
+	samples/hello-in-C/autogen.sh		\
+	samples/hello-in-C/configure.ac		\
+	samples/hello-in-C/hello-world.c	\
+	samples/hello-in-C/hello-world.desktop.in\
+	samples/hello-in-C/Makefile.am		\
+	samples/hello-in-C/README		\
 	samples/hello-in-js/autogen.sh		\
 	samples/hello-in-js/configure.ac	\
 	samples/hello-in-js/hello-world		\
@@ -333,6 +339,7 @@ HELP_FILES =				\
 	guitar-tuner.py.page		\
 	guitar-tuner.vala.page		\
 	hellognome.js.page		\
+	hello-world.c.page		\
 	hello-world.js.page		\
 	hello-world.py.page		\
 	image.c.page			\
