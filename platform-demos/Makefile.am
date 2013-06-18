@@ -94,6 +94,12 @@ demo_sources =	\
 	samples/hello-in-python/hello-world.desktop.in\
 	samples/hello-in-python/Makefile.am	\
 	samples/hello-in-python/README		\
+        samples/hello-in-vala/autogen.sh        \
+        samples/hello-in-vala/configure.ac      \
+        samples/hello-in-vala/hello-world.vala  \
+        samples/hello-in-vala/hello-world.desktop.in\
+        samples/hello-in-vala/Makefile.am       \
+        samples/hello-in-vala/README            \
 	samples/image.c				\
 	samples/image.js			\
 	samples/image.py			\
@@ -342,6 +348,7 @@ HELP_FILES =				\
 	hello-world.c.page		\
 	hello-world.js.page		\
 	hello-world.py.page		\
+	hello-world.vala.page		\	
 	image.c.page			\
 	image.js.page			\
 	image.py.page			\

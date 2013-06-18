@@ -46,7 +46,7 @@
     </section>
 
     <section id="application"><title>Creating the main window for the application</title>
-      <code mime="text/x-xcsrc"><![CDATA[static void
+      <code mime="text/x-csrc"><![CDATA[static void
 activate (GtkApplication* app,
           gpointer        user_data)
 {
@@ -59,9 +59,9 @@ activate (GtkApplication* app,
 }
 ]]></code>
 
-    <p>Gtk.Application initializes GTK+. It also connects the <gui>x</gui> button that's automatically generated along with the window to the "destroy" signal.</p>
-    <p>We can start building our first window. We do this by creating a class called <var>MyWindow</var> and assigning it a Gtk.ApplicationWindow.</p>
-    <p>We give the window a property called <var>title</var>. The title can be any string you want it to be. To be on the safe side, it's best to stick to UTF-8 encoding.</p>
+    <p>GtkApplication initializes GTK+. It also connects the <gui>x</gui> button that's automatically generated along with the window to the "destroy" signal.</p>
+    <p>We can start building our first window. We do this by creating a variable called <var>window</var> and assigning it a gtk_application_window_new</p>
+    <p>The window title can be any string you want it to be. To be on the safe side, it's best to stick to UTF-8 encoding.</p>
     <p>Now we have a window which has a title and a working "close" button. Let's add the actual "Hello World" text.</p>
     </section>
 
@@ -101,7 +101,7 @@ main (int    argc,
     <section id="terminal"><title>Running the application from terminal</title>
       <p>To run this application, first save it as hello-world.c. Then open Terminal, go to the folder where your application is stored.</p>
       <p>Compile the program:</p>
-           <screen>gcc <var>hello-world</var>.c `pkg-config --cflags --libs gtk+-3.0` -o <var>filename</var></screen>
+           <screen>gcc <var>hello-world</var>.c `pkg-config --cflags --libs gtk+-3.0` -o <var>hello-world</var></screen>
       <p>Run the program:</p>
            <screen>./<var>hello-world</var></screen>
     </section>
@@ -111,7 +111,7 @@ main (int    argc,
       <p>Running applications from the Terminal is useful at the beginning of the application making process. To have fully working <link href= "https://developer.gnome.org/integration-guide/stable/mime.html.en">application integration</link> in GNOME 3 requires a desktop launcher. For this you need to create a  <file>.desktop</file> file. The <file>.desktop</file> file describes the application name, the used icon and various integration bits. A deeper insight into the <file>.desktop</file> file can be found <link href= "http://developer.gnome.org/desktop-entry-spec/">here</link>. The <file>.desktop.in</file> file will create the <file>.desktop</file>.</p>
 
     <p>The example shows you the minimum requirements for a <code>.desktop.in</code> file.</p>
-    <code mime="text/desktop" style="numbered"><xi:include href="samples/hello-in-python/hello-world.desktop.in" parse="text"><xi:fallback/></xi:include></code>
+    <code mime="text/desktop" style="numbered"><xi:include href="samples/hello-in-C/hello-world.desktop.in" parse="text"><xi:fallback/></xi:include></code>
 
     <p>Now let's go through some parts of the <code>.desktop.in</code> file.</p>
     <terms>
@@ -131,7 +131,7 @@ main (int    argc,
     <links type="section"/>
 
       <section id="autogen"><title>autogen.sh</title>
-        <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-python/autogen.sh" parse="text"><xi:fallback/></xi:include></code>
+        <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-C/autogen.sh" parse="text"><xi:fallback/></xi:include></code>
 
       <p>After the <file>autogen.sh</file> file is ready and saved, run:</p>
       <screen><output style="prompt">$ </output><input>chmod +x autogen.sh</input></screen>
@@ -139,12 +139,12 @@ main (int    argc,
 
 
     <section id="makefile"><title>Makefile.am</title>
-      <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-python/Makefile.am" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-C/Makefile.am" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
 
     <section id="configure"><title>configure.ac</title>
-      <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-python/configure.ac" parse="text"><xi:fallback/></xi:include></code>
+      <code mime="application/x-shellscript" style="numbered"><xi:include href="samples/hello-in-C/configure.ac" parse="text"><xi:fallback/></xi:include></code>
     </section>
 
 
