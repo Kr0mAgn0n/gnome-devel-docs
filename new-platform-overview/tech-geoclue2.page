@@ -3,25 +3,28 @@
       id="geoclue2">
 <info>
   <link type="guide" xref="tech" group="geoclue2"/>
-  <desc>Geocoding and reverse geocoding</desc>
+  <desc>Geolocation - finding the user's geographical location</desc>
 </info>
 
 <title>Geoclue2</title>
 
   <p>
-    Geoclue2 provides <em>geocoding</em> and <em>reverse geocoding</em>.
-    Geocoding is the process of translating an address ("123 High Street,
-    SomeTown, SomeCountry") to a pair of latitude/longitude values.  Reverse
-    geocoding is the opposite process.
+    Geoclue2 provides <em>geolocation</em> services, that is, it lets
+    applications find the user's geographical position.  A mapping
+    application could use this to present a "where am I" view, for
+    example.
   </p>
 
   <p>
-    Geoclue2 uses the Yahoo! Place Finder and GeoPlanet APIs internally to
-    do its work.
+    Geoclue2 intends to be able to provide positioning information
+    in several ways:  from the GPS in a WWAN modem, from a Wi-Fi
+    access point's data, or from the computer's IP address.
   </p>
 
-  <list style="compact">
-    <item><p><link href="http://developer.gnome.org/geoclue/unstable/">Geoclue2 reference documentation</link></p></item>
-  </list>
+  <p>
+    Geoclue2 also intends to provide privacy for users who do not want
+    to reveal their geographical location.  Only applications allowed
+    by the user will be able to get geolocation information.
+  </p>
 
 </page>
