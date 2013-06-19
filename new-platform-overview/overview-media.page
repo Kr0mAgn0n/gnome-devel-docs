@@ -3,12 +3,12 @@
       id="overview-media">
   <info>
     <link type="guide" xref="index" group="media"/>
-    <revision version="0.1" date="2012-02-19" status="stub"/>
+    <revision version="0.1" date="2013-06-19" status="draft"/>
 
     <credit type="author copyright">
-      <name>Phil Bull</name>
-      <email>philbull@gmail.com</email>
-      <years>2012</years>
+      <name>David King</name>
+      <email>davidk@gnome.org</email>
+      <years>2013</years>
     </credit>
 
     <desc>Multi-format audio and video playback and editing, streaming from the web, and webcam support.</desc>
@@ -18,29 +18,64 @@
 
 <list>
  <item>
-  <p><em style="strong">Strong selling point #1</em></p>
+  <p><em style="strong">Play and record a multitude of audio and video formats</em></p>
  </item>
  <item>
-  <p><em style="strong">Strong selling point #2</em></p>
+  <p><em style="strong">Access webcams and other media devices connected to the system</em></p>
  </item>
  <item>
-  <p><em style="strong">Strong selling point #3</em></p>
+  <p><em style="strong">Share and stream media with remote devices</em></p>
  </item>
 </list>
 
-<p>Marketing blurb, info on what the platform offers.</p>
+<p>Add multimedia to your application so that users can easily play their
+content. Consume and share content with other devices attached to a system or
+remotely over the network. The underlying low-level API is available if you
+need more control.</p>
 
-<media type="image" mime="image/png" src="test_comm1.png" width="65%">
- <p>IMAGE</p>
+<media type="image" mime="image/png" src="media/totem-screenshot.png" width="65%">
+ <p>Videos</p>
 </media>
 
 <section id="what">
  <title>What can you do?</title>
  
- <p>For <em style="strong">action</em>, use <em style="strong"><link xref="blah">technology</link></em>.</p>
+  <p><em style="strong">Multimedia</em> in GNOME is built on the
+  <em style="strong"><link xref="tech-gstreamer">GStreamer</link></em>
+  framework. With GStreamer, flexible <em>pipelines</em> of media can be
+  created, from simple playback of audio and video to complex non-linear
+  editing.</p>
+
+  <p>GStreamer uses
+  <em style="strong"><link xref="tech-pulseaudio">PulseAudio</link></em> when
+  outputting audio, and therefore can target many types of output hardware.
+  PulseAudio also handles dynamic output switching and application-specific
+  volume control.</p>
+
+  <comment>
+    <cite date="2013-06-19" href="mailto:davidk@gnome.org">David King</cite>
+    <p>Add Cheese and Rygel technology pages</p>
+  </comment>
+
+  <p>For <em style="strong">webcams</em>, use
+  <em style="strong">Cheese</em>. It provides a simple
+  interface to webcams connected to the system, and an easy way to add an
+  avatar chooser to your application.</p>
+
+  <p>Use <em style="strong">Rygel</em> to <em style="strong">share content over
+  the network</em> to devices such as TVs and games consoles. Rygel uses
+  <em style="strong"><link xref="tech-gupnp">GUPnP</link></em> underneath,
+  which is a low-level API to access content with <em style="strong">UPnP</em>
+  protocols.</p>
+
+  <p>For simple <em style="strong">event sounds</em>, such as a shutter sound
+  when taking a photo, use
+  <em style="strong"><link xref="tech-canberra">libcanberra</link></em>, which
+  implements the freedesktop.org sound theme specification.</p>
  
 </section>
 
+<!-- TODO: Link to code examples if they are moved to the platform overview
 <section id="samples">
  <title>Code samples</title>
  <list>
@@ -48,16 +83,23 @@
   <item><p><link xref="samples#integration">More...</link></p></item>
  </list>
 </section>
+-->
 
 <section id="realworld">
  <title>Real-world examples</title>
  
- <p>You can see lots of real-world applications of system integration in open source projects, like the examples given below.</p>
- <list>
-  <item>
-   <p><em style="strong">XXX</em> is .</p>
-   <p>(<link href="xxx">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
+  <p>You can see lots of real-world applications of GNOME multimedia
+  technologies in open source projects, like the examples given below.</p>
+  <list>
+    <item>
+      <p><em style="strong">Videos</em> is the GNOME multimedia player.</p>
+      <p>( <link href="http://projects.gnome.org/totem/">Website</link> | <link href="http://en.wikipedia.org/wiki/File:Totem3.2.0.png">Screenshot</link> | <link href="https://git.gnome.org/browse/totem/">Source code</link> )</p>
+    </item>
+    <item>
+      <p><em style="strong">PiTiVi</em> is a non-linear video editor, which
+      makes extensive use of GStreamer.</p>
+      <p>( <link href="http://www.pitivi.org/">Website</link> | <link href="http://www.pitivi.org/?go=screenshots">Screenshots</link> | <link href="http://www.pitivi.org/?go=download">Source code</link> )</p>
+    </item>
  </list>
 </section>
 </page>
