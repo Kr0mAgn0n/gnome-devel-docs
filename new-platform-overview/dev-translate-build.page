@@ -1,0 +1,62 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-translate-build">
+
+  <info>
+    <link type="next" xref="dev-translate-tools"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc></desc>
+  </info>
+
+  <title>Set up your buildsystem for translation</title>
+
+  <links type="series" style="floatend">
+    <title>Set up translations</title>
+  </links> 
+
+  <p>You will need to set up your project and build system to work with
+  tranlations.</p>
+
+  <p>Create a <file>po/</file> subdirectory in your project directory and list
+  the files which have translatable strings in <file>po/POTFILES.in</file>.
+  List files <em>without</em> translatable strings in
+  <file>po/POTFILES.skip</file>.</p>
+
+  <p>Add the following lines to your <file>configure.ac</file>:</p>
+  <code>
+  IT_PROG_INTLTOOL([0.50.0])
+  AC_SUBST([GETTEXT_PACKAGE], [$PACKAGE_TARNAME])
+  AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Package name for gettext])</code>
+
+  <p>Add the following lines to your <file>Makefile.am</file>:</p>
+  <code>
+SUBDIRS = po
+</code>
+  <code>
+localedir = $(datadir)/locale
+</code>
+  <code>
+@INTLTOOL_DESKTOP_RULE@
+desktopdir = $(datadir)/applications
+desktop_in_files = data/<input>applicationname</input>.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+</code>
+
+  <p>Run <cmd>intltoolize</cmd> to copy the intltool build infrastructure to
+  the build tree before running <cmd>autoreconf</cmd>.</p>
+
+  <p>Run <cmd>make projectname.pot</cmd> in the <file>po</file> directory. This
+  runs <cmd>intltool-extract</cmd> to extract the translatable strings and put
+  them in a po template (POT) file.</p>
+
+</page>

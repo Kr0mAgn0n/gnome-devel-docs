@@ -1,0 +1,44 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-translate-setup">
+
+  <info>
+    <link type="next" xref="dev-translate-build"/>
+    <revision version="0.1" date="2013-06-17" status="stub"/>
+
+    <credit type="author copyright">
+      <name>Michael Hill</name>
+      <email its:translate="no">mdhillca@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc></desc>
+  </info>
+
+  <title>Mark strings for translation</title>
+
+  <links type="series" style="floatend">
+    <title>Set up translations</title>
+  </links>
+
+  <p>Before the strings from your application can be translated, they need to
+  be extracted from the source code.</p>
+
+  <p>Wrap messages or <em>string literals</em> in your code with the '_()'
+  macro.</p>
+
+  <note>
+    <p>For C, this macro is defined in the <file>glib/gi18n.h</file> header
+    file, which must be included at the top of your application source.</p>
+  </note>
+
+  <p>Your wrapped strings should look like this:</p>
+  <code>_("Press a key to continue")</code>
+
+  <p>This marks the strings as translatable, and at runtime calls
+  <app>gettext</app> to substitute the translated strings.</p>
+
+</page>
