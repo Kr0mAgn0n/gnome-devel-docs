@@ -4,8 +4,8 @@
       id="dev-help-build">
 
   <info>
-     <link type="next" xref="dev-help-appmenu"/>
-     <revision version="0.1" date="2013-06-18" status="stub"/>
+    <link type="next" xref="dev-help-appmenu"/>
+    <revision version="0.1" date="2013-06-18" status="review"/>
 
     <credit type="author copyright">
       <name>Radina Matic</name>
@@ -29,7 +29,7 @@
   </links>
 
   <p>Help is normally installed into the
-  <file its:translate="no">usr/share/help/$lang/HELP_ID</file> directory.</p>
+  <file its:translate="no">/usr/share/help/<input>locale</input>/<input>HELP_ID</input></file> directory.</p>
 
   <p>Add the following lines in the file <file>configure.ac</file>:</p>
   
@@ -42,7 +42,8 @@ help/Makefile
   <p>Add the following line to the <file>Makefile.am</file>:</p>
   <code>SUBDIRS = help</code>
   		
-  <p>Add a <file>help/Makefile.am</file>, it should look like:</p>
+  <p>Add a <file>help/Makefile.am</file>, it should list the help files in your
+  project that you want to install:</p>
 <code>
 @YELP_HELP_RULES@
 
@@ -58,7 +59,7 @@ HELP_FILES = \
 	introduction.page \
 	anotherpage.page
 
-# Translated languages
+# Translated languages, blank if no translations exist
 HELP_LINGUAS = en_GB 
 </code>
 
