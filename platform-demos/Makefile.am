@@ -47,6 +47,7 @@ demo_sources =	\
 	samples/combobox.py			\
 	samples/combobox.vala			\
 	samples/combobox_multicolumn.py		\
+	samples/combobox_multicolumn.vala	\
 	samples/dialog.c			\
 	samples/dialog.js			\
 	samples/dialog.py			\
@@ -317,6 +318,7 @@ HELP_FILES =				\
 	combobox.py.page		\
 	combobox.vala.page		\
 	combobox_multicolumn.py.page	\
+	combobox_multicolumn.vala.page	\
 	cpp.page			\
 	dialog.c.page			\
 	dialog.js.page			\
