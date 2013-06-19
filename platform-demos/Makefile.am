@@ -59,6 +59,7 @@ demo_sources =	\
 	samples/filechooserdialog.ui		\
 	samples/filechooserdialog.vala		\
 	samples/fontchooserwidget.py		\
+	samples/fontchooserwidget.vala		\
 	samples/fruitbat.png			\
 	samples/gentoopenguin.png		\
 	samples/gmenu.c				\
@@ -328,6 +329,7 @@ HELP_FILES =				\
 	filechooserdialog.py.page	\
 	filechooserdialog.vala.page	\
 	fontchooserwidget.py.page	\
+	fontchooserwidget.vala.page	\
 	getting-ready.page		\
 	gmenu.c.page			\
 	gmenu.js.page			\
@@ -350,7 +352,7 @@ HELP_FILES =				\
 	hello-world.c.page		\
 	hello-world.js.page		\
 	hello-world.py.page		\
-	hello-world.vala.page		\	
+	hello-world.vala.page		\
 	image.c.page			\
 	image.js.page			\
 	image.py.page			\
