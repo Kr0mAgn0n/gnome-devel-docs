@@ -129,6 +129,7 @@ demo_sources =	\
 	samples/messagedialog.vala		\
 	samples/muteswan.png			\
 	samples/paned.py			\
+	samples/paned.vala			\
 	samples/progressbar.c			\
 	samples/progressbar.js			\
 	samples/progressbar.py			\
@@ -387,6 +388,7 @@ HELP_FILES =				\
 	messagedialog.vala.page		\
 	model-view-controller.py.page	\
 	paned.py.page			\
+	paned.vala.page			\
 	photo-wall.c.page		\
 	progressbar.c.page		\
 	progressbar.js.page		\
