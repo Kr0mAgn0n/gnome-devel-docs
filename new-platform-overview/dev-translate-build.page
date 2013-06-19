@@ -5,7 +5,7 @@
 
   <info>
     <link type="next" xref="dev-translate-tools"/>
-    <revision version="0.1" date="2013-06-17" status="stub"/>
+    <revision version="0.1" date="2013-06-19" status="review"/>
 
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
@@ -18,7 +18,7 @@
     <desc></desc>
   </info>
 
-  <title>Set up your buildsystem for translation</title>
+  <title>Set up your build system for translation</title>
 
   <links type="series" style="floatend">
     <title>Set up translations</title>
@@ -34,16 +34,16 @@
 
   <p>Add the following lines to your <file>configure.ac</file>:</p>
   <code>
-  IT_PROG_INTLTOOL([0.50.0])
-  AC_SUBST([GETTEXT_PACKAGE], [$PACKAGE_TARNAME])
-  AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Package name for gettext])</code>
+IT_PROG_INTLTOOL([0.50.0])
+AC_SUBST([GETTEXT_PACKAGE], [$PACKAGE_TARNAME])
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Package name for gettext])</code>
 
   <p>Add the following lines to your <file>Makefile.am</file>:</p>
   <code>
 SUBDIRS = po
 </code>
   <code>
-localedir = $(datadir)/locale
+AM_CPPFLAGS = -DPACKAGE_LOCALEDIR=\""$(datadir)/locale"\"
 </code>
   <code>
 @INTLTOOL_DESKTOP_RULE@
@@ -55,8 +55,39 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
   <p>Run <cmd>intltoolize</cmd> to copy the intltool build infrastructure to
   the build tree before running <cmd>autoreconf</cmd>.</p>
 
-  <p>Run <cmd>make projectname.pot</cmd> in the <file>po</file> directory. This
-  runs <cmd>intltool-extract</cmd> to extract the translatable strings and put
-  them in a po template (POT) file.</p>
+  <p>Now that your build system and your source strings are ready for
+  translation, you need to tell <app>gettext</app> three things:</p>
+
+  <list>
+    <item><p>the <em>translation domain</em>, generally the same as the
+    application name</p></item>
+    <item><p>the location where the built translations are installed</p></item>
+    <item><p>the character encoding of the translations, generally
+    UTF-8</p></item>
+  </list>
+
+  <example>
+  <note>
+    <p>This example assumes that your application is written in C. It will be
+    slightly different for other programming languages.</p>
+  </note>
+
+  <p>Add the following line to the source file which contains your
+  <code>main()</code> function:</p>
+
+  <code>#include "config.h"</code>
+
+  <p>Then, add the following lines to your <code>main()</code> function:</p>
+
+  <code>
+bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALEDIR);
+bind_textdomain_codeset (PACKAGE_TARNAME, "UTF-8");
+textdomain (GETTEXT_PACKAGE);
+</code>
+  </example>
+
+  <p>Run <cmd>make <input>projectname</input>.pot</cmd> in the <file>po</file>
+  directory. This runs <cmd>intltool-extract</cmd> to extract the translatable
+  strings and put them in a po template (POT) file.</p>
 
 </page>
