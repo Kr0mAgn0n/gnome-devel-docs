@@ -1,6 +1,6 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
-      id="tech-policykit">
+      id="tech-polkit">
 <info>
   <link type="guide" xref="tech" group="polkit"/>
   <desc>Access control for system-level services provided through D-Bus</desc>
@@ -8,13 +8,11 @@
 
 <title>Polkit</title>
 
-  <p>
-    Polkit, or Policy Kit, hanels the policies that let unprivileged processes
-    talk to privileged ones via <link xref="d-bus">D-Bus</link> APIs.  For
-    example, not all programs should be allowed to request that the machine be
-    disconnected from the network via the <link
-      xref="NetworkManager">NetworkManager</link> service.
-  </p>
+  <p>Polkit, or Policy Kit, hanels the policies that let unprivileged processes
+  talk to privileged ones via <link xref="tech-d-bus">D-Bus</link> APIs. For
+  example, not all programs should be allowed to request that the machine be
+  disconnected from the network via the
+  <link xref="tech-network-manager">NetworkManager</link> service.</p>
 
   <p>
     Polkit lets the system administrator define different policies for

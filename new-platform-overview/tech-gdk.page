@@ -9,13 +9,13 @@
 
 <title>GDK</title>
 
-<p>GDK is the low-level library used by <link xref="gtk">GTK+</link> to interact with the
-windowing system for graphics and input devices.  Although you will rarely use
-GDK directly in application code, it contains all the necessary
-functionality to create low-level windows in the the screen and to interact
-with the user with various input devices.  GDK acts as an abstraction over
-various windowing systems, so that GTK+ can be portable to all of them:
-the X Window System (X11), Microsoft Windows, Mac OS X Quartz.</p>
+  <p>GDK is the low-level library used by <link xref="tech-gtk">GTK+</link> to
+  interact with the windowing system for graphics and input devices. Although
+  you will rarely use GDK directly in application code, it contains all the
+  necessary functionality to create low-level windows in the the screen and to
+  interact with the user with various input devices. GDK acts as an abstraction
+  over various windowing systems, so that GTK+ can be portable to all of them:
+  the X Window System (X11), Microsoft Windows, Mac OS X Quartz.</p>
 
 <p>GDK enables you to access events from keyboards, mice, and other
 input devices.  Implementations of widgets in GTK+ use this functionality, and
@@ -38,14 +38,14 @@ provides an API for all of the system functionality needed by GTK+.
 This includes information about multi-head displays, resolution and
 color depth, colormaps, and cursors.</p>
 
-<p>You should use GDK whenever you need low-level access to the
-underlying windowing system, including low-level access to events,
-windows, and the clipboard.  Using GDK for these tasks ensures that
-your code is portable and integrates with the rest of your GTK+ code.
-The simple drawing routines in GDK should generally not be used; these are a
-left-over from when GDK simply wrapped the windowing system's drawing primitives.
-Instead, you should use the extensive functionality provided by
-<link xref="cairo">Cairo</link> to draw high-quality 2D graphics.</p>
+  <p>You should use GDK whenever you need low-level access to the underlying
+  windowing system, including low-level access to events, windows, and the
+  clipboard. Using GDK for these tasks ensures that your code is portable and
+  integrates with the rest of your GTK+ code. The simple drawing routines in
+  GDK should generally not be used; these are a left-over from when GDK simply
+  wrapped the windowing system's drawing primitives. Instead, you should use
+  the extensive functionality provided by <link xref="tech-cairo">Cairo</link>
+  to draw high-quality 2D graphics.</p>
 
 <list style="compact">
   <item><p><link href="http://library.gnome.org/devel/gdk/stable/">GDK Reference Manual</link></p></item>
