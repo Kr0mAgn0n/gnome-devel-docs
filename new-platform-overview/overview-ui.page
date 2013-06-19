@@ -11,14 +11,14 @@
       <years>2013</years>
     </credit>
 
-    <desc>Standard user interface elements, rendering, animation, and document display.</desc>
+    <desc>Standard user interface elements, rendering, and animation.</desc>
   </info>
 
 <title>User interface &amp; graphics</title>
 
 <list>
  <item>
-  <p><em style="strong">Use a single toolkit for all the widgets in your application</em></p>
+  <p><em style="strong">Use a single toolkit for all the standard widgets in your application</em></p>
  </item>
  <item>
   <p><em style="strong">Create fast, visually rich graphical interfaces</em></p>
@@ -34,23 +34,47 @@
  </item>
 </list>
 
-<p>Marketing blurb, info on what the platform offers.</p>
+<p>Use the powerful foundations of the GNOME platform to create consistent and
+flexible user interfaces. Make your applications available to the widest
+audience by deploying them to other platforms. Standard UI elements are
+accessible by default, and it is easy to add accessibility support to any
+custom UI elements that you create.</p>
 
 <section id="what">
  <title>What can you do?</title>
  
- <p>For <em style="strong">a single toolkit for all the widgets in your application</em>, use <em style="strong"><link xref="tech-gtk">GTK+</link></em>.</p>
+  <p>For applications with <em style="strong">standard controls</em> which
+  would be familiar to most users, use
+  <em style="strong"><link xref="tech-gtk">GTK+</link></em>. Every application
+  that is part of GNOME uses GTK+, so use it to be consistent, and to access
+  the many widgets and features such as printing support and CSS theming.</p>
 
- <p>To <em style="strong">create fast, visually rich graphical interfaces</em>, use <em style="strong"><link xref="tech-clutter">Clutter</link></em>.</p>
+  <p>To create
+  <em style="strong">fast, visually rich graphical interfaces</em>, use
+  <em style="strong"><link xref="tech-clutter">Clutter</link></em>. Animations,
+  effects and fluid layouts are easy with Clutter, and it also supports touch
+  input and gestures.</p>
 
- <p>To <em style="strong">have high quality, antialiased and resolution-independent 2D graphics</em>, use <em style="strong"><link xref="tech-cairo">Cairo</link></em>.</p>
+  <p><em style="strong">High quality, antialiased and resolution-independent 2D
+  graphics</em> are provided by
+  <em style="strong"><link xref="tech-cairo">Cairo</link></em>. Cairo is used
+  for drawing widgets in GTK+, and can also be used to output to PDF and
+  SVG.</p>
 
- <p>To <em style="strong">easily add web functionality to your application</em>, use <em style="strong"><link xref="tech-webkit">WebKitGTK+</link></em>.</p>
+  <p><em style="strong"><link xref="tech-webkit">WebKitGTK+</link></em> makes
+  it easy to add <em style="strong">web functionality</em> to your
+  application, whether that is rendering an HTML file or having a complete
+  HTML5 UI.</p>
 
- <p>To <em style="strong">access built-in assistive technologies</em>, use <em style="strong"><link xref="tech-atk">ATK</link></em>. Orca, Caribou OSK, GTK+ built-in accessibility tools.</p>
+  <p>GTK+, Clutter and WebKitGTK+ have <em style="strong">built-in support for
+  assistive technologies</em> with
+  <em style="strong"><link xref="tech-atk">ATK</link></em>. Use Orca, Caribou
+  OSK, and the GTK+ built-in accessibility tools, or build custom tools on top
+  of ATK.</p>
 
 </section>
 
+<!-- TODO Link to code examples.
 <section id="samples">
  <title>Code samples</title>
  <list>
@@ -58,31 +82,29 @@
   <item><p><link xref="samples">More…</link></p></item>
  </list>
 </section>
+-->
 
 <section id="realworld">
  <title>Real-world examples</title>
  
- <p>You can see lots of real-world applications of system integration in open source projects, like the examples given below.</p>
- <list>
+  <p>You can see lots of real-world applications of GNOME UI technologies in
+  open source projects, like the examples given below.</p>
+  <list>
   <item>
-   <p><em style="strong">GTK+</em> is .</p>
-   <p>(<link href="http://www.gtk.org/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
+    <p><em style="strong">Web</em> is the GNOME browser, which uses GTK+ and
+    WebKitGTK+, and is fully accessible.</p>
+    <p>( <link href="http://projects.gnome.org/epiphany/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
   </item>
   <item>
-   <p><em style="strong">Clutter</em> is .</p>
-   <p>(<link href="https://live.gnome.org/Clutter">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
+    <p><em style="strong">MonoDevelop</em> is a cross-platform IDE designed
+    for C# and other .NET languages. It works on Linux, Mac OS X and
+    Windows</p>
+    <p>( <link href="http://monodevelop.com/">Website</link> | <link href="http://monodevelop.com/Screenshots">Screenshots</link> | <link href="https://github.com/mono/monodevelop">Source code</link> )</p>
   </item>
   <item>
-   <p><em style="strong">Cairo</em> is .</p>
-   <p>(<link href="http://cairographics.org/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
-  <item>
-   <p><em style="strong">WebKitGTK+</em> is .</p>
-   <p>(<link href="http://webkitgtk.org/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
-  <item>
-   <p><em style="strong">ATK</em> is .</p>
-   <p>(<link href="https://live.gnome.org/Accessibility">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
+    <p><em style="strong">Iagno</em> is a Reversi game for GNOME which uses
+    Clutter for the animated game board.</p>
+    <p>( <link href="https://live.gnome.org/Iagno">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
   </item>
  </list>
 </section>
