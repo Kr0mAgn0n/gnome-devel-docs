@@ -1,0 +1,97 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-help-write">
+
+  <info>
+    <link type="next" xref="dev-help-build"/>
+    <revision version="0.1" date="2013-06-19" status="stub"/>
+
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Write some help</title>
+
+  <links type="series" style="floatend">
+    <title>Set up help</title>
+  </links>
+
+  <p>Write some <link href="http://www.projectmallard.org/">Mallard</link>
+  pages and add them to <file>help/C</file>.</p>
+  
+  <p>Most projects should have an index.page and some content pages, although
+  you may not need an <file>index.page</file> if you are dropping plugin help
+  into another project.</p>
+  
+  <example>
+    <listing>
+      <title><file>help/C/index.page</file></title>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide"
+      id="index">
+
+  <info>
+    <revision pkgversion="3.9" date="2013-06-19" status="stub"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  </info>
+
+  <title>
+    <media type="image" mime="image/png" its:translate="no" src="figures/icon.png" />
+    Application name
+  </title>
+
+  <section id="features" style="2column">
+    <title>Features</title>
+  </section>
+
+</page>
+]]></code>
+    </listing>
+  
+    <listing>
+      <title><file>help/C/introduction.page</file></title>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic"
+      id="introduction">
+
+  <info>
+<!--
+    <link type="guide" xref="index#features"/>
+    <link type="seealso" xref="anotherpageid"/>
+-->
+    <revision pkgversion="3.9" date="2013-06-19" status="stub"/>
+ 
+    <credit type="author">
+      <name>Your Name</name>
+      <email its:translate="no">mail@example.com</email>
+      <years>2013</years>
+    </credit>
+ 
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Welcome to _Application name_</desc>
+  </info>
+
+  <title>Introduction</title>
+
+  <p>This application is awesome!</p>
+
+</page>
+]]></code>
+    </listing>
+  </example>
+
+ 
+</page>
