@@ -131,6 +131,7 @@ demo_sources =	\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/muteswan.png			\
+	samples/paned.js			\
 	samples/paned.py			\
 	samples/paned.vala			\
 	samples/progressbar.c			\
