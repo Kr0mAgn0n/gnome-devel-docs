@@ -180,6 +180,7 @@ demo_sources =	\
 	samples/toolbar_builder.py		\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
+	samples/tooltip.js			\
 	samples/tooltip.py			\
 	samples/tooltip.vala			\
 	samples/treeview_advanced_liststore.py	\

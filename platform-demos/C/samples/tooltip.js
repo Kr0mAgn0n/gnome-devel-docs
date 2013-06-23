@@ -2,7 +2,7 @@
 
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;
-const Gio= imports.gi.Gio;
+const Gio = imports.gi.Gio;
 const Gtk = imports.gi.Gtk; 
 const Lang = imports.lang;
 
@@ -16,8 +16,8 @@ const TooltipExample = new Lang.Class ({
         // Connect 'activate' and 'startup' signals to the callback functions
         this.application.connect('activate', Lang.bind(this, this._onActivate));
         this.application.connect('startup', Lang.bind(this, this._onStartup));
-    },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    },
+
     // Callback function for 'activate' signal presents windows when active
     _onActivate: function() {
         this.window.present();
@@ -39,7 +39,6 @@ const TooltipExample = new Lang.Class ({
                                                    default_height: 200,
                                                    border_width: 10 });
 
-
         this.grid = new Gtk.Grid();
 
         this.toolbar = this._createToolbar();
@@ -53,11 +52,11 @@ const TooltipExample = new Lang.Class ({
         this._newAction = new Gio.SimpleAction({ name: "new" });
         this._newAction.connect("activate", Lang.bind(this, this._newCallback));
         this.window.add_action(this._newAction);
-        
+
         this._openAction = new Gio.SimpleAction({ name: "open" });
         this._openAction.connect("activate", Lang.bind(this, this._openCallback));
         this.window.add_action(this._openAction);
-        
+
         this._undoAction = new Gio.SimpleAction({ name: "undo" });
         this._undoAction.connect("activate", Lang.bind(this, this._undoCallback));
         this.window.add_action(this._undoAction);
@@ -65,7 +64,7 @@ const TooltipExample = new Lang.Class ({
         this._fullScreenAction = new Gio.SimpleAction({ name: "fullscreenToggle" });
         this._fullScreenAction.connect("activate", Lang.bind(this, this._fullScreenCallback));
         this.window.add_action(this._fullScreenAction);
-        
+
         this.window.show_all();
    },
 
@@ -112,21 +111,21 @@ const TooltipExample = new Lang.Class ({
 
         return this.toolbar;
     },
-    
+
     _newCallback: function(action, parameter) {
         print("You clicked \"New\".");
     },
-   
+
     _openCallback: function(action, parameter) {
         print("You clicked \"Open\".");
     },
-   
+
     // the callback function for the tooltip of the "undo" button
     _undoTooltipCallback: function(widget, x, y, keyboard_mode, tooltip) {
         // set the text for the tooltip
         tooltip.set_text("Undo your last action");
         // set an icon fot the tooltip
-        tooltip.set_icon_from_stock("gtk-undo", Gtk.IconSize.MENU);
+        tooltip.set_icon_from_stock(Gtk.STOCK_UNDO, Gtk.IconSize.MENU);
         // show the tooltip
         return true;
     },
