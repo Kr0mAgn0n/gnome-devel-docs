@@ -147,6 +147,7 @@ demo_sources =	\
 	samples/scale.py			\
 	samples/scale.vala			\
 	samples/scrolledwindow.c		\
+	samples/scrolledwindow.js		\
 	samples/scrolledwindow.py		\
 	samples/scrolledwindow.vala		\
 	samples/separator.py			\
