@@ -60,6 +60,7 @@ demo_sources =	\
 	samples/filechooserdialog.py		\
 	samples/filechooserdialog.ui		\
 	samples/filechooserdialog.vala		\
+	samples/fontchooserwidget.js		\
 	samples/fontchooserwidget.py		\
 	samples/fontchooserwidget.vala		\
 	samples/fruitbat.png			\

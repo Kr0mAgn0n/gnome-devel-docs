@@ -15,7 +15,6 @@ const FontChooserWidgetExample = new Lang.Class ({
         this.application.connect('startup', Lang.bind(this, this._onStartup));
     },
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     // Callback function for 'activate' signal presents windows when active
     _onActivate: function() {
         this.window.present();
