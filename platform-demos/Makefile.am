@@ -40,6 +40,7 @@ demo_sources =	\
 	samples/checkbutton.js			\
 	samples/checkbutton.py			\
 	samples/checkbutton.vala		\
+	samples/colorbutton.js			\
 	samples/colorbutton.py			\
 	samples/colorbutton.vala		\
 	samples/comboboxtext.js			\
