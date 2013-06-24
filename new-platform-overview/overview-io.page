@@ -3,7 +3,7 @@
       id="overview-io">
   <info>
     <link type="guide" xref="index" group="io"/>
-    <revision version="0.1" date="2012-02-19" status="stub"/>
+    <revision version="0.1" date="2012-02-24" status="review"/>
 
     <credit type="author copyright">
       <name>Phil Bull</name>
@@ -16,7 +16,7 @@
       <years>2013</years>
     </credit>
 
-    <desc>Access structured data storage, networking shares, and the desktop settings system.</desc>
+    <desc>Access structured data storage, networking shares, and files.</desc>
   </info>
 
 <title>Files &amp; data access</title>
@@ -30,19 +30,26 @@
  </item>
 </list>
 
-<p>Marketing blurb, info on what the platform offers.</p>
+<p>Seamlessly access local and remote files using the core GNOME IO libraries.
+Make your application responsive by using the extensive support for
+asynchronous IO operations. Allow users to find files easily be providing
+metadata to describe documents.</p>
 
 <section id="what">
  <title>What can you do?</title>
  
   <p>To <em style="strong">asynchronously read and write files and other
-  streams</em>, use <em style="strong" xref="tech-gio">GIO Files</em>.</p>
+  streams</em>, use <em style="strong" xref="tech-gio">GIO</em>. A high-level
+  VFS (virtual filesystem) API is provided, as well as utilities such as icons
+  and application launching</p>
  
-  <p>To <em style="strong">store and retrieve document metadata</em>, use
-  <em style="strong" xref="tech-tracker">Tracker</em>.</p>
+  <p>Use <em style="strong" xref="tech-tracker">Tracker</em> to
+  <em style="strong">store and retrieve document metadata</em>, as well as
+  <em style="strong">structured data</em> such as contacts.</p>
  
 </section>
 
+<!-- TODO Add link to code examples.
 <section id="samples">
  <title>Code samples</title>
  <list>
@@ -50,19 +57,23 @@
   <item><p><link xref="samples">More…</link></p></item>
  </list>
 </section>
+-->
 
 <section id="realworld">
- <title>Real-world examples</title>
+  <title>Real-world examples</title>
  
- <p>You can see lots of real-world applications of system integration in open source projects, like the examples given below.</p>
- <list>
-  <item>
-   <p><em style="strong">GIO Files</em> is .</p>
-   <p>(<link href="https://developer.gnome.org/gio/stable/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
+  <p>You can see lots of real-world applications of GNOME IO technologies in
+  open source projects, like the examples given below.</p>
+  <list>
+    <item>
+      <p><em style="strong">Documents</em> makes it easy to find your files
+      with <em style="strong">Tracker</em>.</p>
+      <p>( <link href="https://live.gnome.org/GnomeDocuments">Website</link> | <link href="xxx">Screenshot</link> | <link href="https://git.gnome.org/browse/gnome-documents">Source code</link> )</p>
   </item>
-  <item>
-   <p><em style="strong">Tracker</em> is .</p>
-   <p>(<link href="http://projects.gnome.org/tracker/">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
+    <item>
+      <p><em style="strong">Files</em> leverages <em style="strong">GIO</em> to
+      make it easy to manage both local and remote files.</p>
+      <p>( <link href="https://live.gnome.org/Nautilus">Website</link> | <link href="https://live.gnome.org/Nautilus/Screenshots">Screenshots</link> | <link href="https://git.gnome.org/browse/nautilus">Source code</link> )</p>
   </item>
  </list>
 </section>
