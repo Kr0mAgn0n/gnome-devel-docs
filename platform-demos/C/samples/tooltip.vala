@@ -11,7 +11,7 @@ class MyWindow : Gtk.ApplicationWindow {
 
 	/* Contstructor */
 	internal MyWindow (MyApplication app) {
-		Object (application: app, title: "Toolbar Example");
+		Object (application: app, title: "Toolbar with Tooltips Example");
 
 		this.set_default_size (400, 200);
 		var grid = new Gtk.Grid ();

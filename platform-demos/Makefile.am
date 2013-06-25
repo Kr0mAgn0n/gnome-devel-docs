@@ -453,6 +453,7 @@ HELP_FILES =				\
 	toolbar.vala.page		\
 	toolbar_builder.py.page		\
 	toolbar_builder.vala.page	\
+	tooltip.js.page			\
 	tooltip.py.page			\
 	tooltip.vala.page		\
 	treeview_advanced_liststore.py.page	\
