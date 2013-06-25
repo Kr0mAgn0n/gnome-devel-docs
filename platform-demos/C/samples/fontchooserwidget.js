@@ -30,7 +30,7 @@ const FontChooserWidgetExample = new Lang.Class ({
         // Create the application window
         this.window = new Gtk.ApplicationWindow  ({ application: this.application,
                                                     window_position: Gtk.WindowPosition.CENTER,
-                                                    title: "Font Chooser Example",
+                                                    title: "FontChooserWidget",
                                                     default_width: 200,
                                                     default_height: 200,
                                                     border_width: 10 });

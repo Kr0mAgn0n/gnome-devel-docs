@@ -339,6 +339,7 @@ HELP_FILES =				\
 	entry.vala.page			\
 	filechooserdialog.py.page	\
 	filechooserdialog.vala.page	\
+	fontchooserwidget.js.page	\
 	fontchooserwidget.py.page	\
 	fontchooserwidget.vala.page	\
 	getting-ready.page		\
