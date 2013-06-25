@@ -31,7 +31,7 @@ const ScrolledWindowExample = new Lang.Class ({
         // Create the application window
         this.window = new Gtk.ApplicationWindow  ({ application: this.application,
                                                     window_position: Gtk.WindowPosition.CENTER,
-                                                    title: "Scrolled Window Example",
+                                                    title: "ScrolledWindow Example",
                                                     default_width: 200,
                                                     default_height: 200,
                                                     border_width: 10 });

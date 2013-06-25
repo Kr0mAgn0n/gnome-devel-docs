@@ -419,6 +419,7 @@ HELP_FILES =				\
 	scale.py.page			\
 	scale.vala.page			\
 	scrolledwindow.c.page		\
+	scrolledwindow.js.page		\
 	scrolledwindow.py.page		\
 	scrolledwindow.vala.page	\
 	separator.py.page		\
