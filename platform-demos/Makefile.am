@@ -398,6 +398,7 @@ HELP_FILES =				\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	model-view-controller.py.page	\
+	paned.js.page			\
 	paned.py.page			\
 	paned.vala.page			\
 	photo-wall.c.page		\
