@@ -35,6 +35,7 @@ demo_sources =	\
 	samples/button.js			\
 	samples/button.py			\
 	samples/button.vala			\
+	samples/buttonbox.js			\
 	samples/buttonbox.py			\
 	samples/checkbutton.c			\
 	samples/checkbutton.js			\
@@ -310,6 +311,7 @@ HELP_FILES =				\
 	button.js.page			\
 	button.py.page			\
 	button.vala.page		\
+	buttonbox.js.page		\
 	buttonbox.py.page		\
 	c.page				\
 	checkbutton.c.page		\

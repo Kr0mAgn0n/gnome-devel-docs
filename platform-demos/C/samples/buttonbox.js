@@ -9,7 +9,7 @@ const ButtonBoxExample = new Lang.Class ({
 
     // Create the application itthis
     _init: function () {
-        this.application = new Gtk.Application({ application_id: 'org.example.jscrolledwindow' });
+        this.application = new Gtk.Application({ application_id: 'org.example.jsbuttonbox' });
 
         // Connect 'activate' and 'startup' signals to the callback functions
         this.application.connect('activate', Lang.bind(this, this._onActivate));
@@ -178,5 +178,3 @@ const ButtonBoxExample = new Lang.Class ({
 // Run the application
 let app = new ButtonBoxExample();
 app.application.run (ARGV);
-        
-
