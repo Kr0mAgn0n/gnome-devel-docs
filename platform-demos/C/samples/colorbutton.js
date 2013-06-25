@@ -33,7 +33,7 @@ const ColorbuttonExample = new Lang.Class ({
         // Create the application window
         this.window = new Gtk.ApplicationWindow ({ application: this.application,
                                                    window_position: Gtk.WindowPosition.CENTER,
-                                                   title: "Colorbutton Example",
+                                                   title: "ColorButton",
                                                    default_width: 150,
                                                    default_height: 50,
                                                    border_width: 10 });

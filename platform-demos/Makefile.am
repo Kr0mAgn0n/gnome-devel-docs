@@ -318,6 +318,7 @@ HELP_FILES =				\
 	checkbutton.js.page		\
 	checkbutton.py.page		\
 	checkbutton.vala.page		\
+	colorbutton.js.page		\
 	colorbutton.py.page		\
 	colorbutton.vala.page		\
 	comboboxtext.js.page		\
