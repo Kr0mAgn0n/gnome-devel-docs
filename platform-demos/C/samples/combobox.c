@@ -1,7 +1,5 @@
 #include <gtk/gtk.h>
 
-
-
 /* This is the callback function. It is a handler function which reacts to the
  * signal. In this case, if the row selected is not the first one of the
  * ComboBox, we write its value in the terminal for the user.
@@ -12,39 +10,23 @@ on_changed (GtkComboBox *widget,
 {
   GtkComboBox *combo_box = widget;
 
-  /* This will return the index of the currently active
-   * item within the ComboBox.
-   */
-  gint value = gtk_combo_box_get_active (combo_box);
+  if (gtk_combo_box_get_active (combo_box) != 0) {
+    gchar *distro = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
+    g_print ("You chose %s\n", distro);
+    g_free (distro);
+  }
 
-  /* Equate the index to the list of the choices you put up and
-   * print what happened to the user.
-   */
-  switch (value) {
-     case 1:
-       g_print ("You chose Fedora.\n");
-       break;
-     case 2:
-       g_print ("You chose Mint.\n");
-       break;
-     case 3:
-       g_print ("You chose Suse.\n");
-       break;
-     default:
-       /* Nothing else will happen in the terminal otherwise */
-       break;
-   }
 }
-
 
 
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
+  gint i;
+  GtkWidget *view;
   GtkWidget *window;
   GtkWidget *combo_box;
-  GtkWidget *view;
 
   /* Create a window with a title, border width, and a default size. Setting the
    * size to -1 means to use the "natural" default size.
@@ -55,21 +37,16 @@ activate (GtkApplication *app,
   gtk_window_set_default_size (GTK_WINDOW (window), 200, -1);
   gtk_container_set_border_width (GTK_CONTAINER (window), 10);
 
-  /* Create the combo box and append your string values to it. Note that the
-   * values in our combo box are to be this:
-   * @ Position 0 - "Select distribution"
-   * @ Position 1 - "Fedora"
-   * @ Position 2 - "Mint"
-   * @ Position 3 - "Suse"
-   * (For a more advanced approach, try putting these into a string array)
-   * Furthermore, we give the gtk_combo_box_text_append function a NULL id for
-   * the parameter as it is not needed.
-   */
+
+  /* Create the combo box and append your string values to it. */
   combo_box = gtk_combo_box_text_new ();
-  gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo_box), NULL, "Select distribution");
-  gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo_box), NULL, "Fedora");
-  gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo_box), NULL, "Mint");
-  gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo_box), NULL, "Suse");
+  const char *distros[] = {"Select distribution", "Fedora", "Mint", "Suse"};
+
+ 
+  /* G_N_ELEMENTS is a macro which determines the number of elements in an array.*/ 
+  for (i = 0; i < G_N_ELEMENTS (distros); i++){
+  	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo_box), distros[i]);
+  }
 
   /* Choose to set the first row as the active one by default, from the beginning */
   gtk_combo_box_set_active (GTK_COMBO_BOX (combo_box), 0);
@@ -87,7 +64,6 @@ activate (GtkApplication *app,
 
   gtk_widget_show_all (window);
 }
-
 
 
 int
