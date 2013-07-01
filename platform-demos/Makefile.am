@@ -45,6 +45,7 @@ demo_sources =	\
 	samples/colorbutton.py			\
 	samples/colorbutton.vala		\
 	samples/comboboxtext.js			\
+	samples/combobox.c
 	samples/combobox.js			\
 	samples/combobox.py			\
 	samples/combobox.vala			\
@@ -322,6 +323,7 @@ HELP_FILES =				\
 	colorbutton.py.page		\
 	colorbutton.vala.page		\
 	comboboxtext.js.page		\
+	combobox.c.page			\
 	combobox.js.page		\
 	combobox.py.page		\
 	combobox.vala.page		\
