@@ -33,7 +33,7 @@ const Application = new Lang.Class ({
         this.menu = new Gtk.Menu.new_from_model(this.menuModel);
 
         this.menu.show();
-        this._menuButton.set_menu(this.menu);
+        this._menuButton.set_menu_model (this.menuModel);
         this._menuButton.set_size_request(80, 35);
         this._menuButton.show();
 
@@ -41,11 +41,11 @@ const Application = new Lang.Class ({
     },
 
     _showNew: function() {
-    print("New Menu. It doesn't do anything. It is only a demonstration.");
+    print("You clicked \"New\"");
     },
 
     _showAbout: function() {
-        print("No AboutDialog here.  This is only a demonstration.");
+        print("You clicked \"About\"");
     },
 
     //create the menu items and connect the signals to the callback functions.
