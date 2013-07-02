@@ -47,8 +47,6 @@ fullscreen_callback (GSimpleAction *simple,
 }
 
 
-
-/* Our "main" function */
 static void
 activate (GtkApplication *app,
           gpointer        user_data)
