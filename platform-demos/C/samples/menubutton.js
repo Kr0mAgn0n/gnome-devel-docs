@@ -22,7 +22,7 @@ const Application = new Lang.Class ({
     _buildUI: function() {
         this._window = new Gtk.ApplicationWindow({ application: this.application,
                                                    window_position: Gtk.WindowPosition.CENTER,
-                                                   title: "Welcome to GNOME" });
+                                                   title: "MenuButton Example" });
         this._window.set_default_size(600, 400);
         this.grid = new Gtk.Grid();
         this._window.add(this.grid);
