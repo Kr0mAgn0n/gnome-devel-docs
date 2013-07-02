@@ -118,6 +118,7 @@ demo_sources =	\
 	samples/linkbutton.js			\
 	samples/linkbutton.py			\
 	samples/linkbutton.vala			\
+	samples/menubutton.c			\
 	samples/menubutton.js			\
 	samples/menubutton.py			\
 	samples/menubutton.vala			\
@@ -391,6 +392,7 @@ HELP_FILES =				\
 	menubar.c.page			\
 	menubar.py.page			\
 	menubar.vala.page		\
+	menubutton.c.page		\
 	menubutton.js.page		\
 	menubutton.py.page		\
 	menubutton.vala.page		\
