@@ -134,6 +134,7 @@ demo_sources =	\
 	samples/messagedialog.py		\
 	samples/messagedialog.vala		\
 	samples/muteswan.png			\
+	samples/paned.c				\
 	samples/paned.js			\
 	samples/paned.py			\
 	samples/paned.vala			\
@@ -403,6 +404,7 @@ HELP_FILES =				\
 	messagedialog.py.page		\
 	messagedialog.vala.page		\
 	model-view-controller.py.page	\
+	paned.c.page			\
 	paned.js.page			\
 	paned.py.page			\
 	paned.vala.page			\
