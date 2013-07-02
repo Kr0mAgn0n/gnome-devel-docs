@@ -189,6 +189,7 @@ demo_sources =	\
 	samples/toolbar_builder.py		\
 	samples/toolbar_builder.ui		\
 	samples/toolbar_builder.vala		\
+	samples/tooltip.c			\
 	samples/tooltip.js			\
 	samples/tooltip.py			\
 	samples/tooltip.vala			\
@@ -465,6 +466,7 @@ HELP_FILES =				\
 	toolbar.vala.page		\
 	toolbar_builder.py.page		\
 	toolbar_builder.vala.page	\
+	tooltip.c.page			\
 	tooltip.js.page			\
 	tooltip.py.page			\
 	tooltip.vala.page		\
