@@ -1,7 +1,6 @@
 from gi.repository import Gtk
 import sys
 
-# a class to create a window
 class MyWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.Window.__init__(self, application=app)
