@@ -24,7 +24,7 @@ class MyWindow(Gtk.ApplicationWindow):
         
 class MyApplication(Gtk.Application):
     def __init__(self):
-        Gtk.Application.__init__(self, application_id="org.gnome.ImageExample")
+        Gtk.Application.__init__(self, application_id="org.gnome.ImageExample3")
 
     def do_activate(self):
         win = MyWindow(self)

@@ -8,7 +8,6 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_title("Welcome to GNOME") 
         self.set_default_size(300, 300)
 
-# a class to create an image
 class MyImage(Gtk.Image):
     def __init__(self):
         Gtk.Image.__init__(self)
