@@ -4,7 +4,7 @@
 
   <info>
     <link type="guide" xref="index#coding-style"/>
-    
+
     <credit type="author copyright">
       <name>Federico Mena-Quintero</name>
       <email>federico@gnome.org</email>
@@ -104,7 +104,7 @@
 	<code>
 for (i = 0; i &lt; num_elements; i++) {
         foo[i] = foo[i] + 42;
-	 
+
         if (foo[i] &lt; 35) {
                 printf ("Foo!");
                 foo[i]--;
@@ -412,5 +412,53 @@ if (some_other_pointer)
 
   </section>
 
+  <section id="functions">
+    <title>Functions</title>
+
+    <p>
+      Functions should be declared by placing the returned value on a
+      separate line from the function name:
+    </p>
+
+    <code>
+void
+my_function (void)
+{
+}
+    </code>
+
+    <p>
+      The argument list must be broken into a new line for each
+      argument, with the argument names right aligned, taking into
+      account pointers:
+    </p>
+
+    <code>
+void
+my_function (some_type_t      type,
+             another_type_t  *a_pointer,
+             double_ptr_t   **double_pointer,
+             final_type_t     another_type)
+{
+}
+    </code>
+
+    <p>
+      If you use Emacs, you can use <code>M-x align</code> to do this
+      kind of alignment automatically.  Just put the point and mark
+      around the function's prototype, and invoke that command.
+    </p>
+
+    <p>
+      The alignment also holds when invoking a function without breaking the
+      line length limit:
+    </p>
+
+    <code>
+align_function_arguments (first_argument,
+                          second_argument,
+                          third_argument);
+    </code>
+  </section>
 
 </page>
