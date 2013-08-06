@@ -485,6 +485,64 @@ if(condition)
 if ( condition )
         do_my_things ( );
     </code>
+
+    <p>
+      When declaring a structure type use newlines to separate logical sections
+      of the structure:
+    </p>
+
+    <code>
+struct _GtkWrapBoxPrivate
+{
+        GtkOrientation        orientation;
+        GtkWrapAllocationMode mode;
+
+        GtkWrapBoxSpreading   horizontal_spreading;
+        GtkWrapBoxSpreading   vertical_spreading;
+
+        guint16               vertical_spacing;
+        guint16               horizontal_spacing;
+
+        guint16               minimum_line_children;
+        guint16               natural_line_children;
+
+        GList                *children;
+};
+    </code>
+
+    <p>
+      Do not eliminate whitespace and newlines just because something would
+      fit on a single line:
+    </p>
+
+    <code>
+/* invalid */
+if (condition) foo (); else bar ();
+    </code>
+
+    <p>
+      Do eliminate trailing whitespace on any line, preferably as a separate
+      patch or commit. Never use empty lines at the beginning or at the end of
+      a file.
+    </p>
+
+    <p>
+      This is a little Emacs function that you can use to clean up
+      lines with trailing whitespace:
+    </p>
+
+    <code>
+(defun clean-line-ends ()
+  (interactive)
+  (if (not buffer-read-only)
+      (save-excursion
+	(goto-char (point-min))
+	(let ((count 0))
+	  (while (re-search-forward "[ 	]+$" nil t)
+	    (setq count (+ count 1))
+	    (replace-match "" t t))
+	  (message "Cleaned %d lines" count)))))
+    </code>
   </section>
 
   <section id="switch">
