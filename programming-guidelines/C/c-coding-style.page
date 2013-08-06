@@ -35,6 +35,14 @@
     also be easier to review!
   </p>
 
+  <note>
+    <p>
+      This document is for C code.  For other languages, check the
+      <link xref="index">main page</link> of the Gnome Programming
+      Guidelines.
+    </p>
+  </note>
+
   <p>
     These guidelines are heavily inspired by GTK's CODING-STYLE
     document, the Linux Kernel's CodingStyle, and the GNU Coding
@@ -86,7 +94,7 @@
       in Gnome.
     </p>
 
-    <list>
+    <list type="ordered">
       <item>
 	<p>
 	  Linux Kernel style.  This is 8-space indentations, with
@@ -133,6 +141,7 @@ for (i = 0; i &lt; num_elements; i++)
       </item>
     </list>
 
+
     <p>
       Both styles have their pros and cons.  The most important things
       is to <em>be consistent</em> with the surrounding code.  For
@@ -153,5 +162,211 @@ for (i = 0; i &lt; num_elements; i++)
       a lot of arguing about the right indentation style.
     </p>
   </section>
+
+  <section id="tab-characters">
+    <title>Tab characters</title>
+
+    <p>
+      <em>Do not ever change the size of tabs in your editor</em>;
+      leave them as 8 spaces.  Changing the size of tabs means that
+      code that you didn't write yourself will be perpetually misaligned.
+    </p>
+
+    <p>
+      Instead, set the <em>indentation size</em> as appropriate for
+      the code you are editing.  You may even be able to tell your
+      editor to automatically convert all tabs to 8 spaces, so that
+      there is no ambiguity about the intended amount of space.
+    </p>
+  </section>
+
+  <section id="braces">
+    <title>Braces</title>
+
+    <p>
+      Curly braces should not be used for single statement blocks:
+    </p>
+
+<code>
+/* valid */
+if (condition)
+        single_statement ();
+else
+        another_single_statement (arg1);</code>
+
+	<p>
+	  The "no block for single statements" rule has only four
+	  exceptions:
+	</p>
+
+	<list type="ordered">
+	  <item>
+	    <p>
+	      If the single statement covers multiple lines, e.g. for functions with
+	      many arguments, and it is followed by else or else if:
+	    </p>
+
+<code>
+/* valid Linux kernel style */
+if (condition) {
+        a_single_statement_with_many_arguments (some_lengthy_argument,
+                                                another_lengthy_argument,
+                                                and_another_one,
+                                                plus_one);
+} else
+        another_single_statement (arg1, arg2);
+
+/* valid GNU style */
+if (condition)
+  {
+    a_single_statement_with_many_arguments (some_lengthy_argument,
+                                            another_lengthy_argument,
+                                            and_another_one,
+                                            plus_one);
+  }
+else
+  another_single_statement (arg1, arg2);</code>
+          </item>
+
+          <item>
+            <p>
+              If the condition is composed of many lines:
+            </p>
+
+<code>
+/* valid Linux kernel style */
+if (condition1 ||
+    (condition2 &amp;&amp; condition3) ||
+    condition4 ||
+    (condition5 &amp;&amp; (condition6 || condition7))) {
+        a_single_statement ();
+}
+
+/* valid GNU style */
+if (condition1 ||
+    (condition2 &amp;&amp; condition3) ||
+    condition4 ||
+    (condition5 &amp;&amp; (condition6 || condition7)))
+  {
+    a_single_statement ();
+  }</code>
+          </item>
+
+          <item>
+            <p>
+              Nested if's, in which case the block should be placed on the
+              outermost if:
+            </p>
+
+<code>
+/* valid Linux kernel style */
+if (condition) {
+        if (another_condition)
+                single_statement ();
+        else
+                another_single_statement ();
+}
+
+/* valid GNU style */
+if (condition)
+  {
+    if (another_condition)
+      single_statement ();
+    else
+      another_single_statement ();
+  }
+
+/* invalid */
+if (condition)
+        if (another_condition)
+                single_statement ();
+        else if (yet_another_condition)
+                another_single_statement ();</code>
+          </item>
+
+          <item>
+            <p>
+              In GNU style, if either side of an if-else statement has
+              braces, both sides should, to match up indentation:
+            </p>
+
+<code>
+/* valid GNU style */
+if (condition)
+  {
+    foo ();
+    bar ();
+  }
+else
+  {
+    baz ();
+  }
+
+/* invalid */
+if (condition)
+  {
+    foo ();
+    bar ();
+  }
+else
+  baz ();</code>
+          </item>
+        </list>
+
+        <p>
+          In general, new blocks should be placed on a new indentation level,
+          like this:
+        </p>
+
+        <code>
+int retval = 0;
+
+statement_1 ();
+statement_2 ();
+
+{
+        int var1 = 42;
+        gboolean res = FALSE;
+
+        res = statement_3 (var1);
+
+        retval = res ? -1 : 1;
+}</code>
+
+        <p>
+          While curly braces for function definitions should rest on a
+          new line they should not add an indentation level:
+        </p>
+
+        <code>
+/* valid Linux kernel style*/
+static void
+my_function (int argument)
+{
+        do_my_things ();
+}
+
+/* valid GNU style*/
+static void
+my_function (int argument)
+{
+  do_my_things ();
+}
+
+/* invalid */
+static void
+my_function (int argument) {
+        do_my_things ();
+}
+
+/* invalid */
+static void
+my_function (int argument)
+  {
+    do_my_things ();
+  }
+        </code>
+  </section>
+
 
 </page>
