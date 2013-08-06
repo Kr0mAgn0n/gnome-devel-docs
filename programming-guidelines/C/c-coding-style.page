@@ -1,0 +1,157 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="c-coding-style">
+
+  <info>
+    <link type="guide" xref="index#coding-style"/>
+    
+    <credit type="author copyright">
+      <name>Federico Mena-Quintero</name>
+      <email>federico@gnome.org</email>
+      <years>2013</years>
+    </credit>
+    <credit type="author copyright">
+      <name>The GTK+ Team</name>
+    </credit>
+
+    <desc>Our guidelines for C code in Gnome</desc>
+  </info>
+
+  <title>C Coding Style</title>
+
+  <p>
+    This document presents the preferred coding style for C programs
+    in Gnome.  While coding style is very much a matter of taste, in
+    Gnome we favor a coding style that promotes consistency,
+    readability, and maintainability.
+  </p>
+
+  <p>
+    We present examples of good coding style as well as examples of
+    bad style that is not acceptable in Gnome.  Please try to submit
+    patches that conform to Gnome's coding style; this indicates that
+    you have done your homework to respect the project's goal of
+    long-term maintainability.  Patches with Gnome's coding style will
+    also be easier to review!
+  </p>
+
+  <p>
+    These guidelines are heavily inspired by GTK's CODING-STYLE
+    document, the Linux Kernel's CodingStyle, and the GNU Coding
+    Standards.  These are slight variations of each other, with
+    particular modifications for each project's particular needs and
+    culture, and Gnome's version is no different.
+  </p>
+
+  <section id="most-important-rule">
+    <title>The single most important rule</title>
+
+    <p>
+      The single most important rule when writing code is this:
+      <em>check the surrounding code and try to imitate it</em>.
+    </p>
+
+    <p>
+      As a maintainer it is dismaying to receive a patch that is
+      obviously in a different coding style to the surrounding code.
+      This is disrespectful, like someone tromping into a spotlessly-clean
+      house with muddy shoes.
+    </p>
+
+    <p>
+      So, whatever this document recommends, if there is already
+      written code and you are patching it, keep its current style
+      consistent even if it is not your favorite style.
+    </p>
+  </section>
+
+  <section id="line-width">
+    <title>Line Width</title>
+
+    <p>
+      Try to use lines of code between 80 and 120 characters long.
+      This amount of text is easy to fit in most monitors with a
+      decent font size.  Lines longer than that become hard to read,
+      and they mean that you should probably restructure your code.
+      If you have too many levels of indentation, it means that you
+      should fix your code anyway.
+    </p>
+  </section>
+
+  <section id="indentation">
+    <title>Indentation</title>
+
+    <p>
+      In general there are two preferred indentation styles for code
+      in Gnome.
+    </p>
+
+    <list>
+      <item>
+	<p>
+	  Linux Kernel style.  This is 8-space indentations, with
+	  K&amp;R brace placement:
+	</p>
+
+	<code>
+for (i = 0; i &lt; num_elements; i++) {
+        foo[i] = foo[i] + 42;
+	 
+        if (foo[i] &lt; 35) {
+                printf ("Foo!");
+                foo[i]--;
+        } else {
+                printf ("Bar!");
+                foo[i]++;
+        }
+}</code>
+      </item>
+
+      <item>
+	<p>
+	  GNU style.  Each new level is indented by 2 spaces,
+	  braces go on a line by themselves, and they are indented as
+	  well.
+	</p>
+
+	<code>
+for (i = 0; i &lt; num_elements; i++)
+  {
+    foo[i] = foo[i] + 42;
+
+    if (foo[i] &lt; 35)
+      {
+        printf ("Foo!");
+        foo[i]--;
+      }
+    else
+      {
+        printf ("Bar!");
+        foo[i]++;
+      }
+  }</code>
+      </item>
+    </list>
+
+    <p>
+      Both styles have their pros and cons.  The most important things
+      is to <em>be consistent</em> with the surrounding code.  For
+      example, the GTK+ library, which is Gnome's widget toolkit, is
+      written with the GNU style.  Nautilus, Gnome's file manager, is
+      written in Linux kernel style.  Both styles are perfectly
+      readable and consistent when you get used to them.
+    </p>
+
+    <p>
+      Your first feeling when having to study or work on a piece of
+      code that doesn't have your preferred indentation style may be,
+      how shall we put it, gut-wrenching.  You should resist your
+      inclination to reindent everything, or to use an inconsistent
+      style for your patch.  Remember the first rule:  <em>be
+      consistent</em> and respectful of that code's customs, and your
+      patches will have a much higher chance of being accepted without
+      a lot of arguing about the right indentation style.
+    </p>
+  </section>
+
+</page>
