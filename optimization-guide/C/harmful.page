@@ -1,68 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<chapter>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="harmful">
+    <info>
+     <link type="guide" xref="index#harm"/>
+    </info>
     <title>Disk Seeks Considered Harmful</title>
-
-    <para>
+    <p>
         Disk seeks are one of the most expensive operations you can possibly perform. You might not know this from looking at how many of them we perform, but trust me, they are. Consequently, please refrain from the following suboptimal behavior:
-    </para>
-    <itemizedlist>
-        <listitem>
-            <para>
+    </p>
+    <list type="unordered">
+        <item>
+            <p>
                 Placing lots of small files all over the disk.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Opening, stating, and reading lots of files all over the disk
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Doing the above on files that are laid out at different times, so as to ensure that they are fragmented and cause even more seeking.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Doing the above on files that are in different directories, so as to ensure that they are in different cylinder groups and and cause even more seeking.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Repeatedly doing the above when it only needs to be done once.
-            </para>
-        </listitem>
-    </itemizedlist>
-    <para>
+            </p>
+        </item>
+    </list>
+    <p>
         Ways in which you can optimize your code to be seek-friendly:
-    </para>
-    <itemizedlist>
-        <listitem>
-            <para>
+    </p>
+    <list type="unordered">
+        <item>
+            <p>
                 Consolidate data into a single file.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Keep data together in the same directory.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Cache data so as to not need to reread constantly.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Share data so as not to have to reread it from disk when each application loads.
-            </para>
-        </listitem>
-        <listitem>
-            <para>
+            </p>
+        </item>
+        <item>
+            <p>
                 Consider caching all of the data in a single binary file that is properly aligned and can be mmaped.
-            </para>
-        </listitem>
-    </itemizedlist>
-    <para>
+            </p>
+        </item>
+    </list>
+    <p>
         The trouble with disk seeks are compounded for reads, which is unfortunately what we are doing.  Remember, reads are generally synchronous while writes are asynchronous.  This only compounds the problem, serializing each read, and contributing to program latency.
-    </para>
-</chapter>
+    </p>
+</page>        

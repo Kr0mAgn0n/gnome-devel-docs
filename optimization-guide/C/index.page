@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
- "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
-<book id="index">
-    <title>Optimizing GNOME Software</title>
-    <bookinfo>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="task"
+      id="index">
+  <info>
       <publisher role="maintainer">
         <publishername>GNOME Documentation Project</publishername>
       </publisher>
@@ -24,7 +22,7 @@
         <firstname>Robert</firstname>
         <surname>Love</surname>
       </author>
-      
+
       <legalnotice>
         <para>
             Permission is granted to copy, distribute and/or modify this
@@ -46,7 +44,7 @@
             or initial caps.
         </para>
       </legalnotice>
-      
+
       <revhistory>
           <revision>
               <revnumber>0.1</revnumber>
@@ -65,11 +63,19 @@
               This section contains guides and tutorials for optimizing your software.
           </para>
       </abstract>
+  </info>
+  <title>Optimization Guide</title>
+  <section id="intro" style="2column">
+     <title>Introduction</title>
+     <p>This is a brief introduction to optimization, both the hows and the whys. Details of individual tools and techniques are left for later articles, but a collection of hints and tricks is provided.</p>
+  </section>
+  <section id="massif" style="2column">
+     <title>Massif</title>
+     <p> This article describes how to use the <application>Massif</application> heap profiler with GNOME applications. We describe how to invoke, interpret, and act on the output of <application>Massif</application>. The <application>Swell Foop</application> game is used as an example.</p>
+  </section>
+  <section id="harm" style="2column">
+     <title>Harmfulness</title>
+     <p>Disk seeks are one of the most expensive operations you can possibly perform. You might not know this from looking at how many of them we perform, but trust me, they are. Consequently, please refrain from the following suboptimal behavior:</p>
+  </section>
 
-    </bookinfo>
-    
-    <include href="optimization-intro.xml" xmlns="http://www.w3.org/2001/XInclude" />
-    <include href="optimization-massif.xml" xmlns="http://www.w3.org/2001/XInclude" />
-    <include href="optimization-harmful.xml" xmlns="http://www.w3.org/2001/XInclude" />
-    
-</book>
+</page>
