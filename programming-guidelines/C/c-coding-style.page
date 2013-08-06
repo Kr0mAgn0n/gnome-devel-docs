@@ -487,6 +487,114 @@ if ( condition )
     </code>
   </section>
 
+  <section id="switch">
+    <title>The switch statement</title>
+
+    <p>
+      A <code>switch ()</code> should open a block on a new
+      indentation level, and each <code>case</code> should start on
+      the same indentation level as the curly braces, with the case
+      block on a new indentation level:
+    </p>
+
+    <code>
+/* valid Linux kernel style */
+switch (condition) {
+case FOO:
+        do_foo ();
+        break;
+
+case BAR:
+        do_bar ();
+        break;
+}
+
+/* valid GNU style */
+switch (condition)
+  {
+  case FOO:
+    do_foo ();
+    break;
+
+  case BAR:
+    do_bar ();
+    break;
+  }
+
+/* invalid */
+switch (condition) {
+  case FOO: do_foo (); break;
+  case BAR: do_bar (); break;
+}
+
+/* invalid */
+switch (condition)
+  {
+  case FOO: do_foo ();
+    break;
+  case BAR: do_bar ();
+    break;
+  }
+
+/* invalid */
+switch (condition)
+  {
+    case FOO:
+    do_foo ();
+    break;
+    case BAR:
+    do_bar ();
+    break;
+  }
+    </code>
+
+    <p>
+      It is preferable, though not mandatory, to separate the various
+      cases with a newline:
+    </p>
+
+    <code>
+switch (condition) {
+case FOO:
+        do_foo ();
+        break;
+
+case BAR:
+        do_bar ();
+        break;
+
+default:
+        do_default ();
+}
+    </code>
+
+    <p>
+      The <code>break</code> statement for the default: case is not
+      mandatory.
+    </p>
+
+    <p>
+      If a <code>case</code> block needs to declare new variables, the same rules as the
+      inner blocks apply (see above); the <code>break</code> statement should be placed
+      outside of the inner block:
+    </p>
+
+    <code>
+/* valid GNU style */
+switch (condition)
+  {
+  case FOO:
+    {
+      int foo;
+
+      foo = do_foo ();
+    }
+    break;
+
+  ...
+  }
+    </code>
+  </section>
 
 
 </page>
