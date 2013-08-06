@@ -368,5 +368,49 @@ my_function (int argument)
         </code>
   </section>
 
+  <section id="conditions">
+    <title>Conditions</title>
+
+    <p>
+      Do not check boolean values for equality.  The rationale is that
+      a "true" value may not be necessarily equal to whatever the
+      <code>TRUE</code> macro uses.  For example:
+    </p>
+
+    <code>
+/* invalid */
+if (condition == TRUE)
+        do_foo ();
+
+/* valid */
+if (another_condition)
+        do_bar ();</code>
+
+        <p>
+          Even if C handles NULL equality like a boolean, be explicit.
+          This makes it easier to port your C code to something like
+          C#, where testing against null explicitly is important:
+        </p>
+
+        <code>
+/* valid */
+if (some_pointer == NULL)
+        do_blah ();
+
+/* valid */
+if (something != NULL)
+        do_foo ();
+
+/* invalid */
+if (some_other_pointer)
+        do_blurp ();</code>
+
+        <!-- FIXME: gtk+/docs/CODING-STYLE mentions where to put
+             logical operators in conditiosn split over multiple
+             lines.  I (Federico) disagree with this, for a good
+             reason. -->
+
+  </section>
+
 
 </page>
