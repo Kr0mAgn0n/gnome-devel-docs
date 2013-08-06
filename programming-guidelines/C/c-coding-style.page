@@ -461,4 +461,32 @@ align_function_arguments (first_argument,
     </code>
   </section>
 
+  <section id="whitespace">
+    <title>Whitespace</title>
+
+    <p>
+      Always put a space before an opening parenthesis but never after:
+    </p>
+
+    <code>
+/* valid */
+if (condition)
+        do_my_things ();
+
+/* valid */
+switch (condition) {
+}
+
+/* invalid */
+if(condition)
+        do_my_things();
+
+/* invalid */
+if ( condition )
+        do_my_things ( );
+    </code>
+  </section>
+
+
+
 </page>
