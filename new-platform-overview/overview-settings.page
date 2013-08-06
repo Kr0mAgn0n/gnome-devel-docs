@@ -3,44 +3,50 @@
       id="overview-settings">
   <info>
     <link type="guide" xref="index" group="settings"/>
-    <revision version="0.1" date="2012-02-19" status="stub"/>
+    <revision version="0.1" date="2013-08-06" status="review"/>
 
     <credit type="author copyright">
-      <name>Phil Bull</name>
-      <email>philbull@gmail.com</email>
-      <years>2012</years>
+      <name>David King</name>
+      <email>davidk@gnome.org</email>
+      <years>2013</years>
     </credit>
 
-    <desc>Standard user interface elements, rendering, animation, and document display.</desc>
+    <desc>Flexible user configuration system.</desc>
   </info>
 
 <title>Settings management</title>
 
 <list>
- <item>
-  <p><em style="strong">Strong selling point #1</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #2</em></p>
- </item>
- <item>
-  <p><em style="strong">Strong selling point #3</em></p>
- </item>
+  <item>
+    <p><em style="strong">High-level access for application settings</em></p>
+  </item>
+  <item>
+    <p><em style="strong">Easily bind settings to UI elements</em></p>
+  </item>
+  <item>
+    <p><em style="strong">Flexible overrides for packagers and system
+    administrators</em></p>
+  </item>
 </list>
 
-<p>Marketing blurb, info on what the platform offers.</p>
-
-<media type="image" mime="image/png" src="test_comm1.png" width="65%">
- <p>IMAGE</p>
-</media>
+<p>Store user settings and make your application respond to them automatically
+with GSettings. Easily override settings defaults as a system administrator.
+Store a wide variety of data, such as integers and arrays of strings, with
+ease.</p>
 
 <section id="what">
- <title>What can you do?</title>
+  <title>What can you do?</title>
  
- <p>For <em style="strong">action</em>, use <em style="strong">technology</em>.</p>
+  <p>Use the <em style="strong" xref="tech-gsettings">GSettings</em> API of
+  GIO to read and write <em style="strong">application settings</em>. GSettings
+  <em style="strong">transparently uses the platform configuration
+  database</em> so that platform-specific configuration tools can be
+  used. Make <em style="strong">UI controls update according to settings</em>
+  with a single function.</p>
  
 </section>
 
+<!-- TODO: Write code sample.
 <section id="samples">
  <title>Code samples</title>
  <list>
@@ -48,16 +54,18 @@
   <item><p><link xref="samples">More…</link></p></item>
  </list>
 </section>
+-->
 
 <section id="realworld">
- <title>Real-world examples</title>
+  <title>Real-world examples</title>
  
- <p>You can see lots of real-world applications of system integration in open source projects, like the examples given below.</p>
- <list>
-  <item>
-   <p><em style="strong">XXX</em> is .</p>
-   <p>(<link href="xxx">Website</link> | <link href="xxx">Screenshot</link> | <link href="xxx">Source code</link> )</p>
-  </item>
- </list>
+  <p>Nearly all GNOME applications use GSettings.</p>
+  <list>
+    <item>
+      <p><em style="strong">Dconf editor</em> is the GUI tool for managing
+      preferences stored in the dconf database with GSettings.</p>
+      <p>( <link href="https://developer.gnome.org/dconf/unstable/dconf-editor.html">Website</link> | <link href="https://git.gnome.org/browse/dconf/tree/editor">Source code</link> )</p>
+    </item>
+  </list>
 </section>
 </page>
