@@ -654,5 +654,361 @@ switch (condition)
     </code>
   </section>
 
+  <section id="header-files">
+    <title>Header files</title>
+
+    <p>
+      The only major rule for headers is that the function definitions
+      should be vertically aligned in three columns:
+    </p>
+
+    <code>
+return value          function_name           (type   argument,
+                                               type   argument,
+                                               type   argument);
+    </code>
+
+    <p>
+      The maximum width of each column is given by the longest element
+      in the column:
+    </p>
+
+    <code>
+void         gtk_type_set_property (GtkType      *type,
+                                    const gchar  *value,
+                                    GError      **error);
+const gchar *gtk_type_get_property (GtkType      *type);
+    </code>
+
+    <p>
+      It is also possible to align the columns to the next tab:
+    </p>
+
+    <code>
+void          gtk_type_set_prop           (GtkType *type,
+                                           gfloat   value);
+gfloat        gtk_type_get_prop           (GtkType *type);
+gint          gtk_type_update_foobar      (GtkType *type);
+    </code>
+
+    <p>
+      As before, you can use <code>M-x align</code> in Emacs to do
+      this automatically.
+    </p>
+
+    <p>
+      If you are creating a public library, try to export a single
+      public header file that in turn includes all the smaller header
+      files into it.  This is so that public headers are never
+      included directly; rather a single include is used in
+      applications.  For example, GTK+ uses the following in its
+      header files that should not be included directly by
+      applications:
+    </p>
+
+    <code>
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
+    </code>
+
+    <p>
+      For libraries, all headers should have inclusion guards (for
+      internal usage) and C++ guards.  These provide the <code>extern
+      "C"</code> magic that C++ requires to include plain C headers:
+    </p>
+
+    <code>
+#ifndef __MYLIB_FOO_H__
+#define __MYLIB_FOO_H__
+
+#include <gtk/gtk.h>
+
+G_BEGIN_DECLS
+
+...
+
+G_END_DECLS
+
+#endif /* __MYLIB_FOO_H__ */
+    </code>
+  </section>
+
+  <section id="gobject">
+    <title>GObject classes</title>
+
+    <p>
+      GObject class definitions and implementations require some
+      additional coding style notices.
+    </p>
+
+    <p>
+      Typedef declarations should be placed at the beginning of the file:
+    </p>
+
+    <code>
+typedef struct _GtkFoo          GtkFoo;
+typedef struct _GtkFooClass     GtkFooClass;
+typedef struct _GtkFooPrivate   GtkFooPrivate;
+    </code>
+
+    <p>
+      This includes enumeration types:
+    </p>
+
+    <code>
+typedef enum
+{
+  GTK_SIZE_REQUEST_WIDTH_FOR_HEIGHT,
+  GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH
+} GtkSizeRequestMode;
+    </code>
+
+    <p>
+      And callback types:
+    </p>
+
+    <code>
+typedef void (* GtkCallback) (GtkWidget *widget,
+                              gpointer   user_data);
+    </code>
+
+    <p>
+      Instance structures should only contain the parent type, and optionally a
+      pointer to a private data structure, and they should be annotated as
+      "private" using the gtk-doc trigraph:
+    </p>
+
+    <code>
+struct _GtkFoo
+{
+  /*&lt; private &gt;*/
+  GtkWidget parent_instance;
+
+  GtkFooPrivate *priv;
+};
+    </code>
+
+    <p>
+      The private data pointer is optional and should be omitted in newly
+      written classes.
+    </p>
+
+    <p>
+      Always use the G_DEFINE_TYPE(), G_DEFINE_TYPE_WITH_PRIVATE(),
+      and G_DEFINE_TYPE_WITH_CODE() macros, or their abstract variants
+      G_DEFINE_ABSTRACT_TYPE(), G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE(),
+      and G_DEFINE_ABSTRACT_TYPE_WITH_CODE(); also, use the similar
+      macros for defining interfaces and boxed types.
+    </p>
+
+    <p>
+      All the properties should be stored inside the private data
+      structure, which is defined inside the source file - or, if
+      needed, inside a private header file; the private header
+      filename must end with "private.h" and must not be installed.
+    </p>
+
+    <p>
+      The private data structure should only be accessed internally
+      either using the pointer inside the instance structure, if one
+      is available, or the generated instance private data getter
+      function for your type. You should never use the
+      G_TYPE_INSTANCE_GET_PRIVATE() macro or the
+      g_type_instance_get_private() function.
+    </p>
+
+    <p>
+      Interface types should always have the dummy typedef for cast
+      purposes:
+    </p>
+
+    <code>
+typedef struct _GtkFoo              GtkFoo;
+    </code>
+
+    <p>
+      The interface structure should have "Interface" postfixed to the
+      dummy typedef:
+    </p>
+
+    <code>
+typedef struct _GtkFooInterface         GtkFooInterface;
+    </code>
+
+    <p>
+      Interfaces must have the following macros:
+    </p>
+
+    <table>
+      <thead>
+	<tr>
+	  <td><p>Macro</p></td>
+	  <td><p>Expands to</p></td>
+	</tr>
+      </thead>
+      <tbody>
+	<tr>
+	  <td><p>GTK_TYPE_&lt;iface_name&gt;</p></td>
+	  <td><p>&lt;iface_name&gt;_get_type</p></td>
+	</tr>
+	<tr>
+	  <td><p>GTK_&lt;iface_name&gt;</p></td>
+	  <td><p>G_TYPE_CHECK_INSTANCE_CAST</p></td>
+	</tr>
+	<tr>
+	  <td><p>GTK_IS_&lt;iface_name&gt;</p></td>
+          <td><p>G_TYPE_CHECK_INSTANCE_TYPE</p></td>
+	</tr>
+	<tr>
+	  <td><p>GTK_&lt;iface_name&gt;_GET_IFACE</p></td>
+          <td><p>G_TYPE_INSTANCE_GET_INTERFACE</p></td>
+	</tr>
+      </tbody>
+    </table>
+
+  </section>
+
+  <section id="memory-allocation">
+    <title>Memory allocation</title>
+
+    <p>
+      When dynamically allocating data on the heap either use g_new()
+      or, if allocating multiple small data structures, g_slice_new().
+    </p>
+
+    <p>
+      Public structure types should always be returned after being
+      zero-ed, either explicitly for each member, or by using g_new0()
+      or g_slice_new0().
+    </p>
+  </section>
+
+  <section id="macros">
+    <title>Macros</title>
+
+    <p>
+      Try to avoid private macros unless strictly necessary. Remember
+      to #undef them at the end of a block or a series of functions
+      needing them.
+    </p>
+
+    <p>
+      Inline functions are usually preferable to private macros.
+    </p>
+
+    <p>
+      Public macros should not be used unless they evaluate to a
+      constant.
+    </p>
+  </section>
+
+  <section id="public-api">
+    <title>Public API</title>
+
+    <p>
+      Avoid exporting variables as public API, since this is
+      cumbersome on some platforms. It is always preferable to add
+      getters and setters instead.  Also, beware global variables in
+      general.
+    </p>
+
+    <!--FIXME; All public functions must be listed in the gtk.symbols file. -->
+  </section>
+
+  <section id="private-api">
+    <title>Private API</title>
+
+    <p>
+      Non-exported functions that are needed in more than one source file
+      should be prefixed with an underscore ("_"), and declared in a
+      private header file.  For example, <code>_mylib_internal_foo()</code>.
+    </p>
+
+    <p>
+      Underscore-prefixed functions are never exported.
+    </p>
+
+    <p>
+      Non-exported functions that are only needed in one source file
+      should be declared static.
+    </p>
+  </section>
+
+  <section id="documentation">
+    <title>Documentation</title>
+
+    <p>
+      The preferred documentation system for GNOME libraries is <link
+      xref="http://www.gtk.org/gtk-doc/">gtk-doc</link>, which
+      extracts inline comments from the code to let you build a <link
+      xref="http://docbook.org/">DocBook</link> document.  A lot of
+      GNOME's infrastructure is built to handle with documentation
+      written using gtk-doc.
+    </p>
+
+    <p>
+      All public APIs must have gtk-doc comments. For functions, these should
+      be placed in the source file, directly above the function.
+    </p>
+
+    <code>
+/* valid */
+/**
+ * gtk_get_flow:
+ * @widget: a #GtkWidget
+ *
+ * Gets the flow of a widget.
+ *
+ * Note that flows may be laminar or turbulent...
+ *
+ * Returns: (transfer none): the flow of @widget
+ */
+GtkFlow *
+gtk_get_flow (GtkWidget *widget)
+{
+
+  ...
+
+}
+    </code>
+
+    <p>
+      Documentation comments for macros, function types, class
+      structs, etc. should be placed next to the definitions, typically
+      in header files.
+    </p>
+
+    <p>
+      Section introductions should be placed in the source file they describe,
+      after the license header:
+    </p>
+
+    <code>
+/* valid */
+/**
+ * SECTION:gtksizerequest
+ * @Short_Description: Height-for-width geometry management
+ * @Title: GtkSizeRequest
+ *
+ * The GtkSizeRequest interface is GTK+'s height-for-width (and
+ * width-for-height) geometry management system.
+ * ...
+ */
+    </code>
+
+    <p>
+      Keep in mind that in order to include a function, macro,
+      function type, or struct type, it needs to be listed in your
+      documentation's modulename-sections.txt file.
+    </p>
+
+    <p>
+      To properly document a new class, it needs to be given its own
+      section in modulename-sections.txt, needs to be included in your
+      toplevel modulename-docs.sgml, and the get_type() function for
+      your class needs to listed in your modulename.types.
+    </p>
+  </section>
 
 </page>
