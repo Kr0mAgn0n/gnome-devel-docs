@@ -2,7 +2,7 @@
 
 HELP_ID = gnome-devel-demos
 
-HELP_LINGUAS = ca de el es fr gl
+HELP_LINGUAS = ca de el es fr gl pt_BR
 
 demo_sources =	\
 	audio-player/audio-player.vala		\
