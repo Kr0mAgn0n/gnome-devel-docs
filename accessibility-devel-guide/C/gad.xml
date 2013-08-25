@@ -485,8 +485,9 @@ Test the role of the <type>AtkObject</type> by calling <function>atk_object_get_
 Using the <constant>column_inserted</constant> signal as an example:
 </para>
 <programlisting>
-table_column_inserted_id = g_signal_connect_closure_by_id(my_atk_obj, 
-g_signal_lookup("column_inserted", G_OBJECT_TYPE(my_atk_obj)),0,g_cclosure_new(G_CALLBACK (_my_table_column_inserted_func),NULL,NULL), FALSE);
+table_column_inserted_id = g_signal_connect_closure_by_id (my_atk_obj, 
+g_signal_lookup("column_inserted", G_OBJECT_TYPE(my_atk_obj)), 0, 
+g_cclosure_new(G_CALLBACK (_my_table_column_inserted_func), NULL, NULL), FALSE);
 </programlisting>
 <para>This will cause <function>_my_table_column_inserted_func()</function> to be called whenever a column_inserted signal is emitted on the <type>AtkObject</type> <varname>my_atk_object</varname>.
 </para>
@@ -494,7 +495,8 @@ g_signal_lookup("column_inserted", G_OBJECT_TYPE(my_atk_obj)),0,g_cclosure_new(G
 Connecting to a signal is slightly different if the signal supports detail. The <constant>children_changed</constant> signal supports the <parameter>add</parameter> detail. To connect to a signal when the <parameter>add</parameter> detail is also specified, this technique is used:
 </para>
 <programlisting>
-child_added_id = g_signal_connect_closure (my_atk_obj,"children_changed::add",   g_cclosure_new (G_CALLBACK(_my_children_changed_func),NULL,NULL),FALSE); 
+child_added_id = g_signal_connect_closure (my_atk_obj,"children_changed::add",
+g_cclosure_new (G_CALLBACK(_my_children_changed_func), NULL, NULL), FALSE);
 </programlisting>
 <para>
 This will cause <function>_my_children_changed_func()</function> to be called whenever a <constant>children_changed</constant> signal with the <parameter>add</parameter> detail is emitted on the <type>AtkObject</type> <varname>my_atk_obj</varname>.
