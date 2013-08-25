@@ -529,7 +529,8 @@ default_registry = atk_get_default_registry();
 <listitem><para>Register the ATK object in the <function>gtk_module_init()</function> function of this module by making this function call:
 </para>
 <programlisting>
-atk_registry_set_factory_type (default_registry, GTK_TYPE_MYTYPE, MYATKIMP_TYPE_MYTYPE_FACTORY); 
+atk_registry_set_factory_type (default_registry, GTK_TYPE_MYTYPE, 
+MYATKIMP_TYPE_MYTYPE_FACTORY); 
 </programlisting>
 </listitem>
 </orderedlist>
