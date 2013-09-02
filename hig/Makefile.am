@@ -1,7 +1,7 @@
 @YELP_HELP_RULES@
 
 HELP_ID = hig-book
-HELP_LINGUAS = de el es fr pt_BR sl zh_CN zh_HK zh_TW
+HELP_LINGUAS = de el es fr gl pt_BR sl zh_CN zh_HK zh_TW
 HELP_FILES =			\
 	hig-ch-bibliography.xml	\
 	hig-ch-checks.xml	\
