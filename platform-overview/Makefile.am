@@ -64,7 +64,6 @@ HELP_FILES = \
 	tour-summary.page
 
 HELP_MEDIA = \
-	media/equation.png \
 	media/glade-new-window.png \
 	media/glade-result.png \
 	media/glade-set-values.png \
