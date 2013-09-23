@@ -63,6 +63,9 @@ HELP_FILES = \
 	tour.page \
 	tour-summary.page
 
+HELP_EXTRA = \
+	tour-summary.js
+
 HELP_MEDIA = \
 	media/glade-new-window.png \
 	media/glade-result.png \
