@@ -192,7 +192,7 @@ def play_sound(self, frequency):
   <p>Now, we'll write the <code>pipeline_stop</code> function which is called by <code>GObject.timeout_add</code>. Insert the following code <em>above</em> the <code>play_sound</code> function:</p>
   <code mime="test/x-python"><![CDATA[
 def pipeline_stop(self, pipeline):
-	pipeline.set_state(Gst.State.PAUSED)
+	pipeline.set_state(Gst.State.NULL)
 	return False
 ]]></code>
   <p>You need to define the <code>LENGTH</code> constant inside the class, so add this code at the beginning of the
@@ -200,7 +200,7 @@ main class:</p>
   <code mime="test/x-python"><![CDATA[
 LENGTH = 500
 ]]></code>
-  <p>The call to <code>pipeline.set_state</code> pauses the playback of the pipeline.</p>
+  <p>The call to <code>pipeline.set_state</code> stops the playback of the pipeline.</p>
 </section>
 
 <section id="tones">

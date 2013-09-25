@@ -169,7 +169,7 @@ private void play_sound(double frequency)
 	var time = new TimeoutSource(200);
 
 	time.set_callback(() => {
-		pipeline.set_state (Gst.State.PAUSED);
+		pipeline.set_state (Gst.State.NULL);
 		return false;
 	});
 	time.attach(null);

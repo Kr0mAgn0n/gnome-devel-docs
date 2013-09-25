@@ -36,7 +36,7 @@ function playSound(frequency){
   pipeline.set_state(Gst.State.PLAYING);
 
   Mainloop.timeout_add(500, function () { 
-    pipeline.set_state(Gst.State.PAUSED);
+    pipeline.set_state(Gst.State.NULL);
 	  return false;
 });	
 }

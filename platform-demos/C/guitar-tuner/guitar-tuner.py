@@ -37,7 +37,7 @@ class GUI:
 		Gtk.main_quit()
 
 	def pipeline_stop(self, pipeline):
-		pipeline.set_state(Gst.State.PAUSED)
+		pipeline.set_state(Gst.State.NULL)
 		return False
 
 	def play_sound(self, frequency):

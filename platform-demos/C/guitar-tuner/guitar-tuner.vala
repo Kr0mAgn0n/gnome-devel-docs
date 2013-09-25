@@ -83,7 +83,7 @@ public class Main : Object
 	    var time = new TimeoutSource(200);
 
 		time.set_callback(() => {
-			pipeline.set_state (Gst.State.PAUSED);
+			pipeline.set_state (Gst.State.NULL);
 		    return false;
 		});
 
