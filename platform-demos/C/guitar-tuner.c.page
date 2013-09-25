@@ -231,8 +231,7 @@ pipeline_stop (GstElement* pipeline)
 void on_button_clicked (GtkButton* button,
                         gpointer user_data)
 {
-	GtkWidget* label = gtk_bin_get_child (GTK_BIN (button));
-	const gchar* text = gtk_label_get_label (GTK_LABEL (label));
+	const gchar* text = gtk_button_get_label (button);
 
 	if (g_str_equal (text, _("E")))
 	    play_sound (NOTE_E);
@@ -248,8 +247,8 @@ void on_button_clicked (GtkButton* button,
 	    play_sound (NOTE_e);
 }
 ]]></code>
-  <p>A pointer to the <code>GtkButton</code> that was clicked is passed as an argument (<code>button</code>) to <code>on_button_clicked</code>. We can get the label of that button by using <code>gtk_bin_get_child</code>, and then get the text from that label using <code>gtk_label_get_label</code>.</p>
-  <p>The label text is then compared to the notes that we have using <code>g_str_equal</code>, and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
+  <p>A pointer to the <code>GtkButton</code> that was clicked is passed as an argument (<code>button</code>) to <code>on_button_clicked</code>. We can get the text of that button using <code>gtk_button_get_label</code>.</p>
+  <p>The text is then compared to the notes that we have using <code>g_str_equal</code>, and <code>play_sound</code> is called with the frequency appropriate for that note. This plays the tone; we have a working guitar tuner!</p>
 </section>
 
 <section id="run">

@@ -59,8 +59,7 @@ play_sound (gdouble frequency)
 void on_button_clicked (GtkButton* button,
                         gpointer user_data)
 {
-	GtkWidget* label = gtk_bin_get_child (GTK_BIN (button));
-	const gchar* text = gtk_label_get_label (GTK_LABEL (label));
+	const gchar* text = gtk_button_get_label (button);
 
 	if (g_str_equal (text, _("E")))
 	    play_sound (NOTE_E);
