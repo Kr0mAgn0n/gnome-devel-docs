@@ -12,7 +12,7 @@ class GUI:
 	LENGTH = 500
 	# Frequencies of the strings
 	frequencies = {
-		'E': 369.23,
+		'E': 329.63,
 		'A': 440,
 		'D': 587.33,
 		'G': 783.99,

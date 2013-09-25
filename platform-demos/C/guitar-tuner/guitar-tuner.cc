@@ -81,7 +81,7 @@ main(int argc, char *argv[])
 	
 	builder->get_widget("button_E", button);
 	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
-	                                              369.23, &sound));
+	                                              329.63, &sound));
 	builder->get_widget("button_A", button);
 	button->signal_clicked().connect (sigc::bind<double, Sound*>(sigc::ptr_fun(&on_button_clicked),
 	                                              440, &sound));

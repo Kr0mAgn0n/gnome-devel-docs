@@ -21,7 +21,7 @@ public class Main : Object
 		var label = sender.get_child () as Gtk.Label;
 		switch (label.get_label()) {
 			case "E":
-				play_sound (369.23);
+				play_sound (329.63);
 				break;
 			case "A":
 				play_sound (440);
