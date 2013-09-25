@@ -24,7 +24,7 @@
 static gboolean
 pipeline_stop (GstElement* pipeline)
 {
-	gst_element_set_state (pipeline, GST_STATE_PAUSED);
+	gst_element_set_state (pipeline, GST_STATE_NULL);
 	g_object_unref (pipeline);
 
 	/* disconnect handler */

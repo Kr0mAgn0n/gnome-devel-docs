@@ -206,12 +206,12 @@ play_sound (gdouble frequency)
 static gboolean
 pipeline_stop (GstElement* pipeline)
 {
-	gst_element_set_state (pipeline, GST_STATE_PAUSED);
+	gst_element_set_state (pipeline, GST_STATE_NULL);
 	g_object_unref (pipeline);
 
 	return FALSE;
 }]]></code>
-  <p>The call to <code>gst_element_set_state</code> pauses the playback of the pipeline and <code>g_object_unref</code> unreferences the pipeline, destroying it and freeing its memory.</p>
+  <p>The call to <code>gst_element_set_state</code> stops the playback of the pipeline and <code>g_object_unref</code> unreferences the pipeline, destroying it and freeing its memory.</p>
 </section>
 
 <section id="tones">
