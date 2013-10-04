@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-devel-docs.platform-demos.master\n"
-"POT-Creation-Date: 2013-09-05 09:18+0000\n"
-"PO-Revision-Date: 2013-09-09 11:49+0200\n"
+"POT-Creation-Date: 2013-09-25 20:49+0000\n"
+"PO-Revision-Date: 2013-10-04 12:48+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -1117,14 +1117,6 @@ msgstr "Eso da esto, cuando se ejecuta:"
 # Nicolás.
 #. (itstool) path: section/p
 #: C/02_welcome_to_the_grid.js.page:250
-#| msgid ""
-#| "That's what the stock \"About\" icon looks like. You can see a list of "
-#| "all the stock items starting with gtk-about in <link href=\"http://"
-#| "developer.gnome.org/gtk/2.24/gtk-Stock-Items.html#GTK-STOCK-ABOUT:CAPS"
-#| "\">GNOME's developer documentation</link>. It was written for C "
-#| "programmers, but you don't need to know C to use it; just look at the "
-#| "part in quotation marks, like \"gtk-about\", and copy that part to use "
-#| "the icon next to it."
 msgid ""
 "That's what the stock \"About\" icon looks like. You can see a list of all "
 "the stock items starting with gtk-about in <link href=\"https://developer."
@@ -1195,12 +1187,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/02_welcome_to_the_grid.js.page:269
-#| msgid ""
-#| "That's right, we turned the Label into a Button just by changing the "
-#| "name! If you run the application and click on it, though, you'll find "
-#| "that it doesn't do anything. How do we make our Button do something? "
-#| "That's what we'll find out, in <link xref=\"getting_the_signal.js\">our "
-#| "next tutorial</link>."
 msgid ""
 "That's right, we turned the Label into a Button just by changing the name! "
 "If you run the application and click on it, though, you'll find that it "
@@ -17179,6 +17165,18 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/guitar-tuner.c.page:203
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "#define LENGTH 500 /* Length of playing in ms */\n"
+#| "\n"
+#| "static gboolean\n"
+#| "pipeline_stop (GstElement* pipeline)\n"
+#| "{\n"
+#| "\tgst_element_set_state (pipeline, GST_STATE_PAUSED);\n"
+#| "\tg_object_unref (pipeline);\n"
+#| "\n"
+#| "\treturn FALSE;\n"
+#| "}"
 msgid ""
 "\n"
 "#define LENGTH 500 /* Length of playing in ms */\n"
@@ -17186,7 +17184,7 @@ msgid ""
 "static gboolean\n"
 "pipeline_stop (GstElement* pipeline)\n"
 "{\n"
-"\tgst_element_set_state (pipeline, GST_STATE_PAUSED);\n"
+"\tgst_element_set_state (pipeline, GST_STATE_NULL);\n"
 "\tg_object_unref (pipeline);\n"
 "\n"
 "\treturn FALSE;\n"
@@ -17198,7 +17196,7 @@ msgstr ""
 "static gboolean\n"
 "pipeline_stop (GstElement* pipeline)\n"
 "{\n"
-"\tgst_element_set_state (pipeline, GST_STATE_PAUSED);\n"
+"\tgst_element_set_state (pipeline, GST_STATE_NULL);\n"
 "\tg_object_unref (pipeline);\n"
 "\n"
 "\treturn FALSE;\n"
@@ -17206,14 +17204,18 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/guitar-tuner.c.page:214
+#| msgid ""
+#| "The call to <code>gst_element_set_state</code> pauses the playback of the "
+#| "pipeline and <code>g_object_unref</code> unreferences the pipeline, "
+#| "destroying it and freeing its memory."
 msgid ""
-"The call to <code>gst_element_set_state</code> pauses the playback of the "
+"The call to <code>gst_element_set_state</code> stops the playback of the "
 "pipeline and <code>g_object_unref</code> unreferences the pipeline, "
 "destroying it and freeing its memory."
 msgstr ""
-"La llamada a <code>gst_element_set_state</code> pausa la reproducción de la "
-"tubería y <code>g_object_unref</code> desreferencia la tubería, la destruye "
-"y libera su memoria."
+"La llamada a <code>gst_element_set_state</code> detiene la reproducción de "
+"la tubería y <code>g_object_unref</code> desreferencia la tubería, la "
+"destruye y libera su memoria."
 
 #. (itstool) path: section/title
 #: C/guitar-tuner.c.page:218 C/guitar-tuner.py.page:207
@@ -17272,14 +17274,35 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/guitar-tuner.c.page:229
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "/* Callback for the buttons */\n"
+#| "void on_button_clicked (GtkButton* button,\n"
+#| "                        gpointer user_data)\n"
+#| "{\n"
+#| "\tGtkWidget* label = gtk_bin_get_child (GTK_BIN (button));\n"
+#| "\tconst gchar* text = gtk_label_get_label (GTK_LABEL (label));\n"
+#| "\n"
+#| "\tif (g_str_equal (text, _(\"E\")))\n"
+#| "\t    play_sound (NOTE_E);\n"
+#| "\telse if (g_str_equal (text, _(\"A\")))\n"
+#| "\t    play_sound (NOTE_A);\n"
+#| "\telse if (g_str_equal (text, _(\"G\")))\n"
+#| "\t    play_sound (NOTE_G);\n"
+#| "\telse if (g_str_equal (text, _(\"D\")))\n"
+#| "\t    play_sound (NOTE_D);\n"
+#| "\telse if (g_str_equal (text, _(\"B\")))\n"
+#| "\t    play_sound (NOTE_B);\n"
+#| "\telse if (g_str_equal (text, _(\"e\")))\n"
+#| "\t    play_sound (NOTE_e);\n"
+#| "}\n"
 msgid ""
 "\n"
 "/* Callback for the buttons */\n"
 "void on_button_clicked (GtkButton* button,\n"
 "                        gpointer user_data)\n"
 "{\n"
-"\tGtkWidget* label = gtk_bin_get_child (GTK_BIN (button));\n"
-"\tconst gchar* text = gtk_label_get_label (GTK_LABEL (label));\n"
+"\tconst gchar* text = gtk_button_get_label (button);\n"
 "\n"
 "\tif (g_str_equal (text, _(\"E\")))\n"
 "\t    play_sound (NOTE_E);\n"
@@ -17300,8 +17323,7 @@ msgstr ""
 "void on_button_clicked (GtkButton* button,\n"
 "                        gpointer user_data)\n"
 "{\n"
-"\tGtkWidget* label = gtk_bin_get_child (GTK_BIN (button));\n"
-"\tconst gchar* text = gtk_label_get_label (GTK_LABEL (label));\n"
+"\tconst gchar* text = gtk_button_get_label (button);\n"
 "\n"
 "\tif (g_str_equal (text, _(\"E\")))\n"
 "\t    play_sound (NOTE_E);\n"
@@ -17318,33 +17340,40 @@ msgstr ""
 "}\n"
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:251
+#: C/guitar-tuner.c.page:250
+#| msgid ""
+#| "A pointer to the <code>GtkButton</code> that was clicked is passed as an "
+#| "argument (<code>button</code>) to <code>on_button_clicked</code>. We can "
+#| "get the label of that button by using <code>gtk_bin_get_child</code>, and "
+#| "then get the text from that label using <code>gtk_label_get_label</code>."
 msgid ""
 "A pointer to the <code>GtkButton</code> that was clicked is passed as an "
 "argument (<code>button</code>) to <code>on_button_clicked</code>. We can get "
-"the label of that button by using <code>gtk_bin_get_child</code>, and then "
-"get the text from that label using <code>gtk_label_get_label</code>."
+"the text of that button using <code>gtk_button_get_label</code>."
 msgstr ""
 "A <code>on_button_clicked</code> se le pasa como argumento (<code>button</"
 "code>) un puntero al <code>GtkButton</code> que se ha pulsado. Se puede "
-"obtener la etiqueta de este botón usando <code>gtk_bin_get_child</code> y "
-"obteniendo el texto de la etiqueta usando <code>gtk_label_get_label</code>."
+"obtener el texto de este botón usando <code>gtk_label_get_label</code>."
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:252
+#: C/guitar-tuner.c.page:251
+#| msgid ""
+#| "The label text is then compared to the notes that we have using "
+#| "<code>g_str_equal</code>, and <code>play_sound</code> is called with the "
+#| "frequency appropriate for that note. This plays the tone; we have a "
+#| "working guitar tuner!"
 msgid ""
-"The label text is then compared to the notes that we have using "
-"<code>g_str_equal</code>, and <code>play_sound</code> is called with the "
-"frequency appropriate for that note. This plays the tone; we have a working "
-"guitar tuner!"
+"The text is then compared to the notes that we have using <code>g_str_equal</"
+"code>, and <code>play_sound</code> is called with the frequency appropriate "
+"for that note. This plays the tone; we have a working guitar tuner!"
 msgstr ""
-"La etiqueta de texto se compara con las notas que se tiene usando "
-"<code>g_str_equal</code>, y se llama a <code>play_sound</code> con la "
-"frecuencia correspondiente a cada nota. Esto reproduce el tono; el afinador "
-"de guitarra ya está funcionando."
+"El texto se compara con las notas que se tiene usando <code>g_str_equal</"
+"code>, y se llama a <code>play_sound</code> con la frecuencia "
+"correspondiente a cada nota. Esto reproduce el tono; el afinador de guitarra "
+"ya está funcionando."
 
 #. (itstool) path: section/title
-#: C/guitar-tuner.c.page:256 C/guitar-tuner.cpp.page:254
+#: C/guitar-tuner.c.page:255 C/guitar-tuner.cpp.page:254
 #: C/guitar-tuner.vala.page:252 C/image-viewer.c.page:221
 #: C/image-viewer.cpp.page:209 C/image-viewer.vala.page:279
 #: C/photo-wall.c.page:391
@@ -17352,7 +17381,7 @@ msgid "Build and run the application"
 msgstr "Construir y ejecutar la aplicación"
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:257 C/guitar-tuner.vala.page:253
+#: C/guitar-tuner.c.page:256 C/guitar-tuner.vala.page:253
 #: C/image-viewer.c.page:222 C/image-viewer.cpp.page:210
 #: C/image-viewer.vala.page:280
 msgid ""
@@ -17366,7 +17395,7 @@ msgstr ""
 "gui></guiseq> para iniciar la aplicación."
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:258 C/guitar-tuner.cpp.page:256
+#: C/guitar-tuner.c.page:257 C/guitar-tuner.cpp.page:256
 #: C/guitar-tuner.vala.page:254
 msgid ""
 "If you haven't already done so, choose the <file>Debug/src/guitar-tuner</"
@@ -17378,7 +17407,7 @@ msgstr ""
 "gui> y disfrute."
 
 #. (itstool) path: section/title
-#: C/guitar-tuner.c.page:262 C/guitar-tuner.cpp.page:260
+#: C/guitar-tuner.c.page:261 C/guitar-tuner.cpp.page:260
 #: C/guitar-tuner.js.page:241 C/guitar-tuner.py.page:239
 #: C/guitar-tuner.vala.page:258 C/image-viewer.c.page:227
 #: C/image-viewer.cpp.page:215 C/image-viewer.js.page:315
@@ -17389,7 +17418,7 @@ msgid "Reference Implementation"
 msgstr "Implementación de referencia"
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:263
+#: C/guitar-tuner.c.page:262
 msgid ""
 "If you run into problems with the tutorial, compare your code with this "
 "<link href=\"guitar-tuner/guitar-tuner.c\">reference code</link>."
@@ -17398,7 +17427,7 @@ msgstr ""
 "\"guitar-tuner/guitar-tuner.c\">código de referencia</link>."
 
 #. (itstool) path: section/title
-#: C/guitar-tuner.c.page:267 C/guitar-tuner.cpp.page:273
+#: C/guitar-tuner.c.page:266 C/guitar-tuner.cpp.page:273
 #: C/guitar-tuner.py.page:244 C/guitar-tuner.vala.page:269
 #: C/image-viewer.c.page:232 C/image-viewer.cpp.page:220
 #: C/image-viewer.js.page:320 C/image-viewer.py.page:234
@@ -17407,7 +17436,7 @@ msgid "Next steps"
 msgstr "Siguientes pasos"
 
 #. (itstool) path: section/p
-#: C/guitar-tuner.c.page:268 C/guitar-tuner.cpp.page:274
+#: C/guitar-tuner.c.page:267 C/guitar-tuner.cpp.page:274
 #: C/guitar-tuner.py.page:245 C/guitar-tuner.vala.page:270
 #: C/image-viewer.c.page:233 C/image-viewer.cpp.page:221
 #: C/image-viewer.js.page:321 C/image-viewer.py.page:235
@@ -17417,13 +17446,13 @@ msgstr ""
 "Aquí hay algunas ideas sobre cómo puede extender esta sencilla demostración:"
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:271 C/guitar-tuner.cpp.page:277
+#: C/guitar-tuner.c.page:270 C/guitar-tuner.cpp.page:277
 #: C/guitar-tuner.py.page:248 C/guitar-tuner.vala.page:273
 msgid "Have the program automatically cycle through the notes."
 msgstr "Hacer que el programa recorra las notas automáticamente."
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:274 C/guitar-tuner.cpp.page:280
+#: C/guitar-tuner.c.page:273 C/guitar-tuner.cpp.page:280
 #: C/guitar-tuner.py.page:251 C/guitar-tuner.vala.page:276
 msgid "Make the program play recordings of real guitar strings being plucked."
 msgstr ""
@@ -17431,7 +17460,7 @@ msgstr ""
 "están afinando."
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:275 C/guitar-tuner.cpp.page:281
+#: C/guitar-tuner.c.page:274 C/guitar-tuner.cpp.page:281
 #: C/guitar-tuner.py.page:252 C/guitar-tuner.vala.page:277
 msgid ""
 "To do this, you would need to set up a more complicated GStreamer pipeline "
@@ -17449,7 +17478,7 @@ msgstr ""
 "diferentes de los de los archivos Ogg Vorbis, por ejemplo."
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:276 C/guitar-tuner.cpp.page:282
+#: C/guitar-tuner.c.page:275 C/guitar-tuner.cpp.page:282
 #: C/guitar-tuner.py.page:253 C/guitar-tuner.vala.page:278
 msgid ""
 "You might need to connect the elements in more complicated ways too. This "
@@ -17469,13 +17498,13 @@ msgstr ""
 "útil el comando <cmd>gst-inspect</cmd>."
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:279 C/guitar-tuner.cpp.page:285
+#: C/guitar-tuner.c.page:278 C/guitar-tuner.cpp.page:285
 #: C/guitar-tuner.py.page:256 C/guitar-tuner.vala.page:281
 msgid "Automatically analyze notes that the user plays."
 msgstr "Analizar automáticamente las notas que toca el músico."
 
 #. (itstool) path: item/p
-#: C/guitar-tuner.c.page:280 C/guitar-tuner.cpp.page:286
+#: C/guitar-tuner.c.page:279 C/guitar-tuner.cpp.page:286
 #: C/guitar-tuner.py.page:257 C/guitar-tuner.vala.page:282
 msgid ""
 "You could connect a microphone and record sounds from it using an <link href="
@@ -18308,6 +18337,26 @@ msgstr "Crear sonidos con GStreamer"
 #. (itstool) path: section/code
 #: C/guitar-tuner.js.page:103
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "var frequencies = {E: 329.63, A: 440,\tD: 587.33,\tG: 783.99,\tB: 987.77,\te: 1318.5}\n"
+#| "\n"
+#| "function playSound(frequency){\n"
+#| "  var pipeline = new Gst.Pipeline({name: \"note\"});\n"
+#| "  var source = new Gst.ElementFactory.make(\"audiotestsrc\",\"source\");\n"
+#| "  var sink = new Gst.ElementFactory.make(\"autoaudiosink\",\"output\");\n"
+#| "\n"
+#| "  source.set_property('freq', frequency);\n"
+#| "  pipeline.add(source);\n"
+#| "  pipeline.add(sink);\n"
+#| "  source.link(sink);\n"
+#| "  pipeline.set_state(Gst.State.PLAYING);\n"
+#| "\n"
+#| "  Mainloop.timeout_add(500, function () {\n"
+#| "    pipeline.set_state(Gst.State.PAUSED);\n"
+#| "\t  return false;\n"
+#| "  });\n"
+#| "}"
 msgid ""
 "\n"
 "var frequencies = {E: 329.63, A: 440,\tD: 587.33,\tG: 783.99,\tB: 987.77,\te: 1318.5}\n"
@@ -18324,7 +18373,7 @@ msgid ""
 "  pipeline.set_state(Gst.State.PLAYING);\n"
 "\n"
 "  Mainloop.timeout_add(500, function () {\n"
-"    pipeline.set_state(Gst.State.PAUSED);\n"
+"    pipeline.set_state(Gst.State.NULL);\n"
 "\t  return false;\n"
 "  });\n"
 "}"
@@ -18344,13 +18393,23 @@ msgstr ""
 "  pipeline.set_state(Gst.State.PLAYING);\n"
 "\n"
 "  Mainloop.timeout_add(500, function () {\n"
-"    pipeline.set_state(Gst.State.PAUSED);\n"
+"    pipeline.set_state(Gst.State.NULL);\n"
 "\t  return false;\n"
 "  });\n"
 "}"
 
 #. (itstool) path: section/p
 #: C/guitar-tuner.js.page:122
+#| msgid ""
+#| "The first thing we need to do is decide what tunes we want to make when "
+#| "we push a button. The frequencies list takes care of that. After that we "
+#| "get to actually making the sounds with the function playSound. For "
+#| "function playSound we give as an input a frequency (that we just defined "
+#| "in the frequencies variable). First thing we need to construct is a "
+#| "pipeline, a source and a sink. For the source we set the frequency. To "
+#| "the pipeline we add both the source and the sink and then we tell it to "
+#| "keep playing. As a last thing we use the const Mainloop to get the "
+#| "pipeline to pause after a 500ms."
 msgid ""
 "The first thing we need to do is decide what tunes we want to make when we "
 "push a button. The frequencies list takes care of that. After that we get to "
@@ -18359,18 +18418,16 @@ msgid ""
 "frequencies variable). First thing we need to construct is a pipeline, a "
 "source and a sink. For the source we set the frequency. To the pipeline we "
 "add both the source and the sink and then we tell it to keep playing. As a "
-"last thing we use the const Mainloop to get the pipeline to pause after a "
+"last thing we use the const Mainloop to get the pipeline to stop after a "
 "500ms."
 msgstr ""
-"Lo primero que se debe hacer es decidir qué tonos se quieren reproducir "
-"cuando se pulsa un botón. La lista de frecuencias se encargar de eso. "
-"Después de eso hay que hacer que la función playSound reproduzca los "
-"sonidos. A la fución playSound se le pasa como argumento una frecuencia (que "
-"se ha definido en la lista de variables). Lo primero que se debe hacer es "
-"construir una tubería, con una fuente y un sumidero. Para la fuente se "
-"establece la frecuencia. A la tubería se añaden la fuente y el sumidero y se "
-"indica que la reproduzca. El último paso es usar la constante Mainloop para "
-"hacer que la tubería se pare después de 500ms."
+"Lo primero que se debe hacer es decidir qué tonos se quieren reproducir con "
+"la función playSound. A la función playSound se le pasa como argumento una "
+"frecuencia (que se ha definido en la lista de variables). Lo primero que se "
+"debe hacer es construir una tubería, con una fuente y un sumidero. Para la "
+"fuente se establece la frecuencia. A la tubería se añaden la fuente y el "
+"sumidero y se indica que la reproduzca. El último paso es usar la constante "
+"Mainloop para hacer que la tubería se pare después de 500ms."
 
 #. (itstool) path: section/p
 #: C/guitar-tuner.js.page:123
@@ -18470,6 +18527,82 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/guitar-tuner.js.page:158
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "#!/usr/bin/gjs\n"
+#| "var Gtk = imports.gi.Gtk;\n"
+#| "var Gst = imports.gi.Gst;\n"
+#| "\n"
+#| "const Mainloop = imports.mainloop;\n"
+#| "\n"
+#| "Gtk.init(null, 0);\n"
+#| "Gst.init(null, 0);\n"
+#| "\n"
+#| "var guitarwindow = new Gtk.Window({type: Gtk.WindowType.TOPLEVEL, border_width: 100});\n"
+#| "guitarwindow.title = \"Guitar Tuner\";\n"
+#| "guitarwindow.connect(\"destroy\", function(){Gtk.main_quit()});\n"
+#| "\n"
+#| "var guitar_box = new Gtk.ButtonBox ({orientation: Gtk.Orientation.VERTICAL, spacing: 10});\n"
+#| "\n"
+#| "var E = new Gtk.Button({label: \"E\"});\n"
+#| "var A = new Gtk.Button({label: \"A\"});\n"
+#| "var D = new Gtk.Button({label: \"D\"});\n"
+#| "var G = new Gtk.Button({label: \"G\"});\n"
+#| "var B = new Gtk.Button({label: \"B\"});\n"
+#| "var e = new Gtk.Button({label: \"e\"});\n"
+#| "\n"
+#| "var frequencies = {E: 329.63, A: 440,\tD: 587.33,\tG: 783.99,\tB: 987.77,\te: 1318.5}\n"
+#| "\n"
+#| "\n"
+#| "function playSound(frequency){\n"
+#| "  var pipeline = new Gst.Pipeline({name: \"note\"});\n"
+#| "\n"
+#| "  var source = new Gst.ElementFactory.make(\"audiotestsrc\",\"source\");\n"
+#| "  var sink = new Gst.ElementFactory.make(\"autoaudiosink\",\"output\");\n"
+#| "\n"
+#| "  source.set_property('freq', frequency);\n"
+#| "  pipeline.add(source);\n"
+#| "  pipeline.add(sink);\n"
+#| "  source.link(sink);\n"
+#| "  pipeline.set_state(Gst.State.PLAYING);\n"
+#| "\n"
+#| "  Mainloop.timeout_add(500, function () {\n"
+#| "    pipeline.set_state(Gst.State.PAUSED);\n"
+#| "\t  return false;\n"
+#| "});\n"
+#| "}\n"
+#| "\n"
+#| "E.connect(\"clicked\", function() {\n"
+#| "  playSound(frequencies.E);\n"
+#| "});\n"
+#| "A.connect(\"clicked\", function(){\n"
+#| "  playSound(frequencies.A);\n"
+#| "});\n"
+#| "D.connect(\"clicked\", function(){\n"
+#| "  playSound(frequencies.D);\n"
+#| "});\n"
+#| "G.connect(\"clicked\", function(){\n"
+#| "  playSound(frequencies.G);\n"
+#| "});\n"
+#| "B.connect(\"clicked\", function(){\n"
+#| "  playSound(frequencies.B);\n"
+#| "});\n"
+#| "e.connect(\"clicked\", function(){\n"
+#| "  playSound(frequencies.e);\n"
+#| "});\n"
+#| "\n"
+#| "guitar_box.add(E);\n"
+#| "guitar_box.add(A);\n"
+#| "guitar_box.add(D);\n"
+#| "guitar_box.add(G);\n"
+#| "guitar_box.add(B);\n"
+#| "guitar_box.add(e);\n"
+#| "\n"
+#| "guitarwindow.add(guitar_box);\n"
+#| "\n"
+#| "guitar_box.show_all();\n"
+#| "guitarwindow.show();\n"
+#| "Gtk.main();"
 msgid ""
 "\n"
 "#!/usr/bin/gjs\n"
@@ -18510,7 +18643,7 @@ msgid ""
 "  pipeline.set_state(Gst.State.PLAYING);\n"
 "\n"
 "  Mainloop.timeout_add(500, function () {\n"
-"    pipeline.set_state(Gst.State.PAUSED);\n"
+"    pipeline.set_state(Gst.State.NULL);\n"
 "\t  return false;\n"
 "});\n"
 "}\n"
@@ -18586,7 +18719,7 @@ msgstr ""
 "  pipeline.set_state(Gst.State.PLAYING);\n"
 "\n"
 "  Mainloop.timeout_add(500, function () {\n"
-"    pipeline.set_state(Gst.State.PAUSED);\n"
+"    pipeline.set_state(Gst.State.NULL);\n"
 "\t  return false;\n"
 "});\n"
 "}\n"
@@ -18982,15 +19115,20 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/guitar-tuner.py.page:193
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "def pipeline_stop(self, pipeline):\n"
+#| "\tpipeline.set_state(Gst.State.PAUSED)\n"
+#| "\treturn False\n"
 msgid ""
 "\n"
 "def pipeline_stop(self, pipeline):\n"
-"\tpipeline.set_state(Gst.State.PAUSED)\n"
+"\tpipeline.set_state(Gst.State.NULL)\n"
 "\treturn False\n"
 msgstr ""
 "\n"
 "def pipeline_stop(self, pipeline):\n"
-"\tpipeline.set_state(Gst.State.PAUSED)\n"
+"\tpipeline.set_state(Gst.State.NULL)\n"
 "\treturn False\n"
 
 #. (itstool) path: section/p
@@ -19014,12 +19152,15 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/guitar-tuner.py.page:203
+#| msgid ""
+#| "The call to <code>pipeline.set_state</code> pauses the playback of the "
+#| "pipeline."
 msgid ""
-"The call to <code>pipeline.set_state</code> pauses the playback of the "
+"The call to <code>pipeline.set_state</code> stops the playback of the "
 "pipeline."
 msgstr ""
-"La llamada a <code>pipeline.set_state</code> pausa la reproducción de la "
-"tubería"
+"La llamada a <code>pipeline.set_state</code> detiene la reproducción de la "
+"tubería."
 
 #. (itstool) path: section/p
 #: C/guitar-tuner.py.page:208
@@ -19517,6 +19658,38 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/guitar-tuner.vala.page:146
 #, no-wrap
+#| msgid ""
+#| "\n"
+#| "Gst.Element sink;\n"
+#| "Gst.Element source;\n"
+#| "Gst.Pipeline pipeline;\n"
+#| "\n"
+#| "private void play_sound(double frequency)\n"
+#| "{\n"
+#| "\tpipeline = new Gst.Pipeline (\"note\");\n"
+#| "\tsource   = Gst.ElementFactory.make (\"audiotestsrc\",\n"
+#| "\t                                    \"source\");\n"
+#| "\tsink     = Gst.ElementFactory.make (\"autoaudiosink\",\n"
+#| "\t                                    \"output\");\n"
+#| "\n"
+#| "\t/* set frequency */\n"
+#| "\tsource.set (\"freq\", frequency);\n"
+#| "\n"
+#| "\tpipeline.add (source);\n"
+#| "\tpipeline.add (sink);\n"
+#| "\tsource.link (sink);\n"
+#| "\n"
+#| "\tpipeline.set_state (Gst.State.PLAYING);\n"
+#| "\n"
+#| "\t/* stop it after 200ms */\n"
+#| "\tvar time = new TimeoutSource(200);\n"
+#| "\n"
+#| "\ttime.set_callback(() =&gt; {\n"
+#| "\t\tpipeline.set_state (Gst.State.PAUSED);\n"
+#| "\t\treturn false;\n"
+#| "\t});\n"
+#| "\ttime.attach(null);\n"
+#| "}"
 msgid ""
 "\n"
 "Gst.Element sink;\n"
@@ -19544,7 +19717,7 @@ msgid ""
 "\tvar time = new TimeoutSource(200);\n"
 "\n"
 "\ttime.set_callback(() =&gt; {\n"
-"\t\tpipeline.set_state (Gst.State.PAUSED);\n"
+"\t\tpipeline.set_state (Gst.State.NULL);\n"
 "\t\treturn false;\n"
 "\t});\n"
 "\ttime.attach(null);\n"
@@ -19576,7 +19749,7 @@ msgstr ""
 "\tvar time = new TimeoutSource(200);\n"
 "\n"
 "\ttime.set_callback(() =&gt; {\n"
-"\t\tpipeline.set_state (Gst.State.PAUSED);\n"
+"\t\tpipeline.set_state (Gst.State.NULL);\n"
 "\t\treturn false;\n"
 "\t});\n"
 "\ttime.attach(null);\n"
@@ -20530,15 +20703,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/hellognome.js.page:189
-#| msgid ""
-#| "Finally, if you want to just build GNOME applications using JavaScript "
-#| "libraries designed for the web, you can basically stop here and go do "
-#| "that! Take a look at the <link xref=\"scrolledwindow.js\">ScrolledWindow</"
-#| "link> code sample if you'd like to see how to make a WebView widget that "
-#| "can scroll to show parts of a larger web page, and check out <link xref="
-#| "\"beginner.js#tutorials\">the later tutorials</link> if you'd like to see "
-#| "how to create a .desktop file for your application, which will let it "
-#| "appear in your desktop's Activities menu with all your other apps."
 msgid ""
 "Finally, if you want to just build GNOME applications using JavaScript "
 "libraries designed for the web, you can basically stop here and go do that! "
@@ -21010,17 +21174,6 @@ msgstr "El archivo <file>.desktop.in</file>"
 #. (itstool) path: section/p
 #: C/hello-world.c.page:111 C/hello-world.js.page:127
 #: C/hello-world.py.page:112 C/hello-world.vala.page:89
-#| msgid ""
-#| "Running applications from the Terminal is useful at the beginning of the "
-#| "application making process. To have fully working <link href=\"http://"
-#| "library.gnome.org/admin/system-admin-guide/stable/mimetypes-9.html.en"
-#| "\">application integration</link> in GNOME 3 requires a desktop launcher. "
-#| "For this you need to create a <file>.desktop</file> file. The <file>."
-#| "desktop</file> file describes the application name, the used icon and "
-#| "various integration bits. A deeper insight into the <file>.desktop</file> "
-#| "file can be found <link href=\"http://developer.gnome.org/desktop-entry-"
-#| "spec/\">here</link>. The <file>.desktop.in</file> file will create the "
-#| "<file>.desktop</file>."
 msgid ""
 "Running applications from the Terminal is useful at the beginning of the "
 "application making process. To have fully working <link href=\"https://"
@@ -21164,16 +21317,6 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/hello-world.c.page:125 C/hello-world.js.page:146
 #: C/hello-world.py.page:126 C/hello-world.vala.page:103
-#| msgid ""
-#| "In this example we use an existing icon. For a custom icon you need to "
-#| "have a .svg file of your icon, stored in <file>/usr/share/icons/hicolor/"
-#| "scalable/apps</file>. Write the name of your icon file to the .desktop.in "
-#| "file, on line 7. More information on icons in: <link href=\"http://"
-#| "library.gnome.org/admin/system-admin-guide/stable/themes-11.html.en\"> "
-#| "Installing Icons for Themes </link>, <link href=\"https://live.gnome.org/"
-#| "GnomeGoals/AppIcon\">Installing Icons for Themes</link> and <link href="
-#| "\"http://freedesktop.org/wiki/Specifications/icon-theme-spec\">on "
-#| "freedesktop.org: Specifications/icon-theme-spec</link>."
 msgid ""
 "In this example we use an existing icon. For a custom icon you need to have "
 "a .svg file of your icon, stored in <file>/usr/share/icons/hicolor/scalable/"
@@ -21845,43 +21988,6 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/hello-world.js.page:176 C/hello-world.py.page:156
 #, no-wrap
-#| msgid ""
-#| "To build and install this program:\n"
-#| "\n"
-#| "./autogen.sh --prefix=/home/your_username/.local\n"
-#| "make install\n"
-#| "\n"
-#| "-------------\n"
-#| "Running the first line above creates the following files:\n"
-#| "\n"
-#| "aclocal.m4\n"
-#| "autom4te.cache\n"
-#| "config.log\n"
-#| "config.status\n"
-#| "configure\n"
-#| "helloWorld.desktop\n"
-#| "install-sh\n"
-#| "missing\n"
-#| "Makefile.in\n"
-#| "Makefile\n"
-#| "\n"
-#| "Running \"make install\", installs the application in /home/your_username/.local/bin\n"
-#| "and installs the helloWorld.desktop file in /home/your_username/.local/share/applications\n"
-#| "\n"
-#| "You can now run the application by typing \"Hello World\" in the Overview.\n"
-#| "\n"
-#| "----------------\n"
-#| "To uninstall, type:\n"
-#| "\n"
-#| "make uninstall\n"
-#| "\n"
-#| "----------------\n"
-#| "To create a tarball type:\n"
-#| "\n"
-#| "make distcheck\n"
-#| "\n"
-#| "This will create hello-world-1.0.tar.xz\n"
-#| "\n"
 msgid ""
 "To build and install this program:\n"
 "\n"
@@ -22360,43 +22466,6 @@ msgstr ""
 #. (itstool) path: section/code
 #: C/hello-world.vala.page:133
 #, no-wrap
-#| msgid ""
-#| "To build and install this program:\n"
-#| "\n"
-#| "./autogen.sh --prefix=/home/your_username/.local\n"
-#| "make install\n"
-#| "\n"
-#| "-------------\n"
-#| "Running the first line above creates the following files:\n"
-#| "\n"
-#| "aclocal.m4\n"
-#| "autom4te.cache\n"
-#| "config.log\n"
-#| "config.status\n"
-#| "configure\n"
-#| "helloWorld.desktop\n"
-#| "install-sh\n"
-#| "missing\n"
-#| "Makefile.in\n"
-#| "Makefile\n"
-#| "\n"
-#| "Running \"make install\", installs the application in /home/your_username/.local/bin\n"
-#| "and installs the helloWorld.desktop file in /home/your_username/.local/share/applications\n"
-#| "\n"
-#| "You can now run the application by typing \"Hello World\" in the Overview.\n"
-#| "\n"
-#| "----------------\n"
-#| "To uninstall, type:\n"
-#| "\n"
-#| "make uninstall\n"
-#| "\n"
-#| "----------------\n"
-#| "To create a tarball type:\n"
-#| "\n"
-#| "make distcheck\n"
-#| "\n"
-#| "This will create hello-world-1.0.tar.xz\n"
-#| "\n"
 msgid ""
 "To build and install this program:\n"
 "\n"
@@ -34326,8 +34395,6 @@ msgstr "external ref='media/paned.png' md5='8c7e1df065395c9aafcd65036a293d8a'"
 
 #. (itstool) path: info/title
 #: C/paned.c.page:7
-#| msgctxt "text"
-#| msgid "Image (Vala)"
 msgctxt "text"
 msgid "Paned (C)"
 msgstr "Paned (C)"
@@ -34455,8 +34522,6 @@ msgstr ""
 
 #. (itstool) path: info/title
 #: C/paned.js.page:7
-#| msgctxt "text"
-#| msgid "Image (JavaScript)"
 msgctxt "text"
 msgid "Paned (JavaScript)"
 msgstr "Paned (JavaScript)"
@@ -34721,8 +34786,6 @@ msgstr ""
 
 #. (itstool) path: info/title
 #: C/paned.vala.page:7
-#| msgctxt "text"
-#| msgid "Image (Vala)"
 msgctxt "text"
 msgid "Paned (Vala)"
 msgstr "Paned (Vala)"
@@ -41591,8 +41654,6 @@ msgstr ""
 
 #. (itstool) path: info/title
 #: C/separator.c.page:7
-#| msgctxt "text"
-#| msgid "Spinner (Vala)"
 msgctxt "text"
 msgid "Separator (C)"
 msgstr "Separador (C)"
@@ -44615,15 +44676,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/statusbar.js.page:83
-#| msgid ""
-#| "The _buildUI function is where we put all the code to create the "
-#| "application's user interface. The first step is creating a new <link href="
-#| "\"GtkApplicationWindow.js.page\">Gtk.ApplicationWindow</link> to put all "
-#| "our widgets into. The next step is to create a vertically-oriented <link "
-#| "href=\"paned.js.page\">Gtk.Paned</link> interface, to divide the window "
-#| "up into two sections. This way the statusbar looks like those used in "
-#| "other applications, and it stays at the bottom of the window, even if the "
-#| "user resizes it."
 msgid ""
 "The _buildUI function is where we put all the code to create the "
 "application's user interface. The first step is creating a new <link href="
@@ -44689,13 +44741,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/statusbar.js.page:106
-#| msgid ""
-#| "This code creates the three <link href=\"button.js.page\">Gtk.Buttons</"
-#| "link> we'll use to push a new message to the statusbar, pop the last one "
-#| "off, and clear all existing messages. The \"back\" and \"clear\" buttons "
-#| "are <link href=\"http://developer.gnome.org/gtk/2.24/gtk-Stock-Items.html"
-#| "\">stock buttons</link>, which are automatically translated into any "
-#| "language GNOME supports."
 msgid ""
 "This code creates the three <link href=\"button.js.page\">Gtk.Buttons</link> "
 "we'll use to push a new message to the statusbar, pop the last one off, and "
@@ -47845,14 +47890,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/textview.js.page:30
-#| msgid ""
-#| "Since the automatic resizing can make a TextView unwieldy, you normally "
-#| "place it inside of a <link xref=\"scrolledwindow.js\">ScrolledWindow</"
-#| "link>. Despite the name, it's not an actual window in terms of having a "
-#| "title bar and an X button; it's a widget you put on the application "
-#| "you're making, which acts like a window onto a more manageable chunk of a "
-#| "TextView. If the text in the buffer is too big to fit, scrollbars will "
-#| "appear."
 msgid ""
 "Since the automatic resizing can make a TextView unwieldy, you normally "
 "place it inside of a ScrolledWindow. Despite the name, it's not an actual "
@@ -48112,12 +48149,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/textview.js.page:127
-#| msgid ""
-#| "Here we create a <link xref=\"scrolledwindow.js\">ScrolledWindow</link>, "
-#| "and set it to automatically scroll if it gets to be too big horizontally "
-#| "or vertically. We also give it a nice-looking ETCHED_IN border. After "
-#| "that, we put our TextView inside, and tell the ScrolledWindow to give us "
-#| "a viewport onto it."
 msgid ""
 "Here we create a ScrolledWindow, and set it to automatically scroll if it "
 "gets to be too big horizontally or vertically. We also give it a nice-"
