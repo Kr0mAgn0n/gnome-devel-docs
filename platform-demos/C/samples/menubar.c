@@ -235,7 +235,7 @@ startup (GApplication *app,
 
   GtkBuilder *builder;
 
-  GError **error;
+  GError *error = NULL;
 
   /* Begin creating the "new" action.
    * Note that it is an action without a state.
@@ -279,9 +279,10 @@ startup (GApplication *app,
    * this to work. The function used here returns a value within our variable
    * "error", and it is equal to zero if an error is indeed found.
    */
-  gtk_builder_add_from_file (builder, "menubar.ui", error);
-  if (error == 0) {
+  gtk_builder_add_from_file (builder, "menubar.ui", &error);
+  if (error != NULL) {
      g_print ("File not found.\n");
+     g_error_free (error);
   }
 
   /* Extract the menubar */
