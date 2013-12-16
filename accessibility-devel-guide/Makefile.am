@@ -26,4 +26,4 @@ HELP_MEDIA =						\
 	figures/label_right.png				\
 	figures/nodrop.png
 
-HELP_LINGUAS = de el es fr ja pt_BR sl
+HELP_LINGUAS = de el es fr ja pt_BR sl zh_CN
