@@ -276,12 +276,12 @@ startup (GApplication *app,
   builder = gtk_builder_new ();
   /* Get the file (if it is there):
    * Note: you must make sure that the file is in the current directory for
-   * this to work. The function used here returns a value within our variable
-   * "error", and it is equal to zero if an error is indeed found.
+   * this to work. The function used here returns a non-null value within
+   * our variable "error" if an error is indeed found.
    */
   gtk_builder_add_from_file (builder, "menubar.ui", &error);
   if (error != NULL) {
-     g_print ("File not found.\n");
+     g_print ("%s\n", error->message);
      g_error_free (error);
   }
 
