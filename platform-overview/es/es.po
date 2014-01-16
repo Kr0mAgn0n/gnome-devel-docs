@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-10 16:59+0000\n"
-"PO-Revision-Date: 2014-01-15 12:05+0100\n"
+"POT-Creation-Date: 2014-01-15 13:14+0000\n"
+"PO-Revision-Date: 2014-01-16 16:20+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -461,11 +461,15 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/dev-help-write.page:29
+#, fuzzy
 msgid ""
 "Most projects should have an <file>index.page</file> and some content pages, "
 "although you may not need an <file>index.page</file> if you are dropping "
 "plugin help into another project."
 msgstr ""
+"La mayoría de los proyectos deben tener un archivo <file>index.page</file> y "
+"algunas páginas con contenido, aunque puede no necesitar el archivo "
+"<file>index.page</file> si está escribiendo un ."
 
 #. (itstool) path: listing/title
 #: C/dev-help-write.page:35
@@ -606,9 +610,6 @@ msgstr "Configurar las traducciones"
 
 #. (itstool) path: page/p
 #: C/dev-translate-build.page:27
-#| msgid ""
-#| "You will need to set up your project and build system to work with "
-#| "tranlations."
 msgid ""
 "You will need to set up your project and build system to work with "
 "translations."
@@ -817,6 +818,10 @@ msgid ""
 "such as desktop files and UI files, then merges them back into the XML and "
 "desktop files with the strings from the source code."
 msgstr ""
+"<app>gettext</app> es el entorno de trabajo para extraer cadenas de un "
+"archivo fuente. <app>intltool</app> extrae las cadenas traducibles de otros "
+"archivos, tales como archivos .desktop y de IU, y las añade a las cadenas "
+"extraídas del código fuente."
 
 #. (itstool) path: page/p
 #: C/dev-translate.page:38
@@ -904,6 +909,13 @@ msgid ""
 "<app>Transifex</app>, <app>Virtaal</app>, <app>KBabel</app> or <app>Pootle</"
 "app>."
 msgstr ""
+"En este punto, las cadenas está lista para su traducción o <em>localización</"
+"em>. Para proyectos alojados en el repositorio Git de GNOME, esta tarea la "
+"gestiona el Proyecto de traducción de GNOME. <app href=\"http://projects."
+"gnome.org/gtranslator/\">Gtranslator</app> es una herramienta de GNOME para "
+"editar archivos <file>.po</file>. Hay otras herramientas de traducción, como "
+"pueden ser <app>Transifex</app>, <app>Virtaal</app>, <app>KBabel</app> o "
+"<app>Pootle</app>."
 
 #. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
@@ -984,15 +996,6 @@ msgstr "¿Qué puede hacer?"
 
 #. (itstool) path: section/p
 #: C/overview-communication.page:41
-#| msgid ""
-#| "For <em style=\"strong\">connecting to instant messaging services</em>, "
-#| "use <em style=\"strong\"><link xref=\"telepathy\">Telepathy</link></em>. "
-#| "It provides a powerful framework for interacting with the user's instant "
-#| "messaging contacts, and has support for a wide range of messaging "
-#| "protocols. With Telepathy, all accounts and connections are handled by a "
-#| "<link xref=\"d-bus\">D-Bus</link> session service that's deeply "
-#| "integrated into GNOME. Applications can tie into this service to "
-#| "communicate with contacts."
 msgid ""
 "For <em style=\"strong\">connecting to instant messaging services</em>, use "
 "<em style=\"strong\">Telepathy</em>. It provides a powerful framework for "
@@ -1772,7 +1775,6 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/tech-atk.page:6
-#| msgid "Support for screen readers and other accessibility tools"
 msgid ""
 "Accessibility toolkit to implement support for screen readers and other tools"
 msgstr ""
@@ -1786,13 +1788,6 @@ msgstr "ATK"
 
 #. (itstool) path: page/p
 #: C/tech-atk.page:12
-#| msgid ""
-#| "Accessibility is the process of ensuring your application can be used by "
-#| "people with various disabilities. Disabilities come in many forms: visual "
-#| "impairments, movement impairments, hearing impairments, cognitive and "
-#| "language impairments, and seizure disorders. Many people have some sort "
-#| "of disability, and making your application accessibility will allow more "
-#| "people to use your application effectively."
 msgid ""
 "Accessibility is the process of ensuring your application can be used by "
 "people with various disabilities. Disabilities come in many forms: visual "
@@ -1810,13 +1805,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-atk.page:19
-#| msgid ""
-#| "GNOME provides support for accessibility devices using the ATK framework. "
-#| "This framework defines a set of interfaces to which graphical interface "
-#| "components adhere. This allows, for instance, screen readers to read the "
-#| "text of an interface and interact with its controls. ATK support is built "
-#| "into GTK+ and the rest of the GNOME platform, so any application using GTK"
-#| "+ will have reasonable accessibility support for free."
 msgid ""
 "GNOME provides support for accessibility devices using the ATK framework, "
 "which stands for Accessibility Tool Kit. This framework defines a set of "
@@ -1851,7 +1839,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-atk.page:37
-#, fuzzy
 #| msgid ""
 #| "Nonetheless, you should be aware of accessibility issues when when "
 #| "developing your applications. Although GTK+ interfaces provide reasonable "
@@ -1872,17 +1859,18 @@ msgid ""
 "a particular medium."
 msgstr ""
 "Sin embargo, debería ser consciente de las cuestiones de accesibilidad "
-"cuando desarrolle sus aplicaciones. Aunque los interfaces GTK+ proporcionan "
+"cuando desarrolle sus aplicaciones. Aunque las interfaces GTK+ proporcionan "
 "una accesibilidad razonable de forma predeterminada, a menudo puede mejorar "
 "el comportamiento de su programa con las herramientas de accesibilidad "
 "proporcionando información adicional a ATK. Si desarrolla widgets "
 "personalizados, debería asegurarse que exponen sus propiedades a ATK. "
 "También debería evitar el uso de sonidos, gráficos o colores como única vía "
-"de enviarle información al usuario."
+"de enviarle información al usuario; ofrezca maneras redundantes de "
+"proporcionar esta información en lugar de basarse en la percepción del "
+"usuario sobre un medio en concreto."
 
 #. (itstool) path: page/p
 #: C/tech-atk.page:47
-#, fuzzy
 #| msgid ""
 #| "The GNOME desktop ships with a number of accessibility tools which enable "
 #| "users with disabilities to take full advantage of their desktop and "
@@ -1901,10 +1889,10 @@ msgstr ""
 "El escritorio GNOME posee cierto número de herramientas de accesibilidad que "
 "permiten a los usuarios con discapacidades usar plenamente el escritorio y "
 "sus aplicaciones. Las aplicaciones que implementan completamente ATK serán "
-"capaces de trabajar con las herramientas de accesibilidad. Las herramientas "
-"de accesibilidad de GNOME incluyen un lector de pantalla, un magnificador de "
-"pantalla, un teclado en pantalla y <app>Dasher</app>, una innovadora "
-"herramienta de predicción de entrada de texto."
+"capaces de trabajar con las herramientas de accesibilidad.Entre estas se "
+"incluyen un lector de pantalla, un magnificador de pantalla, un teclado en "
+"pantalla y <app>Dasher</app>, una innovadora herramienta de predicción de "
+"entrada de texto."
 
 #. (itstool) path: item/p
 #: C/tech-atk.page:55
@@ -1987,12 +1975,6 @@ msgstr "Cairo"
 
 #. (itstool) path: page/p
 #: C/tech-cairo.page:12
-#| msgid ""
-#| "Cairo is a 2D graphics library featuring a sophisticated API for drawing "
-#| "vector graphics, compositing images, and rendering anti-aliased text. "
-#| "Cairo provides support for multiple output devices, including the X "
-#| "Window System, Microsoft Windows, and image buffers, allowing you to "
-#| "write platform-independent code to draw graphics on different media."
 msgid ""
 "Cairo is a 2D graphics library featuring a sophisticated API for drawing "
 "vector graphics, compositing images, and rendering anti-aliased text. Cairo "
@@ -2009,13 +1991,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-cairo.page:19
-#| msgid ""
-#| "The Cairo drawing model is similar to those provided by PostScript and "
-#| "PDF. The Cairo API provides such drawing operations as stroking and "
-#| "filling cubic Bézier splines, compositing images, and performing affine "
-#| "transformations. These vector operations allow for rich, anti-aliased "
-#| "graphics without using expensive pixel-based drawing in your application "
-#| "code."
 msgid ""
 "Cairo's drawing model is similar to those provided by PostScript and PDF. "
 "The Cairo API provides such drawing operations as stroking and filling cubic "
@@ -2030,10 +2005,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-cairo.page:25
-#| msgid ""
-#| "Cairo's rich drawing model allows for high-quality rendering to multiple "
-#| "media. The same API can be used to create stunning on-screen graphics and "
-#| "text, to render images, or create crisp output suitable for printing."
 msgid ""
 "Cairo's rich drawing model allows for high-quality rendering to multiple "
 "media. The same API can be used to create on-screen graphics and text, to "
@@ -2046,12 +2017,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-cairo.page:30
-#| msgid ""
-#| "You should use Cairo whenever you need to draw graphics in your "
-#| "application beyond the widgets provided by GTK+. Much of the drawing "
-#| "inside GTK+ is done using Cairo. Using Cairo for your custom drawing will "
-#| "allow your application to have high-quality, anti-aliased, and resolution-"
-#| "independent graphics."
 msgid ""
 "You should use Cairo whenever you need to draw graphics in your application "
 "beyond the widgets provided by GTK+. Almost all of the drawing inside GTK+ "
@@ -2182,11 +2147,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-clutter.page:23
-#| msgid ""
-#| "Clutter does not specify any visual style, and does not provide any pre-"
-#| "defined complex user interface control; it lets the developer define what "
-#| "is needed, using a flexible scene graph API, with free-form placement of "
-#| "the scene elements (or \"actors\") on the main viewport (or \"stage\")."
 msgid ""
 "Clutter does not specify any visual style, and does not provide any pre-"
 "defined complex user interface control; it lets the developer define what is "
@@ -2201,7 +2161,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-clutter.page:28
-#, fuzzy
 #| msgid ""
 #| "Clutter comes with pre-defined actors for displaying solid colors, image "
 #| "data, text and custom high-precision 2D drawing using the <link xref="
@@ -2215,12 +2174,12 @@ msgid ""
 "structuring a user interface using both a box-packing model like <link xref="
 "\"tech-gtk\">GTK+</link>, and a series of free-form <em>constraints</em>."
 msgstr ""
-"Clutter viene con actores predefinidos para mostrar colores sólidos, datos "
-"de imágenes, texto y dibujos 2D personalizados de alta precisión usando la "
-"API de <link xref=\"cairo\">Cairo</link>. Clutter también proporciona clases "
+"Clutter incluye actores predefinidos para mostrar colores sólidos, datos de "
+"imágenes, texto y dibujos 2D personalizados de alta precisión usando la API "
+"de <link xref=\"cairo\">Cairo</link>. Clutter también proporciona clases "
 "genéricas para estructurar una interfaz de usuario usando el modelo de "
-"empaquetado de <link xref=\"gtk\">GTK+</link> y una serie de «restricciones» "
-"de forma libre."
+"empaquetado de <link xref=\"gtk\">GTK+</link> y una serie de "
+"<em>restricciones</em> de forma libre."
 
 #. (itstool) path: page/p
 #: C/tech-clutter.page:35
@@ -2287,7 +2246,6 @@ msgstr "D-Bus"
 
 #. (itstool) path: page/p
 #: C/tech-d-bus.page:12
-#, fuzzy
 #| msgid ""
 #| "D-Bus is a cross-desktop message bus for sending events between various "
 #| "applications, the desktop, and low-level components of the system. D-Bus "
@@ -2304,17 +2262,16 @@ msgid ""
 "applications to communicate and integrate with each other and with the "
 "desktop, providing better interaction and a richer experience for the user."
 msgstr ""
-"D-Bus es un bus de mensajes multiescritorio para enviar eventos entre "
-"diversas aplicaciones, el escritorio y componentes de bajo nivel del "
-"sistema. D-Bus proporciona una API simple para enviar mensajes a servicios "
-"en particular y para enviar mensajes de difusión a todos los servicios "
-"interesados. D-Bus permite que diferentes tipos de aplicaciones se "
-"comuniquen e integren entre ellas y el escritorio, proporcionando una mejor "
-"interacción y una experiencia enriquecedora para el usuario."
+"D-Bus es un bus de mensajes para enviar eventos entre diversas aplicaciones, "
+"el escritorio y componentes de bajo nivel del sistema. D-Bus proporciona una "
+"API sencilla para enviar mensajes a servicios en particular y para enviar "
+"mensajes de difusión a todos los servicios interesados. D-Bus permite que "
+"diferentes tipos de aplicaciones se comuniquen e integren entre ellas y el "
+"escritorio, proporcionando una mejor interacción y una experiencia "
+"enriquecedora para el usuario."
 
 #. (itstool) path: page/p
 #: C/tech-d-bus.page:20
-#, fuzzy
 #| msgid ""
 #| "D-Bus provides a session and a system bus. The session bus is used by "
 #| "applications in a single user session, allowing them to share data and "
@@ -2329,7 +2286,7 @@ msgid ""
 "while the user is watching a movie."
 msgstr ""
 "D-Bus proporciona un bus de sesión y un bus de sistema. El bus de sesión lo "
-"usan las aplicaciones en una sesión de un solo usuario, permitiéndolas "
+"usan las aplicaciones en una sesión de un solo usuario, permitiéndoles "
 "compartir datos y notificaciones de eventos e integrándolos con el "
 "escritorio del usuario. Por ejemplo, los reproductores de películas pueden "
 "enviar un mensaje por D-Bus para evitar que se active el salvapantallas "
@@ -2374,9 +2331,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-d-bus.page:42
-#| msgid ""
-#| "GNOME provides full support for D-Bus using the GDBus APIs in <link xref="
-#| "\"gio\">GIO</link>."
 msgid ""
 "GNOME provides full support for D-Bus using the GDBus APIs in <link href="
 "\"gio\">GIO</link>."
@@ -2582,9 +2536,6 @@ msgstr "Acceso a datos de GNOME"
 
 #. (itstool) path: page/p
 #: C/tech-gda.page:12
-#| msgid ""
-#| "GDA offers a wrapper around relational databases, allowing you to easily "
-#| "store and retrieve data in many different common database systems."
 msgid ""
 "GNOME Data Access, or GDA for short, offers a wrapper around relational "
 "databases, which allows you to easily store and retrieve data in many "
@@ -2628,7 +2579,6 @@ msgstr "GDK"
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:12
-#, fuzzy
 #| msgid ""
 #| "GDK is the low-level library used by GTK+ to interact with the system for "
 #| "graphics and input devices. Although you will rarely use GDK directly in "
@@ -2644,11 +2594,14 @@ msgid ""
 "abstraction over various windowing systems, so that GTK+ can be portable to "
 "all of them: the X Window System (X11), Microsoft Windows, Mac OS X Quartz."
 msgstr ""
-"GDK es la biblioteca de bajo nivel que usa GTK+ para interactuar con el "
-"sistema para los dispositivos gráficos y de entrada. Aunque rara vez usará "
-"GDK directamente en el código de la aplicación, contiene toda la "
-"funcionalidad necesaria para dibujar objetos y texto en la pantalla e "
-"interactuar con el usuario con varios dispositivos de entrada."
+"GDK es la biblioteca de bajo nivel que usa <link xref=\"tech-gtk\">GTK+</"
+"link> para interactuar con el sistema de ventanas para los dispositivos "
+"gráficos y de entrada. Aunque rara vez usará GDK directamente en el código "
+"de la aplicación, contiene toda la funcionalidad necesaria para crear "
+"ventanas de bajo nivel en la pantalla y para interactuar con el usuario con "
+"varios dispositivos de entrada. GDK actúa como una capa de abstracción sobre "
+"varios sistemas de ventanas, por lo que GTK+ se puede usar en todos ellos: "
+"el sistema X-Window (X11), Microsoft Windows y Mac OS X Quartz."
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:20
@@ -2665,7 +2618,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:29
-#, fuzzy
 #| msgid ""
 #| "GDK enables you to access events from keyboards, mice, and other input "
 #| "devices, rather than connect to the high-level signals used in GTK+. GDK "
@@ -2677,13 +2629,10 @@ msgid ""
 "data from the system. When implementing custom controls, you may need to "
 "access these features to implement proper user interaction behavior."
 msgstr ""
-"GDK le permite acceder a eventos del teclado, ratones y otros dispositivos "
-"de entrada, en lugar de conectarse con las señales de alto nivel que se usan "
-"en GTK+. GDK también proporciona rutinas de bajo nivel para acceder a los "
-"datos de arrastrar y soltar y del portapapeles del sistema. Cuando "
-"implemente controles personalizados, quizá deba acceder a estas "
-"características para implementar un comportamiento adecuado de la "
-"interacción con el usuario."
+"GDK también proporciona rutinas de bajo nivel para acceder a los datos de "
+"arrastrar y soltar y del portapapeles del sistema. Cuando implemente "
+"controles personalizados, quizá deba acceder a estas características para "
+"implementar un comportamiento adecuado de la interacción con el usuario."
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:34
@@ -2703,7 +2652,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:41
-#, fuzzy
 #| msgid ""
 #| "You should use GDK whenever you need low-level access to the underlying "
 #| "windowing system, including low-level access to events, windows, and the "
@@ -2725,8 +2673,10 @@ msgstr ""
 "ventanas, incluyendo acceso a bajo nivel para eventos, ventanas y al "
 "portapapeles. Usar GDK para estas tareas asegura que su código es portable y "
 "se integra con el resto de su código GTK+. Generalmente no deberían usarse "
-"las rutinas de dibujado simple en GDK. En su lugar, debería usar la extensa "
-"funcionalidad que proporciona Cairo."
+"las rutinas de dibujado simple en GDK; estas se dejan para cuando GDK "
+"simplemente envuelve las primitivas de dibujado del sistema de ventanas. En "
+"su lugar, debería usar la extensa funcionalidad que proporciona <link xref="
+"\"tech-cairo\">Cairo</link> para dibujar gráficos 2D de alta calidad."
 
 #. (itstool) path: item/p
 #: C/tech-gdk.page:51
@@ -2876,7 +2826,6 @@ msgstr "Archivos GIO"
 
 #. (itstool) path: page/p
 #: C/tech-gio.page:12
-#, fuzzy
 #| msgid ""
 #| "GIO provides APIs for asynchronously reading and writing files and other "
 #| "streams. Files are referenced by URIs, and local backends can provide "
@@ -2893,12 +2842,12 @@ msgid ""
 "access is free to all applications using GIO."
 msgstr ""
 "GIO proporciona varias API para leer y escribir archivos y otros flujos de "
-"manera asíncrona. Los archivos se referencian con URI, y los «backend» "
-"locales pueden proporcionar acceso a más cosas que sólo a archivos locales. "
-"Cuando se ejecuta bajo el escritorio GNOME, GIO usa GVFS para permitir el "
-"acceso a archivos sobre SFTP, FTP, WebDAV, SMB y otros protocolos populares. "
-"Este acceso transparente a archivos en red es libre para todas las "
-"aplicaciones que usan GIO."
+"manera asíncrona. Los archivos se referencian con URI (localizador universal "
+"de recursos), y los «backend» locales pueden proporcionar acceso a más cosas "
+"que sólo a archivos locales. Cuando se ejecuta bajo el escritorio GNOME, GIO "
+"usa GVFS para permitir el acceso a archivos sobre SFTP, FTP, WebDAV, SMB y "
+"otros protocolos populares. Este acceso transparente a archivos en red es "
+"libre para todas las aplicaciones que usan GIO."
 
 #. (itstool) path: page/p
 #: C/tech-gio.page:19
@@ -2942,6 +2891,9 @@ msgid ""
 "data structures for C programs (linked lists, binary trees, hash tables) and "
 "various utilities such as string manipulation functions."
 msgstr ""
+"GLib es la principal biblioteca de GNOME. Proporciona estructuras de datos "
+"sencillas para programas en C (listas enlazadas, árboles binarios, tablas "
+"hash) y varias utilidades como funciones de manipulación de cadenas."
 
 #. (itstool) path: page/p
 #: C/tech-glib.page:17
@@ -2950,6 +2902,8 @@ msgid ""
 "with GLib. If you are, however, GLib will make your life as a C programmer "
 "much easier."
 msgstr ""
+"Si escribe programas en C, normalmente no necesitará conocer GLib pero si lo "
+"hace, GLib simplificará mucho su vida como programador en C."
 
 #. (itstool) path: item/p
 #: C/tech-glib.page:24
@@ -3214,7 +3168,6 @@ msgstr "GTK+"
 
 #. (itstool) path: page/p
 #: C/tech-gtk.page:12
-#, fuzzy
 #| msgid ""
 #| "GTK+ is the primary library used to construct user interfaces in GNOME. "
 #| "It provides all the user interface controls, or widgets, used in a common "
@@ -3231,15 +3184,17 @@ msgid ""
 "of drawing and device interaction."
 msgstr ""
 "GTK+ es la principal biblioteca usada para construir interfaces de usuario "
-"en GNOME. Proporciona todos los controles de interfaz de usuario, o widgets, "
-"usados en una aplicación gráfica común. Es una API moderna, orientada a "
-"objetos que permite construir interfaces de usuario atractivas y "
-"sofisticadas sin tratar con los detalles de bajo nivel como el pintado o la "
-"interacción con el dispositivo."
+"en GNOME. Su nombre proviene del «GIMP Tool Kit (kit de herramientas para "
+"GIMP)», ya que originalmente se desarrolló explícitamente para este programa "
+"de manipulación de imágenes, y posteriormente se estableció como una "
+"biblioteca individual. Proporciona todos los controles de interfaz de "
+"usuario, o <em>widgets</em>, usados en una aplicación gráfica común. Es una "
+"API moderna, orientada a objetos que permite construir interfaces de usuario "
+"atractivas y sofisticadas sin tratar con los detalles de bajo nivel como el "
+"pintado o la interacción con el dispositivo."
 
 #. (itstool) path: page/p
 #: C/tech-gtk.page:21
-#, fuzzy
 #| msgid ""
 #| "In addition to basic widgets, such as buttons, check boxes, and text "
 #| "entries, GTK+ also provides powerful Model-View-Controller (MVC) APIs for "
@@ -3256,7 +3211,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-gtk.page:26
-#, fuzzy
 #| msgid ""
 #| "Widgets in GTK+ are placed on windows using a box-packing model. "
 #| "Programmers specify only how to pack widgets together in container boxes, "
@@ -3272,12 +3226,15 @@ msgid ""
 "Arabic and Hebrew, GTK+ automatically reverses the user interface from left "
 "to right so that controls have the expected visual order."
 msgstr ""
-"Los widgets en GTK+ se emplazan en las ventanas usando un modelo de paquetes "
-"de cajas. Los programadores sólo especifican cómo empaquetar los widgets "
-"juntos en cajas contenedoras, en lugar de su posición en coordenadas "
-"absolutas. GTK+ se asegura de que las ventanas se dimensionan correctamente "
-"para ajustarse a su contenido y maneja automáticamente las redimensiones de "
-"ventanas."
+"Los widgets en GTK+ se colocan en las ventanas usando un <em>modelo de "
+"paquetes de cajas</em>. Los programadores sólo especifican cómo empaquetar "
+"los widgets juntos en cajas contenedoras, en lugar de su posición en "
+"coordenadas absolutas. GTK+ se asegura de que las ventanas se dimensionan "
+"correctamente para ajustarse a su contenido y maneja automáticamente las "
+"redimensiones de las ventanas. Para idiomas que se leen de derecha a "
+"izquierda, como el árabe y el hebreo, GTK+ invierte automáticamente la "
+"interfaz del usuario, por lo que los controles tienen el aspecto visual "
+"esperado."
 
 #. (itstool) path: page/p
 #: C/tech-gtk.page:34
@@ -3359,7 +3316,6 @@ msgstr "<link href=\"http://www.gupnp.org\">Página web de GUPnP</link>"
 
 #. (itstool) path: info/desc
 #: C/tech-help.page:6
-#| msgid "Topic-oriented help system"
 msgid "Topic-oriented online help system"
 msgstr "Sistema de ayuda en línea orientada a temas"
 
@@ -3370,7 +3326,6 @@ msgstr "Ayuda"
 
 #. (itstool) path: page/p
 #: C/tech-help.page:12
-#, fuzzy
 #| msgid ""
 #| "Users sometimes need a little help, even with the best-designed "
 #| "applications. GNOME provides a built-in topic-oriented help system using "
@@ -3397,8 +3352,8 @@ msgstr ""
 "\"http://projectmallard.org/\">Mallard</link>. Usado de manera pionera por "
 "los desarrolladores de GNOME, Mallard es un lenguaje ágil y dinámico que le "
 "ayuda a escribir y revisar rápidamente. Su diseño orientado a temas "
-"significa que los usuarios puede encontrar las respuestas que necesitan sin "
-"tener que examinar el manual. Con sus sistema único de enlazado y "
+"significa que los usuarios pueden encontrar las respuestas que necesitan sin "
+"tener que examinar el manual. Con sus sistemas únicos de enlazado y "
 "organización, Mallard es el único lenguaje diseñado para manejar ayuda "
 "complementaria y del vendedor en un único documento coherente."
 
@@ -3500,7 +3455,6 @@ msgstr "Notificaciones"
 
 #. (itstool) path: page/p
 #: C/tech-notify.page:12
-#, fuzzy
 #| msgid ""
 #| "The libnotify library provides a convenient API for presenting "
 #| "notifications to the user. Notifications can be simple message or they "
@@ -3518,12 +3472,15 @@ msgid ""
 "bottom of the screen and then put into the messaging tray, while other "
 "desktop shells may choose to show them differently."
 msgstr ""
-"La biblioteca «libnotify» proporciona una API adecuada para presentar "
-"notificaciones al usuario. Las notificaciones puede ser simplemente un "
-"mensaje o pueden permitir que el usuario responda. Las notificaciones hechas "
-"con «libnotify» usarán la interfaz apropiada en el entorno en que se esté "
-"ejecutando la aplicación. En GNOME 3, las notificaciones se muestran en la "
-"parte inferior de la pantalla y se colocan en la bandeja de mensajes."
+"Libnotify proporciona una API adecuada para presentar notificaciones al "
+"usuario. Las notificaciones puede ser simplemente un mensaje o pueden "
+"permitir que el usuario responda. Por ejemplo, el software de mensajería "
+"instantánea de GNOME, Empathy, usa las notificaciones para indicar al "
+"usuario cuando recibe un mensaje. Las notificaciones hechas con Libnotify "
+"usarán la interfaz apropiada en el entorno en que se esté ejecutando la "
+"aplicación. En GNOME 3, las notificaciones se muestran en la parte inferior "
+"de la pantalla y se colocan en la bandeja de mensajes, mientras que otros "
+"entornos pueden mostrarlas de manera diferente."
 
 #. (itstool) path: item/p
 #: C/tech-notify.page:24
@@ -3587,6 +3544,8 @@ msgid ""
 "The GNOME platform is a rich collection of libraries. This is a list of all "
 "the platform libraries in GNOME, sorted by purpose."
 msgstr ""
+"La plataforma GNOME es una amplia colección de bibliotecas. Esta es una "
+"lista de todas las bibliotecas de GNOME, ordenadas por propósito."
 
 #. (itstool) path: links/title
 #: C/tech.page:25
@@ -4058,7 +4017,6 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/tech-telepathy.page:6
-#| msgid "Unified and integrated real-time communication service"
 msgid "Unified instant-messaging and communications service"
 msgstr "Servicio de comunicaciones y mensajería instantánea unificado"
 
@@ -4195,7 +4153,6 @@ msgstr "WebKit"
 
 #. (itstool) path: page/p
 #: C/tech-webkit.page:12
-#, fuzzy
 #| msgid ""
 #| "WebKit is a powerful, multi-platform HTML engine used in open source and "
 #| "commercial products. WebKitGTK+ is the port of WebKit built on <link xref="
@@ -4211,9 +4168,10 @@ msgid ""
 msgstr ""
 "WebKit es un potente motor HTML multiplataforma usado en software libre y en "
 "productos comerciales. WebKitGTK+ es una versión de WebKit construida en "
-"<link xref=\"gtk\">GTK+</link> e integrada con la plataforma de desarrollo "
-"de GNOME. WebKitGTK+ se desarrolla como parte del proyecto WebKit principal, "
-"por lo que siempre está actualizado con las últimas novedades de HTML5."
+"<link xref=\"tech-gtk\">GTK+</link> e integrada con la plataforma de "
+"desarrollo de GNOME. WebKitGTK+ se desarrolla como parte del proyecto WebKit "
+"principal, por lo que siempre está actualizado con las últimas novedades de "
+"HTML5."
 
 #. (itstool) path: page/p
 #: C/tech-webkit.page:18
