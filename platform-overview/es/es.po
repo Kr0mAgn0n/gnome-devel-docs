@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 17:02+0000\n"
-"PO-Revision-Date: 2014-01-20 14:06+0100\n"
+"POT-Creation-Date: 2014-01-20 16:54+0000\n"
+"PO-Revision-Date: 2014-01-21 12:03+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -461,7 +461,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/dev-help-write.page:29
-#, fuzzy
 msgid ""
 "Most projects should have an <file>index.page</file> and some content pages, "
 "although you may not need an <file>index.page</file> if you are dropping "
@@ -469,7 +468,8 @@ msgid ""
 msgstr ""
 "La mayoría de los proyectos deben tener un archivo <file>index.page</file> y "
 "algunas páginas con contenido, aunque puede no necesitar el archivo "
-"<file>index.page</file> si está escribiendo un ."
+"<file>index.page</file> si está escribiendo ayuda sobre los complementos de "
+"otro proyecto."
 
 #. (itstool) path: listing/title
 #: C/dev-help-write.page:35
@@ -1212,6 +1212,10 @@ msgid ""
 "level VFS (virtual filesystem) API is provided, as well as utilities such as "
 "icons and application launching"
 msgstr ""
+"Para <em style=\"strong\">leer y escribir archivos y otros flujos de manera "
+"asíncrona</em>, use <em style=\"strong\" xref=\"tech-gio\">GIO</em>. Se "
+"proporciona una API de alto nivel llamada VFS (sistema de archivos virtual), "
+"así como utilidades como iconos y lanzamiento de aplicaciones."
 
 #. (itstool) path: section/p
 #: C/overview-io.page:46
@@ -1331,6 +1335,8 @@ msgstr ""
 #: C/overview-media.page:27
 msgid "<em style=\"strong\">Share and stream media with remote devices</em>"
 msgstr ""
+"<em style=\"strong\">Compartir y emitir multimedia con dispositivos remotos</"
+"em>"
 
 #. (itstool) path: page/p
 #: C/overview-media.page:31
@@ -1340,6 +1346,10 @@ msgid ""
 "or remotely over the network. The underlying low-level API is available if "
 "you need more control."
 msgstr ""
+"Añadir contenido multimedia a su aplicación para que los usuarios puedan "
+"reproducir fácilmente su contenido. Consumir y compartir contenido con otros "
+"dispositivos conectados a un equipo o remotamente en la red. Está disponible "
+"la API subyaente de bajo nivel si necesita más control."
 
 #. (itstool) path: media/p
 #: C/overview-media.page:37
@@ -1476,6 +1486,8 @@ msgid ""
 "<em style=\"strong\">Use portable socket-based APIs in a UI without "
 "blocking</em>"
 msgstr ""
+"<em style=\"strong\">Usar API portables basadas en sockets en una IU sin "
+"bloqueos</em>"
 
 #. (itstool) path: item/p
 #: C/overview-net.page:27
@@ -1512,6 +1524,10 @@ msgid ""
 "style=\"strong\">comprehensive support for networking devices</em> and "
 "network topologies."
 msgstr ""
+"En GIO está disponible la monitorización del estado de red, pero <em style="
+"\"strong\" xref=\"tech-network-manager\">NetworkManager</em> proporciona un "
+"<em style=\"strong\">soporte comprensible para dispositivos</em> y "
+"topologías de red."
 
 #. (itstool) path: section/p
 #: C/overview-net.page:56
@@ -1558,6 +1574,9 @@ msgid ""
 "which uses NetworkManager for the network status menu, including managing "
 "wired, wireless, 3G modem and VPN networking systems."
 msgstr ""
+"<em style=\"strong\">GNOME Shell</em> es la parte visible del escritorio "
+"GNOME, y usa NetworkManager para el menú del estado de la red, incluyendo la "
+"gestión de sistema de redes cableadas, inalámbricas, módems 3G y VPN."
 
 #. (itstool) path: item/p
 #: C/overview-net.page:87
@@ -2390,7 +2409,6 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/tech-eds.page:6
-#| msgid "Integration with the desktop-wide address book and calendar"
 msgid "Desktop-wide addressbook for contacts and calendar"
 msgstr "Libreta de direcciones del escritorio para contactos y calendario"
 
@@ -2591,7 +2609,7 @@ msgstr "<link href=\"http://www.gnome-db.org/\">Página web de GDA</link>"
 #. (itstool) path: info/desc
 #: C/tech-gdk.page:6
 msgid "Low-level abstraction for the windowing system"
-msgstr ""
+msgstr "Abstracción de bajo nivel para el sistema de ventanas"
 
 #. (itstool) path: page/title
 #: C/tech-gdk.page:10
@@ -2692,7 +2710,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-geoclue2.page:6
 msgid "Geolocation - finding the user's geographical location"
-msgstr ""
+msgstr "Geolocalización: buscar la ubicación geográfica del usuario"
 
 #. (itstool) path: page/title
 #: C/tech-geoclue2.page:9
@@ -2763,7 +2781,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-gio-network.page:6
 msgid "Networking and sockets API with streams"
-msgstr ""
+msgstr "API de red y «sockets» con flujos"
 
 #. (itstool) path: page/title
 #: C/tech-gio-network.page:10
@@ -2772,7 +2790,6 @@ msgstr "Redes GIO"
 
 #. (itstool) path: page/p
 #: C/tech-gio-network.page:12
-#, fuzzy
 #| msgid ""
 #| "Built on top of the stream APIs used for files, GIO provides high-level "
 #| "networking APIs to communicate over TCP/IP and UNIX domain sockets. You "
@@ -2787,11 +2804,12 @@ msgid ""
 "API means your application doesn't block waiting for a response from the "
 "network."
 msgstr ""
-"Construida en la parte superior del flujo de API usadas por archivos, GIO "
-"proporciona API de red de alto nivel para comunicarse sobre sockets de "
-"dominio TCP/IP y UNIX. Puede usar la API de red GIO para conectarse a un "
-"servidor, detectar eventos, y leer los recursos. El diseño asíncrono de la "
-"API significa que su aplicación no se bloquea esperando una respuesta."
+"Construida en la parte superior del flujo de API <link xref=\"tech-gio"
+"\">usadas por archivos</link>, GIO proporciona API de red de alto nivel para "
+"comunicarse sobre sockets de dominio TCP/IP y UNIX. Puede usar las API de "
+"red GIO para conectarse a un servidor, detectar eventos, y leer los "
+"recursos. El diseño asíncrono de la API significa que su aplicación no se "
+"bloquea esperando una respuesta."
 
 #. (itstool) path: item/p
 #: C/tech-gio-network.page:21
@@ -2813,13 +2831,12 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/tech-gio.page:6
-#, fuzzy
 #| msgid ""
 #| "Asynchronous file and URI handling with access to file and volume info"
 msgid "File and URI handling, asynchronous file operations, volume handling"
 msgstr ""
-"Archivo asíncrono y manejo de URI con acceso al archivo y a la información "
-"del volumen"
+"Gestión de archivos y URI, operaciones asíncronas sobre archivos, gestión de "
+"volúmenes"
 
 #. (itstool) path: page/title
 #: C/tech-gio.page:10
@@ -2973,6 +2990,7 @@ msgstr ""
 #: C/tech-gsettings.page:6
 msgid "Configuration storage for application preferences"
 msgstr ""
+"Almacenamiento de la configuración para preferencias de las aplicaciones"
 
 #. (itstool) path: page/title
 #: C/tech-gsettings.page:11
@@ -3268,7 +3286,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-gupnp.page:20
-#, fuzzy
 #| msgid ""
 #| "GUPnP DLNA: A small utility library that aims to ease the DLNA-related "
 #| "tasks such as media profile guessing, transcoding to a given profile, etc."
@@ -3277,8 +3294,9 @@ msgid ""
 "standard formats. GUPnP can also perform DLNA-related tasks such as media "
 "profile guessing, transcoding to a given profile, etc."
 msgstr ""
-"GUPnP DLNA: una pequeña biblioteca que pretende simplificar las tareas "
-"relacionadas con DLNA tales como adivinar el perfil de un medio, "
+"DLNA es un conjunto de estándares que permite a los dispositivos compartir "
+"contenido multimedia en formatos estándar. GUPnP también puede realizar "
+"tareas relacionadas con DLNA tales como adivinar el perfil de un medio, "
 "transcodificar a un perfil dado, etc."
 
 #. (itstool) path: page/p
@@ -3287,6 +3305,8 @@ msgid ""
 "In GNOME, GUPnP is one of the basic building blocks of home-multimedia "
 "software like Rygel, a home media server."
 msgstr ""
+"En GNOME, GUPnP es uno de los bloques de construcción básicos de software "
+"multimedia como Rygel, servidor multimedia no profesional."
 
 #. (itstool) path: item/p
 #: C/tech-gupnp.page:32
@@ -3359,6 +3379,7 @@ msgstr "<link href=\"http://docbook.org/\">El sitio web de DocBook</link>"
 #: C/tech-network-manager.page:6
 msgid "Manage network connections and monitor online/offline status"
 msgstr ""
+"Gestionar conexiones de red y monitorizar el estado en línea/desconectado"
 
 #. (itstool) path: page/title
 #: C/tech-network-manager.page:9
@@ -3483,6 +3504,12 @@ msgid ""
 "printer, a program to configure printers when they are plugged in, uses "
 "PackageKit to download and install printer drivers as needed."
 msgstr ""
+"Varias aplicaciones de GNOME usan PackageKit en situaciones similares. "
+"Totem, el reproductor multimedia, usa PackageKit para solicitar la "
+"instalación de «códecs» cuando intenta reproducir un archivo multimedia que "
+"no reconoce. System-config-printer, un programa para configurar impresoras "
+"cuando están conectadas, usa PackageKit para descargar e instalar los "
+"controladores necesarios para la impresora."
 
 #. (itstool) path: item/p
 #: C/tech-packagekit.page:29
@@ -3542,7 +3569,7 @@ msgstr "Comunicación entre procesos"
 #. (itstool) path: links/title
 #: C/tech.page:67
 msgid "Geographical"
-msgstr ""
+msgstr "Geográfica"
 
 #. (itstool) path: links/title
 #: C/tech.page:73
@@ -3552,7 +3579,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-pango.page:6
 msgid "International text rendering with full Unicode support"
-msgstr ""
+msgstr "Renderizado de texto internacional con soporte completo para Unicode"
 
 #. (itstool) path: page/title
 #: C/tech-pango.page:10
@@ -3587,7 +3614,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-pango.page:23
-#, fuzzy
 #| msgid ""
 #| "Pango has extensive support for the various writing systems used "
 #| "throughout the world. Many of the writing systems used for languages have "
@@ -3605,10 +3631,10 @@ msgid ""
 "systems is automatic; application developers do not have to write any "
 "special code to support other languages."
 msgstr ""
-"Pango tiene un soporte extensivo para los variados sistemas de escritura "
+"Pango tiene un amplio soporte para los distintos sistemas de escritura "
 "usados en todo el mundo. Muchos de los sistemas de escritura usados en los "
 "idiomas tienen complejas reglas de dibujado de glifos y composición de "
-"caracteres. Con Pango, casi todos los idomas pueden escribirse y mostrarse "
+"caracteres. Con Pango, casi todos los idiomas pueden escribirse y mostrarse "
 "correctamente, permitiendo a los usuarios en cualquier parte ver texto en "
 "sus idiomas maternos. El soporte de Pango para múltiples sistemas de "
 "escritura es automático; los desarrolladores de aplicaciones no tienen que "
@@ -3616,7 +3642,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-pango.page:32
-#, fuzzy
 #| msgid ""
 #| "Pango supports the text styling used in typical documents and interfaces, "
 #| "including italics, font weights, and underlines. Pango uses a simple XML-"
@@ -3639,7 +3664,7 @@ msgstr ""
 "usa un vocabulario simple parecido a XML llamado PangoMarkup que le permite "
 "establecer el tamaño de la tipografía, el color, los estilos y otros "
 "atributos del texto. Al usar PangoMarkup podrá especificar estilos en línea "
-"sin tener que iterar manualmente con los bloques de texto. Se puede usar "
+"sin tener que iterar manualmente sobre los bloques de texto. Se puede usar "
 "PangoMarkup desde GTK+ directamente, permitiéndole dar estilo a textos en "
 "sus interfaces gráficas fácilmente."
 
@@ -3676,7 +3701,7 @@ msgstr "<link href=\"http://www.pango.org\">El sitio web de Pango</link>"
 #. (itstool) path: info/desc
 #: C/tech-polkit.page:6
 msgid "Access control for system-level services provided through D-Bus"
-msgstr ""
+msgstr "Control de acceso para servicios del sistema proporcionado por D-Bus"
 
 #. (itstool) path: page/title
 #: C/tech-polkit.page:9
@@ -3723,7 +3748,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-poppler.page:6
 msgid "PDF rendering"
-msgstr ""
+msgstr "Renderizado de PDF"
 
 #. (itstool) path: page/title
 #: C/tech-poppler.page:9
@@ -3794,7 +3819,6 @@ msgstr "Secreto"
 
 #. (itstool) path: page/p
 #: C/tech-secret.page:12
-#, fuzzy
 #| msgid ""
 #| "GNOME provides a modern and secure keyring manager to store users' "
 #| "passwords and other sensitive data. Applications can use the keyring "
@@ -3806,11 +3830,11 @@ msgid ""
 "to store and access passwords, and users can manage their passwords using "
 "GNOME's <app>Seahorse</app> application."
 msgstr ""
-"GNOME proporciona un gestor del depósito de claves moderno y seguro para "
-"almacenar las contraseñas y otros datos sensibles del usuario. Las "
-"aplicaciones pueden usar la biblioteca del gestor del depósito de claves "
-"para almacenar y acceder a las contraseñas, mientras que los usuarios pueden "
-"gestionar sus contraseñas usando la aplicación <app>Seahorse</app> de GNOME."
+"GNOME usa libsecret como depósito de claves seguro para almacenar las "
+"contraseñas y otros datos sensibles del usuario. Las aplicaciones pueden "
+"usar la biblioteca del gestor del depósito de claves para almacenar y "
+"acceder a las contraseñas, mientras que los usuarios pueden gestionar sus "
+"contraseñas usando la aplicación de GNOME <app>Seahorse</app>."
 
 #. (itstool) path: page/p
 #: C/tech-secret.page:18
@@ -3879,11 +3903,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-secret.page:44
-#| msgid ""
-#| "If you use GIO to access remote servers, you automatically get the "
-#| "benefits of the keyring manager. Whenever GVFS needs to authenticate the "
-#| "user, it provides the option to store the password, either in the default "
-#| "keyring or in the session keyring."
 msgid ""
 "If you use <link xref=\"tech-gio\">GIO</link> to access remote servers, you "
 "automatically get the benefits of the keyring manager. Whenever GIO needs to "
@@ -3898,11 +3917,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/tech-secret.page:49
-#| msgid ""
-#| "You should use the keyring manager whenever your application needs to "
-#| "store passwords or other sensitive data for users. Using the keyring "
-#| "manager provides a better user experience while still keeping user data "
-#| "safe and secure."
 msgid ""
 "You should use libsecret's keyring manager whenever your application needs "
 "to store passwords or other sensitive data for users. Using the keyring "
@@ -3991,7 +4005,6 @@ msgstr "Telepathy"
 
 #. (itstool) path: page/p
 #: C/tech-telepathy.page:12
-#, fuzzy
 #| msgid ""
 #| "Telepathy provides a powerful framework for interacting with the user's "
 #| "instant messaging contacts. With Telepathy, all accounts and connections "
@@ -4006,18 +4019,14 @@ msgid ""
 "service to communicate with contacts."
 msgstr ""
 "Telepathy proporciona un entorno de trabajo potente para interactuar con los "
-"contactos de mensajería instantánea del usuario. con Telepathy, todas las "
-"cuentas y las conexiones se manejan con un servicio de sesión de D-Bus, que "
-"está plenamente integrado con el escritorio GNOME. Las aplicaciones se puede "
-"conectar a este servicio para comunicarse con los contactos."
+"contactos de mensajería instantánea del usuario. Con Telepathy, todas las "
+"cuentas y las conexiones se manejan con un servicio de sesión de <link xref="
+"\"tech-d-bus\">D-Bus</link>, que está plenamente integrado con el escritorio "
+"GNOME. Las aplicaciones se puede conectar a este servicio para comunicarse "
+"con los contactos."
 
 #. (itstool) path: page/p
 #: C/tech-telepathy.page:18
-#| msgid ""
-#| "With the Telepathy Tubes API, you can even tunnel an arbitrary protocol "
-#| "over modern instant messaging protocols like Jabber to create interactive "
-#| "applications. Create multi-player games or collaborative editors that "
-#| "integrate with the desktop-wide instant messaging services."
 msgid ""
 "With the Telepathy Tubes API, you can even tunnel an arbitrary protocol over "
 "modern instant messaging protocols like Jabber to create interactive "
@@ -4050,7 +4059,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-tracker.page:6
 msgid "Storage and retrieval for document metadata"
-msgstr ""
+msgstr "Almacenamiento y recuperación de metadatos de documentos"
 
 #. (itstool) path: page/title
 #: C/tech-tracker.page:9
@@ -4292,6 +4301,10 @@ msgid ""
 "existing Gtk event <code>_onActivate</code> and <code>startup</code> to "
 "<code>_onStartup</code>:"
 msgstr ""
+"Se llama a <code>_init</code> cuando se crea una instancia nueva. Cree una "
+"<code>GtkApplication</code>, conecte la señal <code>activate</code> al "
+"evento <code>_onActivate</code> de GTK+ existente y <code>startup</code> a "
+"<code>_onStartup</code>:"
 
 #. (itstool) path: example/code
 #: C/tour-events.page:48
@@ -4539,7 +4552,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tour.page:24
 msgid "Get your GtkApplication started and create a UI using Glade."
-msgstr ""
+msgstr "Empiece su GtkApplication y cree una IU usando Glade."
 
 #. (itstool) path: page/title
 #: C/tour.page:27
