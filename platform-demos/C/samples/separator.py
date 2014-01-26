@@ -36,8 +36,8 @@ class MyApplication(Gtk.Application):
         Gtk.Application.__init__(self)
 
     def do_activate(self):
-	win = MyWindow(self)
-	win.show_all()
+        win = MyWindow(self)
+        win.show_all()
 
 app = MyApplication()
 exit_status = app.run(sys.argv)
