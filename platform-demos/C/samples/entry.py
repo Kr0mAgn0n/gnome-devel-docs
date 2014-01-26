@@ -19,9 +19,9 @@ class MyWindow(Gtk.ApplicationWindow):
     # the content of the entry is used to write in the terminal
     def cb_activate(self, entry):
         # retrieve the content of the widget
-		name = entry.get_text()
-		# print it in a nice form in the terminal
-		print "Hello " + name + "!"
+        name = entry.get_text()
+        # print it in a nice form in the terminal
+        print "Hello " + name + "!"
 
 class MyApplication(Gtk.Application):
     def __init__(self):
