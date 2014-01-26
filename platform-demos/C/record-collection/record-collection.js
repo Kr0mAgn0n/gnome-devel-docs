@@ -141,7 +141,7 @@ Demo.prototype = {
   }
 }
 
-Gtk.init (0, null);
+Gtk.init (null, null);
 
 var demo = new Demo ();
 
