@@ -203,8 +203,7 @@ demo_sources =	\
 	samples/window.c			\
 	samples/window.js			\
 	samples/window.py			\
-	samples/window.vala			\
-	media/gnome-devtools.catalog
+	samples/window.vala
 
 HELP_MEDIA =	\
 	media/02_jsgrid_01.png		\

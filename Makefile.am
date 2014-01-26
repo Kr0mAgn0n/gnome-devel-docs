@@ -4,4 +4,5 @@ SUBDIRS =				\
 	hig				\
 	integration-guide		\
 	optimization-guide		\
-	platform-overview
+	platform-overview		\
+	programming-guidelines

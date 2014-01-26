@@ -14,4 +14,5 @@ hig/Makefile
 integration-guide/Makefile
 optimization-guide/Makefile
 platform-overview/Makefile
+programming-guidelines/Makefile
 ])
