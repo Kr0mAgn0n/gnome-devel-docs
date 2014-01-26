@@ -4,7 +4,7 @@ import sys
 
 class MyWindow(Gtk.ApplicationWindow):
 
-     # constructor for a window (the parent window) with a label
+    # constructor for a window (the parent window) with a label
     def __init__(self, app):
         Gtk.Window.__init__(self, title="GMenu Example", application=app)
         self.set_default_size(400, 200)
@@ -37,8 +37,8 @@ class MyWindow(Gtk.ApplicationWindow):
     def dialog_response(self, widget, response_id):
         # if the button clicked gives response OK (-5)
         if response_id == Gtk.ResponseType.OK:
-		    print "*boom*"
-		# if the button clicked gives response CANCEL (-6)
+            print "*boom*"
+        # if the button clicked gives response CANCEL (-6)
         elif response_id == Gtk.ResponseType.CANCEL:
             print "good choice"
         # if the messagedialog is destroyed (by pressing ESC)
