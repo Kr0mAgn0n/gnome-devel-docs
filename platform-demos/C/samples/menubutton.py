@@ -2,19 +2,21 @@ from gi.repository import Gtk
 from gi.repository import Gio
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Menubutton Example", application=app)
         self.set_default_size(600, 400)
 
         grid = Gtk.Grid()
-        
+
         # a menubutton
         menubutton = Gtk.MenuButton()
         menubutton.set_size_request(80, 35)
-        
+
         grid.attach(menubutton, 0, 0, 1, 1)
-        
+
         # a menu with two actions
         menumodel = Gio.Menu()
         menumodel.append("New", "app.new")
@@ -32,14 +34,16 @@ class MyWindow(Gtk.ApplicationWindow):
         about_action = Gio.SimpleAction.new("about", None)
         about_action.connect("activate", self.about_callback)
         self.add_action(about_action)
-        
+
         self.add(grid)
 
     # callback for "about"
     def about_callback(self, action, parameter):
         print "You clicked \"About\""
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
@@ -54,11 +58,11 @@ class MyApplication(Gtk.Application):
         new_action = Gio.SimpleAction.new("new", None)
         new_action.connect("activate", self.new_callback)
         self.add_action(new_action)
-        
+
         quit_action = Gio.SimpleAction.new("quit", None)
         quit_action.connect("activate", self.quit_callback)
         self.add_action(quit_action)
-    
+
     # callback functions for the actions related to the application
     def new_callback(self, action, parameter):
         print "You clicked \"New\""

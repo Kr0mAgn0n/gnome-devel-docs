@@ -1,8 +1,10 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
     # a window
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Switch Example", application=app)
         self.set_default_size(300, 100)
@@ -22,9 +24,9 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a grid to allocate the widgets
         grid = Gtk.Grid()
-        grid.set_column_spacing (10);
-        grid.attach (label, 0, 0, 1, 1);
-        grid.attach (switch, 1, 0, 1, 1);
+        grid.set_column_spacing(10)
+        grid.attach(label, 0, 0, 1, 1)
+        grid.attach(switch, 1, 0, 1, 1)
 
         # add the grid to the window
         self.add(grid)
@@ -40,7 +42,9 @@ class MyWindow(Gtk.ApplicationWindow):
         else:
             self.set_title("")
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

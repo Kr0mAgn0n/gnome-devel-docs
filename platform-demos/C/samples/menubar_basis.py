@@ -1,12 +1,16 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="MenuBar Example", application=app)
         self.set_default_size(200, 200)
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

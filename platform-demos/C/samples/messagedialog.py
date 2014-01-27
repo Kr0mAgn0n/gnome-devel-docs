@@ -2,6 +2,7 @@ from gi.repository import Gtk
 from gi.repository import Gio
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
 
     # constructor for a window (the parent window) with a label
@@ -47,7 +48,9 @@ class MyWindow(Gtk.ApplicationWindow):
         # finally, destroy the messagedialog
         widget.destroy()
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
@@ -58,7 +61,7 @@ class MyApplication(Gtk.Application):
     def quit_cb(self, action, parameter):
         self.quit()
 
-    def do_startup (self):
+    def do_startup(self):
         Gtk.Application.do_startup(self)
 
         # create a menu (a Gio.Menu)
@@ -73,7 +76,7 @@ class MyApplication(Gtk.Application):
         # a new simpleaction - for the application
         quit_action = Gio.SimpleAction.new("quit", None)
         quit_action.connect("activate", self.quit_cb)
-        self.add_action (quit_action)
+        self.add_action(quit_action)
 
 app = MyApplication()
 exit_status = app.run(sys.argv)

@@ -1,8 +1,10 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
     # a window
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="CheckButton Example", application=app)
         self.set_default_size(300, 100)
@@ -31,7 +33,9 @@ class MyWindow(Gtk.ApplicationWindow):
         else:
             self.set_title("")
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

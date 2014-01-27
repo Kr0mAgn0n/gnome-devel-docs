@@ -1,7 +1,9 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyApplication(Gtk.Application):
+
     def do_activate(self):
         # create a Gtk Window belonging to the application itself
         window = Gtk.Window(application=self)

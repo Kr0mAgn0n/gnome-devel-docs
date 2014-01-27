@@ -1,7 +1,9 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Separator Example", application=app)
 
@@ -31,7 +33,9 @@ class MyWindow(Gtk.ApplicationWindow):
         # add the grid to the window
         self.add(grid)
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

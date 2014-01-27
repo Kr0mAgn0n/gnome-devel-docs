@@ -9,7 +9,9 @@ list_of_dvd = [["The Usual Suspects"],
                ["Once Upon a Time in the West"],
                ["Rear Window"]]
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="My DVDs", application=app)
         self.set_default_size(250, 100)
@@ -59,9 +61,12 @@ class MyWindow(Gtk.ApplicationWindow):
         grid.attach(view, 0, 0, 4, 1)
         grid.attach(self.label, 0, 1, 4, 1)
         grid.attach(self.button_add, 0, 2, 1, 1)
-        grid.attach_next_to(self.entry, self.button_add, Gtk.PositionType.RIGHT, 1, 1)
-        grid.attach_next_to(self.button_remove, self.entry, Gtk.PositionType.RIGHT, 1, 1)
-        grid.attach_next_to(self.button_remove_all, self.button_remove, Gtk.PositionType.RIGHT, 1, 1)
+        grid.attach_next_to(
+            self.entry, self.button_add, Gtk.PositionType.RIGHT, 1, 1)
+        grid.attach_next_to(
+            self.button_remove, self.entry, Gtk.PositionType.RIGHT, 1, 1)
+        grid.attach_next_to(
+            self.button_remove_all, self.button_remove, Gtk.PositionType.RIGHT, 1, 1)
 
         # add the grid to the window
         self.add(grid)
@@ -69,9 +74,10 @@ class MyWindow(Gtk.ApplicationWindow):
     def on_changed(self, selection):
         # get the model and the iterator that points at the data in the model
         (model, iter) = selection.get_selected()
-        # set the label to a new value depending on the selection, if there is one
+        # set the label to a new value depending on the selection, if there is
+        # one
         if iter is not None:
-            self.label.set_text("\n %s" %(model[iter][0]))
+            self.label.set_text("\n %s" % (model[iter][0]))
         else:
             self.label.set_text("")
         return True
@@ -82,7 +88,7 @@ class MyWindow(Gtk.ApplicationWindow):
         title = self.entry.get_text()
         self.listmodel.append([title])
         # and print a message in the terminal
-        print "%s has been added" %(title)
+        print "%s has been added" % (title)
 
     def remove_cb(self, button):
         # if there is still an entry in the model
@@ -92,7 +98,7 @@ class MyWindow(Gtk.ApplicationWindow):
             # if there is a selection, print a message in the terminal
             # and remove it from the model
             if iter is not None:
-                print "%s has been removed" %(model[iter][0])
+                print "%s has been removed" % (model[iter][0])
                 self.listmodel.remove(iter)
             # otherwise, ask the user to select something to remove
             else:
@@ -114,6 +120,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

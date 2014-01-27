@@ -4,42 +4,46 @@ from gi.repository import Gio
 from gi.repository import GObject
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
-        Gtk.Window.__init__(self, title="FileChooserDialog Example", application=app)
+        Gtk.Window.__init__(
+            self, title="FileChooserDialog Example", application=app)
         self.set_default_size(400, 400)
 
         # the actions for the window menu, connected to the callback functions
         new_action = Gio.SimpleAction.new("new", None)
         new_action.connect("activate", self.new_callback)
         self.add_action(new_action)
-        
+
         open_action = Gio.SimpleAction.new("open", None)
         open_action.connect("activate", self.open_callback)
         self.add_action(open_action)
-        
+
         save_action = Gio.SimpleAction.new("save", None)
         save_action.connect("activate", self.save_callback)
         self.add_action(save_action)
-        
+
         save_as_action = Gio.SimpleAction.new("save-as", None)
         save_as_action.connect("activate", self.save_as_callback)
         self.add_action(save_as_action)
-        
+
         # the file
         self.file = None
-        
+
         # the textview with the buffer
         self.buffer = Gtk.TextBuffer()
         textview = Gtk.TextView(buffer=self.buffer)
         textview.set_wrap_mode(Gtk.WrapMode.WORD)
-        
+
         # a scrolled window for the textview
         self.scrolled_window = Gtk.ScrolledWindow()
-        self.scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        self.scrolled_window.set_policy(
+            Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         self.scrolled_window.add(textview)
         self.scrolled_window.set_border_width(5)
-        
+
         # add the scrolled window to the window
         self.add(self.scrolled_window)
 
@@ -47,16 +51,17 @@ class MyWindow(Gtk.ApplicationWindow):
     def new_callback(self, action, parameter):
         self.buffer.set_text("")
         print "New file created"
-        
+
     # callback for open
     def open_callback(self, action, parameter):
-        # create a filechooserdialog to open: 
-        # the arguments are: title of the window, parent_window, action, (buttons, response)
-        open_dialog = Gtk.FileChooserDialog ("Pick a file", self,
-                                             Gtk.FileChooserAction.OPEN, 
-                                             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, 
-                                             Gtk.STOCK_OPEN, Gtk.ResponseType.ACCEPT))
-        
+        # create a filechooserdialog to open:
+        # the arguments are: title of the window, parent_window, action,
+        # (buttons, response)
+        open_dialog = Gtk.FileChooserDialog("Pick a file", self,
+                                            Gtk.FileChooserAction.OPEN,
+                                           (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                                            Gtk.STOCK_OPEN, Gtk.ResponseType.ACCEPT))
+
         # not only local files can be selected in the file selector
         open_dialog.set_local_only(False)
         # dialog always on top of the textview window
@@ -95,12 +100,13 @@ class MyWindow(Gtk.ApplicationWindow):
 
     # callback function for save_as
     def save_as_callback(self, action, parameter):
-        # create a filechooserdialog to save: 
-        # the arguments are: title of the window, parent_window, action, (buttons, response)
-        save_dialog = Gtk.FileChooserDialog ("Pick a file", self,
-                                             Gtk.FileChooserAction.SAVE, 
-                                             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, 
-                                             Gtk.STOCK_SAVE, Gtk.ResponseType.ACCEPT))
+        # create a filechooserdialog to save:
+        # the arguments are: title of the window, parent_window, action,
+        # (buttons, response)
+        save_dialog = Gtk.FileChooserDialog("Pick a file", self,
+                                            Gtk.FileChooserAction.SAVE,
+                                           (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                                            Gtk.STOCK_SAVE, Gtk.ResponseType.ACCEPT))
         # the dialog will present a confirmation dialog if the user types a file name that
         # already exists
         save_dialog.set_do_overwrite_confirmation(True)
@@ -117,7 +123,7 @@ class MyWindow(Gtk.ApplicationWindow):
         save_dialog.connect("response", self.save_response_cb)
         # show the dialog
         save_dialog.show()
-        
+
     # callback function for the dialog save_dialog
     def save_response_cb(self, dialog, response_id):
         save_dialog = dialog
@@ -132,8 +138,8 @@ class MyWindow(Gtk.ApplicationWindow):
             print "cancelled: FileChooserAction.SAVE"
         # destroy the FileChooserDialog
         dialog.destroy()
-        
-    # callback function for save    
+
+    # callback function for save
     def save_callback(self, action, parameter):
         # if self.file is not already there
         if self.file is not None:
@@ -164,17 +170,19 @@ class MyWindow(Gtk.ApplicationWindow):
         # if the contents are empty
         else:
             # create (if the file does not exist) or overwrite the file in readwrite mode.
-            # arguments: etags, make_backup, flags, GError 
+            # arguments: etags, make_backup, flags, GError
             try:
                 self.file.replace_readwrite(None,
                                             False,
-                                            Gio.FileCreateFlags.NONE, 
+                                            Gio.FileCreateFlags.NONE,
                                             None)
                 print "saved: " + self.file.get_path()
             except GObject.GError as e:
                 print "Error: " + e.message
-        
+
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
@@ -199,7 +207,7 @@ class MyApplication(Gtk.Application):
             sys.exit()
         menu = builder.get_object("appmenu")
         self.set_app_menu(menu)
-        
+
     # callback function for quit
     def quit_callback(self, action, parameter):
         self.quit()

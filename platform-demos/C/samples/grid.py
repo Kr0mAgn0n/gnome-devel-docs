@@ -1,7 +1,9 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Grid Example", application=app)
 
@@ -22,12 +24,15 @@ class MyWindow(Gtk.ApplicationWindow):
         # attach the second label
         grid.attach(label_top_right, 1, 0, 1, 1)
         # attach the third label below the first label
-        grid.attach_next_to(label_bottom, label_top_left, Gtk.PositionType.BOTTOM, 2, 1)
+        grid.attach_next_to(
+            label_bottom, label_top_left, Gtk.PositionType.BOTTOM, 2, 1)
 
         # add the grid to the window
         self.add(grid)
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

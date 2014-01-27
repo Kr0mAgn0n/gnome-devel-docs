@@ -2,6 +2,7 @@ from gi.repository import Gtk
 from gi.repository import Gio
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
 
      # constructor for a window (the parent window)
@@ -27,14 +28,16 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # we fill in the aboutdialog
         aboutdialog.set_program_name("AboutDialog Example")
-        aboutdialog.set_copyright("Copyright \xc2\xa9 2012 GNOME Documentation Team")
+        aboutdialog.set_copyright(
+            "Copyright \xc2\xa9 2012 GNOME Documentation Team")
         aboutdialog.set_authors(authors)
         aboutdialog.set_documenters(documenters)
         aboutdialog.set_website("http://developer.gnome.org")
         aboutdialog.set_website_label("GNOME Developer Website")
 
         # we do not want to show the title, which by default would be "About AboutDialog Example"
-        # we have to reset the title of the messagedialog window after setting the program name
+        # we have to reset the title of the messagedialog window after setting
+        # the program name
         aboutdialog.set_title("")
 
         # to close the aboutdialog when "close" is clicked we connect the
@@ -47,7 +50,9 @@ class MyWindow(Gtk.ApplicationWindow):
     def on_close(self, action, parameter):
         action.destroy()
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
@@ -58,17 +63,17 @@ class MyApplication(Gtk.Application):
     def quit_cb(self, action, parameter):
         self.quit()
 
-    def do_startup (self):
+    def do_startup(self):
         Gtk.Application.do_startup(self)
 
         # create a menu (a Gio.Menu)
         menu = Gio.Menu()
         # append a menu item with label "About" and action "app.about"
-        menu.append ("About", "app.about")
+        menu.append("About", "app.about")
         # append a menu item with label "Quit" and action "app.quit"
         menu.append("Quit", "app.quit")
         # set menu as the menu for the application
-        self.set_app_menu (menu)
+        self.set_app_menu(menu)
 
         # a new simpleaction - for the application
         quit_action = Gio.SimpleAction.new("quit", None)

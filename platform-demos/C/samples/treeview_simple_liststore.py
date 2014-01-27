@@ -13,13 +13,16 @@ phonebook = [["Jurg", "Billeter", "555-0123"],
              ["Jason", "Clinton", "555-4567"],
              ["Random J.", "Hacker", "555-5678"]]
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="My Phone Book", application=app)
         self.set_default_size(250, 100)
         self.set_border_width(10)
 
-        # the data in the model (three strings for each row, one for each column)
+        # the data in the model (three strings for each row, one for each
+        # column)
         listmodel = Gtk.ListStore(str, str, str)
         # append the values in the model
         for i in range(len(phonebook)):
@@ -33,8 +36,8 @@ class MyWindow(Gtk.ApplicationWindow):
             cell = Gtk.CellRendererText()
             # the text in the first column should be in boldface
             if i == 0:
-                cell.props.weight_set=True
-                cell.props.weight=Pango.Weight.BOLD
+                cell.props.weight_set = True
+                cell.props.weight = Pango.Weight.BOLD
             # the column is created
             col = Gtk.TreeViewColumn(columns[i], cell, text=i)
             # and it is appended to the treeview
@@ -59,11 +62,13 @@ class MyWindow(Gtk.ApplicationWindow):
         # get the model and the iterator that points at the data in the model
         (model, iter) = selection.get_selected()
         # set the label to a new value depending on the selection
-        self.label.set_text("\n %s %s %s" %(model[iter][0],  model[iter][1], model[iter][2]))
+        self.label.set_text("\n %s %s %s" %
+                            (model[iter][0],  model[iter][1], model[iter][2]))
         return True
 
 
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

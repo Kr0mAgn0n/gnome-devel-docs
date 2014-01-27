@@ -1,7 +1,9 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="SpinButton Example", application=app)
         self.set_default_size(210, 70)
@@ -33,11 +35,15 @@ class MyWindow(Gtk.ApplicationWindow):
 
         self.add(grid)
 
-    # callback function: the signal of the spinbutton is used to change the text of the label
+    # callback function: the signal of the spinbutton is used to change the
+    # text of the label
     def spin_selected(self, event):
-        self.label.set_text("The number you selected is " + str(self.spin.get_value_as_int()) + ".")
+        self.label.set_text(
+            "The number you selected is " + str(self.spin.get_value_as_int()) + ".")
+
 
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

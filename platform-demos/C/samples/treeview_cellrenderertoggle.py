@@ -3,10 +3,13 @@ from gi.repository import Pango
 import sys
 
 books = [["Tolstoy, Leo", ["War and Peace", True], ["Anna Karenina", False]],
-         ["Shakespeare, William", ["Hamlet", False], ["Macbeth", True], ["Othello", False]],
+         ["Shakespeare, William", ["Hamlet", False],
+             ["Macbeth", True], ["Othello", False]],
          ["Tolkien, J.R.R.", ["The Lord of the Rings", False]]]
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Library", application=app)
         self.set_default_size(250, 100)
@@ -20,7 +23,8 @@ class MyWindow(Gtk.ApplicationWindow):
             # the iter piter is returned when appending the author in the first column
             # and False in the second
             piter = self.store.append(None, [books[i][0], False])
-            # append the books and the associated boolean value as children of the author
+            # append the books and the associated boolean value as children of
+            # the author
             j = 1
             while j < len(books[i]):
                 self.store.append(piter, books[i][j])
@@ -69,9 +73,11 @@ class MyWindow(Gtk.ApplicationWindow):
             while citer is not None:
                 self.store[citer][1] = current_value
                 citer = self.store.iter_next(citer)
-        # if the length of the path is not 1 (that is, if we are selecting a book)
+        # if the length of the path is not 1 (that is, if we are selecting a
+        # book)
         elif len(path) != 1:
-            # get the first child of the parent of the book (the first book of the author)
+            # get the first child of the parent of the book (the first book of
+            # the author)
             citer = self.store.get_iter(path)
             piter = self.store.iter_parent(citer)
             citer = self.store.iter_children(piter)
@@ -85,7 +91,9 @@ class MyWindow(Gtk.ApplicationWindow):
             # if they do, the author as well is selected; otherwise it is not
             self.store[piter][1] = all_selected
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

@@ -1,16 +1,21 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
-        Gtk.Window.__init__(self, title="ScrolledWindow Example", application=app)
+        Gtk.Window.__init__(
+            self, title="ScrolledWindow Example", application=app)
         self.set_default_size(200, 200)
 
         # the scrolledwindow
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_border_width(10)
-        # there is always the scrollbar (otherwise: AUTOMATIC - only if needed - or NEVER)
-        scrolled_window.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.ALWAYS)
+        # there is always the scrollbar (otherwise: AUTOMATIC - only if needed
+        # - or NEVER)
+        scrolled_window.set_policy(
+            Gtk.PolicyType.ALWAYS, Gtk.PolicyType.ALWAYS)
 
         # an image - slightly larger than the window...
         image = Gtk.Image()
@@ -22,7 +27,9 @@ class MyWindow(Gtk.ApplicationWindow):
         # add the scrolledwindow to the window
         self.add(scrolled_window)
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

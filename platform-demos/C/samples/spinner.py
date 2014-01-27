@@ -2,8 +2,10 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
     # a window
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Spinner Example", application=app)
         self.set_default_size(200, 200)
@@ -34,7 +36,9 @@ class MyWindow(Gtk.ApplicationWindow):
         # stop the signal emission
         return True
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

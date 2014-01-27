@@ -3,7 +3,9 @@ import sys
 
 distros = [["Select distribution"], ["Fedora"], ["Mint"], ["Suse"]]
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
         self.set_default_size(200, -1)
@@ -31,20 +33,23 @@ class MyWindow(Gtk.ApplicationWindow):
         # the first row is the active one by default at the beginning
         combobox.set_active(0)
 
-        # connect the signal emitted when a row is selected to the callback function
+        # connect the signal emitted when a row is selected to the callback
+        # function
         combobox.connect("changed", self.on_changed)
 
         # add the combobox to the window
         self.add(combobox)
 
     def on_changed(self, combo):
-        # if the row selected is not the first one, write its value on the terminal
+        # if the row selected is not the first one, write its value on the
+        # terminal
         if combo.get_active() != 0:
-            print "You chose " + str(distros[combo.get_active()][0]) +"."
+            print "You chose " + str(distros[combo.get_active()][0]) + "."
         return True
 
 
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

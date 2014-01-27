@@ -3,7 +3,9 @@ from gi.repository import GLib
 from gi.repository import Gio
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="MenuBar Example", application=app)
         self.set_default_size(200, 200)
@@ -23,7 +25,8 @@ class MyWindow(Gtk.ApplicationWindow):
         self.add_action(paste_action)
 
         # action with a state created (name, parameter type, initial state)
-        shape_action = Gio.SimpleAction.new_stateful("shape", GLib.VariantType.new('s'), GLib.Variant.new_string('line'))
+        shape_action = Gio.SimpleAction.new_stateful(
+            "shape", GLib.VariantType.new('s'), GLib.Variant.new_string('line'))
         # connected to the callback function
         shape_action.connect("activate", self.shape_callback)
         # added to the window
@@ -46,9 +49,9 @@ class MyWindow(Gtk.ApplicationWindow):
 
     # callback function for shape_action
     def shape_callback(self, action, parameter):
-		print "Shape is set to", parameter.get_string()
-		# Note that we set the state of the action!
-		action.set_state(parameter)
+        print "Shape is set to", parameter.get_string()
+        # Note that we set the state of the action!
+        action.set_state(parameter)
 
     # callback function for about (see the AboutDialog example)
     def about_callback(self, action, parameter):
@@ -61,7 +64,8 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # we fill in the aboutdialog
         aboutdialog.set_program_name("MenuBar Example")
-        aboutdialog.set_copyright("Copyright \xc2\xa9 2012 GNOME Documentation Team")
+        aboutdialog.set_copyright(
+            "Copyright \xc2\xa9 2012 GNOME Documentation Team")
         aboutdialog.set_authors(authors)
         aboutdialog.set_documenters(documenters)
         aboutdialog.set_website("http://developer.gnome.org")
@@ -77,7 +81,9 @@ class MyWindow(Gtk.ApplicationWindow):
     def on_close(self, action, parameter):
         action.destroy()
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
@@ -104,14 +110,16 @@ class MyApplication(Gtk.Application):
         self.add_action(quit_action)
 
         # action with a state created
-        state_action = Gio.SimpleAction.new_stateful("state",  GLib.VariantType.new('s'), GLib.Variant.new_string('off'))
+        state_action = Gio.SimpleAction.new_stateful(
+            "state",  GLib.VariantType.new('s'), GLib.Variant.new_string('off'))
         # action connected to the callback function
         state_action.connect("activate", self.state_callback)
         # action added to the application
         self.add_action(state_action)
 
         # action with a state created
-        awesome_action = Gio.SimpleAction.new_stateful("awesome", None, GLib.Variant.new_boolean(False))
+        awesome_action = Gio.SimpleAction.new_stateful(
+            "awesome", None, GLib.Variant.new_boolean(False))
         # action connected to the callback function
         awesome_action.connect("activate", self.awesome_callback)
         # action added to the application

@@ -2,14 +2,19 @@ from gi.repository import Gtk
 import sys
 
 # a Gtk ApplicationWindow
+
+
 class MyWindow(Gtk.ApplicationWindow):
     # constructor: the title is "Welcome to GNOME" and the window belongs
     # to the application app
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Welcome to GNOME", application=app)
 
+
 class MyApplication(Gtk.Application):
     # constructor of the Gtk Application
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

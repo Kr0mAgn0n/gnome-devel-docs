@@ -2,8 +2,10 @@ from gi.repository import Gtk
 from gi.repository import Gdk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
     # a window
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="StatusBar Example", application=app)
         self.set_default_size(200, 100)
@@ -22,7 +24,8 @@ class MyWindow(Gtk.ApplicationWindow):
         # the source of a message
         self.context_id = self.statusbar.get_context_id("example")
         # we push a message onto the statusbar's stack
-        self.statusbar.push(self.context_id, "Waiting for you to do something...")
+        self.statusbar.push(
+            self.context_id, "Waiting for you to do something...")
 
         # a grid to attach the widgets
         grid = Gtk.Grid()
@@ -48,11 +51,13 @@ class MyWindow(Gtk.ApplicationWindow):
     # onto which we push a new status with the symbolic name
     # of the key pressed
         self.statusbar.push(self.context_id, Gdk.keyval_name(event.keyval) +
-                                            " key was pressed.")
+                            " key was pressed.")
         # stop the signal emission
         return True
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

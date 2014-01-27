@@ -6,7 +6,9 @@ books = [["Tolstoy, Leo", "War and Peace", "Anna Karenina"],
          ["Shakespeare, William", "Hamlet", "Macbeth", "Othello"],
          ["Tolkien, J.R.R.", "The Lord of the Rings"]]
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="Library", application=app)
         self.set_default_size(250, 100)
@@ -32,7 +34,8 @@ class MyWindow(Gtk.ApplicationWindow):
         # the cellrenderer for the column - text
         renderer_books = Gtk.CellRendererText()
         # the column is created
-        column_books = Gtk.TreeViewColumn("Books by Author", renderer_books, text=0)
+        column_books = Gtk.TreeViewColumn(
+            "Books by Author", renderer_books, text=0)
         # and it is appended to the treeview
         view.append_column(column_books)
 
@@ -44,6 +47,7 @@ class MyWindow(Gtk.ApplicationWindow):
 
 
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 

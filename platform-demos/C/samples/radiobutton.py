@@ -1,7 +1,9 @@
 from gi.repository import Gtk
 import sys
 
+
 class MyWindow(Gtk.ApplicationWindow):
+
     def __init__(self, app):
         Gtk.Window.__init__(self, title="RadioButton Example", application=app)
         self.set_default_size(250, 100)
@@ -25,7 +27,8 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # another radiobutton, in the same group as button1,
         # with label "Button 3"
-        button3 = Gtk.RadioButton.new_with_label_from_widget(button1, "Button 3")
+        button3 = Gtk.RadioButton.new_with_label_from_widget(
+            button1, "Button 3")
         # connect the signal "toggled" emitted by the radiobutton
         # with the callback function toggled_cb
         button3.connect("toggled", self.toggled_cb)
@@ -34,9 +37,9 @@ class MyWindow(Gtk.ApplicationWindow):
 
         # a grid to place the buttons
         grid = Gtk.Grid.new()
-        grid.attach(button1, 0, 0, 1, 1);
-        grid.attach(button2, 0, 1, 1, 1);
-        grid.attach(button3, 0, 2, 1, 1);
+        grid.attach(button1, 0, 0, 1, 1)
+        grid.attach(button2, 0, 1, 1, 1)
+        grid.attach(button3, 0, 2, 1, 1)
         # add the grid to the window
         self.add(grid)
 
@@ -54,7 +57,9 @@ class MyWindow(Gtk.ApplicationWindow):
         # print on the terminal which button was turned on/off
         print button.get_label() + " was turned " + state
 
+
 class MyApplication(Gtk.Application):
+
     def __init__(self):
         Gtk.Application.__init__(self)
 
