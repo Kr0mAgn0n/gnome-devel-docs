@@ -1,0 +1,40 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-launching-startupnotify">
+
+  <info>
+    <link type="next" xref="dev-launching-mime"/>
+    <revision version="0.1" date="2014-01-28" status="draft"/>
+
+    <credit type="author">
+      <name>David King</name>
+      <email its:translate="no">davidk@gnome.org</email>
+      <years>2014</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Startup Notification</title>
+
+  <links type="series" style="floatend">
+    <title>Launch your application</title>
+  </links>
+
+  <p>Notify the user when your application has finished starting up.</p>
+  
+  <p>GNOME implements the <link type="seealso" href="http://standards.freedesktop.org/desktop-entry-spec/latest/index.html">Startup
+  Notification protocol</link>, to give feedback to the user when application
+  startup finishes.</p>
+  
+  <p>GTK+ applications automatically support startup notification, and by
+  default notify that application startup is complete when the first window is
+  shown. Your application must declare that it supports startup notification by
+  adding <code>StartupNotify=true</code> to its desktop file.</p>
+
+  <p>More complicated startup scenarios, such as showing a splash screen during
+  startup, would need custom handling with <code href="https://developer.gnome.org/gdk3/stable/gdk3-General.html#gdk-notify-startup-complete">gdk_notify_startup_complete()</code>.</p>
+
+</page>

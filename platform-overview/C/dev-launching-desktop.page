@@ -1,0 +1,74 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-launching-desktop">
+
+  <info>
+    <link type="next" xref="dev-launching-icons"/>
+    <revision version="0.1" date="2014-01-28" status="draft"/>
+
+    <credit type="author">
+      <name>David King</name>
+      <email its:translate="no">davidk@gnome.org</email>
+      <years>2014</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Install a desktop file</title>
+
+  <links type="series" style="floatend">
+    <title>Launch your application</title>
+  </links>
+
+  <p>Write and install a desktop file so that users can discover and launch
+  your application.</p>
+  
+  <p>GNOME uses the <link type="seealso" href="http://standards.freedesktop.org/desktop-entry-spec/latest/index.html">freedesktop.org
+  Desktop Entry</link> and <link type="seealso" href="http://standards.freedesktop.org/desktop-menu-spec/latest/index.html">Desktop
+  Menu specifications</link> to describe application launchers. Installing a
+  desktop file is the standard way to register your application with GNOME and
+  other desktops.</p>
+  
+  <p>A desktop file lists your application binary, name and type, and can also
+  list an icon, description and several other pieces of information about
+  launching an application.</p>
+
+  <p>For a hypothetical application <app>My Application</app>, a desktop file
+  would look as follows:</p>
+  <example>
+    <listing>
+      <title><file>myapplication.desktop</file></title>
+<code>[Desktop Entry]
+Name=My Application
+Exec=myapplication
+Type=Application
+Icon=myapplication
+Comment=Do the thing that the application does
+Categories=GTK;GNOME;Utility;</code>
+    </listing>
+  </example>
+
+  <p>The <code>[Desktop Entry]</code> line indicates that this is a desktop
+  file. It is followed by keys, which describe the application launcher. The
+  <code>Name</code> key is the human-readable name of the application, to be
+  shown in the UI. The application binary is listed in the <code>Exec</code>
+  key, either the complete path or a binary that is looked up in the
+  <code>PATH</code>. The last required key is the <code>Type</code>, which for
+  applications is always <code>Application</code>. Alternative types are listed
+  in the desktop entry specification.</p>
+
+  <p>Other fields in the desktop file are optional, but recommended.
+  Applications should install an icon, and list the name of the icon (excluding
+  the extension) in the <code>Icon</code> key. The <code>Comment</code> is a
+  brief description of the application. To help users when browsing
+  applications, the <code>Categories</code> key should be populated with a
+  list of categories, separated by a semicolon, from the Desktop Menu
+  Specification.</p>
+
+  <p>There are several other keys that can be added to desktop files, which are
+  listed and described in the Desktop Entry Specification.</p>
+ 
+</page>

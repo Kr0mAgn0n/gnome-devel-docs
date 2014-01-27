@@ -1,0 +1,49 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-launching-mime">
+
+  <info>
+    <revision version="0.1" date="2014-01-28" status="draft"/>
+
+    <credit type="author">
+      <name>David King</name>
+      <email its:translate="no">davidk@gnome.org</email>
+      <years>2014</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  </info>
+
+  <title>Associate MIME types</title>
+
+  <links type="series" style="floatend">
+    <title>Launch your application</title>
+  </links>
+
+  <p>Associate files with your application, using MIME types.</p>
+  
+  <p>If your application opens files of a certain type, such as PNG images, you
+  can add an association with the MIME type of the file. This is added to the
+  desktop file.</p>
+
+  <example>
+    <listing>
+      <title><file>myapplication.desktop</file></title>
+<code>[Desktop Entry]
+Name=My Application
+Exec=myapplication
+Type=Application
+MimeType=image/png</code>
+    </listing>
+  </example>
+
+  <p>For this hypothetical application, <code>image/png</code> is listed as the
+  supported MIME type.</p>
+
+  <p>Custom MIME types can be added to the system-wide MIME database, but this
+  is outside the scope of this guide. The <link type="seealso" href="http://standards.freedesktop.org/shared-mime-info-spec/latest/">Shared
+  MIME-Info Database</link> specification for more details.</p>
+
+</page>
