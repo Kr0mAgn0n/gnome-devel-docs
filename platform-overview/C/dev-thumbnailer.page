@@ -1,0 +1,37 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="topic" style="task"
+      id="dev-thumbnailer">
+
+  <info>
+    <link type="guide" xref="index" group="thumbnailer"/>
+    <link type="seealso" xref="dev-launching-desktop"/>
+
+    <revision version="0.1" date="2014-01-28" status="draft"/>
+
+    <credit type="author copyright">
+      <name>David King</name>
+      <email its:translate="no">davidk@gnome.org</email>
+      <years>2014</years>
+    </credit>
+
+    <include href="cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Thumbnails for document-like files.</desc>
+
+  </info>
+
+  <title>File thumbnails</title>
+
+  <p>If your application handles files which could be printed or could be
+  represented well as a document, adding a thumbnailer makes the files show up
+  in <app>Files</app> with images that correspond to the document.</p>
+
+  <p>The gnome-desktop library defines the interface and associated files that
+  a thumbnailer must implement. The component responsible for calling the
+  thumbnailer is <link href="https://developer.gnome.org/gnome-desktop3/stable/GnomeDesktopThumbnailFactory.html">GnomeDesktopThumbnailFactory</link>.</p>
+
+  <p>A common helper for thumbnailers, which handles the command-line parsing
+  and output file generation, is <link href="">gnome-thumbnailer-skeleton</link>.</p>
+
+</page>

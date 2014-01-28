@@ -13,6 +13,7 @@ HELP_FILES = \
 	dev-launching-mime.page \
 	dev-launching-startupnotify.page \
 	dev-launching.page \
+	dev-thumbnailer.page \
 	dev-translate-build.page \
 	dev-translate.page \
 	dev-translate-setup.page \
