@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 08:03+0000\n"
-"PO-Revision-Date: 2014-02-06 14:01+0100\n"
+"POT-Creation-Date: 2014-02-06 13:08+0000\n"
+"PO-Revision-Date: 2014-02-07 13:54+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -520,7 +520,6 @@ msgstr "2014"
 
 #. (itstool) path: page/title
 #: C/dev-launching-desktop.page:20
-#| msgid "Install developer tools"
 msgid "Install a desktop file"
 msgstr "Instalar un archivo .desktop"
 
@@ -528,14 +527,11 @@ msgstr "Instalar un archivo .desktop"
 #: C/dev-launching-desktop.page:23 C/dev-launching-icons.page:23
 #: C/dev-launching-mime.page:22 C/dev-launching-startupnotify.page:23
 #: C/dev-launching.page:28
-#| msgid "Run your application"
 msgid "Launch your application"
 msgstr "Lanza su aplicación"
 
 #. (itstool) path: page/p
 #: C/dev-launching-desktop.page:26
-#| msgid ""
-#| "Gtk has a set of predefined events that you can use in your application."
 msgid ""
 "Write and install a desktop file so that users can discover and launch your "
 "application."
@@ -545,14 +541,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/dev-launching-desktop.page:29
-#| msgid ""
-#| "For more information on applications, see <link href=\"http://standards."
-#| "freedesktop.org/desktop-entry-spec/latest/\">The Desktop Entry "
-#| "Specification</link> and <link href=\"http://standards.freedesktop.org/"
-#| "menu-spec/latest/\">The Desktop Menu Specification</link>. For more "
-#| "information on file types, see <link href=\"http://standards.freedesktop."
-#| "org/shared-mime-info-spec/latest/\">The Shared MIME Info Specification</"
-#| "link>."
 msgid ""
 "GNOME uses the <link type=\"seealso\" href=\"http://standards.freedesktop."
 "org/desktop-entry-spec/latest/index.html\">freedesktop.org Desktop Entry</"
@@ -591,7 +579,6 @@ msgstr ""
 
 #. (itstool) path: listing/title
 #: C/dev-launching-desktop.page:43 C/dev-launching-mime.page:33
-#| msgid "<file>help/C/introduction.page</file>"
 msgid "<file>myapplication.desktop</file>"
 msgstr "<file>myapplication.desktop</file>"
 
@@ -627,6 +614,15 @@ msgid ""
 "applications is always <code>Application</code>. Alternative types are "
 "listed in the desktop entry specification."
 msgstr ""
+"La línea <code>[Desktop Entry]</code> indica que esto es un archivo ."
+"desktop. A continuación aparecen las claves, que describen el lanzador de la "
+"aplicación. La clave <code>Name</code> es el nombre legible de la "
+"aplicación, que se mostrará en la IU. El binario de la aplicación se indica "
+"en la clave <code>Exec</code>, bien la ruta completa o el binario para "
+"buscarlo en la variable <code>PATH</code>. La última clave requerida es "
+"<code>Type</code>, que para una aplicación siempre es <code>Application</"
+"code>. Los tipos alternativos se listan en la especificación de entradas de "
+"archivos .desktop."
 
 #. (itstool) path: page/p
 #: C/dev-launching-desktop.page:63
@@ -638,6 +634,13 @@ msgid ""
 "the <code>Categories</code> key should be populated with a list of "
 "categories, separated by a semicolon, from the Desktop Menu Specification."
 msgstr ""
+"Hay otros campos opcionales en el archivo .desktop, pero recomendados. Las "
+"aplicaciones deben instalar un icono, indicar el nombre del icono (sin "
+"incluir la extensión) en la clave <code>Icon</code>. El campo <code>Comment</"
+"code> es una breve descripción de la aplicación. Para ayudar a los usuarios "
+"a buscar aplicaciones, se debe informar la clave <code>Categories</code> con "
+"una lista de categorías, separadas por punto y coma, de la «Desktop Menu "
+"Specification»."
 
 #. (itstool) path: page/p
 #: C/dev-launching-desktop.page:71
@@ -645,6 +648,8 @@ msgid ""
 "There are several other keys that can be added to desktop files, which are "
 "listed and described in the Desktop Entry Specification."
 msgstr ""
+"Se pueden añadir otros campos a los archivos .desktop, que se listan y "
+"describen en la especificación de entradas de archivos .desktop."
 
 #. (itstool) path: page/title
 #: C/dev-launching-icons.page:20
@@ -653,7 +658,6 @@ msgstr "Instalar un icono"
 
 #. (itstool) path: page/p
 #: C/dev-launching-icons.page:26
-#| msgid "Information on usability for GNOME applications."
 msgid "Install an icon to identify your application."
 msgstr "Instalar un icono para identificar su aplicación."
 
@@ -669,6 +673,14 @@ msgid ""
 "should install a 48×48 pixel icon into <file><var>$prefix</var>/share/icons/"
 "hicolor/48x48/apps</file> in PNG format."
 msgstr ""
+"Al indicar un icono en un archivo .desktop, la imagen se debe instalar en "
+"una ubicación estándar, dada por el <link type=\"seealso\" href=\"http://"
+"standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html\">tema "
+"de iconos de freedesktop.org</link> y por <link type=\"seealso\" href="
+"\"http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest."
+"html\">las especificaciones de nombres de iconos</link>. Como mínimo, una "
+"aplicación debe instalar un icono de 48×48 píxeles en <file><var>$prefix</"
+"var>/share/icons/hicolor/48x48/apps</file> y en formato PNG."
 
 #. (itstool) path: page/p
 #: C/dev-launching-icons.page:35
@@ -678,6 +690,10 @@ msgid ""
 "Tango_Icon_Theme_Guidelines\">Tango Icon Theme guidelines</link> when "
 "creating icons and application artwork."
 msgstr ""
+"Para que coincida con otros iconos, tanto en GNOME como en otras "
+"plataformas, siga la <link type=\"seealso\" href=\"http://tango.freedesktop."
+"org/Tango_Icon_Theme_Guidelines\">guía de temas de iconos de Tango </link> "
+"al crear iconos y diseños de aplicaciones."
 
 #. (itstool) path: page/title
 #: C/dev-launching-mime.page:19
@@ -696,6 +712,9 @@ msgid ""
 "can add an association with the MIME type of the file. This is added to the "
 "desktop file."
 msgstr ""
+"Si su aplicación abre determinados tipos de archivos, como imágenes PNG, "
+"puede añadir una asociación al tipo MIME del archivo. Esto se añade al "
+"archivo .desktop."
 
 #. (itstool) path: listing/code
 #: C/dev-launching-mime.page:34
@@ -730,10 +749,14 @@ msgid ""
 "standards.freedesktop.org/shared-mime-info-spec/latest/\">Shared MIME-Info "
 "Database</link> specification for more details."
 msgstr ""
+"Se puede añadir tipos MIME personalizados a la base de datos común del "
+"sistema, pero esto queda fuera del alcance de esta guía. Consulte la <link "
+"type=\"seealso\" href=\"http://standards.freedesktop.org/shared-mime-info-"
+"spec/latest/\">base de datos de información MIME compartida</link> para "
+"obtener más detalles."
 
 #. (itstool) path: page/title
 #: C/dev-launching-startupnotify.page:20
-#| msgid "Notification Area"
 msgid "Startup Notification"
 msgstr "Notificación de inicio"
 
@@ -779,13 +802,11 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/dev-launching.page:21
-#| msgid "The power of HTML5 and the web in your application"
 msgid "Showing a launcher and starting your application."
 msgstr "Mostrar un lanzador e iniciar su aplicación."
 
 #. (itstool) path: page/title
 #: C/dev-launching.page:25
-#| msgid "Application Technologies"
 msgid "Application launching"
 msgstr "Lanzar aplicaciones"
 
@@ -844,6 +865,9 @@ msgid ""
 "A common helper for thumbnailers, which handles the command-line parsing and "
 "output file generation, is <link href=\"\">gnome-thumbnailer-skeleton</link>."
 msgstr ""
+"Una ayuda común para los creadores de miniaturas, que gestiona el análisis "
+"de la línea de comandos y la generación de archivos de salida es <link href="
+"\"\">gnome-thumbnailer-skeleton</link>."
 
 #. (itstool) path: page/title
 #: C/dev-translate-build.page:21
@@ -1321,6 +1345,12 @@ msgid ""
 "instant messaging and email protocols. For more specialised communication "
 "needs, there's access to the nuts and bolts through lower level APIs too."
 msgstr ""
+"Haga que sus usuarios estén conectados y se comuniquen con sus amigos y "
+"contactos mediante mensajería instantánea, medios sociales y correo-e. La "
+"pila de comunicaciones ampliable de GNOME le proporciona un acceso abstracto "
+"de alto nivel a protocolos de correo-e y mensajería instantánea complicados. "
+"Para necesidades de comunicación más especializada, también puede acceder a "
+"los entresijos mediante API de bajo nivel."
 
 #. (itstool) path: media/p
 #: C/overview-communication.page:35
@@ -1381,6 +1411,10 @@ msgid ""
 "\"strong\" xref=\"tech-eds\">Evolution Data Server</em> (EDS). It provides a "
 "way of storing account information and interacting with..."
 msgstr ""
+"Gestionar las libretas de direcciones locales y en línea de los usuarios con "
+"<em style=\"strong\" xref=\"tech-eds\">Evolution Data Server</em> (EDS). "
+"Proporciona una manera de almacenar información de la cuenta y de "
+"interactuar con ella..."
 
 #. (itstool) path: section/p
 #: C/overview-communication.page:63
@@ -1674,6 +1708,11 @@ msgid ""
 "With GStreamer, flexible <em>pipelines</em> of media can be created, from "
 "simple playback of audio and video to complex non-linear editing."
 msgstr ""
+"La parte de <em style=\"strong\">Multimedia</em> en GNOME está construida "
+"sobre <em style=\"strong\"><link xref=\"tech-gstreamer\">GStreamer</link></"
+"em>. Con GStreamer,se pueden crear <em>tuberías</em> de medios flexibles, "
+"desde la simple reproducción de sonido y vídeo hasta la edición no lineal de "
+"vídeo."
 
 #. (itstool) path: section/p
 #: C/overview-media.page:49
@@ -1939,6 +1978,8 @@ msgid ""
 "<em style=\"strong\">Flexible overrides for packagers and system "
 "administrators</em>"
 msgstr ""
+"<em style=\"strong\">Reemplazos flexibles para empaquetadores y "
+"administradores de sistemas</em>"
 
 #. (itstool) path: page/p
 #: C/overview-settings.page:32
@@ -2858,6 +2899,9 @@ msgid ""
 "instant messaging client) and Epiphany (a web browser, for text entry in web "
 "forms)."
 msgstr ""
+"En GNOME, Enchant se usa en aplicaciones con mucho texto como Empathy (un "
+"cliente de mensajería instantánea) y Epiphany (un navegador web, para la "
+"entrada de texto en formularios web)."
 
 #. (itstool) path: item/p
 #: C/tech-enchant.page:25
@@ -2900,6 +2944,10 @@ msgid ""
 "disparate accounts for the same person (\"Person X at AIM, Person X at "
 "GTalk, Person X at Yahoo! Messenger\")."
 msgstr ""
+"En GNOME, Empathy (el cliente de mensajería instantánea) usa Folks para "
+"msotrar una vista unificada de las personas («la persona X tiene estas "
+"cuentas de MI»), en lugar de mostrar varias cuentas para la misma persona "
+"(«persona X en AIM, persona X en GTalk, persona X en Yahoo! Messenger»)."
 
 #. (itstool) path: item/p
 #: C/tech-folks.page:29
@@ -3083,6 +3131,9 @@ msgid ""
 "ways: from the GPS in a WWAN modem, from a Wi-Fi access point's data, or "
 "from the computer's IP address."
 msgstr ""
+"Geoclue2 pretende proporcionar información sobre el posicionamiento de "
+"varias maneras: desde un GPS en un módem WWAN, desde los datos de un punto "
+"de acceso inalámbrico o desde la dirección IP del equipo."
 
 #. (itstool) path: page/p
 #: C/tech-geoclue2.page:24
@@ -3091,6 +3142,9 @@ msgid ""
 "their geographical location. Only applications allowed by the user will be "
 "able to get geolocation information."
 msgstr ""
+"Geoclue2 también pretende proporcionar privacidad a los usuarios que no "
+"quieren revelar su información geográfica. Sólo las aplicaciones permitidas "
+"por el usuario podrán obtener información de geolocalización."
 
 #. (itstool) path: info/desc
 #: C/tech-geocode-glib.page:6
@@ -3121,6 +3175,9 @@ msgid ""
 "Geocode-glib uses the Yahoo! Place Finder API internally to do its work. In "
 "the future it will support the free Nominatim service and OpenStreetMap data."
 msgstr ""
+"Geocode-glib usa internamente la API de Yahoo! Place Finder para hacer esto. "
+"En el futuro se soportarán el servicio libre Nominatim y los datos de "
+"OpenStreetMap."
 
 #. (itstool) path: item/p
 #: C/tech-geocode-glib.page:25
@@ -3283,7 +3340,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/tech-gobject.page:6
 msgid "C-based object and type system with signals and slots"
-msgstr ""
+msgstr "Objetos basados en C y sistema de tipos con señales y «slots»"
 
 #. (itstool) path: page/title
 #: C/tech-gobject.page:9
