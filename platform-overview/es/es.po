@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 13:08+0000\n"
-"PO-Revision-Date: 2014-02-07 13:54+0100\n"
+"POT-Creation-Date: 2014-02-10 07:38+0000\n"
+"PO-Revision-Date: 2014-02-11 17:06+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -24,7 +24,7 @@ msgstr ""
 #. (itstool) path: p/link
 #: C/cc-by-sa-3-0.xml:4
 msgid "Creative Commons Attribution-Share Alike 3.0 United States License"
-msgstr "Creative Commons Atribución - Compartir igual 3.0 Estados Unidos."
+msgstr "Creative Commons Atribución - Compartir igual 3.0 Estados Unidos."
 
 #. (itstool) path: license/p
 #: C/cc-by-sa-3-0.xml:3
@@ -786,6 +786,11 @@ msgid ""
 "Your application must declare that it supports startup notification by "
 "adding <code>StartupNotify=true</code> to its desktop file."
 msgstr ""
+"Las aplicaciones de GTK+ soportan automáticamente la notificación al "
+"iniciar, y de manera predeterminada notifican al usuario que la aplicación "
+"ha terminado de iniciarse cuando se muestra la primera ventana. Su "
+"aplicación debe declarar que soporta la notificación al iniciar añadiendo "
+"<code>StartupNotify=true</code> a su archivo .desktop."
 
 #. (itstool) path: page/p
 #: C/dev-launching-startupnotify.page:37
@@ -1392,6 +1397,12 @@ msgid ""
 "\">tunnel an arbitrary protocol</em> over modern instant messaging protocols "
 "like Jabber to create interactive applications."
 msgstr ""
+"Crear juegos para varios jugadores o editores colaborativos que se integran "
+"con los servicios de mensajería instantánea del escritorio. Con la API de "
+"<em style=\"strong\" xref=\"tech-telepathy\">Telepathy Tubes</em> puede <em "
+"style=\"strong\">usar un protocolo cualquiera mediante un túnel</em> sobre "
+"los protocolos de mensajería instantánea modernos, como Jabber, para crear "
+"aplicaciones interactivas."
 
 #. (itstool) path: section/p
 #: C/overview-communication.page:55
@@ -1403,6 +1414,12 @@ msgid ""
 "the mDNS/DNS-SD protocol suite. It's compatible with similar technology "
 "found in MacOS X and Windows."
 msgstr ""
+"Permitir a los usuarios ver a otras personas con las que poder chatear, "
+"buscar impresoras, archivos compartidos y colecciones de música compartidas "
+"tan pronto como se conectan a la red. La API de <em style=\"strong\" xref="
+"\"tech-avahi\">Avahi</em> permite <em style=\"strong\">descubrir servicios</"
+"em> en la red local mediante el conjunto de protocolos mDNS/DNS-SD. Es "
+"compatible con la tecnología similar de Windows y MacOS."
 
 #. (itstool) path: section/p
 #: C/overview-communication.page:60
@@ -1552,6 +1569,11 @@ msgid ""
 "asynchronous IO operations. Allow users to find files easily be providing "
 "metadata to describe documents."
 msgstr ""
+"Acceder sin problemas a los archivos locales y remotos mediante los "
+"bibliotecas del núcleo de GNOME IO. Haga que su aplicación responda "
+"utilizando el amplio soporte para operaciones de E/S asíncronas. Permita a "
+"los usuarios encontrar fácilmente los archivos que proporcionan metadatos "
+"para describir los documentos."
 
 #. (itstool) path: section/p
 #: C/overview-io.page:41
@@ -1989,6 +2011,10 @@ msgid ""
 "Store a wide variety of data, such as integers and arrays of strings, with "
 "ease."
 msgstr ""
+"Guarde la configuración del usuario y haga que su aplicación la use "
+"automáticamente GSettings. Omita fácilmente la configuración predeterminada "
+"como administrador del sistema. Guarde una gran variedad de datos con "
+"facilidad, como pueden ser enteros, y vectores de cadenas."
 
 #. (itstool) path: section/p
 #: C/overview-settings.page:40
@@ -2092,6 +2118,12 @@ msgid ""
 "accessible by default, and it is easy to add accessibility support to any "
 "custom UI elements that you create."
 msgstr ""
+"Use los potentes pilares de la plataforma GNOME para crear interfaces de "
+"usuario consistentes y flexibles. Haga que sus aplicaciones estén "
+"disponibles para la mayor audiencia posible desplegándolas en otras "
+"plataformas. Los elementos estándar de la IU son accesibles de manera "
+"predeterminada, y es fácil añadir soporte de accesibilidad a cualquier "
+"elemento personalizado de la IU que cree."
 
 #. (itstool) path: section/p
 #: C/overview-ui.page:46
@@ -2187,6 +2219,9 @@ msgid ""
 "( <link href=\"http://projects.gnome.org/epiphany/\">Website</link> | <link "
 "href=\"xxx\">Screenshot</link> | <link href=\"xxx\">Source code</link> )"
 msgstr ""
+"( <link href=\"http://projects.gnome.org/epiphany/\">Página we</link> | "
+"<link href=\"xxx\">Captura de pantalla</link> | <link href=\"xxx\">Código "
+"fuente</link> )"
 
 #. (itstool) path: item/p
 #: C/overview-ui.page:99
@@ -2224,6 +2259,9 @@ msgid ""
 "( <link href=\"https://live.gnome.org/Iagno\">Website</link> | <link href="
 "\"xxx\">Screenshot</link> | <link href=\"xxx\">Source code</link> )"
 msgstr ""
+"( <link href=\"https://live.gnome.org/Iagno\">Página web</link> | <link href="
+"\"xxx\">Captura de pantalla</link> | <link href=\"xxx\">Código fuente</"
+"link> )"
 
 #. (itstool) path: info/desc
 #: C/tech-atk.page:6
@@ -2288,6 +2326,16 @@ msgid ""
 "display will both use a standard \"get the text contents\" interface in ATK "
 "for all widgets with textual information."
 msgstr ""
+"ATK resuelve el problema de conectar diferentes tipos de widgets (entrada de "
+"texto, áreas de texto, botones, menús) con varios tipos diferentes de "
+"tecnologías de accesibilidad (lectores de pantalla, teclados Braille, "
+"dispositivos de sorber y soplar). En lugar de escribir NxM interfaces, para "
+"cada widget y para cada dispositivo de accesibilidad, simplemente debe "
+"exponer los widgets mediante las interfaces de ATK. Los dispositivos de "
+"accesibilidad usarán estas interfaces para solicitar widgets accesibles. Por "
+"ejemplo, un lector de pantalla auditivo y una pantalla Braille usarán una "
+"interfaz «obtener el contenido de texto» estándar en ATK para todos los "
+"widgets con información de texto."
 
 #. (itstool) path: page/p
 #: C/tech-atk.page:37
@@ -2378,6 +2426,10 @@ msgid ""
 "\">Multicast DNS</link> specifications, which are part of <link href="
 "\"http://www.zeroconf.org/\">Zeroconf</link> Networking."
 msgstr ""
+"Avahi es una implementación de las especificaciones <link href=\"http://www."
+"dns-sd.org/\">DNS Service Discovery</link> y <link href=\"http://www."
+"multicastdns.org/\">Multicast DNS</link>, que son parte de la red <link href="
+"\"http://www.zeroconf.org/\">Zeroconf</link>."
 
 #. (itstool) path: page/p
 #: C/tech-avahi.page:24
@@ -2891,6 +2943,11 @@ msgid ""
 "higher level, a library such as GtkSpell lets you add \"underline squiggles"
 "\" for misspelled words to text widgets."
 msgstr ""
+"Enchant proporciona una API para realizar tareas relacionadas con la "
+"corrección ortográfica. Puede consultar si una palabra está mal escrita o "
+"buscar una sugerencia para una palabra mal escrita. En un nivel superior, "
+"una biblioteca como GtkSpell le permite resaltar las palabras de texto mal "
+"escritas. "
 
 #. (itstool) path: page/p
 #: C/tech-enchant.page:18
@@ -3168,6 +3225,10 @@ msgid ""
 "SomeTown, SomeCountry\") to a pair of latitude/longitude values. Reverse "
 "geocoding is the opposite process."
 msgstr ""
+"Geocode-glib proporciona <em>geocodificación</em> y <em>geocodificación "
+"inversa</em>. La geocodificación es el proceso de traducir una dirección "
+"(«Gran vía 5, Madrid, España») a una pareja de valores de latitud/longitud. "
+"La geocodificación inversa es el proceso opuesto."
 
 #. (itstool) path: page/p
 #: C/tech-geocode-glib.page:18
@@ -3387,6 +3448,10 @@ msgid ""
 "yourself familiar with GObject's concepts, such as signals and slots, will "
 "make your life easier as a GNOME programmer."
 msgstr ""
+"Normalmente no necesita preocuparse de GObject como tal si está programando "
+"para GNOME con un lenguaje orientado a objetos. Sin embargo, familiarizarse "
+"con los conceptos de GObjetc, como pueden las señales y los «slots» "
+"simplificarán su vida como programador."
 
 #. (itstool) path: item/p
 #: C/tech-gobject.page:43
@@ -4523,6 +4588,8 @@ msgid ""
 "Tracker provides a storage for such triplets, and a query engine in the form "
 "of the SPARQL query language."
 msgstr ""
+"Tracker propocionar almacenamiento para estas triplas, y un motor de "
+"consultas con el lenguaje de búsquedas SPARQL."
 
 #. (itstool) path: page/p
 #: C/tech-tracker.page:24
