@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: platform-overview.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 07:38+0000\n"
-"PO-Revision-Date: 2014-02-11 17:06+0100\n"
+"POT-Creation-Date: 2014-02-12 07:38+0000\n"
+"PO-Revision-Date: 2014-02-13 11:13+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -1886,6 +1886,10 @@ msgid ""
 "in progress. Detect changes in the system networking state, to make your "
 "application respond appropriately when there is no Internet access."
 msgstr ""
+"Haga uso de las ventajas de las API portables para acceder a servicios de "
+"red. La E/S asíncrona hace que su IU siga respondiendo mientras se realiza "
+"la E/S. Detecte cambios en el estado del sistema de red, para hacer que su "
+"aplicación responda adecuadamente cuando no hay acceso a Internet."
 
 #. (itstool) path: section/p
 #: C/overview-net.page:45
@@ -1896,6 +1900,11 @@ msgid ""
 "DNS records</em> as well as using <em style=\"strong\">secure sockets (TLS)</"
 "em>."
 msgstr ""
+"Para <em style=\"strong\">acceder de manera asíncrona a las API de red de "
+"bajo nivel</em>, use <em style=\"strong\" xref=\"tech-gio-network\">red GIO</"
+"em>. La API de alto nivel está disponible para <em style=\"strong\">resolver "
+"proxies y registros de DNS</em> así como para usar <em style=\"strong"
+"\">sockets seguros (TLS)</em>."
 
 #. (itstool) path: section/p
 #: C/overview-net.page:51
@@ -1947,6 +1956,9 @@ msgid ""
 "href=\"xxx\">Screenshot</link> | <link href=\"https://git.gnome.org/browse/"
 "epiphany/\">Source code</link> )"
 msgstr ""
+"( <link href=\"http://projects.gnome.org/epiphany/\">Página web</link> | "
+"<link href=\"xxx\">Captura de pantalla</link> | <link href=\"https://git."
+"gnome.org/browse/epiphany/\">Código fuente</link> )"
 
 #. (itstool) path: item/p
 #: C/overview-net.page:84
@@ -2417,6 +2429,13 @@ msgid ""
 "for example, a chat program that \"finds\" other chat users in a LAN without "
 "having to set up a central chat server first."
 msgstr ""
+"Avahi implementa el servicio de red <link href=\"http://www.zeroconf.org/"
+"\">Zeroconf</link>. Permite a los programas descubrir servicios como "
+"impresoras en las redes locales sin configuración previa. También permite a "
+"las aplicaciones configurar servicios que son alcanzables mediante la red "
+"local sin configuración, por ejemplo, un programa de chat que busca a otros "
+"usuarios de chat en la LAN sin tener que configurar antes un servidor de "
+"chat central."
 
 #. (itstool) path: page/p
 #: C/tech-avahi.page:18
@@ -2442,6 +2461,13 @@ msgid ""
 "audio API, uses Avahi to make it possible to route sound through local "
 "networks."
 msgstr ""
+"Varios programas de GNOME usan Avahi para descubrir servicios. Gnome-user-"
+"share (un módulo para el gestor de archivos Nautilus) permite a los usuarios "
+"de una red local compartir archivos con otros, y busca equipos que compartan "
+"archivos mediante Avahi. Vino, un visor de escritorios remotos, usa Avahi "
+"para buscar servidores de escritorios remotos. <link xref=\"tech-pulseaudio"
+"\">PulseAudio</link>, la API de sonido de bajo nivel de GNOME, usa Avahi "
+"para poder encaminar el sonido mediante redes locales."
 
 #. (itstool) path: item/p
 #: C/tech-avahi.page:33
@@ -2992,6 +3018,8 @@ msgid ""
 "of showing duplicated people whenever they have more than one account "
 "associated to them."
 msgstr ""
+"Cada sistema tiene diferentes maneras de representar las cuentas de los "
+"usuarios. Por ejemplo, <link xref=\"tech-eds\">Evolution Data Server</link>"
 
 #. (itstool) path: page/p
 #: C/tech-folks.page:21
@@ -3100,6 +3128,14 @@ msgid ""
 "<code>GtkButton::clicked</code> signal when the user presses and releases "
 "the button in the right location."
 msgstr ""
+"GDK le permite acceder a eventos del teclado, del ratón y a otros "
+"dispositivos de entrada. Las implementaciones de widgets en GTK+ usan esta "
+"funcionalidad, y traducen los eventos en señales de alto nivel que se pueden "
+"usar desde el código de la aplicación. Por ejemplo, un widget "
+"<code>GtkButton</code> registrará los eventos <code>GDK_BUTTON_PRESS</code> "
+"y <code>GTK_BUTTON_RELEASE</code>, que provienen del ratón, y los traducirá "
+"a la señal <code>GtkButton::clicked</code> cuando el usuario pulsa y suelta "
+"el botón el ubicación adecuada."
 
 #. (itstool) path: page/p
 #: C/tech-gdk.page:29
@@ -3416,6 +3452,10 @@ msgid ""
 "does not provide objects or classes, GObject makes it possible to write "
 "object-oriented C programs."
 msgstr ""
+"GObject es parte de la biblioteca <link xref=\"tech-glib\">GLib</link> que "
+"proporciona un sistema de objetos y tipos para programas en C. Aunque C es "
+"un lenguaje que no proporciona objetos ni clases, GObject hace que sea "
+"posible escribir en C programas orientados a objetos."
 
 #. (itstool) path: page/p
 #: C/tech-gobject.page:16
@@ -3427,6 +3467,12 @@ msgid ""
 "For example, a <code>Button</code> object could emit a <code>clicked</code> "
 "signal to indicate that it has been pressed and released."
 msgstr ""
+"GObject proporciona un GType fundamental, la base para todo el sistema de "
+"tipos y del que derivan tipos como enteros y cadenas. Por lo tanto, hay un "
+"GObject como tal, que es la clase base para todas las demás clases. Los "
+"objetos pueden emitir <em>señales</em> para notificar que ha sucedido algo "
+"interesante. Por ejemplo, un objeto <code>Button</code> puede emitir una "
+"señal <code>clicked</code> para indicar que se ha pulsado y soltado."
 
 #. (itstool) path: page/p
 #: C/tech-gobject.page:25
@@ -3439,6 +3485,14 @@ msgid ""
 "introspection information from GObject to auto-generate those wrappers "
 "themselves."
 msgstr ""
+"GObject se puede <em>introspeccionar</em>, lo que significa que puede "
+"preguntar al sistema de GObject los tipos de clases que están definidas, los "
+"métodos que soporta, sus señales, etc. Las vinculaciones de de lenguajes de "
+"GNOME se construyen sobre la información de introspección. En lugar de "
+"escribir envoltorios a mano para llamar a las API de GNOME desde otros "
+"lenguajes de programación, las vinculaciones de los lenguajes usan la "
+"información de la introspección de GObject para generar automáticamente los "
+"propios envoltorios."
 
 #. (itstool) path: page/p
 #: C/tech-gobject.page:35
@@ -3779,6 +3833,11 @@ msgid ""
 "(Universal Plug and Play). GUPnP lets GNOME applications discover UPnP "
 "devices on the network, and publish services themselves."
 msgstr ""
+"Muchos dispositivos «electrónicos de consumo» puede usar el soporte de "
+"dispositivos de la red local y el descubrimiento de servicios mediante un "
+"protocolo llamado UPnP (Universal Plug and Play). GUPnP permite a las "
+"aplicaciones de GNOME descubrir dispositivos UPnP en la red, y publicar los "
+"servicios ellos mismos."
 
 #. (itstool) path: page/p
 #: C/tech-gupnp.page:20
@@ -3888,6 +3947,11 @@ msgid ""
 "wireless networks, configure Virtual Private Networks (VPNs), and connect to "
 "the network with modems."
 msgstr ""
+"NetworkManager gestiona las conexiones de red del equipo. Se encarga de la "
+"negociación DHCP para obtener una dirección IP para el equipo cuando se "
+"activa la red. Permite a los usuarios seleccionar entre diferentes redes "
+"cableadas e inalámbricas, configurar redes privadas virtuales (VPN) y "
+"conectarse a la red usando un módem."
 
 #. (itstool) path: page/p
 #: C/tech-network-manager.page:19
@@ -3898,6 +3962,12 @@ msgid ""
 "use NetworkManager's API to monitor the online/offline state of the "
 "computer, and perform other high-level tasks related to the network."
 msgstr ""
+"NetworkManager proporciona una extensa API que permite a las aplicaciones "
+"controlar las conexiones de red. Sin embargo, esto de interesante "
+"principalmente para el software que implementa el núcleo del escritorio como "
+"tal. Las aplicaciones normales pueden usar la API de NetworkManager para "
+"monitorizar el estado conectado/desconectado del equipo, y para realizar "
+"otras tareas de alto nivel relacionadas con la red."
 
 #. (itstool) path: page/p
 #: C/tech-network-manager.page:27
@@ -3907,6 +3977,11 @@ msgid ""
 "on the user's choices. Applications such as Evolution, which need to know "
 "about the online/offline status of the computer, use NetworkManager as well."
 msgstr ""
+"El núcleo del escritorio de GNOME incluye un icono de NetworkManager; "
+"internamente usa la API de NetworkManager para cambiar la configuración de "
+"la red basándose en las preferencias del usuario. Aplicaciones como "
+"Evolution, que necesitan conocer el estado en línea/desconectado del equipo, "
+"usan NetworkManager."
 
 #. (itstool) path: item/p
 #: C/tech-network-manager.page:36
@@ -3987,6 +4062,12 @@ msgid ""
 "may need to download a codec, or an illustration program may need to "
 "download fonts as needed."
 msgstr ""
+"PackageKit permite a las aplicaciones preguntar qué otros paquetes hay "
+"instalados, sin importar la distribución de GNU/Linux que se esté ejecutano. "
+"Si su aplicación necesita instalar un paquete adicional al ejecutarse, puede "
+"pedir a PackageKit que lo descargue y lo instale. Por ejemplo, una "
+"aplicación multimedia puede necesitar descargar un códec, o un programa de "
+"presentaciones puede necesitar descargar una tipografía."
 
 #. (itstool) path: page/p
 #: C/tech-packagekit.page:20
@@ -4581,6 +4662,11 @@ msgid ""
 "author:William Shakespeare</code>. A standardized set of triplet forms is "
 "called an <em>ontology</em>."
 msgstr ""
+"Tracker es un motor de almacenamiento RDF (formato de datos de recursos) "
+"formado por <em>triplas</em> de la forma asunto:verbo:objeto. Por ejemplo, "
+"puede haber triplas estándar para títulos de libros y autores, tales como "
+"<code>Othello:has-author:William Shakespeare</code>. El conjunto de triplas "
+"estándares se denomina <em>ontología</em>."
 
 #. (itstool) path: page/p
 #: C/tech-tracker.page:19
@@ -4603,6 +4689,15 @@ msgid ""
 "\">Dublin Core</link> for document metadata, and <link href=\"http://nepomuk."
 "kde.org/\">NEPOMUK</link> for annotations, files, contacts and other items."
 msgstr ""
+"GNOME usa Trackercomo almacenamiento de metadatos de documentos. Los "
+"metadatos de un documento pueden incluir su título, autores, copyright, "
+"fecha de modificación y palabras clave. Todos estos metadatos se guardan el "
+"triplas RDF en Tracker, y aplicaciones como Gnome Documents los consultan "
+"mediante SPARQL. La The <link href=\"http://developer.gnome.org/ontology/"
+"unstable/\">ontología usada</link> se basa en varias sub-ontologías "
+"estándar: <link href=\"http://dublincore.org/\">Dublin Core</link> para "
+"metadatos de documentos y <link href=\"http://nepomuk.kde.org/\">NEPOMUK</"
+"link> para anotaciones, archivos, contactos y otros elementos."
 
 #. (itstool) path: item/p
 #: C/tech-tracker.page:35
